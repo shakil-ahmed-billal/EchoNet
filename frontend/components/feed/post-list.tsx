@@ -1,11 +1,29 @@
 "use client"
 
+import { useEffect } from "react"
+import { useInView } from "react-intersection-observer"
 import { usePosts } from "@/hooks/use-posts"
 import { PostCard } from "./post-card"
 import { Skeleton } from "@/components/ui/skeleton"
+import { Loader2 } from "lucide-react"
 
-export function PostList() {
-  const { data: posts, isLoading, isError } = usePosts()
+export function PostList({ discover = false, authorId }: { discover?: boolean, authorId?: string }) {
+  const { 
+    data, 
+    fetchNextPage, 
+    hasNextPage, 
+    isFetchingNextPage, 
+    isLoading, 
+    isError 
+  } = usePosts(discover, authorId)
+
+  const { ref, inView } = useInView()
+
+  useEffect(() => {
+    if (inView && hasNextPage && !isFetchingNextPage) {
+      fetchNextPage()
+    }
+  }, [inView, hasNextPage, isFetchingNextPage, fetchNextPage])
 
   if (isLoading) {
     return (
@@ -34,7 +52,9 @@ export function PostList() {
     )
   }
 
-  if (!posts || posts.length === 0) {
+  const posts = data?.pages.flatMap((page) => page.posts) ?? []
+
+  if (posts.length === 0) {
     return (
       <div className="p-8 text-center text-muted-foreground border rounded-xl bg-card">
         No posts yet. Be the first to post!
@@ -47,6 +67,18 @@ export function PostList() {
       {posts.map((post) => (
         <PostCard key={post.id} post={post} />
       ))}
+      
+      {hasNextPage && (
+        <div ref={ref} className="flex justify-center p-4">
+          <Loader2 className="h-6 w-6 animate-spin text-muted-foreground" />
+        </div>
+      )}
+
+      {!hasNextPage && posts.length > 0 && (
+        <div className="text-center p-8 text-muted-foreground text-sm">
+          You&apos;ve reached the end of the feed.
+        </div>
+      )}
     </div>
   )
 }

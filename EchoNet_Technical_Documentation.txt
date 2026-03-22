@@ -1,0 +1,971 @@
+
+
+
+EchoNet
+Social Media Platform
+Comprehensive Technical Documentation
+
+
+Full Stack Job Task — Technical Blueprint
+Version 1.0  |  March 2026
+
+
+
+
+
+Table of Contents
+
+
+1.  Project Overview  ............  3
+2.  Technology Stack  ............  4
+3.  Data Models  ............  5
+4.  Folder Structure  ............  8
+5.  Project Workflow  ............  10
+6.  Integration Details  ............  11
+7.  Role-Based Access Control (RBAC)  ............  12
+8.  Real-Time Communication  ............  13
+9.  Security & Performance Considerations  ............  14
+10.  Error Handling & Debugging Strategies  ............  15
+11.  Testing Approach  ............  16
+12.  Future Enhancements  ............  17
+13.  Missing Details & Recommendations  ............  18
+
+1. Project Overview
+
+
+EchoNet is a full-stack social media platform designed to deliver a rich, real-time social experience across web and mobile browsers. It supports three distinct user roles — Admin, Moderator, and User — each with carefully scoped permissions to ensure safe, scalable community interaction.
+
+1.1 Core Objectives
+	•	Provide a seamless platform for creating posts, comments, likes, and replies
+	•	Enable real-time text chat, video calls, and audio calls between users
+	•	Enforce role-based content moderation and user management
+	•	Deliver instant push notifications across devices
+	•	Ensure a mobile-optimised, SEO-friendly responsive design
+	•	Support optional in-app payments via SSLCommerz
+
+1.2 Key Features Summary
+
+Feature
+Description
+Roles Involved
+User Authentication
+Email & OAuth (Google, Facebook) sign-up with JWT sessions
+All
+Post Management
+Create, edit, delete posts with images/video/text
+User, Moderator, Admin
+Commenting System
+Nested comments, likes, and replies
+User, Moderator, Admin
+Real-time Chat
+Instant text messaging via Socket.IO
+User
+Video/Audio Calls
+Peer-to-peer calls using WebRTC
+User
+Content Moderation
+Flag, edit, delete inappropriate content
+Moderator, Admin
+User Suspension
+Restrict violating users from platform activity
+Admin
+Announcements
+Broadcast platform-wide messages
+Admin
+Push Notifications
+Real-time alerts for likes, comments, messages
+All
+Payment Integration
+Optional in-app purchases via SSLCommerz
+User
+
+
+2. Technology Stack
+
+
+2.1 Frontend
+Technology
+Version
+Purpose
+Next.js
+14+
+SSR/SSG framework — SEO-friendly routing and page rendering
+React
+18+
+Component-based UI library for dynamic interfaces
+Tailwind CSS
+3+
+Utility-first styling for rapid responsive design
+shadcn/ui
+Latest
+Accessible, customisable component library (buttons, modals, forms)
+Socket.IO Client
+4+
+Real-time WebSocket client for chat and notifications
+WebRTC APIs
+Native
+Peer-to-peer video and audio call implementation
+
+2.2 Backend
+Technology
+Version
+Purpose
+Node.js
+20+ LTS
+JavaScript runtime for scalable server-side execution
+Express.js
+4+
+REST API framework — routing, middleware, request handling
+Socket.IO
+4+
+WebSocket server for real-time chat, calls, notifications
+Prisma ORM
+5+
+Type-safe database queries and schema migrations
+Better-Auth
+Latest
+Modern authentication library with OAuth2 support
+JWT
+Latest
+Stateless token-based session management
+
+2.3 Database & Cache
+Technology
+Purpose
+Notes
+PostgreSQL
+Primary relational database
+Stores users, posts, comments, messages, roles
+Redis
+Caching & session store
+Chat message caching, notification queues, session TTL
+
+2.4 Infrastructure & Deployment
+Service
+Purpose
+Vercel
+Next.js frontend deployment with edge CDN and auto-scaling
+Render
+Node.js backend + Socket.IO server with persistent connections
+Firebase Cloud Messaging (FCM)
+Push notification delivery to web and mobile devices
+SSLCommerz
+Optional Bangladeshi payment gateway for in-app purchases
+
+
+3. Data Models
+
+
+The following Prisma schema outlines all core entities. Relationships use standard foreign keys and Prisma relation annotations.
+
+3.1 User Model
+Field
+Type
+Constraints
+Description
+id
+String (UUID)
+PK, default uuid()
+Unique user identifier
+email
+String
+Unique, Not Null
+User email address
+passwordHash
+String?
+Nullable
+Hashed password (null for OAuth users)
+name
+String
+Not Null
+Display name
+avatarUrl
+String?
+Nullable
+Profile picture URL
+bio
+String?
+Nullable
+Short biography
+role
+Enum
+Default: USER
+USER | MODERATOR | ADMIN
+isSuspended
+Boolean
+Default: false
+Suspension status flag
+provider
+String?
+Nullable
+OAuth provider (google, facebook)
+providerId
+String?
+Nullable
+OAuth provider user ID
+createdAt
+DateTime
+default now()
+Account creation timestamp
+updatedAt
+DateTime
+updatedAt
+Last update timestamp
+
+3.2 Post Model
+Field
+Type
+Constraints
+Description
+id
+String (UUID)
+PK
+Unique post identifier
+authorId
+String
+FK → User.id
+Post creator reference
+content
+String?
+Nullable
+Text content of the post
+mediaUrls
+String[]
+Array
+Image/video attachment URLs
+status
+Enum
+Default: ACTIVE
+ACTIVE | INACTIVE | FLAGGED
+likesCount
+Int
+Default: 0
+Cached count of likes
+createdAt
+DateTime
+default now()
+Creation timestamp
+updatedAt
+DateTime
+updatedAt
+Last update timestamp
+
+3.3 Comment Model
+Field
+Type
+Constraints
+Description
+id
+String (UUID)
+PK
+Unique comment identifier
+postId
+String
+FK → Post.id
+Parent post reference
+authorId
+String
+FK → User.id
+Comment author
+parentId
+String?
+FK → Comment.id, Nullable
+Parent comment (for nested replies)
+content
+String
+Not Null
+Comment text content
+likesCount
+Int
+Default: 0
+Cached count of likes
+createdAt
+DateTime
+default now()
+Creation timestamp
+
+3.4 Like Model
+Field
+Type
+Constraints
+Description
+id
+String (UUID)
+PK
+Unique like identifier
+userId
+String
+FK → User.id
+User who liked
+postId
+String?
+FK → Post.id, Nullable
+Liked post (mutually exclusive with commentId)
+commentId
+String?
+FK → Comment.id, Nullable
+Liked comment (mutually exclusive with postId)
+createdAt
+DateTime
+default now()
+Timestamp
+
+3.5 Message (Chat) Model
+Field
+Type
+Constraints
+Description
+id
+String (UUID)
+PK
+Unique message identifier
+senderId
+String
+FK → User.id
+Message sender
+receiverId
+String
+FK → User.id
+Message recipient
+content
+String
+Not Null
+Message text
+isRead
+Boolean
+Default: false
+Read receipt flag
+createdAt
+DateTime
+default now()
+Sent timestamp
+
+3.6 Announcement Model
+Field
+Type
+Constraints
+Description
+id
+String (UUID)
+PK
+Unique announcement identifier
+adminId
+String
+FK → User.id (Admin only)
+Creator (must be ADMIN role)
+title
+String
+Not Null
+Announcement headline
+body
+String
+Not Null
+Full announcement text
+createdAt
+DateTime
+default now()
+Published timestamp
+
+3.7 Notification Model
+Field
+Type
+Constraints
+Description
+id
+String (UUID)
+PK
+Unique notification identifier
+userId
+String
+FK → User.id
+Recipient user
+type
+Enum
+Not Null
+LIKE | COMMENT | MESSAGE | ANNOUNCEMENT | CALL
+referenceId
+String?
+Nullable
+ID of the triggering entity
+message
+String
+Not Null
+Human-readable notification text
+isRead
+Boolean
+Default: false
+Read status
+createdAt
+DateTime
+default now()
+Creation timestamp
+
+3.8 Session / Token Model (Better-Auth managed)
+Field
+Type
+Description
+id
+String (UUID)
+Token identifier
+userId
+String
+FK → User.id — session owner
+token
+String
+Hashed refresh token
+expiresAt
+DateTime
+Token expiry timestamp
+createdAt
+DateTime
+Issue timestamp
+
+
+4. Folder Structure
+
+
+4.1 Monorepo Root
+Path
+Description
+echonet/
+Monorepo root
+  ├── apps/
+Application workspaces
+  │   ├── web/
+Next.js frontend application
+  │   └── server/
+Express.js + Socket.IO backend
+  ├── packages/
+Shared libraries
+  │   ├── ui/
+Shared shadcn/ui component overrides
+  │   ├── types/
+Shared TypeScript type definitions
+  │   └── config/
+Shared ESLint, Tailwind, TS config
+  ├── prisma/
+Prisma schema and migrations
+  ├── .env.example
+Environment variable template
+  └── package.json
+Root workspace configuration
+
+4.2 Frontend (apps/web)
+Path
+Description
+apps/web/
+
+  ├── app/
+Next.js 14 App Router
+  │   ├── (auth)/
+Auth routes: /login, /register, /forgot-password
+  │   ├── (main)/
+Authenticated routes with shared layout
+  │   │   ├── feed/
+News feed and post creation
+  │   │   ├── profile/[id]/
+User profile pages
+  │   │   ├── chat/
+Real-time messaging UI
+  │   │   ├── notifications/
+Notification centre
+  │   │   └── admin/
+Admin dashboard (role-guarded)
+  │   ├── api/
+Next.js API route proxies
+  │   └── layout.tsx
+Root layout with providers
+  ├── components/
+Reusable UI components
+  │   ├── posts/
+PostCard, PostForm, PostActions
+  │   ├── comments/
+CommentThread, CommentInput
+  │   ├── chat/
+ChatWindow, MessageBubble, CallModal
+  │   ├── notifications/
+NotificationBell, NotificationItem
+  │   └── ui/
+Base shadcn/ui wrappers
+  ├── hooks/
+Custom React hooks
+  │   ├── useSocket.ts
+Socket.IO connection management
+  │   ├── useWebRTC.ts
+WebRTC call state management
+  │   └── useAuth.ts
+Authentication state hook
+  ├── lib/
+Utility functions and API clients
+  ├── store/
+Zustand global state stores
+  ├── types/
+TypeScript interfaces
+  └── public/
+Static assets
+
+4.3 Backend (apps/server)
+Path
+Description
+apps/server/
+
+  ├── src/
+Source code root
+  │   ├── index.ts
+Application entry point — HTTP + Socket.IO setup
+  │   ├── config/
+Environment config, DB, Redis connections
+  │   ├── routes/
+Express route definitions
+  │   │   ├── auth.routes.ts
+Login, register, OAuth callback, refresh
+  │   │   ├── user.routes.ts
+Profile CRUD, suspension, role changes
+  │   │   ├── post.routes.ts
+Post CRUD, status changes, media upload
+  │   │   ├── comment.routes.ts
+Comment CRUD, nested replies
+  │   │   ├── like.routes.ts
+Like/unlike posts and comments
+  │   │   ├── message.routes.ts
+Chat history retrieval
+  │   │   ├── notification.routes.ts
+Fetch and mark notifications
+  │   │   └── announcement.routes.ts
+Admin broadcast announcements
+  │   ├── controllers/
+Route handler business logic
+  │   ├── middleware/
+Auth guard, role guard, error handler, rate limiter
+  │   ├── socket/
+Socket.IO event handlers
+  │   │   ├── chat.socket.ts
+Message send/receive events
+  │   │   ├── call.socket.ts
+WebRTC signalling events
+  │   │   └── notification.socket.ts
+Real-time notification events
+  │   ├── services/
+Business logic services
+  │   │   ├── notification.service.ts
+FCM push + in-app notification
+  │   │   └── upload.service.ts
+Media file handling
+  │   └── utils/
+Shared helper utilities
+  └── prisma/
+Symlink to root prisma schema
+
+
+5. Project Workflow
+
+
+5.1 User Registration & Authentication Flow
+	•	User submits email/password or clicks OAuth provider (Google/Facebook)
+	•	Better-Auth validates credentials, creates session, issues JWT access token + refresh token
+	•	Access token stored in httpOnly cookie; refresh token persisted in DB via Prisma
+	•	Subsequent API requests include access token; middleware validates and attaches user context
+	•	On token expiry, silent refresh endpoint issues new access token using valid refresh token
+
+5.2 Post Lifecycle
+	•	User composes post (text + optional media) on the feed page
+	•	Media files upload to cloud storage (e.g. AWS S3 / Cloudinary); URLs returned
+	•	POST /api/posts creates Post record in PostgreSQL via Prisma
+	•	Socket.IO emits post:created event to connected followers' feeds
+	•	Admin/Moderator can change post status or delete via dashboard
+
+5.3 Real-time Chat Flow
+	•	User opens chat with another user; client joins Socket.IO room (user:{id})
+	•	On message send, socket emits message:send with content and receiverId
+	•	Server saves Message to PostgreSQL, updates Redis cache for recent messages
+	•	Server emits message:receive to receiver's socket room
+	•	Unread badge count updated via notification socket event
+
+5.4 Video/Audio Call Flow
+	•	Caller clicks call button; client sends call:initiate event with offer SDP via Socket.IO
+	•	Server relays offer to callee's socket room
+	•	Callee accepts; client sends call:answer with answer SDP
+	•	ICE candidates exchanged via call:ice-candidate events through the signalling server
+	•	WebRTC peer connection established; media streams bypass server (P2P)
+	•	Either party ends call; call:end event cleans up state on both sides
+
+
+6. Integration Details
+
+
+6.1 OAuth Integration (Better-Auth)
+Better-Auth handles the OAuth 2.0 flow for Google and Facebook. Configure provider credentials in environment variables. Better-Auth creates or updates the User record on first sign-in and generates a JWT session.
+
+Provider
+ENV Variable
+Scope Required
+Google
+GOOGLE_CLIENT_ID / GOOGLE_CLIENT_SECRET
+openid email profile
+Facebook
+FACEBOOK_APP_ID / FACEBOOK_APP_SECRET
+email public_profile
+
+6.2 Push Notifications (Firebase Cloud Messaging)
+	•	On login, client requests FCM permission and obtains a device registration token
+	•	Token stored against User record in PostgreSQL
+	•	Server-side notification.service.ts uses Firebase Admin SDK to send targeted push messages
+	•	Events triggering push: new like, comment, message, announcement, incoming call
+
+6.3 Media Upload
+	•	Frontend uses presigned URLs (from cloud storage service) or multipart form upload
+	•	Supported MIME types: image/jpeg, image/png, image/webp, video/mp4
+	•	File size limits recommended: Images 5MB, Videos 100MB
+	•	Returned CDN URLs stored in Post.mediaUrls array in PostgreSQL
+
+6.4 Payment Integration — SSLCommerz (Optional)
+	•	Integrate SSLCommerz SDK for subscription or donation flows
+	•	Create payment session on backend, redirect user to SSLCommerz hosted page
+	•	Handle IPN (Instant Payment Notification) webhook to confirm and fulfil payments
+	•	Supported methods: Credit/Debit card, Mobile banking (bKash, Nagad), Net banking
+
+
+7. Role-Based Access Control (RBAC)
+
+
+Action / Endpoint
+User
+Moderator
+Admin
+Create post
+✅
+✅
+✅
+Edit own post
+✅
+✅
+✅
+Delete own post
+✅
+✅
+✅
+Edit any post
+❌
+✅
+✅
+Delete any post
+❌
+✅
+✅
+Change post status
+❌
+❌
+✅
+Edit any comment
+❌
+✅
+✅
+Delete any comment
+❌
+✅
+✅
+Flag content
+❌
+✅
+✅
+Suspend user
+❌
+❌
+✅
+Broadcast announcement
+❌
+❌
+✅
+Manage user roles
+❌
+❌
+✅
+Chat / Video calls
+✅
+✅
+✅
+View admin dashboard
+❌
+Partial
+✅
+
+Enforcement: a roleGuard middleware on the Express routes checks req.user.role against the required role enum before processing the request. Frontend route guards redirect unauthorised users to the home feed.
+
+
+8. Real-Time Communication
+
+
+8.1 Socket.IO Event Reference
+Event Name
+Direction
+Payload
+Description
+message:send
+Client → Server
+{ receiverId, content }
+Send a chat message
+message:receive
+Server → Client
+{ message object }
+Deliver message to recipient
+notification:new
+Server → Client
+{ notification object }
+Push in-app notification
+call:initiate
+Client → Server
+{ targetId, offer (SDP) }
+Initiate WebRTC call
+call:answer
+Client → Server
+{ callerId, answer (SDP) }
+Accept an incoming call
+call:ice-candidate
+Bidirectional
+{ targetId, candidate }
+ICE candidate exchange
+call:end
+Bidirectional
+{ targetId }
+Terminate call
+post:created
+Server → Client
+{ post object }
+Broadcast new post to followers
+
+8.2 WebRTC Configuration
+	•	STUN servers: Use Google's public STUN (stun.l.google.com:19302) for development
+	•	TURN servers: Required for production environments behind symmetric NAT — use Coturn or a managed TURN service
+	•	ICE candidates are relayed through Socket.IO signalling server (not peer-to-peer)
+	•	Media streams (audio/video) travel directly peer-to-peer after connection establishment
+
+
+9. Security & Performance Considerations
+
+
+9.1 Security
+Concern
+Implementation
+Authentication
+JWT access tokens (15 min TTL) + refresh tokens (7 days) stored in httpOnly cookies
+Password storage
+bcrypt with salt rounds ≥ 12
+SQL Injection
+Prevented by Prisma's parameterised queries — never use raw string concatenation
+XSS
+Content Security Policy headers; DOMPurify sanitisation on user-generated HTML
+CORS
+Allowlist of permitted origins configured in Express; credentials: true for cookie auth
+Rate limiting
+express-rate-limit on auth endpoints (e.g. 10 login attempts per 15 min per IP)
+HTTPS
+Enforced at the Vercel/Render layer; HSTS header set
+Dependency audits
+Run npm audit weekly; Dependabot or Renovate for automated PRs
+WebSocket auth
+Socket.IO middleware validates JWT token on connection handshake
+File uploads
+MIME type validation + virus scan (ClamAV) before storage
+
+9.2 Performance
+Concern
+Implementation
+Database indexing
+Indexes on User.email, Post.authorId, Comment.postId, Message.senderId/receiverId
+Redis caching
+Cache recent chat threads (TTL 1 hr) and notification counts; invalidate on write
+Next.js ISR
+Incremental Static Regeneration for public profile pages (revalidate: 60s)
+Image optimisation
+Next.js next/image with CDN; serve WebP where supported
+Code splitting
+Automatic with Next.js App Router; dynamic imports for heavy components (e.g. video call UI)
+Socket.IO scaling
+Use Redis Pub/Sub adapter (socket.io-redis) when running multiple server instances
+CDN
+Static assets served from Vercel Edge Network or a dedicated CDN
+Pagination
+Cursor-based pagination on feed, comments, and chat history — avoid OFFSET at scale
+
+
+10. Error Handling & Debugging Strategies
+
+
+10.1 Backend Error Handling
+	•	Global Express error-handling middleware catches all unhandled errors and returns structured JSON responses
+	•	HTTP status codes follow REST conventions: 400 Bad Request, 401 Unauthorised, 403 Forbidden, 404 Not Found, 500 Internal Server Error
+	•	Prisma errors mapped to user-friendly messages: P2002 (unique constraint) → 409 Conflict
+	•	Async route wrappers (asyncHandler) ensure uncaught promise rejections are forwarded to error middleware
+
+Standard error response shape:
+Field
+Type
+Description
+success
+Boolean
+Always false for errors
+code
+String
+Machine-readable error code (e.g. AUTH_INVALID_TOKEN)
+message
+String
+Human-readable error description
+details
+Object?
+Validation error detail array (optional)
+
+10.2 Frontend Error Handling
+	•	React Error Boundaries around major sections (Feed, Chat, Call) to prevent full-page crashes
+	•	Axios/Fetch interceptors globally handle 401 responses by triggering silent token refresh
+	•	Toast notifications (via shadcn/ui Toast) surface user-facing error messages
+	•	Loading and error states managed per-query using TanStack Query (React Query)
+
+10.3 Logging & Debugging
+Tool / Practice
+Purpose
+Winston (server)
+Structured JSON logging with log levels (error, warn, info, debug)
+Morgan (HTTP)
+HTTP request logging middleware for Express
+Sentry
+Error tracking and performance monitoring for both frontend and backend
+React DevTools
+Component tree inspection and profiling
+Socket.IO DEBUG
+Set DEBUG=socket.io* env var to trace socket events
+Prisma query logs
+Enable in development via log: ['query', 'error'] in PrismaClient
+
+
+11. Testing Approach
+
+
+11.1 Testing Strategy
+Layer
+Tool
+Focus
+Target Coverage
+Unit Tests
+Jest + ts-jest
+Individual functions, services, utilities
+≥ 80%
+Integration Tests
+Jest + Supertest
+REST API endpoints with test database
+≥ 70%
+Component Tests
+React Testing Library
+UI components render and interactions
+≥ 70%
+E2E Tests
+Playwright
+Critical user journeys (sign-up, post, chat)
+Key flows
+Socket Tests
+Socket.IO test client
+Real-time event emission and reception
+Core events
+Performance Tests
+k6 / Lighthouse
+API load testing, Core Web Vitals
+Baseline
+
+11.2 Test Database Strategy
+	•	Use a separate PostgreSQL test database (TEST_DATABASE_URL) populated with Prisma seed scripts
+	•	Run prisma migrate reset before each test suite to ensure a clean state
+	•	Use database transactions in integration tests — rollback after each test for isolation
+
+11.3 CI/CD Pipeline
+	•	GitHub Actions workflow triggers on every push and pull request
+	•	Pipeline stages: Lint → Type-check → Unit tests → Integration tests → Build → Deploy (main only)
+	•	E2E tests run on staging environment after successful build deployment
+	•	Failed tests block merge to main branch
+
+
+12. Future Enhancements
+
+
+Enhancement
+Priority
+Description
+Stories / Reels
+High
+Short-lived 24-hour media posts with view counts
+Group Chats
+High
+Multi-user chat rooms with admin controls
+Follower/Follow System
+High
+Asymmetric follow model with personalised feed algorithm
+Content Feed Algorithm
+Medium
+ML-based relevance ranking replacing chronological feed
+Post Scheduling
+Medium
+Allow users to schedule posts for future publication
+Dark Mode
+Medium
+System-preference-aware theme toggle using Tailwind dark variant
+Live Streaming
+Medium
+Broadcast live video to followers using WebRTC or HLS
+Hashtag & Search
+Medium
+Full-text search on posts and hashtag trending system
+Analytics Dashboard
+Low
+Post engagement metrics (reach, impressions, likes over time)
+End-to-End Encryption
+Low
+Signal Protocol for private chat message encryption
+Multi-language Support
+Low
+i18n with next-intl for Bengali and other languages
+Progressive Web App
+Low
+PWA manifest and service worker for offline capability
+
+
+13. Missing Details & Recommendations
+
+
+The following items were not explicitly specified in the source documentation but are essential for a production-grade implementation:
+
+13.1 Critical Gaps
+Gap
+Recommendation
+Media storage service
+Choose a cloud storage provider — AWS S3, Cloudflare R2, or Cloudinary. Without this, mediaUrls cannot be populated.
+TURN server for WebRTC
+Public STUN servers fail for ~15% of users behind strict NAT. Deploy Coturn on a VPS or use Twilio's TURN service for reliable production calls.
+Content Delivery Network
+Specify CDN provider for static assets and media. Vercel Edge Network covers frontend; a separate CDN is needed for user-uploaded media.
+Database backup strategy
+Define automated PostgreSQL backup schedule, retention policy, and point-in-time recovery approach.
+Environment configuration
+Document all required environment variables with descriptions, types, and example values in .env.example.
+API rate limiting strategy
+Define limits per role and endpoint (e.g. post creation: 20/hr for users; 100/hr for moderators).
+Account deletion / GDPR
+Implement user account deletion with cascade data removal or anonymisation to comply with data privacy regulations.
+Accessibility (a11y)
+Define WCAG 2.1 AA compliance targets. shadcn/ui provides a good baseline but custom components need auditing.
+Monitoring & Alerting
+Set up Uptime monitoring (e.g. Better Uptime) and alert thresholds for API error rates and latency.
+
+13.2 Development Process Recommendations
+	•	Adopt Conventional Commits for consistent git history and automated CHANGELOG generation
+	•	Use Husky + lint-staged for pre-commit linting and formatting checks
+	•	Define API versioning strategy (e.g. /api/v1/) from the start to allow future backwards-compatible changes
+	•	Document all REST endpoints using OpenAPI/Swagger specification for team collaboration and client SDK generation
+	•	Establish a branching strategy: main (production), develop (staging), feature/* branches with PR reviews
+	•	Agree on a code review checklist covering security, performance, accessibility, and test coverage before merging
+
+13.3 Scalability Considerations
+	•	The Socket.IO server must use the Redis Pub/Sub adapter when deployed with multiple instances on Render
+	•	Consider a message queue (BullMQ with Redis) for async tasks: notification sending, media processing, email delivery
+	•	Implement database connection pooling (PgBouncer) to prevent connection exhaustion under load
+	•	Design post feed queries with Keyset (cursor-based) pagination from day one — OFFSET queries degrade exponentially at scale
+
+
+EchoNet Technical Documentation  |  Confidential  |  Version 1.0  |  March 2026

@@ -2,10 +2,12 @@
 
 import * as React from "react"
 import { useForm } from "react-hook-form"
+import { useQueryClient } from "@tanstack/react-query"
 import { zodResolver } from "@hookform/resolvers/zod"
 import * as z from "zod"
 import Link from "next/link"
 import { useRouter } from "next/navigation"
+import { registerAction } from "@/services/auth.actions"
 
 import { Button } from "@/components/ui/button"
 import {
@@ -32,6 +34,7 @@ const registerSchema = z.object({
 
 export function RegisterForm() {
   const router = useRouter()
+  const queryClient = useQueryClient()
   const [isLoading, setIsLoading] = React.useState(false)
 
   const form = useForm<z.infer<typeof registerSchema>>({
@@ -47,11 +50,20 @@ export function RegisterForm() {
   async function onSubmit(values: z.infer<typeof registerSchema>) {
     setIsLoading(true)
     
-    setTimeout(() => {
+    try {
+      const response = await registerAction(values)
+      if (response && response.success) {
+        toast.success("Account created successfully!")
+        await queryClient.invalidateQueries({ queryKey: ["auth-me"] })
+        router.push("/login")
+      } else {
+        toast.error(response?.message || "Registration failed. Please try again.")
+      }
+    } catch (error: any) {
+      toast.error(error.message || "Registration failed. Please try again.")
+    } finally {
       setIsLoading(false)
-      toast.success("Account created successfully!")
-      router.push("/login")
-    }, 1000)
+    }
   }
 
   return (

@@ -2,10 +2,12 @@
 
 import * as React from "react"
 import { useForm } from "react-hook-form"
+import { useQueryClient } from "@tanstack/react-query"
 import { zodResolver } from "@hookform/resolvers/zod"
 import * as z from "zod"
 import Link from "next/link"
 import { useRouter } from "next/navigation"
+import { loginAction } from "@/services/auth.actions"
 
 import { Button } from "@/components/ui/button"
 import {
@@ -27,6 +29,7 @@ const loginSchema = z.object({
 
 export function LoginForm() {
   const router = useRouter()
+  const queryClient = useQueryClient()
   const [isLoading, setIsLoading] = React.useState(false)
 
   const form = useForm<z.infer<typeof loginSchema>>({
@@ -40,14 +43,20 @@ export function LoginForm() {
   async function onSubmit(values: z.infer<typeof loginSchema>) {
     setIsLoading(true)
     
-    // Simulate API call to the backend authentication endpoint
-    setTimeout(() => {
+    try {
+      const response = await loginAction(values)
+      if (response && response.success) {
+        toast.success("Login successful!")
+        await queryClient.invalidateQueries({ queryKey: ["auth-me"] })
+        router.push("/")
+      } else {
+        toast.error(response?.message || "Login failed. Please check your credentials.")
+      }
+    } catch (error: any) {
+      toast.error(error.message || "Login failed. Please check your credentials.")
+    } finally {
       setIsLoading(false)
-      toast.success("Login successful!")
-      router.push("/")
-    }, 1000)
-    
-    // In actual implementation: await apiClient.post("/auth/login", values)
+    }
   }
 
   return (

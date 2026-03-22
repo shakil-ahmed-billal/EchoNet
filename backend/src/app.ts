@@ -6,18 +6,36 @@ import notFound from './app/middleware/notFound.js';
 import router from './app/routes/index.js';
 import cookieParser from 'cookie-parser';
 import morgan from 'morgan';
+import helmet from 'helmet';
+import { rateLimit } from 'express-rate-limit';
+import { sanitizeRequest } from './app/middleware/sanitizeRequest.js';
 
 const app: Application = express();
 
+// Security Middlewares
+app.use(helmet());
 app.use(cors({ 
     origin: ["http://localhost:3000", "http://127.0.0.1:3000"], 
     credentials: true,
     methods: ["GET", "POST", "PUT", "DELETE", "PATCH", "OPTIONS"],
     allowedHeaders: ["Content-Type", "Authorization", "Cookie"]
 }));
+
+// Rate Limiting
+const authLimiter = rateLimit({
+	windowMs: 15 * 60 * 1000, // 15 minutes
+	limit: 100, // Limit each IP to 100 requests per `window` (here, per 15 minutes).
+	standardHeaders: 'draft-7', // expose client IP and rate limit headers
+	legacyHeaders: false, // disable the `X-RateLimit-*` headers
+    message: "Too many requests from this IP, please try again after 15 minutes"
+});
+
+app.use('/api/v1/auth', authLimiter);
+
 app.use(cookieParser());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
+app.use(sanitizeRequest);
 app.use(morgan("dev"))
 
 app.use('/api/v1', router);

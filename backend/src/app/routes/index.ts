@@ -5,9 +5,11 @@ import { AuthRoutes } from '../module/auth/auth.route.js';
 import { PostRoutes } from '../module/post/post.route.js';
 import { CommentRoutes } from '../module/comment/comment.route.js';
 import { LikeRoutes } from '../module/like/like.route.js';
+import { FollowRoutes } from '../module/follow/follow.route.js';
 import { MessageRoutes } from '../module/message/message.route.js';
 import { AnnouncementRoutes } from '../module/announcement/announcement.route.js';
 import { NotificationRoutes } from '../module/notification/notification.route.js';
+import { UploadRoutes } from '../module/upload/upload.route.js';
 
 const router = Router();
 

@@ -39,6 +39,8 @@ const loginUser = async (payload: ILoginUserPayload) => {
         body: { email, password: password || "" }
     });
 
+    console.log("Better-Auth login data:", JSON.stringify(data, null, 2));
+
     if (!data.user) {
         throw new AppError(status.UNAUTHORIZED, "Invalid credentials");
     }
@@ -67,4 +69,11 @@ const logoutUser = async (sessionToken: string) => {
     return result;
 }
 
-export const AuthService = { registerUser, loginUser, logoutUser };
+const getMe = async (headers: Headers) => {
+    const session = await auth.api.getSession({
+        headers: headers
+    });
+    return session;
+}
+
+export const AuthService = { registerUser, loginUser, logoutUser, getMe };

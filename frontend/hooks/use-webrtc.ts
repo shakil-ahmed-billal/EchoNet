@@ -1,0 +1,84 @@
+import { useEffect, useRef, useState } from "react"
+import { useSocket } from "@/components/socket-provider"
+import { useAuth } from "@/hooks/use-auth"
+
+export const useWebRTC = (remoteUserId?: string) => {
+  const { socket } = useSocket()
+  const { user } = useAuth()
+  const [localStream, setLocalStream] = useState<MediaStream | null>(null)
+  const [remoteStream, setRemoteStream] = useState<MediaStream | null>(null)
+  const peerConnection = useRef<RTCPeerConnection | null>(null)
+
+  const config: RTCConfiguration = {
+    iceServers: [{ urls: "stun:stun.l.google.com:19302" }],
+  }
+
+  const startCall = async (to: string) => {
+    const stream = await navigator.mediaDevices.getUserMedia({ video: true, audio: true })
+    setLocalStream(stream)
+
+    peerConnection.current = new RTCPeerConnection(config)
+    stream.getTracks().forEach((track) => peerConnection.current?.addTrack(track, stream))
+
+    peerConnection.current.onicecandidate = (event) => {
+      if (event.candidate) {
+        socket?.emit("ice-candidate", { to, candidate: event.candidate })
+      }
+    }
+
+    peerConnection.current.ontrack = (event) => {
+      setRemoteStream(event.streams[0])
+    }
+
+    const offer = await peerConnection.current.createOffer()
+    await peerConnection.current.setLocalDescription(offer)
+    socket?.emit("call-user", { to, offer, from: user?.id || socket?.id, fromName: user?.name || "Someone" })
+  }
+
+  const handleIncomingCall = async (data: { from: string; offer: any }) => {
+    const stream = await navigator.mediaDevices.getUserMedia({ video: true, audio: true })
+    setLocalStream(stream)
+
+    peerConnection.current = new RTCPeerConnection(config)
+    stream.getTracks().forEach((track) => peerConnection.current?.addTrack(track, stream))
+
+    peerConnection.current.onicecandidate = (event) => {
+      if (event.candidate) {
+        socket?.emit("ice-candidate", { to: data.from, candidate: event.candidate })
+      }
+    }
+
+    peerConnection.current.ontrack = (event) => {
+      setRemoteStream(event.streams[0])
+    }
+
+    await peerConnection.current.setRemoteDescription(new RTCSessionDescription(data.offer))
+    const answer = await peerConnection.current.createAnswer()
+    await peerConnection.current.setLocalDescription(answer)
+    socket?.emit("answer-call", { to: data.from, answer })
+  }
+
+  useEffect(() => {
+    if (!socket) return
+
+    socket.on("call-answered", async (data: { answer: any }) => {
+      await peerConnection.current?.setRemoteDescription(new RTCSessionDescription(data.answer))
+    })
+
+    socket.on("ice-candidate", async (data: { candidate: any }) => {
+      await peerConnection.current?.addIceCandidate(new RTCIceCandidate(data.candidate))
+    })
+
+    return () => {
+      socket.off("call-answered")
+      socket.off("ice-candidate")
+    }
+  }, [socket])
+
+  return {
+    localStream,
+    remoteStream,
+    startCall,
+    handleIncomingCall,
+  }
+}

@@ -15,9 +15,21 @@ const getUserNotifications = catchAsync(async (req: Request, res: Response) => {
   });
 });
 
+const getUnreadCount = catchAsync(async (req: Request, res: Response) => {
+  const userId = (req as any).user?.id || (req.query as any).userId;
+  const result = await NotificationServices.getUnreadCount(userId);
+  sendResponse(res, {
+    statusCode: httpStatus.OK,
+    success: true,
+    message: 'Unread count retrieved successfully',
+    data: result,
+  });
+});
+
 const markAsRead = catchAsync(async (req: Request, res: Response) => {
   const id = req.params.id as string;
-  const result = await NotificationServices.markAsRead(id);
+  const userId = (req as any).user?.id || (req.body as any).userId;
+  const result = await NotificationServices.markAsRead(id, userId);
   sendResponse(res, {
     statusCode: httpStatus.OK,
     success: true,
@@ -28,5 +40,6 @@ const markAsRead = catchAsync(async (req: Request, res: Response) => {
 
 export const NotificationControllers = {
   getUserNotifications,
+  getUnreadCount,
   markAsRead,
 };

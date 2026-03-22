@@ -5,11 +5,31 @@ const getAllUsers = async (query: Record<string, unknown>) => {
   return result;
 };
 
-const getUserById = async (id: string) => {
+const getUserById = async (id: string, currentUserId?: string) => {
   const result = await prisma.user.findUnique({
     where: { id },
+    include: {
+      _count: {
+        select: {
+          followers: true,
+          following: true,
+          posts: true,
+        }
+      },
+      followers: currentUserId ? {
+        where: { followerId: currentUserId },
+        select: { followerId: true }
+      } : false
+    }
   });
-  return result;
+
+  if (!result) return null;
+
+  return {
+    ...result,
+    isFollowing: currentUserId ? (result.followers && result.followers.length > 0) : false,
+    followers: undefined
+  };
 };
 
 const updateUser = async (id: string, payload: any) => {

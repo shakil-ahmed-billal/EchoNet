@@ -14,9 +14,31 @@ const createComment = async (authorId: string, postId: string, payload: { conten
 
 const getCommentsForPost = async (postId: string) => {
   const result = await prisma.comment.findMany({
-    where: { postId },
-    include: { author: true, replies: true },
-    orderBy: { createdAt: 'asc' },
+    where: { 
+      postId,
+      parentId: null // start with top-level comments
+    },
+    include: { 
+      author: true, 
+      _count: {
+        select: {
+          likes: true,
+          replies: true,
+        }
+      },
+      replies: {
+        include: {
+          author: true,
+          _count: {
+            select: {
+              likes: true,
+              replies: true,
+            }
+          }
+        }
+      }
+    },
+    orderBy: { createdAt: 'desc' },
   });
   return result;
 };

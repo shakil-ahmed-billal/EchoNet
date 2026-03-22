@@ -1,10 +1,13 @@
 import { Server } from 'http';
 import { Server as SocketIOServer } from 'socket.io';
 import app from './app.js';
+console.log('--- SERVER STARTING / FORCE RELOAD ---');
 import config from './app/config/index.js';
+import { connectRedis } from './app/lib/redis.js';
+
+import { initSocket } from './app/lib/socket.js';
 
 let server: Server;
-let io: SocketIOServer;
 
 async function bootstrap() {
   try {
@@ -12,13 +15,15 @@ async function bootstrap() {
       console.log(`EchoNet server is listening on port ${config.port}`);
     });
 
-    io = new SocketIOServer(server, {
-      cors: { origin: true, credentials: true },
+    // Initialize Socket.IO immediately
+    await initSocket(server);
+    console.log('Socket.IO initialized via module');
+
+    // Attempt Redis connection in the background
+    connectRedis().catch(error => {
+      console.error('Initial Redis connection attempt failed:', error);
     });
 
-    console.log('Socket.IO initialized');
-
-    // Future socket attachment logic here
   } catch (error) {
     console.error('Failed to start server:', error);
   }

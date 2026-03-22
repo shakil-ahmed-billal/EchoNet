@@ -3,6 +3,8 @@
 import { isServer, QueryClient, QueryClientProvider } from "@tanstack/react-query"
 import { ThemeProvider } from "next-themes"
 import { Toaster } from "@/components/ui/sonner"
+import { SocketProvider } from "./socket-provider"
+import { SocketHandler } from "./socket-handler"
 
 function makeQueryClient() {
   return new QueryClient({
@@ -38,7 +40,10 @@ export function Providers({ children }: { children: React.ReactNode }) {
         defaultTheme="system"
         attribute="class"
       >
-        {children}
+        <SocketProvider>
+          <SocketHandler />
+          {children}
+        </SocketProvider>
         <Toaster position="top-center" />
       </ThemeProvider>
     </QueryClientProvider>

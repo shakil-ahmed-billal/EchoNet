@@ -7,9 +7,11 @@ import { Menu } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Sheet, SheetContent, SheetTitle, SheetTrigger } from "@/components/ui/sheet"
 import { NavItem } from "@/types/nav"
+import { useAuth } from "@/hooks/use-auth"
 
 export function MobileNav({ items }: { items: NavItem[] }) {
   const [open, setOpen] = useState(false)
+  const { isAuthenticated, logout, isLoggingOut } = useAuth()
 
   return (
     <Sheet open={open} onOpenChange={setOpen}>
@@ -36,6 +38,39 @@ export function MobileNav({ items }: { items: NavItem[] }) {
                 {item.title}
               </Link>
             ))}
+          </div>
+
+          <div className="flex flex-col gap-4 border-t pt-6">
+            {isAuthenticated ? (
+              <Button 
+                variant="outline" 
+                className="w-full justify-start text-lg font-medium" 
+                onClick={() => {
+                  logout()
+                  setOpen(false)
+                }}
+                disabled={isLoggingOut}
+              >
+                {isLoggingOut ? "Logging out..." : "Logout"}
+              </Button>
+            ) : (
+              <>
+                <Link 
+                  href="/login" 
+                  className="text-lg font-medium hover:text-primary transition-colors text-foreground/80"
+                  onClick={() => setOpen(false)}
+                >
+                  Login
+                </Link>
+                <Link 
+                  href="/register" 
+                  className="text-lg font-medium hover:text-primary transition-colors text-foreground/80"
+                  onClick={() => setOpen(false)}
+                >
+                  Register
+                </Link>
+              </>
+            )}
           </div>
         </div>
       </SheetContent>
