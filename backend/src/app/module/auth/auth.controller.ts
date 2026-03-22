@@ -29,7 +29,6 @@ const loginUser = catchAsync(async (req: Request, res: Response) => {
 
     tokenUtils.setAccessTokenCookie(res, accessToken);
     tokenUtils.setRefreshTokenCookie(res, refreshToken);
-    console.log('Login successful - Token:', token);
     tokenUtils.setBetterAuthSessionCookie(res, token as string);
 
     sendResponse(res, {

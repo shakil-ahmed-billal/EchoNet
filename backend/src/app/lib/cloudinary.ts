@@ -13,9 +13,20 @@ export const uploadMedia = async (file: string, folder: string = 'echonet') => {
             folder,
             resource_type: 'auto',
         });
-        return result.secure_url;
+        return {
+            url: result.secure_url,
+            public_id: result.public_id,
+        };
     } catch (error) {
         throw error;
+    }
+};
+
+export const deleteMedia = async (public_id: string) => {
+    try {
+        await cloudinary.uploader.destroy(public_id);
+    } catch (error) {
+        console.error('Cloudinary deletion error:', error);
     }
 };
 

@@ -73,7 +73,7 @@ export function RightSidebar() {
             >
               <div className="flex items-center gap-3 min-w-0">
                 <Avatar className="h-9 w-9 border border-border/10">
-                   <AvatarImage src={item.avatar} />
+                   <AvatarImage src={item.avatar} alt={item.name} />
                    <AvatarFallback className="text-[10px] font-bold bg-muted/50">{item.name.substring(0, 2).toUpperCase()}</AvatarFallback>
                 </Avatar>
                 <div className="flex flex-col min-w-0">

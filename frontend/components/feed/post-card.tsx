@@ -11,6 +11,7 @@ import { CommentSection } from "./comment-section";
 import { useAuth } from "@/hooks/use-auth";
 import { toast } from "sonner";
 import { apiClient } from "@/services/api-client";
+import Link from "next/link";
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -82,17 +83,21 @@ export function PostCard({ post }: PostCardProps) {
     <div className="bg-card/40 border border-border/40 rounded-3xl shadow-sm flex flex-col group transition-all duration-500 hover:bg-card/60 hover:border-border/60 mb-6 overflow-hidden">
       {/* Post Header */}
       <div className="p-4 sm:p-5 flex items-center justify-between">
-        <div className="flex items-center gap-3.5">
-          <Avatar className="h-11 w-11 border-2 border-primary/10 shadow-inner group-hover:border-primary/30 transition-colors">
-            <AvatarImage src={post.author.avatarUrl} alt={post.author.name} />
-            <AvatarFallback className="bg-primary/5 text-primary font-bold">
-              {post.author.name.substring(0, 2).toUpperCase()}
-            </AvatarFallback>
-          </Avatar>
+        <div className="flex items-center gap-3.5 group/author">
+          <Link href={`/profile/${post.author.id}`}>
+            <Avatar className="h-11 w-11 border-2 border-primary/10 shadow-inner group-hover/author:border-primary/30 transition-colors cursor-pointer">
+              <AvatarImage src={post.author.avatarUrl} alt={post.author.name} />
+              <AvatarFallback className="bg-primary/5 text-primary font-bold">
+                {post.author.name.substring(0, 2).toUpperCase()}
+              </AvatarFallback>
+            </Avatar>
+          </Link>
           <div className="flex flex-col min-w-0">
-            <h4 className="font-bold text-[15px] tracking-tight text-foreground truncate hover:text-primary transition-colors cursor-pointer">
-              {post.author.name}
-            </h4>
+            <Link href={`/profile/${post.author.id}`}>
+              <h4 className="font-bold text-[15px] tracking-tight text-foreground truncate group-hover/author:text-primary transition-colors cursor-pointer">
+                {post.author.name}
+              </h4>
+            </Link>
             <div className="flex items-center gap-1.5 text-[11px] text-muted-foreground font-medium">
               <span>{formatDistanceToNow(new Date(post.createdAt), { addSuffix: true })}</span>
               <span>•</span>

@@ -12,7 +12,7 @@ const uploadFile = catchAsync(async (req: Request, res: Response) => {
     }
 
     try {
-        const url = await uploadMedia(file.path);
+        const result = await uploadMedia(file.path);
         // Clean up temp file
         fs.unlinkSync(file.path);
 
@@ -20,7 +20,7 @@ const uploadFile = catchAsync(async (req: Request, res: Response) => {
             statusCode: httpStatus.OK,
             success: true,
             message: 'File uploaded successfully',
-            data: { url },
+            data: { url: result.url },
         });
     } catch (error) {
         if (fs.existsSync(file.path)) {

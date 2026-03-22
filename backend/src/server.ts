@@ -1,7 +1,6 @@
 import { Server } from 'http';
 import { Server as SocketIOServer } from 'socket.io';
 import app from './app.js';
-console.log('--- SERVER STARTING / FORCE RELOAD ---');
 import config from './app/config/index.js';
 import { connectRedis } from './app/lib/redis.js';
 

@@ -35,7 +35,6 @@ export function Providers({ children }: { children: React.ReactNode }) {
       <ThemeProvider
         enableSystem
         disableTransitionOnChange
-        enableColorScheme
         storageKey="theme"
         defaultTheme="system"
         attribute="class"

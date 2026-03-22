@@ -33,7 +33,7 @@ export function LeftSidebar() {
             className="flex items-center gap-3 p-2.5 rounded-2xl bg-card border border-border/40 hover:bg-card/60 hover:border-border/60 transition-all group shadow-sm"
           >
             <Avatar className="h-10 w-10 border-2 border-primary/20 group-hover:border-primary/40 transition-colors shadow-inner">
-              <AvatarImage src={user.image} />
+              <AvatarImage src={user.image} alt={user.name} />
               <AvatarFallback className="bg-primary/5 text-primary text-base font-bold">
                 {user.name?.substring(0, 2).toUpperCase()}
               </AvatarFallback>

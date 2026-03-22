@@ -117,7 +117,7 @@ function CommentItem({ comment, onReply }: { comment: any; onReply: () => void }
   return (
     <div className="flex gap-3 px-1">
       <Avatar className="h-8 w-8 border border-edge shrink-0 mt-0.5">
-        <AvatarImage src={comment.author.avatarUrl} />
+        <AvatarImage src={comment.author.avatarUrl} alt={comment.author.name} />
         <AvatarFallback className="text-[10px]">{comment.author.name.substring(0, 2).toUpperCase()}</AvatarFallback>
       </Avatar>
       <div className="flex-1 flex flex-col gap-1">

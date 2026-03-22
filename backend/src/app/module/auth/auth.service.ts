@@ -39,8 +39,6 @@ const loginUser = async (payload: ILoginUserPayload) => {
         body: { email, password: password || "" }
     });
 
-    console.log("Better-Auth login data:", JSON.stringify(data, null, 2));
-
     if (!data.user) {
         throw new AppError(status.UNAUTHORIZED, "Invalid credentials");
     }

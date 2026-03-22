@@ -27,7 +27,6 @@ export function useAuth() {
     queryFn: async () => {
       try {
         const responseData = await getUserInfo()
-        console.log("useAuth - auth/me proxy response:", responseData)
         return responseData ?? null
       } catch (error) {
         console.error("useAuth - auth/me error:", error)

@@ -11773,3 +11773,25 @@ Argument `author` is missing.
     at async Object.createComment (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/module/comment/comment.service.ts:4:18)
     at async <anonymous> (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/module/comment/comment.controller.ts:10:18)
     at async <anonymous> (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/utils/catchAsync.ts:6:7)
+2026-03-22 11:42:33 [[31merror[39m]: Error: You are not authorized
+    at <anonymous> (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/middleware/auth.ts:38:15)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+2026-03-22 11:43:06 [[31merror[39m]: Error: You are not authorized
+    at <anonymous> (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/middleware/auth.ts:38:15)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+2026-03-22 11:43:07 [[31merror[39m]: Error: You are not authorized
+    at <anonymous> (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/middleware/auth.ts:38:15)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+2026-03-22 11:44:22 [[31merror[39m]: Error: You are not authorized
+    at <anonymous> (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/middleware/auth.ts:38:15)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+2026-03-22 11:44:34 [[31merror[39m]: Error: You are not authorized
+    at <anonymous> (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/middleware/auth.ts:38:15)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+2026-03-22 11:44:38 [[31merror[39m]: Error: You are not authorized
+    at <anonymous> (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/middleware/auth.ts:38:15)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+2026-03-22 11:44:42 [[31merror[39m]: APIError: Invalid email or password
+2026-03-22 11:44:51 [[31merror[39m]: Error: You are not authorized
+    at <anonymous> (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/middleware/auth.ts:38:15)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)

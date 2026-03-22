@@ -23,12 +23,18 @@ function Avatar({
 
 function AvatarImage({
   className,
+  src,
+  alt,
   ...props
 }: React.ComponentProps<typeof AvatarPrimitive.Image>) {
+  const seed = alt ? encodeURIComponent(alt as string) : "fallback";
+  const dummySrc = src || `https://api.dicebear.com/7.x/avataaars/svg?seed=${seed}`;
   return (
     <AvatarPrimitive.Image
       data-slot="avatar-image"
-      className={cn("aspect-square h-full w-full", className)}
+      src={dummySrc}
+      alt={alt}
+      className={cn("aspect-square h-full w-full object-cover", className)}
       {...props}
     />
   )

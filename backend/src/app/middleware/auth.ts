@@ -8,17 +8,14 @@ import { auth as betterAuth } from '../lib/auth.js';
 
 const auth = (...requiredRoles: Role[]) => {
   return async (req: Request, res: Response, next: NextFunction) => {
-    console.log(`Auth middleware triggered for: ${req.method} ${req.url}`);
     try {
       const headers = fromNodeHeaders(req.headers);
-      console.log('Auth middleware - Headers for getSession:', headers);
       let session = await betterAuth.api.getSession({
         headers: headers,
       });
 
       // Manual fallback if Better-Auth fails to find session via headers/cookies
       if (!session) {
-        console.log('Auth middleware - Better-Auth getSession failed. Trying manual DB lookup...');
         const token = req.cookies['better-auth.session_token'];
         if (token) {
           const dbSession = await prisma.session.findUnique({
@@ -26,15 +23,12 @@ const auth = (...requiredRoles: Role[]) => {
             include: { user: true }
           });
           if (dbSession && !dbSession.user.isDeleted && !dbSession.user.isSuspended) {
-            console.log('Auth middleware - Manual session found for user:', dbSession.user.email);
             session = { session: dbSession, user: dbSession.user };
           }
         }
       }
 
-      console.log('Auth middleware - Session found:', !!session);
       if (!session || !session.user) {
-        console.log('Auth middleware - Available cookies:', req.headers.cookie);
         throw new ApiError(httpStatus.UNAUTHORIZED, 'You are not authorized');
       }
 
@@ -54,6 +48,24 @@ const auth = (...requiredRoles: Role[]) => {
       next(error);
     }
   };
+};
+
+export const optionalAuth = async (req: Request, res: Response, next: NextFunction) => {
+  try {
+    const session = await betterAuth.api.getSession({ headers: fromNodeHeaders(req.headers) });
+    if (session && session.session) {
+      const user = await prisma.user.findUnique({
+        where: { email: session.user.email },
+      });
+      if (user) {
+        (req as any).user = user;
+      }
+    }
+    next();
+  } catch (error) {
+    // Ignore errors for optional auth, just proceed as guest
+    next();
+  }
 };
 
 export default auth;

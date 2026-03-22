@@ -10,6 +10,7 @@ import { MessageRoutes } from '../module/message/message.route.js';
 import { AnnouncementRoutes } from '../module/announcement/announcement.route.js';
 import { NotificationRoutes } from '../module/notification/notification.route.js';
 import { UploadRoutes } from '../module/upload/upload.route.js';
+import { StoryRoutes } from '../module/story/story.route.js';
 
 const router = Router();
 
@@ -45,6 +46,14 @@ const moduleRoutes: { path: string; route: Router }[] = [
   {
     path: '/notifications',
     route: NotificationRoutes,
+  },
+  {
+    path: '/upload',
+    route: UploadRoutes,
+  },
+  {
+    path: '/stories',
+    route: StoryRoutes,
   },
 ];
 
