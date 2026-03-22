@@ -70,15 +70,17 @@ export function CreatePost() {
           </Avatar>
           
           <Dialog open={isOpen} onOpenChange={setIsOpen}>
-            <DialogTrigger asChild>
-              <div 
-                role="button"
-                tabIndex={0}
-                className="flex-1 h-11 bg-muted/60 hover:bg-muted/80 text-muted-foreground/80 text-sm font-medium px-5 rounded-full text-left transition-all border border-border/20 shadow-inner cursor-pointer flex items-center"
-              >
-                What's on your mind, {user?.name?.split(' ')[0]}?
-              </div>
-            </DialogTrigger>
+            <DialogTrigger 
+              render={
+                <div 
+                  role="button"
+                  tabIndex={0}
+                  className="flex-1 h-11 bg-muted/60 hover:bg-muted/80 text-muted-foreground/80 text-sm font-medium px-5 rounded-full text-left transition-all border border-border/20 shadow-inner cursor-pointer flex items-center"
+                >
+                  What's on your mind, {user?.name?.split(' ')[0]}?
+                </div>
+              }
+            />
             <DialogContent className="sm:max-w-[550px] bg-card border-border/40 p-0 rounded-3xl overflow-hidden shadow-2xl">
               <DialogHeader className="p-6 border-b border-border/20">
                 <DialogTitle className="text-xl font-bold tracking-tight text-center">Create Post</DialogTitle>
