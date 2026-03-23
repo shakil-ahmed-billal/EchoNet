@@ -14,6 +14,7 @@ import {
 import { useWebRTC } from "@/hooks/use-webrtc";
 import { apiClient } from "@/services/api-client";
 import { useQuery, useQueryClient } from "@tanstack/react-query";
+import { useSearchParams, useRouter } from "next/navigation";
 import { format } from "date-fns";
 import {
   Check,
@@ -36,13 +37,34 @@ import {
   ChevronDown,
   ChevronRight,
   VolumeX,
+  ChevronLeft,
 } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
 import { cn } from "@/lib/utils";
 
 export function ChatInterface() {
   const { user: currentUser } = useAuth();
-  const [selectedUserId, setSelectedUserId] = useState<string | null>(null);
+  const searchParams = useSearchParams();
+  const router = useRouter();
+  const urlUserId = searchParams.get("userId");
+  
+  const [selectedUserId, setSelectedUserId] = useState<string | null>(urlUserId || null);
+
+  useEffect(() => {
+    if (urlUserId && urlUserId !== selectedUserId) {
+      setSelectedUserId(urlUserId);
+    }
+  }, [urlUserId]);
+  
+  const handleSelectUser = (id: string) => {
+    setSelectedUserId(id || null);
+    if (id) {
+      router.replace(`/messages?userId=${id}`, { scroll: false });
+    } else {
+      router.replace("/messages", { scroll: false });
+    }
+  };
+  
   const [messageInput, setMessageInput] = useState("");
   const [searchQuery, setSearchQuery] = useState("");
 
@@ -191,10 +213,13 @@ export function ChatInterface() {
   };
 
   return (
-    <div className="w-full flex h-[calc(100vh-64px)] overflow-hidden bg-background">
+    <div className="w-full flex h-[calc(100vh-56px-72px)] md:h-[calc(100vh-64px)] overflow-hidden bg-background">
 
       {/* ── LEFT COLUMN: Chat List ── */}
-      <div className="w-[340px] shrink-0 flex flex-col border-r border-border/10 bg-card/60 backdrop-blur-xl">
+      <div className={cn(
+        "w-full md:w-[320px] lg:w-[360px] shrink-0 flex flex-col border-r border-border/10 bg-card/60 backdrop-blur-xl transition-all duration-300",
+        selectedUserId ? "hidden md:flex" : "flex"
+      )}>
         {/* Header */}
         <div className="px-5 pt-5 pb-3 flex items-center justify-between">
           <h1 className="text-[22px] font-black tracking-tight">Chats</h1>
@@ -233,7 +258,7 @@ export function ChatInterface() {
               filteredUsers?.map((u) => (
                 <button
                   key={u.id}
-                  onClick={() => setSelectedUserId(u.id)}
+                  onClick={() => handleSelectUser(u.id)}
                   className={cn(
                     "w-full flex items-center gap-3 p-2.5 rounded-xl hover:bg-muted/70 transition-all text-left",
                     selectedUserId === u.id && "bg-primary/10"
@@ -269,28 +294,43 @@ export function ChatInterface() {
       </div>
 
       {/* ── MIDDLE COLUMN: Chat Window ── */}
-      <div className="flex flex-col flex-1 min-w-0 bg-background">
+      <div className={cn(
+        "flex flex-col flex-1 min-w-0 bg-background transition-all duration-300",
+        !selectedUserId ? "hidden md:flex" : "flex"
+      )}>
         {selectedUser ? (
           <>
             {/* Chat Header */}
-            <div className="flex items-center justify-between px-4 py-2.5 border-b border-border/10 bg-card/40 backdrop-blur-sm shrink-0">
-              <div className="flex items-center gap-3">
-                <div className="relative">
-                  <Avatar className="h-10 w-10">
-                    <AvatarImage src={selectedUser.image} alt={selectedUser.name} />
-                    <AvatarFallback className="bg-primary/20 text-primary font-bold text-xs">
-                      {selectedUser.name.substring(0, 2).toUpperCase()}
-                    </AvatarFallback>
-                  </Avatar>
-                  {onlineUsers.has(selectedUser.id) && (
-                    <span className="absolute bottom-0 right-0 w-2.5 h-2.5 bg-green-500 rounded-full ring-2 ring-card" />
-                  )}
-                </div>
-                <div>
-                  <p className="font-bold text-sm text-foreground">{selectedUser.name}</p>
-                  <p className="text-[11px] text-green-500 font-medium">
-                    {isTyping ? "typing..." : onlineUsers.has(selectedUser.id) ? "Active now" : "Offline"}
-                  </p>
+            <div className="flex items-center justify-between px-2 md:px-4 py-2 md:py-2.5 border-b border-border/10 bg-card/40 backdrop-blur-sm shrink-0">
+              <div className="flex items-center gap-1 md:gap-3">
+                {/* Back button on mobile */}
+                <Button
+                  variant="ghost"
+                  size="icon"
+                  className="md:hidden rounded-full text-primary"
+                  onClick={() => handleSelectUser("")}
+                >
+                  <ChevronLeft className="h-6 w-6" />
+                </Button>
+
+                <div className="flex items-center gap-3 active:bg-muted/50 p-1 rounded-lg cursor-pointer transition-colors">
+                  <div className="relative">
+                    <Avatar className="h-9 w-9 md:h-10 md:w-10">
+                      <AvatarImage src={selectedUser.image} alt={selectedUser.name} />
+                      <AvatarFallback className="bg-primary/20 text-primary font-bold text-xs">
+                        {selectedUser.name.substring(0, 2).toUpperCase()}
+                      </AvatarFallback>
+                    </Avatar>
+                    {onlineUsers.has(selectedUser.id) && (
+                      <span className="absolute bottom-0 right-0 w-2.5 h-2.5 bg-green-500 rounded-full ring-2 ring-card" />
+                    )}
+                  </div>
+                  <div className="min-w-0">
+                    <p className="font-bold text-[14px] md:text-sm text-foreground truncate">{selectedUser.name}</p>
+                    <p className="text-[10px] md:text-[11px] text-muted-foreground font-medium">
+                      {isTyping ? "typing..." : onlineUsers.has(selectedUser.id) ? "Active now" : "Offline"}
+                    </p>
+                  </div>
                 </div>
               </div>
 
@@ -451,8 +491,8 @@ export function ChatInterface() {
               </div>
             </ScrollArea>
 
-            {/* Message Input Footer */}
-            <div className="px-4 py-3 bg-card/40 backdrop-blur-sm border-t border-border/10 shrink-0">
+            {/* Message Input Footer - Pinned to bottom */}
+            <div className="px-4 py-3 bg-card/40 backdrop-blur-sm border-t border-border/10 shrink-0 mt-auto">
               <div className="flex items-center gap-2">
                 {/* Left icons */}
                 <div className="flex items-center gap-1 shrink-0">
@@ -477,11 +517,12 @@ export function ChatInterface() {
                 {messageInput.trim() ? (
                   <Button
                     size="icon"
-                    className="rounded-full h-9 w-9 shrink-0 bg-primary hover:bg-primary/90 transition-all hover:scale-110 active:scale-95 shadow-md shadow-primary/20"
+                    variant="ghost"
+                    className="rounded-full h-9 w-9 shrink-0 text-primary hover:bg-primary/10 transition-all hover:scale-110 active:scale-95"
                     onClick={handleSend}
                     disabled={isSending}
                   >
-                    {isSending ? <Loader2 className="h-4 w-4 animate-spin" /> : <Send className="h-4 w-4" />}
+                    {isSending ? <Loader2 className="h-4 w-4 animate-spin" /> : <Send className="h-5 w-5 fill-current" />}
                   </Button>
                 ) : (
                   <Button
@@ -490,7 +531,7 @@ export function ChatInterface() {
                     className="rounded-full h-9 w-9 shrink-0 text-primary hover:bg-primary/10 transition-all hover:scale-110 active:scale-95"
                     onClick={handleSendLike}
                   >
-                    <ThumbsUp className="h-5 w-5" />
+                    <ThumbsUp className="h-5 w-5 fill-current" />
                   </Button>
                 )}
               </div>
@@ -498,15 +539,12 @@ export function ChatInterface() {
           </>
         ) : (
           /* Empty state */
-          <div className="flex-1 flex flex-col items-center justify-center text-center p-8">
-            <div className="size-24 rounded-full bg-muted/40 flex items-center justify-center mb-6 ring-4 ring-border/10">
-              <MessagesSquare className="size-12 text-muted-foreground/30" />
+          <div className="flex-1 flex flex-col items-center justify-center text-center p-8 bg-card/20">
+            <div className="size-24 rounded-full bg-primary/10 flex items-center justify-center mb-6 ring-8 ring-primary/5">
+              <MessagesSquare className="size-12 text-primary/40" />
             </div>
-            <p className="font-bold text-xl text-foreground">Your Messages</p>
-            <p className="text-sm text-muted-foreground mt-2 max-w-xs">Send private photos and messages to a friend or group.</p>
-            <Button className="mt-6 rounded-full px-6" onClick={() => {}}>
-              Send message
-            </Button>
+            <p className="font-black text-2xl text-foreground tracking-tight">Select a Chat</p>
+            <p className="text-[15px] text-muted-foreground mt-2 max-w-[260px] leading-relaxed">Choose from your existing conversations or start a new one.</p>
           </div>
         )}
       </div>

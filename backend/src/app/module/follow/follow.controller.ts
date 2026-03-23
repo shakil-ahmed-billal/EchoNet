@@ -23,7 +23,19 @@ const unfollowUser = catchAsync(async (req: Request, res: Response) => {
     sendResponse(res, {
         statusCode: httpStatus.OK,
         success: true,
-        message: 'Unfollowed successfully',
+        message: 'Request deleted/unfollowed successfully',
+        data: result,
+    });
+});
+
+const acceptFollow = catchAsync(async (req: Request, res: Response) => {
+    const receiverId = (req as any).user.id;
+    const { senderId } = req.body;
+    const result = await FollowServices.acceptFollow(receiverId, senderId);
+    sendResponse(res, {
+        statusCode: httpStatus.OK,
+        success: true,
+        message: 'Friend request accepted',
         data: result,
     });
 });
@@ -52,6 +64,7 @@ const getFollowing = catchAsync(async (req: Request, res: Response) => {
 
 export const FollowControllers = {
     followUser,
+    acceptFollow,
     unfollowUser,
     getFollowers,
     getFollowing,

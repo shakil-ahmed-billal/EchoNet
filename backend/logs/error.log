@@ -11795,3 +11795,158 @@ Argument `author` is missing.
 2026-03-22 11:44:51 [[31merror[39m]: Error: You are not authorized
     at <anonymous> (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/middleware/auth.ts:38:15)
     at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+2026-03-22 13:06:11 [[31merror[39m]: TypeError: Cannot read properties of null (reading 'del')
+    at Object.markAsRead (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/module/notification/notification.service.ts:36:21)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async <anonymous> (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/module/notification/notification.controller.ts:32:18)
+    at async <anonymous> (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/utils/catchAsync.ts:6:7)
+2026-03-22 13:19:14 [[31merror[39m]: TypeError: Cannot read properties of null (reading 'del')
+    at Object.markAsRead (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/module/notification/notification.service.ts:36:21)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async <anonymous> (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/module/notification/notification.controller.ts:32:18)
+    at async <anonymous> (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/utils/catchAsync.ts:6:7)
+2026-03-22 13:30:29 [[31merror[39m]: TypeError: Cannot read properties of null (reading 'del')
+    at Object.markAsRead (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/module/notification/notification.service.ts:36:21)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async <anonymous> (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/module/notification/notification.controller.ts:32:18)
+    at async <anonymous> (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/utils/catchAsync.ts:6:7)
+2026-03-22 13:32:52 [[31merror[39m]: TypeError: Cannot read properties of null (reading 'del')
+    at Object.markAsRead (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/module/notification/notification.service.ts:36:21)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async <anonymous> (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/module/notification/notification.controller.ts:32:18)
+    at async <anonymous> (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/utils/catchAsync.ts:6:7)
+2026-03-23 15:29:07 [[31merror[39m]: PrismaClientKnownRequestError: 
+Invalid `prisma.user.findMany()` invocation in
+/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/module/user/user.service.ts:12:36
+
+   9   ];
+  10 }
+  11 
+→ 12 const result = await prisma.user.findMany(
+
+    at Gr.handleRequestError (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/generated/prisma/client/runtime/client.js:69:8286)
+    at Gr.handleAndLogRequestError (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/generated/prisma/client/runtime/client.js:69:7581)
+    at Gr.request (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/generated/prisma/client/runtime/client.js:69:7288)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async a (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/generated/prisma/client/runtime/client.js:79:6730)
+    at async Object.getAllUsers (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/module/user/user.service.ts:12:18)
+    at async <anonymous> (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/module/user/user.controller.ts:10:18)
+    at async <anonymous> (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/utils/catchAsync.ts:6:7)
+2026-03-23 15:29:07 [[31merror[39m]: PrismaClientKnownRequestError: 
+Invalid `prisma.post.findMany()` invocation in
+/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/module/post/post.service.ts:88:36
+
+  85 
+  86 where.status = 'ACTIVE';
+  87 
+→ 88 const result = await prisma.post.findMany(
+
+    at Gr.handleRequestError (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/generated/prisma/client/runtime/client.js:69:8286)
+    at Gr.handleAndLogRequestError (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/generated/prisma/client/runtime/client.js:69:7581)
+    at Gr.request (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/generated/prisma/client/runtime/client.js:69:7288)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async a (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/generated/prisma/client/runtime/client.js:79:6730)
+    at async Object.getAllPosts (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/module/post/post.service.ts:88:18)
+    at async <anonymous> (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/module/post/post.controller.ts:29:18)
+    at async <anonymous> (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/utils/catchAsync.ts:6:7)
+2026-03-23 15:29:07 [[31merror[39m]: PrismaClientKnownRequestError: 
+Invalid `prisma.post.findMany()` invocation in
+/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/module/post/post.service.ts:88:36
+
+  85 
+  86 where.status = 'ACTIVE';
+  87 
+→ 88 const result = await prisma.post.findMany(
+
+    at Gr.handleRequestError (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/generated/prisma/client/runtime/client.js:69:8286)
+    at Gr.handleAndLogRequestError (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/generated/prisma/client/runtime/client.js:69:7581)
+    at Gr.request (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/generated/prisma/client/runtime/client.js:69:7288)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async a (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/generated/prisma/client/runtime/client.js:79:6730)
+    at async Object.getAllPosts (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/module/post/post.service.ts:88:18)
+    at async <anonymous> (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/module/post/post.controller.ts:29:18)
+    at async <anonymous> (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/utils/catchAsync.ts:6:7)
+2026-03-23 15:29:08 [[31merror[39m]: PrismaClientKnownRequestError: 
+Invalid `prisma.user.findMany()` invocation in
+/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/module/user/user.service.ts:12:36
+
+   9   ];
+  10 }
+  11 
+→ 12 const result = await prisma.user.findMany(
+
+    at Gr.handleRequestError (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/generated/prisma/client/runtime/client.js:69:8286)
+    at Gr.handleAndLogRequestError (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/generated/prisma/client/runtime/client.js:69:7581)
+    at Gr.request (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/generated/prisma/client/runtime/client.js:69:7288)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async a (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/generated/prisma/client/runtime/client.js:79:6730)
+    at async Object.getAllUsers (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/module/user/user.service.ts:12:18)
+    at async <anonymous> (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/module/user/user.controller.ts:10:18)
+    at async <anonymous> (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/utils/catchAsync.ts:6:7)
+2026-03-23 15:29:10 [[31merror[39m]: PrismaClientKnownRequestError: 
+Invalid `prisma.user.findMany()` invocation in
+/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/module/user/user.service.ts:12:36
+
+   9   ];
+  10 }
+  11 
+→ 12 const result = await prisma.user.findMany(
+
+    at Gr.handleRequestError (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/generated/prisma/client/runtime/client.js:69:8286)
+    at Gr.handleAndLogRequestError (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/generated/prisma/client/runtime/client.js:69:7581)
+    at Gr.request (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/generated/prisma/client/runtime/client.js:69:7288)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async a (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/generated/prisma/client/runtime/client.js:79:6730)
+    at async Object.getAllUsers (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/module/user/user.service.ts:12:18)
+    at async <anonymous> (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/module/user/user.controller.ts:10:18)
+    at async <anonymous> (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/utils/catchAsync.ts:6:7)
+2026-03-23 15:29:15 [[31merror[39m]: PrismaClientKnownRequestError: 
+Invalid `prisma.user.findFirst()` invocation:
+
+
+
+    at Gr.handleRequestError (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/generated/prisma/client/runtime/client.js:69:8286)
+    at Gr.handleAndLogRequestError (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/generated/prisma/client/runtime/client.js:69:7581)
+    at Gr.request (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/generated/prisma/client/runtime/client.js:69:7288)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async a (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/generated/prisma/client/runtime/client.js:79:6730)
+    at async Object.findOne (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/node_modules/.pnpm/@better-auth+prisma-adapter@1.5.5_@better-auth+core@1.5.5_@better-auth+utils@0.3.1_@bet_2c568f04acd6fded8552a3d76ae5aa90/node_modules/@better-auth/prisma-adapter/src/prisma-adapter.ts:404:21)
+    at async Object.findOne (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/node_modules/.pnpm/@better-auth+core@1.5.5_@better-auth+utils@0.3.1_@better-fetch+fetch@1.1.21_better-call_74427ff2582c829e84d27574e890d3db/node_modules/@better-auth/core/src/db/adapter/factory.ts:1066:17)
+    at async Object.findUserByEmail (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/node_modules/.pnpm/better-auth@1.5.5_@prisma+client@7.5.0_prisma@7.5.0_@types+react@19.2.14_react-dom@19.2_be99b374499587e8f178a6de2ba3112a/node_modules/better-auth/src/db/internal-adapter.ts:858:19)
+    at async <anonymous> (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/node_modules/.pnpm/better-auth@1.5.5_@prisma+client@7.5.0_prisma@7.5.0_@types+react@19.2.14_react-dom@19.2_be99b374499587e8f178a6de2ba3112a/node_modules/better-auth/src/api/routes/sign-in.ts:485:17)
+    at async internalHandler (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/node_modules/.pnpm/better-call@1.3.2_zod@4.3.6/node_modules/better-call/src/endpoint.ts:607:20)
+2026-03-23 15:33:58 [[31merror[39m]: Error: You are not authorized
+    at <anonymous> (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/middleware/auth.ts:32:15)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+2026-03-23 15:33:58 [[31merror[39m]: Error: You are not authorized
+    at <anonymous> (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/middleware/auth.ts:32:15)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+2026-03-23 15:34:02 [[31merror[39m]: Error: You are not authorized
+    at <anonymous> (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/middleware/auth.ts:32:15)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+2026-03-23 15:34:03 [[31merror[39m]: Error: You are not authorized
+    at <anonymous> (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/middleware/auth.ts:32:15)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+2026-03-23 15:34:07 [[31merror[39m]: Error: You are not authorized
+    at <anonymous> (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/middleware/auth.ts:32:15)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+2026-03-23 15:34:07 [[31merror[39m]: Error: You are not authorized
+    at <anonymous> (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/middleware/auth.ts:32:15)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+2026-03-23 15:34:07 [[31merror[39m]: Error: You are not authorized
+    at <anonymous> (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/middleware/auth.ts:32:15)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+2026-03-23 15:34:12 [[31merror[39m]: Error: You are not authorized
+    at <anonymous> (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/middleware/auth.ts:32:15)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+2026-03-23 15:36:35 [[31merror[39m]: Error: Invalid file type. Only images and MP4/MOV videos are allowed.
+    at fileFilter (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/middleware/multer.ts:34:12)
+    at wrappedFileFilter (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/node_modules/.pnpm/multer@2.1.1/node_modules/multer/index.js:45:7)
+    at Multipart.<anonymous> (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/node_modules/.pnpm/multer@2.1.1/node_modules/multer/lib/make-middleware.js:183:7)
+    at Multipart.emit (node:events:508:28)
+    at HeaderParser.cb (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/node_modules/.pnpm/busboy@1.6.0/node_modules/busboy/lib/types/multipart.js:358:14)
+    at HeaderParser.push (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/node_modules/.pnpm/busboy@1.6.0/node_modules/busboy/lib/types/multipart.js:162:20)
+    at SBMH.ssCb [as _cb] (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/node_modules/.pnpm/busboy@1.6.0/node_modules/busboy/lib/types/multipart.js:394:37)
+    at feed (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/node_modules/.pnpm/streamsearch@1.1.0/node_modules/streamsearch/lib/sbmh.js:248:10)
+    at SBMH.push (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/node_modules/.pnpm/streamsearch@1.1.0/node_modules/streamsearch/lib/sbmh.js:104:16)
+    at Multipart._write (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/node_modules/.pnpm/busboy@1.6.0/node_modules/busboy/lib/types/multipart.js:567:19)

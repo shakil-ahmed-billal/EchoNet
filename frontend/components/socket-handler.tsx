@@ -8,14 +8,32 @@ export const SocketHandler = () => {
   const { socket } = useSocket()
 
   useEffect(() => {
+    if (typeof window !== "undefined" && "Notification" in window && Notification.permission === "default") {
+      Notification.requestPermission();
+    }
+  }, []);
+
+  const showBrowserNotification = (title: string, options: NotificationOptions = {}) => {
+    if (typeof window !== "undefined" && "Notification" in window && Notification.permission === "granted") {
+      new Notification(title, {
+        icon: "/logo.png", // Assuming logo exists at public/logo.png
+        ...options
+      });
+    }
+  };
+
+  useEffect(() => {
     if (!socket) return
 
     socket.on("new-notification", (data: any) => {
       toast.info(data.message || "New notification received!")
+      showBrowserNotification("EchoNet", { body: data.message });
     })
 
     socket.on("new-message", (data: any) => {
+      const body = `${data.senderName}: ${data.content}`;
       toast.info(`New message from ${data.senderName}: ${data.content.substring(0, 30)}...`)
+      showBrowserNotification("New Message", { body });
     })
 
     socket.on("incoming-call", (data: any) => {

@@ -10,7 +10,9 @@ import { format } from "date-fns";
 import { apiClient } from "@/services/api-client";
 import { useAuth } from "@/hooks/use-auth";
 import { useParams } from "next/navigation";
+import Link from "next/link";
 import { cn } from "@/lib/utils";
+import { EditProfileDialog } from "@/components/profile/edit-profile-dialog";
 
 export default function ProfilePage() {
   const params = useParams();
@@ -29,7 +31,7 @@ export default function ProfilePage() {
 
   const followMutation = useMutation({
     mutationFn: async () => {
-       const endpoint = profile.isFollowing ? '/follow/unfollow' : '/follow/follow';
+       const endpoint = (profile.isFollowing || profile.isFriend) ? '/follow/unfollow' : '/follow/follow';
        return apiClient.post(endpoint, { followingId: id });
     },
     onSuccess: () => {
@@ -101,32 +103,38 @@ export default function ProfilePage() {
             
             <div className="flex gap-3 w-full sm:w-auto">
               {isSelf ? (
-                <Button className="rounded-xl px-8 h-12 font-bold text-xs uppercase tracking-widest shadow-lg shadow-primary/20 hover:shadow-primary/30 transition-all flex-1 sm:flex-none">
-                  Edit Profile
-                </Button>
+                <EditProfileDialog user={profile}>
+                  <Button className="rounded-xl px-8 h-12 font-bold text-xs uppercase tracking-widest shadow-lg shadow-primary/20 hover:shadow-primary/30 transition-all flex-1 sm:flex-none">
+                    Edit Profile
+                  </Button>
+                </EditProfileDialog>
               ) : (
                 <>
                   <Button 
-                    variant={profile.isFollowing ? "outline" : "default"}
+                    variant={(profile.isFollowing || profile.isFriend) ? "outline" : "default"}
                     className={cn(
                       "rounded-xl px-8 h-12 font-semibold text-sm transition-all flex-1 sm:flex-none",
-                      !profile.isFollowing && "shadow-lg shadow-primary/20 hover:shadow-primary/30",
-                      profile.isFollowing && "bg-muted/50 border-edge hover:bg-muted/80"
+                      (!profile.isFollowing && !profile.isFriend) && "shadow-lg shadow-primary/20 hover:shadow-primary/30",
+                      (profile.isFollowing || profile.isFriend) && "bg-muted/50 border-edge hover:bg-muted/80"
                     )}
                     onClick={() => followMutation.mutate()}
                     disabled={followMutation.isPending}
                   >
                     {followMutation.isPending ? (
                       <Loader2 className="h-4 w-4 animate-spin" />
+                    ) : profile.isFriend ? (
+                      <><UserCheck className="h-4 w-4 mr-2" /> Friends</>
                     ) : profile.isFollowing ? (
-                      <><UserCheck className="h-4 w-4 mr-2" /> Unfollow</>
+                      <><UserCheck className="h-4 w-4 mr-2" /> Request Sent</>
                     ) : (
-                      <><UserPlus className="h-4 w-4 mr-2" /> Follow</>
+                      <><UserPlus className="h-4 w-4 mr-2" /> Add Friend</>
                     )}
                   </Button>
-                  <Button variant="outline" className="rounded-xl h-12 w-12 p-0 border-edge hover:bg-muted/50">
-                    <MessageSquare className="h-5 w-5" />
-                  </Button>
+                  <Link href={`/messages?userId=${profile.id}`}>
+                    <Button variant="outline" className="rounded-xl h-12 w-12 p-0 border-edge hover:bg-muted/50">
+                      <MessageSquare className="h-5 w-5" />
+                    </Button>
+                  </Link>
                 </>
               )}
             </div>
@@ -169,39 +177,46 @@ export default function ProfilePage() {
       </div>
 
       {/* Tabs Section */}
-      <Tabs defaultValue="posts" className="w-full">
-        <TabsList className="w-fit flex gap-2 p-1 bg-muted/30 rounded-xl border border-edge mb-8">
-          <TabsTrigger value="posts" className="rounded-lg data-[state=active]:bg-background data-[state=active]:shadow-sm px-8 py-2.5 text-xs font-semibold transition-all">
-            Posts
-          </TabsTrigger>
-          <TabsTrigger value="replies" className="rounded-lg data-[state=active]:bg-background data-[state=active]:shadow-sm px-8 py-2.5 text-xs font-semibold transition-all">
-            Replies
-          </TabsTrigger>
-          <TabsTrigger value="media" className="rounded-lg data-[state=active]:bg-background data-[state=active]:shadow-sm px-8 py-2.5 text-xs font-semibold transition-all">
-            Media
-          </TabsTrigger>
-        </TabsList>
-        
-        <TabsContent value="posts" className="mt-0 focus-visible:outline-none focus-visible:ring-0">
-          <div className="max-w-2xl">
-             <PostList authorId={profile.id} />
-          </div>
-        </TabsContent>
-        <TabsContent value="replies">
-          <div className="flex flex-col items-center justify-center p-20 border border-dashed border-edge rounded-3xl bg-muted/5 text-center">
-             <MessageSquare className="size-12 text-muted-foreground/20 mb-4" />
-             <p className="text-sm font-bold text-muted-foreground uppercase tracking-widest">No replies available</p>
-          </div>
-        </TabsContent>
-        <TabsContent value="media">
-          <div className="grid grid-cols-3 gap-2">
-             {/* Media grid would go here */}
-             <div className="aspect-square bg-muted/30 rounded-xl border border-edge flex items-center justify-center">
-                <LinkIcon className="h-6 w-6 text-muted-foreground/20" />
-             </div>
-          </div>
-        </TabsContent>
-      </Tabs>
+      {isSelf || profile.isFriend ? (
+        <Tabs defaultValue="posts" className="w-full">
+          <TabsList className="w-fit flex gap-2 p-1 bg-muted/30 rounded-xl border border-edge mb-8">
+            <TabsTrigger value="posts" className="rounded-lg data-[state=active]:bg-background data-[state=active]:shadow-sm px-8 py-2.5 text-xs font-semibold transition-all">
+              Posts
+            </TabsTrigger>
+            <TabsTrigger value="replies" className="rounded-lg data-[state=active]:bg-background data-[state=active]:shadow-sm px-8 py-2.5 text-xs font-semibold transition-all">
+              Replies
+            </TabsTrigger>
+            <TabsTrigger value="media" className="rounded-lg data-[state=active]:bg-background data-[state=active]:shadow-sm px-8 py-2.5 text-xs font-semibold transition-all">
+              Media
+            </TabsTrigger>
+          </TabsList>
+          
+          <TabsContent value="posts" className="mt-0 focus-visible:outline-none focus-visible:ring-0">
+            <div className="max-w-2xl">
+               <PostList authorId={profile.id} />
+            </div>
+          </TabsContent>
+          <TabsContent value="replies">
+            <div className="flex flex-col items-center justify-center p-20 border border-dashed border-edge rounded-3xl bg-muted/5 text-center">
+               <MessageSquare className="size-12 text-muted-foreground/20 mb-4" />
+               <p className="text-sm font-bold text-muted-foreground uppercase tracking-widest">No replies available</p>
+            </div>
+          </TabsContent>
+          <TabsContent value="media">
+            <div className="grid grid-cols-3 gap-2">
+               <div className="aspect-square bg-muted/30 rounded-xl border border-edge flex items-center justify-center">
+                  <LinkIcon className="h-6 w-6 text-muted-foreground/20" />
+               </div>
+            </div>
+          </TabsContent>
+        </Tabs>
+      ) : (
+        <div className="flex flex-col items-center justify-center py-24 bg-card border border-edge rounded-3xl mt-4 text-center max-w-2xl mx-auto w-full">
+           <UserPlus className="size-16 text-muted-foreground/30 mb-6" />
+           <h3 className="text-2xl font-bold text-foreground">This Profile is Locked</h3>
+           <p className="text-muted-foreground mt-3 font-medium text-sm">Add them as a friend to view their posts, replies, and media.</p>
+        </div>
+      )}
     </div>
   );
 }

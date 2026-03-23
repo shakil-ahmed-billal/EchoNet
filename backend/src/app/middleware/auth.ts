@@ -52,8 +52,22 @@ const auth = (...requiredRoles: Role[]) => {
 
 export const optionalAuth = async (req: Request, res: Response, next: NextFunction) => {
   try {
-    const session = await betterAuth.api.getSession({ headers: fromNodeHeaders(req.headers) });
-    if (session && session.session) {
+    let session = await betterAuth.api.getSession({ headers: fromNodeHeaders(req.headers) });
+    
+    if (!session) {
+      const token = req.cookies['better-auth.session_token'];
+      if (token) {
+        const dbSession = await prisma.session.findUnique({
+          where: { token },
+          include: { user: true }
+        });
+        if (dbSession && !dbSession.user.isDeleted && !dbSession.user.isSuspended) {
+          session = { session: dbSession, user: dbSession.user };
+        }
+      }
+    }
+
+    if (session && session.user) {
       const user = await prisma.user.findUnique({
         where: { email: session.user.email },
       });

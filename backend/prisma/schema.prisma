@@ -189,12 +189,18 @@ model Verification {
 model Follow {
   followerId  String
   followingId String
+  status      FollowStatus @default(PENDING)
   follower    User   @relation("Following", fields: [followerId], references: [id])
   following   User   @relation("Followers", fields: [followingId], references: [id])
 
   @@id([followerId, followingId])
   @@index([followerId])
   @@index([followingId])
+}
+
+enum FollowStatus {
+  PENDING
+  ACCEPTED
 }
 
 enum Role {
@@ -215,4 +221,6 @@ enum NotificationType {
   MESSAGE
   ANNOUNCEMENT
   CALL
+  FRIEND_REQUEST
+  FRIEND_ACCEPT
 }

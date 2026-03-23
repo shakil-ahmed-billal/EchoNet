@@ -5,6 +5,11 @@ export const followUser = async (userId: string) => {
   return data;
 };
 
+export const acceptUser = async (senderId: string) => {
+  const { data } = await apiClient.post('/follow/accept', { senderId });
+  return data;
+};
+
 export const unfollowUser = async (userId: string) => {
   const { data } = await apiClient.post('/follow/unfollow', { followingId: userId });
   return data;

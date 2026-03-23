@@ -55,6 +55,10 @@ const moduleRoutes: { path: string; route: Router }[] = [
     path: '/stories',
     route: StoryRoutes,
   },
+  {
+    path: '/follow',
+    route: FollowRoutes,
+  },
 ];
 
 moduleRoutes.forEach((route) => router.use(route.path, route.route));

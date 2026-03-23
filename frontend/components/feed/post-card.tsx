@@ -80,9 +80,9 @@ export function PostCard({ post }: PostCardProps) {
   };
 
   return (
-    <div className="bg-card/40 border border-border/40 rounded-3xl shadow-sm flex flex-col group transition-all duration-500 hover:bg-card/60 hover:border-border/60 mb-6 overflow-hidden">
+    <div className="bg-card/40 border-y sm:border border-border/40 sm:rounded-3xl shadow-sm flex flex-col group transition-all duration-500 hover:bg-card/60 hover:border-border/60 mb-4 sm:mb-6 overflow-hidden">
       {/* Post Header */}
-      <div className="p-4 sm:p-5 flex items-center justify-between">
+      <div className="p-3 sm:p-5 flex items-center justify-between">
         <div className="flex items-center gap-3.5 group/author">
           <Link href={`/profile/${post.author.id}`}>
             <Avatar className="h-11 w-11 border-2 border-primary/10 shadow-inner group-hover/author:border-primary/30 transition-colors cursor-pointer">
@@ -138,7 +138,7 @@ export function PostCard({ post }: PostCardProps) {
       </div>
 
       {/* Post Content */}
-      <div className="px-5 pb-5">
+      <div className="px-3 sm:px-5 pb-3 sm:pb-5">
         {isEditing ? (
           <div className="space-y-4 p-1">
             <Textarea 
@@ -235,12 +235,10 @@ export function PostCard({ post }: PostCardProps) {
         </div>
       </div>
 
-      {/* Comment Section */}
-      {showComments && (
-        <div className="border-t border-border/10 bg-muted/5 p-5 animate-in slide-in-from-top-4 duration-300">
-          <CommentSection postId={post.id} />
-        </div>
-      )}
+      {/* Comment Section - Input always visible, list toggleable */}
+      <div className="border-t border-border/10 bg-muted/5 p-5 animate-in slide-in-from-top-4 duration-300">
+        <CommentSection postId={post.id} showAll={showComments} />
+      </div>
     </div>
   );
 }

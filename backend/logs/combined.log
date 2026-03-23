@@ -12418,3 +12418,324 @@ Argument `author` is missing.
 2026-03-22 12:58:36 [[32minfo[39m]: Socket disconnected: jmLJRfYdswTiPxGUAAAM
 2026-03-22 12:58:36 [[32minfo[39m]: Socket disconnected: IOa6_7vy-A5vL5tCAAAN
 2026-03-22 12:58:36 [[32minfo[39m]: Socket disconnected: 56GCwhiLkHiyKW5IAAAL
+2026-03-22 13:00:07 [[32minfo[39m]: Socket disconnected: UKYpv46UT92pOZQgAAAT
+2026-03-22 13:00:09 [[32minfo[39m]: User yistShTPH0G07PjZpz9Myr9aM3Oy6Gcm joined their private room
+2026-03-22 13:03:33 [[32minfo[39m]: Initializing Socket.IO...
+2026-03-22 13:03:36 [[32minfo[39m]: User yistShTPH0G07PjZpz9Myr9aM3Oy6Gcm joined their private room
+2026-03-22 13:03:51 [[32minfo[39m]: Initializing Socket.IO...
+2026-03-22 13:03:54 [[32minfo[39m]: User yistShTPH0G07PjZpz9Myr9aM3Oy6Gcm joined their private room
+2026-03-22 13:04:21 [[32minfo[39m]: Initializing Socket.IO...
+2026-03-22 13:04:23 [[32minfo[39m]: Initializing Socket.IO...
+2026-03-22 13:04:25 [[32minfo[39m]: Initializing Socket.IO...
+2026-03-22 13:04:27 [[32minfo[39m]: Initializing Socket.IO...
+2026-03-22 13:04:29 [[32minfo[39m]: User yistShTPH0G07PjZpz9Myr9aM3Oy6Gcm joined their private room
+2026-03-22 13:04:51 [[32minfo[39m]: Socket disconnected: n4IeOICmxlTWrPgQAAAB
+2026-03-22 13:04:57 [[32minfo[39m]: User yistShTPH0G07PjZpz9Myr9aM3Oy6Gcm joined their private room
+2026-03-22 13:05:15 [[32minfo[39m]: Socket disconnected: FMrNfvWtK_SlJ9ptAAAD
+2026-03-22 13:05:15 [[32minfo[39m]: User yistShTPH0G07PjZpz9Myr9aM3Oy6Gcm joined their private room
+2026-03-22 13:05:24 [[32minfo[39m]: Initializing Socket.IO...
+2026-03-22 13:05:26 [[32minfo[39m]: Initializing Socket.IO...
+2026-03-22 13:05:26 [[32minfo[39m]: User yistShTPH0G07PjZpz9Myr9aM3Oy6Gcm joined their private room
+2026-03-22 13:05:28 [[32minfo[39m]: Initializing Socket.IO...
+2026-03-22 13:05:30 [[32minfo[39m]: User yistShTPH0G07PjZpz9Myr9aM3Oy6Gcm joined their private room
+2026-03-22 13:05:39 [[32minfo[39m]: User 3nRt1V02NgOBVhRK6aQbVlyI5zk6NtLE joined their private room
+2026-03-22 13:05:40 [[32minfo[39m]: User 3nRt1V02NgOBVhRK6aQbVlyI5zk6NtLE joined their private room
+2026-03-22 13:05:40 [[32minfo[39m]: User 3nRt1V02NgOBVhRK6aQbVlyI5zk6NtLE joined their private room
+2026-03-22 13:06:02 [[32minfo[39m]: Socket disconnected: _h5EO6qNNtxvfphKAAAD
+2026-03-22 13:06:02 [[32minfo[39m]: User 3nRt1V02NgOBVhRK6aQbVlyI5zk6NtLE joined their private room
+2026-03-22 13:06:11 [[31merror[39m]: TypeError: Cannot read properties of null (reading 'del')
+    at Object.markAsRead (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/module/notification/notification.service.ts:36:21)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async <anonymous> (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/module/notification/notification.controller.ts:32:18)
+    at async <anonymous> (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/utils/catchAsync.ts:6:7)
+2026-03-22 13:07:08 [[32minfo[39m]: Socket disconnected: RqrH3JuAyfinMCYtAAAB
+2026-03-22 13:07:09 [[32minfo[39m]: User yistShTPH0G07PjZpz9Myr9aM3Oy6Gcm joined their private room
+2026-03-22 13:07:40 [[32minfo[39m]: Initializing Socket.IO...
+2026-03-22 13:07:40 [[32minfo[39m]: User yistShTPH0G07PjZpz9Myr9aM3Oy6Gcm joined their private room
+2026-03-22 13:07:41 [[32minfo[39m]: User 3nRt1V02NgOBVhRK6aQbVlyI5zk6NtLE joined their private room
+2026-03-22 13:07:42 [[32minfo[39m]: User 3nRt1V02NgOBVhRK6aQbVlyI5zk6NtLE joined their private room
+2026-03-22 13:07:42 [[32minfo[39m]: User 3nRt1V02NgOBVhRK6aQbVlyI5zk6NtLE joined their private room
+2026-03-22 13:08:52 [[32minfo[39m]: Socket disconnected: wRoAGU_OJHJwIt5-AAAB
+2026-03-22 13:08:52 [[32minfo[39m]: User yistShTPH0G07PjZpz9Myr9aM3Oy6Gcm joined their private room
+2026-03-22 13:08:55 [[32minfo[39m]: Initializing Socket.IO...
+2026-03-22 13:08:55 [[32minfo[39m]: User 3nRt1V02NgOBVhRK6aQbVlyI5zk6NtLE joined their private room
+2026-03-22 13:08:57 [[32minfo[39m]: User 3nRt1V02NgOBVhRK6aQbVlyI5zk6NtLE joined their private room
+2026-03-22 13:08:57 [[32minfo[39m]: User yistShTPH0G07PjZpz9Myr9aM3Oy6Gcm joined their private room
+2026-03-22 13:08:58 [[32minfo[39m]: User 3nRt1V02NgOBVhRK6aQbVlyI5zk6NtLE joined their private room
+2026-03-22 13:09:23 [[32minfo[39m]: Initializing Socket.IO...
+2026-03-22 13:09:23 [[32minfo[39m]: User 3nRt1V02NgOBVhRK6aQbVlyI5zk6NtLE joined their private room
+2026-03-22 13:09:23 [[32minfo[39m]: User 3nRt1V02NgOBVhRK6aQbVlyI5zk6NtLE joined their private room
+2026-03-22 13:09:24 [[32minfo[39m]: User 3nRt1V02NgOBVhRK6aQbVlyI5zk6NtLE joined their private room
+2026-03-22 13:09:24 [[32minfo[39m]: User yistShTPH0G07PjZpz9Myr9aM3Oy6Gcm joined their private room
+2026-03-22 13:09:52 [[32minfo[39m]: Socket disconnected: jMqJJhiQH3S2qzGwAAAH
+2026-03-22 13:09:52 [[32minfo[39m]: User yistShTPH0G07PjZpz9Myr9aM3Oy6Gcm joined their private room
+2026-03-22 13:09:59 [[32minfo[39m]: Socket disconnected: dgv_g44gGvkCrVeAAAAJ
+2026-03-22 13:09:59 [[32minfo[39m]: User yistShTPH0G07PjZpz9Myr9aM3Oy6Gcm joined their private room
+2026-03-22 13:10:15 [[32minfo[39m]: Socket disconnected: nm-SJ0Bv3nl2CacpAAAF
+2026-03-22 13:10:15 [[32minfo[39m]: User 3nRt1V02NgOBVhRK6aQbVlyI5zk6NtLE joined their private room
+2026-03-22 13:10:33 [[32minfo[39m]: Socket disconnected: 1re1Ou-cHs6wMG9nAAAN
+2026-03-22 13:10:33 [[32minfo[39m]: User 3nRt1V02NgOBVhRK6aQbVlyI5zk6NtLE joined their private room
+2026-03-22 13:10:45 [[32minfo[39m]: Socket disconnected: 3LPY6pfHgcDFWVeGAAAL
+2026-03-22 13:10:46 [[32minfo[39m]: User yistShTPH0G07PjZpz9Myr9aM3Oy6Gcm joined their private room
+2026-03-22 13:11:05 [[32minfo[39m]: Socket disconnected: ux6LgSOmNXURTB-RAAAR
+2026-03-22 13:11:13 [[32minfo[39m]: User 1I5VWo23d0CVesqAyzyjNesnDAxMIOxA joined their private room
+2026-03-22 13:12:03 [[32minfo[39m]: Socket disconnected: T3fGagFW-bUk6bfpAAAT
+2026-03-22 13:12:03 [[32minfo[39m]: User 1I5VWo23d0CVesqAyzyjNesnDAxMIOxA joined their private room
+2026-03-22 13:12:04 [[32minfo[39m]: Socket disconnected: C_vbh6fMl1KLOI4lAAAV
+2026-03-22 13:12:04 [[32minfo[39m]: User 1I5VWo23d0CVesqAyzyjNesnDAxMIOxA joined their private room
+2026-03-22 13:13:27 [[32minfo[39m]: Initializing Socket.IO...
+2026-03-22 13:13:27 [[32minfo[39m]: User 1I5VWo23d0CVesqAyzyjNesnDAxMIOxA joined their private room
+2026-03-22 13:13:28 [[32minfo[39m]: User 3nRt1V02NgOBVhRK6aQbVlyI5zk6NtLE joined their private room
+2026-03-22 13:13:29 [[32minfo[39m]: User 3nRt1V02NgOBVhRK6aQbVlyI5zk6NtLE joined their private room
+2026-03-22 13:13:29 [[32minfo[39m]: User 3nRt1V02NgOBVhRK6aQbVlyI5zk6NtLE joined their private room
+2026-03-22 13:13:39 [[32minfo[39m]: Initializing Socket.IO...
+2026-03-22 13:13:39 [[32minfo[39m]: User 1I5VWo23d0CVesqAyzyjNesnDAxMIOxA joined their private room
+2026-03-22 13:13:39 [[32minfo[39m]: User 3nRt1V02NgOBVhRK6aQbVlyI5zk6NtLE joined their private room
+2026-03-22 13:13:39 [[32minfo[39m]: User 3nRt1V02NgOBVhRK6aQbVlyI5zk6NtLE joined their private room
+2026-03-22 13:13:40 [[32minfo[39m]: User 3nRt1V02NgOBVhRK6aQbVlyI5zk6NtLE joined their private room
+2026-03-22 13:14:36 [[32minfo[39m]: Socket disconnected: fEgAA7tYc3gbrzmMAAAD
+2026-03-22 13:14:37 [[32minfo[39m]: User 3nRt1V02NgOBVhRK6aQbVlyI5zk6NtLE joined their private room
+2026-03-22 13:16:08 [[32minfo[39m]: Socket disconnected: boc-lfpCFV0OMc4eAAAJ
+2026-03-22 13:16:08 [[32minfo[39m]: User 3nRt1V02NgOBVhRK6aQbVlyI5zk6NtLE joined their private room
+2026-03-22 13:19:14 [[31merror[39m]: TypeError: Cannot read properties of null (reading 'del')
+    at Object.markAsRead (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/module/notification/notification.service.ts:36:21)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async <anonymous> (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/module/notification/notification.controller.ts:32:18)
+    at async <anonymous> (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/utils/catchAsync.ts:6:7)
+2026-03-22 13:19:45 [[32minfo[39m]: Socket disconnected: d4J6rwzMAXYzP-DwAAAB
+2026-03-22 13:19:46 [[32minfo[39m]: User 1I5VWo23d0CVesqAyzyjNesnDAxMIOxA joined their private room
+2026-03-22 13:20:18 [[32minfo[39m]: Socket disconnected: RJ50Fsi314RZH7etAAAN
+2026-03-22 13:20:18 [[32minfo[39m]: User 1I5VWo23d0CVesqAyzyjNesnDAxMIOxA joined their private room
+2026-03-22 13:21:38 [[32minfo[39m]: Socket disconnected: zenenFoCspGw6bYAAAAP
+2026-03-22 13:21:38 [[32minfo[39m]: User 1I5VWo23d0CVesqAyzyjNesnDAxMIOxA joined their private room
+2026-03-22 13:23:01 [[32minfo[39m]: Initializing Socket.IO...
+2026-03-22 13:23:02 [[32minfo[39m]: Initializing Socket.IO...
+2026-03-22 13:23:02 [[32minfo[39m]: User 3nRt1V02NgOBVhRK6aQbVlyI5zk6NtLE joined their private room
+2026-03-22 13:23:03 [[32minfo[39m]: User 3nRt1V02NgOBVhRK6aQbVlyI5zk6NtLE joined their private room
+2026-03-22 13:23:06 [[32minfo[39m]: User 1I5VWo23d0CVesqAyzyjNesnDAxMIOxA joined their private room
+2026-03-22 13:23:07 [[32minfo[39m]: User 3nRt1V02NgOBVhRK6aQbVlyI5zk6NtLE joined their private room
+2026-03-22 13:23:18 [[32minfo[39m]: Initializing Socket.IO...
+2026-03-22 13:23:19 [[32minfo[39m]: User 3nRt1V02NgOBVhRK6aQbVlyI5zk6NtLE joined their private room
+2026-03-22 13:23:19 [[32minfo[39m]: User 3nRt1V02NgOBVhRK6aQbVlyI5zk6NtLE joined their private room
+2026-03-22 13:23:21 [[32minfo[39m]: User 3nRt1V02NgOBVhRK6aQbVlyI5zk6NtLE joined their private room
+2026-03-22 13:23:21 [[32minfo[39m]: User 1I5VWo23d0CVesqAyzyjNesnDAxMIOxA joined their private room
+2026-03-22 13:23:27 [[32minfo[39m]: Socket disconnected: IoNwfxw_UyShPkJBAAAF
+2026-03-22 13:23:27 [[32minfo[39m]: Socket disconnected: eDGdjMqpEliOXd18AAAB
+2026-03-22 13:26:27 [[32minfo[39m]: Socket disconnected: S3rmDFUM_kITmGhXAAAH
+2026-03-22 13:27:11 [[32minfo[39m]: User 1I5VWo23d0CVesqAyzyjNesnDAxMIOxA joined their private room
+2026-03-22 13:27:26 [[32minfo[39m]: Socket disconnected: aGdFuD2L-Dhw2pLpAAAJ
+2026-03-22 13:27:27 [[32minfo[39m]: User 1I5VWo23d0CVesqAyzyjNesnDAxMIOxA joined their private room
+2026-03-22 13:30:29 [[31merror[39m]: TypeError: Cannot read properties of null (reading 'del')
+    at Object.markAsRead (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/module/notification/notification.service.ts:36:21)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async <anonymous> (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/module/notification/notification.controller.ts:32:18)
+    at async <anonymous> (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/utils/catchAsync.ts:6:7)
+2026-03-22 13:32:49 [[32minfo[39m]: Initializing Socket.IO...
+2026-03-22 13:32:50 [[32minfo[39m]: User 1I5VWo23d0CVesqAyzyjNesnDAxMIOxA joined their private room
+2026-03-22 13:32:51 [[32minfo[39m]: User 3nRt1V02NgOBVhRK6aQbVlyI5zk6NtLE joined their private room
+2026-03-22 13:32:52 [[31merror[39m]: TypeError: Cannot read properties of null (reading 'del')
+    at Object.markAsRead (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/module/notification/notification.service.ts:36:21)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async <anonymous> (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/module/notification/notification.controller.ts:32:18)
+    at async <anonymous> (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/utils/catchAsync.ts:6:7)
+2026-03-22 13:33:24 [[32minfo[39m]: Initializing Socket.IO...
+2026-03-22 13:33:25 [[32minfo[39m]: User 3nRt1V02NgOBVhRK6aQbVlyI5zk6NtLE joined their private room
+2026-03-22 13:33:27 [[32minfo[39m]: User 1I5VWo23d0CVesqAyzyjNesnDAxMIOxA joined their private room
+2026-03-22 13:34:54 [[32minfo[39m]: Initializing Socket.IO...
+2026-03-22 13:34:56 [[32minfo[39m]: User 3nRt1V02NgOBVhRK6aQbVlyI5zk6NtLE joined their private room
+2026-03-22 13:34:58 [[32minfo[39m]: User 1I5VWo23d0CVesqAyzyjNesnDAxMIOxA joined their private room
+2026-03-22 13:37:39 [[32minfo[39m]: Socket disconnected: sYTp5sunsqUKskcVAAAD
+2026-03-22 13:37:40 [[32minfo[39m]: Socket disconnected: fpaqquAE7vVE95lNAAAB
+2026-03-22 13:37:42 [[32minfo[39m]: User 1I5VWo23d0CVesqAyzyjNesnDAxMIOxA joined their private room
+2026-03-22 13:38:28 [[32minfo[39m]: Socket disconnected: 0onYz9ET4DvyFmtqAAAF
+2026-03-22 13:38:33 [[32minfo[39m]: User GrmAIBakCUpKJbwmDHCOkBdSPR2Pp4dU joined their private room
+2026-03-22 13:38:39 [[32minfo[39m]: Socket disconnected: 8gQF9AmuJxyRUk4MAAAH
+2026-03-22 13:38:39 [[32minfo[39m]: User 1I5VWo23d0CVesqAyzyjNesnDAxMIOxA joined their private room
+2026-03-22 13:38:42 [[32minfo[39m]: Socket disconnected: y_Bq3PREX7aRnWVqAAAJ
+2026-03-22 13:38:42 [[32minfo[39m]: User 1I5VWo23d0CVesqAyzyjNesnDAxMIOxA joined their private room
+2026-03-22 13:40:22 [[32minfo[39m]: Initializing Socket.IO...
+2026-03-22 13:40:23 [[32minfo[39m]: User 1I5VWo23d0CVesqAyzyjNesnDAxMIOxA joined their private room
+2026-03-22 13:40:23 [[32minfo[39m]: Socket disconnected: HJt41FnlwlubF7RgAAAB
+2026-03-22 13:40:25 [[32minfo[39m]: User 1I5VWo23d0CVesqAyzyjNesnDAxMIOxA joined their private room
+2026-03-22 13:44:00 [[32minfo[39m]: Socket disconnected: BzSP0JqO8mAqoCHGAAAD
+2026-03-22 13:44:45 [[32minfo[39m]: User 1I5VWo23d0CVesqAyzyjNesnDAxMIOxA joined their private room
+2026-03-22 13:46:41 [[32minfo[39m]: Socket disconnected: _eVSwCXY-ETJ3Fl7AAAF
+2026-03-22 13:46:41 [[32minfo[39m]: User 1I5VWo23d0CVesqAyzyjNesnDAxMIOxA joined their private room
+2026-03-22 13:47:32 [[32minfo[39m]: Socket disconnected: 1tvaGeqR4kE4kP11AAAH
+2026-03-22 13:47:33 [[32minfo[39m]: User 1I5VWo23d0CVesqAyzyjNesnDAxMIOxA joined their private room
+2026-03-22 13:53:45 [[32minfo[39m]: Socket disconnected: WNZGXaP0UvKMUeicAAAJ
+2026-03-22 13:53:55 [[32minfo[39m]: User 1I5VWo23d0CVesqAyzyjNesnDAxMIOxA joined their private room
+2026-03-22 13:55:39 [[32minfo[39m]: Socket disconnected: Bc8u5r0_OgmDPxneAAAL
+2026-03-22 13:55:39 [[32minfo[39m]: User 1I5VWo23d0CVesqAyzyjNesnDAxMIOxA joined their private room
+2026-03-22 13:56:11 [[32minfo[39m]: Socket disconnected: YH-G6Uewz_tupNEiAAAN
+2026-03-22 13:56:14 [[32minfo[39m]: User 1I5VWo23d0CVesqAyzyjNesnDAxMIOxA joined their private room
+2026-03-22 13:56:14 [[32minfo[39m]: Socket disconnected: 5JlsToI_xf9VgWjrAAAP
+2026-03-22 13:56:17 [[32minfo[39m]: User 1I5VWo23d0CVesqAyzyjNesnDAxMIOxA joined their private room
+2026-03-22 13:57:59 [[32minfo[39m]: Socket disconnected: H2wvhYBnPJzO_3a4AAAR
+2026-03-22 13:57:59 [[32minfo[39m]: User 1I5VWo23d0CVesqAyzyjNesnDAxMIOxA joined their private room
+2026-03-22 13:58:39 [[32minfo[39m]: Socket disconnected: dtNUI796-zEfoYV7AAAT
+2026-03-22 13:58:39 [[32minfo[39m]: User 1I5VWo23d0CVesqAyzyjNesnDAxMIOxA joined their private room
+2026-03-22 13:59:47 [[32minfo[39m]: Socket disconnected: I-O-hUhWeaLpdiN8AAAV
+2026-03-22 13:59:47 [[32minfo[39m]: User 1I5VWo23d0CVesqAyzyjNesnDAxMIOxA joined their private room
+2026-03-22 14:02:07 [[32minfo[39m]: Socket disconnected: LX4IsgKGyHIQ1z1rAAAX
+2026-03-22 14:02:08 [[32minfo[39m]: User 1I5VWo23d0CVesqAyzyjNesnDAxMIOxA joined their private room
+2026-03-22 14:06:10 [[32minfo[39m]: Socket disconnected: czH6oVZ-yzK7cQ-VAAAZ
+2026-03-22 14:06:10 [[32minfo[39m]: User 1I5VWo23d0CVesqAyzyjNesnDAxMIOxA joined their private room
+2026-03-22 14:09:45 [[32minfo[39m]: Socket disconnected: hm3NKyfIxd530TJrAAAb
+2026-03-22 14:10:06 [[32minfo[39m]: User yistShTPH0G07PjZpz9Myr9aM3Oy6Gcm joined their private room
+2026-03-22 14:10:30 [[32minfo[39m]: User 3nRt1V02NgOBVhRK6aQbVlyI5zk6NtLE joined their private room
+2026-03-22 14:10:49 [[32minfo[39m]: Socket disconnected: 9j34Eod3mjpxjPmaAAAf
+2026-03-22 14:10:49 [[32minfo[39m]: User 3nRt1V02NgOBVhRK6aQbVlyI5zk6NtLE joined their private room
+2026-03-22 14:10:54 [[32minfo[39m]: Socket disconnected: K22fFAuemFG32RsSAAAd
+2026-03-22 14:10:55 [[32minfo[39m]: User yistShTPH0G07PjZpz9Myr9aM3Oy6Gcm joined their private room
+2026-03-22 14:11:00 [[32minfo[39m]: Socket disconnected: jVvv1aio4YTDvyinAAAj
+2026-03-22 14:11:00 [[32minfo[39m]: User yistShTPH0G07PjZpz9Myr9aM3Oy6Gcm joined their private room
+2026-03-22 14:15:25 [[32minfo[39m]: Socket disconnected: O-j3p16H00aOKE_NAAAh
+2026-03-22 14:15:25 [[32minfo[39m]: User 3nRt1V02NgOBVhRK6aQbVlyI5zk6NtLE joined their private room
+2026-03-23 04:03:46 [[32minfo[39m]: Socket disconnected: Xacn5GbJitUdRpIHAAAn
+2026-03-23 15:28:14 [[32minfo[39m]: Initializing Socket.IO...
+2026-03-23 15:29:07 [[31merror[39m]: PrismaClientKnownRequestError: 
+Invalid `prisma.user.findMany()` invocation in
+/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/module/user/user.service.ts:12:36
+
+   9   ];
+  10 }
+  11 
+→ 12 const result = await prisma.user.findMany(
+
+    at Gr.handleRequestError (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/generated/prisma/client/runtime/client.js:69:8286)
+    at Gr.handleAndLogRequestError (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/generated/prisma/client/runtime/client.js:69:7581)
+    at Gr.request (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/generated/prisma/client/runtime/client.js:69:7288)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async a (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/generated/prisma/client/runtime/client.js:79:6730)
+    at async Object.getAllUsers (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/module/user/user.service.ts:12:18)
+    at async <anonymous> (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/module/user/user.controller.ts:10:18)
+    at async <anonymous> (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/utils/catchAsync.ts:6:7)
+2026-03-23 15:29:07 [[31merror[39m]: PrismaClientKnownRequestError: 
+Invalid `prisma.post.findMany()` invocation in
+/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/module/post/post.service.ts:88:36
+
+  85 
+  86 where.status = 'ACTIVE';
+  87 
+→ 88 const result = await prisma.post.findMany(
+
+    at Gr.handleRequestError (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/generated/prisma/client/runtime/client.js:69:8286)
+    at Gr.handleAndLogRequestError (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/generated/prisma/client/runtime/client.js:69:7581)
+    at Gr.request (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/generated/prisma/client/runtime/client.js:69:7288)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async a (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/generated/prisma/client/runtime/client.js:79:6730)
+    at async Object.getAllPosts (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/module/post/post.service.ts:88:18)
+    at async <anonymous> (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/module/post/post.controller.ts:29:18)
+    at async <anonymous> (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/utils/catchAsync.ts:6:7)
+2026-03-23 15:29:07 [[31merror[39m]: PrismaClientKnownRequestError: 
+Invalid `prisma.post.findMany()` invocation in
+/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/module/post/post.service.ts:88:36
+
+  85 
+  86 where.status = 'ACTIVE';
+  87 
+→ 88 const result = await prisma.post.findMany(
+
+    at Gr.handleRequestError (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/generated/prisma/client/runtime/client.js:69:8286)
+    at Gr.handleAndLogRequestError (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/generated/prisma/client/runtime/client.js:69:7581)
+    at Gr.request (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/generated/prisma/client/runtime/client.js:69:7288)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async a (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/generated/prisma/client/runtime/client.js:79:6730)
+    at async Object.getAllPosts (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/module/post/post.service.ts:88:18)
+    at async <anonymous> (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/module/post/post.controller.ts:29:18)
+    at async <anonymous> (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/utils/catchAsync.ts:6:7)
+2026-03-23 15:29:08 [[31merror[39m]: PrismaClientKnownRequestError: 
+Invalid `prisma.user.findMany()` invocation in
+/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/module/user/user.service.ts:12:36
+
+   9   ];
+  10 }
+  11 
+→ 12 const result = await prisma.user.findMany(
+
+    at Gr.handleRequestError (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/generated/prisma/client/runtime/client.js:69:8286)
+    at Gr.handleAndLogRequestError (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/generated/prisma/client/runtime/client.js:69:7581)
+    at Gr.request (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/generated/prisma/client/runtime/client.js:69:7288)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async a (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/generated/prisma/client/runtime/client.js:79:6730)
+    at async Object.getAllUsers (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/module/user/user.service.ts:12:18)
+    at async <anonymous> (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/module/user/user.controller.ts:10:18)
+    at async <anonymous> (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/utils/catchAsync.ts:6:7)
+2026-03-23 15:29:10 [[31merror[39m]: PrismaClientKnownRequestError: 
+Invalid `prisma.user.findMany()` invocation in
+/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/module/user/user.service.ts:12:36
+
+   9   ];
+  10 }
+  11 
+→ 12 const result = await prisma.user.findMany(
+
+    at Gr.handleRequestError (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/generated/prisma/client/runtime/client.js:69:8286)
+    at Gr.handleAndLogRequestError (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/generated/prisma/client/runtime/client.js:69:7581)
+    at Gr.request (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/generated/prisma/client/runtime/client.js:69:7288)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async a (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/generated/prisma/client/runtime/client.js:79:6730)
+    at async Object.getAllUsers (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/module/user/user.service.ts:12:18)
+    at async <anonymous> (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/module/user/user.controller.ts:10:18)
+    at async <anonymous> (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/utils/catchAsync.ts:6:7)
+2026-03-23 15:29:15 [[31merror[39m]: PrismaClientKnownRequestError: 
+Invalid `prisma.user.findFirst()` invocation:
+
+
+
+    at Gr.handleRequestError (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/generated/prisma/client/runtime/client.js:69:8286)
+    at Gr.handleAndLogRequestError (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/generated/prisma/client/runtime/client.js:69:7581)
+    at Gr.request (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/generated/prisma/client/runtime/client.js:69:7288)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async a (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/generated/prisma/client/runtime/client.js:79:6730)
+    at async Object.findOne (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/node_modules/.pnpm/@better-auth+prisma-adapter@1.5.5_@better-auth+core@1.5.5_@better-auth+utils@0.3.1_@bet_2c568f04acd6fded8552a3d76ae5aa90/node_modules/@better-auth/prisma-adapter/src/prisma-adapter.ts:404:21)
+    at async Object.findOne (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/node_modules/.pnpm/@better-auth+core@1.5.5_@better-auth+utils@0.3.1_@better-fetch+fetch@1.1.21_better-call_74427ff2582c829e84d27574e890d3db/node_modules/@better-auth/core/src/db/adapter/factory.ts:1066:17)
+    at async Object.findUserByEmail (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/node_modules/.pnpm/better-auth@1.5.5_@prisma+client@7.5.0_prisma@7.5.0_@types+react@19.2.14_react-dom@19.2_be99b374499587e8f178a6de2ba3112a/node_modules/better-auth/src/db/internal-adapter.ts:858:19)
+    at async <anonymous> (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/node_modules/.pnpm/better-auth@1.5.5_@prisma+client@7.5.0_prisma@7.5.0_@types+react@19.2.14_react-dom@19.2_be99b374499587e8f178a6de2ba3112a/node_modules/better-auth/src/api/routes/sign-in.ts:485:17)
+    at async internalHandler (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/node_modules/.pnpm/better-call@1.3.2_zod@4.3.6/node_modules/better-call/src/endpoint.ts:607:20)
+2026-03-23 15:29:40 [[32minfo[39m]: User 1I5VWo23d0CVesqAyzyjNesnDAxMIOxA joined their private room
+2026-03-23 15:29:46 [[32minfo[39m]: Socket disconnected: 53EX5lwbbG3MBQCzAAAB
+2026-03-23 15:29:47 [[32minfo[39m]: User 1I5VWo23d0CVesqAyzyjNesnDAxMIOxA joined their private room
+2026-03-23 15:33:58 [[31merror[39m]: Error: You are not authorized
+    at <anonymous> (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/middleware/auth.ts:32:15)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+2026-03-23 15:33:58 [[31merror[39m]: Error: You are not authorized
+    at <anonymous> (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/middleware/auth.ts:32:15)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+2026-03-23 15:33:58 [[32minfo[39m]: Socket disconnected: Yi2_4yc9fESS5YTvAAAD
+2026-03-23 15:34:02 [[31merror[39m]: Error: You are not authorized
+    at <anonymous> (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/middleware/auth.ts:32:15)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+2026-03-23 15:34:03 [[31merror[39m]: Error: You are not authorized
+    at <anonymous> (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/middleware/auth.ts:32:15)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+2026-03-23 15:34:07 [[31merror[39m]: Error: You are not authorized
+    at <anonymous> (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/middleware/auth.ts:32:15)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+2026-03-23 15:34:07 [[31merror[39m]: Error: You are not authorized
+    at <anonymous> (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/middleware/auth.ts:32:15)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+2026-03-23 15:34:07 [[31merror[39m]: Error: You are not authorized
+    at <anonymous> (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/middleware/auth.ts:32:15)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+2026-03-23 15:34:12 [[31merror[39m]: Error: You are not authorized
+    at <anonymous> (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/middleware/auth.ts:32:15)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+2026-03-23 15:34:15 [[32minfo[39m]: User 1I5VWo23d0CVesqAyzyjNesnDAxMIOxA joined their private room
+2026-03-23 15:35:49 [[32minfo[39m]: Socket disconnected: uqiBE7_4PSs939xGAAAF
+2026-03-23 15:35:50 [[32minfo[39m]: User 1I5VWo23d0CVesqAyzyjNesnDAxMIOxA joined their private room
+2026-03-23 15:36:35 [[31merror[39m]: Error: Invalid file type. Only images and MP4/MOV videos are allowed.
+    at fileFilter (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/middleware/multer.ts:34:12)
+    at wrappedFileFilter (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/node_modules/.pnpm/multer@2.1.1/node_modules/multer/index.js:45:7)
+    at Multipart.<anonymous> (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/node_modules/.pnpm/multer@2.1.1/node_modules/multer/lib/make-middleware.js:183:7)
+    at Multipart.emit (node:events:508:28)
+    at HeaderParser.cb (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/node_modules/.pnpm/busboy@1.6.0/node_modules/busboy/lib/types/multipart.js:358:14)
+    at HeaderParser.push (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/node_modules/.pnpm/busboy@1.6.0/node_modules/busboy/lib/types/multipart.js:162:20)
+    at SBMH.ssCb [as _cb] (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/node_modules/.pnpm/busboy@1.6.0/node_modules/busboy/lib/types/multipart.js:394:37)
+    at feed (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/node_modules/.pnpm/streamsearch@1.1.0/node_modules/streamsearch/lib/sbmh.js:248:10)
+    at SBMH.push (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/node_modules/.pnpm/streamsearch@1.1.0/node_modules/streamsearch/lib/sbmh.js:104:16)
+    at Multipart._write (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/node_modules/.pnpm/busboy@1.6.0/node_modules/busboy/lib/types/multipart.js:567:19)
+2026-03-23 15:37:09 [[32minfo[39m]: Socket disconnected: yN8W3D78l5aaRybMAAAH
+2026-03-23 15:37:09 [[32minfo[39m]: User 1I5VWo23d0CVesqAyzyjNesnDAxMIOxA joined their private room
+2026-03-23 19:10:42 [[32minfo[39m]: Socket disconnected: 22NvlA8QS2VfM6ItAAAJ

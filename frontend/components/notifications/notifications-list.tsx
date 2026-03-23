@@ -1,10 +1,13 @@
 "use client"
 
-import { Heart, MessageCircle, UserPlus, ShieldAlert, Loader2 } from "lucide-react"
+import { Heart, MessageCircle, UserPlus, ShieldAlert, Loader2, Check, X } from "lucide-react"
 import { Avatar, AvatarFallback } from "@/components/ui/avatar"
 import { Button } from "@/components/ui/button"
 import { useNotifications, useMarkNotificationAsRead } from "@/hooks/use-notifications"
 import { formatDistanceToNow } from "date-fns"
+import { useMutation, useQueryClient } from "@tanstack/react-query"
+import { acceptUser, unfollowUser } from "@/services/follow.service"
+import { toast } from "sonner"
 
 const iconMap = {
   LIKE: { icon: Heart, color: "text-rose-500", bgColor: "bg-rose-500/10" },
@@ -12,11 +15,33 @@ const iconMap = {
   MESSAGE: { icon: MessageCircle, color: "text-blue-500", bgColor: "bg-blue-500/10" },
   FOLLOW: { icon: UserPlus, color: "text-emerald-500", bgColor: "bg-emerald-500/10" },
   ANNOUNCEMENT: { icon: ShieldAlert, color: "text-amber-500", bgColor: "bg-amber-500/10" },
+  FRIEND_REQUEST: { icon: UserPlus, color: "text-primary", bgColor: "bg-primary/10" },
+  FRIEND_ACCEPT: { icon: UserPlus, color: "text-emerald-500", bgColor: "bg-emerald-500/10" },
 }
 
 export function NotificationsList() {
   const { data: notifications, isLoading, isError } = useNotifications()
   const { mutate: markAsRead } = useMarkNotificationAsRead()
+  const queryClient = useQueryClient();
+
+  const acceptMutation = useMutation({
+    mutationFn: (senderId: string) => acceptUser(senderId),
+    onSuccess: () => {
+      toast.success("Request accepted!");
+      queryClient.invalidateQueries({ queryKey: ["notifications"] });
+      queryClient.invalidateQueries({ queryKey: ["users"] });
+    },
+    onError: () => toast.error("Failed to accept request"),
+  });
+
+  const declineMutation = useMutation({
+    mutationFn: (senderId: string) => unfollowUser(senderId), // SenderId is the one who followed us
+    onSuccess: () => {
+      toast.success("Request declined.");
+      queryClient.invalidateQueries({ queryKey: ["notifications"] });
+      queryClient.invalidateQueries({ queryKey: ["users"] });
+    },
+  });
 
   if (isLoading) {
     return (
@@ -28,15 +53,18 @@ export function NotificationsList() {
   }
 
   if (isError) {
-    return (
-      <div className="p-12 text-center text-muted-foreground border border-dashed border-edge rounded-2xl bg-muted/5">
-        <div className="size-16 rounded-full bg-muted/20 flex items-center justify-center mx-auto mb-4">
-           <ShieldAlert className="size-8 text-destructive/20" />
+    const isActuallyError = !notifications; // Fallback to check if it's truly an error or just empty
+    if (isActuallyError) {
+      return (
+        <div className="p-12 text-center text-muted-foreground border border-dashed border-edge rounded-2xl bg-muted/5">
+          <div className="size-16 rounded-full bg-muted/20 flex items-center justify-center mx-auto mb-4">
+             <ShieldAlert className="size-8 text-destructive/20" />
+          </div>
+          <p className="text-sm font-semibold uppercase tracking-widest">Connection Failure</p>
+          <p className="text-xs mt-1">Unable to retrieve system notifications.</p>
         </div>
-        <p className="text-sm font-semibold uppercase tracking-widest">Connection Failure</p>
-        <p className="text-xs mt-1">Unable to retrieve system notifications.</p>
-      </div>
-    )
+      )
+    }
   }
 
   if (!notifications?.length) {
@@ -53,7 +81,7 @@ export function NotificationsList() {
 
   return (
     <div className="flex flex-col gap-4">
-      {notifications.map((notif) => {
+      {notifications.map((notif: any) => {
         const config = iconMap[notif.type as keyof typeof iconMap] || iconMap.ANNOUNCEMENT
         const Icon = config.icon
         
@@ -80,6 +108,29 @@ export function NotificationsList() {
               <p className="text-sm leading-relaxed text-foreground/90 font-medium">
                 {notif.message}
               </p>
+
+              {notif.type === 'FRIEND_REQUEST' && (
+                <div className="flex items-center gap-2 mt-2 mb-1">
+                  <Button 
+                    size="sm" 
+                    className="h-8 rounded-xl text-xs font-bold shadow-sm"
+                    onClick={(e) => { e.stopPropagation(); acceptMutation.mutate(notif.referenceId) }}
+                    disabled={acceptMutation.isPending || declineMutation.isPending}
+                  >
+                    {acceptMutation.isPending ? <Loader2 className="h-3 w-3 animate-spin" /> : <Check className="h-3 w-3 mr-1" />} Accept
+                  </Button>
+                  <Button 
+                    size="sm" 
+                    variant="secondary"
+                    className="h-8 rounded-xl text-xs font-bold bg-muted hover:bg-muted/80"
+                    onClick={(e) => { e.stopPropagation(); declineMutation.mutate(notif.referenceId) }}
+                    disabled={acceptMutation.isPending || declineMutation.isPending}
+                  >
+                    {declineMutation.isPending ? <Loader2 className="h-3 w-3 animate-spin" /> : <X className="h-3 w-3 mr-1" />} Decline
+                  </Button>
+                </div>
+              )}
+
               <div className="flex items-center gap-2">
                  <span className="text-[9px] text-muted-foreground font-semibold uppercase tracking-widest leading-none">
                     {formatDistanceToNow(new Date(notif.createdAt), { addSuffix: true })}

@@ -8,6 +8,7 @@ export interface UserSuggestion {
   image?: string;
   meta?: any;
   isFollowing?: boolean;
+  isFriend?: boolean;
 }
 
 export type FetchUsersResponse = {
@@ -35,4 +36,9 @@ export const getUsers = async (params: { page?: number; limit?: number; searchTe
   }
 
   return [];
+};
+
+export const updateUserProfile = async (id: string, profileData: { name?: string; bio?: string; avatarUrl?: string }) => {
+  const { data } = await apiClient.patch(`/users/${id}`, profileData);
+  return data;
 };

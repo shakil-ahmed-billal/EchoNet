@@ -2,10 +2,12 @@ import { Request, Response } from 'express';
 import httpStatus from 'http-status';
 import catchAsync from '../../utils/catchAsync.js';
 import sendResponse from '../../utils/sendResponse.js';
+import ApiError from '../../errorHelpers/ApiError.js';
 import { UserServices } from './user.service.js';
 
 const getAllUsers = catchAsync(async (req: Request, res: Response) => {
-  const result = await UserServices.getAllUsers(req.query);
+  const currentUserId = (req as any).user?.id;
+  const result = await UserServices.getAllUsers(req.query, currentUserId);
   sendResponse(res, {
     statusCode: httpStatus.OK,
     success: true,
@@ -28,11 +30,18 @@ const getUserById = catchAsync(async (req: Request, res: Response) => {
 
 const updateUser = catchAsync(async (req: Request, res: Response) => {
   const id = req.params.id as string;
+  const loggedInUserId = (req as any).user.id;
+  const role = (req as any).user.role;
+
+  if (loggedInUserId !== id && role !== 'ADMIN') {
+     throw new ApiError(httpStatus.FORBIDDEN, 'You are not authorized to edit this profile');
+  }
+
   const result = await UserServices.updateUser(id, req.body);
   sendResponse(res, {
     statusCode: httpStatus.OK,
     success: true,
-    message: 'User updated successfully',
+    message: 'Profile updated successfully',
     data: result,
   });
 });

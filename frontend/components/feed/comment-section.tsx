@@ -6,15 +6,25 @@ import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { formatDistanceToNow } from "date-fns";
-import { Heart, MessageSquare, Loader2, Send } from "lucide-react";
+import { Heart, MessageSquare, Loader2, Send, ChevronDown } from "lucide-react";
 import { apiClient } from "@/services/api-client";
+import { useAuth } from "@/hooks/use-auth";
 import { cn } from "@/lib/utils";
+import { useMemo, useEffect } from "react";
 
 interface CommentSectionProps {
   postId: string;
+  showAll?: boolean;
 }
 
-export function CommentSection({ postId }: CommentSectionProps) {
+export function CommentSection({ postId, showAll: initialShowAll = false }: CommentSectionProps) {
+  const [internalShowAll, setInternalShowAll] = useState(initialShowAll);
+  
+  useEffect(() => {
+    setInternalShowAll(initialShowAll);
+  }, [initialShowAll]);
+  
+  const { user } = useAuth();
   const queryClient = useQueryClient();
   const [commentInput, setCommentInput] = useState("");
   const [replyingTo, setReplyingTo] = useState<string | null>(null);
@@ -26,6 +36,14 @@ export function CommentSection({ postId }: CommentSectionProps) {
       return response.data.data;
     },
   });
+
+  const displayComments = useMemo(() => {
+    if (!comments) return [];
+    if (internalShowAll) return comments;
+    return comments.slice(0, 1);
+  }, [comments, internalShowAll]);
+
+  const hasMoreComments = (comments?.length || 0) > 1 && !internalShowAll;
 
   const createCommentMutation = useMutation({
     mutationFn: async (payload: { content: string; parentId?: string }) => {
@@ -57,7 +75,15 @@ export function CommentSection({ postId }: CommentSectionProps) {
   return (
     <div className="flex flex-col gap-4">
       <div className="flex flex-col gap-4 max-h-[400px] overflow-y-auto no-scrollbar py-2">
-        {comments?.map((comment: any) => (
+        {hasMoreComments && (
+           <button 
+            onClick={() => setInternalShowAll(true)}
+            className="text-left text-xs font-bold text-muted-foreground hover:text-primary transition-colors flex items-center gap-1.5 mb-2 px-1"
+           >
+            View {comments!.length - 1} more comments <ChevronDown className="h-3 w-3" />
+           </button>
+        )}
+        {displayComments.map((comment: any) => (
           <CommentItem 
             key={comment.id} 
             comment={comment} 
@@ -86,12 +112,20 @@ export function CommentSection({ postId }: CommentSectionProps) {
           </div>
         )}
         <div className="flex items-center gap-2">
+          {user && (
+            <Avatar className="h-8 w-8 border border-edge shrink-0">
+              <AvatarImage src={user.image} alt={user.name} />
+              <AvatarFallback className="text-[10px] font-bold bg-primary/5 text-primary">
+                {user.name?.substring(0, 2).toUpperCase()}
+              </AvatarFallback>
+            </Avatar>
+          )}
           <Input 
             placeholder={replyingTo ? "Write a reply..." : "Write a comment..."}
             value={commentInput}
             onChange={(e) => setCommentInput(e.target.value)}
             onKeyDown={(e) => e.key === "Enter" && handleSendComment()}
-            className="h-9 bg-background border-edge text-sm"
+            className="h-9 bg-background border-edge text-sm rounded-full px-4"
           />
           <Button 
             size="icon-sm" 

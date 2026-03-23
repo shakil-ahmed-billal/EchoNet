@@ -10,7 +10,7 @@ import { Loader2, UserPlus, UserCheck } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 
-export function FriendCard({ user, className }: { user: UserSuggestion, className?: string }) {
+export function FriendCard({ user, className, layout = 'vertical' }: { user: UserSuggestion, className?: string, layout?: 'vertical' | 'horizontal' }) {
   const [isFollowing, setIsFollowing] = useState(user.isFollowing || false);
   const [hidden, setHidden] = useState(false);
   const queryClient = useQueryClient();
@@ -29,6 +29,47 @@ export function FriendCard({ user, className }: { user: UserSuggestion, classNam
   if (hidden) return null;
 
   const dummyAvatar = `https://api.dicebear.com/7.x/avataaars/svg?seed=${user.name}`;
+
+  if (layout === 'horizontal') {
+    return (
+      <div className={cn("bg-card border border-border/40 rounded-2xl overflow-hidden shadow-sm hover:shadow-md transition-all group flex flex-row items-center p-3 sm:p-4 gap-3 sm:gap-4", className)}>
+        <Link href={`/profile/${user.id}`} className="h-14 w-14 sm:h-16 sm:w-16 md:h-20 md:w-20 rounded-full relative overflow-hidden bg-muted shrink-0 border border-border/20">
+          <img 
+            src={user.image || user.avatarUrl || dummyAvatar} 
+            alt={user.name} 
+            className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+          />
+        </Link>
+        <div className="flex flex-col min-w-0 flex-1">
+          <Link href={`/profile/${user.id}`}>
+            <h4 className="font-bold text-[15px] sm:text-[16px] md:text-[18px] truncate hover:text-primary transition-colors leading-tight">{user.name}</h4>
+          </Link>
+          <p className="text-xs sm:text-sm text-muted-foreground mt-0.5">Suggested for you</p>
+        </div>
+        <div className="flex flex-col sm:flex-row items-center gap-2 shrink-0">
+          <Button 
+            variant={isFollowing ? "secondary" : "default"} 
+            className="h-8 sm:h-9 md:h-10 rounded-xl text-xs sm:text-[13px] font-bold shadow-sm w-[100px] sm:w-[120px]"
+            disabled={mutation.isPending}
+            onClick={() => mutation.mutate()}
+          >
+            {mutation.isPending ? <Loader2 className="h-4 w-4 animate-spin" /> : (
+              isFollowing ? <><UserCheck className="h-3.5 w-3.5 sm:h-4 sm:w-4 mr-1 sm:mr-1.5" /> Sent</> : <><UserPlus className="h-3.5 w-3.5 sm:h-4 sm:w-4 mr-1 sm:mr-1.5" /> Add Friend</>
+            )}
+          </Button>
+          {!isFollowing && (
+            <Button 
+              variant="ghost" 
+              className="h-8 sm:h-9 md:h-10 rounded-xl text-xs sm:text-[13px] font-semibold bg-muted/60 hover:bg-muted text-muted-foreground hover:text-foreground active:scale-[0.98] transition-all w-[100px] sm:w-auto"
+              onClick={() => setHidden(true)}
+            >
+              Remove
+            </Button>
+          )}
+        </div>
+      </div>
+    );
+  }
 
   return (
     <div className={cn("bg-card border border-border/40 rounded-2xl overflow-hidden shadow-sm hover:shadow-md transition-all group flex flex-col h-full", className)}>

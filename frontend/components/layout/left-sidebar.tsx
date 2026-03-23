@@ -7,7 +7,7 @@ import { cn } from "@/lib/utils";
 import { useAuth } from "@/hooks/use-auth";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Skeleton } from "@/components/ui/skeleton";
-import { Home, Compass, Bell, Mail, User, MoreHorizontal } from "lucide-react";
+import { Home, Compass, Bell, Mail, User, MoreHorizontal, Users2 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 export function LeftSidebar() {
@@ -19,36 +19,35 @@ export function LeftSidebar() {
     { title: "Discover", href: "/discover", icon: Compass },
     { title: "Notifications", href: "/notifications", icon: Bell },
     { title: "Messages", href: "/messages", icon: Mail },
+    { title: "Friends", href: "/friends", icon: Users2 },
     { title: "Profile", href: user ? `/profile/${user.id}` : "/login", icon: User },
     { title: "More", href: "/more", icon: MoreHorizontal },
   ];
 
   return (
     <aside className="sticky top-20 flex flex-col bg-background px-1 py-0 overflow-y-auto h-[calc(100vh-100px)]">
-      {/* Profile Summary Card - Premium Look */}
-      {isAuthenticated && user && (
-        <div className="mb-6 px-1">
-          <Link 
-            href={`/profile/${user.id}`}
-            className="flex items-center gap-3 p-2.5 rounded-2xl bg-card border border-border/40 hover:bg-card/60 hover:border-border/60 transition-all group shadow-sm"
-          >
-            <Avatar className="h-10 w-10 border-2 border-primary/20 group-hover:border-primary/40 transition-colors shadow-inner">
-              <AvatarImage src={user.image} alt={user.name} />
-              <AvatarFallback className="bg-primary/5 text-primary text-base font-bold">
-                {user.name?.substring(0, 2).toUpperCase()}
-              </AvatarFallback>
-            </Avatar>
-            <div className="flex flex-col min-w-0 gap-0.5">
-              <p className="font-bold text-xs text-foreground truncate">{user.name}</p>
-              <p className="text-[10px] text-muted-foreground font-medium">View Profile</p>
-            </div>
-          </Link>
-        </div>
-      )}
-
       {/* Navigation */}
       <nav className="flex-1">
         <ul className="space-y-1">
+          {isAuthenticated && user && (
+            <li className="mb-2">
+              <Link
+                href={`/profile/${user.id}`}
+                className={cn(
+                  "flex items-center gap-3.5 px-4 py-3 rounded-xl text-sm font-bold transition-all group hover:bg-muted/50 text-foreground",
+                  pathname === `/profile/${user.id}` && "bg-primary/10 text-primary shadow-sm"
+                )}
+              >
+                <Avatar className="h-6 w-6 ring-2 ring-primary/20 group-hover:ring-primary/40 transition-all shrink-0">
+                  <AvatarImage src={user.image} alt={user.name} />
+                  <AvatarFallback className="bg-primary/5 text-primary text-[8px] font-bold">
+                    {user.name?.substring(0, 2).toUpperCase()}
+                  </AvatarFallback>
+                </Avatar>
+                <span className="truncate">{user.name}</span>
+              </Link>
+            </li>
+          )}
           {navItems.map((item) => {
             const isActive = pathname === item.href || (item.href !== "/" && pathname?.startsWith(item.href));
             const Icon = item.icon;
