@@ -517,3 +517,133 @@
     at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
     at async <anonymous> (C:\Shakil Dev\EchoNet\backend\src\app\module\auth\auth.controller.ts:178:20)
     at async <anonymous> (C:\Shakil Dev\EchoNet\backend\src\app\utils\catchAsync.ts:6:7)
+2026-03-27 03:32:54 [[32minfo[39m]: Initializing Socket.IO...
+2026-03-27 03:32:54 [[32minfo[39m]: User HudJwZLQ3tfbYVDeoGAUroO869vtobrA joined their private room
+2026-03-27 03:32:54 [[32minfo[39m]: User UaOUgk5sbp7i90ZEbvVARvmcvzV9GnhW joined their private room
+2026-03-27 03:32:55 [[32minfo[39m]: User WAAmOYlXnio7cLlAWI3oiMD7ECRohRhR joined their private room
+2026-03-27 03:32:55 [[32minfo[39m]: User UaOUgk5sbp7i90ZEbvVARvmcvzV9GnhW joined group_f4a54ed1-8ca0-4cc0-ac13-e2059fd48c16
+2026-03-27 03:32:55 [[32minfo[39m]: User HudJwZLQ3tfbYVDeoGAUroO869vtobrA joined group_f4a54ed1-8ca0-4cc0-ac13-e2059fd48c16
+2026-03-27 03:32:55 [[32minfo[39m]: User WAAmOYlXnio7cLlAWI3oiMD7ECRohRhR joined group_f4a54ed1-8ca0-4cc0-ac13-e2059fd48c16
+2026-03-27 03:32:59 [[32minfo[39m]: User HudJwZLQ3tfbYVDeoGAUroO869vtobrA joined their private room
+2026-03-27 03:32:59 [[32minfo[39m]: User HudJwZLQ3tfbYVDeoGAUroO869vtobrA joined group_f4a54ed1-8ca0-4cc0-ac13-e2059fd48c16
+2026-03-27 03:33:39 [[32minfo[39m]: Socket disconnected: LG8ROPs8vcpTxqyMAAAI
+2026-03-27 03:33:39 [[32minfo[39m]: Socket disconnected: BVGogYLtbz58p16FAAAC
+2026-03-27 03:33:40 [[32minfo[39m]: User HudJwZLQ3tfbYVDeoGAUroO869vtobrA joined their private room
+2026-03-27 03:33:40 [[32minfo[39m]: User HudJwZLQ3tfbYVDeoGAUroO869vtobrA joined group_f4a54ed1-8ca0-4cc0-ac13-e2059fd48c16
+2026-03-27 03:33:41 [[32minfo[39m]: Socket disconnected: D54w-GYfCUfa7RNSAAAG
+2026-03-27 03:33:41 [[32minfo[39m]: Socket disconnected: mAr60SVlOpbfgr3GAAAK
+2026-03-27 03:33:43 [[32minfo[39m]: Socket disconnected: J4DHXaOGxq0F-XTqAAAF
+2026-03-27 03:33:46 [[32minfo[39m]: User HudJwZLQ3tfbYVDeoGAUroO869vtobrA joined their private room
+2026-03-27 03:33:46 [[32minfo[39m]: User HudJwZLQ3tfbYVDeoGAUroO869vtobrA joined group_f4a54ed1-8ca0-4cc0-ac13-e2059fd48c16
+2026-03-27 03:33:51 [[32minfo[39m]: User WAAmOYlXnio7cLlAWI3oiMD7ECRohRhR joined their private room
+2026-03-27 03:33:51 [[32minfo[39m]: User WAAmOYlXnio7cLlAWI3oiMD7ECRohRhR joined group_f4a54ed1-8ca0-4cc0-ac13-e2059fd48c16
+2026-03-27 03:33:54 [[32minfo[39m]: User HudJwZLQ3tfbYVDeoGAUroO869vtobrA joined their private room
+2026-03-27 03:33:54 [[32minfo[39m]: User HudJwZLQ3tfbYVDeoGAUroO869vtobrA joined group_f4a54ed1-8ca0-4cc0-ac13-e2059fd48c16
+2026-03-27 03:34:02 [[32minfo[39m]: User UaOUgk5sbp7i90ZEbvVARvmcvzV9GnhW joined their private room
+2026-03-27 03:34:02 [[32minfo[39m]: User UaOUgk5sbp7i90ZEbvVARvmcvzV9GnhW joined group_f4a54ed1-8ca0-4cc0-ac13-e2059fd48c16
+2026-03-27 03:34:29 [[32minfo[39m]: Initializing Socket.IO...
+2026-03-27 03:34:33 [[32minfo[39m]: User UaOUgk5sbp7i90ZEbvVARvmcvzV9GnhW joined their private room
+2026-03-27 03:34:33 [[32minfo[39m]: User UaOUgk5sbp7i90ZEbvVARvmcvzV9GnhW joined group_f4a54ed1-8ca0-4cc0-ac13-e2059fd48c16
+2026-03-27 03:34:39 [[31merror[39m]: Error: You are not authorized
+    at <anonymous> (C:\Shakil Dev\EchoNet\backend\src\app\middleware\auth.ts:32:15)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+2026-03-27 03:34:39 [[32minfo[39m]: User HudJwZLQ3tfbYVDeoGAUroO869vtobrA joined their private room
+2026-03-27 03:34:39 [[32minfo[39m]: User HudJwZLQ3tfbYVDeoGAUroO869vtobrA joined group_f4a54ed1-8ca0-4cc0-ac13-e2059fd48c16
+2026-03-27 03:34:39 [[31merror[39m]: Error: You are not authorized
+    at <anonymous> (C:\Shakil Dev\EchoNet\backend\src\app\middleware\auth.ts:32:15)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+2026-03-27 03:34:40 [[31merror[39m]: Error: You are not authorized
+    at <anonymous> (C:\Shakil Dev\EchoNet\backend\src\app\middleware\auth.ts:32:15)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+2026-03-27 03:34:47 [[31merror[39m]: Error: You are not authorized
+    at <anonymous> (C:\Shakil Dev\EchoNet\backend\src\app\middleware\auth.ts:32:15)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+2026-03-27 03:34:49 [[31merror[39m]: Error: You are not authorized
+    at <anonymous> (C:\Shakil Dev\EchoNet\backend\src\app\middleware\auth.ts:32:15)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+2026-03-27 03:34:51 [[31merror[39m]: Error: You are not authorized
+    at <anonymous> (C:\Shakil Dev\EchoNet\backend\src\app\middleware\auth.ts:32:15)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+2026-03-27 03:34:54 [[32minfo[39m]: Socket disconnected: IoTP4996HkiCt7bqAAAB
+2026-03-27 03:34:55 [[31merror[39m]: Error: You are not authorized
+    at <anonymous> (C:\Shakil Dev\EchoNet\backend\src\app\middleware\auth.ts:32:15)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+2026-03-27 03:34:56 [[32minfo[39m]: User UaOUgk5sbp7i90ZEbvVARvmcvzV9GnhW joined their private room
+2026-03-27 03:34:56 [[32minfo[39m]: User UaOUgk5sbp7i90ZEbvVARvmcvzV9GnhW joined group_f4a54ed1-8ca0-4cc0-ac13-e2059fd48c16
+2026-03-27 03:35:14 [[32minfo[39m]: Socket disconnected: 3DNsaxVE-7hlZLZdAAAD
+2026-03-27 03:35:15 [[31merror[39m]: Error: You are not authorized
+    at <anonymous> (C:\Shakil Dev\EchoNet\backend\src\app\middleware\auth.ts:32:15)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+2026-03-27 03:35:15 [[31merror[39m]: Error: You are not authorized
+    at <anonymous> (C:\Shakil Dev\EchoNet\backend\src\app\middleware\auth.ts:32:15)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+2026-03-27 03:35:15 [[32minfo[39m]: User HudJwZLQ3tfbYVDeoGAUroO869vtobrA joined their private room
+2026-03-27 03:35:15 [[32minfo[39m]: User HudJwZLQ3tfbYVDeoGAUroO869vtobrA joined group_f4a54ed1-8ca0-4cc0-ac13-e2059fd48c16
+2026-03-27 03:35:16 [[31merror[39m]: Error: You are not authorized
+    at <anonymous> (C:\Shakil Dev\EchoNet\backend\src\app\middleware\auth.ts:32:15)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+2026-03-27 03:35:18 [[31merror[39m]: Error: You are not authorized
+    at <anonymous> (C:\Shakil Dev\EchoNet\backend\src\app\middleware\auth.ts:32:15)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+2026-03-27 03:35:22 [[31merror[39m]: Error: You are not authorized
+    at <anonymous> (C:\Shakil Dev\EchoNet\backend\src\app\middleware\auth.ts:32:15)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+2026-03-27 03:35:54 [[31merror[39m]: Error: You are not authorized
+    at <anonymous> (C:\Shakil Dev\EchoNet\backend\src\app\middleware\auth.ts:32:15)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+2026-03-27 03:36:07 [[31merror[39m]: Error: You are not authorized
+    at <anonymous> (C:\Shakil Dev\EchoNet\backend\src\app\middleware\auth.ts:32:15)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+2026-03-27 03:36:08 [[31merror[39m]: Error: You are not authorized
+    at <anonymous> (C:\Shakil Dev\EchoNet\backend\src\app\middleware\auth.ts:32:15)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+2026-03-27 03:36:10 [[31merror[39m]: Error: You are not authorized
+    at <anonymous> (C:\Shakil Dev\EchoNet\backend\src\app\middleware\auth.ts:32:15)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+2026-03-27 03:36:14 [[31merror[39m]: Error: You are not authorized
+    at <anonymous> (C:\Shakil Dev\EchoNet\backend\src\app\middleware\auth.ts:32:15)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+2026-03-27 03:37:14 [[31merror[39m]: Error: You are not authorized
+    at <anonymous> (C:\Shakil Dev\EchoNet\backend\src\app\middleware\auth.ts:32:15)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+2026-03-27 03:37:15 [[31merror[39m]: Error: You are not authorized
+    at <anonymous> (C:\Shakil Dev\EchoNet\backend\src\app\middleware\auth.ts:32:15)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+2026-03-27 03:37:17 [[31merror[39m]: Error: You are not authorized
+    at <anonymous> (C:\Shakil Dev\EchoNet\backend\src\app\middleware\auth.ts:32:15)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+2026-03-27 03:37:21 [[31merror[39m]: Error: You are not authorized
+    at <anonymous> (C:\Shakil Dev\EchoNet\backend\src\app\middleware\auth.ts:32:15)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+2026-03-27 03:37:23 [[32minfo[39m]: Socket disconnected: LwS6Oj9lsl1WaxeJAAAH
+2026-03-27 03:37:25 [[32minfo[39m]: User HudJwZLQ3tfbYVDeoGAUroO869vtobrA joined their private room
+2026-03-27 03:37:25 [[32minfo[39m]: User HudJwZLQ3tfbYVDeoGAUroO869vtobrA joined group_f4a54ed1-8ca0-4cc0-ac13-e2059fd48c16
+2026-03-27 03:37:25 [[32minfo[39m]: Socket disconnected: lrgKJ9Jy9-q8HDgSAAAJ
+2026-03-27 03:37:25 [[32minfo[39m]: Socket disconnected: swd1_rEcNp06WnIsAAAF
+2026-03-27 03:37:27 [[31merror[39m]: Error: You are not authorized
+    at <anonymous> (C:\Shakil Dev\EchoNet\backend\src\app\middleware\auth.ts:32:15)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+2026-03-27 03:37:27 [[31merror[39m]: Error: You are not authorized
+    at <anonymous> (C:\Shakil Dev\EchoNet\backend\src\app\middleware\auth.ts:32:15)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+2026-03-27 03:37:28 [[32minfo[39m]: User HudJwZLQ3tfbYVDeoGAUroO869vtobrA joined their private room
+2026-03-27 03:37:28 [[32minfo[39m]: User HudJwZLQ3tfbYVDeoGAUroO869vtobrA joined group_f4a54ed1-8ca0-4cc0-ac13-e2059fd48c16
+2026-03-27 03:37:29 [[31merror[39m]: Error: You are not authorized
+    at <anonymous> (C:\Shakil Dev\EchoNet\backend\src\app\middleware\auth.ts:32:15)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+2026-03-27 03:37:29 [[31merror[39m]: Error: You are not authorized
+    at <anonymous> (C:\Shakil Dev\EchoNet\backend\src\app\middleware\auth.ts:32:15)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+2026-03-27 03:37:30 [[32minfo[39m]: User HudJwZLQ3tfbYVDeoGAUroO869vtobrA joined their private room
+2026-03-27 03:37:30 [[32minfo[39m]: User HudJwZLQ3tfbYVDeoGAUroO869vtobrA joined group_f4a54ed1-8ca0-4cc0-ac13-e2059fd48c16
+2026-03-27 03:37:30 [[32minfo[39m]: User WAAmOYlXnio7cLlAWI3oiMD7ECRohRhR joined their private room
+2026-03-27 03:37:30 [[32minfo[39m]: User WAAmOYlXnio7cLlAWI3oiMD7ECRohRhR joined group_f4a54ed1-8ca0-4cc0-ac13-e2059fd48c16
+2026-03-27 03:37:31 [[31merror[39m]: Error: You are not authorized
+    at <anonymous> (C:\Shakil Dev\EchoNet\backend\src\app\middleware\auth.ts:32:15)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+2026-03-27 03:37:35 [[31merror[39m]: Error: You are not authorized
+    at <anonymous> (C:\Shakil Dev\EchoNet\backend\src\app\middleware\auth.ts:32:15)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+2026-03-27 03:38:25 [[31merror[39m]: Error: You are not authorized
+    at <anonymous> (C:\Shakil Dev\EchoNet\backend\src\app\middleware\auth.ts:32:15)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)

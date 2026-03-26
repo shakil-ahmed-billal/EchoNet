@@ -30,8 +30,8 @@ export async function getChatHistory(otherUserId: string) {
   }
 }
 
-export async function sendMessage(receiverId: string, content: string) {
-  const response = await httpClient.post<any>("/messages", { receiverId, content })
+export async function sendMessage(payload: { receiverId?: string; groupId?: string; content: string }) {
+  const response = await httpClient.post<any>("/messages", payload)
   return response.data as Message
 }
 

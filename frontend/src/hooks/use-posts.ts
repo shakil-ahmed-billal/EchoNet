@@ -11,6 +11,7 @@ export function usePosts(discover: boolean = false, authorId?: string) {
     initialPageParam: undefined as string | undefined,
     getNextPageParam: (lastPage) => lastPage.nextCursor ?? undefined,
     retry: false,
+    staleTime: 60 * 1000, // 1 minute cache to deduplicate simultaneous requests
   })
 }
 

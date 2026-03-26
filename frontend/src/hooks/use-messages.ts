@@ -15,10 +15,11 @@ export function useSendMessage() {
   const queryClient = useQueryClient()
 
   return useMutation({
-    mutationFn: (payload: { receiverId: string; content: string }) => 
-      sendMessage(payload.receiverId, payload.content),
+    mutationFn: (payload: { receiverId?: string; groupId?: string; content: string }) => 
+      sendMessage(payload),
     onSuccess: (_, variables) => {
-      queryClient.invalidateQueries({ queryKey: ["messages", variables.receiverId] })
+      const queryKeyId = variables.groupId || variables.receiverId;
+      queryClient.invalidateQueries({ queryKey: ["messages", queryKeyId] })
     },
     onError: () => {
       toast.error("Failed to send message.")

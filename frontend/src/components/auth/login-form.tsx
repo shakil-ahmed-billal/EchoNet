@@ -20,6 +20,7 @@ import { toast } from "sonner"
 import { Loader2, Eye, EyeOff } from "lucide-react"
 import { useQueryClient } from "@tanstack/react-query"
 import { Alert, AlertDescription } from "@/components/ui/alert"
+import Link from "next/link"
 
 const loginSchema = z.object({
   email: z.string().email({ message: "Please enter a valid email address." }),
@@ -164,9 +165,9 @@ export function LoginForm({
           </Button>
           <FieldDescription className="text-center">
             Don&apos;t have an account?{" "}
-            <a href="/register" className="underline underline-offset-4 font-medium text-primary">
+            <Link href="/register" className="underline underline-offset-4 font-medium text-primary">
               Sign up
-            </a>
+            </Link>
           </FieldDescription>
         </div>
       </FieldGroup>

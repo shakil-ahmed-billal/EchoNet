@@ -144,16 +144,19 @@ export function ChatInterface() {
       if (data.from === selectedChatId) setIsTyping(false);
     };
     const handleNewMessage = (msg: any) => {
-      if (
+      const isForGroup = msg.groupId && isGroupSelected && selectedChatId === msg.groupId;
+      const isDirectMatch = !msg.groupId && !isGroupSelected && (
         (msg.senderId === selectedChatId && msg.receiverId === currentUser?.id) ||
         (msg.senderId === currentUser?.id && msg.receiverId === selectedChatId)
-      ) {
+      );
+
+      if (isForGroup || isDirectMatch) {
         queryClient.setQueryData(["messages", selectedChatId], (oldData: any[]) => {
           if (!oldData) return [msg];
           if (oldData.some((m) => m.id === msg.id)) return oldData;
           return [...oldData, msg];
         });
-        if (msg.senderId === selectedChatId) markAsRead(selectedChatId);
+        if (msg.senderId !== currentUser?.id && !isGroupSelected) markAsRead(selectedChatId!);
       }
     };
 
@@ -184,11 +187,10 @@ export function ChatInterface() {
   const handleSend = () => {
     if (!messageInput.trim() || !selectedChatId) return;
     if (isGroupSelected) {
-        toast.info("Group messaging coming soon!");
-        setMessageInput("");
-        return;
+      sendMessage({ groupId: selectedChatId, content: messageInput });
+    } else {
+      sendMessage({ receiverId: selectedChatId, content: messageInput });
     }
-    sendMessage({ receiverId: selectedChatId, content: messageInput });
     setMessageInput("");
     if (socket) socket.emit("stop-typing", { to: selectedChatId });
   };
@@ -196,10 +198,10 @@ export function ChatInterface() {
   const handleSendLike = () => {
     if (!selectedChatId) return;
     if (isGroupSelected) {
-        toast.info("Group reactions coming soon!");
-        return;
+      sendMessage({ groupId: selectedChatId, content: "👍" });
+    } else {
+      sendMessage({ receiverId: selectedChatId, content: "👍" });
     }
-    sendMessage({ receiverId: selectedChatId, content: "👍" });
   };
 
   if (!mounted) {

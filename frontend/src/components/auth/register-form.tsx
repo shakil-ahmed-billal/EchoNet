@@ -209,7 +209,7 @@ export function RegisterForm({
             Sign up with Google
           </Button>
           <FieldDescription className="px-6 text-center">
-            Already have an account? <a href="/login" className="underline underline-offset-4 font-medium text-primary">Sign in</a>
+            Already have an account? <Link href="/login" className="underline underline-offset-4 font-medium text-primary">Sign in</Link>
           </FieldDescription>
         </div>
       </FieldGroup>

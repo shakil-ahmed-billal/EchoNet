@@ -34,7 +34,8 @@ export function useAuth() {
       }
     },
     retry: false,
-    staleTime: 0, 
+    staleTime: 5 * 60 * 1000, // Cache user profile for 5 minutes
+    refetchOnWindowFocus: false, // Prevent spamming backend when user clicks outside the window
   })
 
   const logoutMutation = useMutation({

@@ -5,17 +5,37 @@ import { fromNodeHeaders } from "better-auth/node";
 import { Role } from '../../../generated/prisma/client/index.js';
 import { prisma } from '../lib/prisma.js';
 import { auth as betterAuth } from '../lib/auth.js';
+import jwt, { JwtPayload } from 'jsonwebtoken';
+import config from '../config/index.js';
 
 const auth = (...requiredRoles: Role[]) => {
   return async (req: Request, res: Response, next: NextFunction) => {
     try {
-      const headers = fromNodeHeaders(req.headers);
+      let sessionUser: any = null;
       let session = await betterAuth.api.getSession({
-        headers: headers,
+        headers: fromNodeHeaders(req.headers),
       });
 
-      // Manual fallback if Better-Auth fails to find session via headers/cookies
-      if (!session) {
+      if (session?.user) {
+        sessionUser = session.user;
+      }
+
+      // JWT Strategy Override
+      if (!sessionUser) {
+        let token = req.cookies?.accessToken;
+        if (!token && req.headers.authorization?.startsWith('Bearer ')) {
+          token = req.headers.authorization.split(' ')[1];
+        }
+        if (token) {
+          try {
+            const decoded = jwt.verify(token, config.jwt_secret as string) as JwtPayload;
+            sessionUser = await prisma.user.findUnique({ where: { id: decoded.userId } });
+          } catch(e) {}
+        }
+      }
+
+      // Manual database fallback
+      if (!sessionUser) {
         const token = req.cookies['better-auth.session_token'];
         if (token) {
           const dbSession = await prisma.session.findUnique({
@@ -23,16 +43,16 @@ const auth = (...requiredRoles: Role[]) => {
             include: { user: true }
           });
           if (dbSession && !dbSession.user.isDeleted && !dbSession.user.isSuspended) {
-            session = { session: dbSession, user: dbSession.user };
+            sessionUser = dbSession.user;
           }
         }
       }
 
-      if (!session || !session.user) {
+      if (!sessionUser) {
         throw new ApiError(httpStatus.UNAUTHORIZED, 'You are not authorized');
       }
 
-      const user = session.user;
+      const user = sessionUser;
       (req as any).user = user;
 
       if ((user as any).isSuspended) {
@@ -52,9 +72,27 @@ const auth = (...requiredRoles: Role[]) => {
 
 export const optionalAuth = async (req: Request, res: Response, next: NextFunction) => {
   try {
+    let sessionUser: any = null;
+
     let session = await betterAuth.api.getSession({ headers: fromNodeHeaders(req.headers) });
-    
-    if (!session) {
+    if (session?.user) {
+      sessionUser = session.user;
+    }
+
+    if (!sessionUser) {
+      let token = req.cookies?.accessToken;
+      if (!token && req.headers.authorization?.startsWith('Bearer ')) {
+        token = req.headers.authorization.split(' ')[1];
+      }
+      if (token) {
+        try {
+          const decoded = jwt.verify(token, config.jwt_secret as string) as JwtPayload;
+          sessionUser = await prisma.user.findUnique({ where: { id: decoded.userId } });
+        } catch(e) {}
+      }
+    }
+
+    if (!sessionUser) {
       const token = req.cookies['better-auth.session_token'];
       if (token) {
         const dbSession = await prisma.session.findUnique({
@@ -62,14 +100,14 @@ export const optionalAuth = async (req: Request, res: Response, next: NextFuncti
           include: { user: true }
         });
         if (dbSession && !dbSession.user.isDeleted && !dbSession.user.isSuspended) {
-          session = { session: dbSession, user: dbSession.user };
+          sessionUser = dbSession.user;
         }
       }
     }
 
-    if (session && session.user) {
+    if (sessionUser) {
       const user = await prisma.user.findUnique({
-        where: { email: session.user.email },
+        where: { email: sessionUser.email },
       });
       if (user) {
         (req as any).user = user;
