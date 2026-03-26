@@ -155,12 +155,10 @@ const changePassword = async (payload: IChangePasswordPayload, sessionToken: str
     }
 }
 
-const getNewToken = async (refreshToken: string, sessionToken: string) => {
-    const isSessionTokenExists = await prisma.session.findUnique({
-        where: { token: sessionToken },
-    });
+const getNewToken = async (refreshToken: string, headers: Headers) => {
+    const sessionData = await auth.api.getSession({ headers });
 
-    if (!isSessionTokenExists) {
+    if (!sessionData || !sessionData.session) {
         throw new AppError(status.UNAUTHORIZED, "Invalid session token");
     }
 
@@ -189,7 +187,7 @@ const getNewToken = async (refreshToken: string, sessionToken: string) => {
     return {
         accessToken: newAccessToken,
         refreshToken: newRefreshToken,
-        sessionToken: sessionToken,
+        sessionToken: sessionData.session.token,
     }
 }
 

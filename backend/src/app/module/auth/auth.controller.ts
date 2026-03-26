@@ -174,8 +174,13 @@ const changePassword = catchAsync(async (req: Request, res: Response) => {
 
 const getNewToken = catchAsync(async (req: Request, res: Response) => {
     const refreshToken = req.cookies?.refreshToken || "";
-    const betterAuthSessionToken = req.cookies?.["better-auth.session_token"] || "";
-    const result = await AuthService.getNewToken(refreshToken, betterAuthSessionToken);
+    
+    const headers = new Headers();
+    Object.entries(req.headers).forEach(([key, value]) => {
+        if (value) headers.append(key, value as string);
+    });
+
+    const result = await AuthService.getNewToken(refreshToken, headers);
 
     const { accessToken, refreshToken: newRefreshToken } = result as Record<string, any>;
     tokenUtils.setAccessTokenCookie(res, accessToken);
