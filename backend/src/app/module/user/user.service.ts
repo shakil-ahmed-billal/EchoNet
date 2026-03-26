@@ -60,11 +60,11 @@ const getUserById = async (id: string, currentUserId?: string) => {
       },
       followers: currentUserId ? {
         where: { followerId: currentUserId },
-        select: { followerId: true, status: true }
+        select: { status: true }
       } : false,
       following: currentUserId ? {
         where: { followingId: currentUserId },
-        select: { followingId: true, status: true }
+        select: { status: true }
       } : false
     }
   });
@@ -73,19 +73,24 @@ const getUserById = async (id: string, currentUserId?: string) => {
 
   let isFollowing = false;
   let isFriend = false;
+  let followStatus: 'PENDING' | 'ACCEPTED' | 'NONE' = 'NONE';
 
   if (result.followers && result.followers.length > 0) {
-      if ((result.followers[0] as any).status === 'PENDING') isFollowing = true;
-      if ((result.followers[0] as any).status === 'ACCEPTED') isFriend = true;
-  }
-  if (result.following && result.following.length > 0) {
-      if ((result.following[0] as any).status === 'ACCEPTED') isFriend = true;
+      followStatus = result.followers[0].status as any;
+      if (result.followers[0].status === 'ACCEPTED') {
+          isFollowing = true;
+          // Check for mutual follow
+          if (result.following && result.following.length > 0 && result.following[0].status === 'ACCEPTED') {
+              isFriend = true;
+          }
+      }
   }
 
   return {
     ...result,
     isFollowing,
     isFriend,
+    followStatus,
     followers: undefined,
     following: undefined
   };

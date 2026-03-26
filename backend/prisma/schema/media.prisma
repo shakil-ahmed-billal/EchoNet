@@ -1,0 +1,27 @@
+model Story {
+  id        String      @id @default(uuid())
+  authorId  String
+  mediaUrl  String
+  caption   String?
+  expiresAt DateTime
+  createdAt DateTime    @default(now())
+  
+  author    User        @relation(fields: [authorId], references: [id], onDelete: Cascade)
+  views     StoryView[]
+
+  @@index([authorId])
+  @@index([expiresAt])
+}
+
+model StoryView {
+  id       String   @id @default(uuid())
+  storyId  String
+  viewerId String
+  viewedAt DateTime @default(now())
+  
+  story    Story    @relation(fields: [storyId], references: [id], onDelete: Cascade)
+  viewer   User     @relation(fields: [viewerId], references: [id], onDelete: Cascade)
+
+  @@unique([storyId, viewerId])
+  @@index([storyId])
+}

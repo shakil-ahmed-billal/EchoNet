@@ -1,0 +1,134 @@
+model Post {
+  id         String        @id @default(uuid())
+  authorId   String
+  content    String?
+  mediaUrls  String[]
+  status     PostStatus    @default(ACTIVE)
+  likesCount Int           @default(0)
+  createdAt  DateTime      @default(now())
+  updatedAt  DateTime      @updatedAt
+  deletedAt  DateTime?
+  
+  author     User          @relation(fields: [authorId], references: [id])
+  comments   Comment[]
+  likes      Like[]
+  reactions  Reaction[]
+  hashtags   PostHashtag[]
+  savedBy    SavedPost[]
+  tags       PostTag[]
+
+  @@index([authorId])
+}
+
+model Comment {
+  id         String     @id @default(uuid())
+  postId     String
+  authorId   String
+  parentId   String?
+  content    String
+  likesCount Int        @default(0)
+  createdAt  DateTime   @default(now())
+  deletedAt  DateTime?
+  
+  author     User       @relation(fields: [authorId], references: [id])
+  parent     Comment?   @relation("CommentReplies", fields: [parentId], references: [id])
+  replies    Comment[]  @relation("CommentReplies")
+  post       Post       @relation(fields: [postId], references: [id])
+  likes      Like[]
+  reactions  Reaction[]
+
+  @@index([postId])
+  @@index([authorId])
+}
+
+model Like {
+  id        String   @id @default(uuid())
+  userId    String
+  postId    String?
+  commentId String?
+  createdAt DateTime @default(now())
+  
+  user      User     @relation(fields: [userId], references: [id])
+  post      Post?    @relation(fields: [postId], references: [id])
+  comment   Comment? @relation(fields: [commentId], references: [id])
+
+  @@index([userId])
+  @@index([postId])
+  @@index([commentId])
+}
+
+model Reaction {
+  id        String       @id @default(uuid())
+  userId    String
+  postId    String?
+  commentId String?
+  type      ReactionType
+  createdAt DateTime     @default(now())
+  
+  user      User         @relation(fields: [userId], references: [id])
+  post      Post?        @relation(fields: [postId], references: [id])
+  comment   Comment?     @relation(fields: [commentId], references: [id])
+
+  @@unique([userId, postId])
+  @@unique([userId, commentId])
+  @@index([postId])
+  @@index([commentId])
+}
+
+model Hashtag {
+  id        String        @id @default(uuid())
+  tag       String        @unique
+  postCount Int           @default(0)
+  createdAt DateTime      @default(now())
+  posts     PostHashtag[]
+}
+
+model PostHashtag {
+  id        String  @id @default(uuid())
+  postId    String
+  hashtagId String
+  post      Post    @relation(fields: [postId], references: [id])
+  hashtag   Hashtag @relation(fields: [hashtagId], references: [id])
+
+  @@unique([postId, hashtagId])
+}
+
+model SavedPost {
+  id        String   @id @default(uuid())
+  userId    String
+  postId    String
+  createdAt DateTime @default(now())
+  
+  user      User     @relation(fields: [userId], references: [id])
+  post      Post     @relation(fields: [postId], references: [id])
+
+  @@unique([userId, postId])
+}
+
+model PostTag {
+  id     String @id @default(uuid())
+  postId String
+  userId String
+  x      Float?
+  y      Float?
+  
+  post   Post   @relation(fields: [postId], references: [id])
+  user   User   @relation(fields: [userId], references: [id])
+
+  @@unique([postId, userId])
+}
+
+enum PostStatus {
+  ACTIVE
+  INACTIVE
+  FLAGGED
+}
+
+enum ReactionType {
+  LIKE
+  LOVE
+  HAHA
+  SAD
+  ANGRY
+  WOW
+}

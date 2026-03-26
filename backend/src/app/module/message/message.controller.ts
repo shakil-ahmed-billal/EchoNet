@@ -7,19 +7,22 @@ import { getIO } from '../../lib/socket.js';
 
 const sendMessage = catchAsync(async (req: Request, res: Response) => {
   const senderId = (req.user as any).id;
-  const { receiverId, content } = req.body;
+  const { receiverId, groupId, content } = req.body;
 
   const result = await MessageServices.createMessage({
     senderId,
     receiverId,
+    groupId,
     content,
   });
   
   try {
     const io = getIO();
-    io.to(receiverId).emit('new-message', {
+    const targetRoom = groupId ? `group_${groupId}` : receiverId;
+    io.to(targetRoom).emit('new-message', {
        senderId,
        receiverId,
+       groupId,
        content,
        createdAt: result.createdAt,
        isRead: result.isRead,
@@ -42,7 +45,10 @@ const getChatHistory = catchAsync(async (req: Request, res: Response) => {
   const otherUserId = req.params.otherUserId as string;
   const userId = (req.user as any).id;
 
-  const result = await MessageServices.getChatHistory(userId, otherUserId);
+  const prisma = await import('../../lib/prisma.js').then(m => m.prisma);
+  const isGroup = !!(await prisma.group.findUnique({ where: { id: otherUserId } }));
+
+  const result = await MessageServices.getChatHistory(userId, otherUserId, isGroup);
   sendResponse(res, {
     statusCode: httpStatus.OK,
     success: true,

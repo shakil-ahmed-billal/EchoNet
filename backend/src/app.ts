@@ -9,8 +9,19 @@ import morgan from 'morgan';
 import helmet from 'helmet';
 import { rateLimit } from 'express-rate-limit';
 import { sanitizeRequest } from './app/middleware/sanitizeRequest.js';
+import { auth } from './app/lib/auth.js';
+import { toNodeHandler } from 'better-auth/node';
+
+import path from 'path';
+import { fileURLToPath } from 'url';
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
 const app: Application = express();
+
+app.set('view engine', 'ejs');
+app.set('views', path.join(__dirname, 'views'));
 
 // Security Middlewares
 app.use(helmet());
@@ -21,18 +32,22 @@ app.use(cors({
     allowedHeaders: ["Content-Type", "Authorization", "Cookie"]
 }));
 
+app.use(cookieParser());
+
+// Mount Better-Auth BEFORE body parsers (required by better-auth docs)
+app.all("/api/auth/{*splat}", toNodeHandler(auth));
+
 // Rate Limiting
 const authLimiter = rateLimit({
-	windowMs: 15 * 60 * 1000, // 15 minutes
-	limit: 100, // Limit each IP to 100 requests per `window` (here, per 15 minutes).
-	standardHeaders: 'draft-7', // expose client IP and rate limit headers
-	legacyHeaders: false, // disable the `X-RateLimit-*` headers
+	windowMs: 15 * 60 * 1000,
+	limit: 1000,
+	standardHeaders: 'draft-7', 
+	legacyHeaders: false, 
     message: "Too many requests from this IP, please try again after 15 minutes"
 });
 
 app.use('/api/v1/auth', authLimiter);
 
-app.use(cookieParser());
 app.use(express.json({ limit: '10mb' }));
 app.use(express.urlencoded({ extended: true, limit: '10mb' }));
 app.use(sanitizeRequest);

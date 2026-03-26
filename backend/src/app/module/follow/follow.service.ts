@@ -1,10 +1,21 @@
 import prisma from '../../lib/prisma.js';
 import ApiError from '../../errorHelpers/ApiError.js';
 import httpStatus from 'http-status';
+import { NotificationServices } from '../notification/notification.service.js';
+import { NotificationType } from '../../../../generated/prisma/client/index.js';
 
 const followUser = async (followerId: string, followingId: string) => {
     if (followerId === followingId) {
         throw new ApiError(httpStatus.BAD_REQUEST, "You cannot follow yourself");
+    }
+
+    const targetUser = await prisma.user.findUnique({
+        where: { id: followingId },
+        select: { isPrivate: true, name: true }
+    });
+
+    if (!targetUser) {
+        throw new ApiError(httpStatus.NOT_FOUND, "Target user not found");
     }
 
     const existing = await prisma.follow.findUnique({
@@ -12,25 +23,31 @@ const followUser = async (followerId: string, followingId: string) => {
     });
 
     if (existing) {
-      return existing; // Already pending or accepted
+      if (existing.status === 'ACCEPTED') {
+          return existing; // Already following
+      }
+      return existing; // Already pending
     }
+
+    const status = targetUser.isPrivate ? 'PENDING' : 'ACCEPTED';
 
     const result = await prisma.follow.create({
         data: {
             followerId,
             followingId,
+            status,
         },
     });
 
     const follower = await prisma.user.findUnique({ where: { id: followerId } });
 
-    await prisma.notification.create({
-        data: {
-           userId: followingId,
-           type: 'FRIEND_REQUEST',
-           referenceId: followerId,
-           message: `${follower?.name} sent you a friend request.`,
-        }
+    await NotificationServices.createNotification({
+        userId: followingId,
+        type: status === 'ACCEPTED' ? NotificationType.FOLLOW : NotificationType.FOLLOW_REQUEST,
+        referenceId: followerId,
+        message: status === 'ACCEPTED' 
+         ? `${follower?.name} started following you.` 
+         : `${follower?.name} sent you a follow request.`,
     });
 
     return result;
@@ -51,13 +68,11 @@ const acceptFollow = async (receiverId: string, senderId: string) => {
 
    const receiver = await prisma.user.findUnique({ where: { id: receiverId } });
 
-   await prisma.notification.create({
-       data: {
-          userId: senderId,
-          type: 'FRIEND_ACCEPT',
-          referenceId: receiverId,
-          message: `${receiver?.name} accepted your friend request.`,
-       }
+   await NotificationServices.createNotification({
+       userId: senderId,
+       type: NotificationType.FRIEND_ACCEPT,
+       referenceId: receiverId,
+       message: `${receiver?.name} accepted your friend request.`,
    });
 
    return result;

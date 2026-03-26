@@ -2,6 +2,7 @@ import prisma from '../../lib/prisma.js';
 import { PostStatus } from '../../../../generated/prisma/client/index.js';
 import { uploadMedia, deleteMedia } from '../../lib/cloudinary.js';
 import fs from 'fs';
+import { HashtagServices } from '../hashtag/hashtag.service.js';
 
 const createPost = async (authorId: string, payload: { content?: string }, files?: Express.Multer.File[]) => {
     const uploadedMedia: { url: string; public_id: string }[] = [];
@@ -45,6 +46,12 @@ const createPost = async (authorId: string, payload: { content?: string }, files
         });
         
         console.log("Post created successfully:", post.id);
+
+        // Extract and upsert hashtags
+        if (payload.content) {
+            await HashtagServices.upsertHashtags(payload.content, post.id);
+        }
+
         return post;
     } catch (error: any) {
         console.error("PostServices.createPost ERROR:", error);
@@ -69,18 +76,116 @@ const createPost = async (authorId: string, payload: { content?: string }, files
     }
 };
 
+const getScoredFeed = async (userId: string, limit: number = 20, cursor?: string) => {
+    // 1. Fetch candidate posts from followed users (last 72 hours)
+    const following = await prisma.follow.findMany({
+        where: { followerId: userId, status: 'ACCEPTED' },
+        select: { followingId: true }
+    });
+    const followingIds = following.map(f => f.followingId);
+    
+    // Include user's own posts in the feed candidates
+    const authorIds = [...followingIds, userId];
+
+    const seventyTwoHoursAgo = new Date();
+    seventyTwoHoursAgo.setHours(seventyTwoHoursAgo.getHours() - 72);
+
+    const posts = await prisma.post.findMany({
+        where: {
+            authorId: { in: authorIds },
+            status: 'ACTIVE',
+            createdAt: { gte: seventyTwoHoursAgo },
+            deletedAt: null,
+        },
+        include: {
+            author: {
+                select: { id: true, name: true, avatarUrl: true }
+            },
+            _count: {
+                select: {
+                    reactions: true,
+                    comments: true,
+                    savedBy: true,
+                }
+            },
+            reactions: {
+                where: { userId },
+                select: { id: true, type: true }
+            },
+            savedBy: {
+                where: { userId },
+                select: { id: true }
+            }
+        }
+    });
+
+    // 2. Score each post
+    const now = new Date();
+    const scoredPosts = posts.map(post => {
+        const hoursSince = (now.getTime() - post.createdAt.getTime()) / (1000 * 60 * 60);
+        const recentness = Math.max(0, 48 - hoursSince);
+        const timePenalty = hoursSince * 0.5;
+        
+        // For Phase 1, relBoost is 1.3 for followed users, 1.0 for self
+        const isSelf = post.authorId === userId;
+        const relBoost = isSelf ? 1.0 : 1.3;
+
+        const score = (
+            (post._count.reactions * 2) +
+            (post._count.comments * 3) +
+            (post._count.savedBy * 5) +
+            recentness
+        ) * relBoost - timePenalty;
+
+        return {
+            ...post,
+            score,
+            isLiked: post.reactions.length > 0,
+            isSaved: post.savedBy.length > 0,
+            reactions: undefined,
+            savedBy: undefined,
+        };
+    });
+
+    // 3. Sort by score descending
+    scoredPosts.sort((a, b) => b.score - a.score);
+
+    // 4. Cursor-based pagination (simulated for the sorted array)
+    let startIndex = 0;
+    if (cursor) {
+        const cursorIndex = scoredPosts.findIndex(p => p.id === cursor);
+        if (cursorIndex !== -1) {
+            startIndex = cursorIndex + 1;
+        }
+    }
+
+    const paginatedPosts = scoredPosts.slice(startIndex, startIndex + limit);
+    const hasNextPage = scoredPosts.length > startIndex + limit;
+    const nextCursor = hasNextPage ? paginatedPosts[paginatedPosts.length - 1].id : null;
+
+    return {
+        posts: paginatedPosts,
+        nextCursor,
+    };
+};
+
 const getAllPosts = async (limit: number = 10, cursor?: string, userId?: string, discover: boolean = false, authorId?: string) => {
-  let where: any = {};
+  if (userId && !discover && !authorId) {
+      return getScoredFeed(userId, limit, cursor);
+  }
+
+  let where: any = { deletedAt: null };
   
   if (authorId) {
     where.authorId = authorId;
-  } else if (userId && !discover) {
+  } else if (userId && discover) {
+    // For discover, we show posts from people we DON'T follow
     const following = await prisma.follow.findMany({
       where: { followerId: userId },
       select: { followingId: true },
     });
     const followingIds = following.map((f: any) => f.followingId);
-    where.authorId = { in: [...followingIds, userId] };
+    where.authorId = { notIn: [...followingIds, userId] };
   }
   
   where.status = 'ACTIVE';
@@ -95,10 +200,15 @@ const getAllPosts = async (limit: number = 10, cursor?: string, userId?: string,
       _count: {
         select: {
           comments: true,
-          likes: true,
+          reactions: true,
+          savedBy: true,
         }
       },
-      likes: userId ? {
+      reactions: userId ? {
+        where: { userId },
+        select: { id: true, type: true }
+      } : false,
+      savedBy: userId ? {
         where: { userId },
         select: { id: true }
       } : false
@@ -109,11 +219,12 @@ const getAllPosts = async (limit: number = 10, cursor?: string, userId?: string,
   const hasNextPage = result.length > limit;
   const posts = hasNextPage ? result.slice(0, -1) : result;
   
-  // Map posts to include a boolean isLiked
   const mappedPosts = posts.map(post => ({
     ...post,
-    isLiked: userId ? (post.likes && post.likes.length > 0) : false,
-    likes: undefined // cleanup the nested likes array
+    isLiked: userId ? (post.reactions && post.reactions.length > 0) : false,
+    isSaved: userId ? (post.savedBy && post.savedBy.length > 0) : false,
+    reactions: undefined,
+    savedBy: undefined
   }));
 
   const nextCursor = hasNextPage ? posts[posts.length - 1].id : null;
@@ -147,6 +258,11 @@ const updatePost = async (id: string, authorId: string, payload: { content?: str
     },
     include: { author: true },
   });
+
+  if (payload.content) {
+      await HashtagServices.upsertHashtags(payload.content, id);
+  }
+
   return result;
 };
 

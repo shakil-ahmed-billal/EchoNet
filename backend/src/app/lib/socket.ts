@@ -34,11 +34,26 @@ export const initSocket = async (server: HTTPServer) => {
             socket.join(userId);
             logger.info(`User ${userId} joined their private room`);
             socket.broadcast.emit('user-status', { userId, status: 'online' });
+
+            import('./prisma.js').then(m => {
+                m.prisma.groupMember.findMany({ where: { userId } }).then(groups => {
+                    groups.forEach(g => {
+                        socket.join(`group_${g.groupId}`);
+                        logger.info(`User ${userId} joined group_${g.groupId}`);
+                    });
+                }).catch(err => logger.error("Failed to join groups: ", err));
+            });
         }
 
         // WebRTC Signalling
         socket.on('call-user', (data: { to: string; offer: any; from: string; fromName: string; isVideo?: boolean }) => {
-            io.to(data.to).emit('incoming-call', { offer: data.offer, from: data.from, fromName: data.fromName, isVideo: data.isVideo });
+            console.log(`Backend: call-user from ${data.from} to ${data.to}`);
+            io.to(data.to).emit('incoming-call', { 
+                offer: data.offer, 
+                from: data.from, 
+                fromName: data.fromName, 
+                isVideo: data.isVideo 
+            });
         });
 
         socket.on('answer-call', (data: { to: string; answer: any }) => {

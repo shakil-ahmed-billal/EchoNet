@@ -1,5 +1,32 @@
+import { NotificationType } from '../../../../generated/prisma/client/index.js';
 import prisma from '../../lib/prisma.js';
 import redisClient from '../../lib/redis.js';
+import { getIO } from '../../lib/socket.js';
+
+const createNotification = async (data: {
+  userId: string;
+  type: string;
+  referenceId?: string;
+  message: string;
+}) => {
+  const result = await prisma.notification.create({
+    data: data as any, 
+  });
+
+  if (redisClient) {
+    const cacheKey = `notifications:unread_count:${data.userId}`;
+    await redisClient.del(cacheKey);
+  }
+
+  try {
+    const io = getIO();
+    io.to(data.userId).emit('notification', result);
+  } catch (error) {
+    // Socket might not be initialized yet in some cases, fail gracefully
+  }
+
+  return result;
+};
 
 const getUserNotifications = async (userId: string) => {
   if (!userId) return [];
@@ -48,6 +75,7 @@ const markAsRead = async (id: string, userId: string) => {
 };
 
 export const NotificationServices = {
+  createNotification,
   getUserNotifications,
   getUnreadCount,
   markAsRead,
