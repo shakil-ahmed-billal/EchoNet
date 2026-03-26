@@ -754,3 +754,107 @@ An operation failed because it depends on one or more records that were required
     at async Object.unsavePost (C:\Shakil Dev\EchoNet\backend\src\app\module\savedPost\savedPost.service.ts:12:12)
     at async <anonymous> (C:\Shakil Dev\EchoNet\backend\src\app\module\savedPost\savedPost.controller.ts:25:20)
     at async <anonymous> (C:\Shakil Dev\EchoNet\backend\src\app\utils\catchAsync.ts:6:7)
+2026-03-27 03:49:28 [[32minfo[39m]: Initializing Socket.IO...
+2026-03-27 03:49:28 [[32minfo[39m]: User HudJwZLQ3tfbYVDeoGAUroO869vtobrA joined their private room
+2026-03-27 03:49:28 [[32minfo[39m]: User HudJwZLQ3tfbYVDeoGAUroO869vtobrA joined their private room
+2026-03-27 03:49:28 [[32minfo[39m]: User WAAmOYlXnio7cLlAWI3oiMD7ECRohRhR joined their private room
+2026-03-27 03:49:29 [[32minfo[39m]: User HudJwZLQ3tfbYVDeoGAUroO869vtobrA joined group_f4a54ed1-8ca0-4cc0-ac13-e2059fd48c16
+2026-03-27 03:49:29 [[32minfo[39m]: User HudJwZLQ3tfbYVDeoGAUroO869vtobrA joined group_ee0da3b3-fead-48d2-b5eb-4e8d82c3f44c
+2026-03-27 03:49:29 [[32minfo[39m]: User HudJwZLQ3tfbYVDeoGAUroO869vtobrA joined group_f4a54ed1-8ca0-4cc0-ac13-e2059fd48c16
+2026-03-27 03:49:29 [[32minfo[39m]: User HudJwZLQ3tfbYVDeoGAUroO869vtobrA joined group_ee0da3b3-fead-48d2-b5eb-4e8d82c3f44c
+2026-03-27 03:49:29 [[32minfo[39m]: User WAAmOYlXnio7cLlAWI3oiMD7ECRohRhR joined group_f4a54ed1-8ca0-4cc0-ac13-e2059fd48c16
+2026-03-27 03:50:22 [[32minfo[39m]: Socket disconnected: NUQaK2DEFchGrnWHAAAD
+2026-03-27 03:50:23 [[32minfo[39m]: User HudJwZLQ3tfbYVDeoGAUroO869vtobrA joined their private room
+2026-03-27 03:50:23 [[32minfo[39m]: User HudJwZLQ3tfbYVDeoGAUroO869vtobrA joined group_f4a54ed1-8ca0-4cc0-ac13-e2059fd48c16
+2026-03-27 03:50:23 [[32minfo[39m]: User HudJwZLQ3tfbYVDeoGAUroO869vtobrA joined group_ee0da3b3-fead-48d2-b5eb-4e8d82c3f44c
+2026-03-27 03:50:27 [[32minfo[39m]: Socket disconnected: vl3xDn0uAxzmgXdMAAAH
+2026-03-27 03:50:28 [[32minfo[39m]: User HudJwZLQ3tfbYVDeoGAUroO869vtobrA joined their private room
+2026-03-27 03:50:28 [[32minfo[39m]: User HudJwZLQ3tfbYVDeoGAUroO869vtobrA joined group_f4a54ed1-8ca0-4cc0-ac13-e2059fd48c16
+2026-03-27 03:50:28 [[32minfo[39m]: User HudJwZLQ3tfbYVDeoGAUroO869vtobrA joined group_ee0da3b3-fead-48d2-b5eb-4e8d82c3f44c
+2026-03-27 03:50:40 [[32minfo[39m]: Socket disconnected: aSllqCULNqjxqZY0AAAJ
+2026-03-27 03:50:41 [[32minfo[39m]: User HudJwZLQ3tfbYVDeoGAUroO869vtobrA joined their private room
+2026-03-27 03:50:41 [[32minfo[39m]: User HudJwZLQ3tfbYVDeoGAUroO869vtobrA joined group_f4a54ed1-8ca0-4cc0-ac13-e2059fd48c16
+2026-03-27 03:50:41 [[32minfo[39m]: User HudJwZLQ3tfbYVDeoGAUroO869vtobrA joined group_ee0da3b3-fead-48d2-b5eb-4e8d82c3f44c
+2026-03-27 03:51:47 [[31merror[39m]: Error: Invalid session token
+    at Object.getNewToken (C:\Shakil Dev\EchoNet\backend\src\app\module\auth\auth.service.ts:164:15)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async <anonymous> (C:\Shakil Dev\EchoNet\backend\src\app\module\auth\auth.controller.ts:178:20)
+    at async <anonymous> (C:\Shakil Dev\EchoNet\backend\src\app\utils\catchAsync.ts:6:7)
+2026-03-27 03:52:21 [[31merror[39m]: Error: Invalid session token
+    at Object.getNewToken (C:\Shakil Dev\EchoNet\backend\src\app\module\auth\auth.service.ts:164:15)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async <anonymous> (C:\Shakil Dev\EchoNet\backend\src\app\module\auth\auth.controller.ts:178:20)
+    at async <anonymous> (C:\Shakil Dev\EchoNet\backend\src\app\utils\catchAsync.ts:6:7)
+2026-03-27 03:52:21 [[31merror[39m]: Error: Invalid session token
+    at Object.getNewToken (C:\Shakil Dev\EchoNet\backend\src\app\module\auth\auth.service.ts:164:15)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async <anonymous> (C:\Shakil Dev\EchoNet\backend\src\app\module\auth\auth.controller.ts:178:20)
+    at async <anonymous> (C:\Shakil Dev\EchoNet\backend\src\app\utils\catchAsync.ts:6:7)
+2026-03-27 03:52:21 [[31merror[39m]: Error: Invalid session token
+    at Object.getNewToken (C:\Shakil Dev\EchoNet\backend\src\app\module\auth\auth.service.ts:164:15)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async <anonymous> (C:\Shakil Dev\EchoNet\backend\src\app\module\auth\auth.controller.ts:178:20)
+    at async <anonymous> (C:\Shakil Dev\EchoNet\backend\src\app\utils\catchAsync.ts:6:7)
+2026-03-27 03:52:21 [[31merror[39m]: Error: Invalid session token
+    at Object.getNewToken (C:\Shakil Dev\EchoNet\backend\src\app\module\auth\auth.service.ts:164:15)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async <anonymous> (C:\Shakil Dev\EchoNet\backend\src\app\module\auth\auth.controller.ts:178:20)
+    at async <anonymous> (C:\Shakil Dev\EchoNet\backend\src\app\utils\catchAsync.ts:6:7)
+2026-03-27 03:53:28 [[32minfo[39m]: Socket disconnected: LNXKL4_UAEsGBDvkAAAL
+2026-03-27 03:53:28 [[32minfo[39m]: User HudJwZLQ3tfbYVDeoGAUroO869vtobrA joined their private room
+2026-03-27 03:53:28 [[32minfo[39m]: User HudJwZLQ3tfbYVDeoGAUroO869vtobrA joined group_f4a54ed1-8ca0-4cc0-ac13-e2059fd48c16
+2026-03-27 03:53:28 [[32minfo[39m]: User HudJwZLQ3tfbYVDeoGAUroO869vtobrA joined group_ee0da3b3-fead-48d2-b5eb-4e8d82c3f44c
+2026-03-27 03:53:30 [[32minfo[39m]: Socket disconnected: VDrwXrGoG1AnsTSMAAAN
+2026-03-27 03:53:31 [[32minfo[39m]: Socket disconnected: k6mFIPXGOtpTkZcJAAAF
+2026-03-27 03:53:33 [[32minfo[39m]: User HudJwZLQ3tfbYVDeoGAUroO869vtobrA joined their private room
+2026-03-27 03:53:33 [[32minfo[39m]: User HudJwZLQ3tfbYVDeoGAUroO869vtobrA joined group_f4a54ed1-8ca0-4cc0-ac13-e2059fd48c16
+2026-03-27 03:53:33 [[32minfo[39m]: User HudJwZLQ3tfbYVDeoGAUroO869vtobrA joined group_ee0da3b3-fead-48d2-b5eb-4e8d82c3f44c
+2026-03-27 03:53:33 [[31merror[39m]: Error: Invalid session token
+    at Object.getNewToken (C:\Shakil Dev\EchoNet\backend\src\app\module\auth\auth.service.ts:164:15)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async <anonymous> (C:\Shakil Dev\EchoNet\backend\src\app\module\auth\auth.controller.ts:178:20)
+    at async <anonymous> (C:\Shakil Dev\EchoNet\backend\src\app\utils\catchAsync.ts:6:7)
+2026-03-27 03:53:34 [[31merror[39m]: Error: Invalid session token
+    at Object.getNewToken (C:\Shakil Dev\EchoNet\backend\src\app\module\auth\auth.service.ts:164:15)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async <anonymous> (C:\Shakil Dev\EchoNet\backend\src\app\module\auth\auth.controller.ts:178:20)
+    at async <anonymous> (C:\Shakil Dev\EchoNet\backend\src\app\utils\catchAsync.ts:6:7)
+2026-03-27 03:53:35 [[32minfo[39m]: User WAAmOYlXnio7cLlAWI3oiMD7ECRohRhR joined their private room
+2026-03-27 03:53:35 [[32minfo[39m]: User WAAmOYlXnio7cLlAWI3oiMD7ECRohRhR joined group_f4a54ed1-8ca0-4cc0-ac13-e2059fd48c16
+2026-03-27 03:56:37 [[32minfo[39m]: Socket disconnected: BdOt1AkKPTi5uz92AAAP
+2026-03-27 03:58:21 [[32minfo[39m]: Socket disconnected: v0sqNQgWWGaNICEmAAAR
+2026-03-27 03:58:30 [[32minfo[39m]: User WAAmOYlXnio7cLlAWI3oiMD7ECRohRhR joined their private room
+2026-03-27 03:58:30 [[32minfo[39m]: User WAAmOYlXnio7cLlAWI3oiMD7ECRohRhR joined group_f4a54ed1-8ca0-4cc0-ac13-e2059fd48c16
+2026-03-27 03:58:41 [[32minfo[39m]: User HudJwZLQ3tfbYVDeoGAUroO869vtobrA joined their private room
+2026-03-27 03:58:41 [[32minfo[39m]: User HudJwZLQ3tfbYVDeoGAUroO869vtobrA joined group_f4a54ed1-8ca0-4cc0-ac13-e2059fd48c16
+2026-03-27 03:58:41 [[32minfo[39m]: User HudJwZLQ3tfbYVDeoGAUroO869vtobrA joined group_ee0da3b3-fead-48d2-b5eb-4e8d82c3f44c
+2026-03-27 03:58:49 [[32minfo[39m]: Socket disconnected: vZh0tC2P7Frv-EfEAAAV
+2026-03-27 03:59:01 [[32minfo[39m]: Socket disconnected: n6JPtCbBt4hbqBu_AAAE
+2026-03-27 03:59:04 [[32minfo[39m]: Socket disconnected: qFnvaRP_YQRZ1M1cAAAT
+2026-03-27 03:59:08 [[32minfo[39m]: User WAAmOYlXnio7cLlAWI3oiMD7ECRohRhR joined their private room
+2026-03-27 03:59:08 [[32minfo[39m]: User WAAmOYlXnio7cLlAWI3oiMD7ECRohRhR joined group_f4a54ed1-8ca0-4cc0-ac13-e2059fd48c16
+2026-03-27 03:59:09 [[32minfo[39m]: User HudJwZLQ3tfbYVDeoGAUroO869vtobrA joined their private room
+2026-03-27 03:59:09 [[32minfo[39m]: User HudJwZLQ3tfbYVDeoGAUroO869vtobrA joined group_f4a54ed1-8ca0-4cc0-ac13-e2059fd48c16
+2026-03-27 03:59:09 [[32minfo[39m]: User HudJwZLQ3tfbYVDeoGAUroO869vtobrA joined group_ee0da3b3-fead-48d2-b5eb-4e8d82c3f44c
+2026-03-27 03:59:19 [[32minfo[39m]: Socket disconnected: KAiSjJKksOuRc4w5AAAZ
+2026-03-27 03:59:53 [[32minfo[39m]: User HudJwZLQ3tfbYVDeoGAUroO869vtobrA joined their private room
+2026-03-27 03:59:53 [[32minfo[39m]: User HudJwZLQ3tfbYVDeoGAUroO869vtobrA joined group_f4a54ed1-8ca0-4cc0-ac13-e2059fd48c16
+2026-03-27 03:59:53 [[32minfo[39m]: User HudJwZLQ3tfbYVDeoGAUroO869vtobrA joined group_ee0da3b3-fead-48d2-b5eb-4e8d82c3f44c
+2026-03-27 03:59:59 [[32minfo[39m]: Socket disconnected: 7eHfvf1lQ2buqaVRAAAc
+2026-03-27 04:00:04 [[32minfo[39m]: User HudJwZLQ3tfbYVDeoGAUroO869vtobrA joined their private room
+2026-03-27 04:00:04 [[32minfo[39m]: User HudJwZLQ3tfbYVDeoGAUroO869vtobrA joined group_f4a54ed1-8ca0-4cc0-ac13-e2059fd48c16
+2026-03-27 04:00:04 [[32minfo[39m]: User HudJwZLQ3tfbYVDeoGAUroO869vtobrA joined group_ee0da3b3-fead-48d2-b5eb-4e8d82c3f44c
+2026-03-27 04:00:07 [[32minfo[39m]: Socket disconnected: -v314_JfVlU4qMvLAAAe
+2026-03-27 04:00:08 [[32minfo[39m]: User HudJwZLQ3tfbYVDeoGAUroO869vtobrA joined their private room
+2026-03-27 04:00:08 [[32minfo[39m]: User HudJwZLQ3tfbYVDeoGAUroO869vtobrA joined group_f4a54ed1-8ca0-4cc0-ac13-e2059fd48c16
+2026-03-27 04:00:08 [[32minfo[39m]: User HudJwZLQ3tfbYVDeoGAUroO869vtobrA joined group_ee0da3b3-fead-48d2-b5eb-4e8d82c3f44c
+2026-03-27 04:00:24 [[32minfo[39m]: Socket disconnected: gfGxdUFBFrF3sgi2AAAg
+2026-03-27 04:00:24 [[32minfo[39m]: Socket disconnected: PsCjpLQviB9R5FZ6AAAX
+2026-03-27 04:00:34 [[32minfo[39m]: User HudJwZLQ3tfbYVDeoGAUroO869vtobrA joined their private room
+2026-03-27 04:00:34 [[32minfo[39m]: User HudJwZLQ3tfbYVDeoGAUroO869vtobrA joined group_f4a54ed1-8ca0-4cc0-ac13-e2059fd48c16
+2026-03-27 04:00:34 [[32minfo[39m]: User HudJwZLQ3tfbYVDeoGAUroO869vtobrA joined group_ee0da3b3-fead-48d2-b5eb-4e8d82c3f44c
+2026-03-27 04:00:37 [[32minfo[39m]: User WAAmOYlXnio7cLlAWI3oiMD7ECRohRhR joined their private room
+2026-03-27 04:00:37 [[32minfo[39m]: User WAAmOYlXnio7cLlAWI3oiMD7ECRohRhR joined group_f4a54ed1-8ca0-4cc0-ac13-e2059fd48c16
+2026-03-27 04:01:29 [[32minfo[39m]: User UaOUgk5sbp7i90ZEbvVARvmcvzV9GnhW joined their private room
+2026-03-27 04:01:29 [[32minfo[39m]: User UaOUgk5sbp7i90ZEbvVARvmcvzV9GnhW joined group_f4a54ed1-8ca0-4cc0-ac13-e2059fd48c16
+2026-03-27 04:01:29 [[32minfo[39m]: User UaOUgk5sbp7i90ZEbvVARvmcvzV9GnhW joined group_ee0da3b3-fead-48d2-b5eb-4e8d82c3f44c
