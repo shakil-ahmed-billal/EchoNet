@@ -33,7 +33,7 @@ export function ChatInterface() {
   const { user: currentUser } = useAuth();
   const { 
     openGroupModal, initiateCall, groups, openGroupChat, 
-    selectedChatId, setSelectedChatId 
+    selectedChatId, setSelectedChatId, perUserData
   } = useMessenger();
   const searchParams = useSearchParams();
   const router = useRouter();
@@ -71,14 +71,21 @@ export function ChatInterface() {
     enabled: !!currentUser,
   });
 
-  // Only fetch history if it's a user ID (not a group ID)
-  const isGroupSelected = selectedChatId?.startsWith("group-");
+  // Fix group selection logic to match actual groups array instead of string prefix
+  const isGroupSelected = groups.some(g => g.id === selectedChatId);
   const { data: messages, isLoading: isLoadingMessages } = useChatHistory(!isGroupSelected ? (selectedChatId || "") : "");
   
   const { mutate: sendMessage } = useSendMessage();
   const { mutate: markAsRead } = useMarkMessagesRead();
 
-  const filteredUsers = users?.filter((u) =>
+  // Sort users so that those with recent messages appear at the very top
+  const sortedUsers = [...(users || [])].sort((a, b) => {
+    const timeA = perUserData[a.id]?.lastMessageTime ? new Date(perUserData[a.id].lastMessageTime!).getTime() : 0;
+    const timeB = perUserData[b.id]?.lastMessageTime ? new Date(perUserData[b.id].lastMessageTime!).getTime() : 0;
+    return timeB - timeA;
+  });
+
+  const filteredUsers = sortedUsers.filter((u) =>
     u.name.toLowerCase().includes(searchQuery.toLowerCase())
   );
 
@@ -306,10 +313,31 @@ export function ChatInterface() {
                         )}
                       </div>
                       <div className="flex-1 overflow-hidden">
-                        <p className="font-semibold text-sm text-foreground truncate">{u.name}</p>
-                        <p className="text-xs text-muted-foreground truncate">
-                          {onlineUsers.has(u.id) ? "Active now" : "Click to message"}
-                        </p>
+                        <div className="flex justify-between items-center mb-0.5">
+                          <p className="font-semibold text-sm text-foreground truncate">{u.name}</p>
+                          {perUserData[u.id]?.lastMessageTime && (
+                            <span className="text-[10px] text-muted-foreground/60 shrink-0 ml-2">
+                              {format(new Date(perUserData[u.id].lastMessageTime!), 'MMM d, h:mm a')}
+                            </span>
+                          )}
+                        </div>
+                        <div className="flex justify-between items-center gap-2">
+                          <p className="text-xs text-muted-foreground truncate flex-1">
+                            {perUserData[u.id]?.lastMessage 
+                              ? (
+                                <span className={perUserData[u.id]?.unreadCount > 0 ? "font-semibold text-foreground/80" : ""}>
+                                  {perUserData[u.id].lastMessage}
+                                </span>
+                              )
+                              : onlineUsers.has(u.id) ? "Active now" : "Click to message"
+                            }
+                          </p>
+                          {(perUserData[u.id]?.unreadCount ?? 0) > 0 && (
+                            <span className="shrink-0 min-w-[18px] h-[18px] rounded-full bg-primary text-primary-foreground text-[10px] font-bold flex items-center justify-center px-1">
+                              {perUserData[u.id].unreadCount > 9 ? "9+" : perUserData[u.id].unreadCount}
+                            </span>
+                          )}
+                        </div>
                       </div>
                     </button>
                   </div>

@@ -11,12 +11,15 @@ import config from "../../config/index.js";
 const registerUser = async (payload: IRegisterUserPayload) => {
     const { name, email, password } = payload;
 
-    const data = await auth.api.signUpEmail({
-        body: { name, email, password: password || "" }
-    });
+    const response = await auth.api.signUpEmail({
+        body: { name, email, password: password || "" },
+        asResponse: true
+    }) as Response;
 
-    if (!data.user) {
-        throw new AppError(status.BAD_REQUEST, "Failed to register user");
+    const data = await response.json();
+
+    if (!response.ok || !data.user) {
+        throw new AppError(status.BAD_REQUEST, data.message || "Failed to register user");
     }
 
     const accessToken = tokenUtils.getAccessToken({
@@ -32,19 +35,29 @@ const registerUser = async (payload: IRegisterUserPayload) => {
         name: data.user.name,
         email: data.user.email,
     });
+    
+    const cookies = response.headers.getSetCookie ? response.headers.getSetCookie() : [];
 
-    return { ...data, accessToken, refreshToken };
+    return { ...data, accessToken, refreshToken, __cookies: cookies };
 }
 
 const loginUser = async (payload: ILoginUserPayload) => {
     const { email, password } = payload;
 
-    const data = await auth.api.signInEmail({
-        body: { email, password: password || "" }
-    });
+    let response: Response;
+    let data;
+    try {
+        response = await auth.api.signInEmail({
+            body: { email, password: password || "" },
+            asResponse: true
+        }) as Response;
+        data = await response.json();
+    } catch (error: any) {
+        throw new AppError(status.UNAUTHORIZED, error?.message || "Invalid credentials");
+    }
 
-    if (!data.user) {
-        throw new AppError(status.UNAUTHORIZED, "Invalid credentials");
+    if (!response.ok || !data || !data.user) {
+        throw new AppError(status.UNAUTHORIZED, data?.message || "Invalid credentials");
     }
 
     const user = await prisma.user.findUnique({
@@ -73,7 +86,9 @@ const loginUser = async (payload: ILoginUserPayload) => {
         email: data.user.email,
     });
 
-    return { ...data, accessToken, refreshToken };
+    const cookies = response.headers.getSetCookie ? response.headers.getSetCookie() : [];
+
+    return { ...data, accessToken, refreshToken, __cookies: cookies };
 }
 
 const logoutUser = async (sessionToken: string) => {
@@ -84,26 +99,19 @@ const logoutUser = async (sessionToken: string) => {
 }
 
 const getMe = async (headers: Headers) => {
-    console.log("getMe headers:", Object.fromEntries(headers.entries()));
-    const session = await auth.api.getSession({
-        headers: headers
-    });
+    const sessionData = await auth.api.getSession({ headers });
 
-    console.log("getMe session result:", session ? "Found" : "Not Found");
-
-    if (!session || !session.user) {
+    if (!sessionData || !sessionData.session || !sessionData.user) {
         throw new AppError(status.NOT_FOUND, "Session not found");
     }
 
-    const user = await prisma.user.findUnique({
-        where: { id: session.user.id }
-    });
-
-    if (!user) {
-        throw new AppError(status.NOT_FOUND, "User not found");
+    if (new Date() > sessionData.session.expiresAt) {
+        throw new AppError(status.NOT_FOUND, "Session expired");
     }
 
-    return { ...session, user };
+    const { user, session } = sessionData;
+
+    return { session, user };
 }
 
 const changePassword = async (payload: IChangePasswordPayload, sessionToken: string) => {

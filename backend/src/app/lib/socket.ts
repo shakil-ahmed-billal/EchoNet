@@ -34,6 +34,15 @@ export const initSocket = async (server: HTTPServer) => {
             socket.join(userId);
             logger.info(`User ${userId} joined their private room`);
             socket.broadcast.emit('user-status', { userId, status: 'online' });
+
+            import('./prisma.js').then(m => {
+                m.prisma.groupMember.findMany({ where: { userId } }).then(groups => {
+                    groups.forEach(g => {
+                        socket.join(`group_${g.groupId}`);
+                        logger.info(`User ${userId} joined group_${g.groupId}`);
+                    });
+                }).catch(err => logger.error("Failed to join groups: ", err));
+            });
         }
 
         // WebRTC Signalling

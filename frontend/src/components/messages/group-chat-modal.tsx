@@ -20,6 +20,7 @@ export function GroupChatModal() {
   const [selectedUsers, setSelectedUsers] = useState<any[]>([]);
   const [groupName, setGroupName] = useState("");
   const [step, setStep] = useState<"select" | "name">("select");
+  const [isCreating, setIsCreating] = useState(false);
 
   const { data: users, isLoading } = useQuery<any[]>({
     queryKey: ["users", "group-modal"],
@@ -52,18 +53,36 @@ export function GroupChatModal() {
     );
   };
 
-  const handleCreate = () => {
+  const handleCreate = async () => {
     if (selectedUsers.length < 2) {
       toast.error("Select at least 2 people for a group chat");
       return;
     }
     const name = groupName.trim() || selectedUsers.map((u) => u.name.split(" ")[0]).join(", ");
-    openGroupChat({
-      id: `group-${Date.now()}`,
-      name,
-      members: selectedUsers,
-    });
-    toast.success(`Group "${name}" created!`);
+    setIsCreating(true);
+    try {
+      const res = await apiClient.post("/groups", {
+        name,
+        memberIds: selectedUsers.map(u => u.id),
+      });
+      const savedGroup = res.data?.data;
+      if (savedGroup) {
+        openGroupChat({
+          id: savedGroup.id,
+          name: savedGroup.name,
+          members: savedGroup.members.map((m: any) => ({
+            id: m.user.id,
+            name: m.user.name,
+            image: m.user.image,
+          })),
+        });
+        toast.success(`Group "${name}" created!`);
+      }
+    } catch {
+      toast.error("Failed to create group. Try again.");
+    } finally {
+      setIsCreating(false);
+    }
   };
 
   if (!isGroupModalOpen) return null;
@@ -72,12 +91,12 @@ export function GroupChatModal() {
     <>
       {/* Backdrop */}
       <div
-        className="fixed inset-0 z-[60] bg-black/50 backdrop-blur-sm"
+        className="fixed inset-0 z-60 bg-black/50 backdrop-blur-sm"
         onClick={closeGroupModal}
       />
 
       {/* Modal */}
-      <div className="fixed left-1/2 top-1/2 z-[70] -translate-x-1/2 -translate-y-1/2 w-full max-w-md bg-card rounded-3xl shadow-2xl border border-border/30 flex flex-col overflow-hidden animate-in fade-in zoom-in-95 duration-200">
+      <div className="fixed left-1/2 top-1/2 z-70 -translate-x-1/2 -translate-y-1/2 w-full max-w-md bg-card rounded-3xl shadow-2xl border border-border/30 flex flex-col overflow-hidden animate-in fade-in zoom-in-95 duration-200">
         {/* Header */}
         <div className="flex items-center justify-between px-5 pt-5 pb-4 border-b border-border/20">
           <div className="flex items-center gap-3">

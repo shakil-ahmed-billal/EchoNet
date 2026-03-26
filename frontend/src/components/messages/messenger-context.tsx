@@ -115,12 +115,35 @@ export function MessengerProvider({ children }: { children: ReactNode }) {
     const fetchInitial = async () => {
       try {
         const usersRes = await apiClient.get("/users");
+        // eslint-disable-next-line @typescript-eslint/no-unused-vars
         const users: any[] = usersRes.data?.data ?? [];
         setTotalUnread(0);
         setPerUserData({});
       } catch { /* skip */ }
     };
     fetchInitial();
+  }, [currentUser?.id]);
+
+  useEffect(() => {
+    if (!currentUser) return;
+    const fetchGroups = async () => {
+      try {
+        const res = await apiClient.get("/groups");
+        const rawGroups: any[] = res.data?.data ?? [];
+        const mapped: GroupChat[] = rawGroups.map(g => ({
+          id: g.id,
+          name: g.name,
+          state: "minimized" as const,
+          members: g.members.map((m: any) => ({
+            id: m.user.id,
+            name: m.user.name,
+            image: m.user.image,
+          }))
+        }));
+        setGroups(mapped);
+      } catch { /* skip */ }
+    };
+    fetchGroups();
   }, [currentUser?.id]);
 
   useEffect(() => {
@@ -206,6 +229,11 @@ export function MessengerProvider({ children }: { children: ReactNode }) {
   }, []);
 
   const openGroupChat = useCallback((group: Omit<GroupChat, "state">) => {
+    setGroups(prev => {
+      if (prev.find(g => g.id === group.id)) return prev;
+      return [...prev, { ...group, state: "minimized" }];
+    });
+
     if (pathname === "/messages") {
       setSelectedChatId(group.id);
       setIsGroupModalOpen(false);
@@ -219,10 +247,6 @@ export function MessengerProvider({ children }: { children: ReactNode }) {
       if (exists) return prev.map((g) => g.id === group.id ? { ...g, state: "open" } : g);
       const limited = prev.length >= 2 ? prev.slice(1) : prev;
       return [...limited, { ...group, state: "open" }];
-    });
-    setGroups(prev => {
-      if (prev.find(g => g.id === group.id)) return prev;
-      return [...prev, { ...group, state: "minimized" }];
     });
     setIsGroupModalOpen(false);
     setIsDrawerOpen(false);

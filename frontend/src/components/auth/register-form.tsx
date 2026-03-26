@@ -67,9 +67,9 @@ export function RegisterForm({
       const response = await registerAction(values);
 
       if (response && response.success) {
-        toast.success("Account created successfully!");
+        toast.success("Account created! You are now logged in.");
         await queryClient.invalidateQueries({ queryKey: ["auth-me"] });
-        router.push("/login");
+        router.push("/");
       } else {
         setServerError(response?.message || "Registration failed. Please try again.");
         toast.error(response?.message || "Registration failed. Please try again.");

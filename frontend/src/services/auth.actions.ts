@@ -66,6 +66,11 @@ export async function getUserInfo() {
 
         if (!res.ok) {
             console.error("Failed to fetch user info:", res.status, res.statusText);
+            if (res.status === 404 || res.status === 401) {
+                await deleteCookie("accessToken");
+                await deleteCookie("refreshToken");
+                await deleteCookie("better-auth.session_token");
+            }
             return null;
         }
 
@@ -80,6 +85,7 @@ export async function getUserInfo() {
 export const loginAction = async (payload: any) => {
     try {
         const response: any = await httpClient.post("/auth/login", payload);
+        console.log("LOGIN ACTION RESPONSE:", response);
 
         if (response?.success && response?.data) {
             const { accessToken, refreshToken, token } = response.data;
@@ -101,6 +107,7 @@ export const loginAction = async (payload: any) => {
 export const registerAction = async (payload: any) => {
     try {
         const response: any = await httpClient.post("/auth/register", payload);
+        console.log("REGISTER ACTION RESPONSE:", response);
 
         if (response?.success && response?.data) {
             const { accessToken, refreshToken, token } = response.data;

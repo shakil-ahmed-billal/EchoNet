@@ -12,6 +12,7 @@ export const auth = betterAuth({
   }),
   secret: config.jwt_secret,
   baseURL: "http://localhost:8000",
+  basePath: "/api/auth",
   trustedOrigins: ["http://localhost:3000"],
   emailAndPassword: {
     enabled: true,

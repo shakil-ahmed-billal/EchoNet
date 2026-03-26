@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import { useMessenger } from "./messenger-context";
+import { useMessenger, CallStatus } from "./messenger-context";
 import { useSocket } from "@/components/socket-provider";
 import { useAuth } from "@/hooks/use-auth";
 import { useWebRTC } from "@/hooks/use-webrtc";
@@ -9,6 +9,7 @@ import { CallModal } from "./call-modal";
 import { FloatingCallIndicator } from "./floating-call-indicator";
 import { toast } from "sonner";
 import { apiClient } from "@/services/api-client";
+import { useSendMessage } from "@/hooks/use-messages";
 
 export function CallManager() {
   const { socket } = useSocket();
@@ -22,6 +23,45 @@ export function CallManager() {
   const [callDuration, setCallDuration] = useState(0);
   const localVideoRef = useRef<HTMLVideoElement>(null);
   const remoteVideoRef = useRef<HTMLVideoElement>(null);
+
+  const { mutate: sendMessage } = useSendMessage();
+  const isInitiatorRef = useRef(false);
+  const previousStatusRef = useRef<CallStatus>("idle");
+  const lastDurationRef = useRef<number>(0);
+
+  useEffect(() => {
+    if (callStatus === "outgoing") {
+      isInitiatorRef.current = true;
+    } else if (callStatus === "incoming") {
+      isInitiatorRef.current = false;
+    }
+  }, [callStatus]);
+
+  useEffect(() => {
+    lastDurationRef.current = callDuration;
+  }, [callDuration]);
+
+  useEffect(() => {
+    if (previousStatusRef.current === "active" && callStatus === "idle" && callUser && isInitiatorRef.current) {
+      const duration = lastDurationRef.current;
+      const type = isVideoCall ? "Video call" : "Voice call";
+      if (duration > 0) {
+        const mins = Math.floor(duration / 60);
+        const secs = duration % 60;
+        const timeStr = `${mins}:${secs.toString().padStart(2, "0")}`;
+        sendMessage({
+          receiverId: callUser.id,
+          content: `📞 ${type} ended (${timeStr}).`
+        });
+      } else {
+        sendMessage({
+          receiverId: callUser.id,
+          content: `📞 Missed ${isVideoCall ? "video" : "voice"} call.`
+        });
+      }
+    }
+    previousStatusRef.current = callStatus;
+  }, [callStatus, callUser, isVideoCall, sendMessage]);
 
   const { 
     localStream, 

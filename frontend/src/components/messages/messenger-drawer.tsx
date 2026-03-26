@@ -21,7 +21,7 @@ import { formatDistanceToNow } from "date-fns";
 import { toast } from "sonner";
 
 export function MessengerDrawer() {
-  const { isDrawerOpen, closeDrawer, openChat, openGroupModal, perUserData, markUserRead } = useMessenger();
+  const { isDrawerOpen, closeDrawer, openChat, openGroupModal, perUserData, markUserRead, groups } = useMessenger();
   const { user: currentUser } = useAuth();
   const { socket } = useSocket();
   const router = useRouter();
@@ -66,8 +66,18 @@ export function MessengerDrawer() {
     return () => document.removeEventListener("mousedown", handleClick);
   }, [isDrawerOpen, closeDrawer]);
 
-  const filtered = users?.filter((u) =>
-    u.name.toLowerCase().includes(search.toLowerCase())
+  // Combine users and groups into a single array and sort by recent messages
+  const allChats = [
+    ...(users || []).map(u => ({ ...u, isGroup: false })),
+    ...groups.map(g => ({ ...g, isGroup: true, image: null, avatarUrl: null }))
+  ].sort((a, b) => {
+    const timeA = perUserData[a.id]?.lastMessageTime ? new Date(perUserData[a.id].lastMessageTime!).getTime() : 0;
+    const timeB = perUserData[b.id]?.lastMessageTime ? new Date(perUserData[b.id].lastMessageTime!).getTime() : 0;
+    return timeB - timeA;
+  });
+
+  const filtered = allChats.filter((c) =>
+    c.name.toLowerCase().includes(search.toLowerCase())
   );
 
   return (
@@ -143,24 +153,35 @@ export function MessengerDrawer() {
               filtered.map((u: any) => (
                 <div key={u.id} className="group relative flex items-center rounded-xl hover:bg-muted/60 transition-all pr-1">
                   <button
-                    onClick={() =>
-                      openChat({
-                        id: u.id,
-                        name: u.name,
-                        avatarUrl: u.avatarUrl,
-                        image: u.image,
-                      })
-                    }
+                    onClick={() => {
+                      if (u.isGroup) {
+                        router.push(`/messages?groupId=${u.id}`);
+                        closeDrawer();
+                      } else {
+                        openChat({
+                          id: u.id,
+                          name: u.name,
+                          avatarUrl: u.avatarUrl,
+                          image: u.image,
+                        });
+                      }
+                    }}
                     className="flex items-center gap-3 px-3 py-2.5 flex-1 text-left"
                   >
                     <div className="relative shrink-0">
-                      <Avatar className="size-11">
-                        <AvatarImage src={u.avatarUrl || u.image} alt={u.name} />
-                        <AvatarFallback className="bg-primary/10 text-primary font-bold text-sm">
-                          {u.name.substring(0, 2).toUpperCase()}
-                        </AvatarFallback>
-                      </Avatar>
-                      {onlineUsers.has(u.id) && (
+                      {u.isGroup ? (
+                        <div className="size-11 rounded-full bg-primary/10 flex items-center justify-center border border-primary/20">
+                          <Users className="size-6 text-primary" />
+                        </div>
+                      ) : (
+                        <Avatar className="size-11">
+                          <AvatarImage src={u.avatarUrl || u.image} alt={u.name} />
+                          <AvatarFallback className="bg-primary/10 text-primary font-bold text-sm">
+                            {u.name.substring(0, 2).toUpperCase()}
+                          </AvatarFallback>
+                        </Avatar>
+                      )}
+                      {!u.isGroup && onlineUsers.has(u.id) && (
                         <span className="absolute bottom-0 right-0 size-3 rounded-full bg-green-500 ring-2 ring-card" />
                       )}
                     </div>
@@ -183,7 +204,7 @@ export function MessengerDrawer() {
                                 ? perUserData[u.id].lastMessage.slice(0, 28) + "…"
                                 : perUserData[u.id].lastMessage}
                             </span>
-                          ) : onlineUsers.has(u.id) ? (
+                          ) : !u.isGroup && onlineUsers.has(u.id) ? (
                             <span className="text-green-500 font-medium">Active now</span>
                           ) : (
                             "Tap to message"

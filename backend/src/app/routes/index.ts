@@ -15,6 +15,7 @@ import { SearchRoutes } from '../module/search/search.route.js';
 import { HashtagRoutes } from '../module/hashtag/hashtag.route.js';
 import { SavedPostRoutes } from '../module/savedPost/savedPost.route.js';
 import { ReactionRoutes } from '../module/reaction/reaction.route.js';
+import { GroupRoutes } from '../module/group/group.route.js';
 
 const router = Router();
 
@@ -79,10 +80,13 @@ const moduleRoutes: { path: string; route: Router }[] = [
     path: '/reactions',
     route: ReactionRoutes,
   },
+  {
+    path: '/groups',
+    route: GroupRoutes,
+  },
 ];
 
 moduleRoutes.forEach((route) => {
-    console.log(`Registering route: ${route.path}`);
     router.use(route.path, route.route);
 });
 
