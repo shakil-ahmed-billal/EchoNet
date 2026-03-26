@@ -5,7 +5,7 @@ import { usePathname } from "next/navigation";
 import { MAIN_NAV } from "@/config/site";
 import { cn } from "@/lib/utils";
 import { useAuth } from "@/hooks/use-auth";
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
+import { UserImage } from "@/components/user-image";
 import { Skeleton } from "@/components/ui/skeleton";
 import { Home, Compass, Bell, Mail, User, MoreHorizontal, Users2 } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -39,12 +39,10 @@ export function LeftSidebar() {
                   pathname === `/profile/${user.id}` && "bg-primary/10 text-primary shadow-sm"
                 )}
               >
-                <Avatar className="h-6 w-6 ring-2 ring-primary/20 group-hover:ring-primary/40 transition-all shrink-0">
-                  <AvatarImage src={user.image || ""} alt={user.name || ""} />
-                  <AvatarFallback className="bg-primary/5 text-primary text-[8px] font-bold">
-                    {user.name?.substring(0, 2).toUpperCase() || "UN"}
-                  </AvatarFallback>
-                </Avatar>
+                <UserImage 
+                  user={user} 
+                  className="h-6 w-6 ring-2 ring-primary/20 group-hover:ring-primary/40 transition-all shrink-0" 
+                />
                 <span className="truncate text-sm font-bold">{user.name}</span>
               </Link>
             </li>

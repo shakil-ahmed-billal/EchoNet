@@ -54,6 +54,28 @@ export async function getFeed(cursor?: string, discover: boolean = false, author
   }
 }
 
+export async function getSavedPosts(cursor?: string): Promise<PaginatedPosts> {
+  try {
+    const response = await httpClient.get<any>("/saved-posts", {
+      params: { cursor, limit: 10 }
+    })
+    return response.data
+  } catch (error: any) {
+    console.error("getSavedPosts ERROR:", error?.response?.data || error.message);
+    return { posts: [], nextCursor: null } as PaginatedPosts;
+  }
+}
+
+export async function getStoriesAction(): Promise<any[]> {
+  try {
+    const response = await httpClient.get<any>("/stories")
+    return response.data.data || []
+  } catch (error: any) {
+    console.error("getStories ERROR:", error?.response?.data || error.message);
+    return [];
+  }
+}
+
 export async function createPost(data: FormData | { content: string; mediaUrls?: string[] }): Promise<Post> {
   console.log("SERVER ACTION: createPost called");
   

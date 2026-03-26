@@ -3,8 +3,8 @@
 import { usePathname } from "next/navigation"
 import Link from "next/link"
 import { TrendingUp, Users, ChevronRight, Zap, MoreHorizontal, Loader2, UserPlus } from "lucide-react"
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
 import { Button } from "@/components/ui/button"
+import { UserImage } from "@/components/user-image"
 import { cn } from "@/lib/utils"
 import { useQuery, useMutation, useQueryClient } from "@tanstack/react-query"
 import { getUsers } from "@/services/users.service"
@@ -156,10 +156,7 @@ export function RightSidebar() {
                 className="flex items-center justify-between p-3 rounded-2xl hover:bg-card/60 transition-all group"
               >
                 <Link href={`/profile/${item.id}`} className="flex items-center gap-3 min-w-0 flex-1 hover:opacity-80 transition-opacity">
-                  <Avatar className="h-9 w-9 border border-border/10">
-                     <AvatarImage src={item.avatar} alt={item.name} />
-                     <AvatarFallback className="text-[10px] font-bold bg-muted/50">{item.name.substring(0, 2).toUpperCase()}</AvatarFallback>
-                  </Avatar>
+                  <UserImage user={{ name: item.name, avatarUrl: item.avatar }} className="h-9 w-9 border border-border/10" />
                   <div className="flex flex-col min-w-0 pr-2">
                     <p className="font-bold text-sm text-foreground/90 truncate">{item.name}</p>
                     <p className="text-[10px] text-muted-foreground/60 font-bold uppercase tracking-wider truncate">{item.username}</p>

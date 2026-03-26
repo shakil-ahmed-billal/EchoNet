@@ -647,3 +647,110 @@
 2026-03-27 03:38:25 [[31merror[39m]: Error: You are not authorized
     at <anonymous> (C:\Shakil Dev\EchoNet\backend\src\app\middleware\auth.ts:32:15)
     at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+2026-03-27 03:40:27 [[32minfo[39m]: Initializing Socket.IO...
+2026-03-27 03:40:27 [[32minfo[39m]: User HudJwZLQ3tfbYVDeoGAUroO869vtobrA joined their private room
+2026-03-27 03:40:27 [[32minfo[39m]: User HudJwZLQ3tfbYVDeoGAUroO869vtobrA joined their private room
+2026-03-27 03:40:27 [[32minfo[39m]: User WAAmOYlXnio7cLlAWI3oiMD7ECRohRhR joined their private room
+2026-03-27 03:40:27 [[32minfo[39m]: User HudJwZLQ3tfbYVDeoGAUroO869vtobrA joined group_f4a54ed1-8ca0-4cc0-ac13-e2059fd48c16
+2026-03-27 03:40:27 [[32minfo[39m]: User HudJwZLQ3tfbYVDeoGAUroO869vtobrA joined group_f4a54ed1-8ca0-4cc0-ac13-e2059fd48c16
+2026-03-27 03:40:28 [[32minfo[39m]: User WAAmOYlXnio7cLlAWI3oiMD7ECRohRhR joined group_f4a54ed1-8ca0-4cc0-ac13-e2059fd48c16
+2026-03-27 03:41:28 [[32minfo[39m]: Socket disconnected: sJhsmiogxmuVRs18AAAC
+2026-03-27 03:41:28 [[32minfo[39m]: User HudJwZLQ3tfbYVDeoGAUroO869vtobrA joined their private room
+2026-03-27 03:41:28 [[32minfo[39m]: User HudJwZLQ3tfbYVDeoGAUroO869vtobrA joined group_f4a54ed1-8ca0-4cc0-ac13-e2059fd48c16
+2026-03-27 03:41:28 [[32minfo[39m]: User HudJwZLQ3tfbYVDeoGAUroO869vtobrA joined group_ee0da3b3-fead-48d2-b5eb-4e8d82c3f44c
+2026-03-27 03:41:31 [[32minfo[39m]: Socket disconnected: WhgL_5MoMdnrq64-AAAH
+2026-03-27 03:41:34 [[32minfo[39m]: User HudJwZLQ3tfbYVDeoGAUroO869vtobrA joined their private room
+2026-03-27 03:41:34 [[32minfo[39m]: User HudJwZLQ3tfbYVDeoGAUroO869vtobrA joined group_f4a54ed1-8ca0-4cc0-ac13-e2059fd48c16
+2026-03-27 03:41:34 [[32minfo[39m]: User HudJwZLQ3tfbYVDeoGAUroO869vtobrA joined group_ee0da3b3-fead-48d2-b5eb-4e8d82c3f44c
+2026-03-27 03:41:36 [[32minfo[39m]: Socket disconnected: e_MZHX40z7IVTQ5CAAAJ
+2026-03-27 03:41:39 [[32minfo[39m]: User HudJwZLQ3tfbYVDeoGAUroO869vtobrA joined their private room
+2026-03-27 03:41:39 [[32minfo[39m]: User HudJwZLQ3tfbYVDeoGAUroO869vtobrA joined group_f4a54ed1-8ca0-4cc0-ac13-e2059fd48c16
+2026-03-27 03:41:39 [[32minfo[39m]: User HudJwZLQ3tfbYVDeoGAUroO869vtobrA joined group_ee0da3b3-fead-48d2-b5eb-4e8d82c3f44c
+2026-03-27 03:44:03 [[31merror[39m]: PrismaClientKnownRequestError: 
+Invalid `prisma.savedPost.delete()` invocation in
+C:\Shakil Dev\EchoNet\backend\src\app\module\savedPost\savedPost.service.ts:12:35
+
+   9 };
+  10 
+  11 const unsavePost = async (userId: string, postId: string) => {
+→ 12     return await prisma.savedPost.delete(
+An operation failed because it depends on one or more records that were required but not found. No record was found for a delete.
+    at Gr.handleRequestError (C:\Shakil Dev\EchoNet\backend\generated\prisma\client\runtime\client.js:69:8286)
+    at Gr.handleAndLogRequestError (C:\Shakil Dev\EchoNet\backend\generated\prisma\client\runtime\client.js:69:7581)
+    at Gr.request (C:\Shakil Dev\EchoNet\backend\generated\prisma\client\runtime\client.js:69:7288)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async a (C:\Shakil Dev\EchoNet\backend\generated\prisma\client\runtime\client.js:79:6730)
+    at async Object.unsavePost (C:\Shakil Dev\EchoNet\backend\src\app\module\savedPost\savedPost.service.ts:12:12)
+    at async <anonymous> (C:\Shakil Dev\EchoNet\backend\src\app\module\savedPost\savedPost.controller.ts:25:20)
+    at async <anonymous> (C:\Shakil Dev\EchoNet\backend\src\app\utils\catchAsync.ts:6:7)
+2026-03-27 03:44:14 [[31merror[39m]: PrismaClientKnownRequestError: 
+Invalid `prisma.savedPost.delete()` invocation in
+C:\Shakil Dev\EchoNet\backend\src\app\module\savedPost\savedPost.service.ts:12:35
+
+   9 };
+  10 
+  11 const unsavePost = async (userId: string, postId: string) => {
+→ 12     return await prisma.savedPost.delete(
+An operation failed because it depends on one or more records that were required but not found. No record was found for a delete.
+    at Gr.handleRequestError (C:\Shakil Dev\EchoNet\backend\generated\prisma\client\runtime\client.js:69:8286)
+    at Gr.handleAndLogRequestError (C:\Shakil Dev\EchoNet\backend\generated\prisma\client\runtime\client.js:69:7581)
+    at Gr.request (C:\Shakil Dev\EchoNet\backend\generated\prisma\client\runtime\client.js:69:7288)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async a (C:\Shakil Dev\EchoNet\backend\generated\prisma\client\runtime\client.js:79:6730)
+    at async Object.unsavePost (C:\Shakil Dev\EchoNet\backend\src\app\module\savedPost\savedPost.service.ts:12:12)
+    at async <anonymous> (C:\Shakil Dev\EchoNet\backend\src\app\module\savedPost\savedPost.controller.ts:25:20)
+    at async <anonymous> (C:\Shakil Dev\EchoNet\backend\src\app\utils\catchAsync.ts:6:7)
+2026-03-27 03:44:58 [[32minfo[39m]: Socket disconnected: 5CusypDVoQuU86FaAAAD
+2026-03-27 03:44:58 [[32minfo[39m]: Socket disconnected: OWkV84JQmvKuW_9xAAAL
+2026-03-27 03:44:58 [[32minfo[39m]: Socket disconnected: 3BqTark4zL-qG8QdAAAF
+2026-03-27 03:44:58 [[32minfo[39m]: User HudJwZLQ3tfbYVDeoGAUroO869vtobrA joined their private room
+2026-03-27 03:44:58 [[32minfo[39m]: User HudJwZLQ3tfbYVDeoGAUroO869vtobrA joined group_f4a54ed1-8ca0-4cc0-ac13-e2059fd48c16
+2026-03-27 03:44:58 [[32minfo[39m]: User HudJwZLQ3tfbYVDeoGAUroO869vtobrA joined group_ee0da3b3-fead-48d2-b5eb-4e8d82c3f44c
+2026-03-27 03:44:58 [[32minfo[39m]: User HudJwZLQ3tfbYVDeoGAUroO869vtobrA joined their private room
+2026-03-27 03:44:58 [[32minfo[39m]: User HudJwZLQ3tfbYVDeoGAUroO869vtobrA joined group_f4a54ed1-8ca0-4cc0-ac13-e2059fd48c16
+2026-03-27 03:44:58 [[32minfo[39m]: User HudJwZLQ3tfbYVDeoGAUroO869vtobrA joined group_ee0da3b3-fead-48d2-b5eb-4e8d82c3f44c
+2026-03-27 03:44:58 [[32minfo[39m]: User WAAmOYlXnio7cLlAWI3oiMD7ECRohRhR joined their private room
+2026-03-27 03:44:58 [[32minfo[39m]: User WAAmOYlXnio7cLlAWI3oiMD7ECRohRhR joined group_f4a54ed1-8ca0-4cc0-ac13-e2059fd48c16
+2026-03-27 03:48:12 [[32minfo[39m]: Initializing Socket.IO...
+2026-03-27 03:48:12 [[32minfo[39m]: User HudJwZLQ3tfbYVDeoGAUroO869vtobrA joined their private room
+2026-03-27 03:48:12 [[32minfo[39m]: User HudJwZLQ3tfbYVDeoGAUroO869vtobrA joined their private room
+2026-03-27 03:48:12 [[32minfo[39m]: User HudJwZLQ3tfbYVDeoGAUroO869vtobrA joined group_f4a54ed1-8ca0-4cc0-ac13-e2059fd48c16
+2026-03-27 03:48:12 [[32minfo[39m]: User HudJwZLQ3tfbYVDeoGAUroO869vtobrA joined group_ee0da3b3-fead-48d2-b5eb-4e8d82c3f44c
+2026-03-27 03:48:12 [[32minfo[39m]: User HudJwZLQ3tfbYVDeoGAUroO869vtobrA joined group_f4a54ed1-8ca0-4cc0-ac13-e2059fd48c16
+2026-03-27 03:48:12 [[32minfo[39m]: User HudJwZLQ3tfbYVDeoGAUroO869vtobrA joined group_ee0da3b3-fead-48d2-b5eb-4e8d82c3f44c
+2026-03-27 03:48:16 [[32minfo[39m]: User WAAmOYlXnio7cLlAWI3oiMD7ECRohRhR joined their private room
+2026-03-27 03:48:16 [[32minfo[39m]: User WAAmOYlXnio7cLlAWI3oiMD7ECRohRhR joined group_f4a54ed1-8ca0-4cc0-ac13-e2059fd48c16
+2026-03-27 03:48:20 [[31merror[39m]: PrismaClientKnownRequestError: 
+Invalid `prisma.savedPost.delete()` invocation in
+C:\Shakil Dev\EchoNet\backend\src\app\module\savedPost\savedPost.service.ts:12:35
+
+   9 };
+  10 
+  11 const unsavePost = async (userId: string, postId: string) => {
+→ 12     return await prisma.savedPost.delete(
+An operation failed because it depends on one or more records that were required but not found. No record was found for a delete.
+    at Gr.handleRequestError (C:\Shakil Dev\EchoNet\backend\generated\prisma\client\runtime\client.js:69:8286)
+    at Gr.handleAndLogRequestError (C:\Shakil Dev\EchoNet\backend\generated\prisma\client\runtime\client.js:69:7581)
+    at Gr.request (C:\Shakil Dev\EchoNet\backend\generated\prisma\client\runtime\client.js:69:7288)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async a (C:\Shakil Dev\EchoNet\backend\generated\prisma\client\runtime\client.js:79:6730)
+    at async Object.unsavePost (C:\Shakil Dev\EchoNet\backend\src\app\module\savedPost\savedPost.service.ts:12:12)
+    at async <anonymous> (C:\Shakil Dev\EchoNet\backend\src\app\module\savedPost\savedPost.controller.ts:25:20)
+    at async <anonymous> (C:\Shakil Dev\EchoNet\backend\src\app\utils\catchAsync.ts:6:7)
+2026-03-27 03:48:32 [[31merror[39m]: PrismaClientKnownRequestError: 
+Invalid `prisma.savedPost.delete()` invocation in
+C:\Shakil Dev\EchoNet\backend\src\app\module\savedPost\savedPost.service.ts:12:35
+
+   9 };
+  10 
+  11 const unsavePost = async (userId: string, postId: string) => {
+→ 12     return await prisma.savedPost.delete(
+An operation failed because it depends on one or more records that were required but not found. No record was found for a delete.
+    at Gr.handleRequestError (C:\Shakil Dev\EchoNet\backend\generated\prisma\client\runtime\client.js:69:8286)
+    at Gr.handleAndLogRequestError (C:\Shakil Dev\EchoNet\backend\generated\prisma\client\runtime\client.js:69:7581)
+    at Gr.request (C:\Shakil Dev\EchoNet\backend\generated\prisma\client\runtime\client.js:69:7288)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async a (C:\Shakil Dev\EchoNet\backend\generated\prisma\client\runtime\client.js:79:6730)
+    at async Object.unsavePost (C:\Shakil Dev\EchoNet\backend\src\app\module\savedPost\savedPost.service.ts:12:12)
+    at async <anonymous> (C:\Shakil Dev\EchoNet\backend\src\app\module\savedPost\savedPost.controller.ts:25:20)
+    at async <anonymous> (C:\Shakil Dev\EchoNet\backend\src\app\utils\catchAsync.ts:6:7)

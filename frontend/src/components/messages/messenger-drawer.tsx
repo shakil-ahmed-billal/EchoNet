@@ -2,7 +2,7 @@
 
 import { useEffect, useRef, useState } from "react";
 import { X, Search, MessageCircle, Loader2, Users, MoreHorizontal, UserCircle, ShieldAlert } from "lucide-react";
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
+import { UserImage } from "@/components/user-image";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { ScrollArea } from "@/components/ui/scroll-area";
@@ -174,12 +174,7 @@ export function MessengerDrawer() {
                           <Users className="size-6 text-primary" />
                         </div>
                       ) : (
-                        <Avatar className="size-11">
-                          <AvatarImage src={u.avatarUrl || u.image} alt={u.name} />
-                          <AvatarFallback className="bg-primary/10 text-primary font-bold text-sm">
-                            {u.name.substring(0, 2).toUpperCase()}
-                          </AvatarFallback>
-                        </Avatar>
+                        <UserImage user={u} className="size-11" />
                       )}
                       {!u.isGroup && onlineUsers.has(u.id) && (
                         <span className="absolute bottom-0 right-0 size-3 rounded-full bg-green-500 ring-2 ring-card" />

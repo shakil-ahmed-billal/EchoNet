@@ -14,6 +14,7 @@ import { useAuth } from "@/hooks/use-auth";
 import { toast } from "sonner";
 import { apiClient } from "@/services/api-client";
 import Link from "next/link";
+import { UserImage } from "@/components/user-image";
 import { ThumbsUp, Heart as HeartIcon, Laugh, Meh, Frown, Zap } from "lucide-react";
 import {
   DropdownMenu,
@@ -109,12 +110,10 @@ export function PostCard({ post }: PostCardProps) {
       <div className="p-3 sm:p-5 flex items-center justify-between">
         <div className="flex items-center gap-3.5 group/author">
           <Link href={`/profile/${post.author.id}`}>
-            <Avatar className="h-11 w-11 border-2 border-primary/10 shadow-inner group-hover/author:border-primary/30 transition-colors cursor-pointer">
-              <AvatarImage src={post.author.avatarUrl} alt={post.author.name} />
-              <AvatarFallback className="bg-primary/5 text-primary font-bold">
-                {post.author.name.substring(0, 2).toUpperCase()}
-              </AvatarFallback>
-            </Avatar>
+            <UserImage 
+              user={post.author} 
+              className="h-11 w-11 border-2 border-primary/10 shadow-inner group-hover/author:border-primary/30 transition-colors cursor-pointer" 
+            />
           </Link>
           <div className="flex flex-col min-w-0">
             <Link href={`/profile/${post.author.id}`}>

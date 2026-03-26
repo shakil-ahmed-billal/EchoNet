@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from "react";
 import { X, Search, Users, Check, Loader2, Video, Phone } from "lucide-react";
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
+import { UserImage } from "@/components/user-image";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { ScrollArea } from "@/components/ui/scroll-area";
@@ -131,10 +131,7 @@ export function GroupChatModal() {
                     onClick={() => toggleUser(u)}
                     className="flex items-center gap-1.5 bg-primary/10 text-primary text-xs font-semibold rounded-full px-3 py-1.5 hover:bg-destructive/10 hover:text-destructive transition-all group"
                   >
-                    <Avatar className="size-4">
-                      <AvatarImage src={u.avatarUrl || u.image} alt={u.name} />
-                      <AvatarFallback className="text-[8px]">{u.name[0]}</AvatarFallback>
-                    </Avatar>
+                    <UserImage user={u} className="size-4" />
                     {u.name.split(" ")[0]}
                     <X className="size-3 opacity-60 group-hover:opacity-100" />
                   </button>
@@ -176,12 +173,7 @@ export function GroupChatModal() {
                           isSelected ? "bg-primary/10" : "hover:bg-muted/60"
                         )}
                       >
-                        <Avatar className="size-10 shrink-0">
-                          <AvatarImage src={u.avatarUrl || u.image} alt={u.name} />
-                          <AvatarFallback className="bg-primary/10 text-primary font-bold text-sm">
-                            {u.name.substring(0, 2).toUpperCase()}
-                          </AvatarFallback>
-                        </Avatar>
+                        <UserImage user={u} className="size-10 shrink-0" />
                         <div className="flex-1 min-w-0">
                           <p className="font-semibold text-sm text-foreground truncate">{u.name}</p>
                           <p className="text-[11px] text-muted-foreground/60">@{u.name.toLowerCase().replace(/\s/g, "")}</p>
@@ -216,8 +208,9 @@ export function GroupChatModal() {
             <div className="flex justify-center">
               <div className="relative size-20">
                 {selectedUsers.slice(0, 4).map((u, i) => (
-                  <Avatar
+                  <UserImage
                     key={u.id}
+                    user={u}
                     className={cn(
                       "absolute size-10 ring-2 ring-card",
                       i === 0 && "top-0 left-0",
@@ -227,12 +220,7 @@ export function GroupChatModal() {
                       selectedUsers.length === 2 && i === 0 && "top-0 left-1/2 -translate-x-1/2 -translate-y-1",
                       selectedUsers.length === 2 && i === 1 && "bottom-0 left-1/2 -translate-x-1/2 translate-y-1",
                     )}
-                  >
-                    <AvatarImage src={u.avatarUrl || u.image} alt={u.name} />
-                    <AvatarFallback className="text-xs font-bold bg-primary/10 text-primary">
-                      {u.name[0]}
-                    </AvatarFallback>
-                  </Avatar>
+                  />
                 ))}
               </div>
             </div>

@@ -9,8 +9,8 @@ const savePost = async (userId: string, postId: string) => {
 };
 
 const unsavePost = async (userId: string, postId: string) => {
-    return await prisma.savedPost.delete({
-        where: { userId_postId: { userId, postId } }
+    return await prisma.savedPost.deleteMany({
+        where: { userId, postId }
     });
 };
 

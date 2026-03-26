@@ -7,6 +7,7 @@ import {
   MoreHorizontal, Users, BellOff, ShieldAlert, Check, CheckCheck,
 } from "lucide-react";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
+import { UserImage } from "@/components/user-image";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { ScrollArea } from "@/components/ui/scroll-area";
@@ -23,18 +24,14 @@ function GroupAvatarStack({ members }: { members: any[] }) {
   return (
     <div className="relative size-9 shrink-0">
       {members.slice(0, 2).map((m, i) => (
-        <Avatar
+        <UserImage
           key={m.id}
+          user={m}
           className={cn(
             "absolute size-6 ring-2 ring-card",
             i === 0 ? "top-0 left-0" : "bottom-0 right-0"
           )}
-        >
-          <AvatarImage src={m.avatarUrl || m.image} alt={m.name} />
-          <AvatarFallback className="text-[8px] font-bold bg-primary/10 text-primary">
-            {m.name[0]}
-          </AvatarFallback>
-        </Avatar>
+        />
       ))}
       {members.length > 2 && (
         <span className="absolute -bottom-0.5 -right-0.5 size-4 rounded-full bg-muted border border-card text-muted-foreground text-[8px] font-bold flex items-center justify-center">

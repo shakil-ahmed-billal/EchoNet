@@ -1,7 +1,9 @@
 "use client"
 
-import { useInfiniteQuery, useMutation, useQueryClient } from "@tanstack/react-query"
-import { getFeed, createPost, Post, PaginatedPosts } from "@/services/posts.service"
+/** Optimized post & story hooks */
+
+import { useInfiniteQuery, useQuery, useMutation, useQueryClient } from "@tanstack/react-query"
+import { getFeed, getSavedPosts, getStoriesAction, createPost, Post, PaginatedPosts } from "@/services/posts.service"
 import { toast } from "sonner"
 
 export function usePosts(discover: boolean = false, authorId?: string) {
@@ -12,6 +14,25 @@ export function usePosts(discover: boolean = false, authorId?: string) {
     getNextPageParam: (lastPage) => lastPage.nextCursor ?? undefined,
     retry: false,
     staleTime: 60 * 1000, // 1 minute cache to deduplicate simultaneous requests
+  })
+}
+
+export function useSavedPosts() {
+  return useInfiniteQuery({
+    queryKey: ["posts", "saved"],
+    queryFn: ({ pageParam }) => getSavedPosts(pageParam),
+    initialPageParam: undefined as string | undefined,
+    getNextPageParam: (lastPage) => lastPage.nextCursor ?? undefined,
+    retry: false,
+    staleTime: 60 * 1000,
+  })
+}
+
+export function useStories() {
+  return useQuery({
+    queryKey: ["stories"],
+    queryFn: () => getStoriesAction(),
+    staleTime: 5 * 60 * 1000,
   })
 }
 

@@ -1,11 +1,13 @@
 "use client";
 
 import { PostList } from "@/components/feed/post-list";
+import { SavedPostList } from "@/components/feed/saved-post-list";
 import { EditProfileDialog } from "@/components/profile/edit-profile-dialog";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Button } from "@/components/ui/button";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { useAuth } from "@/hooks/use-auth";
+import { useStories } from "@/hooks/use-posts";
 import { cn } from "@/lib/utils";
 import { apiClient } from "@/services/api-client";
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
@@ -27,12 +29,14 @@ import {
 import { FollowButton } from "@/components/follow/FollowButton";
 import Link from "next/link";
 import { useParams } from "next/navigation";
+import { UserImage } from "@/components/user-image";
 
 export default function ProfilePage() {
   const params = useParams();
   const id = (params.id || params.username) as string;
   const { user: currentUser } = useAuth();
   const queryClient = useQueryClient();
+  const { data: globalStories } = useStories();
 
   const {
     data: profile,
@@ -93,6 +97,8 @@ export default function ProfilePage() {
   }
 
   const isSelf = currentUser?.id === profile.id;
+  const myStoriesGroup = globalStories?.find((group: any) => group.isOwn);
+  const myStories = myStoriesGroup?.stories || [];
 
   return (
     <div className="flex flex-col gap-6 w-full pb-20">
@@ -108,12 +114,7 @@ export default function ProfilePage() {
             />
           )}
           <div className="absolute -bottom-16 left-8 sm:left-12 rounded-full border-4 border-card bg-card shadow-sm z-10">
-            <Avatar className="h-32 w-32 sm:h-36 sm:w-36">
-              <AvatarImage src={profile.avatarUrl} alt={profile.name} className="object-cover" />
-              <AvatarFallback className="text-4xl font-bold bg-primary/5 text-primary">
-                {profile.name.substring(0, 2).toUpperCase()}
-              </AvatarFallback>
-            </Avatar>
+            <UserImage user={profile} className="h-32 w-32 sm:h-36 sm:w-36" />
           </div>
         </div>
 
@@ -255,6 +256,22 @@ export default function ProfilePage() {
             >
               Media
             </TabsTrigger>
+            {isSelf && (
+              <>
+                <TabsTrigger
+                  value="saved"
+                  className="flex-1 rounded-xl data-[state=active]:bg-card data-[state=active]:text-foreground data-[state=active]:shadow-sm py-2 text-sm font-semibold transition-all"
+                >
+                  Saved
+                </TabsTrigger>
+                <TabsTrigger
+                  value="stories"
+                  className="flex-1 rounded-xl data-[state=active]:bg-card data-[state=active]:text-foreground data-[state=active]:shadow-sm py-2 text-sm font-semibold transition-all"
+                >
+                  Stories
+                </TabsTrigger>
+              </>
+            )}
           </TabsList>
 
           <TabsContent value="posts" className="focus-visible:outline-none">
@@ -270,6 +287,36 @@ export default function ProfilePage() {
               <p className="text-sm font-medium text-muted-foreground">No media shared yet.</p>
             </div>
           </TabsContent>
+          {isSelf && (
+            <>
+              <TabsContent value="saved" className="focus-visible:outline-none">
+                <SavedPostList />
+              </TabsContent>
+              <TabsContent value="stories" className="focus-visible:outline-none">
+                {myStories.length > 0 ? (
+                  <div className="grid grid-cols-2 sm:grid-cols-3 gap-4">
+                    {myStories.map((story: any) => (
+                      <div key={story.id} className="relative aspect-9/16 rounded-2xl overflow-hidden shadow-sm group">
+                        <img src={story.mediaUrl} alt="Story" className="object-cover w-full h-full" />
+                        <div className="absolute inset-x-0 bottom-0 bg-linear-to-t from-black/80 via-black/40 to-transparent p-4 flex flex-col justify-end">
+                          <p className="text-white text-xs font-medium line-clamp-2 drop-shadow-md">
+                            {story.caption || format(new Date(story.createdAt), "PPp")}
+                          </p>
+                          <div className="flex items-center gap-1 mt-2 text-white/80 text-[10px] uppercase font-bold tracking-wider">
+                            <span className="bg-primary/80 px-1.5 py-0.5 rounded text-white">{story.viewsCount} views</span>
+                          </div>
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                ) : (
+                  <div className="py-20 text-center border-2 border-dashed border-muted rounded-3xl bg-muted/5">
+                    <p className="text-sm font-medium text-muted-foreground">You have no active stories.</p>
+                  </div>
+                )}
+              </TabsContent>
+            </>
+          )}
         </Tabs>
       ) : (
         <div className="flex flex-col items-center justify-center py-20 bg-card/60 border border-border/50 rounded-3xl text-center px-6">

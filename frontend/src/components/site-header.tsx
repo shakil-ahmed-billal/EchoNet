@@ -15,9 +15,9 @@ import { NotificationSheet } from "./layout/notification-sheet"
 import { useQuery } from "@tanstack/react-query"
 import { getUsers, UserSuggestion } from "@/services/users.service"
 import { useState, useEffect, useRef } from "react"
-import { Avatar, AvatarFallback, AvatarImage } from "./ui/avatar"
 import { Loader2 } from "lucide-react"
 import { useMessenger } from "./messages/messenger-context"
+import { UserImage } from "./user-image"
 
 export function SiteHeader() {
   const pathname = usePathname()
@@ -89,12 +89,7 @@ export function SiteHeader() {
                        onClick={() => setShowSearch(false)}
                        className="flex items-center gap-3 px-4 py-2.5 hover:bg-muted/60 transition-colors"
                      >
-                        <Avatar className="h-9 w-9 ring-1 ring-border/10">
-                          <AvatarImage src={u.avatarUrl || u.image || ""} alt={u.name} />
-                          <AvatarFallback className="bg-primary/10 text-primary text-[10px] font-bold">
-                            {u.name.substring(0, 2).toUpperCase()}
-                          </AvatarFallback>
-                        </Avatar>
+                        <UserImage user={u} className="h-9 w-9 ring-1 ring-border/10" />
                         <div className="flex flex-col min-w-0">
                           <span className="text-sm font-bold truncate text-foreground/90 leading-tight">
                             {u.name}

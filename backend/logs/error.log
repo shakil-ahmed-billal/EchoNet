@@ -413,3 +413,71 @@
 2026-03-27 03:38:25 [[31merror[39m]: Error: You are not authorized
     at <anonymous> (C:\Shakil Dev\EchoNet\backend\src\app\middleware\auth.ts:32:15)
     at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+2026-03-27 03:44:03 [[31merror[39m]: PrismaClientKnownRequestError: 
+Invalid `prisma.savedPost.delete()` invocation in
+C:\Shakil Dev\EchoNet\backend\src\app\module\savedPost\savedPost.service.ts:12:35
+
+   9 };
+  10 
+  11 const unsavePost = async (userId: string, postId: string) => {
+→ 12     return await prisma.savedPost.delete(
+An operation failed because it depends on one or more records that were required but not found. No record was found for a delete.
+    at Gr.handleRequestError (C:\Shakil Dev\EchoNet\backend\generated\prisma\client\runtime\client.js:69:8286)
+    at Gr.handleAndLogRequestError (C:\Shakil Dev\EchoNet\backend\generated\prisma\client\runtime\client.js:69:7581)
+    at Gr.request (C:\Shakil Dev\EchoNet\backend\generated\prisma\client\runtime\client.js:69:7288)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async a (C:\Shakil Dev\EchoNet\backend\generated\prisma\client\runtime\client.js:79:6730)
+    at async Object.unsavePost (C:\Shakil Dev\EchoNet\backend\src\app\module\savedPost\savedPost.service.ts:12:12)
+    at async <anonymous> (C:\Shakil Dev\EchoNet\backend\src\app\module\savedPost\savedPost.controller.ts:25:20)
+    at async <anonymous> (C:\Shakil Dev\EchoNet\backend\src\app\utils\catchAsync.ts:6:7)
+2026-03-27 03:44:14 [[31merror[39m]: PrismaClientKnownRequestError: 
+Invalid `prisma.savedPost.delete()` invocation in
+C:\Shakil Dev\EchoNet\backend\src\app\module\savedPost\savedPost.service.ts:12:35
+
+   9 };
+  10 
+  11 const unsavePost = async (userId: string, postId: string) => {
+→ 12     return await prisma.savedPost.delete(
+An operation failed because it depends on one or more records that were required but not found. No record was found for a delete.
+    at Gr.handleRequestError (C:\Shakil Dev\EchoNet\backend\generated\prisma\client\runtime\client.js:69:8286)
+    at Gr.handleAndLogRequestError (C:\Shakil Dev\EchoNet\backend\generated\prisma\client\runtime\client.js:69:7581)
+    at Gr.request (C:\Shakil Dev\EchoNet\backend\generated\prisma\client\runtime\client.js:69:7288)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async a (C:\Shakil Dev\EchoNet\backend\generated\prisma\client\runtime\client.js:79:6730)
+    at async Object.unsavePost (C:\Shakil Dev\EchoNet\backend\src\app\module\savedPost\savedPost.service.ts:12:12)
+    at async <anonymous> (C:\Shakil Dev\EchoNet\backend\src\app\module\savedPost\savedPost.controller.ts:25:20)
+    at async <anonymous> (C:\Shakil Dev\EchoNet\backend\src\app\utils\catchAsync.ts:6:7)
+2026-03-27 03:48:20 [[31merror[39m]: PrismaClientKnownRequestError: 
+Invalid `prisma.savedPost.delete()` invocation in
+C:\Shakil Dev\EchoNet\backend\src\app\module\savedPost\savedPost.service.ts:12:35
+
+   9 };
+  10 
+  11 const unsavePost = async (userId: string, postId: string) => {
+→ 12     return await prisma.savedPost.delete(
+An operation failed because it depends on one or more records that were required but not found. No record was found for a delete.
+    at Gr.handleRequestError (C:\Shakil Dev\EchoNet\backend\generated\prisma\client\runtime\client.js:69:8286)
+    at Gr.handleAndLogRequestError (C:\Shakil Dev\EchoNet\backend\generated\prisma\client\runtime\client.js:69:7581)
+    at Gr.request (C:\Shakil Dev\EchoNet\backend\generated\prisma\client\runtime\client.js:69:7288)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async a (C:\Shakil Dev\EchoNet\backend\generated\prisma\client\runtime\client.js:79:6730)
+    at async Object.unsavePost (C:\Shakil Dev\EchoNet\backend\src\app\module\savedPost\savedPost.service.ts:12:12)
+    at async <anonymous> (C:\Shakil Dev\EchoNet\backend\src\app\module\savedPost\savedPost.controller.ts:25:20)
+    at async <anonymous> (C:\Shakil Dev\EchoNet\backend\src\app\utils\catchAsync.ts:6:7)
+2026-03-27 03:48:32 [[31merror[39m]: PrismaClientKnownRequestError: 
+Invalid `prisma.savedPost.delete()` invocation in
+C:\Shakil Dev\EchoNet\backend\src\app\module\savedPost\savedPost.service.ts:12:35
+
+   9 };
+  10 
+  11 const unsavePost = async (userId: string, postId: string) => {
+→ 12     return await prisma.savedPost.delete(
+An operation failed because it depends on one or more records that were required but not found. No record was found for a delete.
+    at Gr.handleRequestError (C:\Shakil Dev\EchoNet\backend\generated\prisma\client\runtime\client.js:69:8286)
+    at Gr.handleAndLogRequestError (C:\Shakil Dev\EchoNet\backend\generated\prisma\client\runtime\client.js:69:7581)
+    at Gr.request (C:\Shakil Dev\EchoNet\backend\generated\prisma\client\runtime\client.js:69:7288)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async a (C:\Shakil Dev\EchoNet\backend\generated\prisma\client\runtime\client.js:79:6730)
+    at async Object.unsavePost (C:\Shakil Dev\EchoNet\backend\src\app\module\savedPost\savedPost.service.ts:12:12)
+    at async <anonymous> (C:\Shakil Dev\EchoNet\backend\src\app\module\savedPost\savedPost.controller.ts:25:20)
+    at async <anonymous> (C:\Shakil Dev\EchoNet\backend\src\app\utils\catchAsync.ts:6:7)

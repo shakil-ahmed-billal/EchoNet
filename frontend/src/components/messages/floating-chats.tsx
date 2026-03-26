@@ -7,6 +7,7 @@ import {
   Check, CheckCheck,
 } from "lucide-react";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
+import { UserImage } from "@/components/user-image";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { ScrollArea } from "@/components/ui/scroll-area";
@@ -165,12 +166,7 @@ function ChatPopup({ chat, index }: { chat: ActiveChat; index: number }) {
           className="relative group size-14 rounded-full shadow-xl ring-2 ring-primary/20 hover:ring-primary/60 transition-all hover:scale-110 active:scale-95 focus:outline-none"
           title={chat.user.name}
         >
-          <Avatar className="size-14">
-            <AvatarImage src={chat.user.avatarUrl || chat.user.image} alt={chat.user.name} />
-            <AvatarFallback className="bg-primary text-primary-foreground font-bold text-lg">
-              {chat.user.name.substring(0, 2).toUpperCase()}
-            </AvatarFallback>
-          </Avatar>
+          <UserImage user={chat.user} className="size-14" />
           {isOnline && (
             <span className="absolute bottom-0.5 right-0.5 size-3.5 rounded-full bg-green-500 ring-2 ring-white dark:ring-background" />
           )}
@@ -205,12 +201,7 @@ function ChatPopup({ chat, index }: { chat: ActiveChat; index: number }) {
           onClick={() => router.push(`/profile/${userId}`)}
           className="relative shrink-0 hover:opacity-80 transition-opacity"
         >
-          <Avatar className="size-9">
-            <AvatarImage src={chat.user.avatarUrl || chat.user.image} alt={chat.user.name} />
-            <AvatarFallback className="bg-primary/10 text-primary font-bold text-xs">
-              {chat.user.name.substring(0, 2).toUpperCase()}
-            </AvatarFallback>
-          </Avatar>
+          <UserImage user={chat.user} className="size-9" />
           {isOnline && (
             <span className="absolute bottom-0 right-0 size-2.5 rounded-full bg-green-500 ring-2 ring-card" />
           )}
@@ -303,12 +294,7 @@ function ChatPopup({ chat, index }: { chat: ActiveChat; index: number }) {
                 {(!messages || messages.length === 0) && (
                   <div className="flex flex-col items-center py-8 text-center">
                     <button onClick={() => router.push(`/profile/${userId}`)}>
-                      <Avatar className="size-16 mb-3 hover:opacity-80 transition-opacity">
-                        <AvatarImage src={chat.user.avatarUrl || chat.user.image} alt={chat.user.name} />
-                        <AvatarFallback className="bg-primary/10 text-primary font-bold text-lg">
-                          {chat.user.name.substring(0, 2).toUpperCase()}
-                        </AvatarFallback>
-                      </Avatar>
+                      <UserImage user={chat.user} className="size-16 mb-3 hover:opacity-80 transition-opacity" />
                     </button>
                     <p className="text-sm font-semibold text-foreground">{chat.user.name}</p>
                     <p className="text-xs text-muted-foreground mt-1">Say hi! 👋</p>
@@ -335,12 +321,7 @@ function ChatPopup({ chat, index }: { chat: ActiveChat; index: number }) {
                         <div className="w-6 shrink-0">
                           {isLast && (
                             <button onClick={() => router.push(`/profile/${userId}`)}>
-                              <Avatar className="size-6 hover:opacity-80 transition-opacity">
-                                <AvatarImage src={chat.user.avatarUrl || chat.user.image} alt={chat.user.name} />
-                                <AvatarFallback className="text-[8px] font-bold bg-primary/10 text-primary">
-                                  {chat.user.name.substring(0, 2).toUpperCase()}
-                                </AvatarFallback>
-                              </Avatar>
+                              <UserImage user={chat.user} className="size-6 hover:opacity-80 transition-opacity" />
                             </button>
                           )}
                         </div>
@@ -382,11 +363,7 @@ function ChatPopup({ chat, index }: { chat: ActiveChat; index: number }) {
 
                 {isTyping && (
                   <div className="flex items-end gap-1 mt-2">
-                    <Avatar className="size-6">
-                      <AvatarFallback className="text-[8px] bg-primary/10 text-primary font-bold">
-                        {chat.user.name.substring(0, 2).toUpperCase()}
-                      </AvatarFallback>
-                    </Avatar>
+                    <UserImage user={chat.user} className="size-6" />
                     <div className="bg-muted rounded-2xl px-3 py-2.5 flex gap-1 items-center">
                       <span className="size-1.5 bg-muted-foreground/50 rounded-full animate-bounce [animation-delay:0ms]" />
                       <span className="size-1.5 bg-muted-foreground/50 rounded-full animate-bounce [animation-delay:150ms]" />
