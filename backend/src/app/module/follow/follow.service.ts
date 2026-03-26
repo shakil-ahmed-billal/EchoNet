@@ -83,12 +83,56 @@ const getFollowers = async (userId: string) => {
     return result.map(f => f.follower);
 };
 
-const getFollowing = async (userId: string) => {
+const getFollowing = async (userId: string, page = 1, limit = 10) => {
+    const skip = (page - 1) * limit;
     const result = await prisma.follow.findMany({
         where: { followerId: userId, status: 'ACCEPTED' },
         include: { following: true },
+        skip,
+        take: limit,
     });
     return result.map(f => f.following);
+};
+
+const getPendingRequests = async (userId: string, page = 1, limit = 10) => {
+    const skip = (page - 1) * limit;
+    const result = await prisma.follow.findMany({
+        where: { followingId: userId, status: 'PENDING' },
+        include: { follower: true },
+        skip,
+        take: limit,
+    });
+    return result.map(f => f.follower);
+};
+
+const getSuggestions = async (userId: string, page = 1, limit = 15) => {
+    const skip = (page - 1) * limit;
+    // Users who are not the current user AND don't have a follow record where current user is follower
+    const result = await prisma.user.findMany({
+        where: {
+            AND: [
+                { id: { not: userId } },
+                { isDeleted: false },
+                {
+                    NOT: {
+                        followers: {
+                            some: { followerId: userId }
+                        }
+                    }
+                },
+                {
+                    NOT: {
+                        following: {
+                            some: { followingId: userId }
+                        }
+                    }
+                }
+            ]
+        },
+        skip,
+        take: limit,
+    });
+    return result;
 };
 
 export const FollowServices = {
@@ -97,4 +141,6 @@ export const FollowServices = {
     unfollowUser,
     getFollowers,
     getFollowing,
+    getPendingRequests,
+    getSuggestions,
 };

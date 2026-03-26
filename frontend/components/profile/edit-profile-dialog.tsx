@@ -1,15 +1,23 @@
 "use client";
 
-import { useState } from "react";
-import { useMutation, useQueryClient } from "@tanstack/react-query";
-import { toast } from "sonner";
 import { Button } from "@/components/ui/button";
-import { Dialog, DialogContent, DialogDescription, DialogFooter, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog";
+import {
+  Dialog,
+  DialogContent,
+  DialogDescription,
+  DialogFooter,
+  DialogHeader,
+  DialogTitle,
+  DialogTrigger,
+} from "@/components/ui/dialog";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
 import { updateUserProfile } from "@/services/users.service";
+import { useMutation, useQueryClient } from "@tanstack/react-query";
 import { Loader2 } from "lucide-react";
+import { useState } from "react";
+import { toast } from "sonner";
 
 interface EditProfileDialogProps {
   user: {
@@ -31,7 +39,7 @@ export function EditProfileDialog({ user, children }: EditProfileDialogProps) {
   const mutation = useMutation({
     mutationFn: async () => {
       // Small delay just to ensure the UI doesn't visually glitch and show 1 frame loading
-      await new Promise(resolve => setTimeout(resolve, 300));
+      await new Promise((resolve) => setTimeout(resolve, 300));
       return updateUserProfile(user.id, { name, bio, avatarUrl });
     },
     onSuccess: () => {
@@ -42,7 +50,7 @@ export function EditProfileDialog({ user, children }: EditProfileDialogProps) {
     },
     onError: (err: any) => {
       toast.error(err.response?.data?.message || "Failed to update profile");
-    }
+    },
   });
 
   const handleSubmit = (e: React.FormEvent) => {
@@ -57,52 +65,61 @@ export function EditProfileDialog({ user, children }: EditProfileDialogProps) {
   return (
     <Dialog open={open} onOpenChange={setOpen}>
       <DialogTrigger render={children as React.ReactElement} />
-      <DialogContent className="sm:max-w-[425px]">
-        <DialogHeader>
-          <DialogTitle>Edit Profile</DialogTitle>
-          <DialogDescription>
-            Make changes to your profile here. Click save when you're done.
+      <DialogContent className="sm:max-w-[480px] rounded-3xl border border-border/50 bg-card p-0 overflow-hidden shadow-lg">
+        <DialogHeader className="p-8 border-b border-border/10">
+          <DialogTitle className="text-xl font-bold tracking-tight">Edit Profile</DialogTitle>
+          <DialogDescription className="text-[11px] leading-relaxed text-muted-foreground/60 mt-2">
+            Update your profile information and how others see you on EchoNet.
           </DialogDescription>
         </DialogHeader>
-        <form onSubmit={handleSubmit} className="grid gap-4 py-4">
-          <div className="grid gap-2">
-            <Label htmlFor="name">Display Name</Label>
-            <Input
-              id="name"
-              value={name}
-              onChange={(e) => setName(e.target.value)}
-              placeholder="Your name"
-              className="col-span-3"
-            />
+
+        <form onSubmit={handleSubmit} className="p-8 space-y-6">
+          <div className="space-y-4">
+            <div className="grid gap-2">
+              <Label htmlFor="name" className="text-[10px] font-bold uppercase tracking-[0.2em] text-muted-foreground/60 ml-1">Display Name</Label>
+              <Input
+                id="name"
+                value={name}
+                onChange={(e) => setName(e.target.value)}
+                placeholder="Enter your name"
+                className="h-11 px-4 rounded-xl bg-muted/30 border-border/20 focus-visible:ring-primary/20 text-sm font-medium placeholder:text-muted-foreground/40"
+              />
+            </div>
+            
+            <div className="grid gap-2">
+              <Label htmlFor="avatarUrl" className="text-[10px] font-bold uppercase tracking-[0.2em] text-muted-foreground/60 ml-1">Avatar URL</Label>
+              <Input
+                id="avatarUrl"
+                value={avatarUrl}
+                onChange={(e) => setAvatarUrl(e.target.value)}
+                placeholder="https://example.com/avatar.jpg"
+                className="h-11 px-4 rounded-xl bg-muted/30 border-border/20 focus-visible:ring-primary/20 text-sm font-medium placeholder:text-muted-foreground/40"
+              />
+            </div>
+ 
+            <div className="grid gap-2">
+              <Label htmlFor="bio" className="text-[10px] font-bold uppercase tracking-[0.2em] text-muted-foreground/60 ml-1">Bio</Label>
+              <Textarea
+                id="bio"
+                value={bio}
+                onChange={(e) => setBio(e.target.value)}
+                placeholder="Tell us about yourself..."
+                className="min-h-[120px] px-4 py-3 rounded-xl bg-muted/30 border-border/20 focus-visible:ring-primary/20 text-sm font-medium resize-none placeholder:text-muted-foreground/40 leading-relaxed"
+              />
+            </div>
           </div>
-          <div className="grid gap-2">
-            <Label htmlFor="bio">Bio</Label>
-            <Textarea
-              id="bio"
-              value={bio}
-              onChange={(e) => setBio(e.target.value)}
-              placeholder="Tell us a little bit about yourself..."
-              className="resize-none h-24"
-            />
-          </div>
-          <div className="grid gap-2">
-            <Label htmlFor="avatarUrl">Avatar URL</Label>
-            <Input
-              id="avatarUrl"
-              value={avatarUrl}
-              onChange={(e) => setAvatarUrl(e.target.value)}
-              placeholder="https://example.com/avatar.jpg"
-              className="col-span-3"
-            />
-          </div>
-          <DialogFooter className="mt-4">
-            <Button 
-              type="submit" 
+
+          <DialogFooter className="pt-2">
+            <Button
+              type="submit"
               disabled={mutation.isPending}
-              className="w-full sm:w-auto"
+              className="w-full h-11 rounded-xl font-semibold shadow-sm transition-all"
             >
-              {mutation.isPending && <Loader2 className="mr-2 h-4 w-4 animate-spin" />}
-              Save changes
+              {mutation.isPending ? (
+                <Loader2 className="h-5 w-5 animate-spin" />
+              ) : (
+                "Save Changes"
+              )}
             </Button>
           </DialogFooter>
         </form>

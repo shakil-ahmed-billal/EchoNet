@@ -37,16 +37,28 @@ export const SocketHandler = () => {
     })
 
     socket.on("incoming-call", (data: any) => {
+        const ringtone = new Audio("/sounds/incoming.mp3");
+        ringtone.loop = true;
+        ringtone.play().catch(e => console.warn("Audio play failed:", e));
+
         toast.info(`Incoming call from ${data.fromName || data.from}`, {
-            duration: 10000,
+            id: `call-${data.from}`,
+            duration: 30000,
             action: {
                 label: "Answer",
                 onClick: () => {
+                    ringtone.pause();
                     // Answer logic
                     window.dispatchEvent(new CustomEvent("answer-call", { detail: data }));
                 }
-            }
+            },
+            onAutoClose: () => ringtone.pause(),
+            onDismiss: () => ringtone.pause(),
         })
+    })
+
+    socket.on("end-call", () => {
+        toast.dismiss(); // Dismiss all or specific call toast
     })
 
     return () => {

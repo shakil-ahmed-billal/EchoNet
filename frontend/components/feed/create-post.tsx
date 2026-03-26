@@ -175,7 +175,7 @@ export function CreatePost() {
                 <Button 
                   onClick={handlePost}
                   disabled={mutation.isPending || (!content.trim() && mediaFiles.length === 0)}
-                  className="w-full h-11 rounded-xl font-bold text-sm tracking-tight shadow-lg shadow-primary/20 hover:shadow-primary/30 active:scale-[0.98] transition-all"
+                  className="w-full h-11 rounded-xl font-bold text-sm tracking-tight shadow-sm hover:shadow-sm active:scale-[0.98] transition-all"
                 >
                   {mutation.isPending ? (
                     <Loader2 className="h-4 w-4 animate-spin" />

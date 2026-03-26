@@ -11,6 +11,7 @@ import { useAuth } from "@/hooks/use-auth"
 import { Button } from "./ui/button"
 import { UserNav } from "./user-nav"
 import { Input } from "./ui/input"
+import { NotificationSheet } from "./layout/notification-sheet"
 import { useQuery } from "@tanstack/react-query"
 import { getUsers, UserSuggestion } from "@/services/users.service"
 import { useState, useEffect, useRef } from "react"
@@ -52,8 +53,8 @@ export function SiteHeader() {
       <div className="w-full mx-auto px-4 md:px-6 lg:px-8 flex items-center justify-between gap-4">
         <div className="flex items-center gap-6 sm:gap-10">
           <Link href="/" className="flex items-center gap-2.5 transition-all hover:scale-105 active:scale-95 group">
-            <div className="size-9 rounded-xl bg-primary flex items-center justify-center shadow-lg shadow-primary/20 group-hover:shadow-primary/40 transition-shadow">
-               <span className="text-primary-foreground font-black text-xl">E</span>
+            <div className="size-9 rounded-xl bg-primary flex items-center justify-center shadow-sm group-hover:shadow-sm transition-shadow">
+               <span className="text-primary-foreground font-bold text-xl">E</span>
             </div>
             <span className="font-bold text-xl tracking-tight hidden lg:block text-foreground/90">{SITE_INFO.name}</span>
           </Link>
@@ -93,7 +94,7 @@ export function SiteHeader() {
                           <span className="text-sm font-bold truncate text-foreground/90 leading-tight">
                             {u.name}
                           </span>
-                          <span className="text-xs text-muted-foreground truncate">
+                          <span className="text-[11px] font-bold text-muted-foreground/50 tracking-wide mt-0.5">
                             {u.id === currentUser?.id ? "You" : u.isFriend ? "Friend" : "User"}
                           </span>
                         </div>
@@ -125,14 +126,15 @@ export function SiteHeader() {
                          <Mail className="size-5" />
                       </Button>
                    </Link>
+                    <div className="md:hidden">
+                       <NotificationSheet />
+                    </div>
 
                    <div className="hidden sm:flex items-center gap-1">
                       <Button variant="ghost" size="icon" className="size-10 rounded-full text-muted-foreground hover:bg-muted/80 hover:text-foreground">
                          <Plus className="size-5" />
                       </Button>
-                      <Button variant="ghost" size="icon" className="size-10 rounded-full text-muted-foreground hover:bg-muted/80 hover:text-foreground">
-                         <Bell className="size-5" />
-                      </Button>
+                       <NotificationSheet />
                       <Button variant="ghost" size="icon" className="size-10 rounded-full text-muted-foreground hover:bg-muted/80 hover:text-foreground">
                          <Mail className="size-5" />
                       </Button>
@@ -147,7 +149,7 @@ export function SiteHeader() {
                   <Button variant="ghost" size="sm" className="text-xs font-bold rounded-xl px-5 h-9">Log In</Button>
                 </Link>
                 <Link href="/register">
-                  <Button size="sm" className="text-xs font-bold rounded-xl px-6 h-9 shadow-lg shadow-primary/20 hover:shadow-primary/30 active:scale-95 transition-all">Get Started</Button>
+                  <Button size="sm" className="text-xs font-bold rounded-xl px-6 h-9 shadow-sm hover:shadow-sm active:scale-95 transition-all">Get Started</Button>
                 </Link>
               </div>
             )}

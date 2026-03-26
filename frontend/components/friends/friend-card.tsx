@@ -21,6 +21,7 @@ export function FriendCard({ user, className, layout = 'vertical' }: { user: Use
       setIsFollowing(!isFollowing);
       toast.success(isFollowing ? `Cancelled request to ${user.name}` : `Friend request sent to ${user.name}`);
       queryClient.invalidateQueries({ queryKey: ["suggested-users"] });
+      queryClient.invalidateQueries({ queryKey: ["friend-suggestions"] });
       queryClient.invalidateQueries({ queryKey: ["users"] });
     },
     onError: () => toast.error("Something went wrong"),
@@ -42,9 +43,9 @@ export function FriendCard({ user, className, layout = 'vertical' }: { user: Use
         </Link>
         <div className="flex flex-col min-w-0 flex-1">
           <Link href={`/profile/${user.id}`}>
-            <h4 className="font-bold text-[15px] sm:text-[16px] md:text-[18px] truncate hover:text-primary transition-colors leading-tight">{user.name}</h4>
+            <h4 className="font-bold text-sm text-foreground/90 truncate hover:text-primary transition-colors leading-tight">{user.name}</h4>
           </Link>
-          <p className="text-xs sm:text-sm text-muted-foreground mt-0.5">Suggested for you</p>
+          <p className="text-[11px] font-bold text-muted-foreground/50 tracking-wide mt-1">Suggested for you</p>
         </div>
         <div className="flex flex-col sm:flex-row items-center gap-2 shrink-0">
           <Button 
@@ -80,9 +81,9 @@ export function FriendCard({ user, className, layout = 'vertical' }: { user: Use
           className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
         />
       </Link>
-      <div className="p-3.5 flex flex-col gap-2.5 flex-1">
+      <div className="p-3.5 flex flex-col gap-2 flex-1">
         <Link href={`/profile/${user.id}`}>
-          <h4 className="font-bold text-[14px] sm:text-[15px] truncate hover:text-primary transition-colors leading-tight">{user.name}</h4>
+          <h4 className="font-bold text-sm text-foreground/90 truncate hover:text-primary transition-colors leading-tight">{user.name}</h4>
         </Link>
         <div className="mt-auto flex flex-col gap-1.5 pt-1">
           <Button 

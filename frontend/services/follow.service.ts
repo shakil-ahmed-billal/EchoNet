@@ -14,3 +14,13 @@ export const unfollowUser = async (userId: string) => {
   const { data } = await apiClient.post('/follow/unfollow', { followingId: userId });
   return data;
 };
+
+export const getPendingRequests = async (page = 1, limit = 10) => {
+  const { data } = await apiClient.get(`/follow/requests?page=${page}&limit=${limit}`);
+  return data.data;
+};
+
+export const getSuggestions = async (page = 1, limit = 15) => {
+  const { data } = await apiClient.get(`/follow/suggestions?page=${page}&limit=${limit}`);
+  return data.data;
+};

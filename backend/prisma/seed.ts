@@ -1,69 +1,111 @@
-import { PrismaClient, Role, PostStatus, NotificationType } from '../src/generated/prisma/client/index.js';
-import { PrismaPg } from '@prisma/adapter-pg';
-import pg from 'pg';
 import "dotenv/config";
-
-const { Pool } = pg;
-const connectionString = process.env.DATABASE_URL;
-const pool = new Pool({ connectionString });
-const adapter = new PrismaPg(pool as any);
-const prisma = new PrismaClient({ adapter });
+import { Role, PostStatus, NotificationType } from '../generated/prisma/client/index.js';
+import { prisma } from '../src/app/lib/prisma.js';
+import { auth } from '../src/app/lib/auth.js';
 
 async function main() {
   console.log('Seeding data...');
 
-  // 1. Create Users
-  const admin = await prisma.user.upsert({
-    where: { email: 'admin@echonet.app' },
-    update: {},
-    create: {
+  const SEED_PASSWORD = 'shakil664';
+
+  const userData = [
+    {
       email: 'admin@echonet.app',
       name: 'Admin User',
       role: Role.ADMIN,
       bio: 'Platform Administrator',
       avatarUrl: 'https://api.dicebear.com/7.x/avataaars/svg?seed=Admin',
     },
-  });
-
-  const moderator = await prisma.user.upsert({
-    where: { email: 'mod@echonet.app' },
-    update: {},
-    create: {
+    {
       email: 'mod@echonet.app',
       name: 'Moderator User',
       role: Role.MODERATOR,
       bio: 'Content Moderator',
       avatarUrl: 'https://api.dicebear.com/7.x/avataaars/svg?seed=Mod',
     },
-  });
-
-  const user1 = await prisma.user.upsert({
-    where: { email: 'user1@example.com' },
-    update: {},
-    create: {
+    {
       email: 'user1@example.com',
       name: 'Sarah Jenkins',
       role: Role.USER,
       bio: 'Digital nomad and tech enthusiast.',
       avatarUrl: 'https://api.dicebear.com/7.x/avataaars/svg?seed=Sarah',
     },
-  });
-
-  const user2 = await prisma.user.upsert({
-    where: { email: 'user2@example.com' },
-    update: {},
-    create: {
+    {
       email: 'user2@example.com',
       name: 'Alex Dev',
       role: Role.USER,
       bio: 'Fullstack developer building the future.',
       avatarUrl: 'https://api.dicebear.com/7.x/avataaars/svg?seed=Alex',
     },
-  });
+  ];
 
-  console.log('Users seeded.');
+  const seededUsers = [];
 
-  // 2. Create Posts
+  for (const user of userData) {
+    console.log(`Checking/Seeding user: ${user.email}`);
+    
+    // Check if user exists
+    let existingUser = await prisma.user.findUnique({
+      where: { email: user.email },
+      include: { accounts: true }
+    });
+
+    if (!existingUser) {
+      console.log(`Creating user: ${user.email} via better-auth API...`);
+      try {
+        const result = await auth.api.signUpEmail({
+          body: {
+            name: user.name,
+            email: user.email,
+            password: SEED_PASSWORD,
+          }
+        });
+
+        if (result && result.user) {
+          // Update the user with our specific metadata (role, bio, avatar)
+          existingUser = await prisma.user.update({
+            where: { id: result.user.id },
+            data: {
+              role: user.role,
+              bio: user.bio,
+              avatarUrl: user.avatarUrl,
+            }
+          });
+        }
+      } catch (error: any) {
+        console.error(`Failed to seed user ${user.email}:`, error.message);
+      }
+    } else {
+      console.log(`User ${user.email} already exists.`);
+    }
+
+    if (existingUser) seededUsers.push(existingUser);
+  }
+
+  if (seededUsers.length < 4) {
+    console.warn('Some users were not found or created. Continuing with available users...');
+  }
+
+  const findUserByEmail = (email: string) => seededUsers.find(u => u.email === email);
+  const admin = findUserByEmail('admin@echonet.app');
+  const user1 = findUserByEmail('user1@example.com');
+  const user2 = findUserByEmail('user2@example.com');
+
+  if (!admin || !user1 || !user2) {
+    console.error('Critical users missing. Seeding stopped.');
+    return;
+  }
+
+  const userIds = seededUsers.map(u => u.id);
+
+  // Clear existing related data to avoid foreign key violations
+  await prisma.notification.deleteMany({ where: { userId: { in: userIds } } });
+  await prisma.message.deleteMany({ where: { OR: [{ senderId: { in: userIds } }, { receiverId: { in: userIds } }] } });
+  await prisma.like.deleteMany({ where: { userId: { in: userIds } } });
+  await prisma.comment.deleteMany({ where: { authorId: { in: userIds } } });
+  await prisma.post.deleteMany({ where: { authorId: { in: userIds } } });
+
+  // Create Posts
   const post1 = await prisma.post.create({
     data: {
       authorId: user1.id,
@@ -115,7 +157,15 @@ async function main() {
       postId: post1.id,
       authorId: user1.id,
       parentId: comment1.id,
-      content: 'Thanks Alex!',
+      content: 'Thanks Alex! This platform looks great.',
+    },
+  });
+
+  const reply2 = await prisma.comment.create({
+    data: {
+      postId: post2.id,
+      authorId: user1.id,
+      content: 'Totally agree! v4 is a game changer.',
     },
   });
 
@@ -139,7 +189,7 @@ async function main() {
     data: {
       senderId: user1.id,
       receiverId: user2.id,
-      content: 'Hey Alex, are we still on for the meeting?',
+      content: 'Hey Alex, are we still on for the EchoNet launch?',
     },
   });
 
@@ -164,15 +214,6 @@ async function main() {
     },
   });
 
-  await prisma.notification.create({
-    data: {
-      userId: user1.id,
-      type: NotificationType.COMMENT,
-      referenceId: comment1.id,
-      message: 'Alex Dev commented: "Welcome to the platform, Sarah!"',
-    },
-  });
-
   console.log('Notifications seeded.');
   console.log('Seeding finished.');
 }
@@ -184,5 +225,4 @@ main()
   })
   .finally(async () => {
     await prisma.$disconnect();
-    await pool.end();
   });

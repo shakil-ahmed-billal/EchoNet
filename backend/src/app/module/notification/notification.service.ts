@@ -2,6 +2,7 @@ import prisma from '../../lib/prisma.js';
 import redisClient from '../../lib/redis.js';
 
 const getUserNotifications = async (userId: string) => {
+  if (!userId) return [];
   const result = await prisma.notification.findMany({
     where: { userId },
     orderBy: { createdAt: 'desc' },
@@ -10,6 +11,7 @@ const getUserNotifications = async (userId: string) => {
 };
 
 const getUnreadCount = async (userId: string) => {
+  if (!userId) return 0;
   const cacheKey = `notifications:unread_count:${userId}`;
   
   if (redisClient) {
@@ -30,6 +32,7 @@ const getUnreadCount = async (userId: string) => {
 };
 
 const markAsRead = async (id: string, userId: string) => {
+  if (!id || !userId) return null;
   const result = await prisma.notification.update({
     where: { id },
     data: { isRead: true },

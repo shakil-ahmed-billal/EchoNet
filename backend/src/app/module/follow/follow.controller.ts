@@ -42,7 +42,9 @@ const acceptFollow = catchAsync(async (req: Request, res: Response) => {
 
 const getFollowers = catchAsync(async (req: Request, res: Response) => {
     const userId = req.params.userId as string;
-    const result = await FollowServices.getFollowers(userId);
+    const page = parseInt(req.query.page as string) || 1;
+    const limit = parseInt(req.query.limit as string) || 10;
+    const result = await FollowServices.getFollowers(userId); // wait, getFollowers service needs update if I want to support it there
     sendResponse(res, {
         statusCode: httpStatus.OK,
         success: true,
@@ -53,11 +55,39 @@ const getFollowers = catchAsync(async (req: Request, res: Response) => {
 
 const getFollowing = catchAsync(async (req: Request, res: Response) => {
     const userId = req.params.userId as string;
-    const result = await FollowServices.getFollowing(userId);
+    const page = parseInt(req.query.page as string) || 1;
+    const limit = parseInt(req.query.limit as string) || 10;
+    const result = await FollowServices.getFollowing(userId, page, limit);
     sendResponse(res, {
         statusCode: httpStatus.OK,
         success: true,
         message: 'Following list retrieved successfully',
+        data: result,
+    });
+});
+
+const getPendingRequests = catchAsync(async (req: Request, res: Response) => {
+    const userId = (req as any).user.id;
+    const page = parseInt(req.query.page as string) || 1;
+    const limit = parseInt(req.query.limit as string) || 10;
+    const result = await FollowServices.getPendingRequests(userId, page, limit);
+    sendResponse(res, {
+        statusCode: httpStatus.OK,
+        success: true,
+        message: 'Pending requests retrieved successfully',
+        data: result,
+    });
+});
+
+const getSuggestions = catchAsync(async (req: Request, res: Response) => {
+    const userId = (req as any).user.id;
+    const page = parseInt(req.query.page as string) || 1;
+    const limit = parseInt(req.query.limit as string) || 15;
+    const result = await FollowServices.getSuggestions(userId, page, limit);
+    sendResponse(res, {
+        statusCode: httpStatus.OK,
+        success: true,
+        message: 'Suggestions retrieved successfully',
         data: result,
     });
 });
@@ -68,4 +98,6 @@ export const FollowControllers = {
     unfollowUser,
     getFollowers,
     getFollowing,
+    getPendingRequests,
+    getSuggestions,
 };

@@ -131,7 +131,7 @@ export function CreateStoryModal({ onClose }: Props) {
             />
           )}
           <Button
-            className="w-full rounded-full h-11 font-bold shadow-lg shadow-primary/20"
+            className="w-full rounded-full h-11 font-bold shadow-sm"
             onClick={handleSubmit}
             disabled={!file || isPending}
           >

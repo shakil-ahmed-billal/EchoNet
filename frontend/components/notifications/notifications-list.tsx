@@ -91,7 +91,7 @@ export function NotificationsList() {
             className={`flex items-start gap-4 p-5 rounded-2xl border transition-all duration-300 group cursor-pointer hover:translate-x-1 ${
               notif.isRead 
                 ? "bg-card border-edge text-card-foreground hover:border-primary/20" 
-                : "bg-primary/5 border-primary/20 shadow-sm shadow-primary/5"
+                : "bg-primary/5 border-primary/20 shadow-sm"
             }`}
             onClick={() => !notif.isRead && markAsRead(notif.id)}
           >
@@ -145,7 +145,7 @@ export function NotificationsList() {
             </div>
             
             {!notif.isRead && (
-              <div className="h-2.5 w-2.5 bg-primary rounded-full mt-1.5 shrink-0 shadow-lg shadow-primary/20" />
+              <div className="h-2.5 w-2.5 bg-primary rounded-full mt-1.5 shrink-0 shadow-sm" />
             )}
           </div>
         )

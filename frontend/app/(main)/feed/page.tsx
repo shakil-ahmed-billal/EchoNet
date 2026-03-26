@@ -45,7 +45,7 @@ export default function FeedPage() {
     <div className="max-w-2xl mx-auto py-8 px-4 sm:px-0">
       <CreatePost />
 
-      <div className="flex flex-col gap-1">
+      <div className="flex flex-col gap-1 ">
         {data?.pages.map((page: PaginatedPosts) =>
           page.posts.map((post: Post) => (
             <PostCard key={post.id} post={post} />

@@ -94,14 +94,14 @@ export function PostCard({ post }: PostCardProps) {
           </Link>
           <div className="flex flex-col min-w-0">
             <Link href={`/profile/${post.author.id}`}>
-              <h4 className="font-bold text-[15px] tracking-tight text-foreground truncate group-hover/author:text-primary transition-colors cursor-pointer">
+              <h4 className="font-bold text-sm tracking-tight text-foreground/90 truncate group-hover/author:text-primary transition-colors cursor-pointer leading-none">
                 {post.author.name}
               </h4>
             </Link>
-            <div className="flex items-center gap-1.5 text-[11px] text-muted-foreground font-medium">
+            <div className="flex items-center gap-1.5 text-[10px] text-muted-foreground/60 font-bold uppercase tracking-widest mt-1">
               <span>{formatDistanceToNow(new Date(post.createdAt), { addSuffix: true })}</span>
-              <span>•</span>
-              <span className="uppercase tracking-widest text-[9px] opacity-70">Global</span>
+              <span className="opacity-50">•</span>
+              <span className="opacity-80">Global</span>
             </div>
           </div>
         </div>
@@ -155,7 +155,7 @@ export function PostCard({ post }: PostCardProps) {
                 size="sm" 
                 onClick={handleUpdate} 
                 disabled={updateMutation.isPending || !editContent.trim()}
-                className="rounded-xl h-9 text-xs font-bold px-6 shadow-lg shadow-primary/20"
+                className="rounded-xl h-9 text-xs font-bold px-6 shadow-sm"
                >
                   {updateMutation.isPending ? <Loader2 className="h-4 w-4 animate-spin" /> : "Update Post"}
                </Button>
@@ -163,7 +163,7 @@ export function PostCard({ post }: PostCardProps) {
           </div>
         ) : (
           <div className="space-y-4">
-            <p className="text-[15px] sm:text-[16px] leading-[1.6] text-foreground/90 whitespace-pre-wrap font-medium">
+            <p className="text-[15px] leading-relaxed text-foreground/90 whitespace-pre-wrap">
               {post.content}
             </p>
             {post.mediaUrls && post.mediaUrls.length > 0 && (
@@ -189,16 +189,16 @@ export function PostCard({ post }: PostCardProps) {
 
       {/* Interaction Stats */}
       {(likesCount > 0 || post._count.comments > 0) && (
-        <div className="px-5 py-3 border-t border-border/10 flex items-center justify-between text-xs font-bold text-muted-foreground/80">
+        <div className="px-5 py-3 border-t border-border/10 flex items-center justify-between text-[10px] font-bold uppercase tracking-widest text-muted-foreground/60">
            <div className="flex items-center gap-1.5 hover:text-red-500 transition-colors cursor-pointer group/stat">
               <div className="size-5 rounded-full bg-red-500 flex items-center justify-center -space-x-1 ring-2 ring-card group-hover/stat:ring-red-500/20 shadow-sm transition-all">
                  <Heart className="h-2.5 w-2.5 fill-white text-white" />
               </div>
-              <span>{likesCount}</span>
+              <span className="text-muted-foreground/80 lowercase"> {likesCount}</span>
            </div>
            <div className="flex gap-4">
-              <span className="hover:text-primary transition-colors cursor-pointer">{post._count.comments} comments</span>
-              <span className="hover:text-primary transition-colors cursor-pointer">42 shares</span>
+              <span className="hover:text-primary transition-colors cursor-pointer capitalize">{post._count.comments} comments</span>
+              <span className="hover:text-primary transition-colors cursor-pointer capitalize">42 shares</span>
            </div>
         </div>
       )}
@@ -213,7 +213,7 @@ export function PostCard({ post }: PostCardProps) {
                isLiked ? "bg-red-500/5 text-red-500" : "hover:bg-muted/80 text-muted-foreground hover:text-red-500"
             )}
           >
-            <Heart className={cn("h-5 w-5 transition-transform group-hover/like:scale-125 duration-300", isLiked && "fill-current")} />
+             <Heart className={cn("h-4.5 w-4.5 transition-transform group-hover/like:scale-125 duration-300", isLiked && "fill-current")} />
             <span className="text-xs font-bold">Like</span>
           </button>
           
@@ -224,12 +224,12 @@ export function PostCard({ post }: PostCardProps) {
                showComments ? "bg-primary/5 text-primary" : "hover:bg-muted/80 hover:text-primary"
             )}
           >
-            <MessageSquare className="h-5 w-5 transition-transform group-hover/comment:scale-125 duration-300" />
+            <MessageSquare className={cn("h-4.5 w-4.5 transition-transform group-hover/comment:scale-125 duration-300")} />
             <span className="text-xs font-bold">Comment</span>
           </button>
           
           <button className="flex-1 flex items-center justify-center gap-2 py-2.5 px-3 rounded-xl hover:bg-muted/80 text-muted-foreground hover:text-primary transition-all group/share">
-            <Share2 className="h-5 w-5 transition-transform group-hover/share:scale-125 duration-300" />
+            <Share2 className="h-4.5 w-4.5 transition-transform group-hover/share:scale-125 duration-300" />
             <span className="text-xs font-bold">Share</span>
           </button>
         </div>

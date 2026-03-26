@@ -13,6 +13,8 @@ import {
 } from "@/hooks/use-messages";
 import { useWebRTC } from "@/hooks/use-webrtc";
 import { apiClient } from "@/services/api-client";
+import { CallModal } from "./call-modal";
+import { FloatingCallIndicator } from "./floating-call-indicator";
 import { useQuery, useQueryClient } from "@tanstack/react-query";
 import { useSearchParams, useRouter } from "next/navigation";
 import { format } from "date-fns";
@@ -41,6 +43,7 @@ import {
 } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
 import { cn } from "@/lib/utils";
+import { toast } from "sonner";
 
 export function ChatInterface() {
   const { user: currentUser } = useAuth();
@@ -88,8 +91,28 @@ export function ChatInterface() {
   const [onlineUsers, setOnlineUsers] = useState<Set<string>>(new Set());
   const [isTyping, setIsTyping] = useState(false);
   const [typingTimeout, setTypingTimeout] = useState<NodeJS.Timeout | null>(null);
+  const [mounted, setMounted] = useState(false);
 
-  const { localStream, remoteStream, startCall, handleIncomingCall } = useWebRTC();
+  // Call State Management
+  const [isCallActive, setIsCallActive] = useState(false);
+  const [isCallMinimized, setIsCallMinimized] = useState(false);
+  const [currentCallUser, setCurrentCallUser] = useState<any>(null);
+  const [isVideoCall, setIsVideoCall] = useState(false);
+  const [callDuration, setCallDuration] = useState(0);
+  const [isRinging, setIsRinging] = useState(false);
+
+  const { localStream, remoteStream, error: callError, startCall: startWebRTCCall, handleIncomingCall: handleWebRTCIncomingCall, endCall: endWebRTCCall, clearError } = useWebRTC(() => {
+    // When remote ends the call
+    setIsCallActive(false);
+    setIsCallMinimized(false);
+    setCurrentCallUser(null);
+    setIsRinging(false);
+    setCallDuration(0);
+  });
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
   const localVideoRef = useRef<HTMLVideoElement>(null);
   const remoteVideoRef = useRef<HTMLVideoElement>(null);
   const scrollRef = useRef<HTMLDivElement>(null);
@@ -111,13 +134,84 @@ export function ChatInterface() {
     if (localVideoRef.current && localStream) localVideoRef.current.srcObject = localStream;
   }, [localStream]);
   useEffect(() => {
-    if (remoteVideoRef.current && remoteStream) remoteVideoRef.current.srcObject = remoteStream;
+    if (remoteVideoRef.current && remoteStream) {
+        remoteVideoRef.current.srcObject = remoteStream;
+        setIsRinging(false);
+    }
   }, [remoteStream]);
+
   useEffect(() => {
-    const onAnswer = (e: any) => { handleIncomingCall(e.detail); };
+    let interval: NodeJS.Timeout;
+    if (isCallActive && remoteStream) {
+      interval = setInterval(() => {
+        setCallDuration((prev) => prev + 1);
+      }, 1000);
+    } else {
+      setCallDuration(0);
+    }
+    return () => clearInterval(interval);
+  }, [isCallActive, remoteStream]);
+
+  useEffect(() => {
+    const ringAudio = new Audio("/sounds/ringing.mp3"); // Assuming sound exists
+    if (isRinging) {
+      ringAudio.loop = true;
+      ringAudio.play().catch(e => console.warn("Audio play failed:", e));
+    } else {
+      ringAudio.pause();
+    }
+    return () => ringAudio.pause();
+  }, [isRinging]);
+  useEffect(() => {
+    if (callError) {
+      toast.error(callError);
+      clearError();
+    }
+  }, [callError, clearError]);
+  useEffect(() => {
+    const onAnswer = (e: any) => { 
+      handleWebRTCIncomingCall(e.detail);
+      setCurrentCallUser(users?.find(u => u.id === e.detail.from));
+      setIsVideoCall(e.detail.isVideo !== false);
+      setIsCallActive(true);
+      setIsCallMinimized(false);
+      setIsRinging(false);
+    };
     window.addEventListener("answer-call", onAnswer);
     return () => window.removeEventListener("answer-call", onAnswer);
-  }, [handleIncomingCall]);
+  }, [handleWebRTCIncomingCall, users]);
+
+  const handleStartCall = (userId: string, video: boolean) => {
+    startWebRTCCall(userId, video);
+    setCurrentCallUser(users?.find(u => u.id === userId));
+    setIsVideoCall(video);
+    setIsCallActive(true);
+    setIsCallMinimized(false);
+    setIsRinging(true);
+  };
+
+  const handleEndCall = () => {
+    if (currentCallUser) {
+        endWebRTCCall(currentCallUser.id);
+        
+        // Log call to chat
+        const minutes = Math.floor(callDuration / 60);
+        const seconds = callDuration % 60;
+        const durationStr = `${minutes}:${seconds.toString().padStart(2, "0")}`;
+        sendMessage({ 
+            receiverId: currentCallUser.id, 
+            content: `📞 Call ended. Duration: ${durationStr}` 
+        });
+    } else {
+        endWebRTCCall();
+    }
+    
+    setIsCallActive(false);
+    setIsCallMinimized(false);
+    setCurrentCallUser(null);
+    setIsRinging(false);
+    setCallDuration(0);
+  };
 
   useEffect(() => {
     if (!socket || !selectedUserId) return;
@@ -222,7 +316,7 @@ export function ChatInterface() {
       )}>
         {/* Header */}
         <div className="px-5 pt-5 pb-3 flex items-center justify-between">
-          <h1 className="text-[22px] font-black tracking-tight">Chats</h1>
+          <h1 className="text-[22px] font-bold tracking-tight">Chats</h1>
           <div className="flex items-center gap-1">
             <Button variant="ghost" size="icon" className="rounded-full h-9 w-9 bg-muted/60 hover:bg-muted text-foreground">
               <MoreHorizontal className="h-5 w-5" />
@@ -339,7 +433,7 @@ export function ChatInterface() {
                   variant="ghost"
                   size="icon"
                   className="rounded-full h-9 w-9 bg-muted/50 hover:bg-primary/10 text-primary"
-                  onClick={() => startCall(selectedUser.id)}
+                  onClick={() => handleStartCall(selectedUser.id, false)}
                 >
                   <Phone className="h-4.5 w-4.5" />
                 </Button>
@@ -347,7 +441,7 @@ export function ChatInterface() {
                   variant="ghost"
                   size="icon"
                   className="rounded-full h-9 w-9 bg-muted/50 hover:bg-primary/10 text-primary"
-                  onClick={() => startCall(selectedUser.id)}
+                  onClick={() => handleStartCall(selectedUser.id, true)}
                 >
                   <Video className="h-4.5 w-4.5" />
                 </Button>
@@ -361,24 +455,28 @@ export function ChatInterface() {
               </div>
             </div>
 
-            {/* Video Call Area */}
-            {(localStream || remoteStream) && (
-              <div className="bg-black/95 p-4 border-b border-border/10 flex gap-4 h-64 shrink-0 justify-center items-center relative overflow-hidden">
-                {remoteStream && (
-                  <video ref={remoteVideoRef} autoPlay playsInline className="h-full rounded-2xl bg-black" />
-                )}
-                <div className={`${remoteStream ? "absolute bottom-4 right-4 h-24" : "h-full"} rounded-2xl overflow-hidden border-2 border-primary/20 bg-muted/10 shadow-xl`}>
-                  <video ref={localVideoRef} autoPlay playsInline muted className="h-full" />
-                </div>
-                <Button
-                  size="icon"
-                  variant="destructive"
-                  className="absolute top-4 right-4 rounded-full shadow-lg"
-                  onClick={() => window.location.reload()}
-                >
-                  <X className="h-4 w-4" />
-                </Button>
-              </div>
+            {/* Modal replaced old video area */}
+            {mounted && (
+              <>
+                <CallModal 
+                  isOpen={isCallActive && !isCallMinimized}
+                  onClose={handleEndCall}
+                  onMinimize={() => setIsCallMinimized(true)}
+                  remoteUser={currentCallUser}
+                  isVideo={isVideoCall}
+                  localStream={localStream}
+                  remoteStream={remoteStream}
+                  localVideoRef={localVideoRef}
+                  remoteVideoRef={remoteVideoRef}
+                  duration={callDuration}
+                />
+
+                <FloatingCallIndicator 
+                  remoteUser={currentCallUser}
+                  isVisible={isCallActive && isCallMinimized}
+                  onClick={() => setIsCallMinimized(false)}
+                />
+              </>
             )}
 
             {/* Messages */}
@@ -543,7 +641,7 @@ export function ChatInterface() {
             <div className="size-24 rounded-full bg-primary/10 flex items-center justify-center mb-6 ring-8 ring-primary/5">
               <MessagesSquare className="size-12 text-primary/40" />
             </div>
-            <p className="font-black text-2xl text-foreground tracking-tight">Select a Chat</p>
+            <p className="font-bold text-2xl text-foreground tracking-tight">Select a Chat</p>
             <p className="text-[15px] text-muted-foreground mt-2 max-w-[260px] leading-relaxed">Choose from your existing conversations or start a new one.</p>
           </div>
         )}
@@ -566,13 +664,23 @@ export function ChatInterface() {
             )}
             <div className="flex items-center gap-4 mt-1">
               <div className="flex flex-col items-center gap-1">
-                <Button variant="ghost" size="icon" className="rounded-full h-9 w-9 bg-muted/60 hover:bg-muted text-foreground">
+                <Button 
+                  variant="ghost" 
+                  size="icon" 
+                  className="rounded-full h-9 w-9 bg-muted/60 hover:bg-muted text-foreground"
+                  onClick={() => handleStartCall(selectedUser.id, false)}
+                >
                   <Phone className="h-4 w-4" />
                 </Button>
                 <span className="text-[10px] text-muted-foreground font-medium">Audio</span>
               </div>
               <div className="flex flex-col items-center gap-1">
-                <Button variant="ghost" size="icon" className="rounded-full h-9 w-9 bg-muted/60 hover:bg-muted text-foreground">
+                <Button 
+                  variant="ghost" 
+                  size="icon" 
+                  className="rounded-full h-9 w-9 bg-muted/60 hover:bg-muted text-foreground"
+                  onClick={() => handleStartCall(selectedUser.id, true)}
+                >
                   <Video className="h-4 w-4" />
                 </Button>
                 <span className="text-[10px] text-muted-foreground font-medium">Video</span>

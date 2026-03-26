@@ -65,6 +65,12 @@
   --color-sidebar-primary: var(--sidebar-primary);
   --color-sidebar-foreground: var(--sidebar-foreground);
   --color-sidebar: var(--sidebar);
+  --color-selection: var(--selection);
+  --color-selection-foreground: var(--selection-foreground);
+  --color-code: var(--code);
+  --color-code-foreground: var(--code-foreground);
+  --color-code-number: var(--code-number);
+  --color-code-highlight: var(--code-highlight);
 }
 
 @utility link {
@@ -279,6 +285,10 @@
 }
 
 @layer base {
+  html {
+    scrollbar-gutter: stable;
+  }
+  
   *,
   ::after,
   ::before,
@@ -295,6 +305,7 @@
     @apply bg-background font-sans text-foreground antialiased;
     font-synthesis-weight: none;
     text-rendering: optimizeLegibility;
+    overscroll-behavior-y: none;
   }
 
   /* Custom scrollbar styling. Thanks @shadcn-ui */

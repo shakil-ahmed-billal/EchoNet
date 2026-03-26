@@ -11950,3 +11950,108 @@ Invalid `prisma.user.findFirst()` invocation:
     at feed (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/node_modules/.pnpm/streamsearch@1.1.0/node_modules/streamsearch/lib/sbmh.js:248:10)
     at SBMH.push (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/node_modules/.pnpm/streamsearch@1.1.0/node_modules/streamsearch/lib/sbmh.js:104:16)
     at Multipart._write (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/node_modules/.pnpm/busboy@1.6.0/node_modules/busboy/lib/types/multipart.js:567:19)
+2026-03-26 03:52:14 [[31merror[39m]: PrismaClientKnownRequestError: 
+Invalid `prisma.user.findMany()` invocation in
+C:\Shakil Dev\EchoNet\backend\src\app\module\user\user.service.ts:12:36
+
+   9   ];
+  10 }
+  11 
+→ 12 const result = await prisma.user.findMany(
+Database `echonet` does not exist on the database server
+    at Gr.handleRequestError (C:\Shakil Dev\EchoNet\backend\generated\prisma\client\runtime\client.js:69:8286)
+    at Gr.handleAndLogRequestError (C:\Shakil Dev\EchoNet\backend\generated\prisma\client\runtime\client.js:69:7581)
+    at Gr.request (C:\Shakil Dev\EchoNet\backend\generated\prisma\client\runtime\client.js:69:7288)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async a (C:\Shakil Dev\EchoNet\backend\generated\prisma\client\runtime\client.js:79:6730)
+    at async Object.getAllUsers (C:\Shakil Dev\EchoNet\backend\src\app\module\user\user.service.ts:12:18)
+    at async <anonymous> (C:\Shakil Dev\EchoNet\backend\src\app\module\user\user.controller.ts:10:18)
+    at async <anonymous> (C:\Shakil Dev\EchoNet\backend\src\app\utils\catchAsync.ts:6:7)
+2026-03-26 03:52:14 [[31merror[39m]: PrismaClientKnownRequestError: 
+Invalid `prisma.post.findMany()` invocation in
+C:\Shakil Dev\EchoNet\backend\src\app\module\post\post.service.ts:88:36
+
+  85 
+  86 where.status = 'ACTIVE';
+  87 
+→ 88 const result = await prisma.post.findMany(
+Server has closed the connection.
+    at Gr.handleRequestError (C:\Shakil Dev\EchoNet\backend\generated\prisma\client\runtime\client.js:69:8286)
+    at Gr.handleAndLogRequestError (C:\Shakil Dev\EchoNet\backend\generated\prisma\client\runtime\client.js:69:7581)
+    at Gr.request (C:\Shakil Dev\EchoNet\backend\generated\prisma\client\runtime\client.js:69:7288)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async a (C:\Shakil Dev\EchoNet\backend\generated\prisma\client\runtime\client.js:79:6730)
+    at async Object.getAllPosts (C:\Shakil Dev\EchoNet\backend\src\app\module\post\post.service.ts:88:18)
+    at async <anonymous> (C:\Shakil Dev\EchoNet\backend\src\app\module\post\post.controller.ts:29:18)
+    at async <anonymous> (C:\Shakil Dev\EchoNet\backend\src\app\utils\catchAsync.ts:6:7)
+2026-03-26 03:52:15 [[31merror[39m]: PrismaClientKnownRequestError: 
+Invalid `prisma.post.findMany()` invocation in
+C:\Shakil Dev\EchoNet\backend\src\app\module\post\post.service.ts:88:36
+
+  85 
+  86 where.status = 'ACTIVE';
+  87 
+→ 88 const result = await prisma.post.findMany(
+Database `echonet` does not exist on the database server
+    at Gr.handleRequestError (C:\Shakil Dev\EchoNet\backend\generated\prisma\client\runtime\client.js:69:8286)
+    at Gr.handleAndLogRequestError (C:\Shakil Dev\EchoNet\backend\generated\prisma\client\runtime\client.js:69:7581)
+    at Gr.request (C:\Shakil Dev\EchoNet\backend\generated\prisma\client\runtime\client.js:69:7288)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async a (C:\Shakil Dev\EchoNet\backend\generated\prisma\client\runtime\client.js:79:6730)
+    at async Object.getAllPosts (C:\Shakil Dev\EchoNet\backend\src\app\module\post\post.service.ts:88:18)
+    at async <anonymous> (C:\Shakil Dev\EchoNet\backend\src\app\module\post\post.controller.ts:29:18)
+    at async <anonymous> (C:\Shakil Dev\EchoNet\backend\src\app\utils\catchAsync.ts:6:7)
+2026-03-26 03:53:33 [[31merror[39m]: PrismaClientKnownRequestError: 
+Invalid `prisma.user.findMany()` invocation in
+C:\Shakil Dev\EchoNet\backend\src\app\module\user\user.service.ts:12:36
+
+   9   ];
+  10 }
+  11 
+→ 12 const result = await prisma.user.findMany(
+Database `echonet` does not exist on the database server
+    at Gr.handleRequestError (C:\Shakil Dev\EchoNet\backend\generated\prisma\client\runtime\client.js:69:8286)
+    at Gr.handleAndLogRequestError (C:\Shakil Dev\EchoNet\backend\generated\prisma\client\runtime\client.js:69:7581)
+    at Gr.request (C:\Shakil Dev\EchoNet\backend\generated\prisma\client\runtime\client.js:69:7288)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async a (C:\Shakil Dev\EchoNet\backend\generated\prisma\client\runtime\client.js:79:6730)
+    at async Object.getAllUsers (C:\Shakil Dev\EchoNet\backend\src\app\module\user\user.service.ts:12:18)
+    at async <anonymous> (C:\Shakil Dev\EchoNet\backend\src\app\module\user\user.controller.ts:10:18)
+    at async <anonymous> (C:\Shakil Dev\EchoNet\backend\src\app\utils\catchAsync.ts:6:7)
+2026-03-26 03:53:33 [[31merror[39m]: PrismaClientKnownRequestError: 
+Invalid `prisma.post.findMany()` invocation in
+C:\Shakil Dev\EchoNet\backend\src\app\module\post\post.service.ts:88:36
+
+  85 
+  86 where.status = 'ACTIVE';
+  87 
+→ 88 const result = await prisma.post.findMany(
+Database `echonet` does not exist on the database server
+    at Gr.handleRequestError (C:\Shakil Dev\EchoNet\backend\generated\prisma\client\runtime\client.js:69:8286)
+    at Gr.handleAndLogRequestError (C:\Shakil Dev\EchoNet\backend\generated\prisma\client\runtime\client.js:69:7581)
+    at Gr.request (C:\Shakil Dev\EchoNet\backend\generated\prisma\client\runtime\client.js:69:7288)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async a (C:\Shakil Dev\EchoNet\backend\generated\prisma\client\runtime\client.js:79:6730)
+    at async Object.getAllPosts (C:\Shakil Dev\EchoNet\backend\src\app\module\post\post.service.ts:88:18)
+    at async <anonymous> (C:\Shakil Dev\EchoNet\backend\src\app\module\post\post.controller.ts:29:18)
+    at async <anonymous> (C:\Shakil Dev\EchoNet\backend\src\app\utils\catchAsync.ts:6:7)
+2026-03-26 03:53:33 [[31merror[39m]: PrismaClientKnownRequestError: 
+Invalid `prisma.post.findMany()` invocation in
+C:\Shakil Dev\EchoNet\backend\src\app\module\post\post.service.ts:88:36
+
+  85 
+  86 where.status = 'ACTIVE';
+  87 
+→ 88 const result = await prisma.post.findMany(
+Database `echonet` does not exist on the database server
+    at Gr.handleRequestError (C:\Shakil Dev\EchoNet\backend\generated\prisma\client\runtime\client.js:69:8286)
+    at Gr.handleAndLogRequestError (C:\Shakil Dev\EchoNet\backend\generated\prisma\client\runtime\client.js:69:7581)
+    at Gr.request (C:\Shakil Dev\EchoNet\backend\generated\prisma\client\runtime\client.js:69:7288)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async a (C:\Shakil Dev\EchoNet\backend\generated\prisma\client\runtime\client.js:79:6730)
+    at async Object.getAllPosts (C:\Shakil Dev\EchoNet\backend\src\app\module\post\post.service.ts:88:18)
+    at async <anonymous> (C:\Shakil Dev\EchoNet\backend\src\app\module\post\post.controller.ts:29:18)
+    at async <anonymous> (C:\Shakil Dev\EchoNet\backend\src\app\utils\catchAsync.ts:6:7)
+2026-03-26 04:18:36 [[31merror[39m]: APIError: Invalid email or password
+2026-03-26 04:18:47 [[31merror[39m]: APIError: Invalid email or password
+2026-03-26 04:32:11 [[31merror[39m]: APIError: Invalid email or password

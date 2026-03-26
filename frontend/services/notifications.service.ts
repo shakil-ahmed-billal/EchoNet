@@ -1,33 +1,26 @@
-"use server";
-
-import { httpClient } from "@/lib/axios/httpClient"
+import { apiClient } from "./api-client";
 
 export interface Notification {
-  id: string
-  userId: string
-  type: "LIKE" | "COMMENT" | "MESSAGE" | "ANNOUNCEMENT" | "FOLLOW"
-  message: string
-  isRead: boolean
-  createdAt: string
-  referenceId?: string
+  id: string;
+  userId: string;
+  type: 'LIKE' | 'COMMENT' | 'MESSAGE' | 'ANNOUNCEMENT' | 'CALL' | 'FRIEND_REQUEST' | 'FRIEND_ACCEPT';
+  referenceId?: string;
+  message: string;
+  isRead: boolean;
+  createdAt: string;
 }
 
-export async function getNotifications() {
-  try {
-    const response = await httpClient.get<any>("/notifications")
-    return response.data as Notification[]
-  } catch (error: any) {
-    console.error("NotificationsService failed:", error?.message);
-    return [];
-  }
-}
+export const getNotifications = async () => {
+  const response = await apiClient.get('/notifications');
+  return response.data?.data ?? [] as Notification[];
+};
 
-export async function getUnreadCount() {
-  const response = await httpClient.get<any>("/notifications/unread-count")
-  return response.data as number
-}
+export const getUnreadCount = async () => {
+  const response = await apiClient.get('/notifications/unread-count');
+  return response.data?.data ?? 0;
+};
 
-export async function markAsRead(id: string) {
-  const response = await httpClient.patch<any>(`/notifications/${id}/read`, {})
-  return response.data
-}
+export const markAsRead = async (id: string) => {
+  const response = await apiClient.patch(`/notifications/${id}/read`);
+  return response.data.data;
+};

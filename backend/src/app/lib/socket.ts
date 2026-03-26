@@ -37,8 +37,8 @@ export const initSocket = async (server: HTTPServer) => {
         }
 
         // WebRTC Signalling
-        socket.on('call-user', (data: { to: string; offer: any; from: string; fromName: string }) => {
-            io.to(data.to).emit('incoming-call', { offer: data.offer, from: data.from, fromName: data.fromName });
+        socket.on('call-user', (data: { to: string; offer: any; from: string; fromName: string; isVideo?: boolean }) => {
+            io.to(data.to).emit('incoming-call', { offer: data.offer, from: data.from, fromName: data.fromName, isVideo: data.isVideo });
         });
 
         socket.on('answer-call', (data: { to: string; answer: any }) => {
@@ -47,6 +47,10 @@ export const initSocket = async (server: HTTPServer) => {
 
         socket.on('ice-candidate', (data: { to: string; candidate: any }) => {
             io.to(data.to).emit('ice-candidate', { candidate: data.candidate });
+        });
+
+        socket.on('end-call', (data: { to: string }) => {
+            io.to(data.to).emit('end-call');
         });
 
         // Messaging

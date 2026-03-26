@@ -15,7 +15,8 @@ export default function MainLayout({
   const pathname = usePathname();
   const isProfilePage = pathname.startsWith("/profile");
   const isMessagesPage = pathname.startsWith("/messages");
-  const hideRightSidebar = isProfilePage || isMessagesPage;
+  const isFriendsPage = pathname.startsWith("/friends");
+  const hideRightSidebar = isProfilePage || isMessagesPage || isFriendsPage;
 
   // Messages page: full-width, no sidebars, no padding
   if (isMessagesPage) {
@@ -33,21 +34,21 @@ export default function MainLayout({
   return (
     <div className="flex min-h-screen flex-col bg-background/50">
       <SiteHeader />
-      <div className="flex-1 w-full px-2 sm:px-4 lg:px-8">
+      <div className="flex-1 w-full  sm:px-4 lg:px-8">
         <div className={cn(
-          "grid gap-6 pt-4 md:pt-6 pb-32 md:pb-24 w-full",
+          "grid gap-8 w-full h-full",
           hideRightSidebar 
-            ? "grid-cols-1 lg:grid-cols-[280px_1fr] xl:grid-cols-[320px_1fr]" 
-            : "grid-cols-1 lg:grid-cols-[280px_1fr] xl:grid-cols-[280px_minmax(auto,680px)_320px] 2xl:grid-cols-[320px_minmax(auto,720px)_360px] xl:justify-between"
+            ? "grid-cols-1 lg:grid-cols-[280px_1fr] xl:grid-cols-[300px_1fr]" 
+            : "grid-cols-1 lg:grid-cols-[280px_1fr] xl:grid-cols-[260px_1fr_320px] 2xl:grid-cols-[280px_1fr_340px] xl:justify-between"
         )}>
-          <div className="hidden lg:block">
+          <div className="hidden lg:block h-full">
             <LeftSidebar />
           </div>
-          <main className="flex flex-col min-w-0 gap-6 w-full">
+          <main className="flex flex-col min-w-0 gap-6 w-full pt-8">
             {children}
           </main>
           {!hideRightSidebar && (
-            <div className="hidden xl:block">
+            <div className="hidden xl:block h-full">
               <RightSidebar />
             </div>
           )}

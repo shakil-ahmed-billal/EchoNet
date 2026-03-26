@@ -135,7 +135,7 @@ export default function CreateStoryPage() {
 
         {/* Share button */}
         <Button
-          className="w-full rounded-full h-12 font-bold text-base shadow-lg shadow-primary/20"
+          className="w-full rounded-full h-12 font-bold text-base shadow-sm"
           onClick={handleSubmit}
           disabled={!file || isPending}
         >

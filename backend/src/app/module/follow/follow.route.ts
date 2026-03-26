@@ -12,6 +12,8 @@ router.use(auth(Role.USER, Role.ADMIN, Role.MODERATOR));
 router.post('/follow', FollowControllers.followUser);
 router.post('/accept', FollowControllers.acceptFollow);
 router.post('/unfollow', FollowControllers.unfollowUser);
+router.get('/requests', FollowControllers.getPendingRequests);
+router.get('/suggestions', FollowControllers.getSuggestions);
 router.get('/:userId/followers', FollowControllers.getFollowers);
 router.get('/:userId/following', FollowControllers.getFollowing);
 

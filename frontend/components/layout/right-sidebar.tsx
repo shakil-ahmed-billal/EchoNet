@@ -101,11 +101,11 @@ export function RightSidebar() {
   });
 
   return (
-    <aside className="sticky top-20 flex flex-col bg-background h-[calc(100vh-100px)] overflow-y-auto pr-1">
+    <aside className="sticky top-16 flex flex-col bg-transparent h-[calc(100vh-64px)] overflow-y-auto pr-1 no-scrollbar pt-8">
       {/* Trending Section - Clean & Professional */}
       <div className="mb-6 bg-card/40 border border-border/40 rounded-3xl overflow-hidden shadow-sm">
         <div className="flex items-center justify-between p-5 pb-2">
-          <h3 className="text-sm font-bold tracking-tight text-foreground/90">Trending for you</h3>
+          <h3 className="text-[11px] font-bold text-muted-foreground/50 uppercase tracking-widest">Trending For You</h3>
           <Button variant="ghost" size="icon-sm" className="h-8 w-8 rounded-full">
             <Zap className="h-4 w-4 text-primary fill-primary/10" />
           </Button>
@@ -132,7 +132,7 @@ export function RightSidebar() {
               </button>
             ))
           )}
-          <button className="w-full p-4 text-left text-xs font-bold text-primary hover:bg-card/80 transition-all">
+          <button className="w-full p-4 text-left text-xs font-bold text-primary/70 hover:bg-card/80 transition-all rounded-b-3xl">
             Show more
           </button>
         </div>
@@ -141,7 +141,7 @@ export function RightSidebar() {
       {/* Who to Follow - Premium Clean Look */}
       <div className="bg-card/40 border border-border/40 rounded-3xl overflow-hidden shadow-sm">
         <div className="p-5 pb-2">
-          <h3 className="text-sm font-bold tracking-tight text-foreground/90">Who to follow</h3>
+          <h3 className="text-[11px] font-bold text-muted-foreground/50 uppercase tracking-widest">Who To Follow</h3>
         </div>
 
         <div className="flex flex-col p-2 gap-1">
@@ -151,7 +151,7 @@ export function RightSidebar() {
             <div className="p-4 text-center text-xs text-muted-foreground">No new suggestions</div>
           ) : (
             suggestedUsers.map((item) => (
-              <div 
+               <div 
                 key={item.id}
                 className="flex items-center justify-between p-3 rounded-2xl hover:bg-card/60 transition-all group"
               >
@@ -161,13 +161,13 @@ export function RightSidebar() {
                      <AvatarFallback className="text-[10px] font-bold bg-muted/50">{item.name.substring(0, 2).toUpperCase()}</AvatarFallback>
                   </Avatar>
                   <div className="flex flex-col min-w-0 pr-2">
-                    <p className="font-bold text-xs text-foreground truncate">{item.name}</p>
-                    <p className="text-[10px] text-muted-foreground font-medium truncate">{item.username}</p>
+                    <p className="font-bold text-sm text-foreground/90 truncate">{item.name}</p>
+                    <p className="text-[10px] text-muted-foreground/60 font-bold uppercase tracking-wider truncate">{item.username}</p>
                   </div>
                 </Link>
                 <Button 
                   size="sm" 
-                  className="h-8 px-4 rounded-xl text-[10px] font-bold shadow-md shadow-primary/10 active:scale-95 transition-transform bg-foreground text-background hover:bg-foreground/90 shrink-0"
+                  className="h-8 px-4 rounded-xl text-[10px] font-bold shadow-sm active:scale-95 transition-transform bg-foreground text-background hover:bg-foreground/90 shrink-0"
                   onClick={() => followMutation.mutate(item.id)}
                   disabled={followingIds.has(item.id)}
                 >
@@ -180,7 +180,7 @@ export function RightSidebar() {
               </div>
             ))
           )}
-          <Link href="/friends" className="w-full block p-3 pl-4 text-left text-xs font-bold text-primary hover:bg-card/80 transition-all rounded-b-3xl">
+          <Link href="/friends" className="w-full block p-3.5 pl-5 text-left text-xs font-bold text-primary/70 hover:bg-card/80 transition-all rounded-b-3xl">
             Show all friends
           </Link>
         </div>

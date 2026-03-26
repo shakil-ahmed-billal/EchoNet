@@ -25,7 +25,7 @@ export function LeftSidebar() {
   ];
 
   return (
-    <aside className="sticky top-20 flex flex-col bg-background px-1 py-0 overflow-y-auto h-[calc(100vh-100px)]">
+    <aside className="sticky top-16 flex flex-col bg-transparent px-2 overflow-y-auto h-[calc(100vh-64px)] no-scrollbar pt-8">
       {/* Navigation */}
       <nav className="flex-1">
         <ul className="space-y-1">
@@ -39,12 +39,12 @@ export function LeftSidebar() {
                 )}
               >
                 <Avatar className="h-6 w-6 ring-2 ring-primary/20 group-hover:ring-primary/40 transition-all shrink-0">
-                  <AvatarImage src={user.image} alt={user.name} />
+                  <AvatarImage src={user.image || ""} alt={user.name || ""} />
                   <AvatarFallback className="bg-primary/5 text-primary text-[8px] font-bold">
-                    {user.name?.substring(0, 2).toUpperCase()}
+                    {user.name?.substring(0, 2).toUpperCase() || "UN"}
                   </AvatarFallback>
                 </Avatar>
-                <span className="truncate">{user.name}</span>
+                <span className="truncate text-sm font-bold">{user.name}</span>
               </Link>
             </li>
           )}
@@ -69,7 +69,7 @@ export function LeftSidebar() {
                   )} />
                   <span>{item.title}</span>
                   {isActive && (
-                    <div className="absolute left-[-16px] w-1.5 h-6 bg-primary rounded-r-full shadow-lg shadow-primary/20" />
+                    <div className="absolute left-[-16px] w-1.5 h-6 bg-primary rounded-r-full" />
                   )}
                 </Link>
               </li>
@@ -79,18 +79,27 @@ export function LeftSidebar() {
       </nav>
 
       {/* Brand & Support */}
-      <div className="mt-auto pt-6 border-t border-border/20">
-        <div className="bg-primary/5 rounded-2xl p-4 mb-6 group hover:bg-primary/10 transition-colors pointer-cursor">
-           <p className="text-[10px] text-primary/70 font-bold uppercase tracking-wider mb-1">Support EchoNet</p>
-           <p className="text-[11px] text-muted-foreground leading-relaxed mb-3">Help us build the next generation of social networking.</p>
-           <Button size="sm" className="w-full rounded-xl bg-primary shadow-lg shadow-primary/20 h-8 text-[11px] font-bold">
-              Upgrade
+      <div className="mt-auto pt-6 border-t border-border/10">
+        <div className="bg-card/40 rounded-2xl p-5 mb-6 group hover:bg-card/60 transition-colors border border-border/40 shadow-sm">
+           <div className="flex items-center gap-2 mb-2">
+             <div className="size-5 rounded-full bg-primary/20 flex items-center justify-center">
+               <div className="size-2 rounded-full bg-primary" />
+             </div>
+             <p className="text-xs text-foreground font-bold tracking-tight">EchoNet Premium</p>
+           </div>
+           <p className="text-[11px] text-muted-foreground/60 leading-relaxed mb-4 font-medium">Unlock exclusive tools and stand out with a verified badge.</p>
+           <Button size="sm" className="w-full rounded-xl bg-foreground text-background hover:bg-foreground/90 h-9 text-[11px] font-bold active:scale-95 transition-all shadow-sm">
+              Learn More
            </Button>
         </div>
-        <p className="text-[10px] text-muted-foreground/40 font-bold leading-relaxed px-2 pb-4">
-          &copy; 2026 EchoNet Inc.<br/>
-          Privacy • Terms • Cookie Policy
-        </p>
+        <div className="px-2 pb-6 space-y-1">
+          <p className="text-[10px] text-muted-foreground/30 font-bold uppercase tracking-widest leading-relaxed">
+            &copy; 2026 EchoNet Inc.
+          </p>
+          <p className="text-[9px] text-muted-foreground/20 font-bold uppercase tracking-widest hover:text-muted-foreground/40 transition-colors cursor-pointer">
+            Privacy • Terms • Cookie Policy
+          </p>
+        </div>
       </div>
     </aside>
   );
