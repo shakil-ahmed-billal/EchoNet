@@ -1,0 +1,82 @@
+2026-03-26 08:38:43.259 +06 [20639] LOG:  starting PostgreSQL 18.1 (Homebrew petere/postgresql) on aarch64-apple-darwin25.1.0, compiled by Apple clang version 17.0.0 (clang-1700.4.4.1), 64-bit
+2026-03-26 08:38:43.260 +06 [20639] LOG:  listening on IPv6 address "::1", port 5432
+2026-03-26 08:38:43.260 +06 [20639] LOG:  listening on IPv4 address "127.0.0.1", port 5432
+2026-03-26 08:38:43.261 +06 [20639] LOG:  listening on Unix socket "/tmp/.s.PGSQL.5432"
+2026-03-26 08:38:43.279 +06 [20645] LOG:  database system was shut down at 2026-03-25 11:13:48 +06
+2026-03-26 08:38:43.285 +06 [20639] LOG:  database system is ready to accept connections
+2026-03-26 08:38:46.920 +06 [20643] LOG:  checkpoint starting: immediate force wait
+2026-03-26 08:38:46.922 +06 [20643] LOG:  checkpoint complete: wrote 6 buffers (0.0%), wrote 3 SLRU buffers; 0 WAL file(s) added, 0 removed, 0 recycled; write=0.001 s, sync=0.001 s, total=0.002 s; sync files=8, longest=0.001 s, average=0.001 s; distance=4898 kB, estimate=4898 kB; lsn=0/36BBBCB8, redo lsn=0/36BBBC60
+2026-03-26 08:38:47.068 +06 [20643] LOG:  checkpoint starting: immediate force wait
+2026-03-26 08:38:47.070 +06 [20643] LOG:  checkpoint complete: wrote 7 buffers (0.0%), wrote 1 SLRU buffers; 0 WAL file(s) added, 0 removed, 1 recycled; write=0.001 s, sync=0.001 s, total=0.002 s; sync files=8, longest=0.001 s, average=0.001 s; distance=4911 kB, estimate=4911 kB; lsn=0/37087C38, redo lsn=0/37087BE0
+2026-03-26 08:39:00.124 +06 [20723] ERROR:  table "_prisma_migrations" does not exist
+2026-03-26 08:39:00.124 +06 [20723] STATEMENT:  DROP TABLE _prisma_migrations
+2026-03-26 08:41:34.822 +06 [20643] LOG:  checkpoint starting: immediate force wait
+2026-03-26 08:41:34.850 +06 [20643] LOG:  checkpoint complete: wrote 219 buffers (1.3%), wrote 1 SLRU buffers; 0 WAL file(s) added, 0 removed, 0 recycled; write=0.020 s, sync=0.004 s, total=0.029 s; sync files=137, longest=0.001 s, average=0.001 s; distance=6323 kB, estimate=6323 kB; lsn=0/376B4A68, redo lsn=0/376B4A10
+2026-03-26 08:41:34.969 +06 [20643] LOG:  checkpoint starting: immediate force wait
+2026-03-26 08:41:34.973 +06 [20643] LOG:  checkpoint complete: wrote 17 buffers (0.1%), wrote 1 SLRU buffers; 0 WAL file(s) added, 0 removed, 0 recycled; write=0.002 s, sync=0.002 s, total=0.005 s; sync files=12, longest=0.001 s, average=0.001 s; distance=4936 kB, estimate=6184 kB; lsn=0/37B86A88, redo lsn=0/37B86A30
+2026-03-26 08:46:34.974 +06 [20643] LOG:  checkpoint starting: time
+2026-03-26 08:46:49.687 +06 [20643] LOG:  checkpoint complete: wrote 145 buffers (0.9%), wrote 1 SLRU buffers; 0 WAL file(s) added, 0 removed, 0 recycled; write=14.708 s, sync=0.004 s, total=14.714 s; sync files=105, longest=0.001 s, average=0.001 s; distance=895 kB, estimate=5655 kB; lsn=0/37C669A8, redo lsn=0/37C66918
+2026-03-26 08:51:34.688 +06 [20643] LOG:  checkpoint starting: time
+2026-03-26 08:51:37.132 +06 [20643] LOG:  checkpoint complete: wrote 24 buffers (0.1%), wrote 1 SLRU buffers; 0 WAL file(s) added, 0 removed, 0 recycled; write=2.440 s, sync=0.001 s, total=2.445 s; sync files=18, longest=0.001 s, average=0.001 s; distance=40 kB, estimate=5094 kB; lsn=0/37C70BF8, redo lsn=0/37C70BA0
+2026-03-26 08:56:34.133 +06 [20643] LOG:  checkpoint starting: time
+2026-03-26 08:56:35.864 +06 [20643] LOG:  checkpoint complete: wrote 17 buffers (0.1%), wrote 1 SLRU buffers; 0 WAL file(s) added, 0 removed, 0 recycled; write=1.728 s, sync=0.001 s, total=1.732 s; sync files=18, longest=0.001 s, average=0.001 s; distance=13 kB, estimate=4586 kB; lsn=0/37C743A0, redo lsn=0/37C74348
+2026-03-26 09:01:34.866 +06 [20643] LOG:  checkpoint starting: time
+2026-03-26 09:01:38.429 +06 [20643] LOG:  checkpoint complete: wrote 35 buffers (0.2%), wrote 1 SLRU buffers; 0 WAL file(s) added, 0 removed, 0 recycled; write=3.558 s, sync=0.003 s, total=3.563 s; sync files=27, longest=0.001 s, average=0.001 s; distance=30 kB, estimate=4130 kB; lsn=0/37C7BDF0, redo lsn=0/37C7BD98
+2026-03-26 09:06:34.430 +06 [20643] LOG:  checkpoint starting: time
+2026-03-26 09:06:35.351 +06 [20643] LOG:  checkpoint complete: wrote 9 buffers (0.1%), wrote 1 SLRU buffers; 0 WAL file(s) added, 0 removed, 0 recycled; write=0.916 s, sync=0.002 s, total=0.921 s; sync files=10, longest=0.001 s, average=0.001 s; distance=9 kB, estimate=3718 kB; lsn=0/37C7E2C8, redo lsn=0/37C7E270
+2026-03-26 09:11:34.352 +06 [20643] LOG:  checkpoint starting: time
+2026-03-26 09:11:35.581 +06 [20643] LOG:  checkpoint complete: wrote 12 buffers (0.1%), wrote 1 SLRU buffers; 0 WAL file(s) added, 0 removed, 0 recycled; write=1.222 s, sync=0.002 s, total=1.230 s; sync files=13, longest=0.001 s, average=0.001 s; distance=16 kB, estimate=3348 kB; lsn=0/37C82648, redo lsn=0/37C825B8
+2026-03-26 09:13:22.477 +06 [31297] ERROR:  update or delete on table "User" violates RESTRICT setting of foreign key constraint "Comment_authorId_fkey" on table "Comment"
+2026-03-26 09:13:22.477 +06 [31297] DETAIL:  Key (id)=(QRuRMAPgUtU6A0V9P9ix3vVLr29exppe) is referenced from table "Comment".
+2026-03-26 09:13:22.477 +06 [31297] STATEMENT:  delete from "public"."User" where "id" = $1 returning "isPrivate", "isDeleted", "emailVerified", "isSuspended", "postsCount", "followingCount", "followersCount", "website", "location", "coverPhotoUrl", "image", "providerId", "provider", "bio", "avatarUrl", "name", "passwordHash", "email", "id", "updatedAt", "createdAt", "workplaces", "education", "role", cast(floor(extract(epoch from now()) * $2) as text) as "__ps_deleted_at__"
+2026-03-26 09:13:28.528 +06 [31298] ERROR:  update or delete on table "User" violates RESTRICT setting of foreign key constraint "Comment_authorId_fkey" on table "Comment"
+2026-03-26 09:13:28.528 +06 [31298] DETAIL:  Key (id)=(QRuRMAPgUtU6A0V9P9ix3vVLr29exppe) is referenced from table "Comment".
+2026-03-26 09:13:28.528 +06 [31298] STATEMENT:  delete from "public"."User" where "id" = $1 returning "isPrivate", "isDeleted", "emailVerified", "isSuspended", "postsCount", "followingCount", "followersCount", "website", "location", "coverPhotoUrl", "image", "providerId", "provider", "bio", "avatarUrl", "name", "passwordHash", "email", "id", "updatedAt", "createdAt", "workplaces", "education", "role", cast(floor(extract(epoch from now()) * $2) as text) as "__ps_deleted_at__"
+2026-03-26 09:16:34.581 +06 [20643] LOG:  checkpoint starting: time
+2026-03-26 09:16:35.604 +06 [20643] LOG:  checkpoint complete: wrote 10 buffers (0.1%), wrote 1 SLRU buffers; 0 WAL file(s) added, 0 removed, 0 recycled; write=1.019 s, sync=0.001 s, total=1.024 s; sync files=9, longest=0.001 s, average=0.001 s; distance=45 kB, estimate=3018 kB; lsn=0/37C8DB38, redo lsn=0/37C8DAE0
+2026-03-26 09:33:58.516 +06 [20643] LOG:  checkpoint starting: immediate force wait
+2026-03-26 09:33:58.518 +06 [20643] LOG:  checkpoint complete: wrote 8 buffers (0.0%), wrote 1 SLRU buffers; 0 WAL file(s) added, 0 removed, 1 recycled; write=0.002 s, sync=0.001 s, total=0.003 s; sync files=9, longest=0.001 s, average=0.001 s; distance=4472 kB, estimate=4472 kB; lsn=0/380EBD60, redo lsn=0/380EBD08
+2026-03-26 09:33:58.624 +06 [20643] LOG:  checkpoint starting: immediate force wait
+2026-03-26 09:33:58.626 +06 [20643] LOG:  checkpoint complete: wrote 13 buffers (0.1%), wrote 1 SLRU buffers; 0 WAL file(s) added, 0 removed, 0 recycled; write=0.002 s, sync=0.001 s, total=0.003 s; sync files=10, longest=0.001 s, average=0.001 s; distance=4505 kB, estimate=4505 kB; lsn=0/38552218, redo lsn=0/385521C0
+2026-03-26 09:34:16.211 +06 [37802] ERROR:  table "_prisma_migrations" does not exist
+2026-03-26 09:34:16.211 +06 [37802] STATEMENT:  DROP TABLE _prisma_migrations
+2026-03-26 09:34:20.146 +06 [20643] LOG:  checkpoint starting: immediate force wait
+2026-03-26 09:34:20.163 +06 [20643] LOG:  checkpoint complete: wrote 93 buffers (0.6%), wrote 1 SLRU buffers; 0 WAL file(s) added, 0 removed, 0 recycled; write=0.013 s, sync=0.002 s, total=0.018 s; sync files=48, longest=0.001 s, average=0.001 s; distance=5088 kB, estimate=5088 kB; lsn=0/38A4A270, redo lsn=0/38A4A218
+2026-03-26 09:34:20.254 +06 [20643] LOG:  checkpoint starting: immediate force wait
+2026-03-26 09:34:20.256 +06 [20643] LOG:  checkpoint complete: wrote 37 buffers (0.2%), wrote 1 SLRU buffers; 0 WAL file(s) added, 0 removed, 0 recycled; write=0.001 s, sync=0.001 s, total=0.002 s; sync files=18, longest=0.001 s, average=0.001 s; distance=4649 kB, estimate=5044 kB; lsn=0/38ED4820, redo lsn=0/38ED47C8
+2026-03-26 09:39:20.257 +06 [20643] LOG:  checkpoint starting: time
+2026-03-26 09:39:41.519 +06 [20643] LOG:  checkpoint complete: wrote 209 buffers (1.3%), wrote 1 SLRU buffers; 0 WAL file(s) added, 0 removed, 1 recycled; write=21.245 s, sync=0.014 s, total=21.263 s; sync files=179, longest=0.001 s, average=0.001 s; distance=1590 kB, estimate=4698 kB; lsn=0/39062250, redo lsn=0/390621C0
+2026-03-26 09:44:20.521 +06 [20643] LOG:  checkpoint starting: time
+2026-03-26 09:44:33.429 +06 [20643] LOG:  checkpoint complete: wrote 127 buffers (0.8%), wrote 2 SLRU buffers; 0 WAL file(s) added, 0 removed, 0 recycled; write=12.900 s, sync=0.004 s, total=12.909 s; sync files=71, longest=0.001 s, average=0.001 s; distance=673 kB, estimate=4296 kB; lsn=0/3910A928, redo lsn=0/3910A898
+2026-03-26 09:54:20.434 +06 [20643] LOG:  checkpoint starting: time
+2026-03-26 09:54:21.668 +06 [20643] LOG:  checkpoint complete: wrote 12 buffers (0.1%), wrote 1 SLRU buffers; 0 WAL file(s) added, 0 removed, 0 recycled; write=1.227 s, sync=0.002 s, total=1.235 s; sync files=13, longest=0.001 s, average=0.001 s; distance=25 kB, estimate=3869 kB; lsn=0/391110C0, redo lsn=0/39111068
+2026-03-26 10:09:20.673 +06 [20643] LOG:  checkpoint starting: time
+2026-03-26 10:09:23.330 +06 [20643] LOG:  checkpoint complete: wrote 26 buffers (0.2%), wrote 1 SLRU buffers; 0 WAL file(s) added, 0 removed, 0 recycled; write=2.649 s, sync=0.003 s, total=2.658 s; sync files=23, longest=0.001 s, average=0.001 s; distance=94 kB, estimate=3491 kB; lsn=0/39128C20, redo lsn=0/39128BC8
+2026-03-26 10:14:20.332 +06 [20643] LOG:  checkpoint starting: time
+2026-03-26 10:14:20.853 +06 [20643] LOG:  checkpoint complete: wrote 5 buffers (0.0%), wrote 1 SLRU buffers; 0 WAL file(s) added, 0 removed, 0 recycled; write=0.513 s, sync=0.002 s, total=0.522 s; sync files=6, longest=0.001 s, average=0.001 s; distance=18 kB, estimate=3144 kB; lsn=0/3912D450, redo lsn=0/3912D3F8
+2026-03-26 10:19:20.853 +06 [20643] LOG:  checkpoint starting: time
+2026-03-26 10:19:21.372 +06 [20643] LOG:  checkpoint complete: wrote 5 buffers (0.0%), wrote 1 SLRU buffers; 0 WAL file(s) added, 0 removed, 0 recycled; write=0.513 s, sync=0.002 s, total=0.520 s; sync files=6, longest=0.001 s, average=0.001 s; distance=13 kB, estimate=2831 kB; lsn=0/39130878, redo lsn=0/39130820
+2026-03-26 10:24:20.375 +06 [20643] LOG:  checkpoint starting: time
+2026-03-26 10:24:20.892 +06 [20643] LOG:  checkpoint complete: wrote 5 buffers (0.0%), wrote 1 SLRU buffers; 0 WAL file(s) added, 0 removed, 0 recycled; write=0.513 s, sync=0.001 s, total=0.518 s; sync files=6, longest=0.001 s, average=0.001 s; distance=13 kB, estimate=2549 kB; lsn=0/39133EE8, redo lsn=0/39133E90
+2026-03-26 10:29:20.895 +06 [20643] LOG:  checkpoint starting: time
+2026-03-26 10:29:21.713 +06 [20643] LOG:  checkpoint complete: wrote 8 buffers (0.0%), wrote 1 SLRU buffers; 0 WAL file(s) added, 0 removed, 0 recycled; write=0.814 s, sync=0.002 s, total=0.818 s; sync files=9, longest=0.001 s, average=0.001 s; distance=21 kB, estimate=2296 kB; lsn=0/391393E0, redo lsn=0/39139388
+2026-03-26 10:34:20.714 +06 [20643] LOG:  checkpoint starting: time
+2026-03-26 10:34:21.228 +06 [20643] LOG:  checkpoint complete: wrote 5 buffers (0.0%), wrote 1 SLRU buffers; 0 WAL file(s) added, 0 removed, 0 recycled; write=0.509 s, sync=0.001 s, total=0.515 s; sync files=6, longest=0.001 s, average=0.001 s; distance=17 kB, estimate=2068 kB; lsn=0/3913D998, redo lsn=0/3913D940
+2026-03-26 10:39:20.231 +06 [20643] LOG:  checkpoint starting: time
+2026-03-26 10:39:20.751 +06 [20643] LOG:  checkpoint complete: wrote 5 buffers (0.0%), wrote 1 SLRU buffers; 0 WAL file(s) added, 0 removed, 0 recycled; write=0.512 s, sync=0.002 s, total=0.520 s; sync files=6, longest=0.001 s, average=0.001 s; distance=19 kB, estimate=1863 kB; lsn=0/391426B8, redo lsn=0/39142660
+2026-03-26 10:44:20.752 +06 [20643] LOG:  checkpoint starting: time
+2026-03-26 10:44:21.167 +06 [20643] LOG:  checkpoint complete: wrote 4 buffers (0.0%), wrote 1 SLRU buffers; 0 WAL file(s) added, 0 removed, 0 recycled; write=0.411 s, sync=0.001 s, total=0.416 s; sync files=5, longest=0.001 s, average=0.001 s; distance=10 kB, estimate=1678 kB; lsn=0/39145230, redo lsn=0/391451D8
+2026-03-26 10:49:20.167 +06 [20643] LOG:  checkpoint starting: time
+2026-03-26 10:49:21.795 +06 [20643] LOG:  checkpoint complete: wrote 16 buffers (0.1%), wrote 1 SLRU buffers; 0 WAL file(s) added, 0 removed, 0 recycled; write=1.623 s, sync=0.002 s, total=1.628 s; sync files=14, longest=0.001 s, average=0.001 s; distance=72 kB, estimate=1517 kB; lsn=0/391575B8, redo lsn=0/39157560
+2026-03-26 10:59:20.793 +06 [20643] LOG:  checkpoint starting: time
+2026-03-26 10:59:22.018 +06 [20643] LOG:  checkpoint complete: wrote 12 buffers (0.1%), wrote 1 SLRU buffers; 0 WAL file(s) added, 0 removed, 0 recycled; write=1.218 s, sync=0.002 s, total=1.226 s; sync files=13, longest=0.001 s, average=0.001 s; distance=34 kB, estimate=1369 kB; lsn=0/391600C8, redo lsn=0/39160070
+2026-03-26 11:04:20.019 +06 [20643] LOG:  checkpoint starting: time
+2026-03-26 11:04:21.555 +06 [20643] LOG:  checkpoint complete: wrote 15 buffers (0.1%), wrote 1 SLRU buffers; 0 WAL file(s) added, 0 removed, 0 recycled; write=1.526 s, sync=0.003 s, total=1.536 s; sync files=14, longest=0.001 s, average=0.001 s; distance=67 kB, estimate=1239 kB; lsn=0/39170F90, redo lsn=0/39170F38
+2026-03-26 11:14:20.560 +06 [20643] LOG:  checkpoint starting: time
+2026-03-26 11:14:20.976 +06 [20643] LOG:  checkpoint complete: wrote 4 buffers (0.0%), wrote 1 SLRU buffers; 0 WAL file(s) added, 0 removed, 0 recycled; write=0.410 s, sync=0.002 s, total=0.417 s; sync files=5, longest=0.001 s, average=0.001 s; distance=13 kB, estimate=1116 kB; lsn=0/39174568, redo lsn=0/39174510
+2026-03-26 11:37:48.586 +06 [20639] LOG:  received smart shutdown request
+2026-03-26 11:37:48.658 +06 [20639] LOG:  background worker "logical replication launcher" (PID 20648) exited with exit code 1
+2026-03-26 11:37:48.659 +06 [20643] LOG:  shutting down
+2026-03-26 11:37:48.661 +06 [20643] LOG:  checkpoint starting: shutdown immediate
+2026-03-26 11:37:48.678 +06 [20643] LOG:  checkpoint complete: wrote 0 buffers (0.0%), wrote 0 SLRU buffers; 0 WAL file(s) added, 0 removed, 0 recycled; write=0.003 s, sync=0.001 s, total=0.018 s; sync files=0, longest=0.000 s, average=0.000 s; distance=0 kB, estimate=1005 kB; lsn=0/39174618, redo lsn=0/39174618
+2026-03-26 11:37:48.739 +06 [20639] LOG:  database system is shut down

@@ -11,6 +11,10 @@ import { AnnouncementRoutes } from '../module/announcement/announcement.route.js
 import { NotificationRoutes } from '../module/notification/notification.route.js';
 import { UploadRoutes } from '../module/upload/upload.route.js';
 import { StoryRoutes } from '../module/story/story.route.js';
+import { SearchRoutes } from '../module/search/search.route.js';
+import { HashtagRoutes } from '../module/hashtag/hashtag.route.js';
+import { SavedPostRoutes } from '../module/savedPost/savedPost.route.js';
+import { ReactionRoutes } from '../module/reaction/reaction.route.js';
 
 const router = Router();
 
@@ -59,8 +63,27 @@ const moduleRoutes: { path: string; route: Router }[] = [
     path: '/follow',
     route: FollowRoutes,
   },
+  {
+    path: '/search',
+    route: SearchRoutes,
+  },
+  {
+    path: '/hashtags',
+    route: HashtagRoutes,
+  },
+  {
+    path: '/saved-posts',
+    route: SavedPostRoutes,
+  },
+  {
+    path: '/reactions',
+    route: ReactionRoutes,
+  },
 ];
 
-moduleRoutes.forEach((route) => router.use(route.path, route.route));
+moduleRoutes.forEach((route) => {
+    console.log(`Registering route: ${route.path}`);
+    router.use(route.path, route.route);
+});
 
 export default router;

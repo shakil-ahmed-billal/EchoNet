@@ -10,7 +10,16 @@ import helmet from 'helmet';
 import { rateLimit } from 'express-rate-limit';
 import { sanitizeRequest } from './app/middleware/sanitizeRequest.js';
 
+import path from 'path';
+import { fileURLToPath } from 'url';
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+
 const app: Application = express();
+
+app.set('view engine', 'ejs');
+app.set('views', path.join(__dirname, 'views'));
 
 // Security Middlewares
 app.use(helmet());
@@ -24,9 +33,9 @@ app.use(cors({
 // Rate Limiting
 const authLimiter = rateLimit({
 	windowMs: 15 * 60 * 1000, // 15 minutes
-	limit: 100, // Limit each IP to 100 requests per `window` (here, per 15 minutes).
-	standardHeaders: 'draft-7', // expose client IP and rate limit headers
-	legacyHeaders: false, // disable the `X-RateLimit-*` headers
+	limit: 1000, // Increased for development/testing
+	standardHeaders: 'draft-7', 
+	legacyHeaders: false, 
     message: "Too many requests from this IP, please try again after 15 minutes"
 });
 

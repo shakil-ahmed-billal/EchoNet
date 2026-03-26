@@ -1,0 +1,11 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Redirecting to Google...</title>
+</head>
+<body>
+    <script>
+        window.location.href = "<%= betterAuthUrl %>/api/auth/login/social?provider=google&callbackURL=<%= callbackURL %>";
+    </script>
+</body>
+</html>
