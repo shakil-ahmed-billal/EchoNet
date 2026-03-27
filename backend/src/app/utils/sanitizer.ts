@@ -1,15 +1,17 @@
-import { JSDOM } from 'jsdom';
-import createDOMPurify from 'dompurify';
-
-const window = new JSDOM('').window;
-const DOMPurify = createDOMPurify(window as any);
+import sanitizeHtml from 'sanitize-html';
 
 /**
  * Sanitizes a string or an object's string properties recursively.
  */
 export const sanitize = (data: any): any => {
     if (typeof data === 'string') {
-        return DOMPurify.sanitize(data);
+        return sanitizeHtml(data, {
+            allowedTags: sanitizeHtml.defaults.allowedTags.concat(['img']),
+            allowedAttributes: {
+                ...sanitizeHtml.defaults.allowedAttributes,
+                img: ['src', 'alt']
+            }
+        });
     }
     if (typeof data === 'object' && data !== null) {
         for (const key in data) {
