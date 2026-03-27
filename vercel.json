@@ -1,17 +1,18 @@
 {
   "version": 2,
-  "rewrites": [
+  "builds": [
     {
-      "source": "/api/v1/:path*",
-      "destination": "/backend/api/index.js"
-    },
+      "src": "backend/src/index.ts",
+      "use": "@vercel/node",
+      "config": {
+        "includeFiles": ["backend/generated/**", "backend/src/**"]
+      }
+    }
+  ],
+  "routes": [
     {
-      "source": "/api/auth/:path*",
-      "destination": "/backend/api/index.js"
-    },
-    {
-      "source": "/(.*)",
-      "destination": "/frontend/$1"
+      "src": "/(.*)",
+      "dest": "/backend/src/index.ts"
     }
   ]
 }
