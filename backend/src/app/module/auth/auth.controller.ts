@@ -10,10 +10,10 @@ import { auth } from "../../lib/auth.js";
 import type { Request, Response } from "express";
 
 const registerUser = catchAsync(async (req: Request, res: Response) => {
-    const url = new URL('/api/auth/sign-up/email', 'http://localhost:8000');
+    const url = new URL('/api/auth/sign-up/email', config.backend_url);
     const betterAuthReq = new Request(url.toString(), {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json', 'Origin': 'http://localhost:8000', 'Host': 'localhost:8000' },
+        headers: { 'Content-Type': 'application/json', 'Origin': config.frontend_url, 'Host': new URL(config.backend_url).host },
         body: JSON.stringify(req.body),
     });
 
@@ -49,10 +49,10 @@ const registerUser = catchAsync(async (req: Request, res: Response) => {
 });
 
 const loginUser = catchAsync(async (req: Request, res: Response) => {
-    const url = new URL('/api/auth/sign-in/email', 'http://localhost:8000');
+    const url = new URL('/api/auth/sign-in/email', config.backend_url);
     const betterAuthReq = new Request(url.toString(), {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json', 'Origin': 'http://localhost:8000', 'Host': 'localhost:8000' },
+        headers: { 'Content-Type': 'application/json', 'Origin': config.frontend_url, 'Host': new URL(config.backend_url).host },
         body: JSON.stringify(req.body),
     });
 
@@ -207,17 +207,17 @@ const verifyEmail = catchAsync(async (req: Request, res: Response) => {
 
 const googleLogin = catchAsync(async (req: Request, res: Response) => {
     const redirectPath = (req.query.redirect as string) || "/";
-    const callbackURL = `http://localhost:8000/api/v1/auth/google/success?redirect=${encodeURIComponent(redirectPath)}`;
+    const callbackURL = `${config.backend_url}/api/v1/auth/google/success?redirect=${encodeURIComponent(redirectPath)}`;
 
     // Use auth.handler() directly so BetterAuth's state cookie is properly forwarded to the browser
-    const url = new URL('/api/auth/sign-in/social', 'http://localhost:8000');
+    const url = new URL('/api/auth/sign-in/social', config.backend_url);
     const betterAuthReq = new Request(url.toString(), {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
             'Cookie': req.headers.cookie || '',
-            'Origin': 'http://localhost:8000',
-            'Host': 'localhost:8000',
+            'Origin': config.frontend_url,
+            'Host': new URL(config.backend_url).host,
         },
         body: JSON.stringify({ provider: 'google', callbackURL }),
     });
@@ -245,7 +245,7 @@ const googleLoginSuccess = catchAsync(async (req: Request, res: Response) => {
     const sessionToken = req.cookies["better-auth.session_token"];
 
     if (!sessionToken) {
-        return res.redirect(`http://localhost:3000/login?error=oauth_failed`);
+        return res.redirect(`${config.frontend_url}/login?error=oauth_failed`);
     }
 
     // BetterAuth signs the session cookie, so a direct Prisma query on the raw cookie value will fail.
@@ -263,7 +263,7 @@ const googleLoginSuccess = catchAsync(async (req: Request, res: Response) => {
     }
 
     if (!sessionData || !sessionData.user) {
-        return res.redirect(`http://localhost:3000/login?error=no_session_found`);
+        return res.redirect(`${config.frontend_url}/login?error=no_session_found`);
     }
 
     const { accessToken, refreshToken } = await AuthService.googleLoginSuccess(sessionData);
@@ -271,7 +271,7 @@ const googleLoginSuccess = catchAsync(async (req: Request, res: Response) => {
     tokenUtils.setAccessTokenCookie(res, accessToken);
     tokenUtils.setRefreshTokenCookie(res, refreshToken);
 
-    res.redirect(`http://localhost:3000${redirectPath}`);
+    res.redirect(`${config.frontend_url}${redirectPath}`);
 });
 
 export const AuthController = { 
