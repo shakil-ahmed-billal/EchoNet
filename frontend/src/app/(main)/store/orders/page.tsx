@@ -29,7 +29,7 @@ export default function StoreOrdersPage() {
 
   if (!store && !isStoreLoading) {
     return (
-      <div className="mx-auto max-w-5xl py-20 text-center">
+      <div className="py-20 text-center">
         <StoreIcon className="w-16 h-16 mx-auto mb-4 text-primary/50" />
         <h1 className="text-2xl font-bold mb-2">No Store Found</h1>
         <p className="text-muted-foreground mb-6">You need to create a store before you can view orders.</p>

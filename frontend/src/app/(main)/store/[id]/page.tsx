@@ -17,7 +17,7 @@ export default function StorePreviewPage() {
 
   if (isStoreLoading) {
     return (
-      <div className="mx-auto flex flex-col gap-6 w-full pb-12">
+      <div className="flex flex-col gap-6 w-full pb-12">
         <Skeleton className="h-64 w-full rounded-3xl" />
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
           <Skeleton className="h-40 rounded-3xl" />
@@ -43,7 +43,7 @@ export default function StorePreviewPage() {
   }
 
   return (
-    <div className="mx-auto flex flex-col gap-8 pb-12 w-full">
+    <div className="flex flex-col gap-8 pb-12 w-full">
       <div className="flex items-center gap-4">
         <Link href="/store">
             <Button variant="ghost" size="icon" className="rounded-full">

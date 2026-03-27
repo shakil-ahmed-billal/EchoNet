@@ -1,4 +1,5 @@
 import prisma from '../../lib/prisma.js';
+import { QueryBuilder } from '../../utils/QueryBuilder.js';
 
 const getAgentProfile = async (userId: string) => {
   return await prisma.agentProfile.findUnique({
@@ -14,18 +15,18 @@ const getAgentProfile = async (userId: string) => {
 };
 
 const getAllAgents = async (query: any = {}) => {
-  const where: any = {};
-  if (query.isVerified !== undefined) {
-    where.isVerified = query.isVerified === 'true' || query.isVerified === true;
-  }
-
-  return await prisma.agentProfile.findMany({
-    where,
-    include: {
-      user: { select: { name: true, avatarUrl: true, email: true } }
-    },
-    orderBy: { totalSales: 'desc' }
-  });
+  return await new QueryBuilder(prisma.agentProfile, query, {
+    searchableFields: ['agencyName', 'licenseNo', 'user.name'],
+    filterableFields: ['isVerified'],
+  })
+    .search()
+    .filter()
+    .sort()
+    .paginate()
+    .include({
+      user: { select: { id: true, name: true, avatarUrl: true, email: true } }
+    } as any)
+    .execute();
 };
 
 const createAgentProfile = async (userId: string, payload: any) => {
@@ -33,7 +34,7 @@ const createAgentProfile = async (userId: string, payload: any) => {
     data: {
       userId,
       ...payload,
-      isVerified: false, // Must be verified by admin
+      isVerified: false,
     }
   });
 };

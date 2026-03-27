@@ -41,9 +41,9 @@ export function ProductCard({ product }: ProductCardProps) {
   }
 
   return (
-    <Card className="group overflow-hidden border-none bg-background shadow-none hover:shadow-xl transition-all duration-500 rounded-3xl flex flex-col p-0">
+    <Card className="group overflow-hidden border-none bg-background shadow-none hover:shadow-xl transition-all duration-500 rounded-3xl flex flex-col  p-0">
       <Link href={`/marketplace/${product.id}`} className="block relative">
-        <div className="relative aspect-square overflow-hidden rounded-3xl bg-muted/30">
+        <div className="relative aspect-square overflow-hidden rounded-t-3xl bg-muted/30">
           <Image
             src={firstImage}
             alt={product.title}

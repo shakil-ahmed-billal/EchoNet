@@ -1,4 +1,5 @@
 import prisma from '../../lib/prisma.js';
+import { QueryBuilder } from '../../utils/QueryBuilder.js';
 
 const createProduct = async (userId: string, payload: any) => {
   // Verify store ownership
@@ -22,54 +23,23 @@ const createProduct = async (userId: string, payload: any) => {
 };
 
 const getAllProducts = async (query: any) => {
-  const { searchTerm, category, minPrice, maxPrice, sortBy, sortOrder, storeId } = query;
+  const statusFilter = query.status || 'ACTIVE';
 
-  const filters: any = {
-    status: 'ACTIVE',
-    deletedAt: null,
-  };
-
-  if (searchTerm) {
-    filters.OR = [
-      { title: { contains: searchTerm, mode: 'insensitive' } },
-      { description: { contains: searchTerm, mode: 'insensitive' } },
-    ];
-  }
-
-  if (category) {
-    filters.categoryId = category;
-  }
-
-  if (minPrice || maxPrice) {
-    filters.price = {};
-    if (minPrice) filters.price.gte = Number(minPrice);
-    if (maxPrice) filters.price.lte = Number(maxPrice);
-  }
-
-  if (storeId) {
-    filters.storeId = storeId;
-  }
-
-  const result = await prisma.product.findMany({
-    where: filters,
-    include: {
-      store: {
-        select: {
-          id: true,
-          name: true,
-        },
-      },
-      category: {
-        select: {
-          id: true,
-          name: true,
-        },
-      },
-    },
-    orderBy: sortBy ? { [sortBy]: sortOrder || 'desc' } : { createdAt: 'desc' },
-  });
-
-  return result;
+  return await new QueryBuilder(prisma.product, query, {
+    searchableFields: ['title', 'description'],
+    filterableFields: ['storeId', 'categoryId', 'status'],
+  })
+    .search()
+    .filter()
+    .where({ deletedAt: null, status: statusFilter } as any)
+    .sort()
+    .paginate()
+    .include({
+      store: { select: { id: true, name: true } },
+      category: { select: { id: true, name: true } },
+      flags: { take: 1, orderBy: { createdAt: 'desc' } },
+    } as any)
+    .execute();
 };
 
 const getProductById = async (id: string) => {

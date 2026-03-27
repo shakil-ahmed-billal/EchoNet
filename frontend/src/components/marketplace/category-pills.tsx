@@ -37,7 +37,7 @@ export function CategoryPills({ selectedCategory, onSelect }: CategoryPillsProps
         >
           All Items
         </button>
-        {categories?.map((category: Category) => (
+        {(Array.isArray(categories) ? categories : categories?.data ?? []).map((category: Category) => (
           <button
             key={category.id}
             onClick={() => onSelect(category.id)}

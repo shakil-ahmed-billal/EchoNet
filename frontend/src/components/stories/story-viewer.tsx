@@ -89,7 +89,7 @@ export function StoryViewer({ groups, initialGroupIndex, onClose }: Props) {
   const isOwnStory = group.author.id === currentUser?.id;
 
   return (
-    <div className="fixed inset-0 z-[100] bg-black flex items-center justify-center">
+    <div className="fixed inset-0 z-100 bg-black flex items-center justify-center">
       {/* Close */}
       <Button
         variant="ghost"

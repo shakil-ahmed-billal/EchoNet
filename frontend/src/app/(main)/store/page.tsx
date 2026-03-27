@@ -69,7 +69,7 @@ export default function StoreDashboardPage() {
             </p>
         </div>
 
-        <Card className="w-full bg-card/50 backdrop-blur-md border-border/20 rounded-3xl overflow-hidden shadow-xl">
+        <Card className="w-full bg-card/50 backdrop-blur-md border-border/20 rounded-3xl overflow-hidden shadow-xl p-0">
             <CardContent className="p-8 flex flex-col gap-6">
                 <div className="space-y-2">
                     <label className="text-sm font-semibold ml-1">Store Name</label>
@@ -103,7 +103,7 @@ export default function StoreDashboardPage() {
   }
 
   return (
-    <div className="mx-auto  flex flex-col gap-8">
+    <div className="flex flex-col gap-8">
       <div className="flex flex-col sm:flex-row sm:items-center gap-4">
         <div className="flex items-center gap-4">
             <div className="w-16 h-16 bg-primary/10 rounded-2xl flex items-center justify-center text-primary">
@@ -160,7 +160,7 @@ export default function StoreDashboardPage() {
       </div>
 
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-        <Card className="lg:col-span-2 bg-card/40 backdrop-blur-sm border-border/20 rounded-3xl overflow-hidden shadow-sm">
+        <Card className="lg:col-span-2 bg-card/40 backdrop-blur-sm border-border/20 rounded-3xl overflow-hidden shadow-sm py-5">
             <CardHeader className="flex flex-row items-center justify-between">
                 <div>
                     <CardTitle>My Inventory</CardTitle>
@@ -234,7 +234,7 @@ export default function StoreDashboardPage() {
             </CardContent>
         </Card>
 
-        <Card className="bg-card/40 backdrop-blur-sm border-border/20 rounded-3xl overflow-hidden shadow-sm flex flex-col">
+        <Card className="bg-card/40 backdrop-blur-sm border-border/20 rounded-3xl overflow-hidden shadow-sm flex flex-col py-5">
             <CardHeader className="flex flex-row items-center justify-between pb-2">
                 <div>
                     <CardTitle>Recent Orders</CardTitle>
@@ -294,7 +294,7 @@ export default function StoreDashboardPage() {
 
 function StatCard({ title, value, icon, color }: { title: string; value: string | number; icon: React.ReactNode; color: string }) {
     return (
-        <Card className="bg-card/40 backdrop-blur-sm border-border/20 rounded-2xl shadow-sm">
+        <Card className="bg-card/40 backdrop-blur-sm border-border/20 rounded-2xl shadow-sm p-0">
             <CardContent className="p-6">
                 <div className="flex items-center gap-4">
                     <div className={`p-3 rounded-xl ${color}`}>

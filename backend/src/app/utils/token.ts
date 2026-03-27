@@ -25,7 +25,7 @@ export const setAccessTokenCookie = (res: Response, token: string) => {
         httpOnly: true,
         secure: config.env === 'production',
         sameSite: config.env === 'production' ? 'none' : 'lax',
-        maxAge: 3600000, // 1 hour
+        maxAge: 2 * 60 * 60 * 1000, // 2 hours
         path: '/',
     });
 };
@@ -35,7 +35,7 @@ export const setRefreshTokenCookie = (res: Response, token: string) => {
         httpOnly: true,
         secure: config.env === 'production',
         sameSite: config.env === 'production' ? 'none' : 'lax',
-        maxAge: 7 * 24 * 60 * 60 * 1000, // 7 days
+        maxAge: 30 * 24 * 60 * 60 * 1000, // 30 days
         path: '/',
     });
 };
@@ -45,7 +45,7 @@ export const setBetterAuthSessionCookie = (res: Response, token: string) => {
         httpOnly: true,
         secure: config.env === 'production',
         sameSite: config.env === 'production' ? 'none' : 'lax',
-        maxAge: 7 * 24 * 60 * 60 * 1000,
+        maxAge: 30 * 24 * 60 * 60 * 1000, // 30 days
         path: '/',
     });
 };

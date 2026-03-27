@@ -1,108 +1,147 @@
 "use client"
 
-import { useProperties, useApproveProperty, useRejectProperty } from "@/hooks/use-property"
+import { useState } from "react"
 import { Card, CardContent } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
-import { Search, Home, MapPin, Check, X, Building, Loader2 } from "lucide-react"
-import { Input } from "@/components/ui/input"
 import { Badge } from "@/components/ui/badge"
+import { Input } from "@/components/ui/input"
+import { Home, Search, CheckCircle, XCircle, Eye, MapPin, BedDouble, Bath } from "lucide-react"
+import { useAdminProperties, useApproveProperty, useRejectProperty } from "@/hooks/use-admin"
+import { Skeleton } from "@/components/ui/skeleton"
+import { Pagination } from "@/components/ui/pagination-controls"
 import Image from "next/image"
+import Link from "next/link"
+
+const STATUS_COLORS: Record<string, string> = {
+  PENDING: "bg-amber-500/10 text-amber-600 border-amber-500/20",
+  ACTIVE: "bg-emerald-500/10 text-emerald-600 border-emerald-500/20",
+  INACTIVE: "bg-muted text-muted-foreground border-border/40",
+  REJECTED: "bg-red-500/10 text-red-600 border-red-500/20",
+}
 
 export default function AdminPropertiesPage() {
-  const { data: properties, isLoading } = useProperties({ status: 'PENDING' })
-  const { mutate: approve, isPending: isApproving } = useApproveProperty()
-  const { mutate: reject, isPending: isRejecting } = useRejectProperty()
+  const [search, setSearch] = useState("")
+  const [statusFilter, setStatusFilter] = useState("PENDING")
+  const [page, setPage] = useState(1)
+  const { data, isLoading } = useAdminProperties({ status: statusFilter || undefined, searchTerm: search || undefined, page, limit: 12 })
+  const { mutate: approve } = useApproveProperty()
+  const { mutate: reject } = useRejectProperty()
+
+  const properties: any[] = data?.data ?? (Array.isArray(data) ? data : [])
+  const meta = data?.meta
 
   return (
-    <div className="flex flex-col gap-6 w-full max-w-6xl mx-auto py-8">
+    <div className="flex flex-col gap-6 w-full max-w-6xl mx-auto">
       <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
         <div>
-          <h1 className="text-3xl font-black tracking-tighter">Listing Moderation</h1>
-          <p className="text-muted-foreground mt-1 font-medium italic">Review new real estate listings for quality and safety compliance.</p>
+          <h1 className="text-2xl font-black tracking-tight">Properties</h1>
+          <p className="text-muted-foreground mt-1 text-sm">Approve, reject, and manage property listings.</p>
         </div>
-        <div className="flex items-center gap-3">
-          <div className="relative w-full md:w-64">
-             <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
-             <Input placeholder="Search property..." className="pl-9 rounded-2xl bg-card border-none" />
-          </div>
+        <div className="relative w-full md:w-64">
+          <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
+          <Input
+            placeholder="Search properties..."
+            className="pl-9 rounded-xl border-border/40"
+            value={search}
+            onChange={(e) => { setSearch(e.target.value); setPage(1) }}
+          />
         </div>
       </div>
 
-      {isLoading ? (
-        <div className="flex items-center justify-center py-32">
-           <Loader2 className="h-12 w-12 text-primary animate-spin opacity-20" />
-        </div>
-      ) : properties?.data?.length > 0 ? (
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-4">
-          {properties.data.map((property: any) => (
-            <Card key={property.id} className="rounded-[40px] border-none shadow-sm overflow-hidden hover:shadow-2xl transition-all group flex flex-col h-full bg-card/50 backdrop-blur-sm border border-border/40">
-              <div className="h-56 w-full bg-muted/40 relative">
-                 {property.images?.[0] && (
-                    <Image src={property.images[0].url} alt="" fill className="object-cover transition-transform group-hover:scale-105" />
-                 )}
-                 <div className="absolute top-4 left-4">
-                    <Badge className="bg-background/90 backdrop-blur-md text-foreground px-4 py-1.5 rounded-full text-xs font-black shadow-lg uppercase border-none">
-                       ৳{Number(property.price).toLocaleString()}
-                    </Badge>
-                 </div>
-                 <div className="absolute top-4 right-4">
-                    <Badge className="bg-orange-500/90 backdrop-blur-md text-white px-4 py-1.5 rounded-full text-xs font-black tracking-widest uppercase border-none shadow-lg shadow-orange-500/20">
-                       Pending
-                    </Badge>
-                 </div>
-              </div>
-              <CardContent className="p-8 flex-1 flex flex-col justify-between">
-                <div>
-                  <h3 className="font-black text-xl leading-tight group-hover:text-primary transition-colors">
-                    {property.title}
-                  </h3>
-                  <p className="flex items-center text-xs text-muted-foreground mt-3 font-bold uppercase tracking-widest leading-none">
-                    <MapPin className="w-4 h-4 mr-1.5 text-primary" /> {property.area}, {property.city}
-                  </p>
-                  
-                  <div className="grid grid-cols-3 gap-3 mt-8 pt-6 border-t border-border/20 text-center">
-                     <div className="flex flex-col items-center p-3 rounded-2xl bg-muted/20">
-                        <span className="text-foreground text-sm font-black">{property.details?.bedrooms || 0}</span>
-                        <span className="text-[10px] font-bold text-muted-foreground uppercase mt-1">Beds</span>
-                     </div>
-                     <div className="flex flex-col items-center p-3 rounded-2xl bg-muted/20">
-                        <span className="text-foreground text-sm font-black">{property.details?.bathrooms || 0}</span>
-                        <span className="text-[10px] font-bold text-muted-foreground uppercase mt-1">Baths</span>
-                     </div>
-                     <div className="flex flex-col items-center p-3 rounded-2xl bg-muted/20">
-                        <span className="text-foreground text-sm font-black">{property.details?.areaSqft || 0}</span>
-                        <span className="text-[10px] font-bold text-muted-foreground uppercase mt-1">Sqft</span>
-                     </div>
-                  </div>
-                </div>
+      {/* Status Tabs */}
+      <div className="flex gap-2 flex-wrap">
+        {["PENDING", "ACTIVE", "REJECTED", ""].map((s) => (
+          <Button
+            key={s}
+            variant={statusFilter === s ? "default" : "outline"}
+            size="sm"
+            className="rounded-full text-xs font-bold"
+            onClick={() => { setStatusFilter(s); setPage(1) }}
+          >
+            {s || "All"}
+          </Button>
+        ))}
+      </div>
 
-                <div className="flex items-center gap-4 mt-10">
-                   <Button 
-                      disabled={isApproving}
-                      onClick={() => approve(property.id)}
-                      className="flex-1 rounded-2xl shadow-xl shadow-emerald-500/20 bg-emerald-500 hover:bg-emerald-600 font-black h-14 transition-all hover:scale-[1.05] active:scale-95"
-                   >
-                      <Check className="mr-2 w-5 h-5" /> Approve
-                   </Button>
-                   <Button 
-                      disabled={isRejecting}
-                      onClick={() => reject(property.id)}
-                      variant="outline" 
-                      className="flex-1 rounded-2xl font-black h-14 border-2 border-red-100 text-red-500 hover:bg-red-50 transition-all"
-                   >
-                      <X className="mr-2 w-5 h-5" /> Reject
-                   </Button>
-                </div>
-              </CardContent>
-            </Card>
-          ))}
+      <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-3">
+        {isLoading
+          ? Array.from({ length: 6 }).map((_, i) => (
+              <Card key={i} className="rounded-2xl border border-border/40 p-0 overflow-hidden">
+                <Skeleton className="h-40 w-full" />
+                <CardContent className="p-4">
+                  <Skeleton className="h-4 w-3/4 mb-2" />
+                  <Skeleton className="h-3 w-1/2 mb-4" />
+                  <div className="flex gap-2"><Skeleton className="h-8 flex-1" /><Skeleton className="h-8 flex-1" /></div>
+                </CardContent>
+              </Card>
+            ))
+          : properties.map((prop) => {
+              const cover = prop.images?.find((i: any) => i.isCover) ?? prop.images?.[0]
+              return (
+                <Card key={prop.id} className="rounded-2xl border border-border/40 hover:border-border/70 shadow-sm transition-all overflow-hidden p-0 bg-card">
+                  <div className="relative h-40 bg-muted/30">
+                    {cover ? (
+                      <Image src={cover.url} alt={prop.title} fill className="object-cover" />
+                    ) : (
+                      <div className="h-full flex items-center justify-center">
+                        <Home className="h-10 w-10 text-muted-foreground/30" />
+                      </div>
+                    )}
+                    <div className="absolute top-3 left-3">
+                      <Badge variant="outline" className={`text-[10px] font-black uppercase tracking-wider border rounded-full ${STATUS_COLORS[prop.status] ?? STATUS_COLORS.INACTIVE}`}>
+                        {prop.status}
+                      </Badge>
+                    </div>
+                  </div>
+                  <CardContent className="p-4">
+                    <p className="font-bold text-sm line-clamp-1">{prop.title}</p>
+                    <div className="flex items-center gap-1 text-muted-foreground text-xs mt-1 mb-3">
+                      <MapPin className="h-3 w-3" /> {prop.area}, {prop.city}
+                    </div>
+                    <div className="flex items-center gap-3 text-xs text-muted-foreground mb-4">
+                      {prop.details?.bedrooms != null && (
+                        <span className="flex items-center gap-1"><BedDouble className="h-3 w-3" />{prop.details.bedrooms}</span>
+                      )}
+                      {prop.details?.bathrooms != null && (
+                        <span className="flex items-center gap-1"><Bath className="h-3 w-3" />{prop.details.bathrooms}</span>
+                      )}
+                      <span className="ml-auto font-black text-foreground">৳{Number(prop.price).toLocaleString()}</span>
+                    </div>
+                    <div className="flex gap-2">
+                      <Link href={`/properties/${prop.id}`} target="_blank">
+                        <Button variant="outline" size="sm" className="rounded-xl text-xs gap-1">
+                          <Eye className="h-3.5 w-3.5" /> View
+                        </Button>
+                      </Link>
+                      {prop.status === "PENDING" && (
+                        <>
+                          <Button size="sm" className="flex-1 rounded-xl text-xs gap-1 bg-emerald-600 hover:bg-emerald-700" onClick={() => approve(prop.id)}>
+                            <CheckCircle className="h-3.5 w-3.5" /> Approve
+                          </Button>
+                          <Button size="sm" variant="outline" className="flex-1 rounded-xl text-xs gap-1 text-red-500 border-red-500/30 hover:bg-red-500/10" onClick={() => reject(prop.id)}>
+                            <XCircle className="h-3.5 w-3.5" /> Reject
+                          </Button>
+                        </>
+                      )}
+                    </div>
+                  </CardContent>
+                </Card>
+              )
+            })}
+      </div>
+
+      {!isLoading && properties.length === 0 && (
+        <div className="py-20 text-center text-muted-foreground">
+          <Home className="h-10 w-10 mx-auto mb-3 opacity-20" />
+          <p className="text-sm font-bold">No properties found.</p>
         </div>
-      ) : (
-        <div className="flex flex-col items-center justify-center py-32 bg-muted/5 rounded-[40px] border border-dashed border-border/60">
-           <Check className="h-16 w-16 text-emerald-500 mb-6 opacity-20" />
-           <h3 className="text-2xl font-black mb-2">Queue is Empty</h3>
-           <p className="text-muted-foreground font-medium">All properties have been reviewed. Excellent work!</p>
-        </div>
+      )}
+
+      {meta && (
+        <Pagination
+          meta={{ ...meta, totalPages: meta.totalPages ?? Math.ceil(meta.total / 12) }}
+          onPageChange={(p) => { setPage(p); window.scrollTo({ top: 0, behavior: 'smooth' }) }}
+        />
       )}
     </div>
   )

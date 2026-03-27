@@ -10,7 +10,7 @@ export const metadata: Metadata = {
 
 export default function FeedPage() {
   return (
-    <div className="flex flex-col gap-5 max-w-2xl">
+    <div className="flex flex-col gap-5 max-w-4xl mx-auto w-full">
       <div className="bg-card/60 backdrop-blur-sm rounded-2xl p-4 border border-border/20 shadow-sm">
         <StoryBar />
       </div>

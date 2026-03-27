@@ -1,110 +1,109 @@
 "use client"
 
-import { useAgents, useVerifyAgent } from "@/hooks/use-property"
+import { useState } from "react"
 import { Card, CardContent } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
-import { Search, BadgeCheck, FileText, Briefcase, Mail, Phone, Loader2, XCircle } from "lucide-react"
-import { Input } from "@/components/ui/input"
 import { Badge } from "@/components/ui/badge"
-import Image from "next/image"
+import { ShieldCheck, MapPin, Phone, BadgeCheck, Clock } from "lucide-react"
+import { useAdminAgents, useVerifyAgent } from "@/hooks/use-admin"
+import { Skeleton } from "@/components/ui/skeleton"
+import { UserImage } from "@/components/user-image"
+import { Pagination } from "@/components/ui/pagination-controls"
+import { format } from "date-fns"
 
 export default function AdminAgentsPage() {
-  const { data: agents, isLoading } = useAgents({ isVerified: false })
-  const { mutate: verify, isPending: isVerifying } = useVerifyAgent()
+  const [page, setPage] = useState(1)
+  const { data, isLoading } = useAdminAgents({ page, limit: 12 })
+  const { mutate: verify, isPending } = useVerifyAgent()
+
+  const agents: any[] = data?.data ?? (Array.isArray(data) ? data : [])
+  const meta = data?.meta
 
   return (
     <div className="flex flex-col gap-6 w-full max-w-6xl mx-auto">
-      <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
-        <div>
-          <h1 className="text-3xl font-black">Agent Verification</h1>
-          <p className="text-muted-foreground mt-1 font-medium italic">Review documents and approve verified real estate professionals.</p>
-        </div>
-        <div className="flex items-center gap-3">
-          <div className="relative w-full md:w-64">
-            <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
-            <Input placeholder="Search applicants..." className="pl-9 rounded-2xl bg-card border-none" />
-          </div>
-        </div>
+      <div>
+        <h1 className="text-2xl font-black tracking-tight">Agents</h1>
+        <p className="text-muted-foreground mt-1 text-sm">Review and verify real estate agent profiles.</p>
       </div>
 
-      {isLoading ? (
-        <div className="flex items-center justify-center py-32">
-           <Loader2 className="h-12 w-12 text-primary animate-spin opacity-20" />
-        </div>
-      ) : agents?.length > 0 ? (
-        <div className="grid grid-cols-1 xl:grid-cols-2 gap-8 mt-4">
-          {agents.map((agent: any) => (
-            <Card key={agent.id} className="rounded-[40px] border-none shadow-sm overflow-hidden hover:shadow-2xl transition-all bg-card/50 backdrop-blur-sm border border-border/40">
-              <CardContent className="p-10 flex flex-col md:flex-row gap-10">
-                <div className="flex flex-col items-center md:items-start shrink-0 text-center md:text-left md:w-1/3 border-b md:border-b-0 md:border-r border-border/20 pb-8 md:pb-0 md:pr-10">
-                  <div className="w-24 h-24 rounded-full bg-primary/10 flex items-center justify-center text-primary text-3xl font-black mb-6 mx-auto md:mx-0 shadow-inner relative overflow-hidden ring-4 ring-primary/5">
-                    {agent.user?.avatarUrl ? (
-                       <Image src={agent.user.avatarUrl} alt="" fill className="object-cover" />
-                    ) : agent.user?.name?.[0]}
+      <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-3">
+        {isLoading
+          ? Array.from({ length: 6 }).map((_, i) => (
+              <Card key={i} className="rounded-2xl border border-border/40 p-0">
+                <CardContent className="p-5 space-y-4">
+                  <div className="flex items-center gap-3">
+                    <Skeleton className="h-12 w-12 rounded-full" />
+                    <div><Skeleton className="h-4 w-28 mb-1" /><Skeleton className="h-3 w-20" /></div>
                   </div>
-                  <h3 className="font-black text-xl mb-1">{agent.user?.name}</h3>
-                  <p className="text-[10px] font-bold text-orange-500 tracking-widest uppercase mb-6 bg-orange-500/10 px-3 py-1 rounded-full">Pending Review</p>
-                  
-                  <div className="flex flex-col gap-3 w-full">
-                     <p className="flex items-center justify-center md:justify-start gap-2.5 text-xs font-bold text-muted-foreground break-all">
-                        <Mail className="w-4 h-4 text-primary" /> {agent.user?.email}
-                     </p>
-                     <p className="flex items-center justify-center md:justify-start gap-2.5 text-xs font-bold text-muted-foreground">
-                        <Phone className="w-4 h-4 text-primary" /> {agent.phone || 'N/A'}
-                     </p>
+                  <Skeleton className="h-8 w-full rounded-xl" />
+                </CardContent>
+              </Card>
+            ))
+          : agents.map((agent) => (
+              <Card key={agent.id} className="rounded-2xl border border-border/40 hover:border-border/70 shadow-sm transition-all p-0 bg-card">
+                <CardContent className="p-5">
+                  <div className="flex items-start justify-between mb-4">
+                    <div className="flex items-center gap-3">
+                      <UserImage user={{ avatarUrl: agent.user?.avatarUrl, name: agent.user?.name }} className="h-11 w-11 rounded-full" />
+                      <div>
+                        <p className="font-bold text-sm">{agent.user?.name}</p>
+                        <p className="text-xs text-muted-foreground">{agent.user?.email}</p>
+                      </div>
+                    </div>
+                    {agent.isVerified ? (
+                      <Badge className="rounded-full text-[10px] font-black bg-emerald-500/10 text-emerald-600 border border-emerald-500/20 gap-1">
+                        <BadgeCheck className="h-3 w-3" /> Verified
+                      </Badge>
+                    ) : (
+                      <Badge variant="outline" className="rounded-full text-[10px] font-black text-amber-600 border-amber-500/20 gap-1">
+                        <Clock className="h-3 w-3" /> Pending
+                      </Badge>
+                    )}
                   </div>
-                </div>
-
-                <div className="flex flex-col flex-1 justify-between">
-                  <div>
-                     <h4 className="font-black text-[10px] text-muted-foreground/60 mb-6 flex items-center gap-2">
-                        <FileText className="h-3 w-3" /> Verification Documents
-                     </h4>
-                     <div className="flex flex-col gap-4">
-                        <div className="flex items-center justify-between bg-muted/20 px-5 py-4 rounded-2xl border border-border/40 hover:bg-muted/40 transition-colors cursor-pointer group">
-                           <div className="flex items-center gap-4">
-                              <div className="h-10 w-10 rounded-xl bg-background flex items-center justify-center text-primary shadow-sm border border-border/40">
-                                 <Briefcase className="w-5 h-5" />
-                              </div>
-                              <span className="text-sm font-black">Agency License</span>
-                           </div>
-                           <Badge variant="outline" className="text-[10px] font-black border-2">PDF</Badge>
-                        </div>
-                        <div className="flex items-center justify-between bg-muted/20 px-5 py-4 rounded-2xl border border-border/40 hover:bg-muted/40 transition-colors cursor-pointer group">
-                           <div className="flex items-center gap-4">
-                              <div className="h-10 w-10 rounded-xl bg-background flex items-center justify-center text-primary shadow-sm border border-border/40">
-                                 <FileText className="w-5 h-5" />
-                              </div>
-                              <span className="text-sm font-black">National ID / Passport</span>
-                           </div>
-                           <Badge variant="outline" className="text-[10px] font-black border-2">JPG</Badge>
-                        </div>
-                     </div>
+                  <div className="space-y-1.5 mb-4">
+                    {agent.agencyName && (
+                      <div className="flex items-center gap-2 text-xs text-muted-foreground">
+                        <MapPin className="h-3.5 w-3.5 shrink-0" />
+                        <span className="font-medium">{agent.agencyName}</span>
+                      </div>
+                    )}
+                    <div className="flex items-center gap-2 text-xs text-muted-foreground">
+                      <Phone className="h-3.5 w-3.5 shrink-0" />
+                      <span className="font-mono">{agent.licenseNo}</span>
+                    </div>
+                    <div className="flex gap-4 text-xs text-muted-foreground mt-2 pt-2 border-t border-border/30">
+                      <span><span className="font-bold text-foreground">{agent.totalListings ?? 0}</span> Listings</span>
+                      <span><span className="font-bold text-foreground">{agent.totalSales ?? 0}</span> Sales</span>
+                      <span className="ml-auto">{format(new Date(agent.createdAt), "MMM yyyy")}</span>
+                    </div>
                   </div>
-                  
-                  <div className="flex gap-4 mt-10">
-                    <Button 
-                      disabled={isVerifying}
+                  {!agent.isVerified && (
+                    <Button
+                      size="sm"
+                      className="w-full rounded-xl gap-2 bg-emerald-600 hover:bg-emerald-700 text-xs"
                       onClick={() => verify(agent.id)}
-                      className="flex-1 h-14 rounded-2xl bg-primary hover:bg-primary/90 font-black text-lg transition-all hover:scale-[1.05] active:scale-95 shadow-xl shadow-primary/20"
+                      disabled={isPending}
                     >
-                      <BadgeCheck className="w-5 h-5 mr-2" /> Verify Agent
+                      <ShieldCheck className="h-3.5 w-3.5" /> Verify Agent
                     </Button>
-                    <Button variant="outline" className="flex-1 h-14 rounded-2xl text-red-500 hover:text-red-500 hover:bg-red-50 border-2 border-red-100 font-black">
-                      Reject
-                    </Button>
-                  </div>
-                </div>
-              </CardContent>
-            </Card>
-          ))}
+                  )}
+                </CardContent>
+              </Card>
+            ))}
+      </div>
+
+      {!isLoading && agents.length === 0 && (
+        <div className="py-20 text-center text-muted-foreground">
+          <ShieldCheck className="h-10 w-10 mx-auto mb-3 opacity-20" />
+          <p className="text-sm font-bold">No agents found.</p>
         </div>
-      ) : (
-        <div className="flex flex-col items-center justify-center py-32 bg-muted/5 rounded-[40px] border border-dashed border-border/60">
-           <BadgeCheck className="h-16 w-16 text-primary mb-6 opacity-20" />
-           <h3 className="text-2xl font-black mb-2">No verification requests</h3>
-           <p className="text-muted-foreground font-medium text-center max-w-sm">All agent applications have been processed. New requests will appear here.</p>
-        </div>
+      )}
+
+      {meta && (
+        <Pagination
+          meta={{ ...meta, totalPages: meta.totalPages ?? Math.ceil(meta.total / 12) }}
+          onPageChange={setPage}
+        />
       )}
     </div>
   )

@@ -128,7 +128,7 @@ export function AddProductModal({ open, onOpenChange, product }: AddProductModal
                 className="w-full rounded-2xl h-12 bg-background/50 border border-border/20 px-3 outline-none focus:ring-2 focus:ring-primary/20 transition-all appearance-none"
               >
                 <option value="" disabled>Select a category</option>
-                {categories?.map((cat: Category) => (
+                {(categories?.data || []).map((cat: Category) => (
                     <option key={cat.id} value={cat.id}>{cat.name}</option>
                 ))}
               </select>

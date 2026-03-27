@@ -3,6 +3,7 @@ import { PostStatus } from '../../../../generated/prisma/client/index.js';
 import { uploadMedia, deleteMedia } from '../../lib/cloudinary.js';
 import fs from 'fs';
 import { HashtagServices } from '../hashtag/hashtag.service.js';
+import { QueryBuilder } from '../../utils/QueryBuilder.js';
 
 const createPost = async (authorId: string, payload: { content?: string }, files?: Express.Multer.File[]) => {
     const uploadedMedia: { url: string; public_id: string }[] = [];
@@ -243,6 +244,23 @@ const updatePostStatus = async (id: string, status: PostStatus) => {
   return result;
 };
 
+const getFlaggedPosts = async (query: any) => {
+  return await new QueryBuilder(prisma.post, query, {
+    searchableFields: ['content', 'author.name'],
+    filterableFields: ['status'],
+  })
+    .search()
+    .filter()
+    .where({ status: PostStatus.FLAGGED, deletedAt: null } as any)
+    .sort()
+    .paginate()
+    .include({
+      author: { select: { id: true, name: true, avatarUrl: true } },
+      _count: { select: { comments: true, reactions: true } },
+    } as any)
+    .execute();
+};
+
 const updatePost = async (id: string, authorId: string, payload: { content?: string; mediaUrls?: string[] }) => {
   // Verify ownership
   const post = await prisma.post.findUnique({ where: { id } });
@@ -287,6 +305,7 @@ export const PostServices = {
   createPost,
   getAllPosts,
   updatePostStatus,
+  getFlaggedPosts,
   updatePost,
   deletePost,
 };

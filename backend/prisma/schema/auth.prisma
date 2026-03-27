@@ -19,6 +19,7 @@ model User {
   updatedAt      DateTime @updatedAt
   emailVerified  Boolean  @default(false)
   image          String?
+  phoneNumber    String?
   isDeleted      Boolean  @default(false)
   followersCount Int      @default(0)
   followingCount Int      @default(0)

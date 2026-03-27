@@ -9,7 +9,7 @@ export const metadata: Metadata = {
 
 export default function NotificationsPage() {
   return (
-    <div className="flex flex-col gap-8 max-w-3xl">
+    <div className="flex flex-col gap-8 max-w-4xl mx-auto w-full px-4">
       <div className="flex items-center justify-between border-b border-edge pb-6">
         <div className="flex flex-col gap-1">
           <h1 className="text-3xl font-bold tracking-tight text-foreground">Notifications</h1>

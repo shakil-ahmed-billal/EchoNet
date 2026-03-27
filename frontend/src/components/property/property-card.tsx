@@ -15,7 +15,7 @@ export function PropertyCard({ property }: PropertyCardProps) {
   const coverImage = property.images?.find((img: any) => img.isCover)?.url || property.images?.[0]?.url
 
   return (
-    <Card className="overflow-hidden border-none shadow-sm hover:shadow-xl transition-all group rounded-3xl bg-card/50 backdrop-blur-sm border border-border/40">
+    <Card className="overflow-hidden border-none shadow-sm hover:shadow-xl transition-all group rounded-3xl bg-card/50 backdrop-blur-sm border border-border/40 p-0">
       <Link href={`/properties/${property.id}`} className="block relative h-64 w-full">
         <Image
           src={coverImage || "/placeholder-property.jpg"}

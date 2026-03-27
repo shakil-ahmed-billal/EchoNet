@@ -21,7 +21,7 @@ export function MyOrdersList() {
 
   if (!myOrders || myOrders.length === 0) {
     return (
-      <Card className="rounded-[32px] border-none bg-card/50 backdrop-blur-md shadow-sm">
+      <Card className="rounded-[32px] border-none bg-card/50 backdrop-blur-md shadow-sm p-0">
         <CardContent className="flex flex-col items-center justify-center py-20 text-center opacity-70">
           <div className="w-20 h-20 rounded-full bg-muted/50 flex items-center justify-center mb-6">
             <Package className="w-10 h-10 text-muted-foreground" />
@@ -39,7 +39,7 @@ export function MyOrdersList() {
   return (
     <div className="flex flex-col gap-8 w-full">
       {myOrders.map((order: any) => (
-        <Card key={order.id} className="rounded-[32px] border border-border/40 bg-card shadow-sm overflow-hidden hover:shadow-xl transition-all duration-500 group">
+        <Card key={order.id} className="rounded-[32px] border border-border/40 bg-card shadow-sm overflow-hidden hover:shadow-xl transition-all duration-500 group p-0">
           <CardHeader className="bg-muted/30 p-6 flex flex-col md:flex-row md:items-center justify-between gap-4 border-b border-border/40">
             <div className="flex flex-col gap-1">
               <div className="flex items-center gap-3">

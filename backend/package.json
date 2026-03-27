@@ -14,6 +14,7 @@
     "prisma:migrate": "prisma migrate dev",
     "prisma:studio": "prisma studio",
     "seed": "tsx prisma/seed.ts",
+    "seed-properties": "tsx prisma/seed-properties.ts",
     "setup": "pnpm install && pnpm add @prisma/adapter-pg pg && pnpm add -D @types/pg && pnpm prisma:generate",
     "predev": "pnpm run prisma:generate",
     "init": "pnpm run prisma:generate && pnpm run prisma:migrate --name init",
@@ -21,7 +22,8 @@
     "lint:fix": "eslint src/**/*.ts --fix",
     "format": "prettier --write .",
     "push": "prisma db push",
-    "pull": "prisma db pull"
+    "pull": "prisma db pull",
+    "stripe:listen": "stripe listen --forward-to localhost:8000/api/v1/payments/webhook"
   },
   "dependencies": {
     "@prisma/adapter-pg": "^7.5.0",

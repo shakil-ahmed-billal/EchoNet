@@ -25,6 +25,7 @@ import { PropertyRoutes } from '../module/property/property.route.js';
 import { BookingRoutes } from '../module/booking/booking.route.js';
 import { EnquiryRoutes } from '../module/enquiry/enquiry.route.js';
 import { AgentRoutes } from '../module/agent/agent.route.js';
+import { AdminRoutes } from '../module/admin/admin.route.js';
 
 const router = Router();
 
@@ -128,6 +129,10 @@ const moduleRoutes: { path: string; route: Router }[] = [
   {
     path: '/agents',
     route: AgentRoutes,
+  },
+  {
+    path: '/admin',
+    route: AdminRoutes,
   },
 ];
 

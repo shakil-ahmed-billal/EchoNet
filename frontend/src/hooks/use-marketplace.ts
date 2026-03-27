@@ -14,7 +14,8 @@ import {
   createOrder,
   initiatePayment,
   getStoreOrders,
-  getMyOrders
+  getMyOrders,
+  createReview
 } from "@/services/marketplace.service"
 import { toast } from "sonner"
 
@@ -153,5 +154,19 @@ export function useMyOrders() {
   return useQuery({
     queryKey: ["my-orders"],
     queryFn: getMyOrders,
+  })
+}
+
+export function useCreateReview() {
+  const queryClient = useQueryClient()
+  return useMutation({
+    mutationFn: ({ productId, data }: { productId: string, data: { rating: number, comment: string } }) => createReview({ productId, data }),
+    onSuccess: (_, { productId }) => {
+      queryClient.invalidateQueries({ queryKey: ["product", productId] })
+      toast.success("Review submitted successfully!")
+    },
+    onError: (error: any) => {
+      toast.error(error.response?.data?.message || "Failed to submit review")
+    }
   })
 }

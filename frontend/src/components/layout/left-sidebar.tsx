@@ -27,6 +27,7 @@ export function LeftSidebar() {
     { title: "Marketplace", href: "/marketplace", icon: ShoppingBag },
     { title: "Properties", href: "/properties", icon: Building },
     { title: "My Store", href: "/store", icon: Store },
+    { title: "My Properties", href: "/my-properties", icon: Building },
     { title: "My Orders", href: "/orders", icon: ShoppingBag },
     { title: "Profile", href: user ? `/profile/${user.id}` : "/login", icon: User },
     { title: "More", href: "/more", icon: MoreHorizontal },

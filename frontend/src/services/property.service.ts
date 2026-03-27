@@ -15,8 +15,8 @@ export const createProperty = async (payload: any) => {
   return data.data;
 };
 
-export const getMyProperties = async () => {
-  const { data } = await apiClient.get('/properties/my-properties');
+export const getMyProperties = async (params: any) => {
+  const { data } = await apiClient.get('/properties/my-properties', { params });
   return data.data;
 };
 

@@ -48,6 +48,9 @@ export function UserNav() {
             <Link href={`/profile/${user.id}`} className="cursor-pointer font-medium hover:text-primary">Profile</Link>
           </DropdownMenuItem>
           <DropdownMenuItem asChild>
+            <Link href="/store" className="cursor-pointer font-medium hover:text-primary">My Store</Link>
+          </DropdownMenuItem>
+          <DropdownMenuItem asChild>
             <Link href="/my-properties" className="cursor-pointer font-medium hover:text-primary">My Properties</Link>
           </DropdownMenuItem>
           <DropdownMenuItem asChild>

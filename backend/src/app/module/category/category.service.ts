@@ -1,4 +1,5 @@
 import prisma from '../../lib/prisma.js';
+import { QueryBuilder } from '../../utils/QueryBuilder.js';
 
 const createCategory = async (userId: string, payload: any) => {
   const result = await prisma.category.create({
@@ -10,15 +11,22 @@ const createCategory = async (userId: string, payload: any) => {
   return result;
 };
 
-const getAllCategories = async () => {
-    // Return hierarchical categories
-    const categories = await prisma.category.findMany({
-        where: { parentId: null },
-        include: {
-            children: true
-        }
-    });
-    return categories;
+const getAllCategories = async (query: any) => {
+  return await new QueryBuilder(prisma.category, query, {
+    searchableFields: ['name', 'description'],
+    filterableFields: ['parentId'],
+  })
+    .search()
+    .filter()
+    .sort()
+    .paginate()
+    .include({
+      children: true,
+      _count: {
+        select: { products: true }
+      }
+    } as any)
+    .execute();
 };
 
 const getCategoryById = async (id: string) => {

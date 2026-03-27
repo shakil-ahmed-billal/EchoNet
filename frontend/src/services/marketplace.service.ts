@@ -16,8 +16,26 @@ export interface Product {
   stock: number;
   images: string[];
   status: string;
-  store: { id: string; name: string };
+  store: { 
+    id: string; 
+    name: string;
+    owner?: { id: string; name: string; avatarUrl?: string; image?: string };
+  };
   category: { id: string; name: string };
+  createdAt: string;
+  reviews?: Review[];
+}
+
+export interface Review {
+  id: string;
+  rating: number;
+  comment: string;
+  user: {
+     id: string;
+     name: string;
+     avatarUrl?: string;
+     image?: string;
+  };
   createdAt: string;
 }
 
@@ -35,14 +53,14 @@ export interface Store {
   };
 }
 
-export const getCategories = async () => {
-  const response = await apiClient.get<any>("/categories");
-  return response.data?.data ?? null;
+export const getCategories = async (params?: any) => {
+  const response = await apiClient.get<any>("/categories", { params });
+  return response.data?.data; // Returns { data, meta }
 };
 
 export const getProducts = async (params?: any) => {
-  const response = await apiClient.get<any>("/products", { params });
-  return response.data?.data ?? null;
+  const response = await apiClient.get<any>("/products", { params: { limit: 12, ...params } });
+  return response.data?.data; // Returns { data, meta }
 };
 
 export const getProductById = async (id: string) => {
@@ -98,4 +116,9 @@ export const getStoreOrders = async () => {
 export const getMyOrders = async () => {
   const response = await apiClient.get<any>("/orders/my-orders");
   return response.data?.data ?? [];
+};
+
+export const createReview = async ({ productId, data }: { productId: string; data: { rating: number; comment: string } }) => {
+  const response = await apiClient.post<any>(`/products/${productId}/reviews`, data);
+  return response.data.data;
 };

@@ -27,7 +27,7 @@ export function useUnreadMessages() {
       try {
         // Get all users and their chat histories to find unread
         const usersRes = await apiClient.get("/users");
-        const users: any[] = usersRes.data?.data ?? [];
+        const users: any[] = usersRes.data?.data?.data ?? [];
         const others = users.filter((u: any) => u.id !== currentUser.id);
 
         let total = 0;

@@ -17,10 +17,10 @@ export const useProperty = (id: string) => {
   });
 };
 
-export const useMyProperties = () => {
+export const useMyProperties = (params?: any) => {
   return useQuery({
-    queryKey: ['my-properties'],
-    queryFn: PropertyService.getMyProperties,
+    queryKey: ['my-properties', params],
+    queryFn: () => PropertyService.getMyProperties(params),
   });
 };
 
@@ -47,6 +47,22 @@ export const useDeleteProperty = () => {
       queryClient.invalidateQueries({ queryKey: ['properties'] });
       queryClient.invalidateQueries({ queryKey: ['my-properties'] });
       toast.success('Property deleted successfully');
+    },
+  });
+};
+
+export const useUpdateProperty = (id: string) => {
+  const queryClient = useQueryClient();
+  return useMutation({
+    mutationFn: (payload: any) => PropertyService.updateProperty(id, payload),
+    onSuccess: () => {
+      queryClient.invalidateQueries({ queryKey: ['properties'] });
+      queryClient.invalidateQueries({ queryKey: ['property', id] });
+      queryClient.invalidateQueries({ queryKey: ['my-properties'] });
+      toast.success('Property updated successfully');
+    },
+    onError: (error: any) => {
+      toast.error(error.response?.data?.message || 'Failed to update property');
     },
   });
 };

@@ -66,6 +66,7 @@ model PropertyImage {
   id         String   @id @default(uuid())
   propertyId String
   url        String
+  publicId   String?
   isCover    Boolean  @default(false)
   order      Int      @default(0)
   property   Property @relation(fields: [propertyId], references: [id], onDelete: Cascade)
