@@ -32,12 +32,22 @@ export const auth = betterAuth({
     google: {
       clientId: process.env.GOOGLE_CLIENT_ID || "",
       clientSecret: process.env.GOOGLE_CLIENT_SECRET || "",
-      mapProfileToUser: () => ({ role: Role.USER, isDeleted: false }),
+      mapProfileToUser: (profile) => ({ 
+        role: Role.USER, 
+        isDeleted: false,
+        avatarUrl: profile.picture,
+        image: profile.picture 
+      }),
     },
     facebook: {
       clientId: process.env.FACEBOOK_APP_ID || "",
       clientSecret: process.env.FACEBOOK_APP_SECRET || "",
-      mapProfileToUser: () => ({ role: Role.USER, isDeleted: false }),
+      mapProfileToUser: (profile: any) => ({ 
+        role: Role.USER, 
+        isDeleted: false,
+        avatarUrl: profile.picture?.data?.url || (typeof profile.picture === 'string' ? profile.picture : ""),
+        image: profile.picture?.data?.url || (typeof profile.picture === 'string' ? profile.picture : "")
+      }),
     },
   },
   user: {
@@ -45,6 +55,7 @@ export const auth = betterAuth({
       role: { type: "string", required: true, defaultValue: Role.USER },
       isDeleted: { type: "boolean", required: true, defaultValue: false },
       isSuspended: { type: "boolean", required: true, defaultValue: false },
+      avatarUrl: { type: "string", required: false },
     },
   },
   session: {

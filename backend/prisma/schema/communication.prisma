@@ -1,16 +1,16 @@
 model Message {
-  id         String   @id @default(uuid())
+  id         String    @id @default(uuid())
   senderId   String
   receiverId String?
   groupId    String?
   content    String
-  isRead     Boolean  @default(false)
-  createdAt  DateTime @default(now())
+  isRead     Boolean   @default(false)
+  createdAt  DateTime  @default(now())
   deletedAt  DateTime?
-  
-  receiver   User?    @relation("ReceivedMessages", fields: [receiverId], references: [id])
-  sender     User     @relation("SentMessages", fields: [senderId], references: [id])
-  group      Group?   @relation(fields: [groupId], references: [id])
+
+  receiver User?  @relation("ReceivedMessages", fields: [receiverId], references: [id])
+  sender   User   @relation("SentMessages", fields: [senderId], references: [id])
+  group    Group? @relation(fields: [groupId], references: [id])
 
   @@index([senderId])
   @@index([receiverId])
@@ -25,8 +25,8 @@ model Notification {
   message     String
   isRead      Boolean          @default(false)
   createdAt   DateTime         @default(now())
-  
-  user        User             @relation(fields: [userId], references: [id])
+
+  user User @relation(fields: [userId], references: [id])
 
   @@index([userId])
 }

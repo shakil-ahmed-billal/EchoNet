@@ -1,41 +1,41 @@
 model Post {
-  id         String        @id @default(uuid())
+  id         String     @id @default(uuid())
   authorId   String
   content    String?
   mediaUrls  String[]
-  status     PostStatus    @default(ACTIVE)
-  likesCount Int           @default(0)
-  createdAt  DateTime      @default(now())
-  updatedAt  DateTime      @updatedAt
+  status     PostStatus @default(ACTIVE)
+  likesCount Int        @default(0)
+  createdAt  DateTime   @default(now())
+  updatedAt  DateTime   @updatedAt
   deletedAt  DateTime?
-  
-  author     User          @relation(fields: [authorId], references: [id])
-  comments   Comment[]
-  likes      Like[]
-  reactions  Reaction[]
-  hashtags   PostHashtag[]
-  savedBy    SavedPost[]
-  tags       PostTag[]
+
+  author    User          @relation(fields: [authorId], references: [id])
+  comments  Comment[]
+  likes     Like[]
+  reactions Reaction[]
+  hashtags  PostHashtag[]
+  savedBy   SavedPost[]
+  tags      PostTag[]
 
   @@index([authorId])
 }
 
 model Comment {
-  id         String     @id @default(uuid())
+  id         String    @id @default(uuid())
   postId     String
   authorId   String
   parentId   String?
   content    String
-  likesCount Int        @default(0)
-  createdAt  DateTime   @default(now())
+  likesCount Int       @default(0)
+  createdAt  DateTime  @default(now())
   deletedAt  DateTime?
-  
-  author     User       @relation(fields: [authorId], references: [id])
-  parent     Comment?   @relation("CommentReplies", fields: [parentId], references: [id])
-  replies    Comment[]  @relation("CommentReplies")
-  post       Post       @relation(fields: [postId], references: [id])
-  likes      Like[]
-  reactions  Reaction[]
+
+  author    User       @relation(fields: [authorId], references: [id])
+  parent    Comment?   @relation("CommentReplies", fields: [parentId], references: [id])
+  replies   Comment[]  @relation("CommentReplies")
+  post      Post       @relation(fields: [postId], references: [id])
+  likes     Like[]
+  reactions Reaction[]
 
   @@index([postId])
   @@index([authorId])
@@ -47,10 +47,10 @@ model Like {
   postId    String?
   commentId String?
   createdAt DateTime @default(now())
-  
-  user      User     @relation(fields: [userId], references: [id])
-  post      Post?    @relation(fields: [postId], references: [id])
-  comment   Comment? @relation(fields: [commentId], references: [id])
+
+  user    User     @relation(fields: [userId], references: [id])
+  post    Post?    @relation(fields: [postId], references: [id])
+  comment Comment? @relation(fields: [commentId], references: [id])
 
   @@index([userId])
   @@index([postId])
@@ -64,10 +64,10 @@ model Reaction {
   commentId String?
   type      ReactionType
   createdAt DateTime     @default(now())
-  
-  user      User         @relation(fields: [userId], references: [id])
-  post      Post?        @relation(fields: [postId], references: [id])
-  comment   Comment?     @relation(fields: [commentId], references: [id])
+
+  user    User     @relation(fields: [userId], references: [id])
+  post    Post?    @relation(fields: [postId], references: [id])
+  comment Comment? @relation(fields: [commentId], references: [id])
 
   @@unique([userId, postId])
   @@unique([userId, commentId])
@@ -98,9 +98,9 @@ model SavedPost {
   userId    String
   postId    String
   createdAt DateTime @default(now())
-  
-  user      User     @relation(fields: [userId], references: [id])
-  post      Post     @relation(fields: [postId], references: [id])
+
+  user User @relation(fields: [userId], references: [id])
+  post Post @relation(fields: [postId], references: [id])
 
   @@unique([userId, postId])
 }
@@ -111,9 +111,9 @@ model PostTag {
   userId String
   x      Float?
   y      Float?
-  
-  post   Post   @relation(fields: [postId], references: [id])
-  user   User   @relation(fields: [userId], references: [id])
+
+  post Post @relation(fields: [postId], references: [id])
+  user User @relation(fields: [userId], references: [id])
 
   @@unique([postId, userId])
 }

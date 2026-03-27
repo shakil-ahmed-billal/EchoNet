@@ -7,7 +7,7 @@ import { cn } from "@/lib/utils";
 import { useAuth } from "@/hooks/use-auth";
 import { UserImage } from "@/components/user-image";
 import { Skeleton } from "@/components/ui/skeleton";
-import { Home, Compass, Bell, Mail, User, MoreHorizontal, Users2 } from "lucide-react";
+import { Home, Compass, Bell, Mail, User, MoreHorizontal, Users2, ShoppingBag, Store, Building } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { toast } from "sonner";
 
@@ -15,12 +15,20 @@ export function LeftSidebar() {
   const pathname = usePathname();
   const { user, isAuthenticated } = useAuth();
 
-  const navItems = [
+  const sudoNavItems = [
     { title: "Home", href: "/", icon: Home },
     { title: "Discover", href: "/discover", icon: Compass },
     { title: "Notifications", href: "/notifications", icon: Bell },
+  ];
+
+  const exploreNavItems = [
     { title: "Messages", href: "/messages", icon: Mail },
     { title: "Friends", href: "/friends", icon: Users2 },
+    { title: "Marketplace", href: "/marketplace", icon: ShoppingBag },
+    { title: "Properties", href: "/properties", icon: Building },
+    { title: "My Store", href: "/store", icon: Store },
+    { title: "My Properties", href: "/my-properties", icon: Building },
+    { title: "My Orders", href: "/orders", icon: ShoppingBag },
     { title: "Profile", href: user ? `/profile/${user.id}` : "/login", icon: User },
     { title: "More", href: "/more", icon: MoreHorizontal },
   ];
@@ -47,7 +55,7 @@ export function LeftSidebar() {
               </Link>
             </li>
           )}
-          {navItems.map((item) => {
+          {sudoNavItems.map((item) => {
             const isActive = pathname === item.href || (item.href !== "/" && pathname?.startsWith(item.href));
             const Icon = item.icon;
             
@@ -70,6 +78,35 @@ export function LeftSidebar() {
                   {isActive && (
                     <div className="absolute left-[-16px] w-1.5 h-6 bg-primary rounded-r-full" />
                   )}
+                </Link>
+              </li>
+            );
+          })}
+
+          <div className="pt-4 pb-2 px-4">
+             <p className="text-[10px] font-black uppercase tracking-[0.2em] text-muted-foreground/40">Explore</p>
+          </div>
+
+          {exploreNavItems.map((item) => {
+            const isActive = pathname === item.href || (item.href !== "/" && pathname?.startsWith(item.href));
+            const Icon = item.icon;
+            
+            return (
+              <li key={item.href}>
+                <Link
+                  href={item.href}
+                  className={cn(
+                    "flex items-center gap-3.5 px-4 py-3 rounded-xl text-sm font-bold transition-all group",
+                    isActive 
+                      ? "bg-primary/10 text-primary shadow-sm" 
+                      : "text-muted-foreground hover:bg-muted/50 hover:text-foreground"
+                  )}
+                >
+                  <Icon className={cn(
+                    "size-5 transition-transform group-hover:scale-110",
+                    isActive ? "text-primary fill-primary/10" : "text-muted-foreground group-hover:text-foreground"
+                  )} />
+                  <span>{item.title}</span>
                 </Link>
               </li>
             );

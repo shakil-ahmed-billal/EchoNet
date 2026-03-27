@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { Home, Search, PlusSquare, Bell, User } from "lucide-react";
+import { Home, Search, PlusSquare, Bell, User, ShoppingBag } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { useAuth } from "@/hooks/use-auth";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
@@ -15,7 +15,7 @@ export function BottomNav() {
 
   const items = [
     { icon: Home, label: "Home", href: "/" },
-    { icon: Search, label: "Search", href: "/search" },
+    { icon: ShoppingBag, label: "Market", href: "/marketplace" },
     { icon: PlusSquare, label: "Create", href: "/feed?create=true" },
     { icon: Bell, label: "Notifications", href: "/notifications" },
     { 

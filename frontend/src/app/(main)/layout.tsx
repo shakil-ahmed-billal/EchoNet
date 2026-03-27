@@ -13,10 +13,11 @@ export default function MainLayout({
   children: React.ReactNode
 }) {
   const pathname = usePathname();
-  const isProfilePage = pathname.startsWith("/profile");
   const isMessagesPage = pathname.startsWith("/messages");
-  const isFriendsPage = pathname.startsWith("/friends");
-  const hideRightSidebar = isProfilePage || isMessagesPage || isFriendsPage;
+  const isHomePage = pathname === "/";
+  const isDiscoverPage = pathname === "/discover";
+  const isNotificationsPage = pathname === "/notifications";
+  const hideRightSidebar = !isHomePage && !isDiscoverPage && !isNotificationsPage;
 
   // Messages page: full-width, no sidebars, no padding
   if (isMessagesPage) {

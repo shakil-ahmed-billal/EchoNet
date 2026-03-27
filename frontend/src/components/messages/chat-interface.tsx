@@ -88,8 +88,9 @@ export function ChatInterface() {
   const { data: users, isLoading: isLoadingUsers } = useQuery<any[]>({
     queryKey: ["users"],
     queryFn: async () => {
-      const res = await apiClient.get("/users");
-      return res.data.data.filter((u: any) => u.id !== currentUser?.id);
+      const res = await apiClient.get("/users", { params: { limit: 50, sortBy: 'name', sortOrder: 'asc' } });
+      const usersList = res.data.data.data || [];
+      return usersList.filter((u: any) => u.id !== currentUser?.id);
     },
     enabled: !!currentUser,
   });

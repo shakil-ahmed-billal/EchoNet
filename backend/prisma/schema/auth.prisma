@@ -1,6 +1,6 @@
 model User {
-  id             String         @id @default(uuid())
-  email          String         @unique
+  id             String   @id @default(uuid())
+  email          String   @unique
   passwordHash   String?
   name           String
   avatarUrl      String?
@@ -10,40 +10,56 @@ model User {
   location       String?
   workplaces     Json?
   education      Json?
-  role           Role           @default(USER)
-  isSuspended    Boolean        @default(false)
-  isPrivate      Boolean        @default(false)
+  role           Role     @default(USER)
+  isSuspended    Boolean  @default(false)
+  isPrivate      Boolean  @default(false)
   provider       String?
   providerId     String?
-  createdAt      DateTime       @default(now())
-  updatedAt      DateTime       @updatedAt
-  emailVerified  Boolean        @default(false)
+  createdAt      DateTime @default(now())
+  updatedAt      DateTime @updatedAt
+  emailVerified  Boolean  @default(false)
   image          String?
-  isDeleted      Boolean        @default(false)
-  followersCount Int            @default(0)
-  followingCount Int            @default(0)
-  postsCount     Int            @default(0)
-  
-  accounts       Account[]
-  sessions       Session[]
-  
+  phoneNumber    String?
+  isDeleted      Boolean  @default(false)
+  followersCount Int      @default(0)
+  followingCount Int      @default(0)
+  postsCount     Int      @default(0)
+
+  accounts Account[]
+  sessions Session[]
+
   // Relations from other modules
-  posts          Post[]
-  comments       Comment[]
-  likes          Like[]
-  reactions      Reaction[]
-  recvMessages   Message[]      @relation("ReceivedMessages")
-  sentMessages   Message[]      @relation("SentMessages")
-  notifications  Notification[]
-  following      Follow[]       @relation("Following")
-  followers      Follow[]       @relation("Followers")
-  stories        Story[]
-  storyViews     StoryView[]
-  savedPosts     SavedPost[]
-  activityLogs   ActivityLog[]
-  taggedIn       PostTag[]
-  groups         Group[]
-  groupMembers   GroupMember[]
+  posts         Post[]
+  comments      Comment[]
+  likes         Like[]
+  reactions     Reaction[]
+  recvMessages  Message[]      @relation("ReceivedMessages")
+  sentMessages  Message[]      @relation("SentMessages")
+  notifications Notification[]
+  following     Follow[]       @relation("Following")
+  followers     Follow[]       @relation("Followers")
+  stories       Story[]
+  storyViews    StoryView[]
+  savedPosts    SavedPost[]
+  activityLogs  ActivityLog[]
+  taggedIn      PostTag[]
+  groups        Group[]
+  groupMembers  GroupMember[]
+
+  // Marketplace relations
+  store          Store?
+  orders         Order[]
+  productReviews ProductReview[]
+  followedStores StoreFollow[]
+  productFlags   ProductFlag[]
+
+  // Property Portal relations
+  properties        Property[]        @relation("PropertyOwner")
+  agentProfile      AgentProfile?     @relation("UserAgent")
+  propertyBookings  Booking[]         @relation("UserBookings")
+  propertyEnquiries PropertyEnquiry[] @relation("UserEnquiries")
+  savedProperties   SavedProperty[]   @relation("UserSavedProperties")
+  propertyReviews   PropertyReview[]  @relation("UserPropertyReviews")
 }
 
 model Session {

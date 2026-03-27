@@ -11,6 +11,7 @@ import { FloatingChats } from "./messages/floating-chats"
 import { FloatingGroupChats } from "./messages/floating-group-chats"
 import { GroupChatModal } from "./messages/group-chat-modal"
 import { CallManager } from "./messages/call-manager"
+import { CartProvider } from "@/hooks/use-cart"
 
 function makeQueryClient() {
   return new QueryClient({
@@ -46,15 +47,17 @@ export function Providers({ children }: { children: React.ReactNode }) {
         attribute="class"
       >
         <SocketProvider>
-          <MessengerProvider>
-            <SocketHandler />
-            {children}
-            <MessengerDrawer />
-            <FloatingChats />
-            <FloatingGroupChats />
-            <GroupChatModal />
-            <CallManager />
-          </MessengerProvider>
+          <CartProvider>
+            <MessengerProvider>
+              <SocketHandler />
+              {children}
+              <MessengerDrawer />
+              <FloatingChats />
+              <FloatingGroupChats />
+              <GroupChatModal />
+              <CallManager />
+            </MessengerProvider>
+          </CartProvider>
         </SocketProvider>
         <Toaster position="top-center" />
       </ThemeProvider>

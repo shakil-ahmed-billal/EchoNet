@@ -32,8 +32,9 @@ export function MessengerDrawer() {
   const { data: users, isLoading } = useQuery<any[]>({
     queryKey: ["users", "messenger-drawer"],
     queryFn: async () => {
-      const res = await apiClient.get("/users");
-      return res.data.data.filter((u: any) => u.id !== currentUser?.id);
+      const res = await apiClient.get("/users", { params: { limit: 50, sortBy: 'name', sortOrder: 'asc' } });
+      const usersList = res.data.data.data || [];
+      return usersList.filter((u: any) => u.id !== currentUser?.id);
     },
     enabled: !!currentUser,
     staleTime: 60000,

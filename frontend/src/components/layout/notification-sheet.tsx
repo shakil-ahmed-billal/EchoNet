@@ -1,45 +1,24 @@
 "use client"
 
-import { useQuery, useMutation, useQueryClient } from "@tanstack/react-query"
+import { useQueryClient } from "@tanstack/react-query"
 import { Bell, Check, Loader2, UserPlus, Heart, MessageSquare, Info, Zap } from "lucide-react"
-import { getNotifications, getUnreadCount, markAsRead, type Notification as ApiNotification } from "@/services/notifications.service"
 import { Sheet, SheetContent, SheetHeader, SheetTitle, SheetTrigger } from "@/components/ui/sheet"
 import { Button } from "@/components/ui/button"
 import { ScrollArea } from "@/components/ui/scroll-area"
 import { cn } from "@/lib/utils"
 import { formatDistanceToNow } from "date-fns"
+import { type Notification as ApiNotification } from "@/services/notifications.service"
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
-import Link from "next/link"
-import { useEffect, useState } from "react"
+import { useEffect } from "react"
+
+import { useMarkNotificationAsRead, useNotifications, useUnreadNotificationsCount } from "@/hooks/use-notifications"
 
 export function NotificationSheet() {
   const queryClient = useQueryClient()
-  const [notifications, setNotifications] = useState<ApiNotification[]>([])
+  const { data: notifications = [], isLoading } = useNotifications()
+  const { data: unreadCount = 0 } = useUnreadNotificationsCount()
 
-  const { data: fetchedNotifications, isLoading } = useQuery({
-    queryKey: ["notifications"],
-    queryFn: getNotifications,
-    refetchInterval: 10000, 
-  })
-
-  useEffect(() => {
-    if (fetchedNotifications) {
-      setNotifications(fetchedNotifications)
-    }
-  }, [fetchedNotifications])
-
-  const { data: unreadCount = 0 } = useQuery({
-    queryKey: ["notifications", "unread-count"],
-    queryFn: getUnreadCount,
-    refetchInterval: 10000,
-  })
-
-  const markReadMutation = useMutation({
-    mutationFn: markAsRead,
-    onSuccess: () => {
-      queryClient.invalidateQueries({ queryKey: ["notifications"] })
-    },
-  })
+  const markReadMutation = useMarkNotificationAsRead()
 
   // Browser Notifications
   useEffect(() => {

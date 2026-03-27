@@ -53,7 +53,7 @@ interface MessengerContextValue {
 
   // 1:1 floating chats
   activeChats: ActiveChat[];
-  openChat: (user: ChatUser) => void;
+  openChat: (user: ChatUser, initialMessage?: string) => void;
   closeChat: (userId: string) => void;
   minimizeChat: (userId: string) => void;
   restoreChat: (userId: string) => void;
@@ -71,6 +71,7 @@ interface MessengerContextValue {
   totalUnread: number;
   perUserData: Record<string, PerUserData>;
   markUserRead: (userId: string) => void;
+  updateLastMessage: (userId: string, content: string, time?: string) => void;
 
   // Global Call State
   callStatus: CallStatus;
@@ -116,7 +117,7 @@ export function MessengerProvider({ children }: { children: ReactNode }) {
       try {
         const usersRes = await apiClient.get("/users");
         // eslint-disable-next-line @typescript-eslint/no-unused-vars
-        const users: any[] = usersRes.data?.data ?? [];
+        const users: any[] = usersRes.data?.data?.data ?? [];
         setTotalUnread(0);
         setPerUserData({});
       } catch { /* skip */ }
@@ -149,15 +150,33 @@ export function MessengerProvider({ children }: { children: ReactNode }) {
   useEffect(() => {
     if (!socket || !currentUser) return;
     const onNewMessage = (msg: any) => {
-      if (msg.receiverId !== currentUser.id) return;
-      const senderId = msg.senderId;
-      const chatIsOpen = activeChats.some((c) => c.user.id === senderId && c.state === "open");
-      if (chatIsOpen) return;
+      const isIncoming = msg.receiverId === currentUser.id;
+      const isOutgoing = msg.senderId === currentUser.id;
+      
+      if (!isIncoming && !isOutgoing) return;
+      
+      const otherId = isIncoming ? msg.senderId : msg.receiverId;
+      if (!otherId) return; // Group messages handled differently or not yet
+
+      const chatIsOpen = activeChats.some((c) => c.user.id === otherId && c.state === "open");
+      
       setPerUserData((prev) => {
-        const ex = prev[senderId] ?? { unreadCount: 0, lastMessage: "", lastMessageTime: null };
-        return { ...prev, [senderId]: { unreadCount: ex.unreadCount + 1, lastMessage: msg.content, lastMessageTime: msg.createdAt } };
+        const ex = prev[otherId] ?? { unreadCount: 0, lastMessage: "", lastMessageTime: null };
+        const newUnread = (isIncoming && !chatIsOpen && selectedChatId !== otherId) ? ex.unreadCount + 1 : ex.unreadCount;
+        
+        return { 
+          ...prev, 
+          [otherId]: { 
+            unreadCount: newUnread, 
+            lastMessage: msg.content, 
+            lastMessageTime: msg.createdAt 
+          } 
+        };
       });
-      setTotalUnread((t) => t + 1);
+
+      if (isIncoming && !chatIsOpen && selectedChatId !== otherId) {
+        setTotalUnread((t) => t + 1);
+      }
     };
     socket.on("new-message", onNewMessage);
     return () => { socket.off("new-message", onNewMessage); };
@@ -171,6 +190,17 @@ export function MessengerProvider({ children }: { children: ReactNode }) {
       return { ...prev, [userId]: { ...prev[userId], unreadCount: 0 } };
     });
     apiClient.patch(`/messages/${userId}/read`, {}).catch(() => {});
+  }, []);
+
+  const updateLastMessage = useCallback((userId: string, content: string, time: string = new Date().toISOString()) => {
+    setPerUserData((prev) => ({
+      ...prev,
+      [userId]: {
+        ...(prev[userId] ?? { unreadCount: 0 }),
+        lastMessage: content,
+        lastMessageTime: time
+      }
+    }));
   }, []);
 
   // ── Call Actions ───────────────────────────────────────────────────────
@@ -263,7 +293,7 @@ export function MessengerProvider({ children }: { children: ReactNode }) {
       selectedChatId, setSelectedChatId,
       activeChats, openChat, closeChat, minimizeChat, restoreChat,
       groups, activeGroupChats, addGroup, openGroupChat, closeGroupChat, minimizeGroupChat, restoreGroupChat,
-      totalUnread, perUserData, markUserRead,
+      totalUnread, perUserData, markUserRead, updateLastMessage,
       callStatus, callUser, isVideoCall, callIsMinimized, initiateCall, receiveCall, acceptCall, declineCall, terminateCall, setCallMinimized
     }}>
       {children}

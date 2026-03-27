@@ -2,6 +2,7 @@
 
 import { PostList } from "@/components/feed/post-list";
 import { SavedPostList } from "@/components/feed/saved-post-list";
+import { MyOrdersList } from "@/components/marketplace/my-orders-list";
 import { EditProfileDialog } from "@/components/profile/edit-profile-dialog";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Button } from "@/components/ui/button";
@@ -270,6 +271,12 @@ export default function ProfilePage() {
                 >
                   Stories
                 </TabsTrigger>
+                <TabsTrigger
+                  value="orders"
+                  className="flex-1 rounded-xl data-[state=active]:bg-card data-[state=active]:text-foreground data-[state=active]:shadow-sm py-2 text-sm font-semibold transition-all"
+                >
+                  Orders
+                </TabsTrigger>
               </>
             )}
           </TabsList>
@@ -314,6 +321,11 @@ export default function ProfilePage() {
                     <p className="text-sm font-medium text-muted-foreground">You have no active stories.</p>
                   </div>
                 )}
+              </TabsContent>
+              <TabsContent value="orders" className="focus-visible:outline-none">
+                <div className="pt-2">
+                    <MyOrdersList />
+                </div>
               </TabsContent>
             </>
           )}

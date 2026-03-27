@@ -32,7 +32,8 @@ export function useStories() {
   return useQuery({
     queryKey: ["stories"],
     queryFn: () => getStoriesAction(),
-    staleTime: 5 * 60 * 1000,
+    staleTime: 60 * 1000, // 1 minute stale time
+    refetchInterval: 120 * 1000, // Polling stories every 2 minutes
   })
 }
 

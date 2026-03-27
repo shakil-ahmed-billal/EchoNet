@@ -1,50 +1,26 @@
 import prisma from '../../lib/prisma.js';
+import { QueryBuilder } from '../../utils/QueryBuilder.js';
 
 const getAllUsers = async (query: Record<string, unknown>, currentUserId?: string) => {
-  const filters: any = {};
-  if (query.searchTerm) {
-    filters.OR = [
-      { name: { contains: query.searchTerm as string, mode: 'insensitive' } },
-      { email: { contains: query.searchTerm as string, mode: 'insensitive' } }
-    ];
-  }
-
-  const result = await prisma.user.findMany({
-    where: Object.keys(filters).length > 0 ? filters : undefined,
-    include: currentUserId ? {
-      followers: {
-        where: { followerId: currentUserId }
-      },
-      following: {
-         where: { followingId: currentUserId }
-      }
-    } : undefined
-  });
+  const result = await new QueryBuilder(prisma.user, query, {
+    searchableFields: ['name', 'email'],
+    filterableFields: ['role', 'isSuspended'],
+  })
+    .search()
+    .filter()
+    .sort()
+    .paginate()
+    .execute();
 
   if (!currentUserId) return result;
 
-  return result.map((u: any) => {
-    let isFollowing = false;
-    let isFriend = false;
-    
-    // Check if we sent them a request
-    if (u.followers && u.followers.length > 0) {
-       if (u.followers[0].status === 'PENDING') isFollowing = true;
-       if (u.followers[0].status === 'ACCEPTED') isFriend = true;
-    }
-    // Check if they sent us a request and it's accepted
-    if (u.following && u.following.length > 0) {
-       if (u.following[0].status === 'ACCEPTED') isFriend = true;
-    }
-
-    return {
-       ...u,
-       isFollowing,
-       isFriend,
-       followers: undefined,
-       following: undefined
-    };
+  const enriched = (result.data as any[]).map((u: any) => {
+    const isFollowing = u.followers?.some((f: any) => f.status === 'PENDING') ?? false;
+    const isFriend = u.followers?.some((f: any) => f.status === 'ACCEPTED') ?? false;
+    return { ...u, isFollowing, isFriend, followers: undefined, following: undefined };
   });
+
+  return { ...result, data: enriched };
 };
 
 const getUserById = async (id: string, currentUserId?: string) => {

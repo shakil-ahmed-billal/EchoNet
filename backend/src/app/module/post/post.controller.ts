@@ -25,6 +25,19 @@ const getAllPosts = catchAsync(async (req: Request, res: Response) => {
   const userId = (req as any).user?.id;
   const discover = req.query.discover === 'true';
   const authorId = req.query.authorId as string | undefined;
+  const status = req.query.status as string | undefined;
+
+  // Handle admin moderation requests for flagged posts
+  if (status === 'FLAGGED') {
+    const flaggedPosts = await PostServices.getFlaggedPosts(req.query);
+    sendResponse(res, {
+      statusCode: httpStatus.OK,
+      success: true,
+      message: 'Flagged posts retrieved successfully',
+      data: flaggedPosts,
+    });
+    return;
+  }
 
   const result = await PostServices.getAllPosts(limit, cursor, userId, discover, authorId);
   sendResponse(res, {

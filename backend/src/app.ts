@@ -48,7 +48,14 @@ const authLimiter = rateLimit({
 
 app.use('/api/v1/auth', authLimiter);
 
-app.use(express.json({ limit: '10mb' }));
+app.use(express.json({ 
+    limit: '10mb',
+    verify: (req: any, res, buf) => {
+        if (req.originalUrl.includes('/payments/webhook')) {
+            req.rawBody = buf;
+        }
+    }
+}));
 app.use(express.urlencoded({ extended: true, limit: '10mb' }));
 app.use(sanitizeRequest);
 app.use(morgan("dev"))

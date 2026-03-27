@@ -2,7 +2,7 @@
 
 import Link from "next/link"
 import { usePathname } from "next/navigation"
-import { Search, Mail, Plus } from "lucide-react"
+import { Search, Mail, Plus, ShoppingBag } from "lucide-react"
 import { SITE_INFO, MAIN_NAV } from "@/config/site"
 import { ThemeToggle } from "./theme-toggle"
 import { MobileNav } from "./mobile-nav"
@@ -18,6 +18,7 @@ import { useState, useEffect, useRef } from "react"
 import { Loader2 } from "lucide-react"
 import { useMessenger } from "./messages/messenger-context"
 import { UserImage } from "./user-image"
+import { CartSheet } from "./marketplace/cart-sheet"
 
 export function SiteHeader() {
   const pathname = usePathname()
@@ -134,6 +135,9 @@ export function SiteHeader() {
                          </span>
                        )}
                    </Button>
+                   <div className="md:hidden">
+                      <CartSheet />
+                   </div>
                     <div className="md:hidden">
                        <NotificationSheet />
                     </div>
@@ -158,6 +162,7 @@ export function SiteHeader() {
                            </span>
                          )}
                       </Button>
+                      <CartSheet />
                    </div>
                 </div>
                 <div className="h-6 w-px bg-border/40 mx-1 hidden sm:block" />
