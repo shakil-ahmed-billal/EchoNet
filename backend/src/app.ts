@@ -13,10 +13,9 @@ import { auth } from './app/lib/auth.js';
 import { toNodeHandler } from 'better-auth/node';
 
 import path from 'path';
-import { fileURLToPath } from 'url';
 
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
+// __dirname is available in CJS builds (tsup injects it automatically for ESM too)
+const __dirname = path.resolve();
 
 const app: Application = express();
 
