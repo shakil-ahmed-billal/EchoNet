@@ -59,20 +59,17 @@ export const auth = betterAuth({
     },
   },
   session: {
-    expiresIn: 60 * 60 * 24,
-    updateAge: 60 * 60 * 24,
+    cookieCache: {
+      enabled: true,
+      maxAge: 5 * 60, // 5 minutes
+    },
   },
   advanced: {
-    useSecureCookies: config.env === "production",
-    cookies: {
-      sessionToken: {
-        attributes: {
-          sameSite: config.env === "production" ? "none" : "lax",
-          secure: config.env === "production",
-          httpOnly: true,
-          path: "/",
-        },
-      },
+    cookiePrefix: "better-auth",
+    useSecureCookies: process.env.NODE_ENV === "production",
+    crossSubDomainCookies: {
+      enabled: false,
     },
+    disableCSRFCheck: true, // Allow requests without Origin header (Postman, mobile apps, etc.)
   },
 });
