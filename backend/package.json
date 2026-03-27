@@ -7,7 +7,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "nodemon --exec tsx src/server.ts",
-    "build": "prisma generate && tsup src/index.ts --format esm --platform node --target node20 --outDir api --external pg-native --external @prisma/client --external @prisma/client-runtime-utils",
+    "build": "prisma generate && tsup src/index.ts --format esm --shims --platform node --target node20 --outDir api --external pg-native --external @prisma/client --external @prisma/client-runtime-utils",
     "postinstall": "prisma generate",
     "start": "node dist/server.js",
     "prisma:generate": "prisma generate",
