@@ -19,6 +19,14 @@ const nextConfig: NextConfig = {
         protocol: 'https',
         hostname: 'picsum.photos',
       },
+      {
+        protocol: 'https',
+        hostname: 'api.dicebear.com', // Added for user avatars
+      },
+      {
+        protocol: 'https',
+        hostname: 'lh3.googleusercontent.com', // Added for Google social logins
+      },
     ],
   },
   experimental: {

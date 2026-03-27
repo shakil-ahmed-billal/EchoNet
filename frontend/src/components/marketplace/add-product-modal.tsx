@@ -1,8 +1,8 @@
 "use client"
 
-import { useState } from "react"
-import { useCreateProduct, useCategories } from "@/hooks/use-marketplace"
-import { Category } from "@/services/marketplace.service"
+import { useEffect, useState } from "react"
+import { useCreateProduct, useUpdateProduct, useCategories } from "@/hooks/use-marketplace"
+import { Category, Product } from "@/services/marketplace.service"
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription, DialogFooter } from "@/components/ui/dialog"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
@@ -13,11 +13,15 @@ import { ImagePlus, Loader2, X } from "lucide-react"
 interface AddProductModalProps {
   open: boolean
   onOpenChange: (open: boolean) => void
+  product?: Product | null
 }
 
-export function AddProductModal({ open, onOpenChange }: AddProductModalProps) {
-  const { mutate: createProduct, isPending } = useCreateProduct()
+export function AddProductModal({ open, onOpenChange, product }: AddProductModalProps) {
+  const { mutate: createProduct, isPending: isCreating } = useCreateProduct()
+  const { mutate: updateProduct, isPending: isUpdating } = useUpdateProduct()
   const { data: categories } = useCategories()
+  
+  const isPending = isCreating || isUpdating
   
   const [formData, setFormData] = useState({
     title: "",
@@ -28,21 +32,40 @@ export function AddProductModal({ open, onOpenChange }: AddProductModalProps) {
     images: [] as string[]
   })
 
+  useEffect(() => {
+    if (product && open) {
+      setFormData({
+        title: product.title,
+        description: product.description,
+        price: product.price.toString(),
+        stock: product.stock.toString(),
+        categoryId: product.category?.id || "",
+        images: product.images || []
+      })
+    } else if (!product && open) {
+      setFormData({
+        title: "", description: "", price: "", stock: "1", categoryId: "", images: []
+      })
+    }
+  }, [product, open])
+
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault()
-    createProduct(formData, {
+    
+    if (product) {
+      updateProduct({ id: product.id, data: { ...formData, price: Number(formData.price), stock: Number(formData.stock) } }, {
         onSuccess: () => {
-            onOpenChange(false)
-            setFormData({
-                title: "",
-                description: "",
-                price: "",
-                stock: "1",
-                categoryId: "",
-                images: []
-            })
+          onOpenChange(false)
         }
-    })
+      })
+    } else {
+      createProduct({ ...formData, price: Number(formData.price), stock: Number(formData.stock) }, {
+          onSuccess: () => {
+              onOpenChange(false)
+              setFormData({ title: "", description: "", price: "", stock: "1", categoryId: "", images: [] })
+          }
+      })
+    }
   }
 
   return (
@@ -50,9 +73,9 @@ export function AddProductModal({ open, onOpenChange }: AddProductModalProps) {
       <DialogContent className="max-w-xl rounded-3xl p-0 overflow-hidden border-border/20 bg-card/95 backdrop-blur-xl">
         <form onSubmit={handleSubmit}>
           <DialogHeader className="p-6 pb-0">
-            <DialogTitle className="text-2xl font-bold">List a New Product</DialogTitle>
+            <DialogTitle className="text-2xl font-bold">{product ? "Edit Product" : "List a New Product"}</DialogTitle>
             <DialogDescription>
-                Fill in the details below to add a new item to your store.
+                {product ? "Update your product details below." : "Fill in the details below to add a new item to your store."}
             </DialogDescription>
           </DialogHeader>
 
@@ -163,13 +186,13 @@ export function AddProductModal({ open, onOpenChange }: AddProductModalProps) {
             >
                 Cancel
             </Button>
-            <Button 
+             <Button 
                 type="submit" 
                 className="rounded-xl px-10 font-bold"
                 disabled={isPending}
             >
                 {isPending ? <Loader2 className="w-4 h-4 animate-spin mr-2" /> : null}
-                Create Product
+                {product ? "Update Product" : "Create Product"}
             </Button>
           </DialogFooter>
         </form>

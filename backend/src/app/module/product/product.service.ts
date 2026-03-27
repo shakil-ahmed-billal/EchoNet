@@ -22,7 +22,7 @@ const createProduct = async (userId: string, payload: any) => {
 };
 
 const getAllProducts = async (query: any) => {
-  const { searchTerm, category, minPrice, maxPrice, sortBy, sortOrder } = query;
+  const { searchTerm, category, minPrice, maxPrice, sortBy, sortOrder, storeId } = query;
 
   const filters: any = {
     status: 'ACTIVE',
@@ -44,6 +44,10 @@ const getAllProducts = async (query: any) => {
     filters.price = {};
     if (minPrice) filters.price.gte = Number(minPrice);
     if (maxPrice) filters.price.lte = Number(maxPrice);
+  }
+
+  if (storeId) {
+    filters.storeId = storeId;
   }
 
   const result = await prisma.product.findMany({

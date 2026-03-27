@@ -37,17 +37,17 @@ export interface Store {
 
 export const getCategories = async () => {
   const response = await apiClient.get<any>("/categories");
-  return response.data.data;
+  return response.data?.data ?? null;
 };
 
 export const getProducts = async (params?: any) => {
   const response = await apiClient.get<any>("/products", { params });
-  return response.data.data;
+  return response.data?.data ?? null;
 };
 
 export const getProductById = async (id: string) => {
   const response = await apiClient.get<any>(`/products/${id}`);
-  return response.data.data;
+  return response.data?.data ?? null;
 };
 
 export const createStore = async (data: any) => {
@@ -57,12 +57,12 @@ export const createStore = async (data: any) => {
 
 export const getMyStore = async () => {
   const response = await apiClient.get<any>("/stores/my-store");
-  return response.data.data;
+  return response.data?.data ?? null;
 };
 
 export const getStoreById = async (id: string) => {
   const response = await apiClient.get<any>(`/stores/${id}`);
-  return response.data.data;
+  return response.data?.data ?? null;
 };
 
 export const createProduct = async (data: any) => {
@@ -87,5 +87,15 @@ export const createOrder = async (data: any) => {
 
 export const initiatePayment = async (orderId: string) => {
   const response = await apiClient.post<any>("/payments/initiate", { orderId });
-  return response.data.data;
+  return response.data?.data ?? null;
+};
+
+export const getStoreOrders = async () => {
+  const response = await apiClient.get<any>("/orders/store-orders");
+  return response.data?.data ?? [];
+};
+
+export const getMyOrders = async () => {
+  const response = await apiClient.get<any>("/orders/my-orders");
+  return response.data?.data ?? [];
 };

@@ -47,10 +47,21 @@ export function UserNav() {
           <DropdownMenuItem asChild>
             <Link href={`/profile/${user.id}`} className="cursor-pointer font-medium hover:text-primary">Profile</Link>
           </DropdownMenuItem>
-          {user.role === 'ADMIN' && (
-              <DropdownMenuItem asChild>
-                <Link href={`/admin`} className="cursor-pointer font-medium hover:text-primary">Admin Panel</Link>
-              </DropdownMenuItem>
+          <DropdownMenuItem asChild>
+            <Link href="/my-properties" className="cursor-pointer font-medium hover:text-primary">My Properties</Link>
+          </DropdownMenuItem>
+          <DropdownMenuItem asChild>
+            <Link href="/my-bookings" className="cursor-pointer font-medium hover:text-primary">My Bookings</Link>
+          </DropdownMenuItem>
+          <DropdownMenuItem asChild>
+            <Link href="/orders" className="cursor-pointer font-medium hover:text-primary">My Orders</Link>
+          </DropdownMenuItem>
+          {(user.role === 'ADMIN' || user.role === 'MODERATOR') && (
+            <DropdownMenuItem asChild>
+              <Link href={user.role === 'ADMIN' ? `/admin/dashboard` : `/moderator/dashboard`} className="cursor-pointer font-medium hover:text-primary">
+                {user.role === 'ADMIN' ? 'Admin Dashboard' : 'Moderator Dashboard'}
+              </Link>
+            </DropdownMenuItem>
           )}
         </DropdownMenuGroup>
         <DropdownMenuSeparator />

@@ -15,7 +15,7 @@ export default function MarketplacePage() {
   const { data: store } = useMyStore()
 
   return (
-    <div className="flex flex-col gap-8 max-w-6xl mx-auto">
+    <div className="flex flex-col gap-8 mx-auto">
       <div className="flex flex-col md:flex-row md:items-end justify-between gap-6">
         <div className="space-y-2">
           <div className="flex items-center gap-3 text-primary mb-1">

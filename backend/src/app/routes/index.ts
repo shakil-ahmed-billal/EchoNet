@@ -21,6 +21,10 @@ import { ProductRoutes } from '../module/product/product.route.js';
 import { CategoryRoutes } from '../module/category/category.route.js';
 import { OrderRoutes } from '../module/order/order.route.js';
 import { PaymentRoutes } from '../module/payment/payment.route.js';
+import { PropertyRoutes } from '../module/property/property.route.js';
+import { BookingRoutes } from '../module/booking/booking.route.js';
+import { EnquiryRoutes } from '../module/enquiry/enquiry.route.js';
+import { AgentRoutes } from '../module/agent/agent.route.js';
 
 const router = Router();
 
@@ -108,6 +112,22 @@ const moduleRoutes: { path: string; route: Router }[] = [
   {
     path: '/payments',
     route: PaymentRoutes,
+  },
+  {
+    path: '/properties',
+    route: PropertyRoutes,
+  },
+  {
+    path: '/bookings',
+    route: BookingRoutes,
+  },
+  {
+    path: '/enquiries',
+    route: EnquiryRoutes,
+  },
+  {
+    path: '/agents',
+    route: AgentRoutes,
   },
 ];
 

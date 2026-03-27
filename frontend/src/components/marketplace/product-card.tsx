@@ -54,7 +54,7 @@ export function ProductCard({ product }: ProductCardProps) {
           <div className="absolute inset-0 bg-black/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
           
           {/* Category Pill - Floating */}
-          <Badge className="absolute top-4 left-4 h-7 bg-white/90 dark:bg-black/90 text-foreground backdrop-blur-md border-none px-3 font-semibold text-[10px] uppercase tracking-wider rounded-full shadow-sm">
+          <Badge className="absolute top-4 left-4 h-7 bg-white/90 dark:bg-black/90 text-foreground backdrop-blur-md border-none px-3 font-semibold text-[10px] rounded-full shadow-sm">
             {product.category.name}
           </Badge>
 

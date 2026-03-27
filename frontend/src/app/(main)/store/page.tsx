@@ -1,13 +1,13 @@
 "use client"
 
-import { useMyStore, useCreateStore, useProducts } from "@/hooks/use-marketplace"
+import { useMyStore, useCreateStore, useProducts, useStoreOrders, useDeleteProduct } from "@/hooks/use-marketplace"
 import { Product } from "@/services/marketplace.service"
 import { useAuth } from "@/hooks/use-auth"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card"
 import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
-import { Store as StoreIcon, Package, ShoppingCart, Users, Plus, LayoutDashboard, Settings } from "lucide-react"
+import { Store as StoreIcon, Package, ShoppingCart, Users, Plus, LayoutDashboard, Settings, Edit, Trash2 } from "lucide-react"
 import { useState } from "react"
 import Link from "next/link"
 import { Skeleton } from "@/components/ui/skeleton"
@@ -25,7 +25,22 @@ export default function StoreDashboardPage() {
   })
 
   const [isAddProductOpen, setIsAddProductOpen] = useState(false)
+  const [editingProduct, setEditingProduct] = useState<Product | null>(null)
+
   const { data: myProducts, isLoading: isLoadingProducts } = useProducts({ storeId: store?.id })
+  const { data: storeOrders, isLoading: isLoadingOrders } = useStoreOrders()
+  const { mutate: deleteProduct } = useDeleteProduct()
+
+  const handleEdit = (product: Product) => {
+    setEditingProduct(product)
+    setIsAddProductOpen(true)
+  }
+
+  const handleDelete = (id: string) => {
+    if (confirm("Are you sure you want to delete this product?")) {
+      deleteProduct(id)
+    }
+  }
 
   if (isLoading) {
     return (
@@ -132,13 +147,13 @@ export default function StoreDashboardPage() {
         />
         <StatCard 
             title="Total Orders" 
-            value={0} 
+            value={storeOrders?.length || 0} 
             icon={<ShoppingCart className="w-5 h-5" />} 
             color="bg-green-500/10 text-green-500"
         />
         <StatCard 
             title="Total Revenue" 
-            value="$0.00" 
+            value={`$${Number(storeOrders?.reduce((acc: number, o: any) => acc + (Number(o.totalAmount) || 0), 0) || 0).toFixed(2)}`} 
             icon={<StoreIcon className="w-5 h-5" />} 
             color="bg-yellow-500/10 text-yellow-500"
         />
@@ -163,10 +178,51 @@ export default function StoreDashboardPage() {
                         <Skeleton className="h-48 rounded-2xl" />
                     </div>
                 ) : myProducts && myProducts.length > 0 ? (
-                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                        {myProducts.map((product: Product) => (
-                            <ProductCard key={product.id} product={product} />
-                        ))}
+                    <div className="overflow-x-auto">
+                        <table className="w-full text-sm text-left">
+                            <thead className="text-xs text-muted-foreground uppercase bg-muted/50">
+                                <tr>
+                                    <th className="px-4 py-3 rounded-l-xl">Product Name</th>
+                                    <th className="px-4 py-3">Price</th>
+                                    <th className="px-4 py-3">Stock</th>
+                                    <th className="px-4 py-3">Status</th>
+                                    <th className="px-4 py-3 rounded-r-xl text-right">Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {myProducts.map((product: Product) => (
+                                    <tr key={product.id} className="border-b border-border/40 hover:bg-muted/30 transition-colors last:border-0">
+                                        <td className="px-4 py-3 font-medium flex items-center gap-3">
+                                            {product.images?.[0] ? (
+                                                <img src={product.images[0]} alt={product.title} className="w-10 h-10 rounded-lg object-cover" />
+                                            ) : (
+                                                <div className="w-10 h-10 bg-primary/10 rounded-lg flex items-center justify-center shrink-0">
+                                                    <Package className="w-5 h-5 text-primary/50" />
+                                                </div>
+                                            )}
+                                            <span className="line-clamp-1 min-w-[120px] max-w-[200px]">{product.title}</span>
+                                        </td>
+                                        <td className="px-4 py-3 font-semibold">${Number(product.price).toFixed(2)}</td>
+                                        <td className="px-4 py-3">{product.stock}</td>
+                                        <td className="px-4 py-3">
+                                            <span className={`text-[10px] uppercase font-bold px-2 py-0.5 rounded-full whitespace-nowrap ${product.status === 'ACTIVE' ? 'bg-green-500/20 text-green-500' : 'bg-yellow-500/20 text-yellow-500'}`}>
+                                                {product.status}
+                                            </span>
+                                        </td>
+                                        <td className="px-4 py-3 text-right">
+                                            <div className="flex items-center justify-end gap-1">
+                                                <Button variant="ghost" size="icon" className="h-8 w-8 text-blue-500 hover:text-blue-600 hover:bg-blue-500/10" onClick={() => handleEdit(product)}>
+                                                    <Edit className="w-4 h-4" />
+                                                </Button>
+                                                <Button variant="ghost" size="icon" className="h-8 w-8 text-red-500 hover:text-red-600 hover:bg-red-500/10" onClick={() => handleDelete(product.id)}>
+                                                    <Trash2 className="w-4 h-4" />
+                                                </Button>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                ))}
+                            </tbody>
+                        </table>
                     </div>
                 ) : (
                     <div className="flex flex-col items-center justify-center py-10 opacity-50">
@@ -178,23 +234,60 @@ export default function StoreDashboardPage() {
             </CardContent>
         </Card>
 
-        <Card className="bg-card/40 backdrop-blur-sm border-border/20 rounded-3xl overflow-hidden shadow-sm">
-            <CardHeader>
-                <CardTitle>Recent Orders</CardTitle>
-                <CardDescription>Latest customer purchases</CardDescription>
+        <Card className="bg-card/40 backdrop-blur-sm border-border/20 rounded-3xl overflow-hidden shadow-sm flex flex-col">
+            <CardHeader className="flex flex-row items-center justify-between pb-2">
+                <div>
+                    <CardTitle>Recent Orders</CardTitle>
+                    <CardDescription>Latest customer purchases</CardDescription>
+                </div>
+                <Link href="/store/orders">
+                    <Button variant="ghost" size="sm">View All</Button>
+                </Link>
             </CardHeader>
-            <CardContent>
-                <div className="flex flex-col gap-4">
+            <CardContent className="flex-1">
+                {isLoadingOrders ? (
+                    <div className="space-y-4">
+                        <Skeleton className="h-16 w-full rounded-2xl" />
+                        <Skeleton className="h-16 w-full rounded-2xl" />
+                    </div>
+                ) : storeOrders && storeOrders.length > 0 ? (
+                    <div className="flex flex-col gap-3">
+                        {storeOrders.slice(0, 3).map((order: any) => (
+                            <Link href="/store/orders" key={order.id} className="p-3 bg-background/50 rounded-2xl border border-border/40 flex items-center justify-between hover:bg-background/80 transition-colors">
+                                <div>
+                                    <p className="font-semibold text-sm">{order.buyer?.name || 'Customer'}</p>
+                                    <p className="text-xs text-muted-foreground">{order.items.length} item(s)</p>
+                                </div>
+                                <div className="text-right">
+                                    <p className="font-bold text-sm text-primary">${Number(order.totalAmount || 0).toFixed(2)}</p>
+                                    <span className={`text-[10px] uppercase font-bold px-2 py-0.5 rounded-full ${order.status === 'PENDING' ? 'bg-yellow-500/20 text-yellow-500' : 'bg-green-500/20 text-green-500'}`}>
+                                        {order.status}
+                                    </span>
+                                </div>
+                            </Link>
+                        ))}
+                    </div>
+                ) : (
                     <div className="text-center py-6 opacity-40">
                         <ShoppingCart className="w-8 h-8 mx-auto mb-2" />
                         <p className="text-sm">No recent orders</p>
                     </div>
-                </div>
+                )}
             </CardContent>
         </Card>
       </div>
 
-      <AddProductModal open={isAddProductOpen} onOpenChange={setIsAddProductOpen} />
+      <AddProductModal 
+        open={isAddProductOpen} 
+        onOpenChange={(open) => {
+            setIsAddProductOpen(open)
+            if (!open) {
+                // slightly wait for modal close animation before clearing
+                setTimeout(() => setEditingProduct(null), 300)
+            }
+        }} 
+        product={editingProduct}
+      />
     </div>
   )
 }

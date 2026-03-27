@@ -20,6 +20,7 @@ import { toast } from "sonner"
 import { Loader2, Eye, EyeOff } from "lucide-react"
 import { useQueryClient } from "@tanstack/react-query"
 import { Alert, AlertDescription } from "@/components/ui/alert"
+import Link from "next/link"
 
 const registerSchema = z.object({
   name: z.string().min(2, { message: "Name must be at least 2 characters." }),

@@ -1,15 +1,15 @@
 model Group {
-  id          String        @id @default(uuid())
+  id          String       @id @default(uuid())
   name        String
   description String?
   coverUrl    String?
-  privacy     GroupPrivacy  @default(PUBLIC)
+  privacy     GroupPrivacy @default(PUBLIC)
   createdBy   String
-  createdAt   DateTime      @default(now())
-  
-  creator     User          @relation(fields: [createdBy], references: [id])
-  members     GroupMember[]
-  messages    Message[]
+  createdAt   DateTime     @default(now())
+
+  creator  User          @relation(fields: [createdBy], references: [id])
+  members  GroupMember[]
+  messages Message[]
 }
 
 model GroupMember {
@@ -18,9 +18,9 @@ model GroupMember {
   userId   String
   role     GroupRole @default(MEMBER)
   joinedAt DateTime  @default(now())
-  
-  group    Group     @relation(fields: [groupId], references: [id])
-  user     User      @relation(fields: [userId], references: [id])
+
+  group Group @relation(fields: [groupId], references: [id])
+  user  User  @relation(fields: [userId], references: [id])
 
   @@unique([groupId, userId])
 }

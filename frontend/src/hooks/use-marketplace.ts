@@ -12,7 +12,9 @@ import {
   updateProduct,
   deleteProduct,
   createOrder,
-  initiatePayment
+  initiatePayment,
+  getStoreOrders,
+  getMyOrders
 } from "@/services/marketplace.service"
 import { toast } from "sonner"
 
@@ -84,10 +86,40 @@ export function useCreateProduct() {
   })
 }
 
+export function useUpdateProduct() {
+  const queryClient = useQueryClient()
+  return useMutation({
+    mutationFn: ({ id, data }: { id: string, data: any }) => updateProduct(id, data),
+    onSuccess: () => {
+      queryClient.invalidateQueries({ queryKey: ["products"] })
+      toast.success("Product updated successfully!")
+    },
+    onError: (error: any) => {
+      toast.error(error.response?.data?.message || "Failed to update product")
+    }
+  })
+}
+
+export function useDeleteProduct() {
+  const queryClient = useQueryClient()
+  return useMutation({
+    mutationFn: deleteProduct,
+    onSuccess: () => {
+      queryClient.invalidateQueries({ queryKey: ["products"] })
+      toast.success("Product deleted successfully!")
+    },
+    onError: (error: any) => {
+      toast.error(error.response?.data?.message || "Failed to delete product")
+    }
+  })
+}
+
 export function useCreateOrder() {
+  const queryClient = useQueryClient()
   return useMutation({
     mutationFn: createOrder,
     onSuccess: (data: any) => {
+      queryClient.invalidateQueries({ queryKey: ["store-orders"] })
       toast.success("Order placed successfully!")
     },
     onError: (error: any) => {
@@ -107,5 +139,19 @@ export function useInitiatePayment() {
     onError: (error: any) => {
       toast.error(error.response?.data?.message || "Failed to initiate payment")
     }
+  })
+}
+
+export function useStoreOrders() {
+  return useQuery({
+    queryKey: ["store-orders"],
+    queryFn: getStoreOrders,
+  })
+}
+
+export function useMyOrders() {
+  return useQuery({
+    queryKey: ["my-orders"],
+    queryFn: getMyOrders,
   })
 }

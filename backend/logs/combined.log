@@ -1434,3 +1434,286 @@ Learn more about webhook signing and explore webhook integration examples for va
 2026-03-27 07:19:16 [[32minfo[39m]: User HudJwZLQ3tfbYVDeoGAUroO869vtobrA joined their private room
 2026-03-27 07:19:16 [[32minfo[39m]: User HudJwZLQ3tfbYVDeoGAUroO869vtobrA joined group_f4a54ed1-8ca0-4cc0-ac13-e2059fd48c16
 2026-03-27 07:19:16 [[32minfo[39m]: User HudJwZLQ3tfbYVDeoGAUroO869vtobrA joined group_ee0da3b3-fead-48d2-b5eb-4e8d82c3f44c
+2026-03-27 19:25:54 [[32minfo[39m]: Initializing Socket.IO...
+2026-03-27 19:28:55 [[32minfo[39m]: User BADlcNbtD3Ei0uxpTOGRWR1NIFqx4XUX joined their private room
+2026-03-27 19:29:32 [[32minfo[39m]: Socket disconnected: GVXOCzYChaviQorfAAAB
+2026-03-27 19:29:32 [[32minfo[39m]: User BADlcNbtD3Ei0uxpTOGRWR1NIFqx4XUX joined their private room
+2026-03-27 19:29:45 [[32minfo[39m]: Socket disconnected: l7bKQRomyUenPaKoAAAD
+2026-03-27 19:30:23 [[32minfo[39m]: User 7EluokxLKkjqvmlYeWx0vroW7VqVZSQk joined their private room
+2026-03-27 19:32:01 [[32minfo[39m]: Socket disconnected: fCjcCHySFSbdAlnNAAAF
+2026-03-27 19:32:07 [[32minfo[39m]: User 7EluokxLKkjqvmlYeWx0vroW7VqVZSQk joined their private room
+2026-03-27 19:32:56 [[32minfo[39m]: Socket disconnected: 88BXkItlR_Oufth7AAAH
+2026-03-27 19:37:25 [[32minfo[39m]: Initializing Socket.IO...
+2026-03-27 19:51:25 [[32minfo[39m]: Initializing Socket.IO...
+2026-03-27 19:51:45 [[32minfo[39m]: User 7EluokxLKkjqvmlYeWx0vroW7VqVZSQk joined their private room
+2026-03-27 19:53:55 [[32minfo[39m]: Socket disconnected: N1-_93bQLpny6RsrAAAB
+2026-03-27 19:53:56 [[32minfo[39m]: User 7EluokxLKkjqvmlYeWx0vroW7VqVZSQk joined their private room
+2026-03-27 19:55:05 [[32minfo[39m]: Initializing Socket.IO...
+2026-03-27 19:55:07 [[32minfo[39m]: User 7EluokxLKkjqvmlYeWx0vroW7VqVZSQk joined their private room
+2026-03-27 19:55:16 [[32minfo[39m]: Socket disconnected: qvpia_B3PMcVGTbIAAAB
+2026-03-27 19:55:50 [[32minfo[39m]: User 7EluokxLKkjqvmlYeWx0vroW7VqVZSQk joined their private room
+2026-03-27 19:58:11 [[32minfo[39m]: Socket disconnected: VBMwYswwPuOa4phXAAAD
+2026-03-27 19:58:11 [[32minfo[39m]: User 7EluokxLKkjqvmlYeWx0vroW7VqVZSQk joined their private room
+2026-03-27 19:58:45 [[32minfo[39m]: Socket disconnected: 5z_iuuYNPQnWqI2lAAAF
+2026-03-27 19:58:46 [[32minfo[39m]: User 7EluokxLKkjqvmlYeWx0vroW7VqVZSQk joined their private room
+2026-03-27 20:00:08 [[32minfo[39m]: Initializing Socket.IO...
+2026-03-27 20:00:10 [[32minfo[39m]: User 7EluokxLKkjqvmlYeWx0vroW7VqVZSQk joined their private room
+2026-03-27 20:00:59 [[32minfo[39m]: Socket disconnected: NsMMcC0RnX2m88KGAAAB
+2026-03-27 20:01:41 [[32minfo[39m]: User 7EluokxLKkjqvmlYeWx0vroW7VqVZSQk joined their private room
+2026-03-27 20:01:45 [[32minfo[39m]: Socket disconnected: A8Q2buyF0t-86pQVAAAD
+2026-03-27 20:01:45 [[32minfo[39m]: User 7EluokxLKkjqvmlYeWx0vroW7VqVZSQk joined their private room
+2026-03-27 20:01:46 [[32minfo[39m]: Socket disconnected: LF-RwrASAI7iBYaYAAAF
+2026-03-27 20:01:47 [[32minfo[39m]: User 7EluokxLKkjqvmlYeWx0vroW7VqVZSQk joined their private room
+2026-03-27 20:02:12 [[32minfo[39m]: Socket disconnected: JkE2RhTKsLumlPIRAAAH
+2026-03-27 20:02:13 [[32minfo[39m]: User 7EluokxLKkjqvmlYeWx0vroW7VqVZSQk joined their private room
+2026-03-27 20:04:09 [[32minfo[39m]: Socket disconnected: NI06mQd1LQ-anPLUAAAJ
+2026-03-27 20:04:16 [[32minfo[39m]: User 7EluokxLKkjqvmlYeWx0vroW7VqVZSQk joined their private room
+2026-03-27 20:04:19 [[32minfo[39m]: Socket disconnected: hKfYxKVPDVpG0acPAAAL
+2026-03-27 20:05:45 [[32minfo[39m]: User 7EluokxLKkjqvmlYeWx0vroW7VqVZSQk joined their private room
+2026-03-27 20:05:48 [[32minfo[39m]: Socket disconnected: vIKOts3MqeqHrNhzAAAN
+2026-03-27 20:05:54 [[32minfo[39m]: User 7EluokxLKkjqvmlYeWx0vroW7VqVZSQk joined their private room
+2026-03-27 20:07:53 [[32minfo[39m]: Socket disconnected: BbwvQOpCCCpiBI7EAAAP
+2026-03-27 20:09:29 [[32minfo[39m]: User 7EluokxLKkjqvmlYeWx0vroW7VqVZSQk joined their private room
+2026-03-27 20:11:18 [[32minfo[39m]: Socket disconnected: HCQEszYIl6KMg-19AAAR
+2026-03-27 20:11:49 [[32minfo[39m]: User 7EluokxLKkjqvmlYeWx0vroW7VqVZSQk joined their private room
+2026-03-27 20:15:23 [[32minfo[39m]: Socket disconnected: yLkf-KcQzWY5NJBDAAAT
+2026-03-27 20:15:39 [[32minfo[39m]: User 7EluokxLKkjqvmlYeWx0vroW7VqVZSQk joined their private room
+2026-03-27 20:15:41 [[32minfo[39m]: Socket disconnected: cN-r06GZR4vBKL3kAAAV
+2026-03-27 20:15:41 [[32minfo[39m]: User 7EluokxLKkjqvmlYeWx0vroW7VqVZSQk joined their private room
+2026-03-27 20:15:42 [[32minfo[39m]: Socket disconnected: N0dldba1gHxmwrF9AAAX
+2026-03-27 20:15:43 [[32minfo[39m]: User 7EluokxLKkjqvmlYeWx0vroW7VqVZSQk joined their private room
+2026-03-27 20:20:40 [[32minfo[39m]: User ijh9v1rqgv5xwH9Ej0u6jb2aLzR21b1R joined their private room
+2026-03-27 20:20:44 [[32minfo[39m]: Socket disconnected: d1EaxRqe3mC-k0MSAAAb
+2026-03-27 20:20:44 [[32minfo[39m]: User ijh9v1rqgv5xwH9Ej0u6jb2aLzR21b1R joined their private room
+2026-03-27 20:22:14 [[32minfo[39m]: Socket disconnected: FM7qts__j2pvHxxcAAAd
+2026-03-27 20:22:14 [[32minfo[39m]: User ijh9v1rqgv5xwH9Ej0u6jb2aLzR21b1R joined their private room
+2026-03-27 20:22:30 [[32minfo[39m]: Socket disconnected: 82tdHAT6rDY3xp0TAAAf
+2026-03-27 20:23:19 [[32minfo[39m]: User ViNG4RSXmz9lJJQdyfssGCQdIUucpq9u joined their private room
+2026-03-27 20:24:08 [[32minfo[39m]: Socket disconnected: wFWWI6NinRDpzptXAAAh
+2026-03-27 20:26:03 [[32minfo[39m]: User ViNG4RSXmz9lJJQdyfssGCQdIUucpq9u joined their private room
+2026-03-27 20:27:01 [[31merror[39m]: Error: Store not found
+    at Object.getStoreOrders (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/module/order/order.service.ts:100:21)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async <anonymous> (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/module/order/order.controller.ts:30:18)
+    at async <anonymous> (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/utils/catchAsync.ts:6:7)
+2026-03-27 20:27:02 [[31merror[39m]: Error: Store not found
+    at Object.getStoreOrders (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/module/order/order.service.ts:100:21)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async <anonymous> (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/module/order/order.controller.ts:30:18)
+    at async <anonymous> (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/utils/catchAsync.ts:6:7)
+2026-03-27 20:28:05 [[32minfo[39m]: Socket disconnected: v9g3xnWHO7Z45_FfAAAj
+2026-03-27 20:28:37 [[32minfo[39m]: User ViNG4RSXmz9lJJQdyfssGCQdIUucpq9u joined their private room
+2026-03-27 20:28:56 [[31merror[39m]: Error: Store not found
+    at Object.getStoreOrders (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/module/order/order.service.ts:100:21)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async <anonymous> (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/module/order/order.controller.ts:30:18)
+    at async <anonymous> (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/utils/catchAsync.ts:6:7)
+2026-03-27 20:28:57 [[31merror[39m]: Error: Store not found
+    at Object.getStoreOrders (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/module/order/order.service.ts:100:21)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async <anonymous> (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/module/order/order.controller.ts:30:18)
+    at async <anonymous> (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/utils/catchAsync.ts:6:7)
+2026-03-27 20:28:59 [[31merror[39m]: Error: Store not found
+    at Object.getStoreOrders (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/module/order/order.service.ts:100:21)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async <anonymous> (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/module/order/order.controller.ts:30:18)
+    at async <anonymous> (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/utils/catchAsync.ts:6:7)
+2026-03-27 20:29:03 [[31merror[39m]: Error: Store not found
+    at Object.getStoreOrders (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/module/order/order.service.ts:100:21)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async <anonymous> (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/module/order/order.controller.ts:30:18)
+    at async <anonymous> (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/utils/catchAsync.ts:6:7)
+2026-03-27 20:29:48 [[31merror[39m]: Error: Store not found
+    at Object.getStoreOrders (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/module/order/order.service.ts:100:21)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async <anonymous> (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/module/order/order.controller.ts:30:18)
+    at async <anonymous> (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/utils/catchAsync.ts:6:7)
+2026-03-27 20:29:49 [[31merror[39m]: Error: Store not found
+    at Object.getStoreOrders (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/module/order/order.service.ts:100:21)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async <anonymous> (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/module/order/order.controller.ts:30:18)
+    at async <anonymous> (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/utils/catchAsync.ts:6:7)
+2026-03-27 20:30:39 [[31merror[39m]: Error: Store not found
+    at Object.getStoreOrders (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/module/order/order.service.ts:100:21)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async <anonymous> (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/module/order/order.controller.ts:30:18)
+    at async <anonymous> (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/utils/catchAsync.ts:6:7)
+2026-03-27 20:30:43 [[32minfo[39m]: Socket disconnected: GeKmzGvpGInLtpzWAAAl
+2026-03-27 20:30:43 [[31merror[39m]: Error: Store not found
+    at Object.getStoreOrders (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/module/order/order.service.ts:100:21)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async <anonymous> (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/module/order/order.controller.ts:30:18)
+    at async <anonymous> (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/utils/catchAsync.ts:6:7)
+2026-03-27 20:30:43 [[32minfo[39m]: User ViNG4RSXmz9lJJQdyfssGCQdIUucpq9u joined their private room
+2026-03-27 20:30:44 [[31merror[39m]: Error: Store not found
+    at Object.getStoreOrders (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/module/order/order.service.ts:100:21)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async <anonymous> (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/module/order/order.controller.ts:30:18)
+    at async <anonymous> (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/utils/catchAsync.ts:6:7)
+2026-03-27 20:30:46 [[31merror[39m]: Error: Store not found
+    at Object.getStoreOrders (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/module/order/order.service.ts:100:21)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async <anonymous> (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/module/order/order.controller.ts:30:18)
+    at async <anonymous> (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/utils/catchAsync.ts:6:7)
+2026-03-27 20:34:29 [[32minfo[39m]: Socket disconnected: Ks-2FaZ5m-ptNmcCAAAn
+2026-03-27 20:34:29 [[32minfo[39m]: User ViNG4RSXmz9lJJQdyfssGCQdIUucpq9u joined their private room
+2026-03-27 20:37:35 [[32minfo[39m]: Initializing Socket.IO...
+2026-03-27 20:37:38 [[32minfo[39m]: User ViNG4RSXmz9lJJQdyfssGCQdIUucpq9u joined their private room
+2026-03-27 20:37:39 [[32minfo[39m]: User 7EluokxLKkjqvmlYeWx0vroW7VqVZSQk joined their private room
+2026-03-27 20:37:51 [[32minfo[39m]: Initializing Socket.IO...
+2026-03-27 20:37:51 [[32minfo[39m]: User ViNG4RSXmz9lJJQdyfssGCQdIUucpq9u joined their private room
+2026-03-27 20:37:52 [[32minfo[39m]: User 7EluokxLKkjqvmlYeWx0vroW7VqVZSQk joined their private room
+2026-03-27 20:38:32 [[32minfo[39m]: Socket disconnected: CLEpFr1SerFf9HxhAAAD
+2026-03-27 20:40:41 [[32minfo[39m]: Socket disconnected: 8kkL5Y_ltWMLuGw5AAAB
+2026-03-27 20:40:41 [[32minfo[39m]: User ViNG4RSXmz9lJJQdyfssGCQdIUucpq9u joined their private room
+2026-03-27 20:41:44 [[31merror[39m]: Error: Store not found
+    at Object.getStoreOrders (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/module/order/order.service.ts:100:21)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async <anonymous> (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/module/order/order.controller.ts:30:18)
+    at async <anonymous> (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/utils/catchAsync.ts:6:7)
+2026-03-27 20:41:45 [[31merror[39m]: Error: Store not found
+    at Object.getStoreOrders (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/module/order/order.service.ts:100:21)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async <anonymous> (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/module/order/order.controller.ts:30:18)
+    at async <anonymous> (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/utils/catchAsync.ts:6:7)
+2026-03-27 20:42:05 [[31merror[39m]: Error: Store not found
+    at Object.getStoreOrders (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/module/order/order.service.ts:100:21)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async <anonymous> (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/module/order/order.controller.ts:30:18)
+    at async <anonymous> (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/utils/catchAsync.ts:6:7)
+2026-03-27 20:42:06 [[31merror[39m]: Error: Store not found
+    at Object.getStoreOrders (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/module/order/order.service.ts:100:21)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async <anonymous> (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/module/order/order.controller.ts:30:18)
+    at async <anonymous> (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/utils/catchAsync.ts:6:7)
+2026-03-27 20:42:08 [[31merror[39m]: Error: Store not found
+    at Object.getStoreOrders (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/module/order/order.service.ts:100:21)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async <anonymous> (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/module/order/order.controller.ts:30:18)
+    at async <anonymous> (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/utils/catchAsync.ts:6:7)
+2026-03-27 20:42:22 [[31merror[39m]: Error: Store not found
+    at Object.getStoreOrders (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/module/order/order.service.ts:100:21)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async <anonymous> (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/module/order/order.controller.ts:30:18)
+    at async <anonymous> (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/utils/catchAsync.ts:6:7)
+2026-03-27 20:42:23 [[31merror[39m]: Error: Store not found
+    at Object.getStoreOrders (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/module/order/order.service.ts:100:21)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async <anonymous> (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/module/order/order.controller.ts:30:18)
+    at async <anonymous> (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/utils/catchAsync.ts:6:7)
+2026-03-27 20:42:25 [[31merror[39m]: Error: Store not found
+    at Object.getStoreOrders (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/module/order/order.service.ts:100:21)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async <anonymous> (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/module/order/order.controller.ts:30:18)
+    at async <anonymous> (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/utils/catchAsync.ts:6:7)
+2026-03-27 20:42:55 [[32minfo[39m]: User 7EluokxLKkjqvmlYeWx0vroW7VqVZSQk joined their private room
+2026-03-27 20:43:11 [[32minfo[39m]: Socket disconnected: tKUcMjOhmU6RL6B3AAAH
+2026-03-27 20:43:12 [[32minfo[39m]: User 7EluokxLKkjqvmlYeWx0vroW7VqVZSQk joined their private room
+2026-03-27 20:43:12 [[32minfo[39m]: Socket disconnected: e_BHIQMsY1kEBdpxAAAJ
+2026-03-27 20:43:13 [[32minfo[39m]: User 7EluokxLKkjqvmlYeWx0vroW7VqVZSQk joined their private room
+2026-03-27 20:43:13 [[32minfo[39m]: Socket disconnected: 91L0Ri9t4jFgNMMOAAAL
+2026-03-27 20:43:13 [[32minfo[39m]: User 7EluokxLKkjqvmlYeWx0vroW7VqVZSQk joined their private room
+2026-03-27 20:43:13 [[32minfo[39m]: Socket disconnected: Mqby_s7uddc9QLv1AAAN
+2026-03-27 20:43:13 [[32minfo[39m]: User 7EluokxLKkjqvmlYeWx0vroW7VqVZSQk joined their private room
+2026-03-27 20:43:13 [[32minfo[39m]: Socket disconnected: QbthfHA1sQ_sERbBAAAP
+2026-03-27 20:43:14 [[32minfo[39m]: User 7EluokxLKkjqvmlYeWx0vroW7VqVZSQk joined their private room
+2026-03-27 20:43:14 [[32minfo[39m]: Socket disconnected: 8AeOBQvvf0FZMVIvAAAR
+2026-03-27 20:43:14 [[32minfo[39m]: User 7EluokxLKkjqvmlYeWx0vroW7VqVZSQk joined their private room
+2026-03-27 20:43:14 [[32minfo[39m]: Socket disconnected: QGaLyj4_VNTYvkThAAAT
+2026-03-27 20:43:14 [[32minfo[39m]: User 7EluokxLKkjqvmlYeWx0vroW7VqVZSQk joined their private room
+2026-03-27 20:44:13 [[31merror[39m]: Error: Store not found
+    at Object.getStoreOrders (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/module/order/order.service.ts:100:21)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async <anonymous> (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/module/order/order.controller.ts:30:18)
+    at async <anonymous> (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/utils/catchAsync.ts:6:7)
+2026-03-27 20:52:36 [[31merror[39m]: Error: Session not found
+    at Object.getMe (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/module/auth/auth.service.ts:105:15)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async <anonymous> (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/module/auth/auth.controller.ts:127:20)
+    at async <anonymous> (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/utils/catchAsync.ts:6:7)
+2026-03-27 20:52:36 [[32minfo[39m]: Socket disconnected: IgHKWAhCJhs8b4aFAAAF
+2026-03-27 20:54:25 [[31merror[39m]: Error: You are not authorized
+    at <anonymous> (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/middleware/auth.ts:52:15)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+2026-03-27 20:54:25 [[31merror[39m]: Error: You are not authorized
+    at <anonymous> (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/middleware/auth.ts:52:15)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+2026-03-27 20:54:26 [[31merror[39m]: Error: You are not authorized
+    at <anonymous> (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/middleware/auth.ts:52:15)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+2026-03-27 20:54:30 [[32minfo[39m]: User ViNG4RSXmz9lJJQdyfssGCQdIUucpq9u joined their private room
+2026-03-27 20:54:42 [[32minfo[39m]: Socket disconnected: khvxDFVFqAnDs6zHAAAV
+2026-03-27 20:54:42 [[32minfo[39m]: User 7EluokxLKkjqvmlYeWx0vroW7VqVZSQk joined their private room
+2026-03-27 20:54:59 [[32minfo[39m]: Socket disconnected: veSTOCHCTF37m_iMAAAZ
+2026-03-27 20:55:00 [[32minfo[39m]: User 7EluokxLKkjqvmlYeWx0vroW7VqVZSQk joined their private room
+2026-03-27 20:55:01 [[32minfo[39m]: Socket disconnected: bxtKMsv37aHFaJ2pAAAb
+2026-03-27 20:55:02 [[32minfo[39m]: User 7EluokxLKkjqvmlYeWx0vroW7VqVZSQk joined their private room
+2026-03-27 20:55:28 [[32minfo[39m]: Socket disconnected: qfFCEfzg0npVbHRvAAAd
+2026-03-27 20:55:29 [[32minfo[39m]: User 7EluokxLKkjqvmlYeWx0vroW7VqVZSQk joined their private room
+2026-03-27 20:55:32 [[32minfo[39m]: Socket disconnected: Eik2Awj0l9BKBcNqAAAf
+2026-03-27 20:55:32 [[32minfo[39m]: User 7EluokxLKkjqvmlYeWx0vroW7VqVZSQk joined their private room
+2026-03-27 20:55:33 [[32minfo[39m]: Socket disconnected: E6H-ls4VvyTsddE3AAAh
+2026-03-27 20:55:33 [[32minfo[39m]: User 7EluokxLKkjqvmlYeWx0vroW7VqVZSQk joined their private room
+2026-03-27 20:55:36 [[32minfo[39m]: Socket disconnected: _p52YZzhE19R2ufRAAAj
+2026-03-27 20:55:37 [[32minfo[39m]: User 7EluokxLKkjqvmlYeWx0vroW7VqVZSQk joined their private room
+2026-03-27 20:57:11 [[32minfo[39m]: Socket disconnected: bDt4KLmE5EytkOayAAAl
+2026-03-27 20:57:11 [[31merror[39m]: Error: Session not found
+    at Object.getMe (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/module/auth/auth.service.ts:105:15)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async <anonymous> (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/module/auth/auth.controller.ts:127:20)
+    at async <anonymous> (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/utils/catchAsync.ts:6:7)
+2026-03-27 20:59:10 [[32minfo[39m]: User 7EluokxLKkjqvmlYeWx0vroW7VqVZSQk joined their private room
+2026-03-27 21:05:03 [[32minfo[39m]: Initializing Socket.IO...
+2026-03-27 21:05:05 [[32minfo[39m]: User ViNG4RSXmz9lJJQdyfssGCQdIUucpq9u joined their private room
+2026-03-27 21:05:05 [[32minfo[39m]: User 7EluokxLKkjqvmlYeWx0vroW7VqVZSQk joined their private room
+2026-03-27 21:05:31 [[32minfo[39m]: Initializing Socket.IO...
+2026-03-27 21:05:31 [[32minfo[39m]: User ViNG4RSXmz9lJJQdyfssGCQdIUucpq9u joined their private room
+2026-03-27 21:05:34 [[32minfo[39m]: User 7EluokxLKkjqvmlYeWx0vroW7VqVZSQk joined their private room
+2026-03-27 21:05:46 [[32minfo[39m]: Initializing Socket.IO...
+2026-03-27 21:05:47 [[32minfo[39m]: Initializing Socket.IO...
+2026-03-27 21:17:46 [[32minfo[39m]: Initializing Socket.IO...
+2026-03-27 21:17:53 [[32minfo[39m]: Initializing Socket.IO...
+2026-03-27 21:18:39 [[32minfo[39m]: User 7EluokxLKkjqvmlYeWx0vroW7VqVZSQk joined their private room
+2026-03-27 21:18:41 [[32minfo[39m]: Socket disconnected: igEG_mVd1TQPc6HQAAAB
+2026-03-27 21:18:46 [[32minfo[39m]: Initializing Socket.IO...
+2026-03-27 21:19:06 [[32minfo[39m]: User 7EluokxLKkjqvmlYeWx0vroW7VqVZSQk joined their private room
+2026-03-27 21:19:11 [[32minfo[39m]: Socket disconnected: VUDtLAttkNrZ4bK8AAAB
+2026-03-27 21:19:12 [[32minfo[39m]: User 7EluokxLKkjqvmlYeWx0vroW7VqVZSQk joined their private room
+2026-03-27 21:19:14 [[32minfo[39m]: Socket disconnected: KhJFVZVDtHledWaKAAAD
+2026-03-27 21:19:18 [[32minfo[39m]: User 7EluokxLKkjqvmlYeWx0vroW7VqVZSQk joined their private room
+2026-03-27 21:19:34 [[32minfo[39m]: Initializing Socket.IO...
+2026-03-27 21:19:35 [[32minfo[39m]: User 7EluokxLKkjqvmlYeWx0vroW7VqVZSQk joined their private room
+2026-03-27 21:19:49 [[32minfo[39m]: Initializing Socket.IO...
+2026-03-27 21:19:49 [[32minfo[39m]: User 7EluokxLKkjqvmlYeWx0vroW7VqVZSQk joined their private room
+2026-03-27 21:21:40 [[32minfo[39m]: Socket disconnected: jU_bduTY48JLJ-p9AAAB
+2026-03-27 21:22:01 [[32minfo[39m]: User 7EluokxLKkjqvmlYeWx0vroW7VqVZSQk joined their private room
+2026-03-27 21:22:56 [[32minfo[39m]: Socket disconnected: 31Slo5xhYWTrW9YbAAAD
+2026-03-27 21:23:07 [[32minfo[39m]: User 7EluokxLKkjqvmlYeWx0vroW7VqVZSQk joined their private room
+2026-03-27 21:24:35 [[32minfo[39m]: Socket disconnected: PteDJzr01rrJF9GhAAAF
+2026-03-27 21:24:53 [[32minfo[39m]: User 7EluokxLKkjqvmlYeWx0vroW7VqVZSQk joined their private room
+2026-03-27 21:27:35 [[32minfo[39m]: Socket disconnected: lAcM9jLqgKpPQAExAAAH
+2026-03-27 21:27:36 [[32minfo[39m]: User 7EluokxLKkjqvmlYeWx0vroW7VqVZSQk joined their private room
+2026-03-27 21:27:36 [[32minfo[39m]: Socket disconnected: 8IdbYZVKFnHYrf6NAAAJ
+2026-03-27 21:27:37 [[32minfo[39m]: User 7EluokxLKkjqvmlYeWx0vroW7VqVZSQk joined their private room
+2026-03-27 21:30:41 [[32minfo[39m]: Socket disconnected: zYO1b3W_ju1hYmjpAAAL
+2026-03-27 21:30:41 [[31merror[39m]: Error: Session not found
+    at Object.getMe (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/module/auth/auth.service.ts:105:15)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async <anonymous> (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/module/auth/auth.controller.ts:127:20)
+    at async <anonymous> (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/utils/catchAsync.ts:6:7)
+2026-03-27 21:30:50 [[31merror[39m]: Error: You are not authorized
+    at <anonymous> (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/middleware/auth.ts:52:15)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+2026-03-27 21:31:34 [[31merror[39m]: Error: You are not authorized
+    at <anonymous> (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/middleware/auth.ts:52:15)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+2026-03-27 21:31:41 [[31merror[39m]: Error: You are not authorized
+    at <anonymous> (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/middleware/auth.ts:52:15)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+2026-03-27 21:33:58 [[32minfo[39m]: User 7EluokxLKkjqvmlYeWx0vroW7VqVZSQk joined their private room
+2026-03-27 21:35:38 [[32minfo[39m]: Socket disconnected: TSHtOxEzT_-c3VWJAAAN
+2026-03-27 21:35:39 [[32minfo[39m]: User 7EluokxLKkjqvmlYeWx0vroW7VqVZSQk joined their private room
+2026-03-27 21:36:12 [[32minfo[39m]: Socket disconnected: hucOJyVfE4eDpXnFAAAP
+2026-03-27 21:36:12 [[32minfo[39m]: User 7EluokxLKkjqvmlYeWx0vroW7VqVZSQk joined their private room
+2026-03-27 21:36:13 [[32minfo[39m]: Socket disconnected: IqBdVsLENAb7VEnNAAAR
+2026-03-27 21:36:13 [[32minfo[39m]: User 7EluokxLKkjqvmlYeWx0vroW7VqVZSQk joined their private room

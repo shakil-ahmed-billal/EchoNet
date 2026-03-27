@@ -820,3 +820,141 @@ Learn more about webhook signing and explore webhook integration examples for va
     at Layer.handleRequest (C:\Shakil Dev\EchoNet\backend\node_modules\.pnpm\router@2.2.0\node_modules\router\lib\layer.js:152:17)
     at C:\Shakil Dev\EchoNet\backend\node_modules\.pnpm\router@2.2.0\node_modules\router\index.js:295:15
     at processParams (C:\Shakil Dev\EchoNet\backend\node_modules\.pnpm\router@2.2.0\node_modules\router\index.js:582:12)
+2026-03-27 20:27:01 [[31merror[39m]: Error: Store not found
+    at Object.getStoreOrders (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/module/order/order.service.ts:100:21)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async <anonymous> (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/module/order/order.controller.ts:30:18)
+    at async <anonymous> (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/utils/catchAsync.ts:6:7)
+2026-03-27 20:27:02 [[31merror[39m]: Error: Store not found
+    at Object.getStoreOrders (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/module/order/order.service.ts:100:21)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async <anonymous> (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/module/order/order.controller.ts:30:18)
+    at async <anonymous> (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/utils/catchAsync.ts:6:7)
+2026-03-27 20:28:56 [[31merror[39m]: Error: Store not found
+    at Object.getStoreOrders (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/module/order/order.service.ts:100:21)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async <anonymous> (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/module/order/order.controller.ts:30:18)
+    at async <anonymous> (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/utils/catchAsync.ts:6:7)
+2026-03-27 20:28:57 [[31merror[39m]: Error: Store not found
+    at Object.getStoreOrders (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/module/order/order.service.ts:100:21)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async <anonymous> (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/module/order/order.controller.ts:30:18)
+    at async <anonymous> (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/utils/catchAsync.ts:6:7)
+2026-03-27 20:28:59 [[31merror[39m]: Error: Store not found
+    at Object.getStoreOrders (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/module/order/order.service.ts:100:21)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async <anonymous> (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/module/order/order.controller.ts:30:18)
+    at async <anonymous> (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/utils/catchAsync.ts:6:7)
+2026-03-27 20:29:03 [[31merror[39m]: Error: Store not found
+    at Object.getStoreOrders (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/module/order/order.service.ts:100:21)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async <anonymous> (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/module/order/order.controller.ts:30:18)
+    at async <anonymous> (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/utils/catchAsync.ts:6:7)
+2026-03-27 20:29:48 [[31merror[39m]: Error: Store not found
+    at Object.getStoreOrders (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/module/order/order.service.ts:100:21)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async <anonymous> (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/module/order/order.controller.ts:30:18)
+    at async <anonymous> (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/utils/catchAsync.ts:6:7)
+2026-03-27 20:29:49 [[31merror[39m]: Error: Store not found
+    at Object.getStoreOrders (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/module/order/order.service.ts:100:21)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async <anonymous> (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/module/order/order.controller.ts:30:18)
+    at async <anonymous> (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/utils/catchAsync.ts:6:7)
+2026-03-27 20:30:39 [[31merror[39m]: Error: Store not found
+    at Object.getStoreOrders (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/module/order/order.service.ts:100:21)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async <anonymous> (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/module/order/order.controller.ts:30:18)
+    at async <anonymous> (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/utils/catchAsync.ts:6:7)
+2026-03-27 20:30:43 [[31merror[39m]: Error: Store not found
+    at Object.getStoreOrders (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/module/order/order.service.ts:100:21)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async <anonymous> (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/module/order/order.controller.ts:30:18)
+    at async <anonymous> (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/utils/catchAsync.ts:6:7)
+2026-03-27 20:30:44 [[31merror[39m]: Error: Store not found
+    at Object.getStoreOrders (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/module/order/order.service.ts:100:21)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async <anonymous> (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/module/order/order.controller.ts:30:18)
+    at async <anonymous> (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/utils/catchAsync.ts:6:7)
+2026-03-27 20:30:46 [[31merror[39m]: Error: Store not found
+    at Object.getStoreOrders (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/module/order/order.service.ts:100:21)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async <anonymous> (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/module/order/order.controller.ts:30:18)
+    at async <anonymous> (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/utils/catchAsync.ts:6:7)
+2026-03-27 20:41:44 [[31merror[39m]: Error: Store not found
+    at Object.getStoreOrders (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/module/order/order.service.ts:100:21)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async <anonymous> (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/module/order/order.controller.ts:30:18)
+    at async <anonymous> (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/utils/catchAsync.ts:6:7)
+2026-03-27 20:41:45 [[31merror[39m]: Error: Store not found
+    at Object.getStoreOrders (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/module/order/order.service.ts:100:21)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async <anonymous> (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/module/order/order.controller.ts:30:18)
+    at async <anonymous> (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/utils/catchAsync.ts:6:7)
+2026-03-27 20:42:05 [[31merror[39m]: Error: Store not found
+    at Object.getStoreOrders (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/module/order/order.service.ts:100:21)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async <anonymous> (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/module/order/order.controller.ts:30:18)
+    at async <anonymous> (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/utils/catchAsync.ts:6:7)
+2026-03-27 20:42:06 [[31merror[39m]: Error: Store not found
+    at Object.getStoreOrders (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/module/order/order.service.ts:100:21)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async <anonymous> (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/module/order/order.controller.ts:30:18)
+    at async <anonymous> (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/utils/catchAsync.ts:6:7)
+2026-03-27 20:42:08 [[31merror[39m]: Error: Store not found
+    at Object.getStoreOrders (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/module/order/order.service.ts:100:21)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async <anonymous> (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/module/order/order.controller.ts:30:18)
+    at async <anonymous> (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/utils/catchAsync.ts:6:7)
+2026-03-27 20:42:22 [[31merror[39m]: Error: Store not found
+    at Object.getStoreOrders (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/module/order/order.service.ts:100:21)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async <anonymous> (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/module/order/order.controller.ts:30:18)
+    at async <anonymous> (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/utils/catchAsync.ts:6:7)
+2026-03-27 20:42:23 [[31merror[39m]: Error: Store not found
+    at Object.getStoreOrders (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/module/order/order.service.ts:100:21)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async <anonymous> (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/module/order/order.controller.ts:30:18)
+    at async <anonymous> (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/utils/catchAsync.ts:6:7)
+2026-03-27 20:42:25 [[31merror[39m]: Error: Store not found
+    at Object.getStoreOrders (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/module/order/order.service.ts:100:21)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async <anonymous> (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/module/order/order.controller.ts:30:18)
+    at async <anonymous> (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/utils/catchAsync.ts:6:7)
+2026-03-27 20:44:13 [[31merror[39m]: Error: Store not found
+    at Object.getStoreOrders (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/module/order/order.service.ts:100:21)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async <anonymous> (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/module/order/order.controller.ts:30:18)
+    at async <anonymous> (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/utils/catchAsync.ts:6:7)
+2026-03-27 20:52:36 [[31merror[39m]: Error: Session not found
+    at Object.getMe (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/module/auth/auth.service.ts:105:15)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async <anonymous> (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/module/auth/auth.controller.ts:127:20)
+    at async <anonymous> (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/utils/catchAsync.ts:6:7)
+2026-03-27 20:54:25 [[31merror[39m]: Error: You are not authorized
+    at <anonymous> (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/middleware/auth.ts:52:15)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+2026-03-27 20:54:25 [[31merror[39m]: Error: You are not authorized
+    at <anonymous> (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/middleware/auth.ts:52:15)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+2026-03-27 20:54:26 [[31merror[39m]: Error: You are not authorized
+    at <anonymous> (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/middleware/auth.ts:52:15)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+2026-03-27 20:57:11 [[31merror[39m]: Error: Session not found
+    at Object.getMe (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/module/auth/auth.service.ts:105:15)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async <anonymous> (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/module/auth/auth.controller.ts:127:20)
+    at async <anonymous> (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/utils/catchAsync.ts:6:7)
+2026-03-27 21:30:41 [[31merror[39m]: Error: Session not found
+    at Object.getMe (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/module/auth/auth.service.ts:105:15)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async <anonymous> (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/module/auth/auth.controller.ts:127:20)
+    at async <anonymous> (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/utils/catchAsync.ts:6:7)
+2026-03-27 21:30:50 [[31merror[39m]: Error: You are not authorized
+    at <anonymous> (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/middleware/auth.ts:52:15)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+2026-03-27 21:31:34 [[31merror[39m]: Error: You are not authorized
+    at <anonymous> (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/middleware/auth.ts:52:15)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+2026-03-27 21:31:41 [[31merror[39m]: Error: You are not authorized
+    at <anonymous> (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/middleware/auth.ts:52:15)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)

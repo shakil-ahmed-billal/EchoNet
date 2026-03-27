@@ -20,7 +20,7 @@ export default function ProductDetailPage() {
 
   if (isLoading) {
     return (
-      <div className="flex flex-col gap-6 max-w-5xl mx-auto px-4 py-8">
+      <div className="flex flex-col gap-6 mx-auto py-8">
         <Skeleton className="h-10 w-32" />
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           <Skeleton className="aspect-square rounded-3xl" />
@@ -51,7 +51,7 @@ export default function ProductDetailPage() {
   }
 
   return (
-    <div className="flex flex-col gap-6 max-w-5xl mx-auto px-4 py-8">
+    <div className="flex h-full flex-col gap-6 mx-auto py-8">
       <Link 
         href="/marketplace" 
         className="flex items-center gap-2 text-muted-foreground hover:text-primary transition-colors w-fit"
@@ -77,7 +77,7 @@ export default function ProductDetailPage() {
              )}
           </div>
           <div className="grid grid-cols-4 gap-2">
-            {product.images?.slice(1).map((img, i) => (
+            {product.images?.slice(1).map((img: string, i: number) => (
                 <div key={i} className="relative aspect-square rounded-xl overflow-hidden border border-border/10">
                    <Image src={img} alt="" fill className="object-cover" />
                 </div>
@@ -114,8 +114,8 @@ export default function ProductDetailPage() {
                         <Store className="w-5 h-5" />
                     </div>
                     <div>
-                        <p className="text-xs text-muted-foreground font-medium uppercase tracking-wider">Sold by</p>
-                        <p className="font-semibold">{product.store.name}</p>
+                        <p className="text-[10px] text-muted-foreground font-bold">Sold by</p>
+                        <p className="font-black">{product.store.name}</p>
                     </div>
                     <Button variant="outline" size="sm" className="ml-auto rounded-full">
                         <Link href={`/store/${product.store.id}`}>Visit Store</Link>
@@ -127,8 +127,8 @@ export default function ProductDetailPage() {
                         <Truck className="w-5 h-5" />
                     </div>
                     <div>
-                        <p className="text-xs text-muted-foreground font-medium uppercase tracking-wider">Stock</p>
-                        <p className="font-semibold">{product.stock} units available</p>
+                        <p className="text-[10px] text-muted-foreground font-bold">Stock</p>
+                        <p className="font-black">{product.stock} units available</p>
                     </div>
                 </div>
                 <div className="h-px bg-border/10" />
