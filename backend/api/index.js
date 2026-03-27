@@ -5,7 +5,7 @@ import {
   prisma,
   prisma_default,
   require_client
-} from "./chunk-QORS2UPE.js";
+} from "./chunk-RVM2GF4W.js";
 
 // src/index.ts
 init_esm_shims();
@@ -2405,7 +2405,7 @@ var sendMessage = catchAsync_default(async (req, res) => {
 var getChatHistory2 = catchAsync_default(async (req, res) => {
   const otherUserId = req.params.otherUserId;
   const userId = req.user.id;
-  const prisma2 = await import("./prisma-JYXB53R3.js").then((m) => m.prisma);
+  const prisma2 = await import("./prisma-743ODU23.js").then((m) => m.prisma);
   const isGroup = !!await prisma2.group.findUnique({ where: { id: otherUserId } });
   const result = await MessageServices.getChatHistory(userId, otherUserId, isGroup);
   sendResponse_default(res, {
