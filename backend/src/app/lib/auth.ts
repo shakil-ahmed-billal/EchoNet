@@ -11,9 +11,13 @@ export const auth = betterAuth({
     provider: "postgresql",
   }),
   secret: config.jwt_secret,
-  baseURL: "http://localhost:8000",
+  baseURL: process.env.BETTER_AUTH_URL || config.backend_url,
   basePath: "/api/auth",
-  trustedOrigins: ["http://localhost:3000"],
+  trustedOrigins: [
+    config.frontend_url, 
+    "http://localhost:3000",
+    process.env.PROD_APP_URL || "https://echonet.vercel.app"
+  ],
   emailAndPassword: {
     enabled: true,
   },
