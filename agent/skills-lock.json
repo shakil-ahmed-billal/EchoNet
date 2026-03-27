@@ -20,6 +20,11 @@
       "source": "docs.stripe.com",
       "sourceType": "well-known",
       "computedHash": "06c5c3fd85657ff9aaadff65bd2d63f606da8e44802dc1f9aaf42c73263a11b7"
+    },
+    "vercel": {
+      "source": "vercel/vercel-plugin",
+      "sourceType": "github",
+      "computedHash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
     }
   }
 }
