@@ -20,5 +20,9 @@ export default {
         user: process.env.SMTP_USER,
         pass: process.env.SMTP_PASS,
         from: process.env.SMTP_FROM || process.env.SMTP_USER,
-    }
+    },
+    stripe_secret_key: process.env.STRIPE_SECRET_KEY,
+    stripe_webhook_secret: process.env.STRIPE_WEBHOOK_SECRET,
+    frontend_url: process.env.FRONTEND_URL || 'http://localhost:3000',
+    backend_url: process.env.BACKEND_URL || 'http://localhost:8000',
 };

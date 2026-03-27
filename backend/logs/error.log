@@ -569,3 +569,254 @@ An operation failed because it depends on one or more records that were required
 2026-03-27 04:12:59 [[31merror[39m]: Error: You are not authorized
     at <anonymous> (C:\Shakil Dev\EchoNet\backend\src\app\middleware\auth.ts:52:15)
     at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+2026-03-27 05:14:48 [[31merror[39m]: Error: Failed to initiate payment
+    at Object.initiatePayment (C:\Shakil Dev\EchoNet\backend\src\app\module\payment\payment.service.ts:61:11)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async <anonymous> (C:\Shakil Dev\EchoNet\backend\src\app\module\payment\payment.controller.ts:9:18)
+    at async <anonymous> (C:\Shakil Dev\EchoNet\backend\src\app\utils\catchAsync.ts:6:7)
+2026-03-27 05:14:57 [[31merror[39m]: Error: Failed to initiate payment
+    at Object.initiatePayment (C:\Shakil Dev\EchoNet\backend\src\app\module\payment\payment.service.ts:61:11)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async <anonymous> (C:\Shakil Dev\EchoNet\backend\src\app\module\payment\payment.controller.ts:9:18)
+    at async <anonymous> (C:\Shakil Dev\EchoNet\backend\src\app\utils\catchAsync.ts:6:7)
+2026-03-27 05:16:42 [[31merror[39m]: PrismaClientValidationError: 
+Invalid `prisma.product.create()` invocation in
+C:\Shakil Dev\EchoNet\backend\src\app\module\product\product.service.ts:13:39
+
+  10   throw new Error('User does not have a store. Create a store first.');
+  11 }
+  12 
+→ 13 const result = await prisma.product.create({
+       data: {
+         title: "Ex obcaecati quisqua",
+         description: "Eum et est cupidatat",
+         price: 37,
+         stock: "3",
+                ~~~
+         categoryId: "5c4b2a38-cea2-44ce-9ea2-18ca45e2035b",
+         images: [],
+         storeId: "915b694b-01a3-4ef9-9809-db3b8f5a9ef5"
+       }
+     })
+
+Argument `stock`: Invalid value provided. Expected Int, provided String.
+    at ar (C:\Shakil Dev\EchoNet\backend\generated\prisma\client\runtime\client.js:14:1374)
+    at Gr.handleRequestError (C:\Shakil Dev\EchoNet\backend\generated\prisma\client\runtime\client.js:69:7929)
+    at Gr.handleAndLogRequestError (C:\Shakil Dev\EchoNet\backend\generated\prisma\client\runtime\client.js:69:7581)
+    at Gr.request (C:\Shakil Dev\EchoNet\backend\generated\prisma\client\runtime\client.js:69:7288)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async a (C:\Shakil Dev\EchoNet\backend\generated\prisma\client\runtime\client.js:79:6730)
+    at async Object.createProduct (C:\Shakil Dev\EchoNet\backend\src\app\module\product\product.service.ts:13:18)
+    at async <anonymous> (C:\Shakil Dev\EchoNet\backend\src\app\module\product\product.controller.ts:8:18)
+    at async <anonymous> (C:\Shakil Dev\EchoNet\backend\src\app\utils\catchAsync.ts:6:7)
+2026-03-27 05:17:00 [[31merror[39m]: PrismaClientValidationError: 
+Invalid `prisma.product.create()` invocation in
+C:\Shakil Dev\EchoNet\backend\src\app\module\product\product.service.ts:13:39
+
+  10   throw new Error('User does not have a store. Create a store first.');
+  11 }
+  12 
+→ 13 const result = await prisma.product.create({
+       data: {
+         title: "Ex obcaecati quisqua",
+         description: "Eum et est cupidatat",
+         price: 37,
+         stock: "3",
+                ~~~
+         categoryId: "5c4b2a38-cea2-44ce-9ea2-18ca45e2035b",
+         images: [
+           "https://picsum.photos/seed/0.5879726261216718/400"
+         ],
+         storeId: "915b694b-01a3-4ef9-9809-db3b8f5a9ef5"
+       }
+     })
+
+Argument `stock`: Invalid value provided. Expected Int, provided String.
+    at ar (C:\Shakil Dev\EchoNet\backend\generated\prisma\client\runtime\client.js:14:1374)
+    at Gr.handleRequestError (C:\Shakil Dev\EchoNet\backend\generated\prisma\client\runtime\client.js:69:7929)
+    at Gr.handleAndLogRequestError (C:\Shakil Dev\EchoNet\backend\generated\prisma\client\runtime\client.js:69:7581)
+    at Gr.request (C:\Shakil Dev\EchoNet\backend\generated\prisma\client\runtime\client.js:69:7288)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async a (C:\Shakil Dev\EchoNet\backend\generated\prisma\client\runtime\client.js:79:6730)
+    at async Object.createProduct (C:\Shakil Dev\EchoNet\backend\src\app\module\product\product.service.ts:13:18)
+    at async <anonymous> (C:\Shakil Dev\EchoNet\backend\src\app\module\product\product.controller.ts:8:18)
+    at async <anonymous> (C:\Shakil Dev\EchoNet\backend\src\app\utils\catchAsync.ts:6:7)
+2026-03-27 05:17:09 [[31merror[39m]: PrismaClientValidationError: 
+Invalid `prisma.product.create()` invocation in
+C:\Shakil Dev\EchoNet\backend\src\app\module\product\product.service.ts:13:39
+
+  10   throw new Error('User does not have a store. Create a store first.');
+  11 }
+  12 
+→ 13 const result = await prisma.product.create({
+       data: {
+         title: "Ex obcaecati quisqua",
+         description: "Eum et est cupidatat",
+         price: 37,
+         stock: "3",
+                ~~~
+         categoryId: "b67ee809-2d00-4cab-9d9c-af63d666e610",
+         images: [
+           "https://picsum.photos/seed/0.5879726261216718/400"
+         ],
+         storeId: "915b694b-01a3-4ef9-9809-db3b8f5a9ef5"
+       }
+     })
+
+Argument `stock`: Invalid value provided. Expected Int, provided String.
+    at ar (C:\Shakil Dev\EchoNet\backend\generated\prisma\client\runtime\client.js:14:1374)
+    at Gr.handleRequestError (C:\Shakil Dev\EchoNet\backend\generated\prisma\client\runtime\client.js:69:7929)
+    at Gr.handleAndLogRequestError (C:\Shakil Dev\EchoNet\backend\generated\prisma\client\runtime\client.js:69:7581)
+    at Gr.request (C:\Shakil Dev\EchoNet\backend\generated\prisma\client\runtime\client.js:69:7288)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async a (C:\Shakil Dev\EchoNet\backend\generated\prisma\client\runtime\client.js:79:6730)
+    at async Object.createProduct (C:\Shakil Dev\EchoNet\backend\src\app\module\product\product.service.ts:13:18)
+    at async <anonymous> (C:\Shakil Dev\EchoNet\backend\src\app\module\product\product.controller.ts:8:18)
+    at async <anonymous> (C:\Shakil Dev\EchoNet\backend\src\app\utils\catchAsync.ts:6:7)
+2026-03-27 05:18:03 [[31merror[39m]: Error: Failed to initiate payment
+    at Object.initiatePayment (C:\Shakil Dev\EchoNet\backend\src\app\module\payment\payment.service.ts:61:11)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async <anonymous> (C:\Shakil Dev\EchoNet\backend\src\app\module\payment\payment.controller.ts:9:18)
+    at async <anonymous> (C:\Shakil Dev\EchoNet\backend\src\app\utils\catchAsync.ts:6:7)
+2026-03-27 05:41:58 [[31merror[39m]: PrismaClientKnownRequestError: 
+Invalid `tx.order.create()` invocation in
+C:\Shakil Dev\EchoNet\backend\src\app\module\order\order.service.ts:33:34
+
+  30 // 2. Create order in transaction
+  31 const result = await prisma.$transaction(async (tx) => {
+  32   // Create order
+→ 33   const order = await tx.order.create(
+Foreign key constraint violated on the constraint: `Order_storeId_fkey`
+    at Gr.handleRequestError (C:\Shakil Dev\EchoNet\backend\generated\prisma\client\runtime\client.js:69:8286)
+    at Gr.handleAndLogRequestError (C:\Shakil Dev\EchoNet\backend\generated\prisma\client\runtime\client.js:69:7581)
+    at Gr.request (C:\Shakil Dev\EchoNet\backend\generated\prisma\client\runtime\client.js:69:7288)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async a (C:\Shakil Dev\EchoNet\backend\generated\prisma\client\runtime\client.js:79:6730)
+    at async <anonymous> (C:\Shakil Dev\EchoNet\backend\src\app\module\order\order.service.ts:33:19)
+    at async Proxy._transactionWithCallback (C:\Shakil Dev\EchoNet\backend\generated\prisma\client\runtime\client.js:79:4668)
+    at async Object.createOrder (C:\Shakil Dev\EchoNet\backend\src\app\module\order\order.service.ts:31:18)
+    at async <anonymous> (C:\Shakil Dev\EchoNet\backend\src\app\module\order\order.controller.ts:8:18)
+    at async <anonymous> (C:\Shakil Dev\EchoNet\backend\src\app\utils\catchAsync.ts:6:7)
+2026-03-27 06:28:13 [[31merror[39m]: Error: Invalid Stripe API version: 2025-02-24-preview
+    at generateV1Error (file:///C:/Shakil%20Dev/EchoNet/backend/node_modules/.pnpm/stripe@21.0.1_@types+node@20.19.37/node_modules/stripe/esm/Error.js:13:16)
+    at res.toJSON.then.StripeAPIError.message (file:///C:/Shakil%20Dev/EchoNet/backend/node_modules/.pnpm/stripe@21.0.1_@types+node@20.19.37/node_modules/stripe/esm/RequestSender.js:104:31)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+2026-03-27 06:28:23 [[31merror[39m]: Error: Invalid Stripe API version: 2025-02-24-preview
+    at generateV1Error (file:///C:/Shakil%20Dev/EchoNet/backend/node_modules/.pnpm/stripe@21.0.1_@types+node@20.19.37/node_modules/stripe/esm/Error.js:13:16)
+    at res.toJSON.then.StripeAPIError.message (file:///C:/Shakil%20Dev/EchoNet/backend/node_modules/.pnpm/stripe@21.0.1_@types+node@20.19.37/node_modules/stripe/esm/RequestSender.js:104:31)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+2026-03-27 06:39:15 [[31merror[39m]: Error: Invalid Stripe API version: 2025-02-24-preview
+    at generateV1Error (file:///C:/Shakil%20Dev/EchoNet/backend/node_modules/.pnpm/stripe@21.0.1_@types+node@20.19.37/node_modules/stripe/esm/Error.js:13:16)
+    at res.toJSON.then.StripeAPIError.message (file:///C:/Shakil%20Dev/EchoNet/backend/node_modules/.pnpm/stripe@21.0.1_@types+node@20.19.37/node_modules/stripe/esm/RequestSender.js:104:31)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+2026-03-27 06:39:40 [[31merror[39m]: Error: Invalid Stripe API version: 2025-02-24-preview
+    at generateV1Error (file:///C:/Shakil%20Dev/EchoNet/backend/node_modules/.pnpm/stripe@21.0.1_@types+node@20.19.37/node_modules/stripe/esm/Error.js:13:16)
+    at res.toJSON.then.StripeAPIError.message (file:///C:/Shakil%20Dev/EchoNet/backend/node_modules/.pnpm/stripe@21.0.1_@types+node@20.19.37/node_modules/stripe/esm/RequestSender.js:104:31)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+2026-03-27 06:41:46 [[31merror[39m]: Error: Invalid URL: An explicit scheme (such as https) must be provided.
+    at generateV1Error (file:///C:/Shakil%20Dev/EchoNet/backend/node_modules/.pnpm/stripe@21.0.1_@types+node@20.19.37/node_modules/stripe/esm/Error.js:13:16)
+    at res.toJSON.then.StripeAPIError.message (file:///C:/Shakil%20Dev/EchoNet/backend/node_modules/.pnpm/stripe@21.0.1_@types+node@20.19.37/node_modules/stripe/esm/RequestSender.js:104:31)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+2026-03-27 06:49:41 [[31merror[39m]: Error: Invalid URL: An explicit scheme (such as https) must be provided.
+    at generateV1Error (file:///C:/Shakil%20Dev/EchoNet/backend/node_modules/.pnpm/stripe@21.0.1_@types+node@20.19.37/node_modules/stripe/esm/Error.js:13:16)
+    at res.toJSON.then.StripeAPIError.message (file:///C:/Shakil%20Dev/EchoNet/backend/node_modules/.pnpm/stripe@21.0.1_@types+node@20.19.37/node_modules/stripe/esm/RequestSender.js:104:31)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+2026-03-27 06:49:52 [[31merror[39m]: Error: Invalid URL: An explicit scheme (such as https) must be provided.
+    at generateV1Error (file:///C:/Shakil%20Dev/EchoNet/backend/node_modules/.pnpm/stripe@21.0.1_@types+node@20.19.37/node_modules/stripe/esm/Error.js:13:16)
+    at res.toJSON.then.StripeAPIError.message (file:///C:/Shakil%20Dev/EchoNet/backend/node_modules/.pnpm/stripe@21.0.1_@types+node@20.19.37/node_modules/stripe/esm/RequestSender.js:104:31)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+2026-03-27 06:52:04 [[31merror[39m]: Error: Invalid URL: An explicit scheme (such as https) must be provided.
+    at generateV1Error (file:///C:/Shakil%20Dev/EchoNet/backend/node_modules/.pnpm/stripe@21.0.1_@types+node@20.19.37/node_modules/stripe/esm/Error.js:13:16)
+    at res.toJSON.then.StripeAPIError.message (file:///C:/Shakil%20Dev/EchoNet/backend/node_modules/.pnpm/stripe@21.0.1_@types+node@20.19.37/node_modules/stripe/esm/RequestSender.js:104:31)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+2026-03-27 07:06:34 [[31merror[39m]: Error: Invalid URL: An explicit scheme (such as https) must be provided.
+    at generateV1Error (file:///C:/Shakil%20Dev/EchoNet/backend/node_modules/.pnpm/stripe@21.0.1_@types+node@20.19.37/node_modules/stripe/esm/Error.js:13:16)
+    at res.toJSON.then.StripeAPIError.message (file:///C:/Shakil%20Dev/EchoNet/backend/node_modules/.pnpm/stripe@21.0.1_@types+node@20.19.37/node_modules/stripe/esm/RequestSender.js:104:31)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+2026-03-27 07:12:05 [[31merror[39m]: Error: Invalid URL: An explicit scheme (such as https) must be provided.
+    at generateV1Error (file:///C:/Shakil%20Dev/EchoNet/backend/node_modules/.pnpm/stripe@21.0.1_@types+node@20.19.37/node_modules/stripe/esm/Error.js:13:16)
+    at res.toJSON.then.StripeAPIError.message (file:///C:/Shakil%20Dev/EchoNet/backend/node_modules/.pnpm/stripe@21.0.1_@types+node@20.19.37/node_modules/stripe/esm/RequestSender.js:104:31)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+2026-03-27 07:15:09 [[31merror[39m]: Error: Invalid URL: An explicit scheme (such as https) must be provided.
+    at generateV1Error (file:///C:/Shakil%20Dev/EchoNet/backend/node_modules/.pnpm/stripe@21.0.1_@types+node@20.19.37/node_modules/stripe/esm/Error.js:13:16)
+    at res.toJSON.then.StripeAPIError.message (file:///C:/Shakil%20Dev/EchoNet/backend/node_modules/.pnpm/stripe@21.0.1_@types+node@20.19.37/node_modules/stripe/esm/RequestSender.js:104:31)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+2026-03-27 07:16:37 [[31merror[39m]: Error: Invalid URL: An explicit scheme (such as https) must be provided.
+    at generateV1Error (file:///C:/Shakil%20Dev/EchoNet/backend/node_modules/.pnpm/stripe@21.0.1_@types+node@20.19.37/node_modules/stripe/esm/Error.js:13:16)
+    at res.toJSON.then.StripeAPIError.message (file:///C:/Shakil%20Dev/EchoNet/backend/node_modules/.pnpm/stripe@21.0.1_@types+node@20.19.37/node_modules/stripe/esm/RequestSender.js:104:31)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+2026-03-27 07:18:46 [[31merror[39m]: Error: Webhook Error: No signatures found matching the expected signature for payload. Are you passing the raw request body you received from Stripe? 
+ If a webhook request is being forwarded by a third-party tool, ensure that the exact request body, including JSON formatting and new line style, is preserved.
+
+Learn more about webhook signing and explore webhook integration examples for various frameworks at https://docs.stripe.com/webhooks/signature
+
+    at Object.handleWebhook (C:\Shakil Dev\EchoNet\backend\src\app\module\payment\payment.service.ts:92:11)
+    at <anonymous> (C:\Shakil Dev\EchoNet\backend\src\app\module\payment\payment.controller.ts:20:40)
+    at <anonymous> (C:\Shakil Dev\EchoNet\backend\src\app\utils\catchAsync.ts:6:13)
+    at Layer.handleRequest (C:\Shakil Dev\EchoNet\backend\node_modules\.pnpm\router@2.2.0\node_modules\router\lib\layer.js:152:17)
+    at next (C:\Shakil Dev\EchoNet\backend\node_modules\.pnpm\router@2.2.0\node_modules\router\lib\route.js:157:13)
+    at Route.dispatch (C:\Shakil Dev\EchoNet\backend\node_modules\.pnpm\router@2.2.0\node_modules\router\lib\route.js:117:3)
+    at handle (C:\Shakil Dev\EchoNet\backend\node_modules\.pnpm\router@2.2.0\node_modules\router\index.js:435:11)
+    at Layer.handleRequest (C:\Shakil Dev\EchoNet\backend\node_modules\.pnpm\router@2.2.0\node_modules\router\lib\layer.js:152:17)
+    at C:\Shakil Dev\EchoNet\backend\node_modules\.pnpm\router@2.2.0\node_modules\router\index.js:295:15
+    at processParams (C:\Shakil Dev\EchoNet\backend\node_modules\.pnpm\router@2.2.0\node_modules\router\index.js:582:12)
+2026-03-27 07:18:46 [[31merror[39m]: Error: Webhook Error: No signatures found matching the expected signature for payload. Are you passing the raw request body you received from Stripe? 
+ If a webhook request is being forwarded by a third-party tool, ensure that the exact request body, including JSON formatting and new line style, is preserved.
+
+Learn more about webhook signing and explore webhook integration examples for various frameworks at https://docs.stripe.com/webhooks/signature
+
+    at Object.handleWebhook (C:\Shakil Dev\EchoNet\backend\src\app\module\payment\payment.service.ts:92:11)
+    at <anonymous> (C:\Shakil Dev\EchoNet\backend\src\app\module\payment\payment.controller.ts:20:40)
+    at <anonymous> (C:\Shakil Dev\EchoNet\backend\src\app\utils\catchAsync.ts:6:13)
+    at Layer.handleRequest (C:\Shakil Dev\EchoNet\backend\node_modules\.pnpm\router@2.2.0\node_modules\router\lib\layer.js:152:17)
+    at next (C:\Shakil Dev\EchoNet\backend\node_modules\.pnpm\router@2.2.0\node_modules\router\lib\route.js:157:13)
+    at Route.dispatch (C:\Shakil Dev\EchoNet\backend\node_modules\.pnpm\router@2.2.0\node_modules\router\lib\route.js:117:3)
+    at handle (C:\Shakil Dev\EchoNet\backend\node_modules\.pnpm\router@2.2.0\node_modules\router\index.js:435:11)
+    at Layer.handleRequest (C:\Shakil Dev\EchoNet\backend\node_modules\.pnpm\router@2.2.0\node_modules\router\lib\layer.js:152:17)
+    at C:\Shakil Dev\EchoNet\backend\node_modules\.pnpm\router@2.2.0\node_modules\router\index.js:295:15
+    at processParams (C:\Shakil Dev\EchoNet\backend\node_modules\.pnpm\router@2.2.0\node_modules\router\index.js:582:12)
+2026-03-27 07:18:46 [[31merror[39m]: Error: Webhook Error: No signatures found matching the expected signature for payload. Are you passing the raw request body you received from Stripe? 
+ If a webhook request is being forwarded by a third-party tool, ensure that the exact request body, including JSON formatting and new line style, is preserved.
+
+Learn more about webhook signing and explore webhook integration examples for various frameworks at https://docs.stripe.com/webhooks/signature
+
+    at Object.handleWebhook (C:\Shakil Dev\EchoNet\backend\src\app\module\payment\payment.service.ts:92:11)
+    at <anonymous> (C:\Shakil Dev\EchoNet\backend\src\app\module\payment\payment.controller.ts:20:40)
+    at <anonymous> (C:\Shakil Dev\EchoNet\backend\src\app\utils\catchAsync.ts:6:13)
+    at Layer.handleRequest (C:\Shakil Dev\EchoNet\backend\node_modules\.pnpm\router@2.2.0\node_modules\router\lib\layer.js:152:17)
+    at next (C:\Shakil Dev\EchoNet\backend\node_modules\.pnpm\router@2.2.0\node_modules\router\lib\route.js:157:13)
+    at Route.dispatch (C:\Shakil Dev\EchoNet\backend\node_modules\.pnpm\router@2.2.0\node_modules\router\lib\route.js:117:3)
+    at handle (C:\Shakil Dev\EchoNet\backend\node_modules\.pnpm\router@2.2.0\node_modules\router\index.js:435:11)
+    at Layer.handleRequest (C:\Shakil Dev\EchoNet\backend\node_modules\.pnpm\router@2.2.0\node_modules\router\lib\layer.js:152:17)
+    at C:\Shakil Dev\EchoNet\backend\node_modules\.pnpm\router@2.2.0\node_modules\router\index.js:295:15
+    at processParams (C:\Shakil Dev\EchoNet\backend\node_modules\.pnpm\router@2.2.0\node_modules\router\index.js:582:12)
+2026-03-27 07:18:46 [[31merror[39m]: Error: Webhook Error: No signatures found matching the expected signature for payload. Are you passing the raw request body you received from Stripe? 
+ If a webhook request is being forwarded by a third-party tool, ensure that the exact request body, including JSON formatting and new line style, is preserved.
+
+Learn more about webhook signing and explore webhook integration examples for various frameworks at https://docs.stripe.com/webhooks/signature
+
+    at Object.handleWebhook (C:\Shakil Dev\EchoNet\backend\src\app\module\payment\payment.service.ts:92:11)
+    at <anonymous> (C:\Shakil Dev\EchoNet\backend\src\app\module\payment\payment.controller.ts:20:40)
+    at <anonymous> (C:\Shakil Dev\EchoNet\backend\src\app\utils\catchAsync.ts:6:13)
+    at Layer.handleRequest (C:\Shakil Dev\EchoNet\backend\node_modules\.pnpm\router@2.2.0\node_modules\router\lib\layer.js:152:17)
+    at next (C:\Shakil Dev\EchoNet\backend\node_modules\.pnpm\router@2.2.0\node_modules\router\lib\route.js:157:13)
+    at Route.dispatch (C:\Shakil Dev\EchoNet\backend\node_modules\.pnpm\router@2.2.0\node_modules\router\lib\route.js:117:3)
+    at handle (C:\Shakil Dev\EchoNet\backend\node_modules\.pnpm\router@2.2.0\node_modules\router\index.js:435:11)
+    at Layer.handleRequest (C:\Shakil Dev\EchoNet\backend\node_modules\.pnpm\router@2.2.0\node_modules\router\lib\layer.js:152:17)
+    at C:\Shakil Dev\EchoNet\backend\node_modules\.pnpm\router@2.2.0\node_modules\router\index.js:295:15
+    at processParams (C:\Shakil Dev\EchoNet\backend\node_modules\.pnpm\router@2.2.0\node_modules\router\index.js:582:12)
+2026-03-27 07:18:49 [[31merror[39m]: Error: Webhook Error: No signatures found matching the expected signature for payload. Are you passing the raw request body you received from Stripe? 
+ If a webhook request is being forwarded by a third-party tool, ensure that the exact request body, including JSON formatting and new line style, is preserved.
+
+Learn more about webhook signing and explore webhook integration examples for various frameworks at https://docs.stripe.com/webhooks/signature
+
+    at Object.handleWebhook (C:\Shakil Dev\EchoNet\backend\src\app\module\payment\payment.service.ts:92:11)
+    at <anonymous> (C:\Shakil Dev\EchoNet\backend\src\app\module\payment\payment.controller.ts:20:40)
+    at <anonymous> (C:\Shakil Dev\EchoNet\backend\src\app\utils\catchAsync.ts:6:13)
+    at Layer.handleRequest (C:\Shakil Dev\EchoNet\backend\node_modules\.pnpm\router@2.2.0\node_modules\router\lib\layer.js:152:17)
+    at next (C:\Shakil Dev\EchoNet\backend\node_modules\.pnpm\router@2.2.0\node_modules\router\lib\route.js:157:13)
+    at Route.dispatch (C:\Shakil Dev\EchoNet\backend\node_modules\.pnpm\router@2.2.0\node_modules\router\lib\route.js:117:3)
+    at handle (C:\Shakil Dev\EchoNet\backend\node_modules\.pnpm\router@2.2.0\node_modules\router\index.js:435:11)
+    at Layer.handleRequest (C:\Shakil Dev\EchoNet\backend\node_modules\.pnpm\router@2.2.0\node_modules\router\lib\layer.js:152:17)
+    at C:\Shakil Dev\EchoNet\backend\node_modules\.pnpm\router@2.2.0\node_modules\router\index.js:295:15
+    at processParams (C:\Shakil Dev\EchoNet\backend\node_modules\.pnpm\router@2.2.0\node_modules\router\index.js:582:12)

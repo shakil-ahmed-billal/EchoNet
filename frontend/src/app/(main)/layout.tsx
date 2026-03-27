@@ -16,7 +16,10 @@ export default function MainLayout({
   const isProfilePage = pathname.startsWith("/profile");
   const isMessagesPage = pathname.startsWith("/messages");
   const isFriendsPage = pathname.startsWith("/friends");
-  const hideRightSidebar = isProfilePage || isMessagesPage || isFriendsPage;
+  const isMarketplacePage = pathname.startsWith("/marketplace");
+  const isStorePage = pathname.startsWith("/store");
+  const isCheckoutPage = pathname.startsWith("/checkout");
+  const hideRightSidebar = isProfilePage || isMessagesPage || isFriendsPage || isMarketplacePage || isStorePage || isCheckoutPage;
 
   // Messages page: full-width, no sidebars, no padding
   if (isMessagesPage) {

@@ -7,6 +7,7 @@ export function useNotifications() {
     queryKey: ["notifications"],
     queryFn: () => getNotifications(),
     retry: false,
+    staleTime: 60000, // 1 minute stale time
   })
 }
 
@@ -14,7 +15,8 @@ export function useUnreadNotificationsCount() {
   return useQuery<number>({
     queryKey: ["notifications", "unread-count"],
     queryFn: () => getUnreadCount(),
-    refetchInterval: 30000, 
+    refetchInterval: 60000, // Check every minute
+    staleTime: 30000, // 30s stale time
     retry: false,
   })
 }

@@ -16,6 +16,11 @@ import { HashtagRoutes } from '../module/hashtag/hashtag.route.js';
 import { SavedPostRoutes } from '../module/savedPost/savedPost.route.js';
 import { ReactionRoutes } from '../module/reaction/reaction.route.js';
 import { GroupRoutes } from '../module/group/group.route.js';
+import { StoreRoutes } from '../module/store/store.route.js';
+import { ProductRoutes } from '../module/product/product.route.js';
+import { CategoryRoutes } from '../module/category/category.route.js';
+import { OrderRoutes } from '../module/order/order.route.js';
+import { PaymentRoutes } from '../module/payment/payment.route.js';
 
 const router = Router();
 
@@ -83,6 +88,26 @@ const moduleRoutes: { path: string; route: Router }[] = [
   {
     path: '/groups',
     route: GroupRoutes,
+  },
+  {
+    path: '/stores',
+    route: StoreRoutes,
+  },
+  {
+    path: '/products',
+    route: ProductRoutes,
+  },
+  {
+    path: '/categories',
+    route: CategoryRoutes,
+  },
+  {
+    path: '/orders',
+    route: OrderRoutes,
+  },
+  {
+    path: '/payments',
+    route: PaymentRoutes,
   },
 ];
 

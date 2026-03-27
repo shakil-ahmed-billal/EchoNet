@@ -16,7 +16,8 @@ export function StoryBar() {
     queryKey: ["stories"],
     queryFn: getStories,
     enabled: isAuthenticated,
-    refetchInterval: 60_000,
+    refetchInterval: 120_000, // 2 minutes
+    staleTime: 60_000,    // 1 minute
   });
 
   return (

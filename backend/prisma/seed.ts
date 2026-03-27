@@ -5,6 +5,7 @@ import {
   NotificationType,
   ReactionType,
   FollowStatus,
+  ProductStatus,
 } from "../generated/prisma/client/index.js";
 import { prisma } from "../src/app/lib/prisma.js";
 import { auth } from "../src/app/lib/auth.js";
@@ -194,23 +195,28 @@ async function main() {
   // ── 2. Wipe existing seeded content ───────────────────────────────────────
   console.log("\n🗑️  Clearing old seeded content...");
   const ids = allUsers.map((u) => u.id);
+  await prisma.productReview.deleteMany({});
+  await prisma.productFlag.deleteMany({});
+  await prisma.storeFollow.deleteMany({});
+  await prisma.orderItem.deleteMany({});
+  await prisma.payment.deleteMany({});
+  await prisma.order.deleteMany({});
+  await prisma.product.deleteMany({});
+  await prisma.store.deleteMany({});
+  await prisma.category.deleteMany({});
   await prisma.storyView.deleteMany({});
-  await prisma.story.deleteMany({ where: { authorId: { in: ids } } });
-  await prisma.savedPost.deleteMany({ where: { userId: { in: ids } } });
+  await prisma.story.deleteMany({});
+  await prisma.savedPost.deleteMany({});
   await prisma.postTag.deleteMany({});
   await prisma.postHashtag.deleteMany({});
   await prisma.hashtag.deleteMany({});
-  await prisma.reaction.deleteMany({ where: { userId: { in: ids } } });
-  await prisma.notification.deleteMany({ where: { userId: { in: ids } } });
-  await prisma.message.deleteMany({
-    where: { OR: [{ senderId: { in: ids } }, { receiverId: { in: ids } }] },
-  });
-  await prisma.like.deleteMany({ where: { userId: { in: ids } } });
-  await prisma.comment.deleteMany({ where: { authorId: { in: ids } } });
-  await prisma.post.deleteMany({ where: { authorId: { in: ids } } });
-  await prisma.follow.deleteMany({
-    where: { OR: [{ followerId: { in: ids } }, { followingId: { in: ids } }] },
-  });
+  await prisma.reaction.deleteMany({});
+  await prisma.notification.deleteMany({});
+  await prisma.message.deleteMany({});
+  await prisma.like.deleteMany({});
+  await prisma.comment.deleteMany({});
+  await prisma.post.deleteMany({});
+  await prisma.follow.deleteMany({});
   console.log("  ✅ Done");
 
   // ── 3. Follow Graph ────────────────────────────────────────────────────────
@@ -728,6 +734,123 @@ async function main() {
     });
   }
   console.log(`  ✅ ${notifDefs.length} notifications created`);
+
+  // ── 13. Marketplace ────────────────────────────────────────────────────────
+  console.log("\n🛒 Seeding Marketplace...");
+
+  // 13.1 Categories
+  const categoriesData = [
+    { name: "Electronics", slug: "electronics", iconUrl: "https://api.iconify.design/lucide:cpu.svg" },
+    { name: "Fashion", slug: "fashion", iconUrl: "https://api.iconify.design/lucide:shirt.svg" },
+    { name: "Home & Living", slug: "home-living", iconUrl: "https://api.iconify.design/lucide:home.svg" },
+    { name: "Books", slug: "books", iconUrl: "https://api.iconify.design/lucide:book-open.svg" },
+    { name: "Sports", slug: "sports", iconUrl: "https://api.iconify.design/lucide:trophy.svg" },
+  ];
+
+  const createdCategories = [];
+  for (const cat of categoriesData) {
+    const category = await prisma.category.upsert({
+      where: { slug: cat.slug },
+      update: {},
+      create: {
+        name: cat.name,
+        slug: cat.slug,
+        iconUrl: cat.iconUrl,
+        createdBy: admin.id,
+      }
+    });
+    createdCategories.push(category);
+  }
+  console.log(`  ✅ ${createdCategories.length} categories created`);
+
+  // 13.2 Stores for Alex, Sarah, and Maya
+  const storeOwners = [alex, sarah, maya];
+  const createdStores = [];
+  for (const owner of storeOwners) {
+    const store = await prisma.store.upsert({
+      where: { ownerId: owner.id },
+      update: {},
+      create: {
+        ownerId: owner.id,
+        name: `${owner.name}'s Shop`,
+        description: `Premium items curated by ${owner.name}. Welcome to our store!`,
+        logoUrl: owner.avatarUrl,
+        bannerUrl: "https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=1200",
+      }
+    });
+    createdStores.push(store);
+  }
+  console.log(`  ✅ ${createdStores.length} stores created`);
+
+  // 13.3 Products
+  const productsData = [
+    { 
+      title: "MacBook Pro M3", 
+      description: "The most powerful MacBook yet with the blazing fast M3 chip.", 
+      price: 1999.99, 
+      categorySlug: "electronics", 
+      images: ["https://images.unsplash.com/photo-1517336714731-489689fd1ca8?w=800"] 
+    },
+    { 
+      title: "Sony WH-1000XM5", 
+      description: "Industry-leading noise canceling headphones from Sony.", 
+      price: 349.99, 
+      categorySlug: "electronics", 
+      images: ["https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=800"] 
+    },
+    { 
+      title: "Designer Hoodie", 
+      description: "Comfortable and stylish oversized hoodie for everyday wear.", 
+      price: 89.99, 
+      categorySlug: "fashion", 
+      images: ["https://images.unsplash.com/photo-1556821840-3a63f95609a7?w=800"] 
+    },
+    { 
+      title: "Clean Code Handbook", 
+      description: "A must-read for every professional software developer.", 
+      price: 45.00, 
+      categorySlug: "books", 
+      images: ["https://images.unsplash.com/photo-1589998059171-988d887df646?w=800"] 
+    },
+    { 
+      title: "Ergonomic Office Chair", 
+      description: "Stay productive and healthy with our premium office chair.", 
+      price: 299.00, 
+      categorySlug: "home-living", 
+      images: ["https://images.unsplash.com/photo-1505797149-43b0020ee76e?w=800"] 
+    },
+    { 
+      title: "Yoga Mat", 
+      description: "Eco-friendly natural rubber yoga mat with superior grip.", 
+      price: 65.00, 
+      categorySlug: "sports", 
+      images: ["https://images.unsplash.com/photo-1601925260368-ae2f83cf8b7f?w=800"] 
+    },
+  ];
+
+  let productCount = 0;
+  for (const store of createdStores) {
+    for (const prod of productsData) {
+      const category = createdCategories.find(c => c.slug === prod.categorySlug);
+      if (!category) continue;
+      
+      await prisma.product.create({
+        data: {
+          storeId: store.id,
+          categoryId: category.id,
+          title: `${store.name} - ${prod.title}`,
+          description: prod.description,
+          price: prod.price,
+          stock: 10,
+          images: prod.images,
+          status: ProductStatus.ACTIVE,
+        }
+      });
+      productCount++;
+    }
+  }
+  console.log(`  ✅ ${productCount} products created`);
+
 
   // ── 13. Update post counts ─────────────────────────────────────────────────
   for (const user of allUsers) {

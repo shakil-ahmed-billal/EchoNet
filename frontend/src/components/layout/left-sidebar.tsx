@@ -7,7 +7,7 @@ import { cn } from "@/lib/utils";
 import { useAuth } from "@/hooks/use-auth";
 import { UserImage } from "@/components/user-image";
 import { Skeleton } from "@/components/ui/skeleton";
-import { Home, Compass, Bell, Mail, User, MoreHorizontal, Users2 } from "lucide-react";
+import { Home, Compass, Bell, Mail, User, MoreHorizontal, Users2, ShoppingBag, Store } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { toast } from "sonner";
 
@@ -21,6 +21,8 @@ export function LeftSidebar() {
     { title: "Notifications", href: "/notifications", icon: Bell },
     { title: "Messages", href: "/messages", icon: Mail },
     { title: "Friends", href: "/friends", icon: Users2 },
+    { title: "Marketplace", href: "/marketplace", icon: ShoppingBag },
+    { title: "My Store", href: "/store", icon: Store },
     { title: "Profile", href: user ? `/profile/${user.id}` : "/login", icon: User },
     { title: "More", href: "/more", icon: MoreHorizontal },
   ];
