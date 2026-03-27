@@ -43,15 +43,12 @@ var { combine, timestamp, json, colorize, printf } = winston.format;
 var customFormat = printf(({ level, message, timestamp: timestamp2, stack }) => {
   return `${timestamp2} [${level}]: ${stack || message}`;
 });
-var logger = winston.createLogger({
-  level: config_default.env === "development" ? "debug" : "info",
-  format: combine(
-    timestamp({ format: "YYYY-MM-DD HH:mm:ss" }),
-    config_default.env === "development" ? colorize() : json(),
-    config_default.env === "development" ? customFormat : json()
-  ),
-  transports: [
-    new winston.transports.Console(),
+var isProduction = config_default.env === "production";
+var transports = [
+  new winston.transports.Console()
+];
+if (!isProduction) {
+  transports.push(
     new winston.transports.File({
       filename: path.join(process.cwd(), "logs", "error.log"),
       level: "error"
@@ -59,7 +56,16 @@ var logger = winston.createLogger({
     new winston.transports.File({
       filename: path.join(process.cwd(), "logs", "combined.log")
     })
-  ]
+  );
+}
+var logger = winston.createLogger({
+  level: isProduction ? "info" : "debug",
+  format: combine(
+    timestamp({ format: "YYYY-MM-DD HH:mm:ss" }),
+    isProduction ? json() : colorize(),
+    isProduction ? json() : customFormat
+  ),
+  transports
 });
 var logger_default = logger;
 
