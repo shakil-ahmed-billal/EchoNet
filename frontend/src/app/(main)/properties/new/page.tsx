@@ -8,7 +8,7 @@ export default function NewPropertyPage() {
   const router = useRouter()
   const { mutate: createProperty, isPending } = useCreateProperty()
   
-  const onSubmit = (values: any) => {
+  const onSubmit = (values: FormData) => {
     createProperty(values, {
       onSuccess: () => {
         router.push("/my-properties")

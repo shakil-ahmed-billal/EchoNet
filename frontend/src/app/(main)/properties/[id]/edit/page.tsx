@@ -11,7 +11,7 @@ export default function EditPropertyPage() {
   const { data: property, isLoading } = useProperty(id as string)
   const { mutate: updateProperty, isPending } = useUpdateProperty(id as string)
   
-  const onSubmit = (values: PropertyFormValues) => {
+  const onSubmit = (values: FormData) => {
     updateProperty(values, {
       onSuccess: () => {
         router.push("/my-properties")
