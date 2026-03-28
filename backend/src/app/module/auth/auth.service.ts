@@ -116,7 +116,14 @@ const getMe = async (headers: Headers) => {
     // --- Definitive Fallback: Manual BD Lookup if Better-Auth fails ---
     if (!sessionData || !sessionData.session || !sessionData.user) {
         console.log(`[AUTH-DEBUG] Better Auth getSession returned null. Attempting manual DB fallback...`);
-        const token = cookie.split('better-auth.session_token=')[1]?.split(';')[0];
+        
+        // Handle __Host- or __Secure- prefixes on Vercel
+        let token = "";
+        const parts = cookie.split('better-auth.session_token=');
+        if (parts.length > 1) {
+            token = parts[1].split(';')[0].trim();
+        }
+
         if (token) {
             const dbSession = await prisma.session.findUnique({
                 where: { token },
@@ -131,7 +138,12 @@ const getMe = async (headers: Headers) => {
                 };
             } else {
                 console.log(`[AUTH-DEBUG] Fallback: Session ${dbSession ? 'EXPIRED' : 'NOT FOUND IN DB'}`);
+                if (!dbSession) {
+                    console.log(`[AUTH-DEBUG] Fallback: Searched for token starting with: ${token.substring(0, 8)}...`);
+                }
             }
+        } else {
+            console.log(`[AUTH-DEBUG] Fallback: Session Token not found in cookie header string.`);
         }
     }
     // -----------------------------------------------------------------
