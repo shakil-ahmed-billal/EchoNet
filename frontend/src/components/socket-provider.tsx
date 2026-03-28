@@ -32,9 +32,10 @@ export const SocketProvider = ({ children }: { children: React.ReactNode }) => {
 
     const userId = user.id;
 
-    const socketInstance = io(process.env.NEXT_PUBLIC_SOCKET_URL || "http://localhost:8000", {
+    const socketInstance = io("", {
       query: { userId },
       withCredentials: true,
+      transports: ["polling", "websocket"],
     })
 
     socketInstance.on("connect", () => {

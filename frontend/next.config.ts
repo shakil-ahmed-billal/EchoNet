@@ -44,6 +44,10 @@ const nextConfig: NextConfig = {
         source: "/api/v1/:path*",
         destination: `${process.env.NEXT_PUBLIC_BACKEND_URL || 'http://localhost:8000'}/api/v1/:path*`,
       },
+      {
+        source: "/socket.io/:path*",
+        destination: `${process.env.NEXT_PUBLIC_BACKEND_URL || 'http://localhost:8000'}/socket.io/:path*`,
+      },
     ];
   },
 };
