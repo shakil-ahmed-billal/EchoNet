@@ -18,10 +18,17 @@ const registerUser = catchAsync(async (req: Request, res: Response) => {
     });
 
     const betterAuthRes = await auth.handler(betterAuthReq);
-    const data = await betterAuthRes.clone().json();
+    const rawText = await betterAuthRes.text();
+    let data;
+    try {
+        data = JSON.parse(rawText);
+    } catch (e) {
+        console.error("BetterAuth Registration Error (Non-JSON Response):", rawText);
+        return sendResponse(res, { statusCode: 500, success: false, message: "Internal Auth Provider Error" });
+    }
 
     if (!betterAuthRes.ok) {
-        return sendResponse(res, { statusCode: betterAuthRes.status, success: false, message: data.message || "Registration failed" });
+        return sendResponse(res, { statusCode: betterAuthRes.status, success: false, message: data?.message || "Registration failed" });
     }
 
     const { accessToken, refreshToken } = await AuthService.googleLoginSuccess({ user: data.user }); // Helper building tokens
@@ -57,10 +64,17 @@ const loginUser = catchAsync(async (req: Request, res: Response) => {
     });
 
     const betterAuthRes = await auth.handler(betterAuthReq);
-    const data = await betterAuthRes.clone().json();
+    const rawText = await betterAuthRes.text();
+    let data;
+    try {
+        data = JSON.parse(rawText);
+    } catch (e) {
+        console.error("BetterAuth Login Error (Non-JSON Response):", rawText);
+        return sendResponse(res, { statusCode: 500, success: false, message: "Internal Auth Provider Error" });
+    }
 
     if (!betterAuthRes.ok) {
-        return sendResponse(res, { statusCode: betterAuthRes.status, success: false, message: data.message || "Invalid credentials" });
+        return sendResponse(res, { statusCode: betterAuthRes.status, success: false, message: data?.message || "Invalid credentials" });
     }
 
     const { accessToken, refreshToken } = await AuthService.googleLoginSuccess({ user: data.user });
