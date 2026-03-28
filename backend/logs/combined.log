@@ -2005,3 +2005,4 @@ The column `(not available)` does not exist in the current database.
     at async Promise.all (index 1)
     at async e.interpretNode (C:\Shakil Dev\EchoNet\backend\generated\prisma\client\runtime\client.js:15:45682)
     at async e.interpretNode (C:\Shakil Dev\EchoNet\backend\generated\prisma\client\runtime\client.js:15:46265)
+2026-03-28 23:21:25 [[32minfo[39m]: Initializing Socket.IO...

@@ -11,9 +11,9 @@ export const auth = betterAuth({
     provider: "postgresql",
   }),
   secret: config.jwt_secret,
-  baseURL: process.env.BETTER_AUTH_URL || config.backend_url,
+  baseURL: process.env.BETTER_AUTH_URL || config.frontend_url || "http://localhost:3000",
   basePath: "/api/auth",
-  trustedProxies: true, // Fix "Rate limiting skipped: could not determine client IP" in Vercel
+  trustedProxies: true,
   trustedOrigins: [
     config.frontend_url, 
     "http://localhost:3000",
@@ -70,6 +70,7 @@ export const auth = betterAuth({
     },
   },
   advanced: {
+    trustedProxyHeaders: true, // Handle x-forwarded-host/proto from Next.js rewrites
     cookiePrefix: "better-auth",
     useSecureCookies: process.env.NODE_ENV === "production",
     crossSubDomainCookies: {
