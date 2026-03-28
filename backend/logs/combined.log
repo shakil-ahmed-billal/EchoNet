@@ -208,3 +208,25 @@
 2026-03-29 00:31:05 [[32minfo[39m]: Initializing Socket.IO...
 2026-03-29 00:31:17 [[32minfo[39m]: Initializing Socket.IO...
 2026-03-29 00:32:07 [[32minfo[39m]: User 8VuJmPhBz0M3RmpHF6NeyOhItjQLT4n6 joined their private room
+2026-03-29 00:33:32 [[31merror[39m]: Error: Store not found
+    at Object.getStoreOrders (C:\Shakil Dev\EchoNet\backend\src\app\module\order\order.service.ts:100:21)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async <anonymous> (C:\Shakil Dev\EchoNet\backend\src\app\module\order\order.controller.ts:30:18)
+    at async <anonymous> (C:\Shakil Dev\EchoNet\backend\src\app\utils\catchAsync.ts:6:7)
+2026-03-29 00:33:33 [[31merror[39m]: Error: Store not found
+    at Object.getStoreOrders (C:\Shakil Dev\EchoNet\backend\src\app\module\order\order.service.ts:100:21)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async <anonymous> (C:\Shakil Dev\EchoNet\backend\src\app\module\order\order.controller.ts:30:18)
+    at async <anonymous> (C:\Shakil Dev\EchoNet\backend\src\app\utils\catchAsync.ts:6:7)
+2026-03-29 00:35:33 [[32minfo[39m]: Socket disconnected: CrgTw3B1qe24gxWbAAAB
+2026-03-29 00:35:47 [[32minfo[39m]: User piSxMBtZjbftBfD1ObW54Nn4R2dERxj0 joined their private room
+2026-03-29 00:39:03 [[32minfo[39m]: Initializing Socket.IO...
+2026-03-29 00:39:06 [[32minfo[39m]: User piSxMBtZjbftBfD1ObW54Nn4R2dERxj0 joined their private room
+2026-03-29 00:39:08 [[32minfo[39m]: Socket disconnected: hKPKWMJGHH4vKMh_AAAC
+2026-03-29 00:39:09 [[32minfo[39m]: User piSxMBtZjbftBfD1ObW54Nn4R2dERxj0 joined their private room
+2026-03-29 00:39:14 [[32minfo[39m]: Socket disconnected: AGwrn9QpSjqdlY31AAAF
+2026-03-29 00:39:15 [[32minfo[39m]: User piSxMBtZjbftBfD1ObW54Nn4R2dERxj0 joined their private room
+2026-03-29 00:39:15 [[32minfo[39m]: Socket disconnected: tC82w0gBGhFe4XqUAAAI
+2026-03-29 00:39:17 [[32minfo[39m]: User piSxMBtZjbftBfD1ObW54Nn4R2dERxj0 joined their private room
+2026-03-29 00:39:19 [[32minfo[39m]: Socket disconnected: aGVBCgf7qPa83XzUAAAK
+2026-03-29 00:39:23 [[32minfo[39m]: User piSxMBtZjbftBfD1ObW54Nn4R2dERxj0 joined their private room
