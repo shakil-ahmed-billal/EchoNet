@@ -60,7 +60,7 @@ app.use(
 app.use(cookieParser());
 
 // Mount Better-Auth BEFORE body parsers (required by better-auth docs)
-app.all("/api/auth/{*splat}", toNodeHandler(auth));
+app.all("/api/auth/*splat", toNodeHandler(auth));
 
 // Rate Limiting
 const authLimiter = rateLimit({
