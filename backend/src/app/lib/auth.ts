@@ -13,6 +13,7 @@ export const auth = betterAuth({
   secret: config.jwt_secret,
   baseURL: process.env.BETTER_AUTH_URL || config.backend_url,
   basePath: "/api/auth",
+  trustedProxies: true, // Fix "Rate limiting skipped: could not determine client IP" in Vercel
   trustedOrigins: [
     config.frontend_url, 
     "http://localhost:3000",
@@ -72,7 +73,7 @@ export const auth = betterAuth({
     cookiePrefix: "better-auth",
     useSecureCookies: process.env.NODE_ENV === "production",
     crossSubDomainCookies: {
-      enabled: false,
+      enabled: true,
     },
     disableCSRFCheck: true, // Allow requests without Origin header (Postman, mobile apps, etc.)
   },
