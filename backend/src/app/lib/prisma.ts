@@ -2,15 +2,17 @@ import "dotenv/config";
 import { PrismaClient } from "../../../generated/prisma/client/index.js";
 import config from '../config/index.js';
 
-const rawDbUrl = config.database_url || "";
-const formattedUrl = rawDbUrl.startsWith("postgres://") && rawDbUrl.includes("db.prisma.io") 
-  ? rawDbUrl.replace(/^postgres:\/\//, "prisma://") 
-  : rawDbUrl;
+import { PrismaPg } from '@prisma/adapter-pg';
+import pkg from 'pg';
 
-const prisma = new PrismaClient({
-  accelerateUrl: formattedUrl,
-  log: ['info', 'warn', 'error'],
+const { Pool } = pkg;
+const pool = new Pool({
+  connectionString: config.database_url,
+  ssl: { rejectUnauthorized: false }
 });
+
+const adapter = new PrismaPg(pool as any);
+const prisma = new PrismaClient({ adapter, log: ['warn', 'error'] });
 
 export default prisma;
 export { prisma };
