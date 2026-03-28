@@ -195,7 +195,8 @@ const verifyEmail = catchAsync(async (req: Request, res: Response) => {
 
 const googleLogin = catchAsync(async (req: Request, res: Response) => {
     const redirectPath = (req.query.redirect as string) || "/";
-    const callbackURL = `${config.backend_url}/api/v1/auth/google/success?redirect=${encodeURIComponent(redirectPath)}`;
+    // The successful OAuth redirect MUST go through the frontend proxy to preserve cookies!
+    const callbackURL = `${config.frontend_url}/api/v1/auth/google/success?redirect=${encodeURIComponent(redirectPath)}`;
 
     // Use auth.handler() directly so BetterAuth's state cookie is properly forwarded to the browser
     const url = new URL('/api/auth/sign-in/social', config.backend_url);
