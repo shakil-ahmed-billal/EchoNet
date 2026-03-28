@@ -8,6 +8,42 @@ export const apiClient = axios.create({
   },
 })
 
+// Request interceptor to manually inject session token from cookies into headers
+apiClient.interceptors.request.use(async (config) => {
+  let token = null;
+
+  if (typeof window === 'undefined') {
+    // Dynamically use Next.js server-side cookies utility
+    try {
+      const { cookies } = await import('next/headers');
+      const cookieStore = await cookies();
+      token = cookieStore.get('better-auth.session_token')?.value || 
+              cookieStore.get('accessToken')?.value;
+    } catch (e) {
+      // In cases where it's not a standard Next.js request context
+    }
+  } else {
+    // Client-side: Attempt to manually read from browser cookies
+    const cookies = document.cookie.split(';');
+    const sessionCookie = cookies.find(c => c.trim().startsWith('better-auth.session_token='));
+    
+    if (sessionCookie) {
+      token = sessionCookie.split('=')[1];
+    } else {
+      const accessCookie = cookies.find(c => c.trim().startsWith('accessToken='));
+      if (accessCookie) {
+        token = accessCookie.split('=')[1];
+      }
+    }
+  }
+
+  if (token) {
+    config.headers.Authorization = `Bearer ${token}`;
+  }
+  
+  return config;
+});
+
 // Response interceptor for handling token expiration
 apiClient.interceptors.response.use(
   (response) => response,

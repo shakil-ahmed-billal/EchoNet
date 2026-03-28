@@ -106,7 +106,10 @@ export const loginAction = async (payload: any) => {
                 await setTokenInCookies("refreshToken", refreshToken);
             }
             if (token) {
+                // Ensure absolute clean slate for session token on Vercel
                 await deleteCookie("better-auth.session_token");
+                await deleteCookie("__Host-better-auth.session_token");
+                await deleteCookie("__Secure-better-auth.session_token");
                 await setTokenInCookies("better-auth.session_token", token);
             }
         }
@@ -137,7 +140,10 @@ export const registerAction = async (payload: any) => {
                 await setTokenInCookies("refreshToken", refreshToken);
             }
             if (token) {
+                // Ensure absolute clean slate for session token on Vercel
                 await deleteCookie("better-auth.session_token");
+                await deleteCookie("__Host-better-auth.session_token");
+                await deleteCookie("__Secure-better-auth.session_token");
                 await setTokenInCookies("better-auth.session_token", token);
             }
         }
