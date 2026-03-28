@@ -8,16 +8,16 @@ import { auth as betterAuth } from '../lib/auth.js';
 import jwt, { JwtPayload } from 'jsonwebtoken';
 import config from '../config/index.js';
 
+import { AuthService } from '../module/auth/auth.service.js';
+
 const auth = (...requiredRoles: Role[]) => {
   return async (req: Request, res: Response, next: NextFunction) => {
     try {
       let sessionUser: any = null;
-      let session = await betterAuth.api.getSession({
-        headers: fromNodeHeaders(req.headers),
-      });
+      let sessionData = await AuthService.getUnifiedSession(fromNodeHeaders(req.headers));
 
-      if (session?.user) {
-        sessionUser = session.user;
+      if (sessionData?.user) {
+        sessionUser = sessionData.user;
       }
 
       // JWT Strategy Override (Legacy Support)
@@ -60,9 +60,9 @@ export const optionalAuth = async (req: Request, res: Response, next: NextFuncti
   try {
     let sessionUser: any = null;
 
-    let session = await betterAuth.api.getSession({ headers: fromNodeHeaders(req.headers) });
-    if (session?.user) {
-      sessionUser = session.user;
+    let sessionData = await AuthService.getUnifiedSession(fromNodeHeaders(req.headers));
+    if (sessionData?.user) {
+      sessionUser = sessionData.user;
     }
 
     if (!sessionUser) {

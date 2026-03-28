@@ -97,27 +97,17 @@ const logoutUser = async (sessionToken: string) => {
     });
     return result;
 }
-
-const getMe = async (headers: Headers) => {
+const getUnifiedSession = async (headers: Headers) => {
     const cookieHeader = headers.get('cookie') || "";
-    
-    // --- Deep Diagnostic: Cookie Jar Log ---
     const cookieNames = cookieHeader.split(';').map(c => c.split('=')[0].trim());
-    console.log(`[AUTH-DEBUG] Cookie Jar Content: ${cookieNames.join(', ')}`);
-    console.log(`[AUTH-DEBUG] Host: ${headers.get('host')}, X-Forwarded-Host: ${headers.get('x-forwarded-host')}`);
-    // ---------------------------------------
-
+    
     let sessionData = await auth.api.getSession({ headers });
 
-    // --- Definitive Fallback: Smart Manual Lookup ---
+    // --- Power Fallback: Manual DB Lookup if Better-Auth fails ---
     if (!sessionData || !sessionData.session || !sessionData.user) {
-        console.log(`[AUTH-DEBUG] Better Auth getSession returned null. Attempting smarter manual DB fallback...`);
-        
-        // Find any cookie key that contains 'better-auth.session_token' (this catches prefixes)
         const sessionCookieKey = cookieNames.find(name => name.includes('better-auth.session_token'));
         
         if (sessionCookieKey) {
-            console.log(`[AUTH-DEBUG] Found potential session cookie key: ${sessionCookieKey}`);
             const token = cookieHeader.split(`${sessionCookieKey}=`)[1]?.split(';')[0].trim();
             
             if (token) {
@@ -127,23 +117,21 @@ const getMe = async (headers: Headers) => {
                 });
 
                 if (dbSession && new Date() <= dbSession.expiresAt) {
-                    console.log(`[AUTH-DEBUG] Fallback Found Session in DB: SUCCESS`);
+                    console.log(`[AUTH-DEBUG] Power Fallback Success: Found Session in DB`);
                     sessionData = {
                         session: dbSession as any,
                         user: dbSession.user as any
                     };
-                } else {
-                    console.log(`[AUTH-DEBUG] Fallback: Session Token found but ${dbSession ? 'EXPIRED' : 'NOT IN DB'}.`);
-                    if (!dbSession) {
-                        console.log(`[AUTH-DEBUG] Token prefix: ${token.substring(0, 10)}...`);
-                    }
                 }
             }
-        } else {
-            console.log(`[AUTH-DEBUG] Fallback: NO session token cookie found in jar.`);
         }
     }
-    // -----------------------------------------------------------------
+
+    return sessionData;
+}
+
+const getMe = async (headers: Headers) => {
+    const sessionData = await getUnifiedSession(headers);
 
     if (!sessionData || !sessionData.session || !sessionData.user) {
         throw new AppError(status.NOT_FOUND, "Session not found");
@@ -199,7 +187,7 @@ const changePassword = async (payload: IChangePasswordPayload, sessionToken: str
 }
 
 const getNewToken = async (refreshToken: string, headers: Headers) => {
-    const sessionData = await auth.api.getSession({ headers });
+    const sessionData = await getUnifiedSession(headers);
 
     if (!sessionData || !sessionData.session) {
         throw new AppError(status.UNAUTHORIZED, "Invalid session token");
@@ -311,5 +299,6 @@ export const AuthService = {
     verifyEmail,
     forgetPassword, 
     resetPassword,
-    googleLoginSuccess
+    googleLoginSuccess,
+    getUnifiedSession
 };
