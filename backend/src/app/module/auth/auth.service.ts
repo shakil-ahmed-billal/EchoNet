@@ -99,51 +99,48 @@ const logoutUser = async (sessionToken: string) => {
 }
 
 const getMe = async (headers: Headers) => {
-    // Diagnostic log to see what headers are reaching Better Auth
-    console.log(`[AUTH-DEBUG] getMe received Host: ${headers.get('host')}`);
-    console.log(`[AUTH-DEBUG] getMe received X-Forwarded-Host: ${headers.get('x-forwarded-host')}`);
-    console.log(`[AUTH-DEBUG] getMe received User-Agent: ${headers.get('user-agent')}`);
-    const cookie = headers.get('cookie') || "";
-    const hasSessionToken = cookie.includes('better-auth.session_token');
-    console.log(`[AUTH-DEBUG] getMe Session Token: ${hasSessionToken ? 'PRESENT' : 'MISSING'}`);
-    if (hasSessionToken) {
-        const tokenSnippet = cookie.split('better-auth.session_token=')[1]?.substring(0, 10);
-        console.log(`[AUTH-DEBUG] getMe Token Prefix: ${tokenSnippet}...`);
-    }
+    const cookieHeader = headers.get('cookie') || "";
     
+    // --- Deep Diagnostic: Cookie Jar Log ---
+    const cookieNames = cookieHeader.split(';').map(c => c.split('=')[0].trim());
+    console.log(`[AUTH-DEBUG] Cookie Jar Content: ${cookieNames.join(', ')}`);
+    console.log(`[AUTH-DEBUG] Host: ${headers.get('host')}, X-Forwarded-Host: ${headers.get('x-forwarded-host')}`);
+    // ---------------------------------------
+
     let sessionData = await auth.api.getSession({ headers });
 
-    // --- Definitive Fallback: Manual BD Lookup if Better-Auth fails ---
+    // --- Definitive Fallback: Smart Manual Lookup ---
     if (!sessionData || !sessionData.session || !sessionData.user) {
-        console.log(`[AUTH-DEBUG] Better Auth getSession returned null. Attempting manual DB fallback...`);
+        console.log(`[AUTH-DEBUG] Better Auth getSession returned null. Attempting smarter manual DB fallback...`);
         
-        // Handle __Host- or __Secure- prefixes on Vercel
-        let token = "";
-        const parts = cookie.split('better-auth.session_token=');
-        if (parts.length > 1) {
-            token = parts[1].split(';')[0].trim();
-        }
+        // Find any cookie key that contains 'better-auth.session_token' (this catches prefixes)
+        const sessionCookieKey = cookieNames.find(name => name.includes('better-auth.session_token'));
+        
+        if (sessionCookieKey) {
+            console.log(`[AUTH-DEBUG] Found potential session cookie key: ${sessionCookieKey}`);
+            const token = cookieHeader.split(`${sessionCookieKey}=`)[1]?.split(';')[0].trim();
+            
+            if (token) {
+                const dbSession = await prisma.session.findUnique({
+                    where: { token },
+                    include: { user: true }
+                });
 
-        if (token) {
-            const dbSession = await prisma.session.findUnique({
-                where: { token },
-                include: { user: true }
-            });
-
-            if (dbSession && new Date() <= dbSession.expiresAt) {
-                console.log(`[AUTH-DEBUG] Fallback found Session: SUCCESS`);
-                sessionData = {
-                    session: dbSession as any,
-                    user: dbSession.user as any
-                };
-            } else {
-                console.log(`[AUTH-DEBUG] Fallback: Session ${dbSession ? 'EXPIRED' : 'NOT FOUND IN DB'}`);
-                if (!dbSession) {
-                    console.log(`[AUTH-DEBUG] Fallback: Searched for token starting with: ${token.substring(0, 8)}...`);
+                if (dbSession && new Date() <= dbSession.expiresAt) {
+                    console.log(`[AUTH-DEBUG] Fallback Found Session in DB: SUCCESS`);
+                    sessionData = {
+                        session: dbSession as any,
+                        user: dbSession.user as any
+                    };
+                } else {
+                    console.log(`[AUTH-DEBUG] Fallback: Session Token found but ${dbSession ? 'EXPIRED' : 'NOT IN DB'}.`);
+                    if (!dbSession) {
+                        console.log(`[AUTH-DEBUG] Token prefix: ${token.substring(0, 10)}...`);
+                    }
                 }
             }
         } else {
-            console.log(`[AUTH-DEBUG] Fallback: Session Token not found in cookie header string.`);
+            console.log(`[AUTH-DEBUG] Fallback: NO session token cookie found in jar.`);
         }
     }
     // -----------------------------------------------------------------

@@ -1,9 +1,9 @@
 import { NextRequest, NextResponse } from "next/server";
 
-export async function middleware(request: NextRequest) {
+export async function proxy(request: NextRequest) {
   const pathname = request.nextUrl.pathname;
 
-  // Skip middleware for verify-email route
+  // Skip proxy for verify-email route
   if (pathname.startsWith("/verify-email")) {
     return NextResponse.next();
   }

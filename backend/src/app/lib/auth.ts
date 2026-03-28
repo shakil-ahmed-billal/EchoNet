@@ -82,6 +82,6 @@ export const auth = betterAuth({
     crossSubDomainCookies: {
       enabled: config.env === "production",
     },
-    disableCSRFCheck: true, // Allow requests without Origin header (Postman, mobile apps, etc.)
+    disableCSRFCheck: true, 
   },
 });

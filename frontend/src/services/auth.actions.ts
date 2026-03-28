@@ -46,10 +46,13 @@ export async function getUserInfo() {
         const allCookies = cookieStore.getAll().map(c => c.name);
         console.log(`[AUTH] getUserInfo available cookies: ${allCookies.join(", ")}`);
 
+        // Check for session token (including prefixed versions for production)
+        const sessionTokenKey = allCookies.find(name => name.includes("better-auth.session_token"));
+        const sessionToken = sessionTokenKey ? cookieStore.get(sessionTokenKey)?.value : null;
         const accessToken = cookieStore.get("accessToken")?.value;
-        const sessionToken = cookieStore.get("better-auth.session_token")?.value;
 
-        if (!accessToken) {
+        if (!sessionToken && !accessToken) {
+            console.warn("[AUTH] No session or access token found in cookieStore.");
             return null;
         }
 
