@@ -14,7 +14,7 @@ const registerUser = catchAsync(async (req: Request, res: Response) => {
     const url = new URL('/api/auth/sign-up/email', config.backend_url);
     const betterAuthReq = new Request(url.toString(), {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json', 'Origin': config.frontend_url, 'Host': new URL(config.backend_url).host },
+        headers: fromNodeHeaders(req.headers),
         body: JSON.stringify(req.body),
     });
 
@@ -55,7 +55,7 @@ const loginUser = catchAsync(async (req: Request, res: Response) => {
     const url = new URL('/api/auth/sign-in/email', config.backend_url);
     const betterAuthReq = new Request(url.toString(), {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json', 'Origin': config.frontend_url, 'Host': new URL(config.backend_url).host },
+        headers: fromNodeHeaders(req.headers),
         body: JSON.stringify(req.body),
     });
 
@@ -206,12 +206,7 @@ const googleLogin = catchAsync(async (req: Request, res: Response) => {
     const url = new URL('/api/auth/sign-in/social', config.backend_url);
     const betterAuthReq = new Request(url.toString(), {
         method: 'POST',
-        headers: {
-            'Content-Type': 'application/json',
-            'Cookie': req.headers.cookie || '',
-            'Origin': config.frontend_url,
-            'Host': new URL(config.backend_url).host,
-        },
+        headers: fromNodeHeaders(req.headers),
         body: JSON.stringify({ provider: 'google', callbackURL }),
     });
 
