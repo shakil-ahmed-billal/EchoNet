@@ -1,7 +1,12 @@
 import axios from "axios"
 
+const isServer = typeof window === 'undefined';
+const BASE_URL = isServer 
+  ? (process.env.NEXT_PUBLIC_API_URL || "http://localhost:8000/api/v1")
+  : "/api/v1";
+
 export const apiClient = axios.create({
-  baseURL: process.env.NEXT_PUBLIC_API_URL || "http://localhost:8000/api/v1",
+  baseURL: BASE_URL,
   withCredentials: true,
   headers: {
     "Content-Type": "application/json",
@@ -12,7 +17,7 @@ export const apiClient = axios.create({
 apiClient.interceptors.request.use(async (config) => {
   let token = null;
 
-  if (typeof window === 'undefined') {
+  if (isServer) {
     // Dynamically use Next.js server-side cookies utility
     try {
       const { cookies } = await import('next/headers');
@@ -56,11 +61,11 @@ apiClient.interceptors.response.use(
       originalRequest._retry = true;
 
       try {
-        // Attempt to refresh the token using the refreshToken cookie
-        await axios.post(
-          `${apiClient.defaults.baseURL}/auth/refresh-token`,
+        // Attempt to refresh the token using the hardened apiClient to ensure header injection
+        await apiClient.post(
+          `/auth/refresh-token`,
           {},
-          { withCredentials: true }
+          { _retry: true } as any // Use type-casting to avoid AxiosRequestConfig property error
         );
         console.log(`[API-CLIENT] Token refresh: SUCCESS. Retrying original request.`);
 
