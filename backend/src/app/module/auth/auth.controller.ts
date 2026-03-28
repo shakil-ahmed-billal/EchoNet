@@ -223,9 +223,6 @@ const googleLogin = catchAsync(async (req: Request, res: Response) => {
     });
 
     const rawData = await betterAuthRes.text();
-    console.log("BetterAuth Social Sign-In Response Status:", betterAuthRes.status);
-    console.log("BetterAuth Social Sign-In Response Headers:", Object.fromEntries(betterAuthRes.headers.entries()));
-    console.log("BetterAuth Social Sign-In Response Body:", rawData);
 
     let data;
     try {
