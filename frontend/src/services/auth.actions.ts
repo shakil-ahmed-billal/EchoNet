@@ -57,6 +57,7 @@ export async function getUserInfo() {
         const userAgent = reqHeaders.get("user-agent") || "";
         const host = reqHeaders.get("host") || "echo-net-bd.vercel.app";
         const proto = reqHeaders.get("x-forwarded-proto") || "https";
+        const ip = reqHeaders.get("x-forwarded-for") || "";
         const cookieString = cookieStore.toString();
 
         const res = await fetch(`${BASE_API_URL}/auth/me`, {
@@ -66,7 +67,8 @@ export async function getUserInfo() {
                 "Accept": "application/json",
                 "User-Agent": userAgent,
                 "X-Forwarded-Host": host,
-                "X-Forwarded-Proto": proto
+                "X-Forwarded-Proto": proto,
+                "X-Forwarded-For": ip
             },
             cache: "no-store",
         });

@@ -6,11 +6,13 @@ import config from "../config/index.js";
 
 const { Pool } = pkg;
 
-const isLocalHost = config.database_url?.includes("localhost") || config.database_url?.includes("127.0.0.1");
+const dbUrl = config.database_url || "";
+const isLocalHost = dbUrl.includes("localhost") || dbUrl.includes("127.0.0.1");
+const sslMode = isLocalHost ? "" : "&sslmode=verify-full";
+const finalConnectionString = isLocalHost ? dbUrl : `${dbUrl}${dbUrl.includes('?') ? '&' : '?'}${sslMode}`;
 
 const pool = new Pool({
-  connectionString: config.database_url,
-  // Only use SSL if we are NOT on localhost
+  connectionString: finalConnectionString,
   ssl: isLocalHost ? false : { rejectUnauthorized: false },
   // Robust settings for Vercel/Serverless
   connectionTimeoutMillis: 10000, // 10s wait for new connections
