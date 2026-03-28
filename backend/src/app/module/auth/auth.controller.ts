@@ -32,16 +32,14 @@ const registerUser = catchAsync(async (req: Request, res: Response) => {
         return sendResponse(res, { statusCode: betterAuthRes.status, success: false, message: data?.message || "Registration failed" });
     }
 
-    const { accessToken, refreshToken } = await AuthService.googleLoginSuccess({ user: data.user }); // Helper building tokens
-
-    // Forward ALL cookies BetterAuth set (ensures session token, CSRF, etc. are passed to the browser)
-    betterAuthRes.headers.forEach((value, key) => {
-        if (key.toLowerCase() === 'set-cookie') {
-            res.append('Set-Cookie', value);
-        }
-    });
+    const { accessToken, refreshToken } = await AuthService.googleLoginSuccess({ user: data.user });
 
     const token = data.token || "";
+    console.log(`[AUTH] User registered: ${data.user.email}, Session Token: ${token ? 'Generated' : 'MISSING'}`);
+    
+    if (token) {
+        tokenUtils.setBetterAuthSessionCookie(res, token);
+    }
     tokenUtils.setAccessTokenCookie(res, accessToken);
     tokenUtils.setRefreshTokenCookie(res, refreshToken);
 
@@ -77,14 +75,12 @@ const loginUser = catchAsync(async (req: Request, res: Response) => {
 
     const { accessToken, refreshToken } = await AuthService.googleLoginSuccess({ user: data.user });
 
-    // Forward ALL cookies BetterAuth set (ensures session token, CSRF, etc. are passed to the browser)
-    betterAuthRes.headers.forEach((value, key) => {
-        if (key.toLowerCase() === 'set-cookie') {
-            res.append('Set-Cookie', value);
-        }
-    });
-
     const token = data.token || "";
+    console.log(`[AUTH] User logged in: ${data.user.email}, Session Token: ${token ? 'Generated' : 'MISSING'}`);
+
+    if (token) {
+        tokenUtils.setBetterAuthSessionCookie(res, token);
+    }
     tokenUtils.setAccessTokenCookie(res, accessToken);
     tokenUtils.setRefreshTokenCookie(res, refreshToken);
 

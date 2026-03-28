@@ -65,18 +65,14 @@ export const auth = betterAuth({
   },
   session: {
     cookieCache: {
-      enabled: true,
-      maxAge: 5 * 60, // 5 minutes
+      enabled: false, // Disabled for debugging and to avoid stale "Session not found" errors
     },
   },
   advanced: {
-    trustedProxyHeaders: true, // Handle x-forwarded-host/proto from Next.js rewrites
-    ipAddress: {
-      ipAddressHeaders: ["x-forwarded-for", "x-real-ip"],
-    },
-    cookiePrefix: "better-auth",
+    trustedOrigins: ["http://localhost:3000"],
+    trustedProxyHeaders: true, // Re-enable to respect X-Forwarded-Host for local dev sync
     cookiePath: "/", // Ensure cookies are accessible across all API versions (/api/v1, /api/auth)
-    useSecureCookies: process.env.NODE_ENV === "production", // Only use secure cookies in production (HTTPS)
+    useSecureCookies: false, // Ensure cookies are NOT secure on localhost HTTP
     crossSubDomainCookies: {
       enabled: false,
     },

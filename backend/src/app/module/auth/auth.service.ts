@@ -88,7 +88,7 @@ const loginUser = async (payload: ILoginUserPayload) => {
 
     const cookies = response.headers.getSetCookie ? response.headers.getSetCookie() : [];
 
-    return { ...data, accessToken, refreshToken, __cookies: cookies };
+    return { accessToken, refreshToken, user: user as any };
 }
 
 const logoutUser = async (sessionToken: string) => {
@@ -99,6 +99,17 @@ const logoutUser = async (sessionToken: string) => {
 }
 
 const getMe = async (headers: Headers) => {
+    // Diagnostic log to see what headers are reaching Better Auth
+    console.log(`[AUTH-DEBUG] getMe received Host: ${headers.get('host')}`);
+    console.log(`[AUTH-DEBUG] getMe received X-Forwarded-Host: ${headers.get('x-forwarded-host')}`);
+    const cookie = headers.get('cookie') || "";
+    const hasSessionToken = cookie.includes('better-auth.session_token');
+    console.log(`[AUTH-DEBUG] getMe Session Token: ${hasSessionToken ? 'PRESENT' : 'MISSING'}`);
+    if (hasSessionToken) {
+        const tokenSnippet = cookie.split('better-auth.session_token=')[1]?.substring(0, 10);
+        console.log(`[AUTH-DEBUG] getMe Token Prefix: ${tokenSnippet}...`);
+    }
+    
     const sessionData = await auth.api.getSession({ headers });
 
     if (!sessionData || !sessionData.session || !sessionData.user) {

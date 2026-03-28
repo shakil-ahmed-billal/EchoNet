@@ -9,13 +9,16 @@ export const setCookie = async (
 ) => {
     const cookieStore = await cookies();
 
+    const isProd = process.env.NODE_ENV === "production";
+    
     cookieStore.set(name, value, {
         httpOnly : true,
-        secure : process.env.NODE_ENV === "production",
-        sameSite : "lax", // 'lax' helps with OAuth redirects and basic next routing.
+        secure : isProd,
+        sameSite : isProd ? "none" : "lax", 
         path : "/",
         maxAge : maxAgeInSeconds,
     });
+    console.log(`[COOKIE-SET] ${name} (Secure: ${isProd})`);
 }
 
 export const getCookie = async (name : string) => {

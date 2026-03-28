@@ -68,7 +68,8 @@ const authLimiter = rateLimit({
 	limit: 1000,
 	standardHeaders: 'draft-7', 
 	legacyHeaders: false, 
-    message: "Too many requests from this IP, please try again after 15 minutes"
+    message: "Too many requests from this IP, please try again after 15 minutes",
+	validate: { trustProxy: false } // Silences the permissive trust warning for local dev
 });
 
 app.use('/api/v1/auth', authLimiter);
