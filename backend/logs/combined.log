@@ -1950,3 +1950,58 @@ The column `(not available)` does not exist in the current database.
 2026-03-28 23:04:00 [[32minfo[39m]: Initializing Socket.IO...
 2026-03-28 23:08:05 [[32minfo[39m]: Initializing Socket.IO...
 2026-03-28 23:10:41 [[32minfo[39m]: Initializing Socket.IO...
+2026-03-28 23:14:57 [[31merror[39m]: error: Failed to connect to upstream database. Please contact Prisma support if the problem persists.
+    at C:\Shakil Dev\EchoNet\backend\node_modules\.pnpm\pg-pool@3.13.0_pg@8.20.0\node_modules\pg-pool\index.js:45:11
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async PrismaPgAdapter.performIO (file:///C:/Shakil%20Dev/EchoNet/backend/node_modules/.pnpm/@prisma+adapter-pg@7.6.0/node_modules/@prisma/adapter-pg/dist/index.mjs:618:22)
+    at async PrismaPgAdapter.queryRaw (file:///C:/Shakil%20Dev/EchoNet/backend/node_modules/.pnpm/@prisma+adapter-pg@7.6.0/node_modules/@prisma/adapter-pg/dist/index.mjs:568:30)
+    at async e.interpretNode (C:\Shakil Dev\EchoNet\backend\generated\prisma\client\runtime\client.js:15:44601)
+    at async e.interpretNode (C:\Shakil Dev\EchoNet\backend\generated\prisma\client\runtime\client.js:15:43724)
+    at async C:\Shakil Dev\EchoNet\backend\generated\prisma\client\runtime\client.js:15:45756
+    at async Promise.all (index 1)
+    at async e.interpretNode (C:\Shakil Dev\EchoNet\backend\generated\prisma\client\runtime\client.js:15:45682)
+    at async e.interpretNode (C:\Shakil Dev\EchoNet\backend\generated\prisma\client\runtime\client.js:15:46265)
+2026-03-28 23:14:57 [[31merror[39m]: error: Failed to connect to upstream database. Please contact Prisma support if the problem persists.
+    at C:\Shakil Dev\EchoNet\backend\node_modules\.pnpm\pg-pool@3.13.0_pg@8.20.0\node_modules\pg-pool\index.js:45:11
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async PrismaPgAdapter.performIO (file:///C:/Shakil%20Dev/EchoNet/backend/node_modules/.pnpm/@prisma+adapter-pg@7.6.0/node_modules/@prisma/adapter-pg/dist/index.mjs:618:22)
+    at async PrismaPgAdapter.queryRaw (file:///C:/Shakil%20Dev/EchoNet/backend/node_modules/.pnpm/@prisma+adapter-pg@7.6.0/node_modules/@prisma/adapter-pg/dist/index.mjs:568:30)
+    at async e.interpretNode (C:\Shakil Dev\EchoNet\backend\generated\prisma\client\runtime\client.js:15:44601)
+    at async e.interpretNode (C:\Shakil Dev\EchoNet\backend\generated\prisma\client\runtime\client.js:15:43724)
+    at async C:\Shakil Dev\EchoNet\backend\generated\prisma\client\runtime\client.js:15:45756
+    at async Promise.all (index 1)
+    at async e.interpretNode (C:\Shakil Dev\EchoNet\backend\generated\prisma\client\runtime\client.js:15:45682)
+    at async e.interpretNode (C:\Shakil Dev\EchoNet\backend\generated\prisma\client\runtime\client.js:15:46265)
+2026-03-28 23:14:57 [[31merror[39m]: error: Failed to connect to upstream database. Please contact Prisma support if the problem persists.
+    at C:\Shakil Dev\EchoNet\backend\node_modules\.pnpm\pg-pool@3.13.0_pg@8.20.0\node_modules\pg-pool\index.js:45:11
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async PrismaPgAdapter.performIO (file:///C:/Shakil%20Dev/EchoNet/backend/node_modules/.pnpm/@prisma+adapter-pg@7.6.0/node_modules/@prisma/adapter-pg/dist/index.mjs:618:22)
+    at async PrismaPgAdapter.queryRaw (file:///C:/Shakil%20Dev/EchoNet/backend/node_modules/.pnpm/@prisma+adapter-pg@7.6.0/node_modules/@prisma/adapter-pg/dist/index.mjs:568:30)
+    at async e.interpretNode (C:\Shakil Dev\EchoNet\backend\generated\prisma\client\runtime\client.js:15:44601)
+    at async e.interpretNode (C:\Shakil Dev\EchoNet\backend\generated\prisma\client\runtime\client.js:15:43724)
+    at async C:\Shakil Dev\EchoNet\backend\generated\prisma\client\runtime\client.js:15:45756
+    at async Promise.all (index 1)
+    at async e.interpretNode (C:\Shakil Dev\EchoNet\backend\generated\prisma\client\runtime\client.js:15:45682)
+    at async e.interpretNode (C:\Shakil Dev\EchoNet\backend\generated\prisma\client\runtime\client.js:15:46265)
+2026-03-28 23:14:57 [[31merror[39m]: error: Failed to connect to upstream database. Please contact Prisma support if the problem persists.
+    at C:\Shakil Dev\EchoNet\backend\node_modules\.pnpm\pg-pool@3.13.0_pg@8.20.0\node_modules\pg-pool\index.js:45:11
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async PrismaPgAdapter.performIO (file:///C:/Shakil%20Dev/EchoNet/backend/node_modules/.pnpm/@prisma+adapter-pg@7.6.0/node_modules/@prisma/adapter-pg/dist/index.mjs:618:22)
+    at async PrismaPgAdapter.queryRaw (file:///C:/Shakil%20Dev/EchoNet/backend/node_modules/.pnpm/@prisma+adapter-pg@7.6.0/node_modules/@prisma/adapter-pg/dist/index.mjs:568:30)
+    at async e.interpretNode (C:\Shakil Dev\EchoNet\backend\generated\prisma\client\runtime\client.js:15:44601)
+    at async e.interpretNode (C:\Shakil Dev\EchoNet\backend\generated\prisma\client\runtime\client.js:15:43724)
+    at async e.interpretNode (C:\Shakil Dev\EchoNet\backend\generated\prisma\client\runtime\client.js:15:46265)
+    at async e.run (C:\Shakil Dev\EchoNet\backend\generated\prisma\client\runtime\client.js:15:43315)
+    at async e.execute (C:\Shakil Dev\EchoNet\backend\generated\prisma\client\runtime\client.js:61:815)
+    at async jt.request (C:\Shakil Dev\EchoNet\backend\generated\prisma\client\runtime\client.js:62:2399)
+2026-03-28 23:14:57 [[31merror[39m]: error: Failed to connect to upstream database. Please contact Prisma support if the problem persists.
+    at C:\Shakil Dev\EchoNet\backend\node_modules\.pnpm\pg-pool@3.13.0_pg@8.20.0\node_modules\pg-pool\index.js:45:11
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async PrismaPgAdapter.performIO (file:///C:/Shakil%20Dev/EchoNet/backend/node_modules/.pnpm/@prisma+adapter-pg@7.6.0/node_modules/@prisma/adapter-pg/dist/index.mjs:618:22)
+    at async PrismaPgAdapter.queryRaw (file:///C:/Shakil%20Dev/EchoNet/backend/node_modules/.pnpm/@prisma+adapter-pg@7.6.0/node_modules/@prisma/adapter-pg/dist/index.mjs:568:30)
+    at async e.interpretNode (C:\Shakil Dev\EchoNet\backend\generated\prisma\client\runtime\client.js:15:44601)
+    at async e.interpretNode (C:\Shakil Dev\EchoNet\backend\generated\prisma\client\runtime\client.js:15:43724)
+    at async C:\Shakil Dev\EchoNet\backend\generated\prisma\client\runtime\client.js:15:45756
+    at async Promise.all (index 1)
+    at async e.interpretNode (C:\Shakil Dev\EchoNet\backend\generated\prisma\client\runtime\client.js:15:45682)
+    at async e.interpretNode (C:\Shakil Dev\EchoNet\backend\generated\prisma\client\runtime\client.js:15:46265)
