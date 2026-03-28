@@ -8,6 +8,7 @@ import { tokenUtils } from "../../utils/token.js";
 import config from "../../config/index.js";
 import { auth } from "../../lib/auth.js";
 import type { Request, Response } from "express";
+import { fromNodeHeaders } from "better-auth/node";
 
 const registerUser = catchAsync(async (req: Request, res: Response) => {
     const url = new URL('/api/auth/sign-up/email', config.backend_url);
@@ -33,17 +34,14 @@ const registerUser = catchAsync(async (req: Request, res: Response) => {
 
     const { accessToken, refreshToken } = await AuthService.googleLoginSuccess({ user: data.user }); // Helper building tokens
 
-    let token = data.token || "";
-    if (betterAuthRes.headers.has('set-cookie')) {
-        const cookies = betterAuthRes.headers.getSetCookie();
-        for (const cookie of cookies) {
-            const match = cookie.match(/better-auth\.session_token=([^;]+)/);
-            if (match) {
-                token = match[1];
-            }
+    // Forward ALL cookies BetterAuth set (ensures session token, CSRF, etc. are passed to the browser)
+    betterAuthRes.headers.forEach((value, key) => {
+        if (key.toLowerCase() === 'set-cookie') {
+            res.append('Set-Cookie', value);
         }
-    }
+    });
 
+    const token = data.token || "";
     tokenUtils.setAccessTokenCookie(res, accessToken);
     tokenUtils.setRefreshTokenCookie(res, refreshToken);
 
@@ -79,17 +77,14 @@ const loginUser = catchAsync(async (req: Request, res: Response) => {
 
     const { accessToken, refreshToken } = await AuthService.googleLoginSuccess({ user: data.user });
 
-    let token = data.token || "";
-    if (betterAuthRes.headers.has('set-cookie')) {
-        const cookies = betterAuthRes.headers.getSetCookie();
-        for (const cookie of cookies) {
-            const match = cookie.match(/better-auth\.session_token=([^;]+)/);
-            if (match) {
-                token = match[1];
-            }
+    // Forward ALL cookies BetterAuth set (ensures session token, CSRF, etc. are passed to the browser)
+    betterAuthRes.headers.forEach((value, key) => {
+        if (key.toLowerCase() === 'set-cookie') {
+            res.append('Set-Cookie', value);
         }
-    }
+    });
 
+    const token = data.token || "";
     tokenUtils.setAccessTokenCookie(res, accessToken);
     tokenUtils.setRefreshTokenCookie(res, refreshToken);
 
@@ -126,19 +121,7 @@ const logoutUser = catchAsync(async (req: Request, res: Response) => {
 });
 
 const getMe = catchAsync(async (req: Request, res: Response) => {
-    res.setHeader('Cache-Control', 'no-store, no-cache, must-revalidate, proxy-revalidate');
-    const headers = new Headers();
-    Object.entries(req.headers).forEach(([key, value]) => {
-        if (value) headers.append(key, value as string);
-    });
-
-    // Pass the token safely as a Bearer token, bypassing header parsing issues
-    const token = req.cookies?.["better-auth.session_token"];
-    if (token) {
-        headers.set("Authorization", `Bearer ${token}`);
-    }
-
-    const result = await AuthService.getMe(headers);
+    const result = await AuthService.getMe(fromNodeHeaders(req.headers));
 
     sendResponse(res, {
         statusCode: httpStatus.OK,

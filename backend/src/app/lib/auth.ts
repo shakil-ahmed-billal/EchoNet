@@ -71,8 +71,12 @@ export const auth = betterAuth({
   },
   advanced: {
     trustedProxyHeaders: true, // Handle x-forwarded-host/proto from Next.js rewrites
+    ipAddress: {
+      ipAddressHeaders: ["x-forwarded-for", "x-real-ip"],
+    },
     cookiePrefix: "better-auth",
-    useSecureCookies: process.env.NODE_ENV === "production",
+    cookiePath: "/", // Ensure cookies are accessible across all API versions (/api/v1, /api/auth)
+    useSecureCookies: process.env.NODE_ENV === "production", // Only use secure cookies in production (HTTPS)
     crossSubDomainCookies: {
       enabled: false,
     },

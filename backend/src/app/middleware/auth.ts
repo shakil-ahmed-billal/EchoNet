@@ -20,7 +20,7 @@ const auth = (...requiredRoles: Role[]) => {
         sessionUser = session.user;
       }
 
-      // JWT Strategy Override
+      // JWT Strategy Override (Legacy Support)
       if (!sessionUser) {
         let token = req.cookies?.accessToken;
         if (!token && req.headers.authorization?.startsWith('Bearer ')) {
@@ -31,20 +31,6 @@ const auth = (...requiredRoles: Role[]) => {
             const decoded = jwt.verify(token, config.jwt_secret as string) as JwtPayload;
             sessionUser = await prisma.user.findUnique({ where: { id: decoded.userId } });
           } catch(e) {}
-        }
-      }
-
-      // Manual database fallback
-      if (!sessionUser) {
-        const token = req.cookies['better-auth.session_token'];
-        if (token) {
-          const dbSession = await prisma.session.findUnique({
-            where: { token },
-            include: { user: true }
-          });
-          if (dbSession && !dbSession.user.isDeleted && !dbSession.user.isSuspended) {
-            sessionUser = dbSession.user;
-          }
         }
       }
 
@@ -89,19 +75,6 @@ export const optionalAuth = async (req: Request, res: Response, next: NextFuncti
           const decoded = jwt.verify(token, config.jwt_secret as string) as JwtPayload;
           sessionUser = await prisma.user.findUnique({ where: { id: decoded.userId } });
         } catch(e) {}
-      }
-    }
-
-    if (!sessionUser) {
-      const token = req.cookies['better-auth.session_token'];
-      if (token) {
-        const dbSession = await prisma.session.findUnique({
-          where: { token },
-          include: { user: true }
-        });
-        if (dbSession && !dbSession.user.isDeleted && !dbSession.user.isSuspended) {
-          sessionUser = dbSession.user;
-        }
       }
     }
 

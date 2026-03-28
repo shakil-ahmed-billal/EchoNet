@@ -35,10 +35,6 @@ export async function getNewTokensWithRefreshToken(refreshToken: string): Promis
             await setTokenInCookies("refreshToken", data.refreshToken);
         }
 
-        if (data?.sessionToken || data?.token) {
-            await setTokenInCookies("better-auth.session_token", data.sessionToken || data.token, 24 * 60 * 60);
-        }
-
         return true;
     } catch (error) {
         console.error("Error refreshing token:", error);
@@ -66,11 +62,6 @@ export async function getUserInfo() {
 
         if (!res.ok) {
             console.error("Failed to fetch user info:", res.status, res.statusText);
-            if (res.status === 404 || res.status === 401) {
-                await deleteCookie("accessToken");
-                await deleteCookie("refreshToken");
-                await deleteCookie("better-auth.session_token");
-            }
             return null;
         }
 
@@ -88,11 +79,10 @@ export const loginAction = async (payload: any) => {
         console.log("LOGIN ACTION RESPONSE:", response);
 
         if (response?.success && response?.data) {
-            const { accessToken, refreshToken, token } = response.data;
+            const { accessToken, refreshToken } = response.data;
             
             if (accessToken) await setTokenInCookies("accessToken", accessToken);
             if (refreshToken) await setTokenInCookies("refreshToken", refreshToken);
-            if (token) await setTokenInCookies("better-auth.session_token", token, 24 * 60 * 60);
         }
 
         return response;
@@ -110,11 +100,10 @@ export const registerAction = async (payload: any) => {
         console.log("REGISTER ACTION RESPONSE:", response);
 
         if (response?.success && response?.data) {
-            const { accessToken, refreshToken, token } = response.data;
+            const { accessToken, refreshToken } = response.data;
             
             if (accessToken) await setTokenInCookies("accessToken", accessToken);
             if (refreshToken) await setTokenInCookies("refreshToken", refreshToken);
-            if (token) await setTokenInCookies("better-auth.session_token", token, 24 * 60 * 60);
         }
 
         return response;
