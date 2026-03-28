@@ -199,9 +199,12 @@ const googleLogin = catchAsync(async (req: Request, res: Response) => {
 
     // Use auth.handler() directly so BetterAuth's state cookie is properly forwarded to the browser
     const url = new URL('/api/auth/sign-in/social', config.backend_url);
+    const headers = fromNodeHeaders(req.headers);
+    headers.set('Content-Type', 'application/json');
+    
     const betterAuthReq = new Request(url.toString(), {
         method: 'POST',
-        headers: fromNodeHeaders(req.headers),
+        headers,
         body: JSON.stringify({ provider: 'google', callbackURL }),
     });
 
@@ -214,13 +217,29 @@ const googleLogin = catchAsync(async (req: Request, res: Response) => {
         }
     });
 
-    // BetterAuth returns a redirect to Google OAuth
+    const rawData = await betterAuthRes.text();
+    console.log("BetterAuth Social Sign-In Response Status:", betterAuthRes.status);
+    console.log("BetterAuth Social Sign-In Response Headers:", Object.fromEntries(betterAuthRes.headers.entries()));
+    console.log("BetterAuth Social Sign-In Response Body:", rawData);
+
+    let data;
+    try {
+        data = JSON.parse(rawData);
+    } catch(e) {
+        data = null;
+    }
+
+    // BetterAuth usually returns a JSON with `url` for social sign-ins
+    if (data && data.url) {
+        return res.redirect(data.url);
+    }
+
     const location = betterAuthRes.headers.get('location');
     if (location) {
         return res.redirect(location);
     }
 
-    return res.status(500).json({ message: 'Failed to initiate Google OAuth' });
+    return res.status(500).json({ message: 'Failed to initiate Google OAuth', details: data || rawData });
 });
 
 const googleLoginSuccess = catchAsync(async (req: Request, res: Response) => {

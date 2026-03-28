@@ -78,9 +78,9 @@ export function LoginForm({
   }
 
   const handleGoogleLogin = () => {
-    // Use the same-origin proxy route to ensure cookies are handled correctly and 
-    // to match the Better Auth mount point (/api/auth instead of /api/v1/auth)
-    window.location.href = `/api/auth/login/google?redirect=${encodeURIComponent(redirectPath || "/")}`
+    // Point directly to the custom Express controller we built in the backend
+    // which handles the redirect logic cleanly.
+    window.location.href = `/api/v1/auth/login/google?redirect=${encodeURIComponent(redirectPath || "/")}`
   }
 
   return (
