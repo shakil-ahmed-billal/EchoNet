@@ -194,3 +194,17 @@
     at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
     at async <anonymous> (C:\Shakil Dev\EchoNet\backend\src\app\module\auth\auth.controller.ts:120:20)
     at async <anonymous> (C:\Shakil Dev\EchoNet\backend\src\app\utils\catchAsync.ts:6:7)
+2026-03-29 00:27:51 [[32minfo[39m]: Initializing Socket.IO...
+2026-03-29 00:28:00 [[31merror[39m]: Error: Session not found
+    at Object.getMe (C:\Shakil Dev\EchoNet\backend\src\app\module\auth\auth.service.ts:117:15)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async <anonymous> (C:\Shakil Dev\EchoNet\backend\src\app\module\auth\auth.controller.ts:120:20)
+    at async <anonymous> (C:\Shakil Dev\EchoNet\backend\src\app\utils\catchAsync.ts:6:7)
+2026-03-29 00:28:22 [[31merror[39m]: Error: Session not found
+    at Object.getMe (C:\Shakil Dev\EchoNet\backend\src\app\module\auth\auth.service.ts:117:15)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async <anonymous> (C:\Shakil Dev\EchoNet\backend\src\app\module\auth\auth.controller.ts:120:20)
+    at async <anonymous> (C:\Shakil Dev\EchoNet\backend\src\app\utils\catchAsync.ts:6:7)
+2026-03-29 00:31:05 [[32minfo[39m]: Initializing Socket.IO...
+2026-03-29 00:31:17 [[32minfo[39m]: Initializing Socket.IO...
+2026-03-29 00:32:07 [[32minfo[39m]: User 8VuJmPhBz0M3RmpHF6NeyOhItjQLT4n6 joined their private room

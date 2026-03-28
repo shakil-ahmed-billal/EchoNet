@@ -53,6 +53,8 @@ export async function getUserInfo() {
             return null;
         }
 
+        const reqHeaders = await headers();
+        const userAgent = reqHeaders.get("user-agent") || "";
         const cookieString = cookieStore.toString();
 
         const res = await fetch(`${BASE_API_URL}/auth/me`, {
@@ -60,6 +62,7 @@ export async function getUserInfo() {
             headers: {
                 "Cookie": cookieString,
                 "Accept": "application/json",
+                "User-Agent": userAgent,
                 "X-Forwarded-Host": "localhost:3000",
                 "X-Forwarded-Proto": "http"
             },

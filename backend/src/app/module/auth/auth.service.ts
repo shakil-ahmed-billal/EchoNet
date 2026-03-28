@@ -102,6 +102,7 @@ const getMe = async (headers: Headers) => {
     // Diagnostic log to see what headers are reaching Better Auth
     console.log(`[AUTH-DEBUG] getMe received Host: ${headers.get('host')}`);
     console.log(`[AUTH-DEBUG] getMe received X-Forwarded-Host: ${headers.get('x-forwarded-host')}`);
+    console.log(`[AUTH-DEBUG] getMe received User-Agent: ${headers.get('user-agent')}`);
     const cookie = headers.get('cookie') || "";
     const hasSessionToken = cookie.includes('better-auth.session_token');
     console.log(`[AUTH-DEBUG] getMe Session Token: ${hasSessionToken ? 'PRESENT' : 'MISSING'}`);
@@ -110,18 +111,40 @@ const getMe = async (headers: Headers) => {
         console.log(`[AUTH-DEBUG] getMe Token Prefix: ${tokenSnippet}...`);
     }
     
-    const sessionData = await auth.api.getSession({ headers });
+    let sessionData = await auth.api.getSession({ headers });
+
+    // --- Definitive Fallback: Manual BD Lookup if Better-Auth fails ---
+    if (!sessionData || !sessionData.session || !sessionData.user) {
+        console.log(`[AUTH-DEBUG] Better Auth getSession returned null. Attempting manual DB fallback...`);
+        const token = cookie.split('better-auth.session_token=')[1]?.split(';')[0];
+        if (token) {
+            const dbSession = await prisma.session.findUnique({
+                where: { token },
+                include: { user: true }
+            });
+
+            if (dbSession && new Date() <= dbSession.expiresAt) {
+                console.log(`[AUTH-DEBUG] Fallback found Session: SUCCESS`);
+                sessionData = {
+                    session: dbSession as any,
+                    user: dbSession.user as any
+                };
+            } else {
+                console.log(`[AUTH-DEBUG] Fallback: Session ${dbSession ? 'EXPIRED' : 'NOT FOUND IN DB'}`);
+            }
+        }
+    }
+    // -----------------------------------------------------------------
 
     if (!sessionData || !sessionData.session || !sessionData.user) {
         throw new AppError(status.NOT_FOUND, "Session not found");
     }
 
-    if (new Date() > sessionData.session.expiresAt) {
+    if (new Date() > (sessionData.session as any).expiresAt) {
         throw new AppError(status.NOT_FOUND, "Session expired");
     }
 
     const { user, session } = sessionData;
-
     return { session, user };
 }
 
