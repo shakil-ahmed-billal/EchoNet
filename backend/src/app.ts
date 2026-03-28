@@ -20,6 +20,7 @@ const __dirname = path.dirname(__filename);
 
 const app: Application = express();
 
+app.set('trust proxy', 1); // Trust Vercel's reverse proxy for rate-limiting
 app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, 'views'));
 
