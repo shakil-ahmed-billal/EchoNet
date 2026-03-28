@@ -492,3 +492,21 @@
 2026-03-29 04:13:22 [[32minfo[39m]: Socket disconnected: BFm_WS9CJIkG67HRAAAi
 2026-03-29 04:15:01 [[32minfo[39m]: Initializing Socket.IO...
 2026-03-29 04:15:52 [[32minfo[39m]: Initializing Socket.IO...
+2026-03-29 04:21:10 [[32minfo[39m]: Initializing Socket.IO...
+2026-03-29 04:24:13 [[32minfo[39m]: User vQjzubNxbGN3Sy7zRq7Qeppb4yhxmBMb joined their private room
+2026-03-29 04:24:53 [[32minfo[39m]: Socket disconnected: Np4BQUtihoYYGBBoAAAB
+2026-03-29 04:25:08 [[32minfo[39m]: User vQjzubNxbGN3Sy7zRq7Qeppb4yhxmBMb joined their private room
+2026-03-29 04:25:44 [[31merror[39m]: Error: Store not found
+    at Object.getStoreOrders (C:\Shakil Dev\EchoNet\backend\src\app\module\order\order.service.ts:100:21)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async <anonymous> (C:\Shakil Dev\EchoNet\backend\src\app\module\order\order.controller.ts:30:18)
+    at async <anonymous> (C:\Shakil Dev\EchoNet\backend\src\app\utils\catchAsync.ts:6:7)
+2026-03-29 04:30:24 [[32minfo[39m]: Socket disconnected: sOn2fnnotcmu5LfOAAAD
+2026-03-29 04:31:40 [[32minfo[39m]: User vQjzubNxbGN3Sy7zRq7Qeppb4yhxmBMb joined their private room
+2026-03-29 04:33:01 [[32minfo[39m]: Socket disconnected: 9zABR8_AVPaQ97hUAAAF
+2026-03-29 04:33:14 [[32minfo[39m]: User vQjzubNxbGN3Sy7zRq7Qeppb4yhxmBMb joined their private room
+2026-03-29 04:40:04 [[32minfo[39m]: Socket disconnected: 0D1gjolZr3v_2Jn0AAAH
+2026-03-29 04:40:23 [[32minfo[39m]: User vQjzubNxbGN3Sy7zRq7Qeppb4yhxmBMb joined their private room
+2026-03-29 04:43:33 [[32minfo[39m]: Socket disconnected: qRB3kKWWw_0PxLBdAAAJ
+2026-03-29 04:54:35 [[32minfo[39m]: Initializing Socket.IO...
+2026-03-29 04:54:40 [[32minfo[39m]: Initializing Socket.IO...
