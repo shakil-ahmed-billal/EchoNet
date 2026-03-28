@@ -99,46 +99,33 @@ const logoutUser = async (sessionToken: string) => {
 }
 const getUnifiedSession = async (headers: Headers) => {
     const cookieHeader = headers.get('cookie') || "";
-    const cookieNames = cookieHeader.split(';').map(c => c.split('=')[0].trim());
     
-    let sessionData: any = null;
+    // FAST PATH: Check Cookie/Header for token directly to avoid fetch loops
+    const cookies = cookieHeader.split(';').map(c => c.trim());
+    const sessionToken = cookies.find(c => c.startsWith('better-auth.session_token='))?.split('=')[1];
+    const authHeader = headers.get('authorization')?.split('Bearer ')[1];
+    const token = sessionToken || authHeader;
 
-    try {
-        // Try Better Auth standard check
-        sessionData = await auth.api.getSession({ headers });
-    } catch (e) {
-        console.warn(`[AUTH-DEBUG] Better Auth getSession threw an error on Vercel: ${e}. Proceeding to fallback.`);
+    if (token) {
+        const dbSession = await prisma.session.findUnique({
+            where: { token },
+            include: { user: true }
+        });
+
+        if (dbSession && new Date() <= dbSession.expiresAt) {
+            return {
+                session: dbSession,
+                user: dbSession.user
+            };
+        }
     }
 
-    // --- Infallible Power Fallback: Manual DB Lookup ---
-    if (!sessionData || !sessionData.session || !sessionData.user) {
-        // 1. Try Cookie lookup (Prefixed or standard)
-        const sessionCookieKey = cookieNames.find(name => name.includes('better-auth.session_token'));
-        let token = sessionCookieKey ? cookieHeader.split(`${sessionCookieKey}=`)[1]?.split(';')[0].trim() : null;
-
-        // 2. Secondary Fallback: Try Authorization header (Bearer token)
-        if (!token && headers.get('authorization')) {
-            const authHeader = headers.get('authorization');
-            if (authHeader?.startsWith('Bearer ')) {
-                token = authHeader.split('Bearer ')[1].trim();
-                console.log(`[AUTH-DEBUG] Power Fallback: Attempting lookup via Authorization Header token.`);
-            }
-        }
-        
-        if (token) {
-            const dbSession = await prisma.session.findUnique({
-                where: { token },
-                include: { user: true }
-            });
-
-            if (dbSession && new Date() <= dbSession.expiresAt) {
-                console.log(`[AUTH-DEBUG] Infallible Fallback: Identity Restored via DB`);
-                sessionData = {
-                    session: dbSession as any,
-                    user: dbSession.user as any
-                };
-            }
-        }
+    // SLOW PATH: Fallback to better-auth internal API only if no direct token found
+    let sessionData: any = null;
+    try {
+        sessionData = await auth.api.getSession({ headers });
+    } catch (e) {
+        // Silent fallback
     }
 
     return sessionData;

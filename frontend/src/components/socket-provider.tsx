@@ -32,8 +32,10 @@ export const SocketProvider = ({ children }: { children: React.ReactNode }) => {
 
     const userId = user.id;
 
-    const socketInstance = io("", {
+    const backendUrl = process.env.NEXT_PUBLIC_BACKEND_URL || "http://127.0.0.1:8000";
+    const socketInstance = io(backendUrl, {
       query: { userId },
+      path: "/socket.io",
       withCredentials: true,
       transports: ["polling", "websocket"],
     })

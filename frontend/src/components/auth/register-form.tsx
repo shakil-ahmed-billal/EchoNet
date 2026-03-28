@@ -84,8 +84,9 @@ export function RegisterForm({
   }
 
   const handleGoogleLogin = () => {
-    const backendUrl = process.env.NEXT_PUBLIC_API_URL || "http://127.0.0.1:8000/api/v1"
-    window.location.href = `${backendUrl}/auth/login/google`
+    // Use the same-origin proxy route to ensure cookies are handled correctly and 
+    // to match the Better Auth mount point (/api/auth instead of /api/v1/auth)
+    window.location.href = `/api/auth/login/google`
   }
 
   return (
