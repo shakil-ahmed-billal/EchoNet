@@ -24,8 +24,6 @@ export default function FriendsPage() {
     queryFn: () => getPendingRequests(requestPage, LIMIT_REQUESTS),
   });
 
-  console.log("[DEBUG] FriendsPage Requests:", requests);
-
   const { data: suggestions = [], isLoading: isLoadingSuggestions, isError } = useQuery({
     queryKey: ["friend-suggestions", suggestionPage],
     queryFn: () => getSuggestions(suggestionPage, LIMIT_SUGGESTIONS),
@@ -35,6 +33,8 @@ export default function FriendsPage() {
     mutationFn: (userId: string) => acceptUser(userId),
     onSuccess: () => {
       queryClient.invalidateQueries({ queryKey: ["friend-requests"] });
+      queryClient.invalidateQueries({ queryKey: ["friend-requests", "sidebar"] });
+      queryClient.invalidateQueries({ queryKey: ["notifications"] });
       queryClient.invalidateQueries({ queryKey: ["users"] });
       toast.success("Friend request accepted!");
     },
@@ -44,18 +44,10 @@ export default function FriendsPage() {
     mutationFn: (userId: string) => unfollowUser(userId),
     onSuccess: () => {
       queryClient.invalidateQueries({ queryKey: ["friend-requests"] });
-      toast.info("Friend request rejected.");
+      queryClient.invalidateQueries({ queryKey: ["friend-requests", "sidebar"] });
+      toast.info("Friend request declined.");
     },
   });
-
-  if (isLoadingRequests || isLoadingSuggestions) {
-    return (
-      <div className="flex flex-col items-center justify-center min-h-[60vh] gap-4">
-        <Loader2 className="h-10 w-10 animate-spin text-primary/40" />
-        <p className="text-xs font-bold text-muted-foreground/40 uppercase tracking-[0.2em]">Synchronizing Network...</p>
-      </div>
-    );
-  }
 
   if (isError) {
     return (
@@ -114,42 +106,41 @@ export default function FriendsPage() {
             </div>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-3 gap-6">
-            {requests.map((sender: any) => (
-              <div key={sender.id} className="flex flex-col bg-card border border-border/40 rounded-3xl overflow-hidden shadow-sm transition-all hover:shadow-md hover:border-primary/20 group">
-                <div className="p-5 flex flex-col gap-5">
-                  <div className="flex items-center gap-4">
-                    <Avatar className="h-14 w-14 ring-2 ring-border/5 group-hover:ring-primary/20 transition-all shadow-inner">
-                      <AvatarImage src={sender.avatarUrl || sender.image} alt={sender.name} />
-                      <AvatarFallback className="font-bold bg-muted text-muted-foreground text-lg">{sender.name.substring(0, 2).toUpperCase()}</AvatarFallback>
-                    </Avatar>
-                    <div className="flex flex-col min-w-0">
-                      <span className="text-[15px] font-bold truncate text-foreground/90 leading-tight">{sender.name}</span>
-                      <span className="text-[11px] font-bold text-muted-foreground/30 tracking-tight mt-1">Sent you a request</span>
-                    </div>
+          {isLoadingRequests ? (
+            <div className="flex justify-center p-12"><Loader2 className="h-8 w-8 animate-spin text-primary/40" /></div>
+          ) : (
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5 gap-6">
+              {requests.map((sender: any) => (
+                <div key={sender.id} className="flex flex-col items-center bg-card border border-border/40 rounded-4xl overflow-hidden shadow-sm transition-all hover:shadow-md hover:border-primary/20 group p-6 gap-4 text-center">
+                  <Avatar className="h-20 w-20 ring-2 ring-border/10 group-hover:ring-primary/20 transition-all shadow-md">
+                    <AvatarImage src={sender.avatarUrl || sender.image} alt={sender.name} />
+                    <AvatarFallback className="font-bold bg-muted text-muted-foreground text-2xl">{sender.name?.substring(0, 2).toUpperCase()}</AvatarFallback>
+                  </Avatar>
+                  <div className="flex flex-col gap-0.5 w-full">
+                    <span className="text-[15px] font-bold truncate text-foreground/90 leading-tight">{sender.name}</span>
+                    <span className="text-[11px] font-bold text-muted-foreground/40 tracking-wide uppercase">Sent you a request</span>
                   </div>
-                  
-                  <div className="grid grid-cols-2 gap-3">
-                    <Button 
-                      className="w-full h-10 rounded-xl font-bold text-xs shadow-sm hover:shadow-sm active:scale-[0.98] transition-all"
+                  <div className="grid grid-cols-2 gap-2 w-full mt-auto">
+                    <Button
+                      className="w-full h-9 rounded-xl font-bold text-xs shadow-sm active:scale-[0.98] transition-all"
                       onClick={() => acceptMutation.mutate(sender.id)}
                       disabled={acceptMutation.isPending}
                     >
-                      {acceptMutation.isPending ? <Loader2 className="h-4 w-4 animate-spin" /> : "Accept"}
+                      {acceptMutation.isPending ? <Loader2 className="h-3.5 w-3.5 animate-spin" /> : <><Check className="h-3.5 w-3.5 mr-1" />Accept</>}
                     </Button>
-                    <Button 
+                    <Button
                       variant="secondary"
-                      className="w-full h-10 rounded-xl font-bold text-xs active:scale-[0.98] transition-all"
+                      className="w-full h-9 rounded-xl font-bold text-xs active:scale-[0.98] transition-all"
                       onClick={() => rejectMutation.mutate(sender.id)}
                       disabled={rejectMutation.isPending}
                     >
-                      {rejectMutation.isPending ? <Loader2 className="h-4 w-4 animate-spin" /> : "Ignore"}
+                      {rejectMutation.isPending ? <Loader2 className="h-3.5 w-3.5 animate-spin" /> : <><X className="h-3.5 w-3.5 mr-1" />Decline</>}
                     </Button>
                   </div>
                 </div>
-              </div>
-            ))}
-          </div>
+              ))}
+            </div>
+          )}
         </section>
       )}
 
@@ -188,7 +179,9 @@ export default function FriendsPage() {
           </div>
         </div>
 
-        {suggestions.length === 0 ? (
+        {isLoadingSuggestions ? (
+          <div className="flex justify-center p-12"><Loader2 className="h-8 w-8 animate-spin text-primary/40" /></div>
+        ) : suggestions.length === 0 ? (
           <div className="p-20 text-center border border-dashed border-border/20 rounded-4xl bg-card/5 flex flex-col items-center">
             <Users2 className="size-12 text-muted-foreground/10 mb-6" />
             <h4 className="text-lg font-bold text-foreground/40">No suggestions available</h4>
