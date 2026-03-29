@@ -5,12 +5,13 @@ import { useMutation, useQueryClient } from "@tanstack/react-query";
 import { viewStory, deleteStory, StoryGroup } from "@/services/stories.service";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
 import { useAuth } from "@/hooks/use-auth";
-import { ChevronLeft, ChevronRight, Pause, Play, Trash2, Volume2, VolumeX, X } from "lucide-react";
-import { cn } from "@/lib/utils";
+import { ChevronLeft, ChevronRight, Pause, Play, Trash2, Send, X } from "lucide-react";
 import { formatDistanceToNow } from "date-fns";
 import { toast } from "sonner";
 import { useRouter } from "next/navigation";
+import { apiClient } from "@/services/api-client";
 
 interface Props {
   groups: StoryGroup[];
@@ -18,7 +19,15 @@ interface Props {
   onClose: () => void;
 }
 
-const STORY_DURATION = 5000; // 5 seconds per story
+const STORY_DURATION = 5000;
+
+const quickReactions = [
+  { emoji: "❤️", label: "Love" },
+  { emoji: "😂", label: "Haha" },
+  { emoji: "😮", label: "Wow" },
+  { emoji: "😢", label: "Sad" },
+  { emoji: "👍", label: "Like" },
+];
 
 export function StoryViewer({ groups, initialGroupIndex, onClose }: Props) {
   const { user: currentUser } = useAuth();
@@ -28,7 +37,10 @@ export function StoryViewer({ groups, initialGroupIndex, onClose }: Props) {
   const [storyIdx, setStoryIdx] = useState(0);
   const [progress, setProgress] = useState(0);
   const [paused, setPaused] = useState(false);
+  const [replyText, setReplyText] = useState("");
+  const [sending, setSending] = useState(false);
   const intervalRef = useRef<NodeJS.Timeout | null>(null);
+  const inputRef = useRef<HTMLInputElement>(null);
 
   const group = groups[groupIdx];
   const story = group?.stories[storyIdx];
@@ -43,12 +55,10 @@ export function StoryViewer({ groups, initialGroupIndex, onClose }: Props) {
     },
   });
 
-  // Mark story as viewed when shown
   useEffect(() => {
     if (story && !story.isSeen) markViewed(story.id);
   }, [story?.id]);
 
-  // Progress timer
   useEffect(() => {
     setProgress(0);
     if (paused) return;
@@ -81,6 +91,40 @@ export function StoryViewer({ groups, initialGroupIndex, onClose }: Props) {
     } else if (groupIdx > 0) {
       setGroupIdx(g => g - 1);
       setStoryIdx(0);
+    }
+  };
+
+  const handleSendReaction = async (emoji: string) => {
+    if (!group.author?.id || group.author.id === currentUser?.id) return;
+    setSending(true);
+    try {
+      await apiClient.post("/messages", {
+        receiverId: group.author.id,
+        content: `${emoji} reacted to your story`,
+      });
+      toast.success("Reaction sent!");
+    } catch {
+      toast.error("Failed to send reaction");
+    } finally {
+      setSending(false);
+    }
+  };
+
+  const handleSendMessage = async () => {
+    if (!replyText.trim() || !group.author?.id || group.author.id === currentUser?.id) return;
+    setSending(true);
+    try {
+      await apiClient.post("/messages", {
+        receiverId: group.author.id,
+        content: replyText.trim(),
+      });
+      setReplyText("");
+      setPaused(false);
+      toast.success("Message sent!");
+    } catch {
+      toast.error("Failed to send message");
+    } finally {
+      setSending(false);
     }
   };
 
@@ -118,12 +162,9 @@ export function StoryViewer({ groups, initialGroupIndex, onClose }: Props) {
 
         {/* Author header */}
         <div className="absolute top-7 left-0 right-0 z-10 flex items-center justify-between px-4 pt-2">
-          <div 
+          <div
             className="flex items-center gap-2.5 cursor-pointer group/author"
-            onClick={() => {
-              onClose();
-              router.push(`/profile/${group.author.id}`);
-            }}
+            onClick={() => { onClose(); router.push(`/profile/${group.author.id}`); }}
           >
             <Avatar className="h-10 w-10 ring-2 ring-white/60 group-hover/author:ring-primary/80 transition-colors">
               <AvatarImage src={group.author.image || group.author.avatarUrl} alt={group.author.name} />
@@ -162,12 +203,7 @@ export function StoryViewer({ groups, initialGroupIndex, onClose }: Props) {
 
         {/* Story image */}
         <div className="flex-1 relative">
-          <img
-            src={story.mediaUrl}
-            alt="story"
-            className="w-full h-full object-cover"
-          />
-
+          <img src={story.mediaUrl} alt="story" className="w-full h-full object-cover" />
           {/* Click zones */}
           <div className="absolute inset-0 flex">
             <div className="flex-1" onClick={goPrev} />
@@ -177,10 +213,51 @@ export function StoryViewer({ groups, initialGroupIndex, onClose }: Props) {
 
         {/* Caption */}
         {story.caption && (
-          <div className="absolute bottom-8 left-0 right-0 px-6">
+          <div className="absolute bottom-24 left-0 right-0 px-6">
             <p className="text-white text-base font-medium text-center drop-shadow-lg bg-black/30 rounded-2xl py-2 px-4">
               {story.caption}
             </p>
+          </div>
+        )}
+
+        {/* ── Action Bar (Facebook-style) ── */}
+        {!isOwnStory && (
+          <div className="absolute bottom-0 left-0 right-0 z-10 flex flex-col gap-2 px-4 pb-5 pt-3 bg-linear-to-t from-black/70 to-transparent">
+            {/* Quick emoji reactions */}
+            <div className="flex items-center justify-center gap-4 mb-1">
+              {quickReactions.map((r) => (
+                <button
+                  key={r.emoji}
+                  onClick={() => handleSendReaction(r.emoji)}
+                  disabled={sending}
+                  className="text-2xl hover:scale-125 transition-transform duration-200 active:scale-90 drop-shadow-lg"
+                  title={r.label}
+                >
+                  {r.emoji}
+                </button>
+              ))}
+            </div>
+            {/* Message input */}
+            <div className="flex items-center gap-2">
+              <Input
+                ref={inputRef}
+                value={replyText}
+                onChange={(e) => setReplyText(e.target.value)}
+                onFocus={() => setPaused(true)}
+                onBlur={() => { if (!replyText) setPaused(false); }}
+                onKeyDown={(e) => { if (e.key === "Enter") handleSendMessage(); }}
+                placeholder={`Reply to ${group.author.name}...`}
+                className="flex-1 h-10 rounded-full bg-white/10 border-white/20 text-white placeholder:text-white/50 text-sm focus-visible:ring-white/30 backdrop-blur-sm"
+              />
+              <Button
+                size="icon"
+                className="h-10 w-10 rounded-full bg-primary hover:bg-primary/90 shrink-0"
+                onClick={handleSendMessage}
+                disabled={sending || !replyText.trim()}
+              >
+                <Send className="h-4 w-4" />
+              </Button>
+            </div>
           </div>
         )}
 

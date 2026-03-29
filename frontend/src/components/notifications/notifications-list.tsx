@@ -1,7 +1,7 @@
 "use client"
 
 import { Heart, MessageCircle, UserPlus, ShieldAlert, Loader2, Check, X } from "lucide-react"
-import { Avatar, AvatarFallback } from "@/components/ui/avatar"
+import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
 import { Button } from "@/components/ui/button"
 import { useNotifications, useMarkNotificationAsRead } from "@/hooks/use-notifications"
 import { formatDistanceToNow } from "date-fns"
@@ -100,7 +100,13 @@ export function NotificationsList() {
           >
             <div className="relative shrink-0">
               <Avatar className="h-12 w-12 border border-edge ring-offset-background group-hover:scale-105 transition-transform">
-                <AvatarFallback className="bg-muted font-bold text-xs">UN</AvatarFallback>
+                <AvatarImage 
+                  src={notif.sender?.avatarUrl || notif.sender?.image || undefined} 
+                  alt={notif.sender?.name || "User"} 
+                />
+                <AvatarFallback className="bg-muted font-bold text-xs">
+                  {notif.sender?.name?.substring(0, 2).toUpperCase() || "UN"}
+                </AvatarFallback>
               </Avatar>
               <div className={`absolute -bottom-1 -right-1 h-6 w-6 rounded-full border-2 border-background shadow-lg flex items-center justify-center ${config.bgColor}`}>
                 <Icon className={`h-3 w-3 ${config.color}`} />

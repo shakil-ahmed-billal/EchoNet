@@ -20,7 +20,7 @@ const createNotification = async (data: {
 
   try {
     const io = getIO();
-    io.to(data.userId).emit('notification', result);
+    io.to(data.userId).emit('new-notification', result); // matches frontend socket-handler listener
   } catch (error) {
     // Socket might not be initialized yet in some cases, fail gracefully
   }
@@ -30,11 +30,28 @@ const createNotification = async (data: {
 
 const getUserNotifications = async (userId: string) => {
   if (!userId) return [];
-  const result = await prisma.notification.findMany({
+  const notifications = await prisma.notification.findMany({
     where: { userId },
     orderBy: { createdAt: 'desc' },
   });
-  return result;
+
+  // Enrich with sender info where referenceId is a userId (FOLLOW, FOLLOW_REQUEST, FRIEND_ACCEPT, REACTION, COMMENT)
+  const enriched = await Promise.all(
+    notifications.map(async (notif) => {
+      if (!notif.referenceId) return { ...notif, sender: null };
+      try {
+        const sender = await prisma.user.findUnique({
+          where: { id: notif.referenceId },
+          select: { id: true, name: true, avatarUrl: true, image: true },
+        });
+        return { ...notif, sender: sender || null };
+      } catch {
+        return { ...notif, sender: null };
+      }
+    })
+  );
+
+  return enriched;
 };
 
 const getUnreadCount = async (userId: string) => {
