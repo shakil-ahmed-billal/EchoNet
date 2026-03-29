@@ -15,7 +15,6 @@ import { toast } from "sonner";
 import { apiClient } from "@/services/api-client";
 import Link from "next/link";
 import { UserImage } from "@/components/user-image";
-import { ThumbsUp, Heart as HeartIcon, Laugh, Meh, Frown, Zap } from "lucide-react";
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -24,6 +23,16 @@ import {
 } from "@/components/ui/dropdown-menu";
 import { Textarea } from "@/components/ui/textarea";
 import { cn } from "@/lib/utils";
+
+const reactionEmojis: Record<string, string> = {
+  LIKE: "👍",
+  LOVE: "❤️",
+  HAHA: "😂",
+  WOW: "😮",
+  SAD: "😢",
+  ANGRY: "😡",
+};
+
 
 interface PostCardProps {
   post: Post;
@@ -241,12 +250,9 @@ export function PostCard({ post }: PostCardProps) {
                 isLiked ? "bg-primary/5 text-primary" : "hover:bg-muted/80 text-muted-foreground hover:text-primary"
                 )}
             >
-                {currentReactionType === "LOVE" ? <HeartIcon className="h-4.5 w-4.5 fill-red-500 text-red-500" /> :
-                 currentReactionType === "HAHA" ? <Laugh className="h-4.5 w-4.5 text-yellow-500" /> :
-                 currentReactionType === "WOW" ? <Zap className="h-4.5 w-4.5 text-purple-500" /> :
-                 currentReactionType === "SAD" ? <Meh className="h-4.5 w-4.5 text-blue-400" /> :
-                 currentReactionType === "ANGRY" ? <Frown className="h-4.5 w-4.5 text-orange-600" /> :
-                 <ThumbsUp className={cn("h-4.5 w-4.5 transition-transform group-hover/like:scale-125 duration-300", isLiked && "fill-current")} />}
+                <span className="text-base leading-none">
+                  {currentReactionType ? reactionEmojis[currentReactionType] : "👍"}
+                </span>
                 <span className="text-xs font-bold">{currentReactionType || "Like"}</span>
             </button>
           </ReactionPicker>
