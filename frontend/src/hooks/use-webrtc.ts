@@ -38,7 +38,7 @@ export const useWebRTC = (onRemoteEnd?: () => void) => {
 
       const offer = await peerConnection.current.createOffer()
       await peerConnection.current.setLocalDescription(offer)
-      socket?.emit("call-user", { to, offer, from: user?.id || socket?.id, fromName: user?.name || "Someone", isVideo: video })
+      socket?.emit("call-user", { to, offer, from: user?.id || socket?.id, fromName: user?.name || "Someone", fromImage: user?.image || user?.avatarUrl, isVideo: video })
     } catch (err: any) {
       console.error("Failed to start call:", err)
       setError(err.name === "NotFoundError" ? "Camera or microphone not found." : "Failed to access media devices.")

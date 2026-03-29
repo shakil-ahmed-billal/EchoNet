@@ -101,6 +101,10 @@ export default function ProfilePage() {
   const myStoriesGroup = globalStories?.find((group: any) => group.isOwn);
   const myStories = myStoriesGroup?.stories || [];
 
+  // Safely extract string from JSON array fields
+  const workplaceDisplay = Array.isArray(profile.workplaces) ? profile.workplaces[0] : profile.workplace;
+  const educationDisplay = Array.isArray(profile.education) ? profile.education[0] : profile.education;
+
   return (
     <div className="flex flex-col gap-6 w-full pb-20">
       {/* Profile Header Section */}
@@ -186,16 +190,16 @@ export default function ProfilePage() {
                 <span>{profile.location}</span>
               </div>
             )}
-            {profile.workplace && (
+            {workplaceDisplay && (
               <div className="flex items-center gap-1.5">
                 <Briefcase className="size-3.5 opacity-70" />
-                <span>Works at {profile.workplace}</span>
+                <span>Works at {workplaceDisplay}</span>
               </div>
             )}
-            {profile.education && (
+            {educationDisplay && (
               <div className="flex items-center gap-1.5">
                 <GraduationCap className="size-3.5 opacity-70" />
-                <span>Studied at {profile.education}</span>
+                <span>Studied at {educationDisplay}</span>
               </div>
             )}
             {profile.website && (

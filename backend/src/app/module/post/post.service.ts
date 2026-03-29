@@ -301,11 +301,36 @@ const deletePost = async (id: string, authorId: string, isAdmin: boolean = false
   return result;
 };
 
+const getPostById = async (id: string, userId?: string) => {
+  const post = await prisma.post.findUnique({
+    where: { id },
+    include: {
+      author: { select: { id: true, name: true, avatarUrl: true } },
+      _count: { select: { comments: true, reactions: true, savedBy: true } },
+      reactions: userId ? { where: { userId }, select: { id: true, type: true } } : false,
+      savedBy: userId ? { where: { userId }, select: { id: true } } : false,
+    },
+  });
+
+  if (!post) return null;
+
+  return {
+    ...post,
+    isLiked: userId ? (post.reactions && (post.reactions as any[]).length > 0) : false,
+    currentReactionType: userId && post.reactions && (post.reactions as any[]).length > 0 ? (post.reactions as any[])[0].type : null,
+    isSaved: userId ? (post.savedBy && (post.savedBy as any[]).length > 0) : false,
+    reactions: undefined,
+    savedBy: undefined,
+  };
+};
+
 export const PostServices = {
   createPost,
   getAllPosts,
+  getPostById,
   updatePostStatus,
   getFlaggedPosts,
   updatePost,
   deletePost,
 };
+

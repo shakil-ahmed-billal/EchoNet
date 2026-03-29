@@ -48,14 +48,19 @@ export const initSocket = async (server: HTTPServer) => {
         }
 
         // WebRTC Signalling
-        socket.on('call-user', (data: { to: string; offer: any; from: string; fromName: string; isVideo?: boolean }) => {
-            console.log(`Backend: call-user from ${data.from} to ${data.to}`);
+        socket.on('call-user', (data: { to: string; offer: any; from: string; fromName: string; fromImage?: string; isVideo?: boolean }) => {
+            logger.info(`Backend: call-user from ${data.from} to ${data.to}`);
             io.to(data.to).emit('incoming-call', { 
                 offer: data.offer, 
                 from: data.from, 
-                fromName: data.fromName, 
+                fromName: data.fromName,
+                fromImage: data.fromImage,
                 isVideo: data.isVideo 
             });
+        });
+
+        socket.on('call-rejected', (data: { to: string; reason?: string }) => {
+            io.to(data.to).emit('call-rejected', { reason: data.reason || 'declined' });
         });
 
         socket.on('answer-call', (data: { to: string; answer: any }) => {

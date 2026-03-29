@@ -147,6 +147,24 @@ export function CommentSection({ postId, showAll: initialShowAll = false }: Comm
 
 function CommentItem({ comment, onReply }: { comment: any; onReply: () => void }) {
   const [showReplies, setShowReplies] = useState(false);
+  const [isLiked, setIsLiked] = useState(comment.isLiked || false);
+  const [likesCount, setLikesCount] = useState(comment.likesCount || 0);
+
+  const likeMutation = useMutation({
+    mutationFn: async () => {
+      const response = await apiClient.post("/reactions", { commentId: comment.id, type: "LIKE" });
+      return response.data;
+    },
+    onMutate: () => {
+      setIsLiked((prev: boolean) => !prev);
+      setLikesCount((prev: number) => isLiked ? prev - 1 : prev + 1);
+    },
+    onError: () => {
+      // Revert optimistic update on error
+      setIsLiked((prev: boolean) => !prev);
+      setLikesCount((prev: number) => isLiked ? prev + 1 : prev - 1);
+    }
+  });
 
   return (
     <div className="flex gap-3 px-1">
@@ -163,8 +181,15 @@ function CommentItem({ comment, onReply }: { comment: any; onReply: () => void }
           <span className="text-[9px] text-muted-foreground uppercase font-bold tracking-tight">
             {formatDistanceToNow(new Date(comment.createdAt))}
           </span>
-          <button className="text-[9px] font-bold text-muted-foreground hover:text-primary uppercase tracking-tight">
-            Like
+          <button 
+            onClick={() => likeMutation.mutate()}
+            disabled={likeMutation.isPending}
+            className={cn(
+              "text-[9px] font-bold uppercase tracking-tight transition-colors",
+              isLiked ? "text-primary" : "text-muted-foreground hover:text-primary"
+            )}
+          >
+            {isLiked ? "❤️ Liked" : "Like"} {likesCount > 0 && `(${likesCount})`}
           </button>
           <button 
             onClick={onReply}
@@ -196,9 +221,6 @@ function CommentItem({ comment, onReply }: { comment: any; onReply: () => void }
                          <span className="text-[8px] text-muted-foreground uppercase font-bold tracking-tight">
                             {formatDistanceToNow(new Date(reply.createdAt))}
                          </span>
-                         <button className="text-[8px] font-bold text-muted-foreground hover:text-primary uppercase tracking-tight">
-                            Like
-                         </button>
                       </div>
                    </div>
                 </div>
@@ -209,3 +231,4 @@ function CommentItem({ comment, onReply }: { comment: any; onReply: () => void }
     </div>
   );
 }
+
