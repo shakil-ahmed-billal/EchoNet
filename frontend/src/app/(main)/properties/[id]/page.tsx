@@ -160,7 +160,7 @@ export default function PropertyDetailPage() {
                </div>
                <div className="text-right">
                   <p className="text-3xl font-bold text-primary">৳{Number(property.price).toLocaleString()}</p>
-                  <p className="text-[10px] font-semibold text-muted-foreground uppercase tracking-widest mt-1">
+                  <p className="text-[10px] font-semibold text-muted-foreground mt-1">
                      {property.priceUnit === 'TOTAL' ? 'Full Price' : 'Per Month / Rent'}
                   </p>
                </div>
@@ -173,7 +173,7 @@ export default function PropertyDetailPage() {
                   </div>
                   <div>
                      <p className="text-base font-bold leading-none">{property.details?.bedrooms || 0}</p>
-                     <p className="text-[10px] font-semibold text-muted-foreground uppercase mt-1">Bedrooms</p>
+                     <p className="text-[10px] font-semibold text-muted-foreground mt-1">Bedrooms</p>
                   </div>
                </div>
                <div className="flex items-center gap-3 p-4 rounded-xl border border-border/50 bg-card">
@@ -182,7 +182,7 @@ export default function PropertyDetailPage() {
                   </div>
                   <div>
                      <p className="text-base font-bold leading-none">{property.details?.bathrooms || 0}</p>
-                     <p className="text-[10px] font-semibold text-muted-foreground uppercase mt-1">Bathrooms</p>
+                     <p className="text-[10px] font-semibold text-muted-foreground mt-1">Bathrooms</p>
                   </div>
                </div>
                <div className="flex items-center gap-3 p-4 rounded-xl border border-border/50 bg-card">
@@ -191,7 +191,7 @@ export default function PropertyDetailPage() {
                   </div>
                   <div>
                      <p className="text-base font-bold leading-none">{property.details?.areaSqft || 0}</p>
-                     <p className="text-[10px] font-semibold text-muted-foreground uppercase mt-1">Sqft Area</p>
+                     <p className="text-[10px] font-semibold text-muted-foreground mt-1">Sqft Area</p>
                   </div>
                </div>
                 <div className="flex items-center gap-3 p-4 rounded-xl border border-border/50 bg-card">
@@ -200,7 +200,7 @@ export default function PropertyDetailPage() {
                   </div>
                   <div>
                      <p className="text-base font-bold leading-none">{property.details?.floorNo || 0}</p>
-                     <p className="text-[10px] font-semibold text-muted-foreground uppercase mt-1">Floor Level</p>
+                     <p className="text-[10px] font-semibold text-muted-foreground mt-1">Floor Level</p>
                   </div>
                </div>
             </div>
@@ -254,7 +254,7 @@ export default function PropertyDetailPage() {
                         <h4 className="font-bold text-lg group-hover:text-primary transition-colors flex items-center gap-2 text-ellipsis overflow-hidden whitespace-nowrap">
                            {property.owner?.name}
                            {isOwnerOnline && (
-                              <span className="inline-flex items-center px-1.5 py-0.5 rounded-full text-[10px] font-black bg-emerald-500/10 text-emerald-500 uppercase tracking-tighter border border-emerald-500/20">
+                              <span className="inline-flex items-center px-1.5 py-0.5 rounded-full text-[10px] font-black bg-emerald-500/10 text-emerald-500 tracking-tighter border border-emerald-500/20">
                                  Active
                               </span>
                            )}
@@ -328,7 +328,7 @@ export default function PropertyDetailPage() {
                               <TableRow className="hover:bg-transparent border-none">
                                  <TableCell className="font-semibold text-muted-foreground text-xs py-2">Status</TableCell>
                                  <TableCell className="text-right py-2">
-                                    <Badge variant="outline" className="text-[10px] font-black uppercase px-2 py-0 h-5 border-primary/30 text-primary">
+                                    <Badge variant="outline" className="text-[10px] font-black px-2 py-0 h-5 border-primary/30 text-primary">
                                        {property.status}
                                     </Badge>
                                  </TableCell>
@@ -339,7 +339,7 @@ export default function PropertyDetailPage() {
                   </div>
                   
                   <div className="mt-6 pt-6 border-t border-border/50 text-center">
-                     <p className="text-[10px] font-semibold text-muted-foreground uppercase tracking-wider mb-1">Member Since</p>
+                     <p className="text-[10px] font-semibold text-muted-foreground tracking-wider mb-1">Member Since</p>
                      <p className="font-bold text-sm">{new Date(property.owner?.createdAt).getFullYear()}</p>
                   </div>
                </CardContent>

@@ -7,11 +7,12 @@ import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { useAuth } from "@/hooks/use-auth";
-import { ChevronLeft, ChevronRight, Pause, Play, Trash2, Send, X } from "lucide-react";
+import { ChevronLeft, ChevronRight, Pause, Play, Trash2, Send, X, Eye } from "lucide-react";
 import { formatDistanceToNow } from "date-fns";
 import { toast } from "sonner";
 import { useRouter } from "next/navigation";
 import { apiClient } from "@/services/api-client";
+import { StoryInsights } from "./story-insights";
 
 interface Props {
   groups: StoryGroup[];
@@ -39,6 +40,7 @@ export function StoryViewer({ groups, initialGroupIndex, onClose }: Props) {
   const [paused, setPaused] = useState(false);
   const [replyText, setReplyText] = useState("");
   const [sending, setSending] = useState(false);
+  const [insightsOpen, setInsightsOpen] = useState(false);
   const intervalRef = useRef<NodeJS.Timeout | null>(null);
   const inputRef = useRef<HTMLInputElement>(null);
 
@@ -95,13 +97,23 @@ export function StoryViewer({ groups, initialGroupIndex, onClose }: Props) {
   };
 
   const handleSendReaction = async (emoji: string) => {
-    if (!group.author?.id || group.author.id === currentUser?.id) return;
+    if (!story?.id || !group.author?.id || group.author.id === currentUser?.id) return;
     setSending(true);
+    
+    // Map emoji to ReactionType enum
+    const typeMap: Record<string, string> = {
+      "👍": "LIKE",
+      "❤️": "LOVE",
+      "😂": "HAHA",
+      "😮": "WOW",
+      "😢": "SAD",
+      "😡": "ANGRY"
+    };
+    
+    const reactionType = typeMap[emoji] || "LIKE";
+
     try {
-      await apiClient.post("/messages", {
-        receiverId: group.author.id,
-        content: `${emoji} reacted to your story`,
-      });
+      await apiClient.post(`/stories/${story.id}/react`, { type: reactionType });
       toast.success("Reaction sent!");
     } catch {
       toast.error("Failed to send reaction");
@@ -111,11 +123,10 @@ export function StoryViewer({ groups, initialGroupIndex, onClose }: Props) {
   };
 
   const handleSendMessage = async () => {
-    if (!replyText.trim() || !group.author?.id || group.author.id === currentUser?.id) return;
+    if (!replyText.trim() || !story?.id || !group.author?.id || group.author.id === currentUser?.id) return;
     setSending(true);
     try {
-      await apiClient.post("/messages", {
-        receiverId: group.author.id,
+      await apiClient.post(`/stories/${story.id}/reply`, {
         content: replyText.trim(),
       });
       setReplyText("");
@@ -221,23 +232,23 @@ export function StoryViewer({ groups, initialGroupIndex, onClose }: Props) {
         )}
 
         {/* ── Action Bar (Facebook-style) ── */}
-        {!isOwnStory && (
-          <div className="absolute bottom-0 left-0 right-0 z-10 flex flex-col gap-2 px-4 pb-5 pt-3 bg-linear-to-t from-black/70 to-transparent">
-            {/* Quick emoji reactions */}
-            <div className="flex items-center justify-center gap-4 mb-1">
-              {quickReactions.map((r) => (
-                <button
-                  key={r.emoji}
-                  onClick={() => handleSendReaction(r.emoji)}
-                  disabled={sending}
-                  className="text-2xl hover:scale-125 transition-transform duration-200 active:scale-90 drop-shadow-lg"
-                  title={r.label}
-                >
-                  {r.emoji}
-                </button>
-              ))}
-            </div>
-            {/* Message input */}
+        <div className="absolute bottom-0 left-0 right-0 z-50 flex flex-col gap-3 px-4 pb-6 pt-4 bg-black/40 backdrop-blur-sm">
+          {/* Quick emoji reactions */}
+          <div className="flex items-center justify-center gap-5">
+            {quickReactions.map((r) => (
+              <button
+                key={r.emoji}
+                onClick={() => handleSendReaction(r.emoji)}
+                disabled={sending}
+                className="text-3xl hover:scale-125 transition-transform duration-200 active:scale-95 drop-shadow-xl"
+                title={r.label}
+              >
+                {r.emoji}
+              </button>
+            ))}
+          </div>
+          {/* Message input */}
+          {!isOwnStory ? (
             <div className="flex items-center gap-2">
               <Input
                 ref={inputRef}
@@ -247,19 +258,36 @@ export function StoryViewer({ groups, initialGroupIndex, onClose }: Props) {
                 onBlur={() => { if (!replyText) setPaused(false); }}
                 onKeyDown={(e) => { if (e.key === "Enter") handleSendMessage(); }}
                 placeholder={`Reply to ${group.author.name}...`}
-                className="flex-1 h-10 rounded-full bg-white/10 border-white/20 text-white placeholder:text-white/50 text-sm focus-visible:ring-white/30 backdrop-blur-sm"
+                className="flex-1 h-11 rounded-full bg-white/20 border-white/30 text-white placeholder:text-white/60 text-sm focus-visible:ring-white/40 backdrop-blur-md px-4"
               />
               <Button
                 size="icon"
-                className="h-10 w-10 rounded-full bg-primary hover:bg-primary/90 shrink-0"
+                className="h-11 w-11 rounded-full bg-primary hover:bg-primary/90 shadow-lg shrink-0"
                 onClick={handleSendMessage}
                 disabled={sending || !replyText.trim()}
               >
-                <Send className="h-4 w-4" />
+                <Send className="h-5 w-5" />
               </Button>
             </div>
-          </div>
-        )}
+          ) : (
+            <div className="flex items-center justify-start">
+              <button
+                onClick={() => { setPaused(true); setInsightsOpen(true); }}
+                className="flex items-center gap-1.5 text-white/90 hover:text-white transition-colors bg-white/10 hover:bg-white/20 py-1.5 px-3 rounded-full backdrop-blur-sm border border-white/10"
+              >
+                <Eye className="h-4 w-4" />
+                <span className="text-xs font-bold">{story.viewsCount || 0} Views</span>
+              </button>
+            </div>
+          )}
+        </div>
+
+        {/* Story Insights Sheet */}
+        <StoryInsights
+          storyId={story.id}
+          isOpen={insightsOpen}
+          onClose={() => { setInsightsOpen(false); setPaused(false); }}
+        />
 
         {/* Nav arrows (desktop) */}
         {groupIdx > 0 && (

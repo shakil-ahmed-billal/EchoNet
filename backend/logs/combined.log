@@ -1,633 +1,2174 @@
-2026-03-28 23:40:28 [[32minfo[39m]: Initializing Socket.IO...
-2026-03-28 23:40:36 [[32minfo[39m]: Initializing Socket.IO...
-2026-03-28 23:41:00 [[32minfo[39m]: Initializing Socket.IO...
-2026-03-28 23:41:19 [[31merror[39m]: Error: Session not found
-    at Object.getMe (C:\Shakil Dev\EchoNet\backend\src\app\module\auth\auth.service.ts:105:15)
-    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
-    at async <anonymous> (C:\Shakil Dev\EchoNet\backend\src\app\module\auth\auth.controller.ts:141:20)
-    at async <anonymous> (C:\Shakil Dev\EchoNet\backend\src\app\utils\catchAsync.ts:6:7)
-2026-03-28 23:41:39 [[31merror[39m]: Error: Session not found
-    at Object.getMe (C:\Shakil Dev\EchoNet\backend\src\app\module\auth\auth.service.ts:105:15)
-    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
-    at async <anonymous> (C:\Shakil Dev\EchoNet\backend\src\app\module\auth\auth.controller.ts:141:20)
-    at async <anonymous> (C:\Shakil Dev\EchoNet\backend\src\app\utils\catchAsync.ts:6:7)
-2026-03-28 23:43:03 [[31merror[39m]: Error: Session not found
-    at Object.getMe (C:\Shakil Dev\EchoNet\backend\src\app\module\auth\auth.service.ts:105:15)
-    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
-    at async <anonymous> (C:\Shakil Dev\EchoNet\backend\src\app\module\auth\auth.controller.ts:141:20)
-    at async <anonymous> (C:\Shakil Dev\EchoNet\backend\src\app\utils\catchAsync.ts:6:7)
-2026-03-28 23:44:17 [[32minfo[39m]: Initializing Socket.IO...
-2026-03-28 23:44:26 [[32minfo[39m]: Initializing Socket.IO...
-2026-03-28 23:44:35 [[32minfo[39m]: Initializing Socket.IO...
-2026-03-28 23:45:02 [[31merror[39m]: Error: Session not found
-    at Object.getMe (C:\Shakil Dev\EchoNet\backend\src\app\module\auth\auth.service.ts:105:15)
-    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
-    at async <anonymous> (C:\Shakil Dev\EchoNet\backend\src\app\module\auth\auth.controller.ts:129:20)
-    at async <anonymous> (C:\Shakil Dev\EchoNet\backend\src\app\utils\catchAsync.ts:6:7)
-2026-03-28 23:47:32 [[31merror[39m]: Error: Session not found
-    at Object.getMe (C:\Shakil Dev\EchoNet\backend\src\app\module\auth\auth.service.ts:105:15)
-    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
-    at async <anonymous> (C:\Shakil Dev\EchoNet\backend\src\app\module\auth\auth.controller.ts:129:20)
-    at async <anonymous> (C:\Shakil Dev\EchoNet\backend\src\app\utils\catchAsync.ts:6:7)
-2026-03-28 23:47:56 [[32minfo[39m]: Initializing Socket.IO...
-2026-03-28 23:48:30 [[32minfo[39m]: Initializing Socket.IO...
-2026-03-28 23:49:22 [[31merror[39m]: Error: Session not found
-    at Object.getMe (C:\Shakil Dev\EchoNet\backend\src\app\module\auth\auth.service.ts:105:15)
-    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
-    at async <anonymous> (C:\Shakil Dev\EchoNet\backend\src\app\module\auth\auth.controller.ts:124:20)
-    at async <anonymous> (C:\Shakil Dev\EchoNet\backend\src\app\utils\catchAsync.ts:6:7)
-2026-03-28 23:49:39 [[31merror[39m]: Error: Session not found
-    at Object.getMe (C:\Shakil Dev\EchoNet\backend\src\app\module\auth\auth.service.ts:105:15)
-    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
-    at async <anonymous> (C:\Shakil Dev\EchoNet\backend\src\app\module\auth\auth.controller.ts:124:20)
-    at async <anonymous> (C:\Shakil Dev\EchoNet\backend\src\app\utils\catchAsync.ts:6:7)
-2026-03-28 23:51:44 [[32minfo[39m]: Initializing Socket.IO...
-2026-03-28 23:52:43 [[32minfo[39m]: Initializing Socket.IO...
-2026-03-28 23:53:05 [[31merror[39m]: Error: Session not found
-    at Object.getMe (C:\Shakil Dev\EchoNet\backend\src\app\module\auth\auth.service.ts:105:15)
-    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
-    at async <anonymous> (C:\Shakil Dev\EchoNet\backend\src\app\module\auth\auth.controller.ts:124:20)
-    at async <anonymous> (C:\Shakil Dev\EchoNet\backend\src\app\utils\catchAsync.ts:6:7)
-2026-03-28 23:53:13 [[31merror[39m]: Error: Session not found
-    at Object.getMe (C:\Shakil Dev\EchoNet\backend\src\app\module\auth\auth.service.ts:105:15)
-    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
-    at async <anonymous> (C:\Shakil Dev\EchoNet\backend\src\app\module\auth\auth.controller.ts:124:20)
-    at async <anonymous> (C:\Shakil Dev\EchoNet\backend\src\app\utils\catchAsync.ts:6:7)
-2026-03-28 23:53:33 [[31merror[39m]: Error: Session not found
-    at Object.getMe (C:\Shakil Dev\EchoNet\backend\src\app\module\auth\auth.service.ts:105:15)
-    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
-    at async <anonymous> (C:\Shakil Dev\EchoNet\backend\src\app\module\auth\auth.controller.ts:124:20)
-    at async <anonymous> (C:\Shakil Dev\EchoNet\backend\src\app\utils\catchAsync.ts:6:7)
-2026-03-28 23:54:38 [[31merror[39m]: Error: Session not found
-    at Object.getMe (C:\Shakil Dev\EchoNet\backend\src\app\module\auth\auth.service.ts:105:15)
-    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
-    at async <anonymous> (C:\Shakil Dev\EchoNet\backend\src\app\module\auth\auth.controller.ts:124:20)
-    at async <anonymous> (C:\Shakil Dev\EchoNet\backend\src\app\utils\catchAsync.ts:6:7)
-2026-03-28 23:55:15 [[31merror[39m]: Error: Session not found
-    at Object.getMe (C:\Shakil Dev\EchoNet\backend\src\app\module\auth\auth.service.ts:105:15)
-    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
-    at async <anonymous> (C:\Shakil Dev\EchoNet\backend\src\app\module\auth\auth.controller.ts:124:20)
-    at async <anonymous> (C:\Shakil Dev\EchoNet\backend\src\app\utils\catchAsync.ts:6:7)
-2026-03-28 23:55:29 [[32minfo[39m]: Initializing Socket.IO...
-2026-03-28 23:55:45 [[31merror[39m]: Error: Session not found
-    at Object.getMe (C:\Shakil Dev\EchoNet\backend\src\app\module\auth\auth.service.ts:105:15)
-    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
-    at async <anonymous> (C:\Shakil Dev\EchoNet\backend\src\app\module\auth\auth.controller.ts:124:20)
-    at async <anonymous> (C:\Shakil Dev\EchoNet\backend\src\app\utils\catchAsync.ts:6:7)
-2026-03-28 23:56:09 [[31merror[39m]: Error: Session not found
-    at Object.getMe (C:\Shakil Dev\EchoNet\backend\src\app\module\auth\auth.service.ts:105:15)
-    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
-    at async <anonymous> (C:\Shakil Dev\EchoNet\backend\src\app\module\auth\auth.controller.ts:124:20)
-    at async <anonymous> (C:\Shakil Dev\EchoNet\backend\src\app\utils\catchAsync.ts:6:7)
-2026-03-28 23:57:54 [[32minfo[39m]: Initializing Socket.IO...
-2026-03-28 23:58:00 [[31merror[39m]: Error: Session not found
-    at Object.getMe (C:\Shakil Dev\EchoNet\backend\src\app\module\auth\auth.service.ts:105:15)
-    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
-    at async <anonymous> (C:\Shakil Dev\EchoNet\backend\src\app\module\auth\auth.controller.ts:132:20)
-    at async <anonymous> (C:\Shakil Dev\EchoNet\backend\src\app\utils\catchAsync.ts:6:7)
-2026-03-29 00:01:29 [[32minfo[39m]: Initializing Socket.IO...
-2026-03-29 00:01:36 [[32minfo[39m]: Initializing Socket.IO...
-2026-03-29 00:01:50 [[32minfo[39m]: Initializing Socket.IO...
-2026-03-29 00:02:35 [[31merror[39m]: Error: Session not found
-    at Object.getMe (C:\Shakil Dev\EchoNet\backend\src\app\module\auth\auth.service.ts:105:15)
-    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
-    at async <anonymous> (C:\Shakil Dev\EchoNet\backend\src\app\module\auth\auth.controller.ts:116:20)
-    at async <anonymous> (C:\Shakil Dev\EchoNet\backend\src\app\utils\catchAsync.ts:6:7)
-2026-03-29 00:03:29 [[31merror[39m]: Error: Session not found
-    at Object.getMe (C:\Shakil Dev\EchoNet\backend\src\app\module\auth\auth.service.ts:105:15)
-    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
-    at async <anonymous> (C:\Shakil Dev\EchoNet\backend\src\app\module\auth\auth.controller.ts:116:20)
-    at async <anonymous> (C:\Shakil Dev\EchoNet\backend\src\app\utils\catchAsync.ts:6:7)
-2026-03-29 00:04:16 [[31merror[39m]: Error: Session not found
-    at Object.getMe (C:\Shakil Dev\EchoNet\backend\src\app\module\auth\auth.service.ts:105:15)
-    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
-    at async <anonymous> (C:\Shakil Dev\EchoNet\backend\src\app\module\auth\auth.controller.ts:116:20)
-    at async <anonymous> (C:\Shakil Dev\EchoNet\backend\src\app\utils\catchAsync.ts:6:7)
-2026-03-29 00:04:26 [[32minfo[39m]: Initializing Socket.IO...
-2026-03-29 00:04:35 [[32minfo[39m]: Initializing Socket.IO...
-2026-03-29 00:05:06 [[31merror[39m]: Error: Session not found
-    at Object.getMe (C:\Shakil Dev\EchoNet\backend\src\app\module\auth\auth.service.ts:105:15)
-    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
-    at async <anonymous> (C:\Shakil Dev\EchoNet\backend\src\app\module\auth\auth.controller.ts:120:20)
-    at async <anonymous> (C:\Shakil Dev\EchoNet\backend\src\app\utils\catchAsync.ts:6:7)
-2026-03-29 00:05:18 [[31merror[39m]: Error: Session not found
-    at Object.getMe (C:\Shakil Dev\EchoNet\backend\src\app\module\auth\auth.service.ts:105:15)
-    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
-    at async <anonymous> (C:\Shakil Dev\EchoNet\backend\src\app\module\auth\auth.controller.ts:120:20)
-    at async <anonymous> (C:\Shakil Dev\EchoNet\backend\src\app\utils\catchAsync.ts:6:7)
-2026-03-29 00:07:34 [[32minfo[39m]: Initializing Socket.IO...
-2026-03-29 00:07:42 [[32minfo[39m]: Initializing Socket.IO...
-2026-03-29 00:08:16 [[31merror[39m]: Error: Session not found
-    at Object.getMe (C:\Shakil Dev\EchoNet\backend\src\app\module\auth\auth.service.ts:109:15)
-    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
-    at async <anonymous> (C:\Shakil Dev\EchoNet\backend\src\app\module\auth\auth.controller.ts:120:20)
-    at async <anonymous> (C:\Shakil Dev\EchoNet\backend\src\app\utils\catchAsync.ts:6:7)
-2026-03-29 00:10:23 [[32minfo[39m]: Initializing Socket.IO...
-2026-03-29 00:10:30 [[31merror[39m]: Error: Session not found
-    at Object.getMe (C:\Shakil Dev\EchoNet\backend\src\app\module\auth\auth.service.ts:109:15)
-    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
-    at async <anonymous> (C:\Shakil Dev\EchoNet\backend\src\app\module\auth\auth.controller.ts:120:20)
-    at async <anonymous> (C:\Shakil Dev\EchoNet\backend\src\app\utils\catchAsync.ts:6:7)
-2026-03-29 00:10:47 [[31merror[39m]: Error: Session not found
-    at Object.getMe (C:\Shakil Dev\EchoNet\backend\src\app\module\auth\auth.service.ts:109:15)
-    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
-    at async <anonymous> (C:\Shakil Dev\EchoNet\backend\src\app\module\auth\auth.controller.ts:120:20)
-    at async <anonymous> (C:\Shakil Dev\EchoNet\backend\src\app\utils\catchAsync.ts:6:7)
-2026-03-29 00:11:07 [[31merror[39m]: Error: Session not found
-    at Object.getMe (C:\Shakil Dev\EchoNet\backend\src\app\module\auth\auth.service.ts:109:15)
-    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
-    at async <anonymous> (C:\Shakil Dev\EchoNet\backend\src\app\module\auth\auth.controller.ts:120:20)
-    at async <anonymous> (C:\Shakil Dev\EchoNet\backend\src\app\utils\catchAsync.ts:6:7)
-2026-03-29 00:11:40 [[32minfo[39m]: Initializing Socket.IO...
-2026-03-29 00:12:11 [[32minfo[39m]: Initializing Socket.IO...
-2026-03-29 00:13:28 [[31merror[39m]: Error: Session not found
-    at Object.getMe (C:\Shakil Dev\EchoNet\backend\src\app\module\auth\auth.service.ts:115:15)
-    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
-    at async <anonymous> (C:\Shakil Dev\EchoNet\backend\src\app\module\auth\auth.controller.ts:120:20)
-    at async <anonymous> (C:\Shakil Dev\EchoNet\backend\src\app\utils\catchAsync.ts:6:7)
-2026-03-29 00:14:49 [[32minfo[39m]: Initializing Socket.IO...
-2026-03-29 00:15:08 [[31merror[39m]: Error: Session not found
-    at Object.getMe (C:\Shakil Dev\EchoNet\backend\src\app\module\auth\auth.service.ts:116:15)
-    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
-    at async <anonymous> (C:\Shakil Dev\EchoNet\backend\src\app\module\auth\auth.controller.ts:120:20)
-    at async <anonymous> (C:\Shakil Dev\EchoNet\backend\src\app\utils\catchAsync.ts:6:7)
-2026-03-29 00:15:38 [[32minfo[39m]: Initializing Socket.IO...
-2026-03-29 00:15:49 [[31merror[39m]: Error: You are not authorized
-    at <anonymous> (C:\Shakil Dev\EchoNet\backend\src\app\middleware\auth.ts:38:15)
-    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
-2026-03-29 00:17:06 [[32minfo[39m]: Initializing Socket.IO...
-2026-03-29 00:17:54 [[31merror[39m]: Error: Session not found
-    at Object.getMe (C:\Shakil Dev\EchoNet\backend\src\app\module\auth\auth.service.ts:116:15)
-    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
-    at async <anonymous> (C:\Shakil Dev\EchoNet\backend\src\app\module\auth\auth.controller.ts:120:20)
-    at async <anonymous> (C:\Shakil Dev\EchoNet\backend\src\app\utils\catchAsync.ts:6:7)
-2026-03-29 00:18:57 [[32minfo[39m]: Initializing Socket.IO...
-2026-03-29 00:19:35 [[31merror[39m]: Error: Session not found
-    at Object.getMe (C:\Shakil Dev\EchoNet\backend\src\app\module\auth\auth.service.ts:116:15)
-    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
-    at async <anonymous> (C:\Shakil Dev\EchoNet\backend\src\app\module\auth\auth.controller.ts:120:20)
-    at async <anonymous> (C:\Shakil Dev\EchoNet\backend\src\app\utils\catchAsync.ts:6:7)
-2026-03-29 00:19:44 [[32minfo[39m]: Initializing Socket.IO...
-2026-03-29 00:20:00 [[32minfo[39m]: Initializing Socket.IO...
-2026-03-29 00:20:15 [[31merror[39m]: Error: Session not found
-    at Object.getMe (C:\Shakil Dev\EchoNet\backend\src\app\module\auth\auth.service.ts:116:15)
-    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
-    at async <anonymous> (C:\Shakil Dev\EchoNet\backend\src\app\module\auth\auth.controller.ts:120:20)
-    at async <anonymous> (C:\Shakil Dev\EchoNet\backend\src\app\utils\catchAsync.ts:6:7)
-2026-03-29 00:22:34 [[31merror[39m]: Error: Session not found
-    at Object.getMe (C:\Shakil Dev\EchoNet\backend\src\app\module\auth\auth.service.ts:116:15)
-    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
-    at async <anonymous> (C:\Shakil Dev\EchoNet\backend\src\app\module\auth\auth.controller.ts:120:20)
-    at async <anonymous> (C:\Shakil Dev\EchoNet\backend\src\app\utils\catchAsync.ts:6:7)
-2026-03-29 00:22:47 [[31merror[39m]: Error: Session not found
-    at Object.getMe (C:\Shakil Dev\EchoNet\backend\src\app\module\auth\auth.service.ts:116:15)
-    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
-    at async <anonymous> (C:\Shakil Dev\EchoNet\backend\src\app\module\auth\auth.controller.ts:120:20)
-    at async <anonymous> (C:\Shakil Dev\EchoNet\backend\src\app\utils\catchAsync.ts:6:7)
-2026-03-29 00:23:07 [[31merror[39m]: Error: Session not found
-    at Object.getMe (C:\Shakil Dev\EchoNet\backend\src\app\module\auth\auth.service.ts:116:15)
-    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
-    at async <anonymous> (C:\Shakil Dev\EchoNet\backend\src\app\module\auth\auth.controller.ts:120:20)
-    at async <anonymous> (C:\Shakil Dev\EchoNet\backend\src\app\utils\catchAsync.ts:6:7)
-2026-03-29 00:23:31 [[31merror[39m]: Error: Session not found
-    at Object.getMe (C:\Shakil Dev\EchoNet\backend\src\app\module\auth\auth.service.ts:116:15)
-    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
-    at async <anonymous> (C:\Shakil Dev\EchoNet\backend\src\app\module\auth\auth.controller.ts:120:20)
-    at async <anonymous> (C:\Shakil Dev\EchoNet\backend\src\app\utils\catchAsync.ts:6:7)
-2026-03-29 00:27:51 [[32minfo[39m]: Initializing Socket.IO...
-2026-03-29 00:28:00 [[31merror[39m]: Error: Session not found
-    at Object.getMe (C:\Shakil Dev\EchoNet\backend\src\app\module\auth\auth.service.ts:117:15)
-    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
-    at async <anonymous> (C:\Shakil Dev\EchoNet\backend\src\app\module\auth\auth.controller.ts:120:20)
-    at async <anonymous> (C:\Shakil Dev\EchoNet\backend\src\app\utils\catchAsync.ts:6:7)
-2026-03-29 00:28:22 [[31merror[39m]: Error: Session not found
-    at Object.getMe (C:\Shakil Dev\EchoNet\backend\src\app\module\auth\auth.service.ts:117:15)
-    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
-    at async <anonymous> (C:\Shakil Dev\EchoNet\backend\src\app\module\auth\auth.controller.ts:120:20)
-    at async <anonymous> (C:\Shakil Dev\EchoNet\backend\src\app\utils\catchAsync.ts:6:7)
-2026-03-29 00:31:05 [[32minfo[39m]: Initializing Socket.IO...
-2026-03-29 00:31:17 [[32minfo[39m]: Initializing Socket.IO...
-2026-03-29 00:32:07 [[32minfo[39m]: User 8VuJmPhBz0M3RmpHF6NeyOhItjQLT4n6 joined their private room
-2026-03-29 00:33:32 [[31merror[39m]: Error: Store not found
-    at Object.getStoreOrders (C:\Shakil Dev\EchoNet\backend\src\app\module\order\order.service.ts:100:21)
-    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
-    at async <anonymous> (C:\Shakil Dev\EchoNet\backend\src\app\module\order\order.controller.ts:30:18)
-    at async <anonymous> (C:\Shakil Dev\EchoNet\backend\src\app\utils\catchAsync.ts:6:7)
-2026-03-29 00:33:33 [[31merror[39m]: Error: Store not found
-    at Object.getStoreOrders (C:\Shakil Dev\EchoNet\backend\src\app\module\order\order.service.ts:100:21)
-    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
-    at async <anonymous> (C:\Shakil Dev\EchoNet\backend\src\app\module\order\order.controller.ts:30:18)
-    at async <anonymous> (C:\Shakil Dev\EchoNet\backend\src\app\utils\catchAsync.ts:6:7)
-2026-03-29 00:35:33 [[32minfo[39m]: Socket disconnected: CrgTw3B1qe24gxWbAAAB
-2026-03-29 00:35:47 [[32minfo[39m]: User piSxMBtZjbftBfD1ObW54Nn4R2dERxj0 joined their private room
-2026-03-29 00:39:03 [[32minfo[39m]: Initializing Socket.IO...
-2026-03-29 00:39:06 [[32minfo[39m]: User piSxMBtZjbftBfD1ObW54Nn4R2dERxj0 joined their private room
-2026-03-29 00:39:08 [[32minfo[39m]: Socket disconnected: hKPKWMJGHH4vKMh_AAAC
-2026-03-29 00:39:09 [[32minfo[39m]: User piSxMBtZjbftBfD1ObW54Nn4R2dERxj0 joined their private room
-2026-03-29 00:39:14 [[32minfo[39m]: Socket disconnected: AGwrn9QpSjqdlY31AAAF
-2026-03-29 00:39:15 [[32minfo[39m]: User piSxMBtZjbftBfD1ObW54Nn4R2dERxj0 joined their private room
-2026-03-29 00:39:15 [[32minfo[39m]: Socket disconnected: tC82w0gBGhFe4XqUAAAI
-2026-03-29 00:39:17 [[32minfo[39m]: User piSxMBtZjbftBfD1ObW54Nn4R2dERxj0 joined their private room
-2026-03-29 00:39:19 [[32minfo[39m]: Socket disconnected: aGVBCgf7qPa83XzUAAAK
-2026-03-29 00:39:23 [[32minfo[39m]: User piSxMBtZjbftBfD1ObW54Nn4R2dERxj0 joined their private room
-2026-03-29 00:49:36 [[32minfo[39m]: Socket disconnected: Zl4rOddgCkVBO8PPAAAN
-2026-03-29 00:49:42 [[32minfo[39m]: User piSxMBtZjbftBfD1ObW54Nn4R2dERxj0 joined their private room
-2026-03-29 00:49:49 [[31merror[39m]: Error: You are not authorized
-    at <anonymous> (C:\Shakil Dev\EchoNet\backend\src\app\middleware\auth.ts:38:15)
-    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
-2026-03-29 00:49:49 [[31merror[39m]: Error: Invalid session token
-    at Object.getNewToken (C:\Shakil Dev\EchoNet\backend\src\app\module\auth\auth.service.ts:196:15)
-    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
-    at async <anonymous> (C:\Shakil Dev\EchoNet\backend\src\app\module\auth\auth.controller.ts:176:20)
-    at async <anonymous> (C:\Shakil Dev\EchoNet\backend\src\app\utils\catchAsync.ts:6:7)
-2026-03-29 00:49:49 [[32minfo[39m]: Socket disconnected: LO2qsP0mGNcZIASWAAB3
-2026-03-29 00:49:50 [[31merror[39m]: Error: You are not authorized
-    at <anonymous> (C:\Shakil Dev\EchoNet\backend\src\app\middleware\auth.ts:38:15)
-    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
-2026-03-29 00:49:50 [[31merror[39m]: Error: Invalid session token
-    at Object.getNewToken (C:\Shakil Dev\EchoNet\backend\src\app\module\auth\auth.service.ts:196:15)
-    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
-    at async <anonymous> (C:\Shakil Dev\EchoNet\backend\src\app\module\auth\auth.controller.ts:176:20)
-    at async <anonymous> (C:\Shakil Dev\EchoNet\backend\src\app\utils\catchAsync.ts:6:7)
-2026-03-29 00:49:51 [[32minfo[39m]: User piSxMBtZjbftBfD1ObW54Nn4R2dERxj0 joined their private room
-2026-03-29 00:49:51 [[32minfo[39m]: Socket disconnected: Sq00QQQLorTwXYUvAAB7
-2026-03-29 00:49:55 [[32minfo[39m]: User piSxMBtZjbftBfD1ObW54Nn4R2dERxj0 joined their private room
-2026-03-29 00:55:27 [[32minfo[39m]: Initializing Socket.IO...
-2026-03-29 00:55:34 [[32minfo[39m]: User 6x9WlKi250wLXlUI9k56Tq1quOkgj7Nn joined their private room
-2026-03-29 00:58:47 [[32minfo[39m]: Initializing Socket.IO...
-2026-03-29 00:58:49 [[32minfo[39m]: User 6x9WlKi250wLXlUI9k56Tq1quOkgj7Nn joined their private room
-2026-03-29 00:58:50 [[32minfo[39m]: Socket disconnected: PdOXHFz9hTIYcN-_AAAC
-2026-03-29 00:58:57 [[32minfo[39m]: User 6x9WlKi250wLXlUI9k56Tq1quOkgj7Nn joined their private room
-2026-03-29 00:59:10 [[32minfo[39m]: Socket disconnected: jIq_mkvOuFPqJfAzAAAG
-2026-03-29 00:59:17 [[32minfo[39m]: User 6x9WlKi250wLXlUI9k56Tq1quOkgj7Nn joined their private room
-2026-03-29 01:04:30 [[32minfo[39m]: Initializing Socket.IO...
-2026-03-29 01:04:30 [[32minfo[39m]: User 6x9WlKi250wLXlUI9k56Tq1quOkgj7Nn joined their private room
-2026-03-29 01:04:38 [[32minfo[39m]: Socket disconnected: I64layHfyTiHzGuTAAAC
-2026-03-29 01:04:38 [[32minfo[39m]: User 6x9WlKi250wLXlUI9k56Tq1quOkgj7Nn joined their private room
-2026-03-29 01:04:41 [[32minfo[39m]: User 6x9WlKi250wLXlUI9k56Tq1quOkgj7Nn joined their private room
-2026-03-29 01:04:41 [[32minfo[39m]: Socket disconnected: tCj1WRIkuKnRiaDuAAAH
-2026-03-29 01:05:09 [[32minfo[39m]: User 6x9WlKi250wLXlUI9k56Tq1quOkgj7Nn joined their private room
-2026-03-29 01:05:23 [[32minfo[39m]: Socket disconnected: 2MSPh9gjxA8ubsfYAAAF
-2026-03-29 01:10:02 [[32minfo[39m]: Socket disconnected: MeUYzEnB9yhQDPYwAAAO
-2026-03-29 01:10:07 [[32minfo[39m]: User 6x9WlKi250wLXlUI9k56Tq1quOkgj7Nn joined their private room
-2026-03-29 01:10:41 [[32minfo[39m]: Initializing Socket.IO...
-2026-03-29 01:10:41 [[32minfo[39m]: User 6x9WlKi250wLXlUI9k56Tq1quOkgj7Nn joined their private room
-2026-03-29 01:10:46 [[32minfo[39m]: Initializing Socket.IO...
-2026-03-29 01:10:47 [[32minfo[39m]: User 6x9WlKi250wLXlUI9k56Tq1quOkgj7Nn joined their private room
-2026-03-29 01:10:58 [[32minfo[39m]: Socket disconnected: zGsULL_3jUsJm1UTAAAC
-2026-03-29 01:11:05 [[32minfo[39m]: User 6x9WlKi250wLXlUI9k56Tq1quOkgj7Nn joined their private room
-2026-03-29 01:12:20 [[32minfo[39m]: Socket disconnected: SIU9HLVYPDaEz-mLAAAI
-2026-03-29 01:12:33 [[32minfo[39m]: User 6x9WlKi250wLXlUI9k56Tq1quOkgj7Nn joined their private room
-2026-03-29 01:12:57 [[32minfo[39m]: Socket disconnected: vZl2Hpkr8gZRo4miAAAZ
-2026-03-29 01:12:58 [[32minfo[39m]: User 6x9WlKi250wLXlUI9k56Tq1quOkgj7Nn joined their private room
-2026-03-29 01:12:59 [[32minfo[39m]: Socket disconnected: -Sr52Gi3QKVkcitSAAAf
-2026-03-29 01:13:02 [[32minfo[39m]: User 6x9WlKi250wLXlUI9k56Tq1quOkgj7Nn joined their private room
-2026-03-29 01:13:12 [[32minfo[39m]: Socket disconnected: fJoa1lZ08m0xSqysAAAi
-2026-03-29 01:13:17 [[32minfo[39m]: User 6x9WlKi250wLXlUI9k56Tq1quOkgj7Nn joined their private room
-2026-03-29 01:13:23 [[32minfo[39m]: Socket disconnected: KpIiKeTsVQLy44tuAAAn
-2026-03-29 01:20:41 [[32minfo[39m]: Initializing Socket.IO...
-2026-03-29 01:22:00 [[32minfo[39m]: User 6x9WlKi250wLXlUI9k56Tq1quOkgj7Nn joined their private room
-2026-03-29 01:26:23 [[32minfo[39m]: Socket disconnected: eUCY-YEZlKTmklNtAAAU
-2026-03-29 01:26:26 [[32minfo[39m]: User 6x9WlKi250wLXlUI9k56Tq1quOkgj7Nn joined their private room
-2026-03-29 01:27:56 [[32minfo[39m]: Socket disconnected: vs_xP4nG3YN_miDLAABP
-2026-03-29 01:28:05 [[32minfo[39m]: User 6x9WlKi250wLXlUI9k56Tq1quOkgj7Nn joined their private room
-2026-03-29 01:30:51 [[32minfo[39m]: Initializing Socket.IO...
-2026-03-29 01:30:51 [[32minfo[39m]: User 6x9WlKi250wLXlUI9k56Tq1quOkgj7Nn joined their private room
-2026-03-29 01:30:56 [[32minfo[39m]: Initializing Socket.IO...
-2026-03-29 01:30:56 [[32minfo[39m]: User 6x9WlKi250wLXlUI9k56Tq1quOkgj7Nn joined their private room
-2026-03-29 01:31:18 [[32minfo[39m]: Initializing Socket.IO...
-2026-03-29 01:31:18 [[32minfo[39m]: User 6x9WlKi250wLXlUI9k56Tq1quOkgj7Nn joined their private room
-2026-03-29 01:31:26 [[32minfo[39m]: Initializing Socket.IO...
-2026-03-29 01:31:26 [[32minfo[39m]: User 6x9WlKi250wLXlUI9k56Tq1quOkgj7Nn joined their private room
-2026-03-29 01:31:34 [[32minfo[39m]: Initializing Socket.IO...
-2026-03-29 01:31:34 [[32minfo[39m]: User 6x9WlKi250wLXlUI9k56Tq1quOkgj7Nn joined their private room
-2026-03-29 01:31:58 [[32minfo[39m]: Socket disconnected: -d4WE8LDc5w_TVhdAAAB
-2026-03-29 01:31:59 [[32minfo[39m]: User 6x9WlKi250wLXlUI9k56Tq1quOkgj7Nn joined their private room
-2026-03-29 01:31:59 [[32minfo[39m]: Socket disconnected: 2srWSYfIk-HFFORMAAAH
-2026-03-29 01:32:02 [[32minfo[39m]: User 6x9WlKi250wLXlUI9k56Tq1quOkgj7Nn joined their private room
-2026-03-29 01:38:03 [[32minfo[39m]: Initializing Socket.IO...
-2026-03-29 01:38:03 [[32minfo[39m]: User 6x9WlKi250wLXlUI9k56Tq1quOkgj7Nn joined their private room
-2026-03-29 01:38:28 [[32minfo[39m]: Initializing Socket.IO...
-2026-03-29 01:38:29 [[32minfo[39m]: User 6x9WlKi250wLXlUI9k56Tq1quOkgj7Nn joined their private room
-2026-03-29 01:38:51 [[32minfo[39m]: Socket disconnected: jnYIptzY0Cl8PGaTAAAC
-2026-03-29 01:38:51 [[32minfo[39m]: User 6x9WlKi250wLXlUI9k56Tq1quOkgj7Nn joined their private room
-2026-03-29 01:38:56 [[32minfo[39m]: Socket disconnected: yBklH-vSD8IBYTH2AAAI
-2026-03-29 01:39:03 [[32minfo[39m]: User 6x9WlKi250wLXlUI9k56Tq1quOkgj7Nn joined their private room
-2026-03-29 01:40:52 [[32minfo[39m]: Initializing Socket.IO...
-2026-03-29 01:40:52 [[32minfo[39m]: User 6x9WlKi250wLXlUI9k56Tq1quOkgj7Nn joined their private room
-2026-03-29 01:41:01 [[32minfo[39m]: Socket disconnected: TusCwgsvzss40H-CAAAB
-2026-03-29 01:41:01 [[32minfo[39m]: User 6x9WlKi250wLXlUI9k56Tq1quOkgj7Nn joined their private room
-2026-03-29 01:42:51 [[32minfo[39m]: Socket disconnected: YBMG7IgB-nc_qFP1AAAF
-2026-03-29 01:42:51 [[32minfo[39m]: User 6x9WlKi250wLXlUI9k56Tq1quOkgj7Nn joined their private room
-2026-03-29 01:44:45 [[32minfo[39m]: Socket disconnected: TTjmbNuJDjO1YKWQAAAd
-2026-03-29 01:44:54 [[32minfo[39m]: User 6x9WlKi250wLXlUI9k56Tq1quOkgj7Nn joined their private room
-2026-03-29 01:49:05 [[32minfo[39m]: Socket disconnected: RhSM0tbWnDfLNSsJAAA3
-2026-03-29 01:49:05 [[32minfo[39m]: User 6x9WlKi250wLXlUI9k56Tq1quOkgj7Nn joined their private room
-2026-03-29 01:52:47 [[32minfo[39m]: Socket disconnected: P4etspeeD_LmBVmbAABq
-2026-03-29 01:52:48 [[32minfo[39m]: User 6x9WlKi250wLXlUI9k56Tq1quOkgj7Nn joined their private room
-2026-03-29 01:52:52 [[32minfo[39m]: Socket disconnected: j6FevhiHaq__fI_rAACY
-2026-03-29 01:53:00 [[32minfo[39m]: User 6x9WlKi250wLXlUI9k56Tq1quOkgj7Nn joined their private room
-2026-03-29 01:53:06 [[32minfo[39m]: Socket disconnected: re-DRWBH38cTNTgpAACd
-2026-03-29 01:53:08 [[32minfo[39m]: User 6x9WlKi250wLXlUI9k56Tq1quOkgj7Nn joined their private room
-2026-03-29 01:53:52 [[32minfo[39m]: Socket disconnected: kFR2KyPfeBu9zy9WAACg
-2026-03-29 01:53:56 [[32minfo[39m]: User 6x9WlKi250wLXlUI9k56Tq1quOkgj7Nn joined their private room
-2026-03-29 01:54:34 [[32minfo[39m]: Socket disconnected: 3ZLvXlm930tMdBGBAACq
-2026-03-29 01:54:46 [[32minfo[39m]: User 6x9WlKi250wLXlUI9k56Tq1quOkgj7Nn joined their private room
-2026-03-29 01:58:04 [[32minfo[39m]: Socket disconnected: SNjFLg8g_oWxIGI3AAC0
-2026-03-29 01:58:06 [[32minfo[39m]: User 6x9WlKi250wLXlUI9k56Tq1quOkgj7Nn joined their private room
-2026-03-29 01:58:07 [[32minfo[39m]: Socket disconnected: rJpGXCruO5mpLUaFAADe
-2026-03-29 01:58:13 [[32minfo[39m]: User 6x9WlKi250wLXlUI9k56Tq1quOkgj7Nn joined their private room
-2026-03-29 01:58:31 [[32minfo[39m]: Socket disconnected: -yNeVBDFmoEEOa1cAADi
-2026-03-29 01:58:47 [[31merror[39m]: Error: You are not authorized
-    at <anonymous> (C:\Shakil Dev\EchoNet\backend\src\app\middleware\auth.ts:38:15)
-    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
-2026-03-29 02:01:34 [[32minfo[39m]: Initializing Socket.IO...
-2026-03-29 02:06:12 [[31merror[39m]: Error: You are not authorized
-    at <anonymous> (C:\Shakil Dev\EchoNet\backend\src\app\middleware\auth.ts:38:15)
-    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
-2026-03-29 02:06:33 [[31merror[39m]: Error: You are not authorized
-    at <anonymous> (C:\Shakil Dev\EchoNet\backend\src\app\middleware\auth.ts:38:15)
-    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
-2026-03-29 02:07:03 [[31merror[39m]: Error: You are not authorized
-    at <anonymous> (C:\Shakil Dev\EchoNet\backend\src\app\middleware\auth.ts:38:15)
-    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
-2026-03-29 02:12:36 [[32minfo[39m]: Initializing Socket.IO...
-2026-03-29 02:14:33 [[32minfo[39m]: Initializing Socket.IO...
-2026-03-29 02:15:33 [[32minfo[39m]: Initializing Socket.IO...
-2026-03-29 02:15:37 [[32minfo[39m]: Initializing Socket.IO...
-2026-03-29 02:17:36 [[32minfo[39m]: Initializing Socket.IO...
-2026-03-29 02:19:16 [[32minfo[39m]: Initializing Socket.IO...
-2026-03-29 02:20:25 [[32minfo[39m]: Initializing Socket.IO...
-2026-03-29 02:20:35 [[32minfo[39m]: Initializing Socket.IO...
-2026-03-29 02:21:29 [[32minfo[39m]: Initializing Socket.IO...
-2026-03-29 02:24:28 [[32minfo[39m]: Initializing Socket.IO...
-2026-03-29 02:27:50 [[31merror[39m]: Error: You are not authorized
-    at <anonymous> (C:\Shakil Dev\EchoNet\backend\src\app\middleware\auth.ts:38:15)
-    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
-2026-03-29 02:27:50 [[31merror[39m]: Error: Invalid session token
-    at Object.getNewToken (C:\Shakil Dev\EchoNet\backend\src\app\module\auth\auth.service.ts:205:15)
-    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
-    at async <anonymous> (C:\Shakil Dev\EchoNet\backend\src\app\module\auth\auth.controller.ts:171:20)
-    at async <anonymous> (C:\Shakil Dev\EchoNet\backend\src\app\utils\catchAsync.ts:6:7)
-2026-03-29 02:27:54 [[31merror[39m]: Error: You are not authorized
-    at <anonymous> (C:\Shakil Dev\EchoNet\backend\src\app\middleware\auth.ts:38:15)
-    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
-2026-03-29 02:27:54 [[31merror[39m]: Error: Invalid session token
-    at Object.getNewToken (C:\Shakil Dev\EchoNet\backend\src\app\module\auth\auth.service.ts:205:15)
-    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
-    at async <anonymous> (C:\Shakil Dev\EchoNet\backend\src\app\module\auth\auth.controller.ts:171:20)
-    at async <anonymous> (C:\Shakil Dev\EchoNet\backend\src\app\utils\catchAsync.ts:6:7)
-2026-03-29 02:28:02 [[32minfo[39m]: User 6x9WlKi250wLXlUI9k56Tq1quOkgj7Nn joined their private room
-2026-03-29 02:28:03 [[31merror[39m]: Error: You are not authorized
-    at <anonymous> (C:\Shakil Dev\EchoNet\backend\src\app\middleware\auth.ts:38:15)
-    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
-2026-03-29 02:28:03 [[31merror[39m]: Error: Invalid session token
-    at Object.getNewToken (C:\Shakil Dev\EchoNet\backend\src\app\module\auth\auth.service.ts:205:15)
-    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
-    at async <anonymous> (C:\Shakil Dev\EchoNet\backend\src\app\module\auth\auth.controller.ts:171:20)
-    at async <anonymous> (C:\Shakil Dev\EchoNet\backend\src\app\utils\catchAsync.ts:6:7)
-2026-03-29 02:28:08 [[32minfo[39m]: Socket disconnected: 7KSKE3nHT-VTYXxJAAAB
-2026-03-29 02:28:10 [[31merror[39m]: Error: You are not authorized
-    at <anonymous> (C:\Shakil Dev\EchoNet\backend\src\app\middleware\auth.ts:38:15)
-    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
-2026-03-29 02:28:10 [[32minfo[39m]: User 6x9WlKi250wLXlUI9k56Tq1quOkgj7Nn joined their private room
-2026-03-29 02:28:10 [[31merror[39m]: Error: Invalid session token
-    at Object.getNewToken (C:\Shakil Dev\EchoNet\backend\src\app\module\auth\auth.service.ts:205:15)
-    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
-    at async <anonymous> (C:\Shakil Dev\EchoNet\backend\src\app\module\auth\auth.controller.ts:171:20)
-    at async <anonymous> (C:\Shakil Dev\EchoNet\backend\src\app\utils\catchAsync.ts:6:7)
-2026-03-29 02:28:14 [[32minfo[39m]: Socket disconnected: -yuDWhGd-zT4bufbAAAD
-2026-03-29 02:28:16 [[31merror[39m]: Error: You are not authorized
-    at <anonymous> (C:\Shakil Dev\EchoNet\backend\src\app\middleware\auth.ts:38:15)
-    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
-2026-03-29 02:28:16 [[31merror[39m]: Error: You are not authorized
-    at <anonymous> (C:\Shakil Dev\EchoNet\backend\src\app\middleware\auth.ts:38:15)
-    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
-2026-03-29 02:28:16 [[32minfo[39m]: User 6x9WlKi250wLXlUI9k56Tq1quOkgj7Nn joined their private room
-2026-03-29 02:28:16 [[31merror[39m]: Error: Invalid session token
-    at Object.getNewToken (C:\Shakil Dev\EchoNet\backend\src\app\module\auth\auth.service.ts:205:15)
-    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
-    at async <anonymous> (C:\Shakil Dev\EchoNet\backend\src\app\module\auth\auth.controller.ts:171:20)
-    at async <anonymous> (C:\Shakil Dev\EchoNet\backend\src\app\utils\catchAsync.ts:6:7)
-2026-03-29 02:28:16 [[31merror[39m]: Error: Invalid session token
-    at Object.getNewToken (C:\Shakil Dev\EchoNet\backend\src\app\module\auth\auth.service.ts:205:15)
-    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
-    at async <anonymous> (C:\Shakil Dev\EchoNet\backend\src\app\module\auth\auth.controller.ts:171:20)
-    at async <anonymous> (C:\Shakil Dev\EchoNet\backend\src\app\utils\catchAsync.ts:6:7)
-2026-03-29 02:28:16 [[32minfo[39m]: Socket disconnected: 1ImC2A3tk5wad2TmAAAF
-2026-03-29 02:28:19 [[31merror[39m]: Error: You are not authorized
-    at <anonymous> (C:\Shakil Dev\EchoNet\backend\src\app\middleware\auth.ts:38:15)
-    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
-2026-03-29 02:28:19 [[32minfo[39m]: User 6x9WlKi250wLXlUI9k56Tq1quOkgj7Nn joined their private room
-2026-03-29 02:28:19 [[31merror[39m]: Error: Invalid session token
-    at Object.getNewToken (C:\Shakil Dev\EchoNet\backend\src\app\module\auth\auth.service.ts:205:15)
-    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
-    at async <anonymous> (C:\Shakil Dev\EchoNet\backend\src\app\module\auth\auth.controller.ts:171:20)
-    at async <anonymous> (C:\Shakil Dev\EchoNet\backend\src\app\utils\catchAsync.ts:6:7)
-2026-03-29 02:28:30 [[32minfo[39m]: Initializing Socket.IO...
-2026-03-29 02:28:32 [[32minfo[39m]: User 6x9WlKi250wLXlUI9k56Tq1quOkgj7Nn joined their private room
-2026-03-29 02:28:54 [[31merror[39m]: Error: You are not authorized
-    at <anonymous> (C:\Shakil Dev\EchoNet\backend\src\app\middleware\auth.ts:38:15)
-    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
-2026-03-29 02:28:54 [[31merror[39m]: Error: Invalid session token
-    at Object.getNewToken (C:\Shakil Dev\EchoNet\backend\src\app\module\auth\auth.service.ts:198:15)
-    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
-    at async <anonymous> (C:\Shakil Dev\EchoNet\backend\src\app\module\auth\auth.controller.ts:171:20)
-    at async <anonymous> (C:\Shakil Dev\EchoNet\backend\src\app\utils\catchAsync.ts:6:7)
-2026-03-29 02:28:54 [[32minfo[39m]: Socket disconnected: FRcdTgMn6gBLkpRHAAAB
-2026-03-29 02:28:56 [[31merror[39m]: Error: You are not authorized
-    at <anonymous> (C:\Shakil Dev\EchoNet\backend\src\app\middleware\auth.ts:38:15)
-    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
-2026-03-29 02:28:56 [[32minfo[39m]: User 6x9WlKi250wLXlUI9k56Tq1quOkgj7Nn joined their private room
-2026-03-29 02:28:56 [[31merror[39m]: Error: Invalid session token
-    at Object.getNewToken (C:\Shakil Dev\EchoNet\backend\src\app\module\auth\auth.service.ts:198:15)
-    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
-    at async <anonymous> (C:\Shakil Dev\EchoNet\backend\src\app\module\auth\auth.controller.ts:171:20)
-    at async <anonymous> (C:\Shakil Dev\EchoNet\backend\src\app\utils\catchAsync.ts:6:7)
-2026-03-29 02:30:02 [[32minfo[39m]: Socket disconnected: VFq_wIgtDLs83THfAAAD
-2026-03-29 02:30:02 [[32minfo[39m]: User 6x9WlKi250wLXlUI9k56Tq1quOkgj7Nn joined their private room
-2026-03-29 02:30:12 [[32minfo[39m]: Socket disconnected: UtBhxKHEFUhEovLMAAAF
-2026-03-29 02:32:21 [[32minfo[39m]: Initializing Socket.IO...
-2026-03-29 02:34:55 [[32minfo[39m]: Initializing Socket.IO...
-2026-03-29 02:38:46 [[32minfo[39m]: Initializing Socket.IO...
-2026-03-29 02:43:36 [[32minfo[39m]: Initializing Socket.IO...
-2026-03-29 02:45:54 [[32minfo[39m]: Initializing Socket.IO...
-2026-03-29 02:47:52 [[32minfo[39m]: Initializing Socket.IO...
-2026-03-29 02:50:12 [[32minfo[39m]: Initializing Socket.IO...
-2026-03-29 02:50:51 [[32minfo[39m]: Initializing Socket.IO...
-2026-03-29 03:04:18 [[32minfo[39m]: Initializing Socket.IO...
-2026-03-29 03:05:37 [[32minfo[39m]: User 6x9WlKi250wLXlUI9k56Tq1quOkgj7Nn joined their private room
-2026-03-29 03:09:26 [[32minfo[39m]: User vQjzubNxbGN3Sy7zRq7Qeppb4yhxmBMb joined their private room
-2026-03-29 03:13:56 [[32minfo[39m]: Socket disconnected: oezxGTU19SQrSJFPAAAB
-2026-03-29 03:13:56 [[32minfo[39m]: Socket disconnected: Zrw8ry-2LHzldb3tAAAD
-2026-03-29 03:15:13 [[32minfo[39m]: User 6x9WlKi250wLXlUI9k56Tq1quOkgj7Nn joined their private room
-2026-03-29 03:15:13 [[32minfo[39m]: User vQjzubNxbGN3Sy7zRq7Qeppb4yhxmBMb joined their private room
-2026-03-29 03:17:49 [[32minfo[39m]: Socket disconnected: mmDVYP0_obJYjcGrAAAF
-2026-03-29 03:17:49 [[32minfo[39m]: Socket disconnected: inccEiDpgkJiVGa9AAAH
-2026-03-29 03:18:11 [[32minfo[39m]: User vQjzubNxbGN3Sy7zRq7Qeppb4yhxmBMb joined their private room
-2026-03-29 03:18:12 [[32minfo[39m]: Socket disconnected: acHYyXaJ7QEFOEUDAAAK
-2026-03-29 03:18:16 [[32minfo[39m]: User vQjzubNxbGN3Sy7zRq7Qeppb4yhxmBMb joined their private room
-2026-03-29 03:18:16 [[32minfo[39m]: User 6x9WlKi250wLXlUI9k56Tq1quOkgj7Nn joined their private room
-2026-03-29 03:19:24 [[32minfo[39m]: Socket disconnected: l82EznMz-2RjX0qOAAAO
-2026-03-29 03:19:24 [[32minfo[39m]: Socket disconnected: BIa-9Xcb78HB8ILyAAAM
-2026-03-29 03:19:24 [[32minfo[39m]: User 6x9WlKi250wLXlUI9k56Tq1quOkgj7Nn joined their private room
-2026-03-29 03:19:25 [[32minfo[39m]: User vQjzubNxbGN3Sy7zRq7Qeppb4yhxmBMb joined their private room
-2026-03-29 03:22:16 [[32minfo[39m]: Socket disconnected: dfDU3NSOO_gHwH-0AAAQ
-2026-03-29 03:22:16 [[32minfo[39m]: Socket disconnected: 7l83zAEqYKzjlfUeAAAS
-2026-03-29 03:24:43 [[32minfo[39m]: User vQjzubNxbGN3Sy7zRq7Qeppb4yhxmBMb joined their private room
-2026-03-29 03:24:48 [[32minfo[39m]: Socket disconnected: uyNN1IKghqy8RZ8TAAAU
-2026-03-29 03:24:57 [[32minfo[39m]: User vQjzubNxbGN3Sy7zRq7Qeppb4yhxmBMb joined their private room
-2026-03-29 03:24:58 [[32minfo[39m]: User 6x9WlKi250wLXlUI9k56Tq1quOkgj7Nn joined their private room
-2026-03-29 03:26:02 [[32minfo[39m]: Socket disconnected: DNhUPA6OOuZA0AE5AAAX
-2026-03-29 03:26:07 [[32minfo[39m]: User vQjzubNxbGN3Sy7zRq7Qeppb4yhxmBMb joined their private room
-2026-03-29 03:30:18 [[32minfo[39m]: Socket disconnected: Xh_2FKPNajawh7bqAAAY
-2026-03-29 03:30:24 [[32minfo[39m]: User 6x9WlKi250wLXlUI9k56Tq1quOkgj7Nn joined their private room
-2026-03-29 03:55:49 [[32minfo[39m]: Socket disconnected: YZT40oDq_bZTE66MAAAc
-2026-03-29 03:55:55 [[32minfo[39m]: User 6x9WlKi250wLXlUI9k56Tq1quOkgj7Nn joined their private room
-2026-03-29 04:04:33 [[32minfo[39m]: Socket disconnected: w6Sz_FXhfQXlQcqrAAAa
-2026-03-29 04:08:15 [[32minfo[39m]: Socket disconnected: YArEqom-l6Ub4tPHAAAe
-2026-03-29 04:08:22 [[32minfo[39m]: User 6x9WlKi250wLXlUI9k56Tq1quOkgj7Nn joined their private room
-2026-03-29 04:08:25 [[32minfo[39m]: Socket disconnected: fTjYsWj-AQzeUNo-AAAg
-2026-03-29 04:13:05 [[32minfo[39m]: User 6x9WlKi250wLXlUI9k56Tq1quOkgj7Nn joined their private room
-2026-03-29 04:13:22 [[32minfo[39m]: Socket disconnected: BFm_WS9CJIkG67HRAAAi
-2026-03-29 04:15:01 [[32minfo[39m]: Initializing Socket.IO...
-2026-03-29 04:15:52 [[32minfo[39m]: Initializing Socket.IO...
-2026-03-29 04:21:10 [[32minfo[39m]: Initializing Socket.IO...
-2026-03-29 04:24:13 [[32minfo[39m]: User vQjzubNxbGN3Sy7zRq7Qeppb4yhxmBMb joined their private room
-2026-03-29 04:24:53 [[32minfo[39m]: Socket disconnected: Np4BQUtihoYYGBBoAAAB
-2026-03-29 04:25:08 [[32minfo[39m]: User vQjzubNxbGN3Sy7zRq7Qeppb4yhxmBMb joined their private room
-2026-03-29 04:25:44 [[31merror[39m]: Error: Store not found
-    at Object.getStoreOrders (C:\Shakil Dev\EchoNet\backend\src\app\module\order\order.service.ts:100:21)
-    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
-    at async <anonymous> (C:\Shakil Dev\EchoNet\backend\src\app\module\order\order.controller.ts:30:18)
-    at async <anonymous> (C:\Shakil Dev\EchoNet\backend\src\app\utils\catchAsync.ts:6:7)
-2026-03-29 04:30:24 [[32minfo[39m]: Socket disconnected: sOn2fnnotcmu5LfOAAAD
-2026-03-29 04:31:40 [[32minfo[39m]: User vQjzubNxbGN3Sy7zRq7Qeppb4yhxmBMb joined their private room
-2026-03-29 04:33:01 [[32minfo[39m]: Socket disconnected: 9zABR8_AVPaQ97hUAAAF
-2026-03-29 04:33:14 [[32minfo[39m]: User vQjzubNxbGN3Sy7zRq7Qeppb4yhxmBMb joined their private room
-2026-03-29 04:40:04 [[32minfo[39m]: Socket disconnected: 0D1gjolZr3v_2Jn0AAAH
-2026-03-29 04:40:23 [[32minfo[39m]: User vQjzubNxbGN3Sy7zRq7Qeppb4yhxmBMb joined their private room
-2026-03-29 04:43:33 [[32minfo[39m]: Socket disconnected: qRB3kKWWw_0PxLBdAAAJ
-2026-03-29 04:54:35 [[32minfo[39m]: Initializing Socket.IO...
-2026-03-29 04:54:40 [[32minfo[39m]: Initializing Socket.IO...
-2026-03-29 04:54:52 [[32minfo[39m]: Initializing Socket.IO...
-2026-03-29 04:57:00 [[32minfo[39m]: User vQjzubNxbGN3Sy7zRq7Qeppb4yhxmBMb joined their private room
-2026-03-29 04:57:42 [[32minfo[39m]: Initializing Socket.IO...
-2026-03-29 04:57:45 [[32minfo[39m]: User vQjzubNxbGN3Sy7zRq7Qeppb4yhxmBMb joined their private room
-2026-03-29 04:59:20 [[32minfo[39m]: Socket disconnected: WRE-xQ_o2vmFZ44_AAAB
-2026-03-29 04:59:23 [[31merror[39m]: Error: You are not authorized
-    at <anonymous> (C:\Shakil Dev\EchoNet\backend\src\app\middleware\auth.ts:38:15)
-    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
-2026-03-29 04:59:24 [[32minfo[39m]: User vQjzubNxbGN3Sy7zRq7Qeppb4yhxmBMb joined their private room
-2026-03-29 04:59:24 [[31merror[39m]: Error: Invalid session token
-    at Object.getNewToken (C:\Shakil Dev\EchoNet\backend\src\app\module\auth\auth.service.ts:194:15)
-    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
-    at async <anonymous> (C:\Shakil Dev\EchoNet\backend\src\app\module\auth\auth.controller.ts:175:20)
-    at async <anonymous> (C:\Shakil Dev\EchoNet\backend\src\app\utils\catchAsync.ts:6:7)
-2026-03-29 04:59:24 [[32minfo[39m]: Socket disconnected: TZRMnpLaLbGcZpgbAAAD
-2026-03-29 04:59:26 [[31merror[39m]: Error: You are not authorized
-    at <anonymous> (C:\Shakil Dev\EchoNet\backend\src\app\middleware\auth.ts:38:15)
-    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
-2026-03-29 05:06:19 [[32minfo[39m]: User YG9Xc879bTAoJ0TNAg5PJVfChSI6iSIV joined their private room
-2026-03-29 05:06:26 [[32minfo[39m]: Socket disconnected: -LBn9alkfpJVmpzEAAAF
-2026-03-29 05:06:27 [[32minfo[39m]: User YG9Xc879bTAoJ0TNAg5PJVfChSI6iSIV joined their private room
-2026-03-29 05:07:14 [[32minfo[39m]: Socket disconnected: _mu8ODka2pKTGN_lAAAH
-2026-03-29 05:07:17 [[32minfo[39m]: User YG9Xc879bTAoJ0TNAg5PJVfChSI6iSIV joined their private room
-2026-03-29 05:07:55 [[32minfo[39m]: User YG9Xc879bTAoJ0TNAg5PJVfChSI6iSIV joined their private room
-2026-03-29 05:08:02 [[32minfo[39m]: Socket disconnected: gfSlZl9MJ6f7zomkAAAJ
-2026-03-29 05:08:16 [[32minfo[39m]: User YG9Xc879bTAoJ0TNAg5PJVfChSI6iSIV joined their private room
-2026-03-29 05:08:26 [[32minfo[39m]: Socket disconnected: yViyfmSJYpidNHnIAAAN
-2026-03-29 05:08:29 [[32minfo[39m]: User YG9Xc879bTAoJ0TNAg5PJVfChSI6iSIV joined their private room
-2026-03-29 05:08:40 [[32minfo[39m]: Socket disconnected: fhrQSo0IyX9F87XCAAAP
-2026-03-29 05:08:44 [[32minfo[39m]: User YG9Xc879bTAoJ0TNAg5PJVfChSI6iSIV joined their private room
-2026-03-29 05:08:49 [[32minfo[39m]: Socket disconnected: IyqQdP8WPl4JTAM9AAAR
-2026-03-29 05:08:55 [[31merror[39m]: Error: You are not authorized
-    at <anonymous> (C:\Shakil Dev\EchoNet\backend\src\app\middleware\auth.ts:38:15)
-    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
-2026-03-29 05:09:13 [[32minfo[39m]: User OAUOtlzRO7nGUmm0a3noaA9k5AEpjLvy joined their private room
-2026-03-29 05:13:12 [[32minfo[39m]: Initializing Socket.IO...
-2026-03-29 05:13:14 [[32minfo[39m]: User OAUOtlzRO7nGUmm0a3noaA9k5AEpjLvy joined their private room
-2026-03-29 05:13:15 [[32minfo[39m]: User YG9Xc879bTAoJ0TNAg5PJVfChSI6iSIV joined their private room
-2026-03-29 05:54:46 [[32minfo[39m]: Socket disconnected: AbrY0UekP8tlSvpFAAAD
-2026-03-29 05:54:46 [[32minfo[39m]: Socket disconnected: xJYnkcf2CIIfuAUSAAAB
-2026-03-29 05:54:48 [[32minfo[39m]: User OAUOtlzRO7nGUmm0a3noaA9k5AEpjLvy joined their private room
-2026-03-29 05:54:48 [[32minfo[39m]: User YG9Xc879bTAoJ0TNAg5PJVfChSI6iSIV joined their private room
-2026-03-29 05:55:33 [[32minfo[39m]: Socket disconnected: K8TiqhEW76w9Rcw7AAAH
-2026-03-29 05:56:12 [[32minfo[39m]: Initializing Socket.IO...
-2026-03-29 05:57:31 [[32minfo[39m]: User OAUOtlzRO7nGUmm0a3noaA9k5AEpjLvy joined their private room
-2026-03-29 05:57:58 [[32minfo[39m]: Initializing Socket.IO...
-2026-03-29 05:58:02 [[32minfo[39m]: User OAUOtlzRO7nGUmm0a3noaA9k5AEpjLvy joined their private room
-2026-03-29 05:58:18 [[32minfo[39m]: Initializing Socket.IO...
-2026-03-29 05:58:23 [[32minfo[39m]: User OAUOtlzRO7nGUmm0a3noaA9k5AEpjLvy joined their private room
-2026-03-29 05:58:30 [[32minfo[39m]: Initializing Socket.IO...
-2026-03-29 05:58:34 [[32minfo[39m]: User OAUOtlzRO7nGUmm0a3noaA9k5AEpjLvy joined their private room
-2026-03-29 05:59:19 [[32minfo[39m]: Socket disconnected: cKit8VgyHHx4bkUwAAAB
-2026-03-29 05:59:35 [[32minfo[39m]: Initializing Socket.IO...
-2026-03-29 05:59:48 [[32minfo[39m]: User OAUOtlzRO7nGUmm0a3noaA9k5AEpjLvy joined their private room
-2026-03-29 06:00:02 [[32minfo[39m]: Socket disconnected: hgAiOYQNrVLT-o_bAAAC
-2026-03-29 06:00:13 [[32minfo[39m]: Initializing Socket.IO...
-2026-03-29 06:01:09 [[32minfo[39m]: Initializing Socket.IO...
-2026-03-29 06:02:21 [[32minfo[39m]: User YG9Xc879bTAoJ0TNAg5PJVfChSI6iSIV joined their private room
-2026-03-29 06:02:23 [[32minfo[39m]: Socket disconnected: rWKaIWFmfmaCTNN-AAAB
-2026-03-29 06:02:24 [[32minfo[39m]: User YG9Xc879bTAoJ0TNAg5PJVfChSI6iSIV joined their private room
-2026-03-29 06:02:27 [[32minfo[39m]: User YG9Xc879bTAoJ0TNAg5PJVfChSI6iSIV joined their private room
-2026-03-29 06:03:08 [[32minfo[39m]: User OAUOtlzRO7nGUmm0a3noaA9k5AEpjLvy joined their private room
-2026-03-29 06:03:09 [[32minfo[39m]: Socket disconnected: 9DMUNj1DwE5B-9d7AAAD
-2026-03-29 06:03:44 [[32minfo[39m]: Backend: call-user from OAUOtlzRO7nGUmm0a3noaA9k5AEpjLvy to YG9Xc879bTAoJ0TNAg5PJVfChSI6iSIV
-2026-03-29 06:04:00 [[32minfo[39m]: Backend: call-user from YG9Xc879bTAoJ0TNAg5PJVfChSI6iSIV to OAUOtlzRO7nGUmm0a3noaA9k5AEpjLvy
-2026-03-29 06:08:09 [[32minfo[39m]: Socket disconnected: r5OlHh07203ydqKGAAAH
-2026-03-29 06:08:10 [[32minfo[39m]: User OAUOtlzRO7nGUmm0a3noaA9k5AEpjLvy joined their private room
-2026-03-29 06:08:16 [[32minfo[39m]: Socket disconnected: CjnZ3G9HlYupOMbDAAAF
-2026-03-29 06:08:18 [[32minfo[39m]: User YG9Xc879bTAoJ0TNAg5PJVfChSI6iSIV joined their private room
-2026-03-29 06:12:31 [[32minfo[39m]: Socket disconnected: ELosaDFrW77m5H6cAAAL
-2026-03-29 06:12:58 [[32minfo[39m]: User YG9Xc879bTAoJ0TNAg5PJVfChSI6iSIV joined their private room
-2026-03-29 06:23:28 [[31merror[39m]: PrismaClientKnownRequestError: 
-Invalid `tx.payment.update()` invocation in
-C:\Shakil Dev\EchoNet\backend\src\app\module\payment\payment.service.ts:101:26
+2026-03-29 08:52:08 [[32minfo[39m]: Initializing Socket.IO...
+2026-03-29 08:52:31 [[31merror[39m]: Error: You are not authorized
+    at <anonymous> (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/middleware/auth.ts:38:15)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+2026-03-29 08:52:31 [[31merror[39m]: Error: You are not authorized
+    at <anonymous> (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/middleware/auth.ts:38:15)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+2026-03-29 08:52:31 [[31merror[39m]: PrismaClientKnownRequestError: 
+Invalid `this.model.findMany()` invocation in
+/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/utils/QueryBuilder.ts:215:18
 
-   98 
-   99 if (orderId) {
-  100   await prisma.$transaction(async (tx) => {
-→ 101     await tx.payment.update(
-An operation failed because it depends on one or more records that were required but not found. No record was found for an update.
-    at Gr.handleRequestError (C:\Shakil Dev\EchoNet\backend\generated\prisma\client\runtime\client.js:69:8286)
-    at Gr.handleAndLogRequestError (C:\Shakil Dev\EchoNet\backend\generated\prisma\client\runtime\client.js:69:7581)
-    at Gr.request (C:\Shakil Dev\EchoNet\backend\generated\prisma\client\runtime\client.js:69:7288)
+  212 async execute(): Promise<IQueryResult<T>> {
+  213   const [total, data] = await Promise.all([
+  214     this.model.count(this.countQuery as Parameters<typeof this.model.count>[0]),
+→ 215     this.model.findMany(
+The column `User.phoneNumber` does not exist in the current database.
+    at Gr.handleRequestError (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/generated/prisma/client/runtime/client.js:69:8286)
+    at Gr.handleAndLogRequestError (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/generated/prisma/client/runtime/client.js:69:7581)
+    at Gr.request (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/generated/prisma/client/runtime/client.js:69:7288)
     at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
-    at async a (C:\Shakil Dev\EchoNet\backend\generated\prisma\client\runtime\client.js:79:6730)
-    at async <anonymous> (C:\Shakil Dev\EchoNet\backend\src\app\module\payment\payment.service.ts:101:9)
-    at async Proxy._transactionWithCallback (C:\Shakil Dev\EchoNet\backend\generated\prisma\client\runtime\client.js:79:4668)
-    at async Object.handleWebhook (C:\Shakil Dev\EchoNet\backend\src\app\module\payment\payment.service.ts:100:7)
-    at async <anonymous> (C:\Shakil Dev\EchoNet\backend\src\app\module\payment\payment.controller.ts:20:18)
-    at async <anonymous> (C:\Shakil Dev\EchoNet\backend\src\app\utils\catchAsync.ts:6:7)
-2026-03-29 06:39:29 [[31merror[39m]: PrismaClientKnownRequestError: 
-Invalid `tx.payment.update()` invocation in
-C:\Shakil Dev\EchoNet\backend\src\app\module\payment\payment.service.ts:101:26
+    at async a (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/generated/prisma/client/runtime/client.js:79:6730)
+    at async Promise.all (index 1)
+    at async QueryBuilder.execute (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/utils/QueryBuilder.ts:213:27)
+    at async Object.getAllUsers (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/module/user/user.service.ts:5:18)
+    at async <anonymous> (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/module/user/user.controller.ts:10:18)
+    at async <anonymous> (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/utils/catchAsync.ts:6:7)
+2026-03-29 08:52:31 [[31merror[39m]: Error: Invalid session token
+    at Object.getNewToken (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/module/auth/auth.service.ts:194:15)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async <anonymous> (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/module/auth/auth.controller.ts:175:20)
+    at async <anonymous> (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/utils/catchAsync.ts:6:7)
+2026-03-29 08:52:31 [[31merror[39m]: PrismaClientKnownRequestError: 
+Invalid `prisma.post.findMany()` invocation in
+/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/module/post/post.service.ts:194:36
 
-   98 
-   99 if (orderId) {
-  100   await prisma.$transaction(async (tx) => {
-→ 101     await tx.payment.update(
-An operation failed because it depends on one or more records that were required but not found. No record was found for an update.
-    at Gr.handleRequestError (C:\Shakil Dev\EchoNet\backend\generated\prisma\client\runtime\client.js:69:8286)
-    at Gr.handleAndLogRequestError (C:\Shakil Dev\EchoNet\backend\generated\prisma\client\runtime\client.js:69:7581)
-    at Gr.request (C:\Shakil Dev\EchoNet\backend\generated\prisma\client\runtime\client.js:69:7288)
+  191 
+  192 where.status = 'ACTIVE';
+  193 
+→ 194 const result = await prisma.post.findMany(
+The column `User.phoneNumber` does not exist in the current database.
+    at Gr.handleRequestError (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/generated/prisma/client/runtime/client.js:69:8286)
+    at Gr.handleAndLogRequestError (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/generated/prisma/client/runtime/client.js:69:7581)
+    at Gr.request (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/generated/prisma/client/runtime/client.js:69:7288)
     at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
-    at async a (C:\Shakil Dev\EchoNet\backend\generated\prisma\client\runtime\client.js:79:6730)
-    at async <anonymous> (C:\Shakil Dev\EchoNet\backend\src\app\module\payment\payment.service.ts:101:9)
-    at async Proxy._transactionWithCallback (C:\Shakil Dev\EchoNet\backend\generated\prisma\client\runtime\client.js:79:4668)
-    at async Object.handleWebhook (C:\Shakil Dev\EchoNet\backend\src\app\module\payment\payment.service.ts:100:7)
-    at async <anonymous> (C:\Shakil Dev\EchoNet\backend\src\app\module\payment\payment.controller.ts:20:18)
-    at async <anonymous> (C:\Shakil Dev\EchoNet\backend\src\app\utils\catchAsync.ts:6:7)
-2026-03-29 06:41:47 [[32minfo[39m]: Socket disconnected: 8g_Eqmjg7HKNcufBAAAJ
-2026-03-29 06:41:47 [[32minfo[39m]: User OAUOtlzRO7nGUmm0a3noaA9k5AEpjLvy joined their private room
-2026-03-29 06:42:26 [[32minfo[39m]: Initializing Socket.IO...
-2026-03-29 06:42:30 [[32minfo[39m]: User OAUOtlzRO7nGUmm0a3noaA9k5AEpjLvy joined their private room
-2026-03-29 06:42:32 [[32minfo[39m]: User YG9Xc879bTAoJ0TNAg5PJVfChSI6iSIV joined their private room
-2026-03-29 06:43:17 [[32minfo[39m]: Socket disconnected: YxerzKqqfLcv00T-AAAD
-2026-03-29 06:45:39 [[32minfo[39m]: Initializing Socket.IO...
-2026-03-29 06:45:39 [[32minfo[39m]: User OAUOtlzRO7nGUmm0a3noaA9k5AEpjLvy joined their private room
-2026-03-29 06:47:05 [[32minfo[39m]: Initializing Socket.IO...
-2026-03-29 06:47:10 [[32minfo[39m]: User OAUOtlzRO7nGUmm0a3noaA9k5AEpjLvy joined their private room
-2026-03-29 06:48:03 [[32minfo[39m]: Initializing Socket.IO...
-2026-03-29 06:48:07 [[32minfo[39m]: User OAUOtlzRO7nGUmm0a3noaA9k5AEpjLvy joined their private room
+    at async a (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/generated/prisma/client/runtime/client.js:79:6730)
+    at async Object.getAllPosts (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/module/post/post.service.ts:194:18)
+    at async <anonymous> (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/module/post/post.controller.ts:40:18)
+    at async <anonymous> (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/utils/catchAsync.ts:6:7)
+2026-03-29 08:52:31 [[31merror[39m]: PrismaClientKnownRequestError: 
+Invalid `prisma.post.findMany()` invocation in
+/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/module/post/post.service.ts:194:36
+
+  191 
+  192 where.status = 'ACTIVE';
+  193 
+→ 194 const result = await prisma.post.findMany(
+The column `User.phoneNumber` does not exist in the current database.
+    at Gr.handleRequestError (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/generated/prisma/client/runtime/client.js:69:8286)
+    at Gr.handleAndLogRequestError (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/generated/prisma/client/runtime/client.js:69:7581)
+    at Gr.request (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/generated/prisma/client/runtime/client.js:69:7288)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async a (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/generated/prisma/client/runtime/client.js:79:6730)
+    at async Object.getAllPosts (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/module/post/post.service.ts:194:18)
+    at async <anonymous> (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/module/post/post.controller.ts:40:18)
+    at async <anonymous> (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/utils/catchAsync.ts:6:7)
+2026-03-29 08:52:32 [[31merror[39m]: Error: You are not authorized
+    at <anonymous> (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/middleware/auth.ts:38:15)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+2026-03-29 08:52:37 [[31merror[39m]: Error: You are not authorized
+    at <anonymous> (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/middleware/auth.ts:38:15)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+2026-03-29 08:53:35 [[32minfo[39m]: Initializing Socket.IO...
+2026-03-29 08:57:03 [[32minfo[39m]: Initializing Socket.IO...
+2026-03-29 08:57:09 [[31merror[39m]: Error: You are not authorized
+    at <anonymous> (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/middleware/auth.ts:38:15)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+2026-03-29 08:59:54 [[32minfo[39m]: Initializing Socket.IO...
+2026-03-29 09:01:04 [[31merror[39m]: Error: You are not authorized
+    at <anonymous> (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/middleware/auth.ts:38:15)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+2026-03-29 09:01:04 [[31merror[39m]: Error: You are not authorized
+    at <anonymous> (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/middleware/auth.ts:38:15)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+2026-03-29 09:01:04 [[31merror[39m]: Error: Invalid session token
+    at Object.getNewToken (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/module/auth/auth.service.ts:194:15)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async <anonymous> (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/module/auth/auth.controller.ts:175:20)
+    at async <anonymous> (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/utils/catchAsync.ts:6:7)
+2026-03-29 09:01:05 [[31merror[39m]: Error: You are not authorized
+    at <anonymous> (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/middleware/auth.ts:38:15)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+2026-03-29 09:01:21 [[31merror[39m]: Error: You are not authorized
+    at <anonymous> (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/middleware/auth.ts:38:15)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+2026-03-29 09:01:21 [[31merror[39m]: Error: You are not authorized
+    at <anonymous> (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/middleware/auth.ts:38:15)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+2026-03-29 09:01:21 [[31merror[39m]: Error: Invalid session token
+    at Object.getNewToken (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/module/auth/auth.service.ts:194:15)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async <anonymous> (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/module/auth/auth.controller.ts:175:20)
+    at async <anonymous> (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/utils/catchAsync.ts:6:7)
+2026-03-29 09:01:21 [[31merror[39m]: Error: You are not authorized
+    at <anonymous> (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/middleware/auth.ts:38:15)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+2026-03-29 09:02:19 [[31merror[39m]: Error: You are not authorized
+    at <anonymous> (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/middleware/auth.ts:38:15)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+2026-03-29 09:02:25 [[31merror[39m]: Error: You are not authorized
+    at <anonymous> (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/middleware/auth.ts:38:15)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+2026-03-29 09:02:25 [[31merror[39m]: Error: You are not authorized
+    at <anonymous> (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/middleware/auth.ts:38:15)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+2026-03-29 09:02:25 [[31merror[39m]: Error: Invalid session token
+    at Object.getNewToken (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/module/auth/auth.service.ts:194:15)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async <anonymous> (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/module/auth/auth.controller.ts:175:20)
+    at async <anonymous> (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/utils/catchAsync.ts:6:7)
+2026-03-29 09:02:26 [[31merror[39m]: Error: You are not authorized
+    at <anonymous> (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/middleware/auth.ts:38:15)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+2026-03-29 09:02:50 [[32minfo[39m]: User ie1QgIyd05x7e9XZH6QitDCOdRPCkiEW joined their private room
+2026-03-29 09:13:56 [[32minfo[39m]: Socket disconnected: 9I1pAOSmOEw8yfoAAAAB
+2026-03-29 09:14:17 [[32minfo[39m]: User ie1QgIyd05x7e9XZH6QitDCOdRPCkiEW joined their private room
+2026-03-29 09:14:24 [[32minfo[39m]: Socket disconnected: -Z3rJXg8BKbPnimCAAAD
+2026-03-29 09:14:43 [[32minfo[39m]: User hQMbnEo7RbeDK9vBRwVKFQTUYfIWs9j1 joined their private room
+2026-03-29 09:16:22 [[32minfo[39m]: Initializing Socket.IO...
+2026-03-29 09:16:22 [[32minfo[39m]: User hQMbnEo7RbeDK9vBRwVKFQTUYfIWs9j1 joined their private room
+2026-03-29 09:16:36 [[32minfo[39m]: Initializing Socket.IO...
+2026-03-29 09:16:37 [[32minfo[39m]: User hQMbnEo7RbeDK9vBRwVKFQTUYfIWs9j1 joined their private room
+2026-03-29 09:16:47 [[32minfo[39m]: Socket disconnected: LF3LvkV-k_9rzvRZAAAB
+2026-03-29 09:16:48 [[32minfo[39m]: User hQMbnEo7RbeDK9vBRwVKFQTUYfIWs9j1 joined their private room
+2026-03-29 09:17:14 [[32minfo[39m]: Initializing Socket.IO...
+2026-03-29 09:17:16 [[32minfo[39m]: User hQMbnEo7RbeDK9vBRwVKFQTUYfIWs9j1 joined their private room
+2026-03-29 09:17:23 [[31merror[39m]: Error: You are not authorized
+    at <anonymous> (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/middleware/auth.ts:38:15)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+2026-03-29 09:17:23 [[31merror[39m]: Error: Invalid session token
+    at Object.getNewToken (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/module/auth/auth.service.ts:194:15)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async <anonymous> (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/module/auth/auth.controller.ts:175:20)
+    at async <anonymous> (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/utils/catchAsync.ts:6:7)
+2026-03-29 09:18:01 [[32minfo[39m]: Socket disconnected: s8DGg1-wzZ55Y9C_AAAB
+2026-03-29 09:18:12 [[32minfo[39m]: User 86d0eCBkerwMbSVzysuePDLQ1LVmyR28 joined their private room
+2026-03-29 09:18:31 [[32minfo[39m]: Backend: call-user from 86d0eCBkerwMbSVzysuePDLQ1LVmyR28 to hQMbnEo7RbeDK9vBRwVKFQTUYfIWs9j1
+2026-03-29 09:19:55 [[32minfo[39m]: Initializing Socket.IO...
+2026-03-29 09:20:01 [[32minfo[39m]: User 86d0eCBkerwMbSVzysuePDLQ1LVmyR28 joined their private room
+2026-03-29 09:20:05 [[32minfo[39m]: User hQMbnEo7RbeDK9vBRwVKFQTUYfIWs9j1 joined their private room
+2026-03-29 09:20:22 [[32minfo[39m]: Backend: call-user from hQMbnEo7RbeDK9vBRwVKFQTUYfIWs9j1 to 86d0eCBkerwMbSVzysuePDLQ1LVmyR28
+2026-03-29 09:20:36 [[32minfo[39m]: Socket disconnected: kdakCIIIkkN71HQFAAAD
+2026-03-29 09:20:36 [[32minfo[39m]: User hQMbnEo7RbeDK9vBRwVKFQTUYfIWs9j1 joined their private room
+2026-03-29 09:21:55 [[32minfo[39m]: Socket disconnected: u7m8vJHno91FXi2dAAAF
+2026-03-29 09:21:58 [[31merror[39m]: Error: Session not found
+    at Object.getMe (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/module/auth/auth.service.ts:138:15)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async <anonymous> (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/module/auth/auth.controller.ts:80:20)
+    at async <anonymous> (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/utils/catchAsync.ts:6:7)
+2026-03-29 09:22:56 [[32minfo[39m]: Initializing Socket.IO...
+2026-03-29 09:22:58 [[32minfo[39m]: User 86d0eCBkerwMbSVzysuePDLQ1LVmyR28 joined their private room
+2026-03-29 09:23:01 [[32minfo[39m]: User hQMbnEo7RbeDK9vBRwVKFQTUYfIWs9j1 joined their private room
+2026-03-29 09:24:48 [[32minfo[39m]: Initializing Socket.IO...
+2026-03-29 09:24:49 [[32minfo[39m]: User hQMbnEo7RbeDK9vBRwVKFQTUYfIWs9j1 joined their private room
+2026-03-29 09:24:51 [[32minfo[39m]: User 86d0eCBkerwMbSVzysuePDLQ1LVmyR28 joined their private room
+2026-03-29 09:29:03 [[32minfo[39m]: Initializing Socket.IO...
+2026-03-29 09:29:03 [[32minfo[39m]: User 86d0eCBkerwMbSVzysuePDLQ1LVmyR28 joined their private room
+2026-03-29 09:29:04 [[32minfo[39m]: User hQMbnEo7RbeDK9vBRwVKFQTUYfIWs9j1 joined their private room
+2026-03-29 09:29:14 [[32minfo[39m]: Initializing Socket.IO...
+2026-03-29 09:29:15 [[32minfo[39m]: User hQMbnEo7RbeDK9vBRwVKFQTUYfIWs9j1 joined their private room
+2026-03-29 09:29:15 [[32minfo[39m]: User 86d0eCBkerwMbSVzysuePDLQ1LVmyR28 joined their private room
+2026-03-29 09:29:22 [[32minfo[39m]: Initializing Socket.IO...
+2026-03-29 09:29:22 [[32minfo[39m]: User 86d0eCBkerwMbSVzysuePDLQ1LVmyR28 joined their private room
+2026-03-29 09:34:47 [[32minfo[39m]: Initializing Socket.IO...
+2026-03-29 09:34:52 [[32minfo[39m]: User 86d0eCBkerwMbSVzysuePDLQ1LVmyR28 joined their private room
+2026-03-29 09:35:19 [[32minfo[39m]: Socket disconnected: ttK4slkFTvfsEPBrAAAB
+2026-03-29 09:35:26 [[32minfo[39m]: User 86d0eCBkerwMbSVzysuePDLQ1LVmyR28 joined their private room
+2026-03-29 09:35:26 [[32minfo[39m]: Socket disconnected: -xf8PDK-R8RzVCnVAAAD
+2026-03-29 09:35:28 [[32minfo[39m]: User 86d0eCBkerwMbSVzysuePDLQ1LVmyR28 joined their private room
+2026-03-29 09:35:33 [[32minfo[39m]: User hQMbnEo7RbeDK9vBRwVKFQTUYfIWs9j1 joined their private room
+2026-03-29 09:37:09 [[32minfo[39m]: Socket disconnected: Ncvqo0r6Z_qFR-B8AAAH
+2026-03-29 09:37:09 [[32minfo[39m]: User hQMbnEo7RbeDK9vBRwVKFQTUYfIWs9j1 joined their private room
+2026-03-29 09:39:20 [[32minfo[39m]: Socket disconnected: jy9ZqSG1r1bz78ECAAAF
+2026-03-29 09:39:20 [[32minfo[39m]: User 86d0eCBkerwMbSVzysuePDLQ1LVmyR28 joined their private room
+2026-03-29 09:40:00 [[32minfo[39m]: Socket disconnected: 9UYdNyGmf2YYRZYYAAAJ
+2026-03-29 09:40:01 [[32minfo[39m]: User hQMbnEo7RbeDK9vBRwVKFQTUYfIWs9j1 joined their private room
+2026-03-29 09:42:46 [[32minfo[39m]: Initializing Socket.IO...
+2026-03-29 09:42:48 [[32minfo[39m]: User 86d0eCBkerwMbSVzysuePDLQ1LVmyR28 joined their private room
+2026-03-29 09:42:48 [[32minfo[39m]: User hQMbnEo7RbeDK9vBRwVKFQTUYfIWs9j1 joined their private room
+2026-03-29 09:42:57 [[32minfo[39m]: Initializing Socket.IO...
+2026-03-29 09:42:59 [[32minfo[39m]: User hQMbnEo7RbeDK9vBRwVKFQTUYfIWs9j1 joined their private room
+2026-03-29 09:42:59 [[32minfo[39m]: User 86d0eCBkerwMbSVzysuePDLQ1LVmyR28 joined their private room
+2026-03-29 09:43:05 [[32minfo[39m]: Initializing Socket.IO...
+2026-03-29 09:43:05 [[32minfo[39m]: User hQMbnEo7RbeDK9vBRwVKFQTUYfIWs9j1 joined their private room
+2026-03-29 09:43:05 [[32minfo[39m]: User 86d0eCBkerwMbSVzysuePDLQ1LVmyR28 joined their private room
+2026-03-29 09:43:50 [[32minfo[39m]: Socket disconnected: TYjla3FTVd3Mj80FAAAC
+2026-03-29 09:46:56 [[32minfo[39m]: Socket disconnected: u-mlXTZ98u1vWnOXAAAD
+2026-03-29 09:47:01 [[32minfo[39m]: User 86d0eCBkerwMbSVzysuePDLQ1LVmyR28 joined their private room
+2026-03-29 09:47:01 [[32minfo[39m]: User hQMbnEo7RbeDK9vBRwVKFQTUYfIWs9j1 joined their private room
+2026-03-29 09:51:20 [[32minfo[39m]: Socket disconnected: A1l_yuyhDjTFGr8KAAAH
+2026-03-29 09:51:21 [[32minfo[39m]: Socket disconnected: nwx1dH5qrVyVZ0gAAAAF
+2026-03-29 09:51:29 [[32minfo[39m]: User 86d0eCBkerwMbSVzysuePDLQ1LVmyR28 joined their private room
+2026-03-29 09:51:31 [[32minfo[39m]: User hQMbnEo7RbeDK9vBRwVKFQTUYfIWs9j1 joined their private room
+2026-03-29 09:54:05 [[32minfo[39m]: Socket disconnected: 17n6mIlmxJ-nLo1KAAAJ
+2026-03-29 09:54:06 [[32minfo[39m]: User 86d0eCBkerwMbSVzysuePDLQ1LVmyR28 joined their private room
+2026-03-29 09:57:04 [[32minfo[39m]: Socket disconnected: _em0tPiD152XY_gYAAAL
+2026-03-29 09:57:04 [[32minfo[39m]: User hQMbnEo7RbeDK9vBRwVKFQTUYfIWs9j1 joined their private room
+2026-03-29 09:57:46 [[32minfo[39m]: Initializing Socket.IO...
+2026-03-29 09:57:46 [[32minfo[39m]: User hQMbnEo7RbeDK9vBRwVKFQTUYfIWs9j1 joined their private room
+2026-03-29 09:57:48 [[32minfo[39m]: User 86d0eCBkerwMbSVzysuePDLQ1LVmyR28 joined their private room
+2026-03-29 09:57:56 [[32minfo[39m]: Socket disconnected: MTRj9kAJKun726h8AAAB
+2026-03-29 09:57:59 [[32minfo[39m]: Initializing Socket.IO...
+2026-03-29 09:57:59 [[32minfo[39m]: User hQMbnEo7RbeDK9vBRwVKFQTUYfIWs9j1 joined their private room
+2026-03-29 09:58:01 [[32minfo[39m]: User 86d0eCBkerwMbSVzysuePDLQ1LVmyR28 joined their private room
+2026-03-29 09:58:07 [[32minfo[39m]: Socket disconnected: IJMDLW5tBDAltTuKAAAB
+2026-03-29 09:58:08 [[32minfo[39m]: Initializing Socket.IO...
+2026-03-29 09:58:08 [[32minfo[39m]: User 86d0eCBkerwMbSVzysuePDLQ1LVmyR28 joined their private room
+2026-03-29 09:58:18 [[32minfo[39m]: User hQMbnEo7RbeDK9vBRwVKFQTUYfIWs9j1 joined their private room
+2026-03-29 09:58:20 [[32minfo[39m]: Initializing Socket.IO...
+2026-03-29 09:58:21 [[32minfo[39m]: User hQMbnEo7RbeDK9vBRwVKFQTUYfIWs9j1 joined their private room
+2026-03-29 09:58:22 [[32minfo[39m]: User 86d0eCBkerwMbSVzysuePDLQ1LVmyR28 joined their private room
+2026-03-29 09:58:49 [[32minfo[39m]: Initializing Socket.IO...
+2026-03-29 09:58:49 [[32minfo[39m]: User 86d0eCBkerwMbSVzysuePDLQ1LVmyR28 joined their private room
+2026-03-29 09:58:50 [[32minfo[39m]: User hQMbnEo7RbeDK9vBRwVKFQTUYfIWs9j1 joined their private room
+2026-03-29 09:58:58 [[32minfo[39m]: Socket disconnected: CmArEScq-iQtR6ELAAAB
+2026-03-29 09:58:58 [[32minfo[39m]: User 86d0eCBkerwMbSVzysuePDLQ1LVmyR28 joined their private room
+2026-03-29 10:00:49 [[32minfo[39m]: Socket disconnected: _je_I1ulv4IouAIzAAAF
+2026-03-29 10:00:49 [[32minfo[39m]: User 86d0eCBkerwMbSVzysuePDLQ1LVmyR28 joined their private room
+2026-03-29 10:00:53 [[32minfo[39m]: Socket disconnected: uNA8maKOGbZYB_3sAAAD
+2026-03-29 10:00:53 [[32minfo[39m]: User hQMbnEo7RbeDK9vBRwVKFQTUYfIWs9j1 joined their private room
+2026-03-29 10:01:45 [[32minfo[39m]: Initializing Socket.IO...
+2026-03-29 10:01:47 [[32minfo[39m]: User 86d0eCBkerwMbSVzysuePDLQ1LVmyR28 joined their private room
+2026-03-29 10:01:47 [[32minfo[39m]: User hQMbnEo7RbeDK9vBRwVKFQTUYfIWs9j1 joined their private room
+2026-03-29 10:02:32 [[32minfo[39m]: Socket disconnected: Sntq3ff0pPJIkZisAAAD
+2026-03-29 10:02:54 [[32minfo[39m]: Socket disconnected: P79kHEVOSlgdgVcYAAAB
+2026-03-29 10:02:58 [[32minfo[39m]: User 86d0eCBkerwMbSVzysuePDLQ1LVmyR28 joined their private room
+2026-03-29 10:03:00 [[32minfo[39m]: User hQMbnEo7RbeDK9vBRwVKFQTUYfIWs9j1 joined their private room
+2026-03-29 10:04:52 [[32minfo[39m]: Socket disconnected: 2YuaDbZaKukM1YO6AAAF
+2026-03-29 10:04:52 [[32minfo[39m]: User 86d0eCBkerwMbSVzysuePDLQ1LVmyR28 joined their private room
+2026-03-29 10:04:53 [[32minfo[39m]: Socket disconnected: CrJNCqc-uVaid57CAAAJ
+2026-03-29 10:04:53 [[32minfo[39m]: User 86d0eCBkerwMbSVzysuePDLQ1LVmyR28 joined their private room
+2026-03-29 10:05:03 [[32minfo[39m]: Initializing Socket.IO...
+2026-03-29 10:05:03 [[32minfo[39m]: User hQMbnEo7RbeDK9vBRwVKFQTUYfIWs9j1 joined their private room
+2026-03-29 10:05:05 [[32minfo[39m]: User 86d0eCBkerwMbSVzysuePDLQ1LVmyR28 joined their private room
+2026-03-29 10:06:36 [[32minfo[39m]: Socket disconnected: VLP0TZrH5wDMYjXQAAAB
+2026-03-29 10:06:39 [[32minfo[39m]: User 86d0eCBkerwMbSVzysuePDLQ1LVmyR28 joined their private room
+2026-03-29 10:06:39 [[32minfo[39m]: Socket disconnected: lROAbhlvEq-7rELAAAAF
+2026-03-29 10:06:40 [[32minfo[39m]: User hQMbnEo7RbeDK9vBRwVKFQTUYfIWs9j1 joined their private room
+2026-03-29 10:06:41 [[32minfo[39m]: User 86d0eCBkerwMbSVzysuePDLQ1LVmyR28 joined their private room
+2026-03-29 10:06:41 [[32minfo[39m]: Socket disconnected: FmvSUvdqWFYIwj05AAAH
+2026-03-29 10:06:42 [[32minfo[39m]: User hQMbnEo7RbeDK9vBRwVKFQTUYfIWs9j1 joined their private room
+2026-03-29 10:07:05 [[32minfo[39m]: Socket disconnected: IyRXomaE7LX2shTWAAAD
+2026-03-29 10:07:35 [[32minfo[39m]: Socket disconnected: VhcODimkzNXVl1MdAAAJ
+2026-03-29 10:07:36 [[32minfo[39m]: User 86d0eCBkerwMbSVzysuePDLQ1LVmyR28 joined their private room
+2026-03-29 10:07:46 [[32minfo[39m]: Socket disconnected: UYNXtdZCxC91TaM7AAAL
+2026-03-29 10:07:47 [[32minfo[39m]: User hQMbnEo7RbeDK9vBRwVKFQTUYfIWs9j1 joined their private room
+2026-03-29 10:11:28 [[32minfo[39m]: Socket disconnected: dxzjRADasRTaS8elAAAP
+2026-03-29 10:11:28 [[32minfo[39m]: Socket disconnected: b5mSy0a2DyGW6Z8eAAAN
+2026-03-29 10:11:35 [[32minfo[39m]: User 86d0eCBkerwMbSVzysuePDLQ1LVmyR28 joined their private room
+2026-03-29 10:11:36 [[32minfo[39m]: User hQMbnEo7RbeDK9vBRwVKFQTUYfIWs9j1 joined their private room
+2026-03-29 10:12:01 [[31merror[39m]: Error: You are not authorized
+    at <anonymous> (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/middleware/auth.ts:38:15)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+2026-03-29 10:12:01 [[31merror[39m]: Error: You are not authorized
+    at <anonymous> (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/middleware/auth.ts:38:15)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+2026-03-29 10:12:01 [[31merror[39m]: Error: Invalid session token
+    at Object.getNewToken (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/module/auth/auth.service.ts:194:15)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async <anonymous> (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/module/auth/auth.controller.ts:214:18)
+    at async <anonymous> (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/utils/catchAsync.ts:6:7)
+2026-03-29 10:12:01 [[31merror[39m]: Error: Invalid session token
+    at Object.getNewToken (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/module/auth/auth.service.ts:194:15)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async <anonymous> (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/module/auth/auth.controller.ts:214:18)
+    at async <anonymous> (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/utils/catchAsync.ts:6:7)
+2026-03-29 10:13:35 [[32minfo[39m]: Socket disconnected: aBJNnHBsQz0ZxoRWAAAT
+2026-03-29 10:13:36 [[32minfo[39m]: User hQMbnEo7RbeDK9vBRwVKFQTUYfIWs9j1 joined their private room
+2026-03-29 10:23:13 [[32minfo[39m]: Socket disconnected: b2Wn1iv78beRqc4bAAAR
+2026-03-29 10:23:13 [[32minfo[39m]: User 86d0eCBkerwMbSVzysuePDLQ1LVmyR28 joined their private room
+2026-03-29 10:23:44 [[32minfo[39m]: Socket disconnected: iqfORTwN0jXKOl2eAAAV
+2026-03-29 10:23:46 [[32minfo[39m]: User hQMbnEo7RbeDK9vBRwVKFQTUYfIWs9j1 joined their private room
+2026-03-29 10:23:54 [[32minfo[39m]: Socket disconnected: DdvH9j6HL4OmOrXQAAAX
+2026-03-29 10:23:59 [[32minfo[39m]: User 86d0eCBkerwMbSVzysuePDLQ1LVmyR28 joined their private room
+2026-03-29 10:23:59 [[32minfo[39m]: User hQMbnEo7RbeDK9vBRwVKFQTUYfIWs9j1 joined their private room
+2026-03-29 10:24:30 [[32minfo[39m]: Socket disconnected: GZ5ldbrbWrXMIkv_AAAZ
+2026-03-29 10:26:44 [[32minfo[39m]: Socket disconnected: V7ycYks-2_VxuA0DAAAd
+2026-03-29 10:27:02 [[32minfo[39m]: User 86d0eCBkerwMbSVzysuePDLQ1LVmyR28 joined their private room
+2026-03-29 10:27:06 [[32minfo[39m]: User hQMbnEo7RbeDK9vBRwVKFQTUYfIWs9j1 joined their private room
+2026-03-29 10:27:14 [[32minfo[39m]: Socket disconnected: KgrGgVk2dAccNkBGAAAb
+2026-03-29 10:28:02 [[32minfo[39m]: Socket disconnected: YZvrsMNmEOR8KObJAAAf
+2026-03-29 10:28:02 [[32minfo[39m]: User 86d0eCBkerwMbSVzysuePDLQ1LVmyR28 joined their private room
+2026-03-29 10:38:47 [[32minfo[39m]: Socket disconnected: _snmBEGVQlFw55d6AAAh
+2026-03-29 10:38:48 [[32minfo[39m]: User hQMbnEo7RbeDK9vBRwVKFQTUYfIWs9j1 joined their private room
+2026-03-29 10:42:08 [[32minfo[39m]: Socket disconnected: 31XrN8Zt29KRuw6gAAAl
+2026-03-29 10:42:08 [[32minfo[39m]: User hQMbnEo7RbeDK9vBRwVKFQTUYfIWs9j1 joined their private room
+2026-03-29 10:42:59 [[32minfo[39m]: Socket disconnected: yot8xIsRGQkDgwysAAAn
+2026-03-29 10:42:59 [[32minfo[39m]: User hQMbnEo7RbeDK9vBRwVKFQTUYfIWs9j1 joined their private room
+2026-03-29 10:44:54 [[32minfo[39m]: Socket disconnected: Mrvboh6aoqMIIQ0-AAAp
+2026-03-29 10:44:55 [[32minfo[39m]: User hQMbnEo7RbeDK9vBRwVKFQTUYfIWs9j1 joined their private room
+2026-03-29 10:45:39 [[32minfo[39m]: Socket disconnected: 4EN-0haVtaIrA9fHAAAr
+2026-03-29 10:46:38 [[32minfo[39m]: Socket disconnected: YBFiFLUEi4DqlP6uAAAj
+2026-03-29 10:46:44 [[32minfo[39m]: User 86d0eCBkerwMbSVzysuePDLQ1LVmyR28 joined their private room
+2026-03-29 10:46:45 [[32minfo[39m]: User hQMbnEo7RbeDK9vBRwVKFQTUYfIWs9j1 joined their private room
+2026-03-29 10:47:00 [[32minfo[39m]: Socket disconnected: tUnshAHUedV0W2zLAAAv
+2026-03-29 10:47:00 [[32minfo[39m]: User hQMbnEo7RbeDK9vBRwVKFQTUYfIWs9j1 joined their private room
+2026-03-29 10:47:13 [[32minfo[39m]: Socket disconnected: BN3deMQDLheJ3gTEAAAx
+2026-03-29 10:47:13 [[32minfo[39m]: User hQMbnEo7RbeDK9vBRwVKFQTUYfIWs9j1 joined their private room
+2026-03-29 10:47:30 [[32minfo[39m]: Socket disconnected: hE1u9ybHyOBZmQ4PAAAz
+2026-03-29 10:47:31 [[32minfo[39m]: User hQMbnEo7RbeDK9vBRwVKFQTUYfIWs9j1 joined their private room
+2026-03-29 10:47:32 [[32minfo[39m]: Socket disconnected: 7HiXFhY-L9BiCQyQAAA1
+2026-03-29 10:47:32 [[32minfo[39m]: User hQMbnEo7RbeDK9vBRwVKFQTUYfIWs9j1 joined their private room
+2026-03-29 10:47:57 [[32minfo[39m]: Socket disconnected: XdRZ60hCaYvi-4uNAAA3
+2026-03-29 10:48:02 [[32minfo[39m]: User 86d0eCBkerwMbSVzysuePDLQ1LVmyR28 joined their private room
+2026-03-29 10:48:02 [[32minfo[39m]: User hQMbnEo7RbeDK9vBRwVKFQTUYfIWs9j1 joined their private room
+2026-03-29 10:48:19 [[32minfo[39m]: Socket disconnected: jqVCHZ5j7XAIWszjAAAt
+2026-03-29 10:48:23 [[32minfo[39m]: Initializing Socket.IO...
+2026-03-29 10:48:24 [[32minfo[39m]: User 86d0eCBkerwMbSVzysuePDLQ1LVmyR28 joined their private room
+2026-03-29 10:48:25 [[32minfo[39m]: User hQMbnEo7RbeDK9vBRwVKFQTUYfIWs9j1 joined their private room
+2026-03-29 10:48:35 [[32minfo[39m]: Initializing Socket.IO...
+2026-03-29 10:48:36 [[32minfo[39m]: User hQMbnEo7RbeDK9vBRwVKFQTUYfIWs9j1 joined their private room
+2026-03-29 10:48:36 [[32minfo[39m]: User 86d0eCBkerwMbSVzysuePDLQ1LVmyR28 joined their private room
+2026-03-29 10:48:45 [[32minfo[39m]: Initializing Socket.IO...
+2026-03-29 10:48:46 [[32minfo[39m]: User hQMbnEo7RbeDK9vBRwVKFQTUYfIWs9j1 joined their private room
+2026-03-29 10:48:46 [[32minfo[39m]: User 86d0eCBkerwMbSVzysuePDLQ1LVmyR28 joined their private room
+2026-03-29 10:48:53 [[32minfo[39m]: Initializing Socket.IO...
+2026-03-29 10:48:55 [[32minfo[39m]: User hQMbnEo7RbeDK9vBRwVKFQTUYfIWs9j1 joined their private room
+2026-03-29 10:48:55 [[32minfo[39m]: User 86d0eCBkerwMbSVzysuePDLQ1LVmyR28 joined their private room
+2026-03-29 10:49:07 [[32minfo[39m]: Initializing Socket.IO...
+2026-03-29 10:49:09 [[32minfo[39m]: User 86d0eCBkerwMbSVzysuePDLQ1LVmyR28 joined their private room
+2026-03-29 10:49:09 [[32minfo[39m]: User hQMbnEo7RbeDK9vBRwVKFQTUYfIWs9j1 joined their private room
+2026-03-29 10:49:12 [[32minfo[39m]: Socket disconnected: agKVMvovv64dvXF4AAAB
+2026-03-29 10:49:17 [[32minfo[39m]: Initializing Socket.IO...
+2026-03-29 10:49:54 [[32minfo[39m]: User 86d0eCBkerwMbSVzysuePDLQ1LVmyR28 joined their private room
+2026-03-29 10:49:55 [[32minfo[39m]: User hQMbnEo7RbeDK9vBRwVKFQTUYfIWs9j1 joined their private room
+2026-03-29 10:49:57 [[32minfo[39m]: User 86d0eCBkerwMbSVzysuePDLQ1LVmyR28 joined their private room
+2026-03-29 10:49:59 [[32minfo[39m]: Socket disconnected: YgbCKt4e4AMEPo0ZAAAD
+2026-03-29 10:50:00 [[32minfo[39m]: User hQMbnEo7RbeDK9vBRwVKFQTUYfIWs9j1 joined their private room
+2026-03-29 10:50:01 [[32minfo[39m]: Socket disconnected: VZUP7S_-I2ggcIJ3AAAH
+2026-03-29 10:50:02 [[32minfo[39m]: User hQMbnEo7RbeDK9vBRwVKFQTUYfIWs9j1 joined their private room
+2026-03-29 10:50:02 [[32minfo[39m]: Socket disconnected: K3dcLWr1lX9pc7JYAAAJ
+2026-03-29 10:50:03 [[32minfo[39m]: User hQMbnEo7RbeDK9vBRwVKFQTUYfIWs9j1 joined their private room
+2026-03-29 10:50:39 [[32minfo[39m]: Socket disconnected: lcuKgV241DKvP9OIAAAB
+2026-03-29 10:54:32 [[32minfo[39m]: Socket disconnected: jbHgkgVA0DUFast1AAAL
+2026-03-29 10:54:32 [[32minfo[39m]: Socket disconnected: NGZE_ZLXwD9K8kdQAAAF
+2026-03-29 10:54:40 [[32minfo[39m]: User 86d0eCBkerwMbSVzysuePDLQ1LVmyR28 joined their private room
+2026-03-29 10:54:41 [[32minfo[39m]: User 86d0eCBkerwMbSVzysuePDLQ1LVmyR28 joined their private room
+2026-03-29 10:54:42 [[32minfo[39m]: User hQMbnEo7RbeDK9vBRwVKFQTUYfIWs9j1 joined their private room
+2026-03-29 10:54:45 [[32minfo[39m]: Socket disconnected: DdYeg-6iYBnUesxnAAAP
+2026-03-29 10:54:45 [[32minfo[39m]: Socket disconnected: msRhuZ8iNPSmNPFUAAAR
+2026-03-29 10:54:56 [[32minfo[39m]: Initializing Socket.IO...
+2026-03-29 10:55:40 [[32minfo[39m]: User hQMbnEo7RbeDK9vBRwVKFQTUYfIWs9j1 joined their private room
+2026-03-29 10:55:57 [[32minfo[39m]: Socket disconnected: UZC3rCCLUFNgJQXPAAAB
+2026-03-29 10:56:01 [[32minfo[39m]: User hQMbnEo7RbeDK9vBRwVKFQTUYfIWs9j1 joined their private room
+2026-03-29 10:56:05 [[32minfo[39m]: Socket disconnected: HOQ2Q9rjw-NN3F8jAAAD
+2026-03-29 10:56:08 [[32minfo[39m]: User hQMbnEo7RbeDK9vBRwVKFQTUYfIWs9j1 joined their private room
+2026-03-29 10:57:47 [[32minfo[39m]: Socket disconnected: CH467iJpGB6PwZ6HAAAF
+2026-03-29 10:57:47 [[32minfo[39m]: User hQMbnEo7RbeDK9vBRwVKFQTUYfIWs9j1 joined their private room
+2026-03-29 11:04:16 [[32minfo[39m]: Initializing Socket.IO...
+2026-03-29 11:04:16 [[32minfo[39m]: User hQMbnEo7RbeDK9vBRwVKFQTUYfIWs9j1 joined their private room
+2026-03-29 11:04:32 [[32minfo[39m]: Initializing Socket.IO...
+2026-03-29 11:04:35 [[32minfo[39m]: User hQMbnEo7RbeDK9vBRwVKFQTUYfIWs9j1 joined their private room
+2026-03-29 11:04:46 [[32minfo[39m]: Initializing Socket.IO...
+2026-03-29 11:04:52 [[32minfo[39m]: Initializing Socket.IO...
+2026-03-29 11:11:20 [[32minfo[39m]: User hQMbnEo7RbeDK9vBRwVKFQTUYfIWs9j1 joined their private room
+2026-03-29 11:12:10 [[32minfo[39m]: Socket disconnected: BDlxjwaYx9cw4sQvAAAB
+2026-03-29 11:30:46 [[32minfo[39m]: User hQMbnEo7RbeDK9vBRwVKFQTUYfIWs9j1 joined their private room
+2026-03-29 11:30:48 [[32minfo[39m]: Socket disconnected: bcwoFRGA_ODBgTDGAAAD
+2026-03-29 11:30:49 [[32minfo[39m]: User hQMbnEo7RbeDK9vBRwVKFQTUYfIWs9j1 joined their private room
+2026-03-29 11:34:35 [[32minfo[39m]: Socket disconnected: 812MPxD1Z8yPT5ZWAAAF
+2026-03-29 11:36:14 [[32minfo[39m]: User hQMbnEo7RbeDK9vBRwVKFQTUYfIWs9j1 joined their private room
+2026-03-29 11:36:32 [[32minfo[39m]: Socket disconnected: Pi6tbjWCjatqN2NkAAAH
+2026-03-29 11:36:37 [[32minfo[39m]: User hQMbnEo7RbeDK9vBRwVKFQTUYfIWs9j1 joined their private room
+2026-03-29 11:36:49 [[32minfo[39m]: Socket disconnected: E7thF63PpITlPKulAAAJ
+2026-03-29 11:36:55 [[32minfo[39m]: User hQMbnEo7RbeDK9vBRwVKFQTUYfIWs9j1 joined their private room
+2026-03-29 11:38:10 [[32minfo[39m]: Socket disconnected: G1TmY-a0C5kA34VPAAAL
+2026-03-29 11:39:10 [[32minfo[39m]: User hQMbnEo7RbeDK9vBRwVKFQTUYfIWs9j1 joined their private room
+2026-03-29 11:39:55 [[32minfo[39m]: Socket disconnected: osMsqI51emc5q69EAAAN
+2026-03-29 11:40:09 [[32minfo[39m]: User hQMbnEo7RbeDK9vBRwVKFQTUYfIWs9j1 joined their private room
+2026-03-29 11:40:33 [[31merror[39m]: PrismaClientValidationError: 
+Invalid `this.model.findMany()` invocation in
+/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/utils/QueryBuilder.ts:215:18
+
+  212 async execute(): Promise<IQueryResult<T>> {
+  213   const [total, data] = await Promise.all([
+  214     this.model.count(this.countQuery as Parameters<typeof this.model.count>[0]),
+→ 215     this.model.findMany({
+            where: {
+              status: "FLAGGED"
+            },
+            include: {
+              user: {
+              ~~~~
+                select: {
+                  id: true,
+                  name: true,
+                  avatarUrl: true
+                }
+              },
+          ?   author?: true,
+          ?   comments?: true,
+          ?   likes?: true,
+          ?   reactions?: true,
+          ?   hashtags?: true,
+          ?   savedBy?: true,
+          ?   tags?: true
+            },
+            orderBy: {
+              createdAt: "desc"
+            },
+            skip: 0,
+            take: 10
+          })
+
+Unknown field `user` for include statement on model `Post`. Available options are marked with ?.
+    at ar (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/generated/prisma/client/runtime/client.js:14:1374)
+    at Gr.handleRequestError (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/generated/prisma/client/runtime/client.js:69:7929)
+    at Gr.handleAndLogRequestError (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/generated/prisma/client/runtime/client.js:69:7581)
+    at Gr.request (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/generated/prisma/client/runtime/client.js:69:7288)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async a (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/generated/prisma/client/runtime/client.js:79:6730)
+    at async Promise.all (index 1)
+    at async QueryBuilder.execute (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/utils/QueryBuilder.ts:213:27)
+    at async Object.getAllPosts (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/module/admin/admin.service.ts:54:10)
+    at async <anonymous> (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/module/admin/admin.controller.ts:29:18)
+2026-03-29 11:40:34 [[31merror[39m]: PrismaClientValidationError: 
+Invalid `this.model.findMany()` invocation in
+/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/utils/QueryBuilder.ts:215:18
+
+  212 async execute(): Promise<IQueryResult<T>> {
+  213   const [total, data] = await Promise.all([
+  214     this.model.count(this.countQuery as Parameters<typeof this.model.count>[0]),
+→ 215     this.model.findMany({
+            where: {
+              status: "FLAGGED"
+            },
+            include: {
+              user: {
+              ~~~~
+                select: {
+                  id: true,
+                  name: true,
+                  avatarUrl: true
+                }
+              },
+          ?   author?: true,
+          ?   comments?: true,
+          ?   likes?: true,
+          ?   reactions?: true,
+          ?   hashtags?: true,
+          ?   savedBy?: true,
+          ?   tags?: true
+            },
+            orderBy: {
+              createdAt: "desc"
+            },
+            skip: 0,
+            take: 10
+          })
+
+Unknown field `user` for include statement on model `Post`. Available options are marked with ?.
+    at ar (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/generated/prisma/client/runtime/client.js:14:1374)
+    at Gr.handleRequestError (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/generated/prisma/client/runtime/client.js:69:7929)
+    at Gr.handleAndLogRequestError (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/generated/prisma/client/runtime/client.js:69:7581)
+    at Gr.request (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/generated/prisma/client/runtime/client.js:69:7288)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async a (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/generated/prisma/client/runtime/client.js:79:6730)
+    at async Promise.all (index 1)
+    at async QueryBuilder.execute (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/utils/QueryBuilder.ts:213:27)
+    at async Object.getAllPosts (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/module/admin/admin.service.ts:54:10)
+    at async <anonymous> (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/module/admin/admin.controller.ts:29:18)
+2026-03-29 11:40:37 [[32minfo[39m]: Socket disconnected: TtOhVg5kN2JKLm3tAAAP
+2026-03-29 11:40:37 [[32minfo[39m]: User hQMbnEo7RbeDK9vBRwVKFQTUYfIWs9j1 joined their private room
+2026-03-29 11:40:38 [[32minfo[39m]: Socket disconnected: Ly5UgyNdAsz4X_ziAAAR
+2026-03-29 11:40:39 [[32minfo[39m]: User hQMbnEo7RbeDK9vBRwVKFQTUYfIWs9j1 joined their private room
+2026-03-29 11:40:41 [[32minfo[39m]: Socket disconnected: VQ5Hs3QyeOLcRThCAAAT
+2026-03-29 11:40:41 [[32minfo[39m]: User hQMbnEo7RbeDK9vBRwVKFQTUYfIWs9j1 joined their private room
+2026-03-29 11:40:42 [[32minfo[39m]: Socket disconnected: GQFsHd45KOCgAgltAAAV
+2026-03-29 11:40:43 [[32minfo[39m]: User hQMbnEo7RbeDK9vBRwVKFQTUYfIWs9j1 joined their private room
+2026-03-29 11:40:55 [[32minfo[39m]: Socket disconnected: 7Bt4Fl6psSM3dyRAAAAX
+2026-03-29 11:40:59 [[32minfo[39m]: User hQMbnEo7RbeDK9vBRwVKFQTUYfIWs9j1 joined their private room
+2026-03-29 11:41:12 [[32minfo[39m]: Socket disconnected: 6lQcvNxQi-iETaieAAAZ
+2026-03-29 11:41:12 [[32minfo[39m]: User hQMbnEo7RbeDK9vBRwVKFQTUYfIWs9j1 joined their private room
+2026-03-29 11:41:13 [[32minfo[39m]: Socket disconnected: mMreZTroSBZCv_l2AAAb
+2026-03-29 11:41:13 [[32minfo[39m]: User hQMbnEo7RbeDK9vBRwVKFQTUYfIWs9j1 joined their private room
+2026-03-29 11:41:15 [[31merror[39m]: PrismaClientValidationError: 
+Invalid `this.model.findMany()` invocation in
+/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/utils/QueryBuilder.ts:215:18
+
+  212 async execute(): Promise<IQueryResult<T>> {
+  213   const [total, data] = await Promise.all([
+  214     this.model.count(this.countQuery as Parameters<typeof this.model.count>[0]),
+→ 215     this.model.findMany({
+            where: {
+              status: "FLAGGED"
+            },
+            include: {
+              user: {
+              ~~~~
+                select: {
+                  id: true,
+                  name: true,
+                  avatarUrl: true
+                }
+              },
+          ?   author?: true,
+          ?   comments?: true,
+          ?   likes?: true,
+          ?   reactions?: true,
+          ?   hashtags?: true,
+          ?   savedBy?: true,
+          ?   tags?: true
+            },
+            orderBy: {
+              createdAt: "desc"
+            },
+            skip: 0,
+            take: 10
+          })
+
+Unknown field `user` for include statement on model `Post`. Available options are marked with ?.
+    at ar (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/generated/prisma/client/runtime/client.js:14:1374)
+    at Gr.handleRequestError (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/generated/prisma/client/runtime/client.js:69:7929)
+    at Gr.handleAndLogRequestError (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/generated/prisma/client/runtime/client.js:69:7581)
+    at Gr.request (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/generated/prisma/client/runtime/client.js:69:7288)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async a (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/generated/prisma/client/runtime/client.js:79:6730)
+    at async Promise.all (index 1)
+    at async QueryBuilder.execute (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/utils/QueryBuilder.ts:213:27)
+    at async Object.getAllPosts (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/module/admin/admin.service.ts:54:10)
+    at async <anonymous> (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/module/admin/admin.controller.ts:29:18)
+2026-03-29 11:41:16 [[31merror[39m]: PrismaClientValidationError: 
+Invalid `this.model.findMany()` invocation in
+/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/utils/QueryBuilder.ts:215:18
+
+  212 async execute(): Promise<IQueryResult<T>> {
+  213   const [total, data] = await Promise.all([
+  214     this.model.count(this.countQuery as Parameters<typeof this.model.count>[0]),
+→ 215     this.model.findMany({
+            where: {
+              status: "FLAGGED"
+            },
+            include: {
+              user: {
+              ~~~~
+                select: {
+                  id: true,
+                  name: true,
+                  avatarUrl: true
+                }
+              },
+          ?   author?: true,
+          ?   comments?: true,
+          ?   likes?: true,
+          ?   reactions?: true,
+          ?   hashtags?: true,
+          ?   savedBy?: true,
+          ?   tags?: true
+            },
+            orderBy: {
+              createdAt: "desc"
+            },
+            skip: 0,
+            take: 10
+          })
+
+Unknown field `user` for include statement on model `Post`. Available options are marked with ?.
+    at ar (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/generated/prisma/client/runtime/client.js:14:1374)
+    at Gr.handleRequestError (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/generated/prisma/client/runtime/client.js:69:7929)
+    at Gr.handleAndLogRequestError (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/generated/prisma/client/runtime/client.js:69:7581)
+    at Gr.request (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/generated/prisma/client/runtime/client.js:69:7288)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async a (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/generated/prisma/client/runtime/client.js:79:6730)
+    at async Promise.all (index 1)
+    at async QueryBuilder.execute (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/utils/QueryBuilder.ts:213:27)
+    at async Object.getAllPosts (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/module/admin/admin.service.ts:54:10)
+    at async <anonymous> (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/module/admin/admin.controller.ts:29:18)
+2026-03-29 11:41:18 [[31merror[39m]: PrismaClientValidationError: 
+Invalid `this.model.findMany()` invocation in
+/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/utils/QueryBuilder.ts:215:18
+
+  212 async execute(): Promise<IQueryResult<T>> {
+  213   const [total, data] = await Promise.all([
+  214     this.model.count(this.countQuery as Parameters<typeof this.model.count>[0]),
+→ 215     this.model.findMany({
+            where: {
+              status: "FLAGGED"
+            },
+            include: {
+              user: {
+              ~~~~
+                select: {
+                  id: true,
+                  name: true,
+                  avatarUrl: true
+                }
+              },
+          ?   author?: true,
+          ?   comments?: true,
+          ?   likes?: true,
+          ?   reactions?: true,
+          ?   hashtags?: true,
+          ?   savedBy?: true,
+          ?   tags?: true
+            },
+            orderBy: {
+              createdAt: "desc"
+            },
+            skip: 0,
+            take: 10
+          })
+
+Unknown field `user` for include statement on model `Post`. Available options are marked with ?.
+    at ar (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/generated/prisma/client/runtime/client.js:14:1374)
+    at Gr.handleRequestError (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/generated/prisma/client/runtime/client.js:69:7929)
+    at Gr.handleAndLogRequestError (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/generated/prisma/client/runtime/client.js:69:7581)
+    at Gr.request (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/generated/prisma/client/runtime/client.js:69:7288)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async a (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/generated/prisma/client/runtime/client.js:79:6730)
+    at async Promise.all (index 1)
+    at async QueryBuilder.execute (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/utils/QueryBuilder.ts:213:27)
+    at async Object.getAllPosts (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/module/admin/admin.service.ts:54:10)
+    at async <anonymous> (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/module/admin/admin.controller.ts:29:18)
+2026-03-29 11:41:23 [[31merror[39m]: PrismaClientValidationError: 
+Invalid `this.model.findMany()` invocation in
+/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/utils/QueryBuilder.ts:215:18
+
+  212 async execute(): Promise<IQueryResult<T>> {
+  213   const [total, data] = await Promise.all([
+  214     this.model.count(this.countQuery as Parameters<typeof this.model.count>[0]),
+→ 215     this.model.findMany({
+            where: {
+              status: "FLAGGED"
+            },
+            include: {
+              user: {
+              ~~~~
+                select: {
+                  id: true,
+                  name: true,
+                  avatarUrl: true
+                }
+              },
+          ?   author?: true,
+          ?   comments?: true,
+          ?   likes?: true,
+          ?   reactions?: true,
+          ?   hashtags?: true,
+          ?   savedBy?: true,
+          ?   tags?: true
+            },
+            orderBy: {
+              createdAt: "desc"
+            },
+            skip: 0,
+            take: 10
+          })
+
+Unknown field `user` for include statement on model `Post`. Available options are marked with ?.
+    at ar (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/generated/prisma/client/runtime/client.js:14:1374)
+    at Gr.handleRequestError (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/generated/prisma/client/runtime/client.js:69:7929)
+    at Gr.handleAndLogRequestError (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/generated/prisma/client/runtime/client.js:69:7581)
+    at Gr.request (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/generated/prisma/client/runtime/client.js:69:7288)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async a (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/generated/prisma/client/runtime/client.js:79:6730)
+    at async Promise.all (index 1)
+    at async QueryBuilder.execute (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/utils/QueryBuilder.ts:213:27)
+    at async Object.getAllPosts (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/module/admin/admin.service.ts:54:10)
+    at async <anonymous> (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/module/admin/admin.controller.ts:29:18)
+2026-03-29 11:41:34 [[31merror[39m]: PrismaClientValidationError: 
+Invalid `this.model.findMany()` invocation in
+/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/utils/QueryBuilder.ts:215:18
+
+  212 async execute(): Promise<IQueryResult<T>> {
+  213   const [total, data] = await Promise.all([
+  214     this.model.count(this.countQuery as Parameters<typeof this.model.count>[0]),
+→ 215     this.model.findMany({
+            where: {
+              status: "FLAGGED"
+            },
+            include: {
+              user: {
+              ~~~~
+                select: {
+                  id: true,
+                  name: true,
+                  avatarUrl: true
+                }
+              },
+          ?   author?: true,
+          ?   comments?: true,
+          ?   likes?: true,
+          ?   reactions?: true,
+          ?   hashtags?: true,
+          ?   savedBy?: true,
+          ?   tags?: true
+            },
+            orderBy: {
+              createdAt: "desc"
+            },
+            skip: 0,
+            take: 10
+          })
+
+Unknown field `user` for include statement on model `Post`. Available options are marked with ?.
+    at ar (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/generated/prisma/client/runtime/client.js:14:1374)
+    at Gr.handleRequestError (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/generated/prisma/client/runtime/client.js:69:7929)
+    at Gr.handleAndLogRequestError (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/generated/prisma/client/runtime/client.js:69:7581)
+    at Gr.request (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/generated/prisma/client/runtime/client.js:69:7288)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async a (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/generated/prisma/client/runtime/client.js:79:6730)
+    at async Promise.all (index 1)
+    at async QueryBuilder.execute (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/utils/QueryBuilder.ts:213:27)
+    at async Object.getAllPosts (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/module/admin/admin.service.ts:54:10)
+    at async <anonymous> (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/module/admin/admin.controller.ts:29:18)
+2026-03-29 11:41:35 [[31merror[39m]: PrismaClientValidationError: 
+Invalid `this.model.findMany()` invocation in
+/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/utils/QueryBuilder.ts:215:18
+
+  212 async execute(): Promise<IQueryResult<T>> {
+  213   const [total, data] = await Promise.all([
+  214     this.model.count(this.countQuery as Parameters<typeof this.model.count>[0]),
+→ 215     this.model.findMany({
+            where: {
+              status: "FLAGGED"
+            },
+            include: {
+              user: {
+              ~~~~
+                select: {
+                  id: true,
+                  name: true,
+                  avatarUrl: true
+                }
+              },
+          ?   author?: true,
+          ?   comments?: true,
+          ?   likes?: true,
+          ?   reactions?: true,
+          ?   hashtags?: true,
+          ?   savedBy?: true,
+          ?   tags?: true
+            },
+            orderBy: {
+              createdAt: "desc"
+            },
+            skip: 0,
+            take: 10
+          })
+
+Unknown field `user` for include statement on model `Post`. Available options are marked with ?.
+    at ar (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/generated/prisma/client/runtime/client.js:14:1374)
+    at Gr.handleRequestError (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/generated/prisma/client/runtime/client.js:69:7929)
+    at Gr.handleAndLogRequestError (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/generated/prisma/client/runtime/client.js:69:7581)
+    at Gr.request (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/generated/prisma/client/runtime/client.js:69:7288)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async a (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/generated/prisma/client/runtime/client.js:79:6730)
+    at async Promise.all (index 1)
+    at async QueryBuilder.execute (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/utils/QueryBuilder.ts:213:27)
+    at async Object.getAllPosts (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/module/admin/admin.service.ts:54:10)
+    at async <anonymous> (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/module/admin/admin.controller.ts:29:18)
+2026-03-29 11:41:40 [[31merror[39m]: PrismaClientValidationError: 
+Invalid `this.model.findMany()` invocation in
+/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/utils/QueryBuilder.ts:215:18
+
+  212 async execute(): Promise<IQueryResult<T>> {
+  213   const [total, data] = await Promise.all([
+  214     this.model.count(this.countQuery as Parameters<typeof this.model.count>[0]),
+→ 215     this.model.findMany({
+            where: {
+              status: "FLAGGED"
+            },
+            include: {
+              user: {
+              ~~~~
+                select: {
+                  id: true,
+                  name: true,
+                  avatarUrl: true
+                }
+              },
+          ?   author?: true,
+          ?   comments?: true,
+          ?   likes?: true,
+          ?   reactions?: true,
+          ?   hashtags?: true,
+          ?   savedBy?: true,
+          ?   tags?: true
+            },
+            orderBy: {
+              createdAt: "desc"
+            },
+            skip: 0,
+            take: 10
+          })
+
+Unknown field `user` for include statement on model `Post`. Available options are marked with ?.
+    at ar (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/generated/prisma/client/runtime/client.js:14:1374)
+    at Gr.handleRequestError (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/generated/prisma/client/runtime/client.js:69:7929)
+    at Gr.handleAndLogRequestError (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/generated/prisma/client/runtime/client.js:69:7581)
+    at Gr.request (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/generated/prisma/client/runtime/client.js:69:7288)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async a (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/generated/prisma/client/runtime/client.js:79:6730)
+    at async Promise.all (index 1)
+    at async QueryBuilder.execute (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/utils/QueryBuilder.ts:213:27)
+    at async Object.getAllPosts (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/module/admin/admin.service.ts:54:10)
+    at async <anonymous> (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/module/admin/admin.controller.ts:29:18)
+2026-03-29 11:41:44 [[31merror[39m]: PrismaClientValidationError: 
+Invalid `this.model.findMany()` invocation in
+/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/utils/QueryBuilder.ts:215:18
+
+  212 async execute(): Promise<IQueryResult<T>> {
+  213   const [total, data] = await Promise.all([
+  214     this.model.count(this.countQuery as Parameters<typeof this.model.count>[0]),
+→ 215     this.model.findMany({
+            where: {
+              status: "FLAGGED"
+            },
+            include: {
+              user: {
+              ~~~~
+                select: {
+                  id: true,
+                  name: true,
+                  avatarUrl: true
+                }
+              },
+          ?   author?: true,
+          ?   comments?: true,
+          ?   likes?: true,
+          ?   reactions?: true,
+          ?   hashtags?: true,
+          ?   savedBy?: true,
+          ?   tags?: true
+            },
+            orderBy: {
+              createdAt: "desc"
+            },
+            skip: 0,
+            take: 10
+          })
+
+Unknown field `user` for include statement on model `Post`. Available options are marked with ?.
+    at ar (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/generated/prisma/client/runtime/client.js:14:1374)
+    at Gr.handleRequestError (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/generated/prisma/client/runtime/client.js:69:7929)
+    at Gr.handleAndLogRequestError (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/generated/prisma/client/runtime/client.js:69:7581)
+    at Gr.request (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/generated/prisma/client/runtime/client.js:69:7288)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async a (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/generated/prisma/client/runtime/client.js:79:6730)
+    at async Promise.all (index 1)
+    at async QueryBuilder.execute (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/utils/QueryBuilder.ts:213:27)
+    at async Object.getAllPosts (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/module/admin/admin.service.ts:54:10)
+    at async <anonymous> (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/module/admin/admin.controller.ts:29:18)
+2026-03-29 11:45:07 [[32minfo[39m]: Socket disconnected: hVtN2f9FEkMfsFO-AAAd
+2026-03-29 11:45:31 [[32minfo[39m]: User hQMbnEo7RbeDK9vBRwVKFQTUYfIWs9j1 joined their private room
+2026-03-29 11:45:50 [[32minfo[39m]: Socket disconnected: JaVPaydQZ2pahAjYAAAf
+2026-03-29 11:45:50 [[32minfo[39m]: User hQMbnEo7RbeDK9vBRwVKFQTUYfIWs9j1 joined their private room
+2026-03-29 11:45:51 [[32minfo[39m]: Socket disconnected: JYjuMjJBW9uryJHrAAAh
+2026-03-29 11:45:52 [[32minfo[39m]: User hQMbnEo7RbeDK9vBRwVKFQTUYfIWs9j1 joined their private room
+2026-03-29 11:46:15 [[31merror[39m]: PrismaClientValidationError: 
+Invalid `this.model.findMany()` invocation in
+/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/utils/QueryBuilder.ts:215:18
+
+  212 async execute(): Promise<IQueryResult<T>> {
+  213   const [total, data] = await Promise.all([
+  214     this.model.count(this.countQuery as Parameters<typeof this.model.count>[0]),
+→ 215     this.model.findMany({
+            where: {},
+            include: {
+              user: {
+              ~~~~
+                select: {
+                  id: true,
+                  name: true,
+                  avatarUrl: true
+                }
+              },
+          ?   author?: true,
+          ?   comments?: true,
+          ?   likes?: true,
+          ?   reactions?: true,
+          ?   hashtags?: true,
+          ?   savedBy?: true,
+          ?   tags?: true
+            },
+            orderBy: {
+              createdAt: "desc"
+            },
+            skip: 0,
+            take: 10
+          })
+
+Unknown field `user` for include statement on model `Post`. Available options are marked with ?.
+    at ar (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/generated/prisma/client/runtime/client.js:14:1374)
+    at Gr.handleRequestError (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/generated/prisma/client/runtime/client.js:69:7929)
+    at Gr.handleAndLogRequestError (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/generated/prisma/client/runtime/client.js:69:7581)
+    at Gr.request (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/generated/prisma/client/runtime/client.js:69:7288)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async a (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/generated/prisma/client/runtime/client.js:79:6730)
+    at async Promise.all (index 1)
+    at async QueryBuilder.execute (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/utils/QueryBuilder.ts:213:27)
+    at async Object.getAllPosts (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/module/admin/admin.service.ts:54:10)
+    at async <anonymous> (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/module/admin/admin.controller.ts:29:18)
+2026-03-29 11:46:15 [[32minfo[39m]: User hQMbnEo7RbeDK9vBRwVKFQTUYfIWs9j1 joined their private room
+2026-03-29 11:46:16 [[31merror[39m]: PrismaClientValidationError: 
+Invalid `this.model.findMany()` invocation in
+/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/utils/QueryBuilder.ts:215:18
+
+  212 async execute(): Promise<IQueryResult<T>> {
+  213   const [total, data] = await Promise.all([
+  214     this.model.count(this.countQuery as Parameters<typeof this.model.count>[0]),
+→ 215     this.model.findMany({
+            where: {},
+            include: {
+              user: {
+              ~~~~
+                select: {
+                  id: true,
+                  name: true,
+                  avatarUrl: true
+                }
+              },
+          ?   author?: true,
+          ?   comments?: true,
+          ?   likes?: true,
+          ?   reactions?: true,
+          ?   hashtags?: true,
+          ?   savedBy?: true,
+          ?   tags?: true
+            },
+            orderBy: {
+              createdAt: "desc"
+            },
+            skip: 0,
+            take: 10
+          })
+
+Unknown field `user` for include statement on model `Post`. Available options are marked with ?.
+    at ar (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/generated/prisma/client/runtime/client.js:14:1374)
+    at Gr.handleRequestError (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/generated/prisma/client/runtime/client.js:69:7929)
+    at Gr.handleAndLogRequestError (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/generated/prisma/client/runtime/client.js:69:7581)
+    at Gr.request (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/generated/prisma/client/runtime/client.js:69:7288)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async a (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/generated/prisma/client/runtime/client.js:79:6730)
+    at async Promise.all (index 1)
+    at async QueryBuilder.execute (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/utils/QueryBuilder.ts:213:27)
+    at async Object.getAllPosts (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/module/admin/admin.service.ts:54:10)
+    at async <anonymous> (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/module/admin/admin.controller.ts:29:18)
+2026-03-29 11:46:18 [[31merror[39m]: PrismaClientValidationError: 
+Invalid `this.model.findMany()` invocation in
+/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/utils/QueryBuilder.ts:215:18
+
+  212 async execute(): Promise<IQueryResult<T>> {
+  213   const [total, data] = await Promise.all([
+  214     this.model.count(this.countQuery as Parameters<typeof this.model.count>[0]),
+→ 215     this.model.findMany({
+            where: {},
+            include: {
+              user: {
+              ~~~~
+                select: {
+                  id: true,
+                  name: true,
+                  avatarUrl: true
+                }
+              },
+          ?   author?: true,
+          ?   comments?: true,
+          ?   likes?: true,
+          ?   reactions?: true,
+          ?   hashtags?: true,
+          ?   savedBy?: true,
+          ?   tags?: true
+            },
+            orderBy: {
+              createdAt: "desc"
+            },
+            skip: 0,
+            take: 10
+          })
+
+Unknown field `user` for include statement on model `Post`. Available options are marked with ?.
+    at ar (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/generated/prisma/client/runtime/client.js:14:1374)
+    at Gr.handleRequestError (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/generated/prisma/client/runtime/client.js:69:7929)
+    at Gr.handleAndLogRequestError (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/generated/prisma/client/runtime/client.js:69:7581)
+    at Gr.request (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/generated/prisma/client/runtime/client.js:69:7288)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async a (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/generated/prisma/client/runtime/client.js:79:6730)
+    at async Promise.all (index 1)
+    at async QueryBuilder.execute (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/utils/QueryBuilder.ts:213:27)
+    at async Object.getAllPosts (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/module/admin/admin.service.ts:54:10)
+    at async <anonymous> (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/module/admin/admin.controller.ts:29:18)
+2026-03-29 11:46:20 [[31merror[39m]: PrismaClientValidationError: 
+Invalid `this.model.findMany()` invocation in
+/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/utils/QueryBuilder.ts:215:18
+
+  212 async execute(): Promise<IQueryResult<T>> {
+  213   const [total, data] = await Promise.all([
+  214     this.model.count(this.countQuery as Parameters<typeof this.model.count>[0]),
+→ 215     this.model.findMany({
+            where: {},
+            include: {
+              user: {
+              ~~~~
+                select: {
+                  id: true,
+                  name: true,
+                  avatarUrl: true
+                }
+              },
+          ?   author?: true,
+          ?   views?: true,
+          ?   reactions?: true,
+          ?   messages?: true
+            },
+            orderBy: {
+              createdAt: "desc"
+            },
+            skip: 0,
+            take: 10
+          })
+
+Unknown field `user` for include statement on model `Story`. Available options are marked with ?.
+    at ar (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/generated/prisma/client/runtime/client.js:14:1374)
+    at Gr.handleRequestError (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/generated/prisma/client/runtime/client.js:69:7929)
+    at Gr.handleAndLogRequestError (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/generated/prisma/client/runtime/client.js:69:7581)
+    at Gr.request (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/generated/prisma/client/runtime/client.js:69:7288)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async a (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/generated/prisma/client/runtime/client.js:79:6730)
+    at async Promise.all (index 1)
+    at async QueryBuilder.execute (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/utils/QueryBuilder.ts:213:27)
+    at async Object.getAllStories (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/module/admin/admin.service.ts:69:10)
+    at async <anonymous> (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/module/admin/admin.controller.ts:40:18)
+2026-03-29 11:46:21 [[31merror[39m]: PrismaClientValidationError: 
+Invalid `this.model.findMany()` invocation in
+/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/utils/QueryBuilder.ts:215:18
+
+  212 async execute(): Promise<IQueryResult<T>> {
+  213   const [total, data] = await Promise.all([
+  214     this.model.count(this.countQuery as Parameters<typeof this.model.count>[0]),
+→ 215     this.model.findMany({
+            where: {},
+            include: {
+              user: {
+              ~~~~
+                select: {
+                  id: true,
+                  name: true,
+                  avatarUrl: true
+                }
+              },
+          ?   author?: true,
+          ?   views?: true,
+          ?   reactions?: true,
+          ?   messages?: true
+            },
+            orderBy: {
+              createdAt: "desc"
+            },
+            skip: 0,
+            take: 10
+          })
+
+Unknown field `user` for include statement on model `Story`. Available options are marked with ?.
+    at ar (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/generated/prisma/client/runtime/client.js:14:1374)
+    at Gr.handleRequestError (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/generated/prisma/client/runtime/client.js:69:7929)
+    at Gr.handleAndLogRequestError (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/generated/prisma/client/runtime/client.js:69:7581)
+    at Gr.request (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/generated/prisma/client/runtime/client.js:69:7288)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async a (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/generated/prisma/client/runtime/client.js:79:6730)
+    at async Promise.all (index 1)
+    at async QueryBuilder.execute (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/utils/QueryBuilder.ts:213:27)
+    at async Object.getAllStories (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/module/admin/admin.service.ts:69:10)
+    at async <anonymous> (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/module/admin/admin.controller.ts:40:18)
+2026-03-29 11:46:23 [[31merror[39m]: PrismaClientValidationError: 
+Invalid `this.model.findMany()` invocation in
+/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/utils/QueryBuilder.ts:215:18
+
+  212 async execute(): Promise<IQueryResult<T>> {
+  213   const [total, data] = await Promise.all([
+  214     this.model.count(this.countQuery as Parameters<typeof this.model.count>[0]),
+→ 215     this.model.findMany({
+            where: {},
+            include: {
+              user: {
+              ~~~~
+                select: {
+                  id: true,
+                  name: true,
+                  avatarUrl: true
+                }
+              },
+          ?   author?: true,
+          ?   comments?: true,
+          ?   likes?: true,
+          ?   reactions?: true,
+          ?   hashtags?: true,
+          ?   savedBy?: true,
+          ?   tags?: true
+            },
+            orderBy: {
+              createdAt: "desc"
+            },
+            skip: 0,
+            take: 10
+          })
+
+Unknown field `user` for include statement on model `Post`. Available options are marked with ?.
+    at ar (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/generated/prisma/client/runtime/client.js:14:1374)
+    at Gr.handleRequestError (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/generated/prisma/client/runtime/client.js:69:7929)
+    at Gr.handleAndLogRequestError (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/generated/prisma/client/runtime/client.js:69:7581)
+    at Gr.request (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/generated/prisma/client/runtime/client.js:69:7288)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async a (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/generated/prisma/client/runtime/client.js:79:6730)
+    at async Promise.all (index 1)
+    at async QueryBuilder.execute (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/utils/QueryBuilder.ts:213:27)
+    at async Object.getAllPosts (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/module/admin/admin.service.ts:54:10)
+    at async <anonymous> (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/module/admin/admin.controller.ts:29:18)
+2026-03-29 11:46:24 [[31merror[39m]: PrismaClientValidationError: 
+Invalid `this.model.findMany()` invocation in
+/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/utils/QueryBuilder.ts:215:18
+
+  212 async execute(): Promise<IQueryResult<T>> {
+  213   const [total, data] = await Promise.all([
+  214     this.model.count(this.countQuery as Parameters<typeof this.model.count>[0]),
+→ 215     this.model.findMany({
+            where: {},
+            include: {
+              user: {
+              ~~~~
+                select: {
+                  id: true,
+                  name: true,
+                  avatarUrl: true
+                }
+              },
+          ?   author?: true,
+          ?   comments?: true,
+          ?   likes?: true,
+          ?   reactions?: true,
+          ?   hashtags?: true,
+          ?   savedBy?: true,
+          ?   tags?: true
+            },
+            orderBy: {
+              createdAt: "desc"
+            },
+            skip: 0,
+            take: 10
+          })
+
+Unknown field `user` for include statement on model `Post`. Available options are marked with ?.
+    at ar (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/generated/prisma/client/runtime/client.js:14:1374)
+    at Gr.handleRequestError (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/generated/prisma/client/runtime/client.js:69:7929)
+    at Gr.handleAndLogRequestError (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/generated/prisma/client/runtime/client.js:69:7581)
+    at Gr.request (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/generated/prisma/client/runtime/client.js:69:7288)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async a (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/generated/prisma/client/runtime/client.js:79:6730)
+    at async Promise.all (index 1)
+    at async QueryBuilder.execute (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/utils/QueryBuilder.ts:213:27)
+    at async Object.getAllPosts (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/module/admin/admin.service.ts:54:10)
+    at async <anonymous> (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/module/admin/admin.controller.ts:29:18)
+2026-03-29 11:46:24 [[31merror[39m]: PrismaClientValidationError: 
+Invalid `this.model.findMany()` invocation in
+/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/utils/QueryBuilder.ts:215:18
+
+  212 async execute(): Promise<IQueryResult<T>> {
+  213   const [total, data] = await Promise.all([
+  214     this.model.count(this.countQuery as Parameters<typeof this.model.count>[0]),
+→ 215     this.model.findMany({
+            where: {},
+            include: {
+              user: {
+              ~~~~
+                select: {
+                  id: true,
+                  name: true,
+                  avatarUrl: true
+                }
+              },
+          ?   author?: true,
+          ?   views?: true,
+          ?   reactions?: true,
+          ?   messages?: true
+            },
+            orderBy: {
+              createdAt: "desc"
+            },
+            skip: 0,
+            take: 10
+          })
+
+Unknown field `user` for include statement on model `Story`. Available options are marked with ?.
+    at ar (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/generated/prisma/client/runtime/client.js:14:1374)
+    at Gr.handleRequestError (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/generated/prisma/client/runtime/client.js:69:7929)
+    at Gr.handleAndLogRequestError (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/generated/prisma/client/runtime/client.js:69:7581)
+    at Gr.request (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/generated/prisma/client/runtime/client.js:69:7288)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async a (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/generated/prisma/client/runtime/client.js:79:6730)
+    at async Promise.all (index 1)
+    at async QueryBuilder.execute (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/utils/QueryBuilder.ts:213:27)
+    at async Object.getAllStories (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/module/admin/admin.service.ts:69:10)
+    at async <anonymous> (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/module/admin/admin.controller.ts:40:18)
+2026-03-29 11:46:25 [[31merror[39m]: PrismaClientValidationError: 
+Invalid `this.model.findMany()` invocation in
+/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/utils/QueryBuilder.ts:215:18
+
+  212 async execute(): Promise<IQueryResult<T>> {
+  213   const [total, data] = await Promise.all([
+  214     this.model.count(this.countQuery as Parameters<typeof this.model.count>[0]),
+→ 215     this.model.findMany({
+            where: {},
+            include: {
+              user: {
+              ~~~~
+                select: {
+                  id: true,
+                  name: true,
+                  avatarUrl: true
+                }
+              },
+          ?   author?: true,
+          ?   views?: true,
+          ?   reactions?: true,
+          ?   messages?: true
+            },
+            orderBy: {
+              createdAt: "desc"
+            },
+            skip: 0,
+            take: 10
+          })
+
+Unknown field `user` for include statement on model `Story`. Available options are marked with ?.
+    at ar (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/generated/prisma/client/runtime/client.js:14:1374)
+    at Gr.handleRequestError (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/generated/prisma/client/runtime/client.js:69:7929)
+    at Gr.handleAndLogRequestError (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/generated/prisma/client/runtime/client.js:69:7581)
+    at Gr.request (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/generated/prisma/client/runtime/client.js:69:7288)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async a (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/generated/prisma/client/runtime/client.js:79:6730)
+    at async Promise.all (index 1)
+    at async QueryBuilder.execute (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/utils/QueryBuilder.ts:213:27)
+    at async Object.getAllStories (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/module/admin/admin.service.ts:69:10)
+    at async <anonymous> (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/module/admin/admin.controller.ts:40:18)
+2026-03-29 11:46:37 [[32minfo[39m]: Socket disconnected: 4gHZcQiiHuSXma-HAAAj
+2026-03-29 11:47:35 [[31merror[39m]: PrismaClientValidationError: 
+Invalid `this.model.findMany()` invocation in
+/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/utils/QueryBuilder.ts:215:18
+
+  212 async execute(): Promise<IQueryResult<T>> {
+  213   const [total, data] = await Promise.all([
+  214     this.model.count(this.countQuery as Parameters<typeof this.model.count>[0]),
+→ 215     this.model.findMany({
+            where: {},
+            include: {
+              user: {
+              ~~~~
+                select: {
+                  id: true,
+                  name: true,
+                  avatarUrl: true
+                }
+              },
+          ?   author?: true,
+          ?   comments?: true,
+          ?   likes?: true,
+          ?   reactions?: true,
+          ?   hashtags?: true,
+          ?   savedBy?: true,
+          ?   tags?: true
+            },
+            orderBy: {
+              createdAt: "desc"
+            },
+            skip: 0,
+            take: 10
+          })
+
+Unknown field `user` for include statement on model `Post`. Available options are marked with ?.
+    at ar (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/generated/prisma/client/runtime/client.js:14:1374)
+    at Gr.handleRequestError (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/generated/prisma/client/runtime/client.js:69:7929)
+    at Gr.handleAndLogRequestError (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/generated/prisma/client/runtime/client.js:69:7581)
+    at Gr.request (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/generated/prisma/client/runtime/client.js:69:7288)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async a (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/generated/prisma/client/runtime/client.js:79:6730)
+    at async Promise.all (index 1)
+    at async QueryBuilder.execute (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/utils/QueryBuilder.ts:213:27)
+    at async Object.getAllPosts (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/module/admin/admin.service.ts:54:10)
+    at async <anonymous> (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/module/admin/admin.controller.ts:29:18)
+2026-03-29 11:47:36 [[31merror[39m]: PrismaClientValidationError: 
+Invalid `this.model.findMany()` invocation in
+/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/utils/QueryBuilder.ts:215:18
+
+  212 async execute(): Promise<IQueryResult<T>> {
+  213   const [total, data] = await Promise.all([
+  214     this.model.count(this.countQuery as Parameters<typeof this.model.count>[0]),
+→ 215     this.model.findMany({
+            where: {},
+            include: {
+              user: {
+              ~~~~
+                select: {
+                  id: true,
+                  name: true,
+                  avatarUrl: true
+                }
+              },
+          ?   author?: true,
+          ?   comments?: true,
+          ?   likes?: true,
+          ?   reactions?: true,
+          ?   hashtags?: true,
+          ?   savedBy?: true,
+          ?   tags?: true
+            },
+            orderBy: {
+              createdAt: "desc"
+            },
+            skip: 0,
+            take: 10
+          })
+
+Unknown field `user` for include statement on model `Post`. Available options are marked with ?.
+    at ar (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/generated/prisma/client/runtime/client.js:14:1374)
+    at Gr.handleRequestError (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/generated/prisma/client/runtime/client.js:69:7929)
+    at Gr.handleAndLogRequestError (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/generated/prisma/client/runtime/client.js:69:7581)
+    at Gr.request (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/generated/prisma/client/runtime/client.js:69:7288)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async a (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/generated/prisma/client/runtime/client.js:79:6730)
+    at async Promise.all (index 1)
+    at async QueryBuilder.execute (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/utils/QueryBuilder.ts:213:27)
+    at async Object.getAllPosts (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/module/admin/admin.service.ts:54:10)
+    at async <anonymous> (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/module/admin/admin.controller.ts:29:18)
+2026-03-29 11:48:14 [[31merror[39m]: PrismaClientValidationError: 
+Invalid `this.model.findMany()` invocation in
+/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/utils/QueryBuilder.ts:215:18
+
+  212 async execute(): Promise<IQueryResult<T>> {
+  213   const [total, data] = await Promise.all([
+  214     this.model.count(this.countQuery as Parameters<typeof this.model.count>[0]),
+→ 215     this.model.findMany({
+            where: {},
+            include: {
+              user: {
+              ~~~~
+                select: {
+                  id: true,
+                  name: true,
+                  avatarUrl: true
+                }
+              },
+          ?   author?: true,
+          ?   comments?: true,
+          ?   likes?: true,
+          ?   reactions?: true,
+          ?   hashtags?: true,
+          ?   savedBy?: true,
+          ?   tags?: true
+            },
+            orderBy: {
+              createdAt: "desc"
+            },
+            skip: 0,
+            take: 10
+          })
+
+Unknown field `user` for include statement on model `Post`. Available options are marked with ?.
+    at ar (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/generated/prisma/client/runtime/client.js:14:1374)
+    at Gr.handleRequestError (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/generated/prisma/client/runtime/client.js:69:7929)
+    at Gr.handleAndLogRequestError (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/generated/prisma/client/runtime/client.js:69:7581)
+    at Gr.request (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/generated/prisma/client/runtime/client.js:69:7288)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async a (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/generated/prisma/client/runtime/client.js:79:6730)
+    at async Promise.all (index 1)
+    at async QueryBuilder.execute (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/utils/QueryBuilder.ts:213:27)
+    at async Object.getAllPosts (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/module/admin/admin.service.ts:54:10)
+    at async <anonymous> (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/module/admin/admin.controller.ts:29:18)
+2026-03-29 11:48:19 [[31merror[39m]: PrismaClientValidationError: 
+Invalid `this.model.findMany()` invocation in
+/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/utils/QueryBuilder.ts:215:18
+
+  212 async execute(): Promise<IQueryResult<T>> {
+  213   const [total, data] = await Promise.all([
+  214     this.model.count(this.countQuery as Parameters<typeof this.model.count>[0]),
+→ 215     this.model.findMany({
+            where: {},
+            include: {
+              user: {
+              ~~~~
+                select: {
+                  id: true,
+                  name: true,
+                  avatarUrl: true
+                }
+              },
+          ?   author?: true,
+          ?   comments?: true,
+          ?   likes?: true,
+          ?   reactions?: true,
+          ?   hashtags?: true,
+          ?   savedBy?: true,
+          ?   tags?: true
+            },
+            orderBy: {
+              createdAt: "desc"
+            },
+            skip: 0,
+            take: 10
+          })
+
+Unknown field `user` for include statement on model `Post`. Available options are marked with ?.
+    at ar (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/generated/prisma/client/runtime/client.js:14:1374)
+    at Gr.handleRequestError (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/generated/prisma/client/runtime/client.js:69:7929)
+    at Gr.handleAndLogRequestError (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/generated/prisma/client/runtime/client.js:69:7581)
+    at Gr.request (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/generated/prisma/client/runtime/client.js:69:7288)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async a (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/generated/prisma/client/runtime/client.js:79:6730)
+    at async Promise.all (index 1)
+    at async QueryBuilder.execute (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/utils/QueryBuilder.ts:213:27)
+    at async Object.getAllPosts (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/module/admin/admin.service.ts:54:10)
+    at async <anonymous> (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/module/admin/admin.controller.ts:29:18)
+2026-03-29 11:48:21 [[31merror[39m]: PrismaClientValidationError: 
+Invalid `this.model.findMany()` invocation in
+/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/utils/QueryBuilder.ts:215:18
+
+  212 async execute(): Promise<IQueryResult<T>> {
+  213   const [total, data] = await Promise.all([
+  214     this.model.count(this.countQuery as Parameters<typeof this.model.count>[0]),
+→ 215     this.model.findMany({
+            where: {},
+            include: {
+              user: {
+              ~~~~
+                select: {
+                  id: true,
+                  name: true,
+                  avatarUrl: true
+                }
+              },
+          ?   author?: true,
+          ?   views?: true,
+          ?   reactions?: true,
+          ?   messages?: true
+            },
+            orderBy: {
+              createdAt: "desc"
+            },
+            skip: 0,
+            take: 10
+          })
+
+Unknown field `user` for include statement on model `Story`. Available options are marked with ?.
+    at ar (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/generated/prisma/client/runtime/client.js:14:1374)
+    at Gr.handleRequestError (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/generated/prisma/client/runtime/client.js:69:7929)
+    at Gr.handleAndLogRequestError (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/generated/prisma/client/runtime/client.js:69:7581)
+    at Gr.request (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/generated/prisma/client/runtime/client.js:69:7288)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async a (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/generated/prisma/client/runtime/client.js:79:6730)
+    at async Promise.all (index 1)
+    at async QueryBuilder.execute (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/utils/QueryBuilder.ts:213:27)
+    at async Object.getAllStories (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/module/admin/admin.service.ts:69:10)
+    at async <anonymous> (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/module/admin/admin.controller.ts:40:18)
+2026-03-29 11:48:22 [[31merror[39m]: PrismaClientValidationError: 
+Invalid `this.model.findMany()` invocation in
+/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/utils/QueryBuilder.ts:215:18
+
+  212 async execute(): Promise<IQueryResult<T>> {
+  213   const [total, data] = await Promise.all([
+  214     this.model.count(this.countQuery as Parameters<typeof this.model.count>[0]),
+→ 215     this.model.findMany({
+            where: {},
+            include: {
+              user: {
+              ~~~~
+                select: {
+                  id: true,
+                  name: true,
+                  avatarUrl: true
+                }
+              },
+          ?   author?: true,
+          ?   comments?: true,
+          ?   likes?: true,
+          ?   reactions?: true,
+          ?   hashtags?: true,
+          ?   savedBy?: true,
+          ?   tags?: true
+            },
+            orderBy: {
+              createdAt: "desc"
+            },
+            skip: 0,
+            take: 10
+          })
+
+Unknown field `user` for include statement on model `Post`. Available options are marked with ?.
+    at ar (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/generated/prisma/client/runtime/client.js:14:1374)
+    at Gr.handleRequestError (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/generated/prisma/client/runtime/client.js:69:7929)
+    at Gr.handleAndLogRequestError (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/generated/prisma/client/runtime/client.js:69:7581)
+    at Gr.request (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/generated/prisma/client/runtime/client.js:69:7288)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async a (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/generated/prisma/client/runtime/client.js:79:6730)
+    at async Promise.all (index 1)
+    at async QueryBuilder.execute (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/utils/QueryBuilder.ts:213:27)
+    at async Object.getAllPosts (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/module/admin/admin.service.ts:54:10)
+    at async <anonymous> (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/module/admin/admin.controller.ts:29:18)
+2026-03-29 11:48:23 [[31merror[39m]: PrismaClientValidationError: 
+Invalid `this.model.findMany()` invocation in
+/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/utils/QueryBuilder.ts:215:18
+
+  212 async execute(): Promise<IQueryResult<T>> {
+  213   const [total, data] = await Promise.all([
+  214     this.model.count(this.countQuery as Parameters<typeof this.model.count>[0]),
+→ 215     this.model.findMany({
+            where: {},
+            include: {
+              user: {
+              ~~~~
+                select: {
+                  id: true,
+                  name: true,
+                  avatarUrl: true
+                }
+              },
+          ?   author?: true,
+          ?   comments?: true,
+          ?   likes?: true,
+          ?   reactions?: true,
+          ?   hashtags?: true,
+          ?   savedBy?: true,
+          ?   tags?: true
+            },
+            orderBy: {
+              createdAt: "desc"
+            },
+            skip: 0,
+            take: 10
+          })
+
+Unknown field `user` for include statement on model `Post`. Available options are marked with ?.
+    at ar (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/generated/prisma/client/runtime/client.js:14:1374)
+    at Gr.handleRequestError (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/generated/prisma/client/runtime/client.js:69:7929)
+    at Gr.handleAndLogRequestError (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/generated/prisma/client/runtime/client.js:69:7581)
+    at Gr.request (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/generated/prisma/client/runtime/client.js:69:7288)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async a (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/generated/prisma/client/runtime/client.js:79:6730)
+    at async Promise.all (index 1)
+    at async QueryBuilder.execute (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/utils/QueryBuilder.ts:213:27)
+    at async Object.getAllPosts (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/module/admin/admin.service.ts:54:10)
+    at async <anonymous> (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/module/admin/admin.controller.ts:29:18)
+2026-03-29 11:48:25 [[31merror[39m]: PrismaClientValidationError: 
+Invalid `this.model.findMany()` invocation in
+/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/utils/QueryBuilder.ts:215:18
+
+  212 async execute(): Promise<IQueryResult<T>> {
+  213   const [total, data] = await Promise.all([
+  214     this.model.count(this.countQuery as Parameters<typeof this.model.count>[0]),
+→ 215     this.model.findMany({
+            where: {},
+            include: {
+              user: {
+              ~~~~
+                select: {
+                  id: true,
+                  name: true,
+                  avatarUrl: true
+                }
+              },
+          ?   author?: true,
+          ?   comments?: true,
+          ?   likes?: true,
+          ?   reactions?: true,
+          ?   hashtags?: true,
+          ?   savedBy?: true,
+          ?   tags?: true
+            },
+            orderBy: {
+              createdAt: "desc"
+            },
+            skip: 0,
+            take: 10
+          })
+
+Unknown field `user` for include statement on model `Post`. Available options are marked with ?.
+    at ar (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/generated/prisma/client/runtime/client.js:14:1374)
+    at Gr.handleRequestError (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/generated/prisma/client/runtime/client.js:69:7929)
+    at Gr.handleAndLogRequestError (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/generated/prisma/client/runtime/client.js:69:7581)
+    at Gr.request (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/generated/prisma/client/runtime/client.js:69:7288)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async a (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/generated/prisma/client/runtime/client.js:79:6730)
+    at async Promise.all (index 1)
+    at async QueryBuilder.execute (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/utils/QueryBuilder.ts:213:27)
+    at async Object.getAllPosts (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/module/admin/admin.service.ts:54:10)
+    at async <anonymous> (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/module/admin/admin.controller.ts:29:18)
+2026-03-29 11:48:27 [[31merror[39m]: PrismaClientValidationError: 
+Invalid `this.model.findMany()` invocation in
+/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/utils/QueryBuilder.ts:215:18
+
+  212 async execute(): Promise<IQueryResult<T>> {
+  213   const [total, data] = await Promise.all([
+  214     this.model.count(this.countQuery as Parameters<typeof this.model.count>[0]),
+→ 215     this.model.findMany({
+            where: {},
+            include: {
+              user: {
+              ~~~~
+                select: {
+                  id: true,
+                  name: true,
+                  avatarUrl: true
+                }
+              },
+          ?   author?: true,
+          ?   views?: true,
+          ?   reactions?: true,
+          ?   messages?: true
+            },
+            orderBy: {
+              createdAt: "desc"
+            },
+            skip: 0,
+            take: 10
+          })
+
+Unknown field `user` for include statement on model `Story`. Available options are marked with ?.
+    at ar (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/generated/prisma/client/runtime/client.js:14:1374)
+    at Gr.handleRequestError (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/generated/prisma/client/runtime/client.js:69:7929)
+    at Gr.handleAndLogRequestError (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/generated/prisma/client/runtime/client.js:69:7581)
+    at Gr.request (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/generated/prisma/client/runtime/client.js:69:7288)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async a (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/generated/prisma/client/runtime/client.js:79:6730)
+    at async Promise.all (index 1)
+    at async QueryBuilder.execute (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/utils/QueryBuilder.ts:213:27)
+    at async Object.getAllStories (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/module/admin/admin.service.ts:69:10)
+    at async <anonymous> (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/module/admin/admin.controller.ts:40:18)
+2026-03-29 11:48:28 [[31merror[39m]: PrismaClientValidationError: 
+Invalid `this.model.findMany()` invocation in
+/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/utils/QueryBuilder.ts:215:18
+
+  212 async execute(): Promise<IQueryResult<T>> {
+  213   const [total, data] = await Promise.all([
+  214     this.model.count(this.countQuery as Parameters<typeof this.model.count>[0]),
+→ 215     this.model.findMany({
+            where: {},
+            include: {
+              user: {
+              ~~~~
+                select: {
+                  id: true,
+                  name: true,
+                  avatarUrl: true
+                }
+              },
+          ?   author?: true,
+          ?   views?: true,
+          ?   reactions?: true,
+          ?   messages?: true
+            },
+            orderBy: {
+              createdAt: "desc"
+            },
+            skip: 0,
+            take: 10
+          })
+
+Unknown field `user` for include statement on model `Story`. Available options are marked with ?.
+    at ar (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/generated/prisma/client/runtime/client.js:14:1374)
+    at Gr.handleRequestError (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/generated/prisma/client/runtime/client.js:69:7929)
+    at Gr.handleAndLogRequestError (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/generated/prisma/client/runtime/client.js:69:7581)
+    at Gr.request (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/generated/prisma/client/runtime/client.js:69:7288)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async a (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/generated/prisma/client/runtime/client.js:79:6730)
+    at async Promise.all (index 1)
+    at async QueryBuilder.execute (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/utils/QueryBuilder.ts:213:27)
+    at async Object.getAllStories (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/module/admin/admin.service.ts:69:10)
+    at async <anonymous> (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/module/admin/admin.controller.ts:40:18)
+2026-03-29 11:49:38 [[31merror[39m]: PrismaClientValidationError: 
+Invalid `this.model.findMany()` invocation in
+/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/utils/QueryBuilder.ts:215:18
+
+  212 async execute(): Promise<IQueryResult<T>> {
+  213   const [total, data] = await Promise.all([
+  214     this.model.count(this.countQuery as Parameters<typeof this.model.count>[0]),
+→ 215     this.model.findMany({
+            where: {},
+            include: {
+              user: {
+              ~~~~
+                select: {
+                  id: true,
+                  name: true,
+                  avatarUrl: true
+                }
+              },
+          ?   author?: true,
+          ?   views?: true,
+          ?   reactions?: true,
+          ?   messages?: true
+            },
+            orderBy: {
+              createdAt: "desc"
+            },
+            skip: 0,
+            take: 10
+          })
+
+Unknown field `user` for include statement on model `Story`. Available options are marked with ?.
+    at ar (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/generated/prisma/client/runtime/client.js:14:1374)
+    at Gr.handleRequestError (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/generated/prisma/client/runtime/client.js:69:7929)
+    at Gr.handleAndLogRequestError (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/generated/prisma/client/runtime/client.js:69:7581)
+    at Gr.request (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/generated/prisma/client/runtime/client.js:69:7288)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async a (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/generated/prisma/client/runtime/client.js:79:6730)
+    at async Promise.all (index 1)
+    at async QueryBuilder.execute (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/utils/QueryBuilder.ts:213:27)
+    at async Object.getAllStories (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/module/admin/admin.service.ts:69:10)
+    at async <anonymous> (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/module/admin/admin.controller.ts:40:18)
+2026-03-29 11:50:07 [[31merror[39m]: PrismaClientValidationError: 
+Invalid `this.model.findMany()` invocation in
+/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/utils/QueryBuilder.ts:215:18
+
+  212 async execute(): Promise<IQueryResult<T>> {
+  213   const [total, data] = await Promise.all([
+  214     this.model.count(this.countQuery as Parameters<typeof this.model.count>[0]),
+→ 215     this.model.findMany({
+            where: {},
+            include: {
+              user: {
+              ~~~~
+                select: {
+                  id: true,
+                  name: true,
+                  avatarUrl: true
+                }
+              },
+          ?   author?: true,
+          ?   views?: true,
+          ?   reactions?: true,
+          ?   messages?: true
+            },
+            orderBy: {
+              createdAt: "desc"
+            },
+            skip: 0,
+            take: 10
+          })
+
+Unknown field `user` for include statement on model `Story`. Available options are marked with ?.
+    at ar (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/generated/prisma/client/runtime/client.js:14:1374)
+    at Gr.handleRequestError (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/generated/prisma/client/runtime/client.js:69:7929)
+    at Gr.handleAndLogRequestError (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/generated/prisma/client/runtime/client.js:69:7581)
+    at Gr.request (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/generated/prisma/client/runtime/client.js:69:7288)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async a (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/generated/prisma/client/runtime/client.js:79:6730)
+    at async Promise.all (index 1)
+    at async QueryBuilder.execute (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/utils/QueryBuilder.ts:213:27)
+    at async Object.getAllStories (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/module/admin/admin.service.ts:69:10)
+    at async <anonymous> (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/module/admin/admin.controller.ts:40:18)
+2026-03-29 11:50:30 [[31merror[39m]: PrismaClientValidationError: 
+Invalid `this.model.findMany()` invocation in
+/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/utils/QueryBuilder.ts:215:18
+
+  212 async execute(): Promise<IQueryResult<T>> {
+  213   const [total, data] = await Promise.all([
+  214     this.model.count(this.countQuery as Parameters<typeof this.model.count>[0]),
+→ 215     this.model.findMany({
+            where: {},
+            include: {
+              user: {
+              ~~~~
+                select: {
+                  id: true,
+                  name: true,
+                  avatarUrl: true
+                }
+              },
+          ?   author?: true,
+          ?   views?: true,
+          ?   reactions?: true,
+          ?   messages?: true
+            },
+            orderBy: {
+              createdAt: "desc"
+            },
+            skip: 0,
+            take: 10
+          })
+
+Unknown field `user` for include statement on model `Story`. Available options are marked with ?.
+    at ar (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/generated/prisma/client/runtime/client.js:14:1374)
+    at Gr.handleRequestError (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/generated/prisma/client/runtime/client.js:69:7929)
+    at Gr.handleAndLogRequestError (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/generated/prisma/client/runtime/client.js:69:7581)
+    at Gr.request (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/generated/prisma/client/runtime/client.js:69:7288)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async a (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/generated/prisma/client/runtime/client.js:79:6730)
+    at async Promise.all (index 1)
+    at async QueryBuilder.execute (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/utils/QueryBuilder.ts:213:27)
+    at async Object.getAllStories (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/module/admin/admin.service.ts:69:10)
+    at async <anonymous> (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/module/admin/admin.controller.ts:40:18)
+2026-03-29 11:50:31 [[31merror[39m]: PrismaClientValidationError: 
+Invalid `this.model.findMany()` invocation in
+/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/utils/QueryBuilder.ts:215:18
+
+  212 async execute(): Promise<IQueryResult<T>> {
+  213   const [total, data] = await Promise.all([
+  214     this.model.count(this.countQuery as Parameters<typeof this.model.count>[0]),
+→ 215     this.model.findMany({
+            where: {},
+            include: {
+              user: {
+              ~~~~
+                select: {
+                  id: true,
+                  name: true,
+                  avatarUrl: true
+                }
+              },
+          ?   author?: true,
+          ?   views?: true,
+          ?   reactions?: true,
+          ?   messages?: true
+            },
+            orderBy: {
+              createdAt: "desc"
+            },
+            skip: 0,
+            take: 10
+          })
+
+Unknown field `user` for include statement on model `Story`. Available options are marked with ?.
+    at ar (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/generated/prisma/client/runtime/client.js:14:1374)
+    at Gr.handleRequestError (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/generated/prisma/client/runtime/client.js:69:7929)
+    at Gr.handleAndLogRequestError (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/generated/prisma/client/runtime/client.js:69:7581)
+    at Gr.request (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/generated/prisma/client/runtime/client.js:69:7288)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async a (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/generated/prisma/client/runtime/client.js:79:6730)
+    at async Promise.all (index 1)
+    at async QueryBuilder.execute (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/utils/QueryBuilder.ts:213:27)
+    at async Object.getAllStories (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/module/admin/admin.service.ts:69:10)
+    at async <anonymous> (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/module/admin/admin.controller.ts:40:18)
+2026-03-29 11:50:33 [[31merror[39m]: PrismaClientValidationError: 
+Invalid `this.model.findMany()` invocation in
+/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/utils/QueryBuilder.ts:215:18
+
+  212 async execute(): Promise<IQueryResult<T>> {
+  213   const [total, data] = await Promise.all([
+  214     this.model.count(this.countQuery as Parameters<typeof this.model.count>[0]),
+→ 215     this.model.findMany({
+            where: {},
+            include: {
+              user: {
+              ~~~~
+                select: {
+                  id: true,
+                  name: true,
+                  avatarUrl: true
+                }
+              },
+          ?   author?: true,
+          ?   views?: true,
+          ?   reactions?: true,
+          ?   messages?: true
+            },
+            orderBy: {
+              createdAt: "desc"
+            },
+            skip: 0,
+            take: 10
+          })
+
+Unknown field `user` for include statement on model `Story`. Available options are marked with ?.
+    at ar (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/generated/prisma/client/runtime/client.js:14:1374)
+    at Gr.handleRequestError (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/generated/prisma/client/runtime/client.js:69:7929)
+    at Gr.handleAndLogRequestError (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/generated/prisma/client/runtime/client.js:69:7581)
+    at Gr.request (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/generated/prisma/client/runtime/client.js:69:7288)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async a (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/generated/prisma/client/runtime/client.js:79:6730)
+    at async Promise.all (index 1)
+    at async QueryBuilder.execute (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/utils/QueryBuilder.ts:213:27)
+    at async Object.getAllStories (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/module/admin/admin.service.ts:69:10)
+    at async <anonymous> (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/module/admin/admin.controller.ts:40:18)
+2026-03-29 11:50:37 [[31merror[39m]: PrismaClientValidationError: 
+Invalid `this.model.findMany()` invocation in
+/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/utils/QueryBuilder.ts:215:18
+
+  212 async execute(): Promise<IQueryResult<T>> {
+  213   const [total, data] = await Promise.all([
+  214     this.model.count(this.countQuery as Parameters<typeof this.model.count>[0]),
+→ 215     this.model.findMany({
+            where: {},
+            include: {
+              user: {
+              ~~~~
+                select: {
+                  id: true,
+                  name: true,
+                  avatarUrl: true
+                }
+              },
+          ?   author?: true,
+          ?   views?: true,
+          ?   reactions?: true,
+          ?   messages?: true
+            },
+            orderBy: {
+              createdAt: "desc"
+            },
+            skip: 0,
+            take: 10
+          })
+
+Unknown field `user` for include statement on model `Story`. Available options are marked with ?.
+    at ar (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/generated/prisma/client/runtime/client.js:14:1374)
+    at Gr.handleRequestError (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/generated/prisma/client/runtime/client.js:69:7929)
+    at Gr.handleAndLogRequestError (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/generated/prisma/client/runtime/client.js:69:7581)
+    at Gr.request (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/generated/prisma/client/runtime/client.js:69:7288)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async a (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/generated/prisma/client/runtime/client.js:79:6730)
+    at async Promise.all (index 1)
+    at async QueryBuilder.execute (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/utils/QueryBuilder.ts:213:27)
+    at async Object.getAllStories (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/module/admin/admin.service.ts:69:10)
+    at async <anonymous> (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/module/admin/admin.controller.ts:40:18)
+2026-03-29 11:50:52 [[31merror[39m]: PrismaClientValidationError: 
+Invalid `this.model.findMany()` invocation in
+/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/utils/QueryBuilder.ts:215:18
+
+  212 async execute(): Promise<IQueryResult<T>> {
+  213   const [total, data] = await Promise.all([
+  214     this.model.count(this.countQuery as Parameters<typeof this.model.count>[0]),
+→ 215     this.model.findMany({
+            where: {},
+            include: {
+              user: {
+              ~~~~
+                select: {
+                  id: true,
+                  name: true,
+                  avatarUrl: true
+                }
+              },
+          ?   author?: true,
+          ?   views?: true,
+          ?   reactions?: true,
+          ?   messages?: true
+            },
+            orderBy: {
+              createdAt: "desc"
+            },
+            skip: 0,
+            take: 10
+          })
+
+Unknown field `user` for include statement on model `Story`. Available options are marked with ?.
+    at ar (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/generated/prisma/client/runtime/client.js:14:1374)
+    at Gr.handleRequestError (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/generated/prisma/client/runtime/client.js:69:7929)
+    at Gr.handleAndLogRequestError (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/generated/prisma/client/runtime/client.js:69:7581)
+    at Gr.request (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/generated/prisma/client/runtime/client.js:69:7288)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async a (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/generated/prisma/client/runtime/client.js:79:6730)
+    at async Promise.all (index 1)
+    at async QueryBuilder.execute (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/utils/QueryBuilder.ts:213:27)
+    at async Object.getAllStories (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/module/admin/admin.service.ts:69:10)
+    at async <anonymous> (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/module/admin/admin.controller.ts:40:18)
+2026-03-29 11:50:53 [[31merror[39m]: PrismaClientValidationError: 
+Invalid `this.model.findMany()` invocation in
+/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/utils/QueryBuilder.ts:215:18
+
+  212 async execute(): Promise<IQueryResult<T>> {
+  213   const [total, data] = await Promise.all([
+  214     this.model.count(this.countQuery as Parameters<typeof this.model.count>[0]),
+→ 215     this.model.findMany({
+            where: {},
+            include: {
+              user: {
+              ~~~~
+                select: {
+                  id: true,
+                  name: true,
+                  avatarUrl: true
+                }
+              },
+          ?   author?: true,
+          ?   views?: true,
+          ?   reactions?: true,
+          ?   messages?: true
+            },
+            orderBy: {
+              createdAt: "desc"
+            },
+            skip: 0,
+            take: 10
+          })
+
+Unknown field `user` for include statement on model `Story`. Available options are marked with ?.
+    at ar (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/generated/prisma/client/runtime/client.js:14:1374)
+    at Gr.handleRequestError (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/generated/prisma/client/runtime/client.js:69:7929)
+    at Gr.handleAndLogRequestError (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/generated/prisma/client/runtime/client.js:69:7581)
+    at Gr.request (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/generated/prisma/client/runtime/client.js:69:7288)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async a (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/generated/prisma/client/runtime/client.js:79:6730)
+    at async Promise.all (index 1)
+    at async QueryBuilder.execute (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/utils/QueryBuilder.ts:213:27)
+    at async Object.getAllStories (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/module/admin/admin.service.ts:69:10)
+    at async <anonymous> (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/module/admin/admin.controller.ts:40:18)
+2026-03-29 11:50:55 [[31merror[39m]: PrismaClientValidationError: 
+Invalid `this.model.findMany()` invocation in
+/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/utils/QueryBuilder.ts:215:18
+
+  212 async execute(): Promise<IQueryResult<T>> {
+  213   const [total, data] = await Promise.all([
+  214     this.model.count(this.countQuery as Parameters<typeof this.model.count>[0]),
+→ 215     this.model.findMany({
+            where: {},
+            include: {
+              user: {
+              ~~~~
+                select: {
+                  id: true,
+                  name: true,
+                  avatarUrl: true
+                }
+              },
+          ?   author?: true,
+          ?   views?: true,
+          ?   reactions?: true,
+          ?   messages?: true
+            },
+            orderBy: {
+              createdAt: "desc"
+            },
+            skip: 0,
+            take: 10
+          })
+
+Unknown field `user` for include statement on model `Story`. Available options are marked with ?.
+    at ar (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/generated/prisma/client/runtime/client.js:14:1374)
+    at Gr.handleRequestError (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/generated/prisma/client/runtime/client.js:69:7929)
+    at Gr.handleAndLogRequestError (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/generated/prisma/client/runtime/client.js:69:7581)
+    at Gr.request (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/generated/prisma/client/runtime/client.js:69:7288)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async a (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/generated/prisma/client/runtime/client.js:79:6730)
+    at async Promise.all (index 1)
+    at async QueryBuilder.execute (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/utils/QueryBuilder.ts:213:27)
+    at async Object.getAllStories (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/module/admin/admin.service.ts:69:10)
+    at async <anonymous> (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/module/admin/admin.controller.ts:40:18)
+2026-03-29 11:51:48 [[32minfo[39m]: Initializing Socket.IO...
+2026-03-29 11:51:50 [[32minfo[39m]: User hQMbnEo7RbeDK9vBRwVKFQTUYfIWs9j1 joined their private room
+2026-03-29 12:09:20 [[32minfo[39m]: Initializing Socket.IO...
+2026-03-29 12:09:22 [[32minfo[39m]: User hQMbnEo7RbeDK9vBRwVKFQTUYfIWs9j1 joined their private room
+2026-03-29 12:09:39 [[32minfo[39m]: Initializing Socket.IO...
+2026-03-29 12:09:42 [[32minfo[39m]: User hQMbnEo7RbeDK9vBRwVKFQTUYfIWs9j1 joined their private room
+2026-03-29 12:09:42 [[32minfo[39m]: Socket disconnected: SPQpgwyjR5tuPismAAAB
+2026-03-29 12:09:47 [[32minfo[39m]: User hQMbnEo7RbeDK9vBRwVKFQTUYfIWs9j1 joined their private room
+2026-03-29 12:09:51 [[32minfo[39m]: Socket disconnected: b2v2K83QexwfXhjgAAAD
+2026-03-29 12:09:52 [[32minfo[39m]: User hQMbnEo7RbeDK9vBRwVKFQTUYfIWs9j1 joined their private room
+2026-03-29 12:10:18 [[32minfo[39m]: Initializing Socket.IO...
+2026-03-29 12:10:41 [[32minfo[39m]: Initializing Socket.IO...
+2026-03-29 12:10:48 [[32minfo[39m]: User hQMbnEo7RbeDK9vBRwVKFQTUYfIWs9j1 joined their private room
+2026-03-29 12:11:02 [[32minfo[39m]: Initializing Socket.IO...
+2026-03-29 12:11:02 [[32minfo[39m]: User hQMbnEo7RbeDK9vBRwVKFQTUYfIWs9j1 joined their private room
+2026-03-29 12:12:22 [[32minfo[39m]: Initializing Socket.IO...
+2026-03-29 12:12:24 [[32minfo[39m]: User hQMbnEo7RbeDK9vBRwVKFQTUYfIWs9j1 joined their private room
+2026-03-29 12:12:35 [[32minfo[39m]: Socket disconnected: 6FjJIYXmnARlXlD0AAAB
+2026-03-29 12:12:46 [[32minfo[39m]: User hQMbnEo7RbeDK9vBRwVKFQTUYfIWs9j1 joined their private room
+2026-03-29 12:12:52 [[32minfo[39m]: Initializing Socket.IO...
+2026-03-29 12:13:00 [[32minfo[39m]: User hQMbnEo7RbeDK9vBRwVKFQTUYfIWs9j1 joined their private room
+2026-03-29 12:15:15 [[32minfo[39m]: Initializing Socket.IO...
+2026-03-29 12:15:17 [[32minfo[39m]: User hQMbnEo7RbeDK9vBRwVKFQTUYfIWs9j1 joined their private room
+2026-03-29 12:15:26 [[32minfo[39m]: Initializing Socket.IO...
+2026-03-29 12:15:27 [[32minfo[39m]: User hQMbnEo7RbeDK9vBRwVKFQTUYfIWs9j1 joined their private room
+2026-03-29 12:15:57 [[32minfo[39m]: Initializing Socket.IO...
+2026-03-29 12:15:58 [[32minfo[39m]: User hQMbnEo7RbeDK9vBRwVKFQTUYfIWs9j1 joined their private room
+2026-03-29 12:16:07 [[32minfo[39m]: Initializing Socket.IO...
+2026-03-29 12:16:09 [[32minfo[39m]: User hQMbnEo7RbeDK9vBRwVKFQTUYfIWs9j1 joined their private room
+2026-03-29 12:16:10 [[31merror[39m]: PrismaClientValidationError: 
+Invalid `this.model.count()` invocation in
+/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/utils/QueryBuilder.ts:214:18
+
+  211 
+  212 async execute(): Promise<IQueryResult<T>> {
+  213   const [total, data] = await Promise.all([
+→ 214     this.model.count({
+            select: {
+              _count: {
+                select: {
+                  _all: true
+                }
+              }
+            },
+            where: {
+              status: "APPROVED"
+                      ~~~~~~~~~~
+            }
+          })
+
+Invalid value for argument `status`. Expected PropertyStatus.
+    at ar (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/generated/prisma/client/runtime/client.js:14:1374)
+    at Gr.handleRequestError (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/generated/prisma/client/runtime/client.js:69:7929)
+    at Gr.handleAndLogRequestError (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/generated/prisma/client/runtime/client.js:69:7581)
+    at Gr.request (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/generated/prisma/client/runtime/client.js:69:7288)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async a (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/generated/prisma/client/runtime/client.js:79:6730)
+    at async Promise.all (index 0)
+    at async QueryBuilder.execute (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/utils/QueryBuilder.ts:213:27)
+    at async Object.getAllProperties (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/module/admin/admin.service.ts:99:10)
+    at async <anonymous> (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/module/admin/admin.controller.ts:62:18)
+2026-03-29 12:16:12 [[31merror[39m]: PrismaClientValidationError: 
+Invalid `this.model.count()` invocation in
+/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/utils/QueryBuilder.ts:214:18
+
+  211 
+  212 async execute(): Promise<IQueryResult<T>> {
+  213   const [total, data] = await Promise.all([
+→ 214     this.model.count({
+            select: {
+              _count: {
+                select: {
+                  _all: true
+                }
+              }
+            },
+            where: {
+              status: "APPROVED"
+                      ~~~~~~~~~~
+            }
+          })
+
+Invalid value for argument `status`. Expected PropertyStatus.
+    at ar (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/generated/prisma/client/runtime/client.js:14:1374)
+    at Gr.handleRequestError (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/generated/prisma/client/runtime/client.js:69:7929)
+    at Gr.handleAndLogRequestError (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/generated/prisma/client/runtime/client.js:69:7581)
+    at Gr.request (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/generated/prisma/client/runtime/client.js:69:7288)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async a (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/generated/prisma/client/runtime/client.js:79:6730)
+    at async Promise.all (index 0)
+    at async QueryBuilder.execute (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/utils/QueryBuilder.ts:213:27)
+    at async Object.getAllProperties (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/module/admin/admin.service.ts:99:10)
+    at async <anonymous> (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/module/admin/admin.controller.ts:62:18)
+2026-03-29 12:16:18 [[32minfo[39m]: Initializing Socket.IO...
+2026-03-29 12:16:26 [[31merror[39m]: PrismaClientValidationError: 
+Invalid `this.model.count()` invocation in
+/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/utils/QueryBuilder.ts:214:18
+
+  211 
+  212 async execute(): Promise<IQueryResult<T>> {
+  213   const [total, data] = await Promise.all([
+→ 214     this.model.count({
+            select: {
+              _count: {
+                select: {
+                  _all: true
+                }
+              }
+            },
+            where: {
+              status: "APPROVED"
+                      ~~~~~~~~~~
+            }
+          })
+
+Invalid value for argument `status`. Expected PropertyStatus.
+    at ar (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/generated/prisma/client/runtime/client.js:14:1374)
+    at Gr.handleRequestError (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/generated/prisma/client/runtime/client.js:69:7929)
+    at Gr.handleAndLogRequestError (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/generated/prisma/client/runtime/client.js:69:7581)
+    at Gr.request (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/generated/prisma/client/runtime/client.js:69:7288)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async a (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/generated/prisma/client/runtime/client.js:79:6730)
+    at async Promise.all (index 0)
+    at async QueryBuilder.execute (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/utils/QueryBuilder.ts:213:27)
+    at async Object.getAllProperties (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/module/admin/admin.service.ts:99:10)
+    at async <anonymous> (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/module/admin/admin.controller.ts:62:18)
+2026-03-29 12:17:55 [[32minfo[39m]: User hQMbnEo7RbeDK9vBRwVKFQTUYfIWs9j1 joined their private room
+2026-03-29 12:20:10 [[32minfo[39m]: Socket disconnected: s2NHiWzx_FrJMzB7AAAB
+2026-03-29 12:20:10 [[32minfo[39m]: User hQMbnEo7RbeDK9vBRwVKFQTUYfIWs9j1 joined their private room
+2026-03-29 12:20:51 [[32minfo[39m]: Socket disconnected: 8lLEAW5mIZpRCgCQAAAD

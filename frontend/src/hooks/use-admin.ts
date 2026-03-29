@@ -139,7 +139,13 @@ export const useVerifyAgent = () => {
   });
 };
 
-// Moderation
+export const useAdminProducts = (params?: { searchTerm?: string; page?: number; limit?: number; status?: string }) => {
+  return useQuery({
+    queryKey: ['admin-products', params],
+    queryFn: () => AdminService.getAllProducts(params),
+  });
+};
+
 export const useFlaggedProducts = (params?: { page?: number; limit?: number }) => {
   return useQuery({
     queryKey: ['flagged-products', params],
@@ -160,6 +166,13 @@ export const useUpdateProductStatus = () => {
   });
 };
 
+export const useAdminPosts = (params?: { searchTerm?: string; page?: number; limit?: number; status?: string }) => {
+  return useQuery({
+    queryKey: ['admin-posts', params],
+    queryFn: () => AdminService.getAllPosts(params),
+  });
+};
+
 export const useFlaggedPosts = (params?: { searchTerm?: string; page?: number; limit?: number }) => {
   return useQuery({
     queryKey: ['flagged-posts', params],
@@ -176,5 +189,51 @@ export const useDeletePost = () => {
       toast.success('Post deleted');
     },
     onError: () => toast.error('Failed to delete post'),
+  });
+};
+
+export const useUpdatePostStatus = () => {
+  const queryClient = useQueryClient();
+  return useMutation({
+    mutationFn: ({ id, status }: { id: string; status: string }) =>
+      AdminService.updatePostStatus(id, status),
+    onSuccess: () => {
+      queryClient.invalidateQueries({ queryKey: ['flagged-posts'] });
+      toast.success('Post status updated');
+    },
+    onError: () => toast.error('Failed to update post status'),
+  });
+};
+
+// Stories
+export const useAdminStories = (params?: { page?: number; limit?: number }) => {
+  return useQuery({
+    queryKey: ['admin-stories', params],
+    queryFn: () => AdminService.getAllStories(params),
+  });
+};
+
+export const useDeleteStory = () => {
+  const queryClient = useQueryClient();
+  return useMutation({
+    mutationFn: (id: string) => AdminService.deleteStory(id),
+    onSuccess: () => {
+      queryClient.invalidateQueries({ queryKey: ['admin-stories'] });
+      toast.success('Story permanently deleted');
+    },
+    onError: () => toast.error('Failed to delete story'),
+  });
+};
+
+export const useDeleteUser = () => {
+  const queryClient = useQueryClient();
+  return useMutation({
+    mutationFn: (id: string) => AdminService.deleteUser(id),
+    onSuccess: () => {
+      queryClient.invalidateQueries({ queryKey: ['admin-users'] });
+      queryClient.invalidateQueries({ queryKey: ['admin-stats'] });
+      toast.success('User and all their data permanently deleted');
+    },
+    onError: () => toast.error('Failed to delete user'),
   });
 };

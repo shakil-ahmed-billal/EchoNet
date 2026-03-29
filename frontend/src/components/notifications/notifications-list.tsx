@@ -18,7 +18,9 @@ const iconMap = {
   ANNOUNCEMENT: { icon: ShieldAlert, color: "text-amber-500", bgColor: "bg-amber-500/10" },
   FRIEND_REQUEST: { icon: UserPlus, color: "text-primary", bgColor: "bg-primary/10" },
   FOLLOW_REQUEST: { icon: UserPlus, color: "text-primary", bgColor: "bg-primary/10" },
-  FRIEND_ACCEPT: { icon: UserPlus, color: "text-emerald-500", bgColor: "bg-emerald-500/10" },
+  FRIEND_ACCEPT: { icon: Check, color: "text-emerald-500", bgColor: "bg-emerald-500/10" },
+  ORDER_PLACED: { icon: ShieldAlert, color: "text-primary", bgColor: "bg-primary/10" },
+  ORDER_STATUS_UPDATED: { icon: Loader2, color: "text-amber-500", bgColor: "bg-amber-500/10" },
 };
 
 export function NotificationsList() {
@@ -50,7 +52,7 @@ export function NotificationsList() {
     return (
       <div className="flex flex-col items-center justify-center p-20 gap-4">
         <Loader2 className="h-8 w-8 animate-spin text-primary" />
-        <p className="text-[10px] font-medium uppercase tracking-widest text-muted-foreground">Syncing Intel...</p>
+        <p className="text-[10px] font-medium text-muted-foreground">Syncing Intel...</p>
       </div>
     )
   }
@@ -63,7 +65,7 @@ export function NotificationsList() {
           <div className="size-16 rounded-full bg-muted/20 flex items-center justify-center mx-auto mb-4">
              <ShieldAlert className="size-8 text-destructive/20" />
           </div>
-          <p className="text-sm font-semibold uppercase tracking-widest">Connection Failure</p>
+          <p className="text-sm font-semibold">Connection Failure</p>
           <p className="text-xs mt-1">Unable to retrieve system notifications.</p>
         </div>
       )
@@ -76,7 +78,7 @@ export function NotificationsList() {
         <div className="size-16 rounded-full bg-muted/20 flex items-center justify-center mx-auto mb-4">
            <MessageCircle className="size-8 text-muted-foreground/20" />
         </div>
-        <p className="text-sm font-semibold uppercase tracking-widest">Zero Intel</p>
+        <p className="text-sm font-semibold">Zero Intel</p>
         <p className="text-xs mt-1 text-muted-foreground/60 leading-relaxed">Your neural-link is clear.<br/>No pending notifications detected at this time.</p>
       </div>
     )
@@ -141,13 +143,13 @@ export function NotificationsList() {
               )}
 
               <div className="flex items-center gap-2">
-                 <span className="text-[9px] text-muted-foreground font-semibold uppercase tracking-widest leading-none">
+                 <span className="text-[9px] text-muted-foreground font-semibold leading-none">
                     {formatDistanceToNow(new Date(notif.createdAt), { addSuffix: true })}
                  </span>
                  {!notif.isRead && (
                    <>
                      <span className="size-1 rounded-full bg-primary/30" />
-                     <span className="text-[9px] text-primary font-semibold uppercase tracking-widest leading-none">Undeclared</span>
+                     <span className="text-[9px] text-primary font-semibold leading-none">Undeclared</span>
                    </>
                  )}
               </div>

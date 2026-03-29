@@ -10,6 +10,7 @@ import { Star, ShoppingCart } from "lucide-react"
 
 import { useCart } from "@/hooks/use-cart"
 import { toast } from "sonner"
+import { cn } from "@/lib/utils"
 
 interface ProductCardProps {
   product: Product
@@ -22,6 +23,12 @@ export function ProductCard({ product }: ProductCardProps) {
   const cleanTitle = product.title.startsWith(`${product.store.name} - `) 
     ? product.title.replace(`${product.store.name} - `, "") 
     : product.title;
+
+  const reviews = product.reviews || [];
+  const reviewCount = reviews.length;
+  const averageRating = reviewCount > 0 
+    ? (reviews.reduce((acc: number, r: any) => acc + (r.rating || 0), 0) / reviewCount).toFixed(1)
+    : "0.0";
 
   const firstImage = product.images?.[0] || "https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=800"
 
@@ -72,9 +79,12 @@ export function ProductCard({ product }: ProductCardProps) {
             <span className="truncate">{product.store.name}</span>
           </Link>
           <span className="opacity-30">•</span>
-          <div className="flex items-center text-yellow-500 shrink-0">
-            <Star className="w-3 h-3 fill-current mr-1" />
-            4.8
+          <div className={cn(
+            "flex items-center shrink-0",
+            reviewCount > 0 ? "text-amber-500" : "text-muted-foreground/20"
+          )}>
+            <Star className={cn("w-3 h-3 mr-1", reviewCount > 0 && "fill-current")} />
+            {averageRating}
           </div>
         </div>
 

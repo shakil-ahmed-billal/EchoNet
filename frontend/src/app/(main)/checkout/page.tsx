@@ -134,7 +134,7 @@ export default function CheckoutPage() {
                 <CardHeader className="p-8 pb-4">
                     <div className="flex items-center gap-3 text-primary mb-2">
                         <MapPin className="w-5 h-5" />
-                        <span className="text-xs font-black uppercase tracking-wider">Shipping Details</span>
+                        <span className="text-xs font-black tracking-wider">Shipping Details</span>
                     </div>
                     <CardTitle className="text-2xl font-black">Where should we send it?</CardTitle>
                 </CardHeader>
@@ -288,7 +288,7 @@ export default function CheckoutPage() {
             </Card>
 
             <div className="px-4 text-center">
-                <p className="text-[10px] text-muted-foreground font-medium uppercase tracking-widest">
+                <p className="text-[10px] text-muted-foreground font-medium">
                     100% Secure Checkout • Encrypted Transactions
                 </p>
             </div>

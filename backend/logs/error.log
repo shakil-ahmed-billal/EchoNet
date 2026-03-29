@@ -1,345 +1,1887 @@
-2026-03-28 23:41:19 [[31merror[39m]: Error: Session not found
-    at Object.getMe (C:\Shakil Dev\EchoNet\backend\src\app\module\auth\auth.service.ts:105:15)
-    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
-    at async <anonymous> (C:\Shakil Dev\EchoNet\backend\src\app\module\auth\auth.controller.ts:141:20)
-    at async <anonymous> (C:\Shakil Dev\EchoNet\backend\src\app\utils\catchAsync.ts:6:7)
-2026-03-28 23:41:39 [[31merror[39m]: Error: Session not found
-    at Object.getMe (C:\Shakil Dev\EchoNet\backend\src\app\module\auth\auth.service.ts:105:15)
-    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
-    at async <anonymous> (C:\Shakil Dev\EchoNet\backend\src\app\module\auth\auth.controller.ts:141:20)
-    at async <anonymous> (C:\Shakil Dev\EchoNet\backend\src\app\utils\catchAsync.ts:6:7)
-2026-03-28 23:43:03 [[31merror[39m]: Error: Session not found
-    at Object.getMe (C:\Shakil Dev\EchoNet\backend\src\app\module\auth\auth.service.ts:105:15)
-    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
-    at async <anonymous> (C:\Shakil Dev\EchoNet\backend\src\app\module\auth\auth.controller.ts:141:20)
-    at async <anonymous> (C:\Shakil Dev\EchoNet\backend\src\app\utils\catchAsync.ts:6:7)
-2026-03-28 23:45:02 [[31merror[39m]: Error: Session not found
-    at Object.getMe (C:\Shakil Dev\EchoNet\backend\src\app\module\auth\auth.service.ts:105:15)
-    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
-    at async <anonymous> (C:\Shakil Dev\EchoNet\backend\src\app\module\auth\auth.controller.ts:129:20)
-    at async <anonymous> (C:\Shakil Dev\EchoNet\backend\src\app\utils\catchAsync.ts:6:7)
-2026-03-28 23:47:32 [[31merror[39m]: Error: Session not found
-    at Object.getMe (C:\Shakil Dev\EchoNet\backend\src\app\module\auth\auth.service.ts:105:15)
-    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
-    at async <anonymous> (C:\Shakil Dev\EchoNet\backend\src\app\module\auth\auth.controller.ts:129:20)
-    at async <anonymous> (C:\Shakil Dev\EchoNet\backend\src\app\utils\catchAsync.ts:6:7)
-2026-03-28 23:49:22 [[31merror[39m]: Error: Session not found
-    at Object.getMe (C:\Shakil Dev\EchoNet\backend\src\app\module\auth\auth.service.ts:105:15)
-    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
-    at async <anonymous> (C:\Shakil Dev\EchoNet\backend\src\app\module\auth\auth.controller.ts:124:20)
-    at async <anonymous> (C:\Shakil Dev\EchoNet\backend\src\app\utils\catchAsync.ts:6:7)
-2026-03-28 23:49:39 [[31merror[39m]: Error: Session not found
-    at Object.getMe (C:\Shakil Dev\EchoNet\backend\src\app\module\auth\auth.service.ts:105:15)
-    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
-    at async <anonymous> (C:\Shakil Dev\EchoNet\backend\src\app\module\auth\auth.controller.ts:124:20)
-    at async <anonymous> (C:\Shakil Dev\EchoNet\backend\src\app\utils\catchAsync.ts:6:7)
-2026-03-28 23:53:05 [[31merror[39m]: Error: Session not found
-    at Object.getMe (C:\Shakil Dev\EchoNet\backend\src\app\module\auth\auth.service.ts:105:15)
-    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
-    at async <anonymous> (C:\Shakil Dev\EchoNet\backend\src\app\module\auth\auth.controller.ts:124:20)
-    at async <anonymous> (C:\Shakil Dev\EchoNet\backend\src\app\utils\catchAsync.ts:6:7)
-2026-03-28 23:53:13 [[31merror[39m]: Error: Session not found
-    at Object.getMe (C:\Shakil Dev\EchoNet\backend\src\app\module\auth\auth.service.ts:105:15)
-    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
-    at async <anonymous> (C:\Shakil Dev\EchoNet\backend\src\app\module\auth\auth.controller.ts:124:20)
-    at async <anonymous> (C:\Shakil Dev\EchoNet\backend\src\app\utils\catchAsync.ts:6:7)
-2026-03-28 23:53:33 [[31merror[39m]: Error: Session not found
-    at Object.getMe (C:\Shakil Dev\EchoNet\backend\src\app\module\auth\auth.service.ts:105:15)
-    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
-    at async <anonymous> (C:\Shakil Dev\EchoNet\backend\src\app\module\auth\auth.controller.ts:124:20)
-    at async <anonymous> (C:\Shakil Dev\EchoNet\backend\src\app\utils\catchAsync.ts:6:7)
-2026-03-28 23:54:38 [[31merror[39m]: Error: Session not found
-    at Object.getMe (C:\Shakil Dev\EchoNet\backend\src\app\module\auth\auth.service.ts:105:15)
-    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
-    at async <anonymous> (C:\Shakil Dev\EchoNet\backend\src\app\module\auth\auth.controller.ts:124:20)
-    at async <anonymous> (C:\Shakil Dev\EchoNet\backend\src\app\utils\catchAsync.ts:6:7)
-2026-03-28 23:55:15 [[31merror[39m]: Error: Session not found
-    at Object.getMe (C:\Shakil Dev\EchoNet\backend\src\app\module\auth\auth.service.ts:105:15)
-    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
-    at async <anonymous> (C:\Shakil Dev\EchoNet\backend\src\app\module\auth\auth.controller.ts:124:20)
-    at async <anonymous> (C:\Shakil Dev\EchoNet\backend\src\app\utils\catchAsync.ts:6:7)
-2026-03-28 23:55:45 [[31merror[39m]: Error: Session not found
-    at Object.getMe (C:\Shakil Dev\EchoNet\backend\src\app\module\auth\auth.service.ts:105:15)
-    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
-    at async <anonymous> (C:\Shakil Dev\EchoNet\backend\src\app\module\auth\auth.controller.ts:124:20)
-    at async <anonymous> (C:\Shakil Dev\EchoNet\backend\src\app\utils\catchAsync.ts:6:7)
-2026-03-28 23:56:09 [[31merror[39m]: Error: Session not found
-    at Object.getMe (C:\Shakil Dev\EchoNet\backend\src\app\module\auth\auth.service.ts:105:15)
-    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
-    at async <anonymous> (C:\Shakil Dev\EchoNet\backend\src\app\module\auth\auth.controller.ts:124:20)
-    at async <anonymous> (C:\Shakil Dev\EchoNet\backend\src\app\utils\catchAsync.ts:6:7)
-2026-03-28 23:58:00 [[31merror[39m]: Error: Session not found
-    at Object.getMe (C:\Shakil Dev\EchoNet\backend\src\app\module\auth\auth.service.ts:105:15)
-    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
-    at async <anonymous> (C:\Shakil Dev\EchoNet\backend\src\app\module\auth\auth.controller.ts:132:20)
-    at async <anonymous> (C:\Shakil Dev\EchoNet\backend\src\app\utils\catchAsync.ts:6:7)
-2026-03-29 00:02:35 [[31merror[39m]: Error: Session not found
-    at Object.getMe (C:\Shakil Dev\EchoNet\backend\src\app\module\auth\auth.service.ts:105:15)
-    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
-    at async <anonymous> (C:\Shakil Dev\EchoNet\backend\src\app\module\auth\auth.controller.ts:116:20)
-    at async <anonymous> (C:\Shakil Dev\EchoNet\backend\src\app\utils\catchAsync.ts:6:7)
-2026-03-29 00:03:29 [[31merror[39m]: Error: Session not found
-    at Object.getMe (C:\Shakil Dev\EchoNet\backend\src\app\module\auth\auth.service.ts:105:15)
-    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
-    at async <anonymous> (C:\Shakil Dev\EchoNet\backend\src\app\module\auth\auth.controller.ts:116:20)
-    at async <anonymous> (C:\Shakil Dev\EchoNet\backend\src\app\utils\catchAsync.ts:6:7)
-2026-03-29 00:04:16 [[31merror[39m]: Error: Session not found
-    at Object.getMe (C:\Shakil Dev\EchoNet\backend\src\app\module\auth\auth.service.ts:105:15)
-    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
-    at async <anonymous> (C:\Shakil Dev\EchoNet\backend\src\app\module\auth\auth.controller.ts:116:20)
-    at async <anonymous> (C:\Shakil Dev\EchoNet\backend\src\app\utils\catchAsync.ts:6:7)
-2026-03-29 00:05:06 [[31merror[39m]: Error: Session not found
-    at Object.getMe (C:\Shakil Dev\EchoNet\backend\src\app\module\auth\auth.service.ts:105:15)
-    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
-    at async <anonymous> (C:\Shakil Dev\EchoNet\backend\src\app\module\auth\auth.controller.ts:120:20)
-    at async <anonymous> (C:\Shakil Dev\EchoNet\backend\src\app\utils\catchAsync.ts:6:7)
-2026-03-29 00:05:18 [[31merror[39m]: Error: Session not found
-    at Object.getMe (C:\Shakil Dev\EchoNet\backend\src\app\module\auth\auth.service.ts:105:15)
-    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
-    at async <anonymous> (C:\Shakil Dev\EchoNet\backend\src\app\module\auth\auth.controller.ts:120:20)
-    at async <anonymous> (C:\Shakil Dev\EchoNet\backend\src\app\utils\catchAsync.ts:6:7)
-2026-03-29 00:08:16 [[31merror[39m]: Error: Session not found
-    at Object.getMe (C:\Shakil Dev\EchoNet\backend\src\app\module\auth\auth.service.ts:109:15)
-    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
-    at async <anonymous> (C:\Shakil Dev\EchoNet\backend\src\app\module\auth\auth.controller.ts:120:20)
-    at async <anonymous> (C:\Shakil Dev\EchoNet\backend\src\app\utils\catchAsync.ts:6:7)
-2026-03-29 00:10:30 [[31merror[39m]: Error: Session not found
-    at Object.getMe (C:\Shakil Dev\EchoNet\backend\src\app\module\auth\auth.service.ts:109:15)
-    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
-    at async <anonymous> (C:\Shakil Dev\EchoNet\backend\src\app\module\auth\auth.controller.ts:120:20)
-    at async <anonymous> (C:\Shakil Dev\EchoNet\backend\src\app\utils\catchAsync.ts:6:7)
-2026-03-29 00:10:47 [[31merror[39m]: Error: Session not found
-    at Object.getMe (C:\Shakil Dev\EchoNet\backend\src\app\module\auth\auth.service.ts:109:15)
-    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
-    at async <anonymous> (C:\Shakil Dev\EchoNet\backend\src\app\module\auth\auth.controller.ts:120:20)
-    at async <anonymous> (C:\Shakil Dev\EchoNet\backend\src\app\utils\catchAsync.ts:6:7)
-2026-03-29 00:11:07 [[31merror[39m]: Error: Session not found
-    at Object.getMe (C:\Shakil Dev\EchoNet\backend\src\app\module\auth\auth.service.ts:109:15)
-    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
-    at async <anonymous> (C:\Shakil Dev\EchoNet\backend\src\app\module\auth\auth.controller.ts:120:20)
-    at async <anonymous> (C:\Shakil Dev\EchoNet\backend\src\app\utils\catchAsync.ts:6:7)
-2026-03-29 00:13:28 [[31merror[39m]: Error: Session not found
-    at Object.getMe (C:\Shakil Dev\EchoNet\backend\src\app\module\auth\auth.service.ts:115:15)
-    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
-    at async <anonymous> (C:\Shakil Dev\EchoNet\backend\src\app\module\auth\auth.controller.ts:120:20)
-    at async <anonymous> (C:\Shakil Dev\EchoNet\backend\src\app\utils\catchAsync.ts:6:7)
-2026-03-29 00:15:08 [[31merror[39m]: Error: Session not found
-    at Object.getMe (C:\Shakil Dev\EchoNet\backend\src\app\module\auth\auth.service.ts:116:15)
-    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
-    at async <anonymous> (C:\Shakil Dev\EchoNet\backend\src\app\module\auth\auth.controller.ts:120:20)
-    at async <anonymous> (C:\Shakil Dev\EchoNet\backend\src\app\utils\catchAsync.ts:6:7)
-2026-03-29 00:15:49 [[31merror[39m]: Error: You are not authorized
-    at <anonymous> (C:\Shakil Dev\EchoNet\backend\src\app\middleware\auth.ts:38:15)
-    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
-2026-03-29 00:17:54 [[31merror[39m]: Error: Session not found
-    at Object.getMe (C:\Shakil Dev\EchoNet\backend\src\app\module\auth\auth.service.ts:116:15)
-    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
-    at async <anonymous> (C:\Shakil Dev\EchoNet\backend\src\app\module\auth\auth.controller.ts:120:20)
-    at async <anonymous> (C:\Shakil Dev\EchoNet\backend\src\app\utils\catchAsync.ts:6:7)
-2026-03-29 00:19:35 [[31merror[39m]: Error: Session not found
-    at Object.getMe (C:\Shakil Dev\EchoNet\backend\src\app\module\auth\auth.service.ts:116:15)
-    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
-    at async <anonymous> (C:\Shakil Dev\EchoNet\backend\src\app\module\auth\auth.controller.ts:120:20)
-    at async <anonymous> (C:\Shakil Dev\EchoNet\backend\src\app\utils\catchAsync.ts:6:7)
-2026-03-29 00:20:15 [[31merror[39m]: Error: Session not found
-    at Object.getMe (C:\Shakil Dev\EchoNet\backend\src\app\module\auth\auth.service.ts:116:15)
-    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
-    at async <anonymous> (C:\Shakil Dev\EchoNet\backend\src\app\module\auth\auth.controller.ts:120:20)
-    at async <anonymous> (C:\Shakil Dev\EchoNet\backend\src\app\utils\catchAsync.ts:6:7)
-2026-03-29 00:22:34 [[31merror[39m]: Error: Session not found
-    at Object.getMe (C:\Shakil Dev\EchoNet\backend\src\app\module\auth\auth.service.ts:116:15)
-    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
-    at async <anonymous> (C:\Shakil Dev\EchoNet\backend\src\app\module\auth\auth.controller.ts:120:20)
-    at async <anonymous> (C:\Shakil Dev\EchoNet\backend\src\app\utils\catchAsync.ts:6:7)
-2026-03-29 00:22:47 [[31merror[39m]: Error: Session not found
-    at Object.getMe (C:\Shakil Dev\EchoNet\backend\src\app\module\auth\auth.service.ts:116:15)
-    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
-    at async <anonymous> (C:\Shakil Dev\EchoNet\backend\src\app\module\auth\auth.controller.ts:120:20)
-    at async <anonymous> (C:\Shakil Dev\EchoNet\backend\src\app\utils\catchAsync.ts:6:7)
-2026-03-29 00:23:07 [[31merror[39m]: Error: Session not found
-    at Object.getMe (C:\Shakil Dev\EchoNet\backend\src\app\module\auth\auth.service.ts:116:15)
-    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
-    at async <anonymous> (C:\Shakil Dev\EchoNet\backend\src\app\module\auth\auth.controller.ts:120:20)
-    at async <anonymous> (C:\Shakil Dev\EchoNet\backend\src\app\utils\catchAsync.ts:6:7)
-2026-03-29 00:23:31 [[31merror[39m]: Error: Session not found
-    at Object.getMe (C:\Shakil Dev\EchoNet\backend\src\app\module\auth\auth.service.ts:116:15)
-    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
-    at async <anonymous> (C:\Shakil Dev\EchoNet\backend\src\app\module\auth\auth.controller.ts:120:20)
-    at async <anonymous> (C:\Shakil Dev\EchoNet\backend\src\app\utils\catchAsync.ts:6:7)
-2026-03-29 00:28:00 [[31merror[39m]: Error: Session not found
-    at Object.getMe (C:\Shakil Dev\EchoNet\backend\src\app\module\auth\auth.service.ts:117:15)
-    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
-    at async <anonymous> (C:\Shakil Dev\EchoNet\backend\src\app\module\auth\auth.controller.ts:120:20)
-    at async <anonymous> (C:\Shakil Dev\EchoNet\backend\src\app\utils\catchAsync.ts:6:7)
-2026-03-29 00:28:22 [[31merror[39m]: Error: Session not found
-    at Object.getMe (C:\Shakil Dev\EchoNet\backend\src\app\module\auth\auth.service.ts:117:15)
-    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
-    at async <anonymous> (C:\Shakil Dev\EchoNet\backend\src\app\module\auth\auth.controller.ts:120:20)
-    at async <anonymous> (C:\Shakil Dev\EchoNet\backend\src\app\utils\catchAsync.ts:6:7)
-2026-03-29 00:33:32 [[31merror[39m]: Error: Store not found
-    at Object.getStoreOrders (C:\Shakil Dev\EchoNet\backend\src\app\module\order\order.service.ts:100:21)
-    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
-    at async <anonymous> (C:\Shakil Dev\EchoNet\backend\src\app\module\order\order.controller.ts:30:18)
-    at async <anonymous> (C:\Shakil Dev\EchoNet\backend\src\app\utils\catchAsync.ts:6:7)
-2026-03-29 00:33:33 [[31merror[39m]: Error: Store not found
-    at Object.getStoreOrders (C:\Shakil Dev\EchoNet\backend\src\app\module\order\order.service.ts:100:21)
-    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
-    at async <anonymous> (C:\Shakil Dev\EchoNet\backend\src\app\module\order\order.controller.ts:30:18)
-    at async <anonymous> (C:\Shakil Dev\EchoNet\backend\src\app\utils\catchAsync.ts:6:7)
-2026-03-29 00:49:49 [[31merror[39m]: Error: You are not authorized
-    at <anonymous> (C:\Shakil Dev\EchoNet\backend\src\app\middleware\auth.ts:38:15)
-    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
-2026-03-29 00:49:49 [[31merror[39m]: Error: Invalid session token
-    at Object.getNewToken (C:\Shakil Dev\EchoNet\backend\src\app\module\auth\auth.service.ts:196:15)
-    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
-    at async <anonymous> (C:\Shakil Dev\EchoNet\backend\src\app\module\auth\auth.controller.ts:176:20)
-    at async <anonymous> (C:\Shakil Dev\EchoNet\backend\src\app\utils\catchAsync.ts:6:7)
-2026-03-29 00:49:50 [[31merror[39m]: Error: You are not authorized
-    at <anonymous> (C:\Shakil Dev\EchoNet\backend\src\app\middleware\auth.ts:38:15)
-    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
-2026-03-29 00:49:50 [[31merror[39m]: Error: Invalid session token
-    at Object.getNewToken (C:\Shakil Dev\EchoNet\backend\src\app\module\auth\auth.service.ts:196:15)
-    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
-    at async <anonymous> (C:\Shakil Dev\EchoNet\backend\src\app\module\auth\auth.controller.ts:176:20)
-    at async <anonymous> (C:\Shakil Dev\EchoNet\backend\src\app\utils\catchAsync.ts:6:7)
-2026-03-29 01:58:47 [[31merror[39m]: Error: You are not authorized
-    at <anonymous> (C:\Shakil Dev\EchoNet\backend\src\app\middleware\auth.ts:38:15)
-    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
-2026-03-29 02:06:12 [[31merror[39m]: Error: You are not authorized
-    at <anonymous> (C:\Shakil Dev\EchoNet\backend\src\app\middleware\auth.ts:38:15)
-    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
-2026-03-29 02:06:33 [[31merror[39m]: Error: You are not authorized
-    at <anonymous> (C:\Shakil Dev\EchoNet\backend\src\app\middleware\auth.ts:38:15)
-    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
-2026-03-29 02:07:03 [[31merror[39m]: Error: You are not authorized
-    at <anonymous> (C:\Shakil Dev\EchoNet\backend\src\app\middleware\auth.ts:38:15)
-    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
-2026-03-29 02:27:50 [[31merror[39m]: Error: You are not authorized
-    at <anonymous> (C:\Shakil Dev\EchoNet\backend\src\app\middleware\auth.ts:38:15)
-    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
-2026-03-29 02:27:50 [[31merror[39m]: Error: Invalid session token
-    at Object.getNewToken (C:\Shakil Dev\EchoNet\backend\src\app\module\auth\auth.service.ts:205:15)
-    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
-    at async <anonymous> (C:\Shakil Dev\EchoNet\backend\src\app\module\auth\auth.controller.ts:171:20)
-    at async <anonymous> (C:\Shakil Dev\EchoNet\backend\src\app\utils\catchAsync.ts:6:7)
-2026-03-29 02:27:54 [[31merror[39m]: Error: You are not authorized
-    at <anonymous> (C:\Shakil Dev\EchoNet\backend\src\app\middleware\auth.ts:38:15)
-    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
-2026-03-29 02:27:54 [[31merror[39m]: Error: Invalid session token
-    at Object.getNewToken (C:\Shakil Dev\EchoNet\backend\src\app\module\auth\auth.service.ts:205:15)
-    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
-    at async <anonymous> (C:\Shakil Dev\EchoNet\backend\src\app\module\auth\auth.controller.ts:171:20)
-    at async <anonymous> (C:\Shakil Dev\EchoNet\backend\src\app\utils\catchAsync.ts:6:7)
-2026-03-29 02:28:03 [[31merror[39m]: Error: You are not authorized
-    at <anonymous> (C:\Shakil Dev\EchoNet\backend\src\app\middleware\auth.ts:38:15)
-    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
-2026-03-29 02:28:03 [[31merror[39m]: Error: Invalid session token
-    at Object.getNewToken (C:\Shakil Dev\EchoNet\backend\src\app\module\auth\auth.service.ts:205:15)
-    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
-    at async <anonymous> (C:\Shakil Dev\EchoNet\backend\src\app\module\auth\auth.controller.ts:171:20)
-    at async <anonymous> (C:\Shakil Dev\EchoNet\backend\src\app\utils\catchAsync.ts:6:7)
-2026-03-29 02:28:10 [[31merror[39m]: Error: You are not authorized
-    at <anonymous> (C:\Shakil Dev\EchoNet\backend\src\app\middleware\auth.ts:38:15)
-    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
-2026-03-29 02:28:10 [[31merror[39m]: Error: Invalid session token
-    at Object.getNewToken (C:\Shakil Dev\EchoNet\backend\src\app\module\auth\auth.service.ts:205:15)
-    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
-    at async <anonymous> (C:\Shakil Dev\EchoNet\backend\src\app\module\auth\auth.controller.ts:171:20)
-    at async <anonymous> (C:\Shakil Dev\EchoNet\backend\src\app\utils\catchAsync.ts:6:7)
-2026-03-29 02:28:16 [[31merror[39m]: Error: You are not authorized
-    at <anonymous> (C:\Shakil Dev\EchoNet\backend\src\app\middleware\auth.ts:38:15)
-    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
-2026-03-29 02:28:16 [[31merror[39m]: Error: You are not authorized
-    at <anonymous> (C:\Shakil Dev\EchoNet\backend\src\app\middleware\auth.ts:38:15)
-    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
-2026-03-29 02:28:16 [[31merror[39m]: Error: Invalid session token
-    at Object.getNewToken (C:\Shakil Dev\EchoNet\backend\src\app\module\auth\auth.service.ts:205:15)
-    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
-    at async <anonymous> (C:\Shakil Dev\EchoNet\backend\src\app\module\auth\auth.controller.ts:171:20)
-    at async <anonymous> (C:\Shakil Dev\EchoNet\backend\src\app\utils\catchAsync.ts:6:7)
-2026-03-29 02:28:16 [[31merror[39m]: Error: Invalid session token
-    at Object.getNewToken (C:\Shakil Dev\EchoNet\backend\src\app\module\auth\auth.service.ts:205:15)
-    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
-    at async <anonymous> (C:\Shakil Dev\EchoNet\backend\src\app\module\auth\auth.controller.ts:171:20)
-    at async <anonymous> (C:\Shakil Dev\EchoNet\backend\src\app\utils\catchAsync.ts:6:7)
-2026-03-29 02:28:19 [[31merror[39m]: Error: You are not authorized
-    at <anonymous> (C:\Shakil Dev\EchoNet\backend\src\app\middleware\auth.ts:38:15)
-    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
-2026-03-29 02:28:19 [[31merror[39m]: Error: Invalid session token
-    at Object.getNewToken (C:\Shakil Dev\EchoNet\backend\src\app\module\auth\auth.service.ts:205:15)
-    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
-    at async <anonymous> (C:\Shakil Dev\EchoNet\backend\src\app\module\auth\auth.controller.ts:171:20)
-    at async <anonymous> (C:\Shakil Dev\EchoNet\backend\src\app\utils\catchAsync.ts:6:7)
-2026-03-29 02:28:54 [[31merror[39m]: Error: You are not authorized
-    at <anonymous> (C:\Shakil Dev\EchoNet\backend\src\app\middleware\auth.ts:38:15)
-    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
-2026-03-29 02:28:54 [[31merror[39m]: Error: Invalid session token
-    at Object.getNewToken (C:\Shakil Dev\EchoNet\backend\src\app\module\auth\auth.service.ts:198:15)
-    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
-    at async <anonymous> (C:\Shakil Dev\EchoNet\backend\src\app\module\auth\auth.controller.ts:171:20)
-    at async <anonymous> (C:\Shakil Dev\EchoNet\backend\src\app\utils\catchAsync.ts:6:7)
-2026-03-29 02:28:56 [[31merror[39m]: Error: You are not authorized
-    at <anonymous> (C:\Shakil Dev\EchoNet\backend\src\app\middleware\auth.ts:38:15)
-    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
-2026-03-29 02:28:56 [[31merror[39m]: Error: Invalid session token
-    at Object.getNewToken (C:\Shakil Dev\EchoNet\backend\src\app\module\auth\auth.service.ts:198:15)
-    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
-    at async <anonymous> (C:\Shakil Dev\EchoNet\backend\src\app\module\auth\auth.controller.ts:171:20)
-    at async <anonymous> (C:\Shakil Dev\EchoNet\backend\src\app\utils\catchAsync.ts:6:7)
-2026-03-29 04:25:44 [[31merror[39m]: Error: Store not found
-    at Object.getStoreOrders (C:\Shakil Dev\EchoNet\backend\src\app\module\order\order.service.ts:100:21)
-    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
-    at async <anonymous> (C:\Shakil Dev\EchoNet\backend\src\app\module\order\order.controller.ts:30:18)
-    at async <anonymous> (C:\Shakil Dev\EchoNet\backend\src\app\utils\catchAsync.ts:6:7)
-2026-03-29 04:59:23 [[31merror[39m]: Error: You are not authorized
-    at <anonymous> (C:\Shakil Dev\EchoNet\backend\src\app\middleware\auth.ts:38:15)
-    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
-2026-03-29 04:59:24 [[31merror[39m]: Error: Invalid session token
-    at Object.getNewToken (C:\Shakil Dev\EchoNet\backend\src\app\module\auth\auth.service.ts:194:15)
-    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
-    at async <anonymous> (C:\Shakil Dev\EchoNet\backend\src\app\module\auth\auth.controller.ts:175:20)
-    at async <anonymous> (C:\Shakil Dev\EchoNet\backend\src\app\utils\catchAsync.ts:6:7)
-2026-03-29 04:59:26 [[31merror[39m]: Error: You are not authorized
-    at <anonymous> (C:\Shakil Dev\EchoNet\backend\src\app\middleware\auth.ts:38:15)
-    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
-2026-03-29 05:08:55 [[31merror[39m]: Error: You are not authorized
-    at <anonymous> (C:\Shakil Dev\EchoNet\backend\src\app\middleware\auth.ts:38:15)
-    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
-2026-03-29 06:23:28 [[31merror[39m]: PrismaClientKnownRequestError: 
-Invalid `tx.payment.update()` invocation in
-C:\Shakil Dev\EchoNet\backend\src\app\module\payment\payment.service.ts:101:26
+2026-03-29 08:52:31 [[31merror[39m]: Error: You are not authorized
+    at <anonymous> (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/middleware/auth.ts:38:15)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+2026-03-29 08:52:31 [[31merror[39m]: Error: You are not authorized
+    at <anonymous> (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/middleware/auth.ts:38:15)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+2026-03-29 08:52:31 [[31merror[39m]: PrismaClientKnownRequestError: 
+Invalid `this.model.findMany()` invocation in
+/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/utils/QueryBuilder.ts:215:18
 
-   98 
-   99 if (orderId) {
-  100   await prisma.$transaction(async (tx) => {
-→ 101     await tx.payment.update(
-An operation failed because it depends on one or more records that were required but not found. No record was found for an update.
-    at Gr.handleRequestError (C:\Shakil Dev\EchoNet\backend\generated\prisma\client\runtime\client.js:69:8286)
-    at Gr.handleAndLogRequestError (C:\Shakil Dev\EchoNet\backend\generated\prisma\client\runtime\client.js:69:7581)
-    at Gr.request (C:\Shakil Dev\EchoNet\backend\generated\prisma\client\runtime\client.js:69:7288)
+  212 async execute(): Promise<IQueryResult<T>> {
+  213   const [total, data] = await Promise.all([
+  214     this.model.count(this.countQuery as Parameters<typeof this.model.count>[0]),
+→ 215     this.model.findMany(
+The column `User.phoneNumber` does not exist in the current database.
+    at Gr.handleRequestError (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/generated/prisma/client/runtime/client.js:69:8286)
+    at Gr.handleAndLogRequestError (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/generated/prisma/client/runtime/client.js:69:7581)
+    at Gr.request (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/generated/prisma/client/runtime/client.js:69:7288)
     at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
-    at async a (C:\Shakil Dev\EchoNet\backend\generated\prisma\client\runtime\client.js:79:6730)
-    at async <anonymous> (C:\Shakil Dev\EchoNet\backend\src\app\module\payment\payment.service.ts:101:9)
-    at async Proxy._transactionWithCallback (C:\Shakil Dev\EchoNet\backend\generated\prisma\client\runtime\client.js:79:4668)
-    at async Object.handleWebhook (C:\Shakil Dev\EchoNet\backend\src\app\module\payment\payment.service.ts:100:7)
-    at async <anonymous> (C:\Shakil Dev\EchoNet\backend\src\app\module\payment\payment.controller.ts:20:18)
-    at async <anonymous> (C:\Shakil Dev\EchoNet\backend\src\app\utils\catchAsync.ts:6:7)
-2026-03-29 06:39:29 [[31merror[39m]: PrismaClientKnownRequestError: 
-Invalid `tx.payment.update()` invocation in
-C:\Shakil Dev\EchoNet\backend\src\app\module\payment\payment.service.ts:101:26
+    at async a (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/generated/prisma/client/runtime/client.js:79:6730)
+    at async Promise.all (index 1)
+    at async QueryBuilder.execute (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/utils/QueryBuilder.ts:213:27)
+    at async Object.getAllUsers (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/module/user/user.service.ts:5:18)
+    at async <anonymous> (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/module/user/user.controller.ts:10:18)
+    at async <anonymous> (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/utils/catchAsync.ts:6:7)
+2026-03-29 08:52:31 [[31merror[39m]: Error: Invalid session token
+    at Object.getNewToken (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/module/auth/auth.service.ts:194:15)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async <anonymous> (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/module/auth/auth.controller.ts:175:20)
+    at async <anonymous> (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/utils/catchAsync.ts:6:7)
+2026-03-29 08:52:31 [[31merror[39m]: PrismaClientKnownRequestError: 
+Invalid `prisma.post.findMany()` invocation in
+/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/module/post/post.service.ts:194:36
 
-   98 
-   99 if (orderId) {
-  100   await prisma.$transaction(async (tx) => {
-→ 101     await tx.payment.update(
-An operation failed because it depends on one or more records that were required but not found. No record was found for an update.
-    at Gr.handleRequestError (C:\Shakil Dev\EchoNet\backend\generated\prisma\client\runtime\client.js:69:8286)
-    at Gr.handleAndLogRequestError (C:\Shakil Dev\EchoNet\backend\generated\prisma\client\runtime\client.js:69:7581)
-    at Gr.request (C:\Shakil Dev\EchoNet\backend\generated\prisma\client\runtime\client.js:69:7288)
+  191 
+  192 where.status = 'ACTIVE';
+  193 
+→ 194 const result = await prisma.post.findMany(
+The column `User.phoneNumber` does not exist in the current database.
+    at Gr.handleRequestError (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/generated/prisma/client/runtime/client.js:69:8286)
+    at Gr.handleAndLogRequestError (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/generated/prisma/client/runtime/client.js:69:7581)
+    at Gr.request (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/generated/prisma/client/runtime/client.js:69:7288)
     at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
-    at async a (C:\Shakil Dev\EchoNet\backend\generated\prisma\client\runtime\client.js:79:6730)
-    at async <anonymous> (C:\Shakil Dev\EchoNet\backend\src\app\module\payment\payment.service.ts:101:9)
-    at async Proxy._transactionWithCallback (C:\Shakil Dev\EchoNet\backend\generated\prisma\client\runtime\client.js:79:4668)
-    at async Object.handleWebhook (C:\Shakil Dev\EchoNet\backend\src\app\module\payment\payment.service.ts:100:7)
-    at async <anonymous> (C:\Shakil Dev\EchoNet\backend\src\app\module\payment\payment.controller.ts:20:18)
-    at async <anonymous> (C:\Shakil Dev\EchoNet\backend\src\app\utils\catchAsync.ts:6:7)
+    at async a (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/generated/prisma/client/runtime/client.js:79:6730)
+    at async Object.getAllPosts (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/module/post/post.service.ts:194:18)
+    at async <anonymous> (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/module/post/post.controller.ts:40:18)
+    at async <anonymous> (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/utils/catchAsync.ts:6:7)
+2026-03-29 08:52:31 [[31merror[39m]: PrismaClientKnownRequestError: 
+Invalid `prisma.post.findMany()` invocation in
+/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/module/post/post.service.ts:194:36
+
+  191 
+  192 where.status = 'ACTIVE';
+  193 
+→ 194 const result = await prisma.post.findMany(
+The column `User.phoneNumber` does not exist in the current database.
+    at Gr.handleRequestError (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/generated/prisma/client/runtime/client.js:69:8286)
+    at Gr.handleAndLogRequestError (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/generated/prisma/client/runtime/client.js:69:7581)
+    at Gr.request (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/generated/prisma/client/runtime/client.js:69:7288)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async a (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/generated/prisma/client/runtime/client.js:79:6730)
+    at async Object.getAllPosts (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/module/post/post.service.ts:194:18)
+    at async <anonymous> (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/module/post/post.controller.ts:40:18)
+    at async <anonymous> (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/utils/catchAsync.ts:6:7)
+2026-03-29 08:52:32 [[31merror[39m]: Error: You are not authorized
+    at <anonymous> (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/middleware/auth.ts:38:15)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+2026-03-29 08:52:37 [[31merror[39m]: Error: You are not authorized
+    at <anonymous> (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/middleware/auth.ts:38:15)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+2026-03-29 08:57:09 [[31merror[39m]: Error: You are not authorized
+    at <anonymous> (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/middleware/auth.ts:38:15)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+2026-03-29 09:01:04 [[31merror[39m]: Error: You are not authorized
+    at <anonymous> (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/middleware/auth.ts:38:15)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+2026-03-29 09:01:04 [[31merror[39m]: Error: You are not authorized
+    at <anonymous> (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/middleware/auth.ts:38:15)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+2026-03-29 09:01:04 [[31merror[39m]: Error: Invalid session token
+    at Object.getNewToken (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/module/auth/auth.service.ts:194:15)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async <anonymous> (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/module/auth/auth.controller.ts:175:20)
+    at async <anonymous> (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/utils/catchAsync.ts:6:7)
+2026-03-29 09:01:05 [[31merror[39m]: Error: You are not authorized
+    at <anonymous> (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/middleware/auth.ts:38:15)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+2026-03-29 09:01:21 [[31merror[39m]: Error: You are not authorized
+    at <anonymous> (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/middleware/auth.ts:38:15)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+2026-03-29 09:01:21 [[31merror[39m]: Error: You are not authorized
+    at <anonymous> (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/middleware/auth.ts:38:15)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+2026-03-29 09:01:21 [[31merror[39m]: Error: Invalid session token
+    at Object.getNewToken (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/module/auth/auth.service.ts:194:15)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async <anonymous> (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/module/auth/auth.controller.ts:175:20)
+    at async <anonymous> (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/utils/catchAsync.ts:6:7)
+2026-03-29 09:01:21 [[31merror[39m]: Error: You are not authorized
+    at <anonymous> (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/middleware/auth.ts:38:15)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+2026-03-29 09:02:19 [[31merror[39m]: Error: You are not authorized
+    at <anonymous> (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/middleware/auth.ts:38:15)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+2026-03-29 09:02:25 [[31merror[39m]: Error: You are not authorized
+    at <anonymous> (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/middleware/auth.ts:38:15)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+2026-03-29 09:02:25 [[31merror[39m]: Error: You are not authorized
+    at <anonymous> (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/middleware/auth.ts:38:15)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+2026-03-29 09:02:25 [[31merror[39m]: Error: Invalid session token
+    at Object.getNewToken (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/module/auth/auth.service.ts:194:15)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async <anonymous> (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/module/auth/auth.controller.ts:175:20)
+    at async <anonymous> (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/utils/catchAsync.ts:6:7)
+2026-03-29 09:02:26 [[31merror[39m]: Error: You are not authorized
+    at <anonymous> (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/middleware/auth.ts:38:15)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+2026-03-29 09:17:23 [[31merror[39m]: Error: You are not authorized
+    at <anonymous> (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/middleware/auth.ts:38:15)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+2026-03-29 09:17:23 [[31merror[39m]: Error: Invalid session token
+    at Object.getNewToken (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/module/auth/auth.service.ts:194:15)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async <anonymous> (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/module/auth/auth.controller.ts:175:20)
+    at async <anonymous> (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/utils/catchAsync.ts:6:7)
+2026-03-29 09:21:58 [[31merror[39m]: Error: Session not found
+    at Object.getMe (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/module/auth/auth.service.ts:138:15)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async <anonymous> (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/module/auth/auth.controller.ts:80:20)
+    at async <anonymous> (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/utils/catchAsync.ts:6:7)
+2026-03-29 10:12:01 [[31merror[39m]: Error: You are not authorized
+    at <anonymous> (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/middleware/auth.ts:38:15)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+2026-03-29 10:12:01 [[31merror[39m]: Error: You are not authorized
+    at <anonymous> (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/middleware/auth.ts:38:15)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+2026-03-29 10:12:01 [[31merror[39m]: Error: Invalid session token
+    at Object.getNewToken (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/module/auth/auth.service.ts:194:15)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async <anonymous> (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/module/auth/auth.controller.ts:214:18)
+    at async <anonymous> (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/utils/catchAsync.ts:6:7)
+2026-03-29 10:12:01 [[31merror[39m]: Error: Invalid session token
+    at Object.getNewToken (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/module/auth/auth.service.ts:194:15)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async <anonymous> (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/module/auth/auth.controller.ts:214:18)
+    at async <anonymous> (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/utils/catchAsync.ts:6:7)
+2026-03-29 11:40:33 [[31merror[39m]: PrismaClientValidationError: 
+Invalid `this.model.findMany()` invocation in
+/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/utils/QueryBuilder.ts:215:18
+
+  212 async execute(): Promise<IQueryResult<T>> {
+  213   const [total, data] = await Promise.all([
+  214     this.model.count(this.countQuery as Parameters<typeof this.model.count>[0]),
+→ 215     this.model.findMany({
+            where: {
+              status: "FLAGGED"
+            },
+            include: {
+              user: {
+              ~~~~
+                select: {
+                  id: true,
+                  name: true,
+                  avatarUrl: true
+                }
+              },
+          ?   author?: true,
+          ?   comments?: true,
+          ?   likes?: true,
+          ?   reactions?: true,
+          ?   hashtags?: true,
+          ?   savedBy?: true,
+          ?   tags?: true
+            },
+            orderBy: {
+              createdAt: "desc"
+            },
+            skip: 0,
+            take: 10
+          })
+
+Unknown field `user` for include statement on model `Post`. Available options are marked with ?.
+    at ar (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/generated/prisma/client/runtime/client.js:14:1374)
+    at Gr.handleRequestError (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/generated/prisma/client/runtime/client.js:69:7929)
+    at Gr.handleAndLogRequestError (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/generated/prisma/client/runtime/client.js:69:7581)
+    at Gr.request (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/generated/prisma/client/runtime/client.js:69:7288)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async a (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/generated/prisma/client/runtime/client.js:79:6730)
+    at async Promise.all (index 1)
+    at async QueryBuilder.execute (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/utils/QueryBuilder.ts:213:27)
+    at async Object.getAllPosts (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/module/admin/admin.service.ts:54:10)
+    at async <anonymous> (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/module/admin/admin.controller.ts:29:18)
+2026-03-29 11:40:34 [[31merror[39m]: PrismaClientValidationError: 
+Invalid `this.model.findMany()` invocation in
+/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/utils/QueryBuilder.ts:215:18
+
+  212 async execute(): Promise<IQueryResult<T>> {
+  213   const [total, data] = await Promise.all([
+  214     this.model.count(this.countQuery as Parameters<typeof this.model.count>[0]),
+→ 215     this.model.findMany({
+            where: {
+              status: "FLAGGED"
+            },
+            include: {
+              user: {
+              ~~~~
+                select: {
+                  id: true,
+                  name: true,
+                  avatarUrl: true
+                }
+              },
+          ?   author?: true,
+          ?   comments?: true,
+          ?   likes?: true,
+          ?   reactions?: true,
+          ?   hashtags?: true,
+          ?   savedBy?: true,
+          ?   tags?: true
+            },
+            orderBy: {
+              createdAt: "desc"
+            },
+            skip: 0,
+            take: 10
+          })
+
+Unknown field `user` for include statement on model `Post`. Available options are marked with ?.
+    at ar (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/generated/prisma/client/runtime/client.js:14:1374)
+    at Gr.handleRequestError (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/generated/prisma/client/runtime/client.js:69:7929)
+    at Gr.handleAndLogRequestError (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/generated/prisma/client/runtime/client.js:69:7581)
+    at Gr.request (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/generated/prisma/client/runtime/client.js:69:7288)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async a (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/generated/prisma/client/runtime/client.js:79:6730)
+    at async Promise.all (index 1)
+    at async QueryBuilder.execute (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/utils/QueryBuilder.ts:213:27)
+    at async Object.getAllPosts (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/module/admin/admin.service.ts:54:10)
+    at async <anonymous> (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/module/admin/admin.controller.ts:29:18)
+2026-03-29 11:41:15 [[31merror[39m]: PrismaClientValidationError: 
+Invalid `this.model.findMany()` invocation in
+/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/utils/QueryBuilder.ts:215:18
+
+  212 async execute(): Promise<IQueryResult<T>> {
+  213   const [total, data] = await Promise.all([
+  214     this.model.count(this.countQuery as Parameters<typeof this.model.count>[0]),
+→ 215     this.model.findMany({
+            where: {
+              status: "FLAGGED"
+            },
+            include: {
+              user: {
+              ~~~~
+                select: {
+                  id: true,
+                  name: true,
+                  avatarUrl: true
+                }
+              },
+          ?   author?: true,
+          ?   comments?: true,
+          ?   likes?: true,
+          ?   reactions?: true,
+          ?   hashtags?: true,
+          ?   savedBy?: true,
+          ?   tags?: true
+            },
+            orderBy: {
+              createdAt: "desc"
+            },
+            skip: 0,
+            take: 10
+          })
+
+Unknown field `user` for include statement on model `Post`. Available options are marked with ?.
+    at ar (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/generated/prisma/client/runtime/client.js:14:1374)
+    at Gr.handleRequestError (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/generated/prisma/client/runtime/client.js:69:7929)
+    at Gr.handleAndLogRequestError (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/generated/prisma/client/runtime/client.js:69:7581)
+    at Gr.request (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/generated/prisma/client/runtime/client.js:69:7288)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async a (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/generated/prisma/client/runtime/client.js:79:6730)
+    at async Promise.all (index 1)
+    at async QueryBuilder.execute (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/utils/QueryBuilder.ts:213:27)
+    at async Object.getAllPosts (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/module/admin/admin.service.ts:54:10)
+    at async <anonymous> (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/module/admin/admin.controller.ts:29:18)
+2026-03-29 11:41:16 [[31merror[39m]: PrismaClientValidationError: 
+Invalid `this.model.findMany()` invocation in
+/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/utils/QueryBuilder.ts:215:18
+
+  212 async execute(): Promise<IQueryResult<T>> {
+  213   const [total, data] = await Promise.all([
+  214     this.model.count(this.countQuery as Parameters<typeof this.model.count>[0]),
+→ 215     this.model.findMany({
+            where: {
+              status: "FLAGGED"
+            },
+            include: {
+              user: {
+              ~~~~
+                select: {
+                  id: true,
+                  name: true,
+                  avatarUrl: true
+                }
+              },
+          ?   author?: true,
+          ?   comments?: true,
+          ?   likes?: true,
+          ?   reactions?: true,
+          ?   hashtags?: true,
+          ?   savedBy?: true,
+          ?   tags?: true
+            },
+            orderBy: {
+              createdAt: "desc"
+            },
+            skip: 0,
+            take: 10
+          })
+
+Unknown field `user` for include statement on model `Post`. Available options are marked with ?.
+    at ar (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/generated/prisma/client/runtime/client.js:14:1374)
+    at Gr.handleRequestError (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/generated/prisma/client/runtime/client.js:69:7929)
+    at Gr.handleAndLogRequestError (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/generated/prisma/client/runtime/client.js:69:7581)
+    at Gr.request (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/generated/prisma/client/runtime/client.js:69:7288)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async a (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/generated/prisma/client/runtime/client.js:79:6730)
+    at async Promise.all (index 1)
+    at async QueryBuilder.execute (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/utils/QueryBuilder.ts:213:27)
+    at async Object.getAllPosts (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/module/admin/admin.service.ts:54:10)
+    at async <anonymous> (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/module/admin/admin.controller.ts:29:18)
+2026-03-29 11:41:18 [[31merror[39m]: PrismaClientValidationError: 
+Invalid `this.model.findMany()` invocation in
+/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/utils/QueryBuilder.ts:215:18
+
+  212 async execute(): Promise<IQueryResult<T>> {
+  213   const [total, data] = await Promise.all([
+  214     this.model.count(this.countQuery as Parameters<typeof this.model.count>[0]),
+→ 215     this.model.findMany({
+            where: {
+              status: "FLAGGED"
+            },
+            include: {
+              user: {
+              ~~~~
+                select: {
+                  id: true,
+                  name: true,
+                  avatarUrl: true
+                }
+              },
+          ?   author?: true,
+          ?   comments?: true,
+          ?   likes?: true,
+          ?   reactions?: true,
+          ?   hashtags?: true,
+          ?   savedBy?: true,
+          ?   tags?: true
+            },
+            orderBy: {
+              createdAt: "desc"
+            },
+            skip: 0,
+            take: 10
+          })
+
+Unknown field `user` for include statement on model `Post`. Available options are marked with ?.
+    at ar (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/generated/prisma/client/runtime/client.js:14:1374)
+    at Gr.handleRequestError (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/generated/prisma/client/runtime/client.js:69:7929)
+    at Gr.handleAndLogRequestError (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/generated/prisma/client/runtime/client.js:69:7581)
+    at Gr.request (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/generated/prisma/client/runtime/client.js:69:7288)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async a (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/generated/prisma/client/runtime/client.js:79:6730)
+    at async Promise.all (index 1)
+    at async QueryBuilder.execute (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/utils/QueryBuilder.ts:213:27)
+    at async Object.getAllPosts (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/module/admin/admin.service.ts:54:10)
+    at async <anonymous> (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/module/admin/admin.controller.ts:29:18)
+2026-03-29 11:41:23 [[31merror[39m]: PrismaClientValidationError: 
+Invalid `this.model.findMany()` invocation in
+/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/utils/QueryBuilder.ts:215:18
+
+  212 async execute(): Promise<IQueryResult<T>> {
+  213   const [total, data] = await Promise.all([
+  214     this.model.count(this.countQuery as Parameters<typeof this.model.count>[0]),
+→ 215     this.model.findMany({
+            where: {
+              status: "FLAGGED"
+            },
+            include: {
+              user: {
+              ~~~~
+                select: {
+                  id: true,
+                  name: true,
+                  avatarUrl: true
+                }
+              },
+          ?   author?: true,
+          ?   comments?: true,
+          ?   likes?: true,
+          ?   reactions?: true,
+          ?   hashtags?: true,
+          ?   savedBy?: true,
+          ?   tags?: true
+            },
+            orderBy: {
+              createdAt: "desc"
+            },
+            skip: 0,
+            take: 10
+          })
+
+Unknown field `user` for include statement on model `Post`. Available options are marked with ?.
+    at ar (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/generated/prisma/client/runtime/client.js:14:1374)
+    at Gr.handleRequestError (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/generated/prisma/client/runtime/client.js:69:7929)
+    at Gr.handleAndLogRequestError (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/generated/prisma/client/runtime/client.js:69:7581)
+    at Gr.request (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/generated/prisma/client/runtime/client.js:69:7288)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async a (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/generated/prisma/client/runtime/client.js:79:6730)
+    at async Promise.all (index 1)
+    at async QueryBuilder.execute (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/utils/QueryBuilder.ts:213:27)
+    at async Object.getAllPosts (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/module/admin/admin.service.ts:54:10)
+    at async <anonymous> (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/module/admin/admin.controller.ts:29:18)
+2026-03-29 11:41:34 [[31merror[39m]: PrismaClientValidationError: 
+Invalid `this.model.findMany()` invocation in
+/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/utils/QueryBuilder.ts:215:18
+
+  212 async execute(): Promise<IQueryResult<T>> {
+  213   const [total, data] = await Promise.all([
+  214     this.model.count(this.countQuery as Parameters<typeof this.model.count>[0]),
+→ 215     this.model.findMany({
+            where: {
+              status: "FLAGGED"
+            },
+            include: {
+              user: {
+              ~~~~
+                select: {
+                  id: true,
+                  name: true,
+                  avatarUrl: true
+                }
+              },
+          ?   author?: true,
+          ?   comments?: true,
+          ?   likes?: true,
+          ?   reactions?: true,
+          ?   hashtags?: true,
+          ?   savedBy?: true,
+          ?   tags?: true
+            },
+            orderBy: {
+              createdAt: "desc"
+            },
+            skip: 0,
+            take: 10
+          })
+
+Unknown field `user` for include statement on model `Post`. Available options are marked with ?.
+    at ar (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/generated/prisma/client/runtime/client.js:14:1374)
+    at Gr.handleRequestError (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/generated/prisma/client/runtime/client.js:69:7929)
+    at Gr.handleAndLogRequestError (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/generated/prisma/client/runtime/client.js:69:7581)
+    at Gr.request (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/generated/prisma/client/runtime/client.js:69:7288)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async a (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/generated/prisma/client/runtime/client.js:79:6730)
+    at async Promise.all (index 1)
+    at async QueryBuilder.execute (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/utils/QueryBuilder.ts:213:27)
+    at async Object.getAllPosts (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/module/admin/admin.service.ts:54:10)
+    at async <anonymous> (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/module/admin/admin.controller.ts:29:18)
+2026-03-29 11:41:35 [[31merror[39m]: PrismaClientValidationError: 
+Invalid `this.model.findMany()` invocation in
+/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/utils/QueryBuilder.ts:215:18
+
+  212 async execute(): Promise<IQueryResult<T>> {
+  213   const [total, data] = await Promise.all([
+  214     this.model.count(this.countQuery as Parameters<typeof this.model.count>[0]),
+→ 215     this.model.findMany({
+            where: {
+              status: "FLAGGED"
+            },
+            include: {
+              user: {
+              ~~~~
+                select: {
+                  id: true,
+                  name: true,
+                  avatarUrl: true
+                }
+              },
+          ?   author?: true,
+          ?   comments?: true,
+          ?   likes?: true,
+          ?   reactions?: true,
+          ?   hashtags?: true,
+          ?   savedBy?: true,
+          ?   tags?: true
+            },
+            orderBy: {
+              createdAt: "desc"
+            },
+            skip: 0,
+            take: 10
+          })
+
+Unknown field `user` for include statement on model `Post`. Available options are marked with ?.
+    at ar (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/generated/prisma/client/runtime/client.js:14:1374)
+    at Gr.handleRequestError (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/generated/prisma/client/runtime/client.js:69:7929)
+    at Gr.handleAndLogRequestError (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/generated/prisma/client/runtime/client.js:69:7581)
+    at Gr.request (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/generated/prisma/client/runtime/client.js:69:7288)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async a (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/generated/prisma/client/runtime/client.js:79:6730)
+    at async Promise.all (index 1)
+    at async QueryBuilder.execute (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/utils/QueryBuilder.ts:213:27)
+    at async Object.getAllPosts (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/module/admin/admin.service.ts:54:10)
+    at async <anonymous> (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/module/admin/admin.controller.ts:29:18)
+2026-03-29 11:41:40 [[31merror[39m]: PrismaClientValidationError: 
+Invalid `this.model.findMany()` invocation in
+/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/utils/QueryBuilder.ts:215:18
+
+  212 async execute(): Promise<IQueryResult<T>> {
+  213   const [total, data] = await Promise.all([
+  214     this.model.count(this.countQuery as Parameters<typeof this.model.count>[0]),
+→ 215     this.model.findMany({
+            where: {
+              status: "FLAGGED"
+            },
+            include: {
+              user: {
+              ~~~~
+                select: {
+                  id: true,
+                  name: true,
+                  avatarUrl: true
+                }
+              },
+          ?   author?: true,
+          ?   comments?: true,
+          ?   likes?: true,
+          ?   reactions?: true,
+          ?   hashtags?: true,
+          ?   savedBy?: true,
+          ?   tags?: true
+            },
+            orderBy: {
+              createdAt: "desc"
+            },
+            skip: 0,
+            take: 10
+          })
+
+Unknown field `user` for include statement on model `Post`. Available options are marked with ?.
+    at ar (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/generated/prisma/client/runtime/client.js:14:1374)
+    at Gr.handleRequestError (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/generated/prisma/client/runtime/client.js:69:7929)
+    at Gr.handleAndLogRequestError (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/generated/prisma/client/runtime/client.js:69:7581)
+    at Gr.request (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/generated/prisma/client/runtime/client.js:69:7288)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async a (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/generated/prisma/client/runtime/client.js:79:6730)
+    at async Promise.all (index 1)
+    at async QueryBuilder.execute (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/utils/QueryBuilder.ts:213:27)
+    at async Object.getAllPosts (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/module/admin/admin.service.ts:54:10)
+    at async <anonymous> (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/module/admin/admin.controller.ts:29:18)
+2026-03-29 11:41:44 [[31merror[39m]: PrismaClientValidationError: 
+Invalid `this.model.findMany()` invocation in
+/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/utils/QueryBuilder.ts:215:18
+
+  212 async execute(): Promise<IQueryResult<T>> {
+  213   const [total, data] = await Promise.all([
+  214     this.model.count(this.countQuery as Parameters<typeof this.model.count>[0]),
+→ 215     this.model.findMany({
+            where: {
+              status: "FLAGGED"
+            },
+            include: {
+              user: {
+              ~~~~
+                select: {
+                  id: true,
+                  name: true,
+                  avatarUrl: true
+                }
+              },
+          ?   author?: true,
+          ?   comments?: true,
+          ?   likes?: true,
+          ?   reactions?: true,
+          ?   hashtags?: true,
+          ?   savedBy?: true,
+          ?   tags?: true
+            },
+            orderBy: {
+              createdAt: "desc"
+            },
+            skip: 0,
+            take: 10
+          })
+
+Unknown field `user` for include statement on model `Post`. Available options are marked with ?.
+    at ar (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/generated/prisma/client/runtime/client.js:14:1374)
+    at Gr.handleRequestError (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/generated/prisma/client/runtime/client.js:69:7929)
+    at Gr.handleAndLogRequestError (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/generated/prisma/client/runtime/client.js:69:7581)
+    at Gr.request (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/generated/prisma/client/runtime/client.js:69:7288)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async a (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/generated/prisma/client/runtime/client.js:79:6730)
+    at async Promise.all (index 1)
+    at async QueryBuilder.execute (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/utils/QueryBuilder.ts:213:27)
+    at async Object.getAllPosts (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/module/admin/admin.service.ts:54:10)
+    at async <anonymous> (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/module/admin/admin.controller.ts:29:18)
+2026-03-29 11:46:15 [[31merror[39m]: PrismaClientValidationError: 
+Invalid `this.model.findMany()` invocation in
+/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/utils/QueryBuilder.ts:215:18
+
+  212 async execute(): Promise<IQueryResult<T>> {
+  213   const [total, data] = await Promise.all([
+  214     this.model.count(this.countQuery as Parameters<typeof this.model.count>[0]),
+→ 215     this.model.findMany({
+            where: {},
+            include: {
+              user: {
+              ~~~~
+                select: {
+                  id: true,
+                  name: true,
+                  avatarUrl: true
+                }
+              },
+          ?   author?: true,
+          ?   comments?: true,
+          ?   likes?: true,
+          ?   reactions?: true,
+          ?   hashtags?: true,
+          ?   savedBy?: true,
+          ?   tags?: true
+            },
+            orderBy: {
+              createdAt: "desc"
+            },
+            skip: 0,
+            take: 10
+          })
+
+Unknown field `user` for include statement on model `Post`. Available options are marked with ?.
+    at ar (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/generated/prisma/client/runtime/client.js:14:1374)
+    at Gr.handleRequestError (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/generated/prisma/client/runtime/client.js:69:7929)
+    at Gr.handleAndLogRequestError (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/generated/prisma/client/runtime/client.js:69:7581)
+    at Gr.request (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/generated/prisma/client/runtime/client.js:69:7288)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async a (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/generated/prisma/client/runtime/client.js:79:6730)
+    at async Promise.all (index 1)
+    at async QueryBuilder.execute (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/utils/QueryBuilder.ts:213:27)
+    at async Object.getAllPosts (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/module/admin/admin.service.ts:54:10)
+    at async <anonymous> (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/module/admin/admin.controller.ts:29:18)
+2026-03-29 11:46:16 [[31merror[39m]: PrismaClientValidationError: 
+Invalid `this.model.findMany()` invocation in
+/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/utils/QueryBuilder.ts:215:18
+
+  212 async execute(): Promise<IQueryResult<T>> {
+  213   const [total, data] = await Promise.all([
+  214     this.model.count(this.countQuery as Parameters<typeof this.model.count>[0]),
+→ 215     this.model.findMany({
+            where: {},
+            include: {
+              user: {
+              ~~~~
+                select: {
+                  id: true,
+                  name: true,
+                  avatarUrl: true
+                }
+              },
+          ?   author?: true,
+          ?   comments?: true,
+          ?   likes?: true,
+          ?   reactions?: true,
+          ?   hashtags?: true,
+          ?   savedBy?: true,
+          ?   tags?: true
+            },
+            orderBy: {
+              createdAt: "desc"
+            },
+            skip: 0,
+            take: 10
+          })
+
+Unknown field `user` for include statement on model `Post`. Available options are marked with ?.
+    at ar (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/generated/prisma/client/runtime/client.js:14:1374)
+    at Gr.handleRequestError (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/generated/prisma/client/runtime/client.js:69:7929)
+    at Gr.handleAndLogRequestError (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/generated/prisma/client/runtime/client.js:69:7581)
+    at Gr.request (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/generated/prisma/client/runtime/client.js:69:7288)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async a (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/generated/prisma/client/runtime/client.js:79:6730)
+    at async Promise.all (index 1)
+    at async QueryBuilder.execute (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/utils/QueryBuilder.ts:213:27)
+    at async Object.getAllPosts (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/module/admin/admin.service.ts:54:10)
+    at async <anonymous> (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/module/admin/admin.controller.ts:29:18)
+2026-03-29 11:46:18 [[31merror[39m]: PrismaClientValidationError: 
+Invalid `this.model.findMany()` invocation in
+/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/utils/QueryBuilder.ts:215:18
+
+  212 async execute(): Promise<IQueryResult<T>> {
+  213   const [total, data] = await Promise.all([
+  214     this.model.count(this.countQuery as Parameters<typeof this.model.count>[0]),
+→ 215     this.model.findMany({
+            where: {},
+            include: {
+              user: {
+              ~~~~
+                select: {
+                  id: true,
+                  name: true,
+                  avatarUrl: true
+                }
+              },
+          ?   author?: true,
+          ?   comments?: true,
+          ?   likes?: true,
+          ?   reactions?: true,
+          ?   hashtags?: true,
+          ?   savedBy?: true,
+          ?   tags?: true
+            },
+            orderBy: {
+              createdAt: "desc"
+            },
+            skip: 0,
+            take: 10
+          })
+
+Unknown field `user` for include statement on model `Post`. Available options are marked with ?.
+    at ar (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/generated/prisma/client/runtime/client.js:14:1374)
+    at Gr.handleRequestError (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/generated/prisma/client/runtime/client.js:69:7929)
+    at Gr.handleAndLogRequestError (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/generated/prisma/client/runtime/client.js:69:7581)
+    at Gr.request (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/generated/prisma/client/runtime/client.js:69:7288)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async a (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/generated/prisma/client/runtime/client.js:79:6730)
+    at async Promise.all (index 1)
+    at async QueryBuilder.execute (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/utils/QueryBuilder.ts:213:27)
+    at async Object.getAllPosts (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/module/admin/admin.service.ts:54:10)
+    at async <anonymous> (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/module/admin/admin.controller.ts:29:18)
+2026-03-29 11:46:20 [[31merror[39m]: PrismaClientValidationError: 
+Invalid `this.model.findMany()` invocation in
+/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/utils/QueryBuilder.ts:215:18
+
+  212 async execute(): Promise<IQueryResult<T>> {
+  213   const [total, data] = await Promise.all([
+  214     this.model.count(this.countQuery as Parameters<typeof this.model.count>[0]),
+→ 215     this.model.findMany({
+            where: {},
+            include: {
+              user: {
+              ~~~~
+                select: {
+                  id: true,
+                  name: true,
+                  avatarUrl: true
+                }
+              },
+          ?   author?: true,
+          ?   views?: true,
+          ?   reactions?: true,
+          ?   messages?: true
+            },
+            orderBy: {
+              createdAt: "desc"
+            },
+            skip: 0,
+            take: 10
+          })
+
+Unknown field `user` for include statement on model `Story`. Available options are marked with ?.
+    at ar (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/generated/prisma/client/runtime/client.js:14:1374)
+    at Gr.handleRequestError (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/generated/prisma/client/runtime/client.js:69:7929)
+    at Gr.handleAndLogRequestError (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/generated/prisma/client/runtime/client.js:69:7581)
+    at Gr.request (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/generated/prisma/client/runtime/client.js:69:7288)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async a (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/generated/prisma/client/runtime/client.js:79:6730)
+    at async Promise.all (index 1)
+    at async QueryBuilder.execute (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/utils/QueryBuilder.ts:213:27)
+    at async Object.getAllStories (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/module/admin/admin.service.ts:69:10)
+    at async <anonymous> (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/module/admin/admin.controller.ts:40:18)
+2026-03-29 11:46:21 [[31merror[39m]: PrismaClientValidationError: 
+Invalid `this.model.findMany()` invocation in
+/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/utils/QueryBuilder.ts:215:18
+
+  212 async execute(): Promise<IQueryResult<T>> {
+  213   const [total, data] = await Promise.all([
+  214     this.model.count(this.countQuery as Parameters<typeof this.model.count>[0]),
+→ 215     this.model.findMany({
+            where: {},
+            include: {
+              user: {
+              ~~~~
+                select: {
+                  id: true,
+                  name: true,
+                  avatarUrl: true
+                }
+              },
+          ?   author?: true,
+          ?   views?: true,
+          ?   reactions?: true,
+          ?   messages?: true
+            },
+            orderBy: {
+              createdAt: "desc"
+            },
+            skip: 0,
+            take: 10
+          })
+
+Unknown field `user` for include statement on model `Story`. Available options are marked with ?.
+    at ar (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/generated/prisma/client/runtime/client.js:14:1374)
+    at Gr.handleRequestError (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/generated/prisma/client/runtime/client.js:69:7929)
+    at Gr.handleAndLogRequestError (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/generated/prisma/client/runtime/client.js:69:7581)
+    at Gr.request (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/generated/prisma/client/runtime/client.js:69:7288)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async a (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/generated/prisma/client/runtime/client.js:79:6730)
+    at async Promise.all (index 1)
+    at async QueryBuilder.execute (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/utils/QueryBuilder.ts:213:27)
+    at async Object.getAllStories (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/module/admin/admin.service.ts:69:10)
+    at async <anonymous> (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/module/admin/admin.controller.ts:40:18)
+2026-03-29 11:46:23 [[31merror[39m]: PrismaClientValidationError: 
+Invalid `this.model.findMany()` invocation in
+/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/utils/QueryBuilder.ts:215:18
+
+  212 async execute(): Promise<IQueryResult<T>> {
+  213   const [total, data] = await Promise.all([
+  214     this.model.count(this.countQuery as Parameters<typeof this.model.count>[0]),
+→ 215     this.model.findMany({
+            where: {},
+            include: {
+              user: {
+              ~~~~
+                select: {
+                  id: true,
+                  name: true,
+                  avatarUrl: true
+                }
+              },
+          ?   author?: true,
+          ?   comments?: true,
+          ?   likes?: true,
+          ?   reactions?: true,
+          ?   hashtags?: true,
+          ?   savedBy?: true,
+          ?   tags?: true
+            },
+            orderBy: {
+              createdAt: "desc"
+            },
+            skip: 0,
+            take: 10
+          })
+
+Unknown field `user` for include statement on model `Post`. Available options are marked with ?.
+    at ar (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/generated/prisma/client/runtime/client.js:14:1374)
+    at Gr.handleRequestError (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/generated/prisma/client/runtime/client.js:69:7929)
+    at Gr.handleAndLogRequestError (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/generated/prisma/client/runtime/client.js:69:7581)
+    at Gr.request (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/generated/prisma/client/runtime/client.js:69:7288)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async a (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/generated/prisma/client/runtime/client.js:79:6730)
+    at async Promise.all (index 1)
+    at async QueryBuilder.execute (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/utils/QueryBuilder.ts:213:27)
+    at async Object.getAllPosts (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/module/admin/admin.service.ts:54:10)
+    at async <anonymous> (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/module/admin/admin.controller.ts:29:18)
+2026-03-29 11:46:24 [[31merror[39m]: PrismaClientValidationError: 
+Invalid `this.model.findMany()` invocation in
+/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/utils/QueryBuilder.ts:215:18
+
+  212 async execute(): Promise<IQueryResult<T>> {
+  213   const [total, data] = await Promise.all([
+  214     this.model.count(this.countQuery as Parameters<typeof this.model.count>[0]),
+→ 215     this.model.findMany({
+            where: {},
+            include: {
+              user: {
+              ~~~~
+                select: {
+                  id: true,
+                  name: true,
+                  avatarUrl: true
+                }
+              },
+          ?   author?: true,
+          ?   comments?: true,
+          ?   likes?: true,
+          ?   reactions?: true,
+          ?   hashtags?: true,
+          ?   savedBy?: true,
+          ?   tags?: true
+            },
+            orderBy: {
+              createdAt: "desc"
+            },
+            skip: 0,
+            take: 10
+          })
+
+Unknown field `user` for include statement on model `Post`. Available options are marked with ?.
+    at ar (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/generated/prisma/client/runtime/client.js:14:1374)
+    at Gr.handleRequestError (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/generated/prisma/client/runtime/client.js:69:7929)
+    at Gr.handleAndLogRequestError (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/generated/prisma/client/runtime/client.js:69:7581)
+    at Gr.request (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/generated/prisma/client/runtime/client.js:69:7288)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async a (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/generated/prisma/client/runtime/client.js:79:6730)
+    at async Promise.all (index 1)
+    at async QueryBuilder.execute (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/utils/QueryBuilder.ts:213:27)
+    at async Object.getAllPosts (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/module/admin/admin.service.ts:54:10)
+    at async <anonymous> (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/module/admin/admin.controller.ts:29:18)
+2026-03-29 11:46:24 [[31merror[39m]: PrismaClientValidationError: 
+Invalid `this.model.findMany()` invocation in
+/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/utils/QueryBuilder.ts:215:18
+
+  212 async execute(): Promise<IQueryResult<T>> {
+  213   const [total, data] = await Promise.all([
+  214     this.model.count(this.countQuery as Parameters<typeof this.model.count>[0]),
+→ 215     this.model.findMany({
+            where: {},
+            include: {
+              user: {
+              ~~~~
+                select: {
+                  id: true,
+                  name: true,
+                  avatarUrl: true
+                }
+              },
+          ?   author?: true,
+          ?   views?: true,
+          ?   reactions?: true,
+          ?   messages?: true
+            },
+            orderBy: {
+              createdAt: "desc"
+            },
+            skip: 0,
+            take: 10
+          })
+
+Unknown field `user` for include statement on model `Story`. Available options are marked with ?.
+    at ar (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/generated/prisma/client/runtime/client.js:14:1374)
+    at Gr.handleRequestError (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/generated/prisma/client/runtime/client.js:69:7929)
+    at Gr.handleAndLogRequestError (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/generated/prisma/client/runtime/client.js:69:7581)
+    at Gr.request (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/generated/prisma/client/runtime/client.js:69:7288)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async a (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/generated/prisma/client/runtime/client.js:79:6730)
+    at async Promise.all (index 1)
+    at async QueryBuilder.execute (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/utils/QueryBuilder.ts:213:27)
+    at async Object.getAllStories (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/module/admin/admin.service.ts:69:10)
+    at async <anonymous> (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/module/admin/admin.controller.ts:40:18)
+2026-03-29 11:46:25 [[31merror[39m]: PrismaClientValidationError: 
+Invalid `this.model.findMany()` invocation in
+/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/utils/QueryBuilder.ts:215:18
+
+  212 async execute(): Promise<IQueryResult<T>> {
+  213   const [total, data] = await Promise.all([
+  214     this.model.count(this.countQuery as Parameters<typeof this.model.count>[0]),
+→ 215     this.model.findMany({
+            where: {},
+            include: {
+              user: {
+              ~~~~
+                select: {
+                  id: true,
+                  name: true,
+                  avatarUrl: true
+                }
+              },
+          ?   author?: true,
+          ?   views?: true,
+          ?   reactions?: true,
+          ?   messages?: true
+            },
+            orderBy: {
+              createdAt: "desc"
+            },
+            skip: 0,
+            take: 10
+          })
+
+Unknown field `user` for include statement on model `Story`. Available options are marked with ?.
+    at ar (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/generated/prisma/client/runtime/client.js:14:1374)
+    at Gr.handleRequestError (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/generated/prisma/client/runtime/client.js:69:7929)
+    at Gr.handleAndLogRequestError (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/generated/prisma/client/runtime/client.js:69:7581)
+    at Gr.request (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/generated/prisma/client/runtime/client.js:69:7288)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async a (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/generated/prisma/client/runtime/client.js:79:6730)
+    at async Promise.all (index 1)
+    at async QueryBuilder.execute (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/utils/QueryBuilder.ts:213:27)
+    at async Object.getAllStories (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/module/admin/admin.service.ts:69:10)
+    at async <anonymous> (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/module/admin/admin.controller.ts:40:18)
+2026-03-29 11:47:35 [[31merror[39m]: PrismaClientValidationError: 
+Invalid `this.model.findMany()` invocation in
+/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/utils/QueryBuilder.ts:215:18
+
+  212 async execute(): Promise<IQueryResult<T>> {
+  213   const [total, data] = await Promise.all([
+  214     this.model.count(this.countQuery as Parameters<typeof this.model.count>[0]),
+→ 215     this.model.findMany({
+            where: {},
+            include: {
+              user: {
+              ~~~~
+                select: {
+                  id: true,
+                  name: true,
+                  avatarUrl: true
+                }
+              },
+          ?   author?: true,
+          ?   comments?: true,
+          ?   likes?: true,
+          ?   reactions?: true,
+          ?   hashtags?: true,
+          ?   savedBy?: true,
+          ?   tags?: true
+            },
+            orderBy: {
+              createdAt: "desc"
+            },
+            skip: 0,
+            take: 10
+          })
+
+Unknown field `user` for include statement on model `Post`. Available options are marked with ?.
+    at ar (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/generated/prisma/client/runtime/client.js:14:1374)
+    at Gr.handleRequestError (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/generated/prisma/client/runtime/client.js:69:7929)
+    at Gr.handleAndLogRequestError (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/generated/prisma/client/runtime/client.js:69:7581)
+    at Gr.request (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/generated/prisma/client/runtime/client.js:69:7288)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async a (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/generated/prisma/client/runtime/client.js:79:6730)
+    at async Promise.all (index 1)
+    at async QueryBuilder.execute (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/utils/QueryBuilder.ts:213:27)
+    at async Object.getAllPosts (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/module/admin/admin.service.ts:54:10)
+    at async <anonymous> (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/module/admin/admin.controller.ts:29:18)
+2026-03-29 11:47:36 [[31merror[39m]: PrismaClientValidationError: 
+Invalid `this.model.findMany()` invocation in
+/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/utils/QueryBuilder.ts:215:18
+
+  212 async execute(): Promise<IQueryResult<T>> {
+  213   const [total, data] = await Promise.all([
+  214     this.model.count(this.countQuery as Parameters<typeof this.model.count>[0]),
+→ 215     this.model.findMany({
+            where: {},
+            include: {
+              user: {
+              ~~~~
+                select: {
+                  id: true,
+                  name: true,
+                  avatarUrl: true
+                }
+              },
+          ?   author?: true,
+          ?   comments?: true,
+          ?   likes?: true,
+          ?   reactions?: true,
+          ?   hashtags?: true,
+          ?   savedBy?: true,
+          ?   tags?: true
+            },
+            orderBy: {
+              createdAt: "desc"
+            },
+            skip: 0,
+            take: 10
+          })
+
+Unknown field `user` for include statement on model `Post`. Available options are marked with ?.
+    at ar (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/generated/prisma/client/runtime/client.js:14:1374)
+    at Gr.handleRequestError (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/generated/prisma/client/runtime/client.js:69:7929)
+    at Gr.handleAndLogRequestError (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/generated/prisma/client/runtime/client.js:69:7581)
+    at Gr.request (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/generated/prisma/client/runtime/client.js:69:7288)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async a (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/generated/prisma/client/runtime/client.js:79:6730)
+    at async Promise.all (index 1)
+    at async QueryBuilder.execute (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/utils/QueryBuilder.ts:213:27)
+    at async Object.getAllPosts (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/module/admin/admin.service.ts:54:10)
+    at async <anonymous> (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/module/admin/admin.controller.ts:29:18)
+2026-03-29 11:48:14 [[31merror[39m]: PrismaClientValidationError: 
+Invalid `this.model.findMany()` invocation in
+/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/utils/QueryBuilder.ts:215:18
+
+  212 async execute(): Promise<IQueryResult<T>> {
+  213   const [total, data] = await Promise.all([
+  214     this.model.count(this.countQuery as Parameters<typeof this.model.count>[0]),
+→ 215     this.model.findMany({
+            where: {},
+            include: {
+              user: {
+              ~~~~
+                select: {
+                  id: true,
+                  name: true,
+                  avatarUrl: true
+                }
+              },
+          ?   author?: true,
+          ?   comments?: true,
+          ?   likes?: true,
+          ?   reactions?: true,
+          ?   hashtags?: true,
+          ?   savedBy?: true,
+          ?   tags?: true
+            },
+            orderBy: {
+              createdAt: "desc"
+            },
+            skip: 0,
+            take: 10
+          })
+
+Unknown field `user` for include statement on model `Post`. Available options are marked with ?.
+    at ar (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/generated/prisma/client/runtime/client.js:14:1374)
+    at Gr.handleRequestError (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/generated/prisma/client/runtime/client.js:69:7929)
+    at Gr.handleAndLogRequestError (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/generated/prisma/client/runtime/client.js:69:7581)
+    at Gr.request (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/generated/prisma/client/runtime/client.js:69:7288)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async a (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/generated/prisma/client/runtime/client.js:79:6730)
+    at async Promise.all (index 1)
+    at async QueryBuilder.execute (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/utils/QueryBuilder.ts:213:27)
+    at async Object.getAllPosts (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/module/admin/admin.service.ts:54:10)
+    at async <anonymous> (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/module/admin/admin.controller.ts:29:18)
+2026-03-29 11:48:19 [[31merror[39m]: PrismaClientValidationError: 
+Invalid `this.model.findMany()` invocation in
+/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/utils/QueryBuilder.ts:215:18
+
+  212 async execute(): Promise<IQueryResult<T>> {
+  213   const [total, data] = await Promise.all([
+  214     this.model.count(this.countQuery as Parameters<typeof this.model.count>[0]),
+→ 215     this.model.findMany({
+            where: {},
+            include: {
+              user: {
+              ~~~~
+                select: {
+                  id: true,
+                  name: true,
+                  avatarUrl: true
+                }
+              },
+          ?   author?: true,
+          ?   comments?: true,
+          ?   likes?: true,
+          ?   reactions?: true,
+          ?   hashtags?: true,
+          ?   savedBy?: true,
+          ?   tags?: true
+            },
+            orderBy: {
+              createdAt: "desc"
+            },
+            skip: 0,
+            take: 10
+          })
+
+Unknown field `user` for include statement on model `Post`. Available options are marked with ?.
+    at ar (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/generated/prisma/client/runtime/client.js:14:1374)
+    at Gr.handleRequestError (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/generated/prisma/client/runtime/client.js:69:7929)
+    at Gr.handleAndLogRequestError (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/generated/prisma/client/runtime/client.js:69:7581)
+    at Gr.request (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/generated/prisma/client/runtime/client.js:69:7288)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async a (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/generated/prisma/client/runtime/client.js:79:6730)
+    at async Promise.all (index 1)
+    at async QueryBuilder.execute (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/utils/QueryBuilder.ts:213:27)
+    at async Object.getAllPosts (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/module/admin/admin.service.ts:54:10)
+    at async <anonymous> (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/module/admin/admin.controller.ts:29:18)
+2026-03-29 11:48:21 [[31merror[39m]: PrismaClientValidationError: 
+Invalid `this.model.findMany()` invocation in
+/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/utils/QueryBuilder.ts:215:18
+
+  212 async execute(): Promise<IQueryResult<T>> {
+  213   const [total, data] = await Promise.all([
+  214     this.model.count(this.countQuery as Parameters<typeof this.model.count>[0]),
+→ 215     this.model.findMany({
+            where: {},
+            include: {
+              user: {
+              ~~~~
+                select: {
+                  id: true,
+                  name: true,
+                  avatarUrl: true
+                }
+              },
+          ?   author?: true,
+          ?   views?: true,
+          ?   reactions?: true,
+          ?   messages?: true
+            },
+            orderBy: {
+              createdAt: "desc"
+            },
+            skip: 0,
+            take: 10
+          })
+
+Unknown field `user` for include statement on model `Story`. Available options are marked with ?.
+    at ar (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/generated/prisma/client/runtime/client.js:14:1374)
+    at Gr.handleRequestError (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/generated/prisma/client/runtime/client.js:69:7929)
+    at Gr.handleAndLogRequestError (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/generated/prisma/client/runtime/client.js:69:7581)
+    at Gr.request (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/generated/prisma/client/runtime/client.js:69:7288)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async a (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/generated/prisma/client/runtime/client.js:79:6730)
+    at async Promise.all (index 1)
+    at async QueryBuilder.execute (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/utils/QueryBuilder.ts:213:27)
+    at async Object.getAllStories (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/module/admin/admin.service.ts:69:10)
+    at async <anonymous> (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/module/admin/admin.controller.ts:40:18)
+2026-03-29 11:48:22 [[31merror[39m]: PrismaClientValidationError: 
+Invalid `this.model.findMany()` invocation in
+/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/utils/QueryBuilder.ts:215:18
+
+  212 async execute(): Promise<IQueryResult<T>> {
+  213   const [total, data] = await Promise.all([
+  214     this.model.count(this.countQuery as Parameters<typeof this.model.count>[0]),
+→ 215     this.model.findMany({
+            where: {},
+            include: {
+              user: {
+              ~~~~
+                select: {
+                  id: true,
+                  name: true,
+                  avatarUrl: true
+                }
+              },
+          ?   author?: true,
+          ?   comments?: true,
+          ?   likes?: true,
+          ?   reactions?: true,
+          ?   hashtags?: true,
+          ?   savedBy?: true,
+          ?   tags?: true
+            },
+            orderBy: {
+              createdAt: "desc"
+            },
+            skip: 0,
+            take: 10
+          })
+
+Unknown field `user` for include statement on model `Post`. Available options are marked with ?.
+    at ar (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/generated/prisma/client/runtime/client.js:14:1374)
+    at Gr.handleRequestError (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/generated/prisma/client/runtime/client.js:69:7929)
+    at Gr.handleAndLogRequestError (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/generated/prisma/client/runtime/client.js:69:7581)
+    at Gr.request (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/generated/prisma/client/runtime/client.js:69:7288)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async a (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/generated/prisma/client/runtime/client.js:79:6730)
+    at async Promise.all (index 1)
+    at async QueryBuilder.execute (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/utils/QueryBuilder.ts:213:27)
+    at async Object.getAllPosts (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/module/admin/admin.service.ts:54:10)
+    at async <anonymous> (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/module/admin/admin.controller.ts:29:18)
+2026-03-29 11:48:23 [[31merror[39m]: PrismaClientValidationError: 
+Invalid `this.model.findMany()` invocation in
+/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/utils/QueryBuilder.ts:215:18
+
+  212 async execute(): Promise<IQueryResult<T>> {
+  213   const [total, data] = await Promise.all([
+  214     this.model.count(this.countQuery as Parameters<typeof this.model.count>[0]),
+→ 215     this.model.findMany({
+            where: {},
+            include: {
+              user: {
+              ~~~~
+                select: {
+                  id: true,
+                  name: true,
+                  avatarUrl: true
+                }
+              },
+          ?   author?: true,
+          ?   comments?: true,
+          ?   likes?: true,
+          ?   reactions?: true,
+          ?   hashtags?: true,
+          ?   savedBy?: true,
+          ?   tags?: true
+            },
+            orderBy: {
+              createdAt: "desc"
+            },
+            skip: 0,
+            take: 10
+          })
+
+Unknown field `user` for include statement on model `Post`. Available options are marked with ?.
+    at ar (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/generated/prisma/client/runtime/client.js:14:1374)
+    at Gr.handleRequestError (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/generated/prisma/client/runtime/client.js:69:7929)
+    at Gr.handleAndLogRequestError (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/generated/prisma/client/runtime/client.js:69:7581)
+    at Gr.request (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/generated/prisma/client/runtime/client.js:69:7288)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async a (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/generated/prisma/client/runtime/client.js:79:6730)
+    at async Promise.all (index 1)
+    at async QueryBuilder.execute (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/utils/QueryBuilder.ts:213:27)
+    at async Object.getAllPosts (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/module/admin/admin.service.ts:54:10)
+    at async <anonymous> (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/module/admin/admin.controller.ts:29:18)
+2026-03-29 11:48:25 [[31merror[39m]: PrismaClientValidationError: 
+Invalid `this.model.findMany()` invocation in
+/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/utils/QueryBuilder.ts:215:18
+
+  212 async execute(): Promise<IQueryResult<T>> {
+  213   const [total, data] = await Promise.all([
+  214     this.model.count(this.countQuery as Parameters<typeof this.model.count>[0]),
+→ 215     this.model.findMany({
+            where: {},
+            include: {
+              user: {
+              ~~~~
+                select: {
+                  id: true,
+                  name: true,
+                  avatarUrl: true
+                }
+              },
+          ?   author?: true,
+          ?   comments?: true,
+          ?   likes?: true,
+          ?   reactions?: true,
+          ?   hashtags?: true,
+          ?   savedBy?: true,
+          ?   tags?: true
+            },
+            orderBy: {
+              createdAt: "desc"
+            },
+            skip: 0,
+            take: 10
+          })
+
+Unknown field `user` for include statement on model `Post`. Available options are marked with ?.
+    at ar (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/generated/prisma/client/runtime/client.js:14:1374)
+    at Gr.handleRequestError (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/generated/prisma/client/runtime/client.js:69:7929)
+    at Gr.handleAndLogRequestError (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/generated/prisma/client/runtime/client.js:69:7581)
+    at Gr.request (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/generated/prisma/client/runtime/client.js:69:7288)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async a (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/generated/prisma/client/runtime/client.js:79:6730)
+    at async Promise.all (index 1)
+    at async QueryBuilder.execute (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/utils/QueryBuilder.ts:213:27)
+    at async Object.getAllPosts (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/module/admin/admin.service.ts:54:10)
+    at async <anonymous> (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/module/admin/admin.controller.ts:29:18)
+2026-03-29 11:48:27 [[31merror[39m]: PrismaClientValidationError: 
+Invalid `this.model.findMany()` invocation in
+/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/utils/QueryBuilder.ts:215:18
+
+  212 async execute(): Promise<IQueryResult<T>> {
+  213   const [total, data] = await Promise.all([
+  214     this.model.count(this.countQuery as Parameters<typeof this.model.count>[0]),
+→ 215     this.model.findMany({
+            where: {},
+            include: {
+              user: {
+              ~~~~
+                select: {
+                  id: true,
+                  name: true,
+                  avatarUrl: true
+                }
+              },
+          ?   author?: true,
+          ?   views?: true,
+          ?   reactions?: true,
+          ?   messages?: true
+            },
+            orderBy: {
+              createdAt: "desc"
+            },
+            skip: 0,
+            take: 10
+          })
+
+Unknown field `user` for include statement on model `Story`. Available options are marked with ?.
+    at ar (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/generated/prisma/client/runtime/client.js:14:1374)
+    at Gr.handleRequestError (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/generated/prisma/client/runtime/client.js:69:7929)
+    at Gr.handleAndLogRequestError (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/generated/prisma/client/runtime/client.js:69:7581)
+    at Gr.request (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/generated/prisma/client/runtime/client.js:69:7288)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async a (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/generated/prisma/client/runtime/client.js:79:6730)
+    at async Promise.all (index 1)
+    at async QueryBuilder.execute (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/utils/QueryBuilder.ts:213:27)
+    at async Object.getAllStories (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/module/admin/admin.service.ts:69:10)
+    at async <anonymous> (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/module/admin/admin.controller.ts:40:18)
+2026-03-29 11:48:28 [[31merror[39m]: PrismaClientValidationError: 
+Invalid `this.model.findMany()` invocation in
+/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/utils/QueryBuilder.ts:215:18
+
+  212 async execute(): Promise<IQueryResult<T>> {
+  213   const [total, data] = await Promise.all([
+  214     this.model.count(this.countQuery as Parameters<typeof this.model.count>[0]),
+→ 215     this.model.findMany({
+            where: {},
+            include: {
+              user: {
+              ~~~~
+                select: {
+                  id: true,
+                  name: true,
+                  avatarUrl: true
+                }
+              },
+          ?   author?: true,
+          ?   views?: true,
+          ?   reactions?: true,
+          ?   messages?: true
+            },
+            orderBy: {
+              createdAt: "desc"
+            },
+            skip: 0,
+            take: 10
+          })
+
+Unknown field `user` for include statement on model `Story`. Available options are marked with ?.
+    at ar (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/generated/prisma/client/runtime/client.js:14:1374)
+    at Gr.handleRequestError (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/generated/prisma/client/runtime/client.js:69:7929)
+    at Gr.handleAndLogRequestError (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/generated/prisma/client/runtime/client.js:69:7581)
+    at Gr.request (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/generated/prisma/client/runtime/client.js:69:7288)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async a (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/generated/prisma/client/runtime/client.js:79:6730)
+    at async Promise.all (index 1)
+    at async QueryBuilder.execute (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/utils/QueryBuilder.ts:213:27)
+    at async Object.getAllStories (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/module/admin/admin.service.ts:69:10)
+    at async <anonymous> (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/module/admin/admin.controller.ts:40:18)
+2026-03-29 11:49:38 [[31merror[39m]: PrismaClientValidationError: 
+Invalid `this.model.findMany()` invocation in
+/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/utils/QueryBuilder.ts:215:18
+
+  212 async execute(): Promise<IQueryResult<T>> {
+  213   const [total, data] = await Promise.all([
+  214     this.model.count(this.countQuery as Parameters<typeof this.model.count>[0]),
+→ 215     this.model.findMany({
+            where: {},
+            include: {
+              user: {
+              ~~~~
+                select: {
+                  id: true,
+                  name: true,
+                  avatarUrl: true
+                }
+              },
+          ?   author?: true,
+          ?   views?: true,
+          ?   reactions?: true,
+          ?   messages?: true
+            },
+            orderBy: {
+              createdAt: "desc"
+            },
+            skip: 0,
+            take: 10
+          })
+
+Unknown field `user` for include statement on model `Story`. Available options are marked with ?.
+    at ar (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/generated/prisma/client/runtime/client.js:14:1374)
+    at Gr.handleRequestError (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/generated/prisma/client/runtime/client.js:69:7929)
+    at Gr.handleAndLogRequestError (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/generated/prisma/client/runtime/client.js:69:7581)
+    at Gr.request (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/generated/prisma/client/runtime/client.js:69:7288)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async a (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/generated/prisma/client/runtime/client.js:79:6730)
+    at async Promise.all (index 1)
+    at async QueryBuilder.execute (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/utils/QueryBuilder.ts:213:27)
+    at async Object.getAllStories (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/module/admin/admin.service.ts:69:10)
+    at async <anonymous> (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/module/admin/admin.controller.ts:40:18)
+2026-03-29 11:50:07 [[31merror[39m]: PrismaClientValidationError: 
+Invalid `this.model.findMany()` invocation in
+/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/utils/QueryBuilder.ts:215:18
+
+  212 async execute(): Promise<IQueryResult<T>> {
+  213   const [total, data] = await Promise.all([
+  214     this.model.count(this.countQuery as Parameters<typeof this.model.count>[0]),
+→ 215     this.model.findMany({
+            where: {},
+            include: {
+              user: {
+              ~~~~
+                select: {
+                  id: true,
+                  name: true,
+                  avatarUrl: true
+                }
+              },
+          ?   author?: true,
+          ?   views?: true,
+          ?   reactions?: true,
+          ?   messages?: true
+            },
+            orderBy: {
+              createdAt: "desc"
+            },
+            skip: 0,
+            take: 10
+          })
+
+Unknown field `user` for include statement on model `Story`. Available options are marked with ?.
+    at ar (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/generated/prisma/client/runtime/client.js:14:1374)
+    at Gr.handleRequestError (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/generated/prisma/client/runtime/client.js:69:7929)
+    at Gr.handleAndLogRequestError (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/generated/prisma/client/runtime/client.js:69:7581)
+    at Gr.request (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/generated/prisma/client/runtime/client.js:69:7288)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async a (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/generated/prisma/client/runtime/client.js:79:6730)
+    at async Promise.all (index 1)
+    at async QueryBuilder.execute (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/utils/QueryBuilder.ts:213:27)
+    at async Object.getAllStories (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/module/admin/admin.service.ts:69:10)
+    at async <anonymous> (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/module/admin/admin.controller.ts:40:18)
+2026-03-29 11:50:30 [[31merror[39m]: PrismaClientValidationError: 
+Invalid `this.model.findMany()` invocation in
+/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/utils/QueryBuilder.ts:215:18
+
+  212 async execute(): Promise<IQueryResult<T>> {
+  213   const [total, data] = await Promise.all([
+  214     this.model.count(this.countQuery as Parameters<typeof this.model.count>[0]),
+→ 215     this.model.findMany({
+            where: {},
+            include: {
+              user: {
+              ~~~~
+                select: {
+                  id: true,
+                  name: true,
+                  avatarUrl: true
+                }
+              },
+          ?   author?: true,
+          ?   views?: true,
+          ?   reactions?: true,
+          ?   messages?: true
+            },
+            orderBy: {
+              createdAt: "desc"
+            },
+            skip: 0,
+            take: 10
+          })
+
+Unknown field `user` for include statement on model `Story`. Available options are marked with ?.
+    at ar (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/generated/prisma/client/runtime/client.js:14:1374)
+    at Gr.handleRequestError (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/generated/prisma/client/runtime/client.js:69:7929)
+    at Gr.handleAndLogRequestError (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/generated/prisma/client/runtime/client.js:69:7581)
+    at Gr.request (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/generated/prisma/client/runtime/client.js:69:7288)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async a (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/generated/prisma/client/runtime/client.js:79:6730)
+    at async Promise.all (index 1)
+    at async QueryBuilder.execute (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/utils/QueryBuilder.ts:213:27)
+    at async Object.getAllStories (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/module/admin/admin.service.ts:69:10)
+    at async <anonymous> (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/module/admin/admin.controller.ts:40:18)
+2026-03-29 11:50:31 [[31merror[39m]: PrismaClientValidationError: 
+Invalid `this.model.findMany()` invocation in
+/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/utils/QueryBuilder.ts:215:18
+
+  212 async execute(): Promise<IQueryResult<T>> {
+  213   const [total, data] = await Promise.all([
+  214     this.model.count(this.countQuery as Parameters<typeof this.model.count>[0]),
+→ 215     this.model.findMany({
+            where: {},
+            include: {
+              user: {
+              ~~~~
+                select: {
+                  id: true,
+                  name: true,
+                  avatarUrl: true
+                }
+              },
+          ?   author?: true,
+          ?   views?: true,
+          ?   reactions?: true,
+          ?   messages?: true
+            },
+            orderBy: {
+              createdAt: "desc"
+            },
+            skip: 0,
+            take: 10
+          })
+
+Unknown field `user` for include statement on model `Story`. Available options are marked with ?.
+    at ar (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/generated/prisma/client/runtime/client.js:14:1374)
+    at Gr.handleRequestError (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/generated/prisma/client/runtime/client.js:69:7929)
+    at Gr.handleAndLogRequestError (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/generated/prisma/client/runtime/client.js:69:7581)
+    at Gr.request (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/generated/prisma/client/runtime/client.js:69:7288)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async a (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/generated/prisma/client/runtime/client.js:79:6730)
+    at async Promise.all (index 1)
+    at async QueryBuilder.execute (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/utils/QueryBuilder.ts:213:27)
+    at async Object.getAllStories (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/module/admin/admin.service.ts:69:10)
+    at async <anonymous> (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/module/admin/admin.controller.ts:40:18)
+2026-03-29 11:50:33 [[31merror[39m]: PrismaClientValidationError: 
+Invalid `this.model.findMany()` invocation in
+/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/utils/QueryBuilder.ts:215:18
+
+  212 async execute(): Promise<IQueryResult<T>> {
+  213   const [total, data] = await Promise.all([
+  214     this.model.count(this.countQuery as Parameters<typeof this.model.count>[0]),
+→ 215     this.model.findMany({
+            where: {},
+            include: {
+              user: {
+              ~~~~
+                select: {
+                  id: true,
+                  name: true,
+                  avatarUrl: true
+                }
+              },
+          ?   author?: true,
+          ?   views?: true,
+          ?   reactions?: true,
+          ?   messages?: true
+            },
+            orderBy: {
+              createdAt: "desc"
+            },
+            skip: 0,
+            take: 10
+          })
+
+Unknown field `user` for include statement on model `Story`. Available options are marked with ?.
+    at ar (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/generated/prisma/client/runtime/client.js:14:1374)
+    at Gr.handleRequestError (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/generated/prisma/client/runtime/client.js:69:7929)
+    at Gr.handleAndLogRequestError (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/generated/prisma/client/runtime/client.js:69:7581)
+    at Gr.request (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/generated/prisma/client/runtime/client.js:69:7288)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async a (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/generated/prisma/client/runtime/client.js:79:6730)
+    at async Promise.all (index 1)
+    at async QueryBuilder.execute (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/utils/QueryBuilder.ts:213:27)
+    at async Object.getAllStories (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/module/admin/admin.service.ts:69:10)
+    at async <anonymous> (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/module/admin/admin.controller.ts:40:18)
+2026-03-29 11:50:37 [[31merror[39m]: PrismaClientValidationError: 
+Invalid `this.model.findMany()` invocation in
+/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/utils/QueryBuilder.ts:215:18
+
+  212 async execute(): Promise<IQueryResult<T>> {
+  213   const [total, data] = await Promise.all([
+  214     this.model.count(this.countQuery as Parameters<typeof this.model.count>[0]),
+→ 215     this.model.findMany({
+            where: {},
+            include: {
+              user: {
+              ~~~~
+                select: {
+                  id: true,
+                  name: true,
+                  avatarUrl: true
+                }
+              },
+          ?   author?: true,
+          ?   views?: true,
+          ?   reactions?: true,
+          ?   messages?: true
+            },
+            orderBy: {
+              createdAt: "desc"
+            },
+            skip: 0,
+            take: 10
+          })
+
+Unknown field `user` for include statement on model `Story`. Available options are marked with ?.
+    at ar (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/generated/prisma/client/runtime/client.js:14:1374)
+    at Gr.handleRequestError (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/generated/prisma/client/runtime/client.js:69:7929)
+    at Gr.handleAndLogRequestError (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/generated/prisma/client/runtime/client.js:69:7581)
+    at Gr.request (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/generated/prisma/client/runtime/client.js:69:7288)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async a (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/generated/prisma/client/runtime/client.js:79:6730)
+    at async Promise.all (index 1)
+    at async QueryBuilder.execute (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/utils/QueryBuilder.ts:213:27)
+    at async Object.getAllStories (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/module/admin/admin.service.ts:69:10)
+    at async <anonymous> (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/module/admin/admin.controller.ts:40:18)
+2026-03-29 11:50:52 [[31merror[39m]: PrismaClientValidationError: 
+Invalid `this.model.findMany()` invocation in
+/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/utils/QueryBuilder.ts:215:18
+
+  212 async execute(): Promise<IQueryResult<T>> {
+  213   const [total, data] = await Promise.all([
+  214     this.model.count(this.countQuery as Parameters<typeof this.model.count>[0]),
+→ 215     this.model.findMany({
+            where: {},
+            include: {
+              user: {
+              ~~~~
+                select: {
+                  id: true,
+                  name: true,
+                  avatarUrl: true
+                }
+              },
+          ?   author?: true,
+          ?   views?: true,
+          ?   reactions?: true,
+          ?   messages?: true
+            },
+            orderBy: {
+              createdAt: "desc"
+            },
+            skip: 0,
+            take: 10
+          })
+
+Unknown field `user` for include statement on model `Story`. Available options are marked with ?.
+    at ar (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/generated/prisma/client/runtime/client.js:14:1374)
+    at Gr.handleRequestError (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/generated/prisma/client/runtime/client.js:69:7929)
+    at Gr.handleAndLogRequestError (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/generated/prisma/client/runtime/client.js:69:7581)
+    at Gr.request (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/generated/prisma/client/runtime/client.js:69:7288)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async a (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/generated/prisma/client/runtime/client.js:79:6730)
+    at async Promise.all (index 1)
+    at async QueryBuilder.execute (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/utils/QueryBuilder.ts:213:27)
+    at async Object.getAllStories (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/module/admin/admin.service.ts:69:10)
+    at async <anonymous> (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/module/admin/admin.controller.ts:40:18)
+2026-03-29 11:50:53 [[31merror[39m]: PrismaClientValidationError: 
+Invalid `this.model.findMany()` invocation in
+/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/utils/QueryBuilder.ts:215:18
+
+  212 async execute(): Promise<IQueryResult<T>> {
+  213   const [total, data] = await Promise.all([
+  214     this.model.count(this.countQuery as Parameters<typeof this.model.count>[0]),
+→ 215     this.model.findMany({
+            where: {},
+            include: {
+              user: {
+              ~~~~
+                select: {
+                  id: true,
+                  name: true,
+                  avatarUrl: true
+                }
+              },
+          ?   author?: true,
+          ?   views?: true,
+          ?   reactions?: true,
+          ?   messages?: true
+            },
+            orderBy: {
+              createdAt: "desc"
+            },
+            skip: 0,
+            take: 10
+          })
+
+Unknown field `user` for include statement on model `Story`. Available options are marked with ?.
+    at ar (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/generated/prisma/client/runtime/client.js:14:1374)
+    at Gr.handleRequestError (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/generated/prisma/client/runtime/client.js:69:7929)
+    at Gr.handleAndLogRequestError (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/generated/prisma/client/runtime/client.js:69:7581)
+    at Gr.request (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/generated/prisma/client/runtime/client.js:69:7288)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async a (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/generated/prisma/client/runtime/client.js:79:6730)
+    at async Promise.all (index 1)
+    at async QueryBuilder.execute (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/utils/QueryBuilder.ts:213:27)
+    at async Object.getAllStories (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/module/admin/admin.service.ts:69:10)
+    at async <anonymous> (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/module/admin/admin.controller.ts:40:18)
+2026-03-29 11:50:55 [[31merror[39m]: PrismaClientValidationError: 
+Invalid `this.model.findMany()` invocation in
+/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/utils/QueryBuilder.ts:215:18
+
+  212 async execute(): Promise<IQueryResult<T>> {
+  213   const [total, data] = await Promise.all([
+  214     this.model.count(this.countQuery as Parameters<typeof this.model.count>[0]),
+→ 215     this.model.findMany({
+            where: {},
+            include: {
+              user: {
+              ~~~~
+                select: {
+                  id: true,
+                  name: true,
+                  avatarUrl: true
+                }
+              },
+          ?   author?: true,
+          ?   views?: true,
+          ?   reactions?: true,
+          ?   messages?: true
+            },
+            orderBy: {
+              createdAt: "desc"
+            },
+            skip: 0,
+            take: 10
+          })
+
+Unknown field `user` for include statement on model `Story`. Available options are marked with ?.
+    at ar (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/generated/prisma/client/runtime/client.js:14:1374)
+    at Gr.handleRequestError (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/generated/prisma/client/runtime/client.js:69:7929)
+    at Gr.handleAndLogRequestError (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/generated/prisma/client/runtime/client.js:69:7581)
+    at Gr.request (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/generated/prisma/client/runtime/client.js:69:7288)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async a (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/generated/prisma/client/runtime/client.js:79:6730)
+    at async Promise.all (index 1)
+    at async QueryBuilder.execute (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/utils/QueryBuilder.ts:213:27)
+    at async Object.getAllStories (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/module/admin/admin.service.ts:69:10)
+    at async <anonymous> (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/module/admin/admin.controller.ts:40:18)
+2026-03-29 12:16:10 [[31merror[39m]: PrismaClientValidationError: 
+Invalid `this.model.count()` invocation in
+/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/utils/QueryBuilder.ts:214:18
+
+  211 
+  212 async execute(): Promise<IQueryResult<T>> {
+  213   const [total, data] = await Promise.all([
+→ 214     this.model.count({
+            select: {
+              _count: {
+                select: {
+                  _all: true
+                }
+              }
+            },
+            where: {
+              status: "APPROVED"
+                      ~~~~~~~~~~
+            }
+          })
+
+Invalid value for argument `status`. Expected PropertyStatus.
+    at ar (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/generated/prisma/client/runtime/client.js:14:1374)
+    at Gr.handleRequestError (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/generated/prisma/client/runtime/client.js:69:7929)
+    at Gr.handleAndLogRequestError (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/generated/prisma/client/runtime/client.js:69:7581)
+    at Gr.request (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/generated/prisma/client/runtime/client.js:69:7288)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async a (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/generated/prisma/client/runtime/client.js:79:6730)
+    at async Promise.all (index 0)
+    at async QueryBuilder.execute (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/utils/QueryBuilder.ts:213:27)
+    at async Object.getAllProperties (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/module/admin/admin.service.ts:99:10)
+    at async <anonymous> (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/module/admin/admin.controller.ts:62:18)
+2026-03-29 12:16:12 [[31merror[39m]: PrismaClientValidationError: 
+Invalid `this.model.count()` invocation in
+/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/utils/QueryBuilder.ts:214:18
+
+  211 
+  212 async execute(): Promise<IQueryResult<T>> {
+  213   const [total, data] = await Promise.all([
+→ 214     this.model.count({
+            select: {
+              _count: {
+                select: {
+                  _all: true
+                }
+              }
+            },
+            where: {
+              status: "APPROVED"
+                      ~~~~~~~~~~
+            }
+          })
+
+Invalid value for argument `status`. Expected PropertyStatus.
+    at ar (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/generated/prisma/client/runtime/client.js:14:1374)
+    at Gr.handleRequestError (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/generated/prisma/client/runtime/client.js:69:7929)
+    at Gr.handleAndLogRequestError (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/generated/prisma/client/runtime/client.js:69:7581)
+    at Gr.request (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/generated/prisma/client/runtime/client.js:69:7288)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async a (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/generated/prisma/client/runtime/client.js:79:6730)
+    at async Promise.all (index 0)
+    at async QueryBuilder.execute (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/utils/QueryBuilder.ts:213:27)
+    at async Object.getAllProperties (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/module/admin/admin.service.ts:99:10)
+    at async <anonymous> (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/module/admin/admin.controller.ts:62:18)
+2026-03-29 12:16:26 [[31merror[39m]: PrismaClientValidationError: 
+Invalid `this.model.count()` invocation in
+/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/utils/QueryBuilder.ts:214:18
+
+  211 
+  212 async execute(): Promise<IQueryResult<T>> {
+  213   const [total, data] = await Promise.all([
+→ 214     this.model.count({
+            select: {
+              _count: {
+                select: {
+                  _all: true
+                }
+              }
+            },
+            where: {
+              status: "APPROVED"
+                      ~~~~~~~~~~
+            }
+          })
+
+Invalid value for argument `status`. Expected PropertyStatus.
+    at ar (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/generated/prisma/client/runtime/client.js:14:1374)
+    at Gr.handleRequestError (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/generated/prisma/client/runtime/client.js:69:7929)
+    at Gr.handleAndLogRequestError (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/generated/prisma/client/runtime/client.js:69:7581)
+    at Gr.request (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/generated/prisma/client/runtime/client.js:69:7288)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async a (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/generated/prisma/client/runtime/client.js:79:6730)
+    at async Promise.all (index 0)
+    at async QueryBuilder.execute (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/utils/QueryBuilder.ts:213:27)
+    at async Object.getAllProperties (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/module/admin/admin.service.ts:99:10)
+    at async <anonymous> (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/module/admin/admin.controller.ts:62:18)

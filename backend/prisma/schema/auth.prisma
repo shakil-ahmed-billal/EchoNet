@@ -38,9 +38,10 @@ model User {
   notifications Notification[]
   following     Follow[]       @relation("Following")
   followers     Follow[]       @relation("Followers")
-  stories       Story[]
-  storyViews    StoryView[]
-  savedPosts    SavedPost[]
+  stories        Story[]
+  storyViews     StoryView[]
+  storyReactions StoryReaction[]
+  savedPosts     SavedPost[]
   activityLogs  ActivityLog[]
   taggedIn      PostTag[]
   groups        Group[]
@@ -52,6 +53,8 @@ model User {
   productReviews ProductReview[]
   followedStores StoreFollow[]
   productFlags   ProductFlag[]
+  reviewLikes    ReviewLike[]
+  reviewReplies  ReviewReply[]
 
   // Property Portal relations
   properties        Property[]        @relation("PropertyOwner")

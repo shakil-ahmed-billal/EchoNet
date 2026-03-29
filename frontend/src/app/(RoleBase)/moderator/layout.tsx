@@ -11,7 +11,7 @@ export default function ModeratorLayout({ children }: { children: React.ReactNod
           <div className="flex items-center gap-2">
             <SidebarTrigger className="-ml-2" />
             <Separator orientation="vertical" className="mr-2 h-4" />
-            <div className="font-bold text-sm tracking-tight text-muted-foreground uppercase">Moderator Control Panel</div>
+            <div className="font-bold text-sm tracking-tight text-muted-foreground">Moderator Control Panel</div>
           </div>
         </header>
         <main className="flex flex-1 flex-col gap-4 p-6 pt-6">

@@ -1,4 +1,6 @@
 import prisma from '../../lib/prisma.js';
+import { NotificationServices } from '../notification/notification.service.js';
+import { NotificationType } from '../../../../generated/prisma/client/index.js';
 
 const createOrder = async (userId: string, payload: { storeId: string; items: { productId: string; quantity: number }[]; shippingAddress: any }) => {
   const { storeId, items, shippingAddress } = payload;
@@ -41,7 +43,9 @@ const createOrder = async (userId: string, payload: { storeId: string; items: { 
         }
       },
       include: {
-        items: true
+        items: true,
+        store: { select: { ownerId: true } },
+        buyer: { select: { name: true } }
       }
     });
 
@@ -54,6 +58,14 @@ const createOrder = async (userId: string, payload: { storeId: string; items: { 
     }
 
     return order;
+  });
+
+  // Notify store owner
+  await NotificationServices.createNotification({
+    userId: result.store.ownerId,
+    type: NotificationType.ORDER_PLACED,
+    referenceId: result.id,
+    message: `You have a new order from ${result.buyer.name} for $${result.totalAmount}.`,
   });
 
   return result;
@@ -112,7 +124,7 @@ const getStoreOrders = async (userId: string) => {
 const updateOrderStatus = async (userId: string, orderId: string, status: any) => {
   const order = await prisma.order.findUnique({
     where: { id: orderId },
-    include: { store: true }
+    include: { store: true, buyer: { select: { name: true } } }
   });
 
   if (!order) throw new Error('Order not found');
@@ -125,10 +137,20 @@ const updateOrderStatus = async (userId: string, orderId: string, status: any) =
      if (user?.role !== 'ADMIN') throw new Error('Not authorized to update status');
   }
 
-  return await prisma.order.update({
+  const updatedOrder = await prisma.order.update({
     where: { id: orderId },
     data: { status }
   });
+
+  // Notify buyer of status update
+  await NotificationServices.createNotification({
+    userId: order.buyerId,
+    type: NotificationType.ORDER_STATUS_UPDATED,
+    referenceId: orderId,
+    message: `Your order status has been updated to ${status}.`,
+  });
+
+  return updatedOrder;
 };
 
 export const OrderServices = {

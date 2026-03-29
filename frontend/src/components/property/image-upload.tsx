@@ -133,7 +133,7 @@ export function ImageUpload({ value, onChange, disabled }: ImageUploadProps) {
             </div>
             <div className="text-center">
                 <span className="block text-[10px] font-bold text-foreground">Add Photos</span>
-                <span className="block text-[8px] font-medium text-muted-foreground uppercase opacity-60">Max 10</span>
+                <span className="block text-[8px] font-medium text-muted-foreground opacity-60">Max 10</span>
             </div>
           </button>
         )}

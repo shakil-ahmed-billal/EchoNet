@@ -91,7 +91,7 @@ export function CommentSection({ postId, showAll: initialShowAll = false }: Comm
           />
         ))}
         {comments?.length === 0 && (
-          <p className="text-center text-xs text-muted-foreground py-4 uppercase tracking-widest font-medium opacity-50">
+          <p className="text-center text-xs text-muted-foreground py-4 font-medium opacity-50">
             No comments yet
           </p>
         )}
@@ -100,7 +100,7 @@ export function CommentSection({ postId, showAll: initialShowAll = false }: Comm
       <div className="flex flex-col gap-2 mt-2 pt-4 border-t border-edge">
         {replyingTo && (
           <div className="flex items-center justify-between px-2 py-1 bg-muted/50 rounded-md">
-            <span className="text-[10px] font-medium text-muted-foreground uppercase tracking-tight">
+            <span className="text-[10px] font-medium text-muted-foreground tracking-tight">
               Replying to comment...
             </span>
             <button 
@@ -178,14 +178,14 @@ function CommentItem({ comment, onReply }: { comment: any; onReply: () => void }
           <p className="text-sm text-foreground/90 mt-0.5 leading-relaxed">{comment.content}</p>
         </div>
         <div className="flex items-center gap-4 px-1">
-          <span className="text-[9px] text-muted-foreground uppercase font-bold tracking-tight">
+          <span className="text-[9px] text-muted-foreground font-bold tracking-tight">
             {formatDistanceToNow(new Date(comment.createdAt))}
           </span>
           <button 
             onClick={() => likeMutation.mutate()}
             disabled={likeMutation.isPending}
             className={cn(
-              "text-[9px] font-bold uppercase tracking-tight transition-colors",
+              "text-[9px] font-bold tracking-tight transition-colors",
               isLiked ? "text-primary" : "text-muted-foreground hover:text-primary"
             )}
           >
@@ -193,7 +193,7 @@ function CommentItem({ comment, onReply }: { comment: any; onReply: () => void }
           </button>
           <button 
             onClick={onReply}
-            className="text-[9px] font-bold text-muted-foreground hover:text-primary uppercase tracking-tight"
+            className="text-[9px] font-bold text-muted-foreground hover:text-primary tracking-tight"
           >
             Reply
           </button>
@@ -218,7 +218,7 @@ function CommentItem({ comment, onReply }: { comment: any; onReply: () => void }
                          <p className="text-xs text-foreground/90 mt-0.5">{reply.content}</p>
                       </div>
                       <div className="flex items-center gap-3 px-1 mt-0.5">
-                         <span className="text-[8px] text-muted-foreground uppercase font-bold tracking-tight">
+                         <span className="text-[8px] text-muted-foreground font-bold tracking-tight">
                             {formatDistanceToNow(new Date(reply.createdAt))}
                          </span>
                       </div>

@@ -53,7 +53,7 @@ export function ModeratorSidebar({ ...props }: React.ComponentProps<typeof Sideb
               </div>
               <div className="grid flex-1 text-left text-sm leading-tight">
                 <span className="truncate font-black text-lg -mt-0.5">{SITE_INFO.name}</span>
-                <span className="truncate text-[10px] font-bold tracking-widest text-emerald-500 uppercase">Moderator Panel</span>
+                <span className="truncate text-[10px] font-bold text-emerald-500">Moderator Panel</span>
               </div>
             </SidebarMenuButton>
           </SidebarMenuItem>

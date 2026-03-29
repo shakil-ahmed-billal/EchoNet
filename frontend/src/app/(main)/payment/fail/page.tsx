@@ -20,7 +20,7 @@ function FailContent() {
       </div>
       
       <div className="space-y-2 max-w-md">
-        <h1 className="text-4xl font-black tracking-tight uppercase">Payment Failed</h1>
+        <h1 className="text-4xl font-black tracking-tight">Payment Failed</h1>
         <p className="text-muted-foreground font-medium text-lg leading-relaxed">
           We encountered an error while processing your payment. Don't worry, no money has been deducted from your account.
         </p>
@@ -28,7 +28,7 @@ function FailContent() {
 
       {tranId && (
         <div className="bg-muted/50 px-6 py-3 rounded-2xl flex items-center gap-3 border border-border/10">
-          <span className="text-[10px] uppercase font-black tracking-widest text-muted-foreground">Reference ID</span>
+          <span className="text-[10px] font-black text-muted-foreground">Reference ID</span>
           <span className="font-mono font-bold text-sm">{tranId}</span>
         </div>
       )}

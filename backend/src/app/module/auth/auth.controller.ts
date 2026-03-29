@@ -1,293 +1,346 @@
-
+import { fromNodeHeaders } from "better-auth/node";
+import type { Request, Response } from "express";
 import httpStatus from "http-status";
-import { AuthService } from "./auth.service.js";
-import catchAsync from "../../utils/catchAsync.js";
-import sendResponse from "../../utils/sendResponse.js";
-import { CookieUtils } from "../../utils/cookie.js";
-import { tokenUtils } from "../../utils/token.js";
 import config from "../../config/index.js";
 import { auth } from "../../lib/auth.js";
-import type { Request, Response } from "express";
-import { fromNodeHeaders } from "better-auth/node";
+import catchAsync from "../../utils/catchAsync.js";
+import { CookieUtils } from "../../utils/cookie.js";
+import sendResponse from "../../utils/sendResponse.js";
+import { tokenUtils } from "../../utils/token.js";
+import { AuthService } from "./auth.service.js";
 
 const registerUser = catchAsync(async (req: Request, res: Response) => {
-    const url = new URL('/api/auth/sign-up/email', config.backend_url);
-    const betterAuthReq = new Request(url.toString(), {
-        method: 'POST',
-        headers: fromNodeHeaders(req.headers),
-        body: JSON.stringify(req.body),
+  const url = new URL("/api/auth/sign-up/email", config.backend_url);
+  const betterAuthReq = new Request(url.toString(), {
+    method: "POST",
+    headers: fromNodeHeaders(req.headers),
+    body: JSON.stringify(req.body),
+  });
+
+  const betterAuthRes = await auth.handler(betterAuthReq);
+  const rawText = await betterAuthRes.text();
+  let data;
+  try {
+    data = JSON.parse(rawText);
+  } catch (e) {
+    console.error(
+      "BetterAuth Registration Error (Non-JSON Response):",
+      rawText,
+    );
+    return sendResponse(res, {
+      statusCode: 500,
+      success: false,
+      message: "Internal Auth Provider Error",
     });
+  }
 
-    const betterAuthRes = await auth.handler(betterAuthReq);
-    const rawText = await betterAuthRes.text();
-    let data;
-    try {
-        data = JSON.parse(rawText);
-    } catch (e) {
-        console.error("BetterAuth Registration Error (Non-JSON Response):", rawText);
-        return sendResponse(res, { statusCode: 500, success: false, message: "Internal Auth Provider Error" });
-    }
-
-    if (!betterAuthRes.ok) {
-        return sendResponse(res, { statusCode: betterAuthRes.status, success: false, message: data?.message || "Registration failed" });
-    }
-
-    const { accessToken, refreshToken } = await AuthService.googleLoginSuccess({ user: data.user });
-
-    const token = data.token || "";
-    console.log(`[AUTH] User registered: ${data.user.email}, Session Token: ${token ? 'Generated' : 'MISSING'}`);
-    
-    if (token) {
-        tokenUtils.setBetterAuthSessionCookie(res, token);
-    }
-    tokenUtils.setAccessTokenCookie(res, accessToken);
-    tokenUtils.setRefreshTokenCookie(res, refreshToken);
-
-    sendResponse(res, {
-        statusCode: httpStatus.CREATED,
-        success: true,
-        message: "User registered successfully",
-        data: { token, accessToken, refreshToken, user: data.user }
+  if (!betterAuthRes.ok) {
+    return sendResponse(res, {
+      statusCode: betterAuthRes.status,
+      success: false,
+      message: data?.message || "Registration failed",
     });
+  }
+
+  const { accessToken, refreshToken } = await AuthService.googleLoginSuccess({
+    user: data.user,
+  });
+
+  const token = data.token || "";
+  console.log(
+    `[AUTH] User registered: ${data.user.email}, Session Token: ${token ? "Generated" : "MISSING"}`,
+  );
+
+  if (token) {
+    tokenUtils.setBetterAuthSessionCookie(res, token);
+  }
+  tokenUtils.setAccessTokenCookie(res, accessToken);
+  tokenUtils.setRefreshTokenCookie(res, refreshToken);
+
+  sendResponse(res, {
+    statusCode: httpStatus.CREATED,
+    success: true,
+    message: "User registered successfully",
+    data: { token, accessToken, refreshToken, user: data.user },
+  });
 });
 
 const loginUser = catchAsync(async (req: Request, res: Response) => {
-    const url = new URL('/api/auth/sign-in/email', config.backend_url);
-    const betterAuthReq = new Request(url.toString(), {
-        method: 'POST',
-        headers: fromNodeHeaders(req.headers),
-        body: JSON.stringify(req.body),
+  const url = new URL("/api/auth/sign-in/email", config.backend_url);
+  const betterAuthReq = new Request(url.toString(), {
+    method: "POST",
+    headers: fromNodeHeaders(req.headers),
+    body: JSON.stringify(req.body),
+  });
+
+  const betterAuthRes = await auth.handler(betterAuthReq);
+  const rawText = await betterAuthRes.text();
+  let data;
+  try {
+    data = JSON.parse(rawText);
+  } catch (e) {
+    console.error("BetterAuth Login Error (Non-JSON Response):", rawText);
+    return sendResponse(res, {
+      statusCode: 500,
+      success: false,
+      message: "Internal Auth Provider Error",
     });
+  }
 
-    const betterAuthRes = await auth.handler(betterAuthReq);
-    const rawText = await betterAuthRes.text();
-    let data;
-    try {
-        data = JSON.parse(rawText);
-    } catch (e) {
-        console.error("BetterAuth Login Error (Non-JSON Response):", rawText);
-        return sendResponse(res, { statusCode: 500, success: false, message: "Internal Auth Provider Error" });
-    }
-
-    if (!betterAuthRes.ok) {
-        return sendResponse(res, { statusCode: betterAuthRes.status, success: false, message: data?.message || "Invalid credentials" });
-    }
-
-    const { accessToken, refreshToken } = await AuthService.googleLoginSuccess({ user: data.user });
-
-    const token = data.token || "";
-    console.log(`[AUTH] User logged in: ${data.user.email}, Session Token: ${token ? 'Generated' : 'MISSING'}`);
-
-    if (token) {
-        tokenUtils.setBetterAuthSessionCookie(res, token);
-    }
-    tokenUtils.setAccessTokenCookie(res, accessToken);
-    tokenUtils.setRefreshTokenCookie(res, refreshToken);
-
-    sendResponse(res, {
-        statusCode: httpStatus.OK,
-        success: true,
-        message: "User logged in successfully",
-        data: { token, accessToken, refreshToken, user: data.user }
+  if (!betterAuthRes.ok) {
+    return sendResponse(res, {
+      statusCode: betterAuthRes.status,
+      success: false,
+      message: data?.message || "Invalid credentials",
     });
+  }
+
+  const { accessToken, refreshToken } = await AuthService.googleLoginSuccess({
+    user: data.user,
+  });
+
+  const token = data.token || "";
+  console.log(
+    `[AUTH] User logged in: ${data.user.email}, Session Token: ${token ? "Generated" : "MISSING"}`,
+  );
+
+  if (token) {
+    tokenUtils.setBetterAuthSessionCookie(res, token);
+  }
+  tokenUtils.setAccessTokenCookie(res, accessToken);
+  tokenUtils.setRefreshTokenCookie(res, refreshToken);
+
+  sendResponse(res, {
+    statusCode: httpStatus.OK,
+    success: true,
+    message: "User logged in successfully",
+    data: { token, accessToken, refreshToken, user: data.user },
+  });
 });
 
 const logoutUser = catchAsync(async (req: Request, res: Response) => {
-    const betterAuthSessionToken = req.cookies?.["better-auth.session_token"] || req.cookies?.["__Secure-better-auth.session_token"] || "";
-    let result;
-    if (betterAuthSessionToken) {
-        result = await AuthService.logoutUser(betterAuthSessionToken);
-    }
+  const betterAuthSessionToken =
+    req.cookies?.["better-auth.session_token"] ||
+    req.cookies?.["__Secure-better-auth.session_token"] ||
+    "";
+  let result;
+  if (betterAuthSessionToken) {
+    result = await AuthService.logoutUser(betterAuthSessionToken);
+  }
 
-    const isProd = config.env === 'production';
-    const cookieOptions = { 
-        httpOnly: true, 
-        secure: isProd, 
-        sameSite: isProd ? "none" : "lax" as any,
-        path: '/'
-    };
+  const isProd = config.env === "production";
+  const cookieOptions = {
+    httpOnly: true,
+    secure: isProd,
+    sameSite: isProd ? "none" : ("lax" as any),
+    path: "/",
+  };
 
-    CookieUtils.clearCookie(res, 'accessToken', cookieOptions);
-    CookieUtils.clearCookie(res, 'refreshToken', cookieOptions);
-    CookieUtils.clearCookie(res, 'better-auth.session_token', cookieOptions);
-    CookieUtils.clearCookie(res, '__Secure-better-auth.session_token', cookieOptions);
+  CookieUtils.clearCookie(res, "accessToken", cookieOptions);
+  CookieUtils.clearCookie(res, "refreshToken", cookieOptions);
+  CookieUtils.clearCookie(res, "better-auth.session_token", cookieOptions);
+  CookieUtils.clearCookie(
+    res,
+    "__Secure-better-auth.session_token",
+    cookieOptions,
+  );
 
-    sendResponse(res, {
-        statusCode: httpStatus.OK,
-        success: true,
-        message: "User logged out successfully",
-        data: result
-    });
+  sendResponse(res, {
+    statusCode: httpStatus.OK,
+    success: true,
+    message: "User logged out successfully",
+    data: result,
+  });
 });
 
 const getMe = catchAsync(async (req: Request, res: Response) => {
-    const result = await AuthService.getMe(fromNodeHeaders(req.headers));
+  const result = await AuthService.getMe(fromNodeHeaders(req.headers));
 
-    sendResponse(res, {
-        statusCode: httpStatus.OK,
-        success: true,
-        message: "User session retrieved successfully",
-        data: result
-    });
+  sendResponse(res, {
+    statusCode: httpStatus.OK,
+    success: true,
+    message: "User session retrieved successfully",
+    data: result,
+  });
 });
 
 const forgetPassword = catchAsync(async (req: Request, res: Response) => {
-    const { email } = req.body;
-    await AuthService.forgetPassword(email);
+  const { email } = req.body;
+  await AuthService.forgetPassword(email);
 
-    sendResponse(res, {
-        statusCode: httpStatus.OK,
-        success: true,
-        message: "Password reset OTP sent to email successfully",
-    });
+  sendResponse(res, {
+    statusCode: httpStatus.OK,
+    success: true,
+    message: "Password reset OTP sent to email successfully",
+  });
 });
 
 const resetPassword = catchAsync(async (req: Request, res: Response) => {
-    const { email, otp, newPassword } = req.body;
-    await AuthService.resetPassword(email, otp, newPassword);
+  const { email, otp, newPassword } = req.body;
+  await AuthService.resetPassword(email, otp, newPassword);
 
-    sendResponse(res, {
-        statusCode: httpStatus.OK,
-        success: true,
-        message: "Password reset successfully",
-    });
+  sendResponse(res, {
+    statusCode: httpStatus.OK,
+    success: true,
+    message: "Password reset successfully",
+  });
 });
 
 const changePassword = catchAsync(async (req: Request, res: Response) => {
-    const betterAuthSessionToken = req.cookies?.["better-auth.session_token"] || req.cookies?.["__Secure-better-auth.session_token"] || "";
-    const result = await AuthService.changePassword(req.body, betterAuthSessionToken);
-    
-    const { accessToken, refreshToken } = result as Record<string, any>;
-    tokenUtils.setAccessTokenCookie(res, accessToken);
-    tokenUtils.setRefreshTokenCookie(res, refreshToken);
+  const betterAuthSessionToken =
+    req.cookies?.["better-auth.session_token"] ||
+    req.cookies?.["__Secure-better-auth.session_token"] ||
+    "";
+  const result = await AuthService.changePassword(
+    req.body,
+    betterAuthSessionToken,
+  );
 
-    sendResponse(res, {
-        statusCode: httpStatus.OK,
-        success: true,
-        message: "Password changed successfully",
-        data: result
-    });
+  const { accessToken, refreshToken } = result as Record<string, any>;
+  tokenUtils.setAccessTokenCookie(res, accessToken);
+  tokenUtils.setRefreshTokenCookie(res, refreshToken);
+
+  sendResponse(res, {
+    statusCode: httpStatus.OK,
+    success: true,
+    message: "Password changed successfully",
+    data: result,
+  });
 });
 
 const getNewToken = catchAsync(async (req: Request, res: Response) => {
-    const refreshToken = req.cookies?.refreshToken || "";
-    
-    const result = await AuthService.getNewToken(refreshToken, fromNodeHeaders(req.headers));
+  const refreshToken = req.cookies?.refreshToken || "";
 
-    const { accessToken, refreshToken: newRefreshToken } = result as Record<string, any>;
-    tokenUtils.setAccessTokenCookie(res, accessToken);
-    tokenUtils.setRefreshTokenCookie(res, newRefreshToken);
+  const result = await AuthService.getNewToken(
+    refreshToken,
+    fromNodeHeaders(req.headers),
+  );
 
-    sendResponse(res, {
-        statusCode: httpStatus.OK,
-        success: true,
-        message: "Token refreshed successfully",
-        data: result
-    });
+  const { accessToken, refreshToken: newRefreshToken } = result as Record<
+    string,
+    any
+  >;
+  tokenUtils.setAccessTokenCookie(res, accessToken);
+  tokenUtils.setRefreshTokenCookie(res, newRefreshToken);
+
+  sendResponse(res, {
+    statusCode: httpStatus.OK,
+    success: true,
+    message: "Token refreshed successfully",
+    data: result,
+  });
 });
 
 const verifyEmail = catchAsync(async (req: Request, res: Response) => {
-    const { email, otp } = req.body;
-    await AuthService.verifyEmail(email, otp);
+  const { email, otp } = req.body;
+  await AuthService.verifyEmail(email, otp);
 
-    sendResponse(res, {
-        statusCode: httpStatus.OK,
-        success: true,
-        message: "Email verified successfully",
-    });
+  sendResponse(res, {
+    statusCode: httpStatus.OK,
+    success: true,
+    message: "Email verified successfully",
+  });
 });
 
 const googleLogin = catchAsync(async (req: Request, res: Response) => {
-    const redirectPath = (req.query.redirect as string) || "/";
-    // The successful OAuth redirect MUST go through the frontend proxy to preserve cookies!
-    const callbackURL = `${config.frontend_url}/api/v1/auth/google/success?redirect=${encodeURIComponent(redirectPath)}`;
+  const redirectPath = (req.query.redirect as string) || "/";
+  // The successful OAuth redirect MUST go through the frontend proxy to preserve cookies!
+  const callbackURL = `${config.frontend_url}/api/v1/auth/google/success?redirect=${encodeURIComponent(redirectPath)}`;
 
-    // Use auth.handler() directly so BetterAuth's state cookie is properly forwarded to the browser
-    const url = new URL('/api/auth/sign-in/social', config.backend_url);
-    const headers = fromNodeHeaders(req.headers);
-    headers.set('Content-Type', 'application/json');
-    
-    const betterAuthReq = new Request(url.toString(), {
-        method: 'POST',
-        headers,
-        body: JSON.stringify({ provider: 'google', callbackURL }),
+  // Use auth.handler() directly so BetterAuth's state cookie is properly forwarded to the browser
+  const url = new URL("/api/auth/sign-in/social", config.backend_url);
+  const headers = fromNodeHeaders(req.headers);
+  headers.set("Content-Type", "application/json");
+
+  const betterAuthReq = new Request(url.toString(), {
+    method: "POST",
+    headers,
+    body: JSON.stringify({ provider: "google", callbackURL }),
+  });
+
+  const betterAuthRes = await auth.handler(betterAuthReq);
+
+  // Forward ALL cookies BetterAuth set (contains the OAuth state token)
+  betterAuthRes.headers.forEach((value, key) => {
+    if (key.toLowerCase() === "set-cookie") {
+      res.append("Set-Cookie", value);
+    }
+  });
+
+  const rawData = await betterAuthRes.text();
+
+  let data;
+  try {
+    data = JSON.parse(rawData);
+  } catch (e) {
+    data = null;
+  }
+
+  // BetterAuth usually returns a JSON with `url` for social sign-ins
+  if (data && data.url) {
+    return res.redirect(data.url);
+  }
+
+  const location = betterAuthRes.headers.get("location");
+  if (location) {
+    return res.redirect(location);
+  }
+
+  return res
+    .status(500)
+    .json({
+      message: "Failed to initiate Google OAuth",
+      details: data || rawData,
     });
-
-    const betterAuthRes = await auth.handler(betterAuthReq);
-
-    // Forward ALL cookies BetterAuth set (contains the OAuth state token)
-    betterAuthRes.headers.forEach((value, key) => {
-        if (key.toLowerCase() === 'set-cookie') {
-            res.append('Set-Cookie', value);
-        }
-    });
-
-    const rawData = await betterAuthRes.text();
-
-    let data;
-    try {
-        data = JSON.parse(rawData);
-    } catch(e) {
-        data = null;
-    }
-
-    // BetterAuth usually returns a JSON with `url` for social sign-ins
-    if (data && data.url) {
-        return res.redirect(data.url);
-    }
-
-    const location = betterAuthRes.headers.get('location');
-    if (location) {
-        return res.redirect(location);
-    }
-
-    return res.status(500).json({ message: 'Failed to initiate Google OAuth', details: data || rawData });
 });
 
 const googleLoginSuccess = catchAsync(async (req: Request, res: Response) => {
-    const redirectPath = (req.query.redirect as string) || "/";
-    const sessionToken = req.cookies["better-auth.session_token"] || req.cookies["__Secure-better-auth.session_token"];
+  const redirectPath = (req.query.redirect as string) || "/";
+  const sessionToken =
+    req.cookies["better-auth.session_token"] ||
+    req.cookies["__Secure-better-auth.session_token"];
 
-    if (!sessionToken) {
-        return res.redirect(`${config.frontend_url}/login?error=oauth_failed`);
-    }
+  if (!sessionToken) {
+    return res.redirect(`${config.frontend_url}/login?error=oauth_failed`);
+  }
 
-    // BetterAuth signs the session cookie, so a direct Prisma query on the raw cookie value will fail.
-    // We must pass the raw HTTP cookie header to auth.api.getSession to decode and hash the token.
-    const headers = new Headers();
-    if (req.headers.cookie) {
-        headers.set('cookie', req.headers.cookie);
-    }
+  // BetterAuth signs the session cookie, so a direct Prisma query on the raw cookie value will fail.
+  // We must pass the raw HTTP cookie header to auth.api.getSession to decode and hash the token.
+  const headers = new Headers();
+  if (req.headers.cookie) {
+    headers.set("cookie", req.headers.cookie);
+  }
 
-    let sessionData = null;
-    try {
-        sessionData = await auth.api.getSession({ headers });
-    } catch (e) {
-        console.error("Failed to get BetterAuth session:", e);
-    }
+  let sessionData = null;
+  try {
+    sessionData = await auth.api.getSession({ headers });
+  } catch (e) {
+    console.error("Failed to get BetterAuth session:", e);
+  }
 
-    if (!sessionData || !sessionData.user) {
-        return res.redirect(`${config.frontend_url}/login?error=no_session_found`);
-    }
+  if (!sessionData || !sessionData.user) {
+    return res.redirect(`${config.frontend_url}/login?error=no_session_found`);
+  }
 
-    const { accessToken, refreshToken } = await AuthService.googleLoginSuccess(sessionData);
+  const { accessToken, refreshToken } =
+    await AuthService.googleLoginSuccess(sessionData);
 
-    tokenUtils.setAccessTokenCookie(res, accessToken);
-    tokenUtils.setRefreshTokenCookie(res, refreshToken);
+  tokenUtils.setAccessTokenCookie(res, accessToken);
+  tokenUtils.setRefreshTokenCookie(res, refreshToken);
 
-    res.redirect(`${config.frontend_url}${redirectPath}`);
+  res.redirect(`${config.frontend_url}${redirectPath}`);
 });
 
-export const AuthController = { 
-    registerUser, 
-    loginUser, 
-    logoutUser, 
-    getMe, 
-    forgetPassword, 
-    resetPassword,
-    googleLogin,
-    googleLoginSuccess,
-    changePassword,
-    getNewToken,
-    verifyEmail
+export const AuthController = {
+  registerUser,
+  loginUser,
+  logoutUser,
+  getMe,
+  forgetPassword,
+  resetPassword,
+  googleLogin,
+  googleLoginSuccess,
+  changePassword,
+  getNewToken,
+  verifyEmail,
 };

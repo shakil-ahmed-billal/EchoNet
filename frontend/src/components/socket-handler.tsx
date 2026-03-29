@@ -33,7 +33,7 @@ export const SocketHandler = () => {
       showBrowserNotification("EchoNet", { body: data.message });
       // Auto-refresh notification list and badge count
       queryClient.invalidateQueries({ queryKey: ["notifications"] });
-      queryClient.invalidateQueries({ queryKey: ["notifications-unread-count"] });
+      queryClient.invalidateQueries({ queryKey: ["notifications", "unread-count"] });
     })
 
     socket.on("new-message", (data: any) => {

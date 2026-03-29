@@ -1,6 +1,7 @@
 import prisma from '../../lib/prisma.js';
 import { PostStatus } from '../../../../generated/prisma/client/index.js';
 import { uploadMedia, deleteMedia } from '../../lib/cloudinary.js';
+import { extractCloudinaryPublicId } from '../../utils/cloudinaryUtils.js';
 import fs from 'fs';
 import { HashtagServices } from '../hashtag/hashtag.service.js';
 import { QueryBuilder } from '../../utils/QueryBuilder.js';
@@ -286,7 +287,11 @@ const updatePost = async (id: string, authorId: string, payload: { content?: str
 
 const deletePost = async (id: string, authorId: string, isAdmin: boolean = false) => {
   // Verify ownership unless admin
-  const post = await prisma.post.findUnique({ where: { id } });
+  const post = await prisma.post.findUnique({ 
+    where: { id },
+    select: { id: true, authorId: true, mediaUrls: true } 
+  });
+  
   if (!post) {
     throw new Error('Post not found');
   }
@@ -295,10 +300,29 @@ const deletePost = async (id: string, authorId: string, isAdmin: boolean = false
     throw new Error('Unauthorized');
   }
 
-  const result = await prisma.post.delete({
-    where: { id },
-  });
-  return result;
+  // 1. Clean up Cloudinary Assets
+  if (post.mediaUrls && post.mediaUrls.length > 0) {
+    console.log(`[Post Delete] Obliterating ${post.mediaUrls.length} media URLs from Cloudinary...`);
+    for (const url of post.mediaUrls) {
+      const publicId = extractCloudinaryPublicId(url);
+      if (publicId) {
+        await deleteMedia(publicId);
+      }
+    }
+  }
+
+  // 2. Cascade Delete through DB using an atomic transaction to avoid orphaned relations
+  const result = await prisma.$transaction([
+    prisma.like.deleteMany({ where: { postId: id } }),
+    prisma.reaction.deleteMany({ where: { postId: id } }),
+    prisma.comment.deleteMany({ where: { postId: id } }),
+    prisma.postHashtag.deleteMany({ where: { postId: id } }),
+    prisma.savedPost.deleteMany({ where: { postId: id } }),
+    prisma.postTag.deleteMany({ where: { postId: id } }),
+    prisma.post.delete({ where: { id } }),
+  ]);
+
+  return result[result.length - 1]; // Return the deleted post object
 };
 
 const getPostById = async (id: string, userId?: string) => {

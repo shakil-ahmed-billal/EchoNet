@@ -37,6 +37,7 @@ const getAllProducts = async (query: any) => {
     .include({
       store: { select: { id: true, name: true } },
       category: { select: { id: true, name: true } },
+      reviews: { select: { rating: true } },
       flags: { take: 1, orderBy: { createdAt: 'desc' } },
     } as any)
     .execute();
@@ -66,6 +67,23 @@ const getProductById = async (id: string) => {
               name: true,
               avatarUrl: true,
             },
+          },
+          likes: {
+            select: {
+              userId: true,
+            },
+          },
+          replies: {
+            include: {
+              user: {
+                select: {
+                  id: true,
+                  name: true,
+                  avatarUrl: true,
+                },
+              },
+            },
+            orderBy: { createdAt: 'asc' },
           },
         },
         orderBy: { createdAt: 'desc' },

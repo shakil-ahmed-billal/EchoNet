@@ -2,12 +2,12 @@ import { apiClient } from './api-client';
 
 export const getAdminStats = async () => {
   const { data } = await apiClient.get('/admin/stats');
-  return data.data;
+  return data.data; // Dashboard stats doesn't use pagination, so keeping data.data extraction
 };
 
 export const getAllUsers = async (params?: any) => {
-  const { data } = await apiClient.get('/users', { params });
-  return data.data;
+  const { data } = await apiClient.get('/admin/users', { params });
+  return data;
 };
 
 export const updateUserRole = async (id: string, role: string) => {
@@ -41,8 +41,8 @@ export const deleteCategory = async (id: string) => {
 };
 
 export const getAllProperties = async (params?: any) => {
-  const { data } = await apiClient.get('/properties', { params });
-  return data.data;
+  const { data } = await apiClient.get('/admin/properties', { params });
+  return data;
 };
 
 export const approveProperty = async (id: string) => {
@@ -65,11 +65,14 @@ export const verifyAgent = async (id: string) => {
   return data.data;
 };
 
+export const getAllProducts = async (params?: any) => {
+  const { data } = await apiClient.get('/admin/products', { params });
+  return data;
+};
+
 export const getFlaggedProducts = async (params?: { page?: number; limit?: number }) => {
-  const { data } = await apiClient.get('/products', { params: { status: 'FLAGGED', limit: 12, ...params } });
-  const result = data.data;
-  if (result?.data) return result; // already paginated
-  return Array.isArray(result) ? { data: result, meta: null } : result;
+  const { data } = await apiClient.get('/admin/products', { params: { status: 'FLAGGED', limit: 12, ...params } });
+  return data;
 };
 
 export const updateProductStatus = async (id: string, status: string) => {
@@ -77,9 +80,14 @@ export const updateProductStatus = async (id: string, status: string) => {
   return data.data;
 };
 
+export const getAllPosts = async (params?: any) => {
+  const { data } = await apiClient.get('/admin/posts', { params });
+  return data;
+};
+
 export const getFlaggedPosts = async (params?: any) => {
-  const { data } = await apiClient.get('/posts', { params: { status: 'FLAGGED', limit: 12, ...params } });
-  return data.data;
+  const { data } = await apiClient.get('/admin/posts', { params: { status: 'FLAGGED', limit: 12, ...params } });
+  return data;
 };
 
 export const deletePost = async (id: string) => {
@@ -89,5 +97,20 @@ export const deletePost = async (id: string) => {
 
 export const updatePostStatus = async (id: string, status: string) => {
   const { data } = await apiClient.patch(`/posts/${id}/status`, { status });
+  return data.data;
+};
+
+export const getAllStories = async (params?: any) => {
+  const { data } = await apiClient.get('/admin/stories', { params });
+  return data;
+};
+
+export const deleteStory = async (id: string) => {
+  const { data } = await apiClient.delete(`/admin/stories/${id}`);
+  return data.data;
+};
+
+export const deleteUser = async (id: string) => {
+  const { data } = await apiClient.delete(`/admin/users/${id}`);
   return data.data;
 };

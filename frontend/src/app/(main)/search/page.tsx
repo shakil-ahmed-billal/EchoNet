@@ -100,7 +100,7 @@ export default function SearchPage() {
     <Suspense fallback={
         <div className="flex flex-col items-center justify-center min-h-[60vh] gap-4">
             <Loader2 className="h-10 w-10 animate-spin text-primary" />
-            <p className="text-sm font-medium text-muted-foreground uppercase tracking-widest animate-pulse">Searching...</p>
+            <p className="text-sm font-medium text-muted-foreground animate-pulse">Searching...</p>
         </div>
     }>
       <SearchContent />

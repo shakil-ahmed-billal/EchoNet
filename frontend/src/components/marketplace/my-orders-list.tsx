@@ -14,7 +14,7 @@ export function MyOrdersList() {
     return (
       <div className="flex flex-col items-center justify-center py-20 opacity-50">
         <Loader2 className="w-10 h-10 animate-spin text-primary mb-4" />
-        <p className="text-sm font-bold uppercase tracking-widest">Loading secure orders...</p>
+        <p className="text-sm font-bold">Loading secure orders...</p>
       </div>
     )
   }
@@ -43,11 +43,11 @@ export function MyOrdersList() {
           <CardHeader className="bg-muted/30 p-6 flex flex-col md:flex-row md:items-center justify-between gap-4 border-b border-border/40">
             <div className="flex flex-col gap-1">
               <div className="flex items-center gap-3">
-                <span className="text-[10px] uppercase font-black tracking-widest text-muted-foreground">Order ID</span>
+                <span className="text-[10px] font-black text-muted-foreground">Order ID</span>
                 <span className="text-xs font-mono font-medium text-foreground bg-background px-3 py-1 rounded-full border border-border/50">
                   {order.id.split('-')[0].toUpperCase()}
                 </span>
-                <span className={`text-[10px] uppercase font-black px-3 py-1 rounded-full flex items-center gap-1.5 ${
+                <span className={`text-[10px] font-black px-3 py-1 rounded-full flex items-center gap-1.5 ${
                   order.status === 'DELIVERED' ? 'bg-green-500/10 text-green-500' :
                   order.status === 'SHIPPED' ? 'bg-blue-500/10 text-blue-500' :
                   'bg-yellow-500/10 text-yellow-500'
@@ -64,7 +64,7 @@ export function MyOrdersList() {
             </div>
             
             <div className="flex flex-row md:flex-col items-center md:items-end justify-between md:justify-center">
-              <span className="text-[10px] uppercase font-black tracking-widest text-muted-foreground">Order Total</span>
+              <span className="text-[10px] font-black text-muted-foreground">Order Total</span>
               <span className="text-2xl font-black text-primary">${Number(order.totalAmount || 0).toFixed(2)}</span>
             </div>
           </CardHeader>
@@ -93,7 +93,7 @@ export function MyOrdersList() {
                     <Link href={`/marketplace/${item.product?.id}`} className="hover:text-primary transition-colors w-fit">
                       <h5 className="text-sm font-bold line-clamp-1">{item.product?.title || "Product Unavailable"}</h5>
                     </Link>
-                    <p className="text-[11px] text-muted-foreground font-medium mt-1 uppercase tracking-wider">
+                    <p className="text-[11px] text-muted-foreground font-medium mt-1 tracking-wider">
                       Qty: {item.quantity} × ${Number(item.price || item.product?.price || 0).toFixed(2)}
                     </p>
                   </div>

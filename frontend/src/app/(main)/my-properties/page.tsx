@@ -108,7 +108,7 @@ export default function MyPropertiesPage() {
         <CardContent className="p-0">
           <div className="overflow-x-auto">
             <table className="w-full text-sm text-left">
-              <thead className="text-xs text-muted-foreground uppercase bg-muted/30 font-bold border-b border-border/10">
+              <thead className="text-xs text-muted-foreground bg-muted/30 font-bold border-b border-border/10">
                 <tr>
                   <th className="px-6 py-4">Property</th>
                   <th className="px-6 py-4">Status</th>
@@ -223,7 +223,7 @@ function StatCard({ title, value, icon, color }: { title: string; value: string 
             {icon}
           </div>
           <div>
-            <p className="text-xs text-muted-foreground font-medium uppercase tracking-wider">{title}</p>
+            <p className="text-xs text-muted-foreground font-medium tracking-wider">{title}</p>
             <p className="text-2xl font-black tracking-tight">{value}</p>
           </div>
         </div>
@@ -244,7 +244,7 @@ function StatusBadge({ status }: { status: string }) {
   const Icon = config.icon
 
   return (
-    <span className={`inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-[10px] font-black uppercase tracking-wide border ${config.class}`}>
+    <span className={`inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-[10px] font-black tracking-wide border ${config.class}`}>
       <Icon className="w-3 h-3" />
       {config.label}
     </span>

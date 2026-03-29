@@ -41,7 +41,7 @@ export function ProductGrid({ category, search, page, onPageChange }: ProductGri
   if (products.length === 0) {
     return (
       <div className="flex flex-col items-center justify-center py-32 text-center bg-muted/10 rounded-3xl border border-dashed border-border/60">
-        <p className="text-xl font-black opacity-30 uppercase tracking-widest">No items found</p>
+        <p className="text-xl font-black opacity-30">No items found</p>
         <p className="text-sm text-muted-foreground mt-2 font-medium">Try a different category or search term.</p>
       </div>
     )

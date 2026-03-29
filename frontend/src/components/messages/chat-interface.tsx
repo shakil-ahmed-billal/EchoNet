@@ -330,7 +330,7 @@ export function ChatInterface() {
                 {/* Groups Section */}
                 {filteredGroups.length > 0 && (
                   <div className="mb-2">
-                    <p className="px-3 text-[10px] font-bold uppercase tracking-wider text-muted-foreground/50 mb-1">
+                    <p className="px-3 text-[10px] font-bold tracking-wider text-muted-foreground/50 mb-1">
                       Groups
                     </p>
                     {filteredGroups.map((g) => (
@@ -361,7 +361,7 @@ export function ChatInterface() {
                 )}
 
                 {/* Users Section */}
-                <p className="px-3 text-[10px] font-bold uppercase tracking-wider text-muted-foreground/50 mb-1">
+                <p className="px-3 text-[10px] font-bold tracking-wider text-muted-foreground/50 mb-1">
                   Direct Messages
                 </p>
                 {filteredUsers?.map((u) => (

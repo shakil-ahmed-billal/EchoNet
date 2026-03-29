@@ -121,7 +121,7 @@ export const CallModal = ({
                                         >
                                             <PhoneOff className="h-7 w-7" />
                                         </Button>
-                                        <span className="text-xs font-semibold text-zinc-500 uppercase tracking-widest">Decline</span>
+                                        <span className="text-xs font-semibold text-zinc-500">Decline</span>
                                     </div>
                                     <div className="flex flex-col items-center gap-3">
                                         <Button 
@@ -130,7 +130,7 @@ export const CallModal = ({
                                         >
                                             <Phone className="h-7 w-7" />
                                         </Button>
-                                        <span className="text-xs font-semibold text-zinc-500 uppercase tracking-widest">Accept</span>
+                                        <span className="text-xs font-semibold text-zinc-500">Accept</span>
                                     </div>
                                 </div>
                             </div>

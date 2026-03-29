@@ -130,7 +130,7 @@ export function PostCard({ post }: PostCardProps) {
                 {post.author.name}
               </h4>
             </Link>
-            <div className="flex items-center gap-1.5 text-[10px] text-muted-foreground/60 font-bold uppercase tracking-widest mt-1">
+            <div className="flex items-center gap-1.5 text-[10px] text-muted-foreground/60 font-bold mt-1">
               <span>{formatDistanceToNow(new Date(post.createdAt), { addSuffix: true })}</span>
               <span className="opacity-50">•</span>
               <span className="opacity-80">Global</span>
@@ -226,7 +226,7 @@ export function PostCard({ post }: PostCardProps) {
 
       {/* Interaction Stats */}
       {(likesCount > 0 || post._count.comments > 0) && (
-        <div className="px-5 py-3 border-t border-border/10 flex items-center justify-between text-[10px] font-bold uppercase tracking-widest text-muted-foreground/60">
+        <div className="px-5 py-3 border-t border-border/10 flex items-center justify-between text-[10px] font-bold text-muted-foreground/60">
            <div className="flex items-center gap-1.5 hover:text-red-500 transition-colors cursor-pointer group/stat">
               <div className="size-5 rounded-full bg-red-500 flex items-center justify-center -space-x-1 ring-2 ring-card group-hover/stat:ring-red-500/20 shadow-sm transition-all">
                  <Heart className="h-2.5 w-2.5 fill-white text-white" />

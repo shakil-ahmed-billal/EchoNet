@@ -69,7 +69,7 @@ export default function ProfilePage() {
     return (
       <div className="flex flex-col items-center justify-center min-h-[60vh] gap-4">
         <Loader2 className="h-10 w-10 animate-spin text-primary" />
-        <p className="text-sm font-medium text-muted-foreground uppercase tracking-widest animate-pulse">
+        <p className="text-sm font-medium text-muted-foreground animate-pulse">
           Loading Profile...
         </p>
       </div>
@@ -132,22 +132,22 @@ export default function ProfilePage() {
                   {profile.name}
                 </h1>
                 {profile.role === "ADMIN" && (
-                  <div className="px-2 py-0.5 rounded-full bg-primary/10 text-primary text-[10px] font-bold border border-primary/20 uppercase tracking-widest">
+                  <div className="px-2 py-0.5 rounded-full bg-primary/10 text-primary text-[10px] font-bold border border-primary/20">
                     Admin
                   </div>
                 )}
                 {profile.isFriend && (
-                  <div className="flex items-center gap-1 px-2 py-0.5 rounded-full bg-green-500/10 text-green-500 text-[10px] font-bold border border-green-500/20 uppercase tracking-widest">
+                  <div className="flex items-center gap-1 px-2 py-0.5 rounded-full bg-green-500/10 text-green-500 text-[10px] font-bold border border-green-500/20">
                     <BadgeCheck className="size-3" /> Friends
                   </div>
                 )}
                 {profile.isPrivate && (
-                  <div className="px-2 py-0.5 rounded-full bg-muted text-muted-foreground text-[10px] font-bold border border-border uppercase tracking-widest flex items-center gap-1">
+                  <div className="px-2 py-0.5 rounded-full bg-muted text-muted-foreground text-[10px] font-bold border border-border flex items-center gap-1">
                     <Shield className="size-3" /> Private
                   </div>
                 )}
               </div>
-              <p className="text-sm text-muted-foreground/60 font-bold uppercase tracking-widest">
+              <p className="text-sm text-muted-foreground/60 font-bold">
                 @{profile.name.toLowerCase().replace(/\s+/g, "")}
               </p>
             </div>
@@ -183,7 +183,7 @@ export default function ProfilePage() {
             {profile.bio || "No bio yet."}
           </p>
 
-          <div className="flex flex-wrap gap-x-6 gap-y-2 mt-6 text-[10px] text-muted-foreground font-bold uppercase tracking-widest">
+          <div className="flex flex-wrap gap-x-6 gap-y-2 mt-6 text-[10px] text-muted-foreground font-bold">
             {profile.location && (
               <div className="flex items-center gap-1.5">
                 <MapPin className="size-3.5 opacity-70" />
@@ -313,7 +313,7 @@ export default function ProfilePage() {
                           <p className="text-white text-xs font-medium line-clamp-2 drop-shadow-md">
                             {story.caption || format(new Date(story.createdAt), "PPp")}
                           </p>
-                          <div className="flex items-center gap-1 mt-2 text-white/80 text-[10px] uppercase font-bold tracking-wider">
+                          <div className="flex items-center gap-1 mt-2 text-white/80 text-[10px] font-bold tracking-wider">
                             <span className="bg-primary/80 px-1.5 py-0.5 rounded text-white">{story.viewsCount} views</span>
                           </div>
                         </div>

@@ -113,7 +113,7 @@ export function CreatePost() {
                   <div className="flex flex-col">
                     <p className="font-bold text-sm tracking-tight">{user?.name}</p>
                     <div className="flex items-center gap-1.5 px-2 py-0.5 bg-muted rounded-full w-fit">
-                       <p className="text-[10px] font-bold text-muted-foreground opacity-80 uppercase tracking-wider">Public</p>
+                       <p className="text-[10px] font-bold text-muted-foreground opacity-80 tracking-wider">Public</p>
                     </div>
                   </div>
                 </div>

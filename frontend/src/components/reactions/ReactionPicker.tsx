@@ -62,7 +62,7 @@ export function ReactionPicker({ onReact, currentReaction, children }: ReactionP
                     animate={{ opacity: 1, y: 0, scale: 1 }}
                     exit={{ opacity: 0, y: 4, scale: 0.8 }}
                     transition={{ duration: 0.15 }}
-                    className="absolute -top-8 left-1/2 -translate-x-1/2 text-[10px] font-bold uppercase tracking-widest bg-foreground text-background px-2 py-0.5 rounded-full whitespace-nowrap shadow-lg"
+                    className="absolute -top-8 left-1/2 -translate-x-1/2 text-[10px] font-bold bg-foreground text-background px-2 py-0.5 rounded-full whitespace-nowrap shadow-lg"
                   >
                     {reaction.label}
                   </motion.span>

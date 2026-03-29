@@ -8,6 +8,8 @@ import { ChevronRight } from "lucide-react";
 import Link from "next/link";
 import { Skeleton } from "@/components/ui/skeleton";
 
+import { ScrollContainer } from "@/components/ui/scroll-container";
+
 export function FriendSuggestions() {
   const { user: currentUser, isAuthenticated } = useAuth();
   
@@ -30,23 +32,25 @@ export function FriendSuggestions() {
         </Link>
       </div>
 
-      <div className="flex gap-2 sm:gap-3 px-5 overflow-x-auto pb-4 custom-scrollbar snap-x touch-pan-x">
-        {isLoading ? (
-          Array.from({ length: 4 }).map((_, i) => (
-            <div key={i} className="w-[140px] sm:w-[180px] md:w-[200px] shrink-0 bg-card border border-border/40 rounded-2xl overflow-hidden shadow-sm flex flex-col h-full">
-              <Skeleton className="aspect-square w-full" />
-              <div className="p-3.5 flex flex-col gap-3">
-                <Skeleton className="h-4 w-2/3" />
-                <Skeleton className="h-9 w-full mt-auto" />
+      <ScrollContainer className="px-1">
+        <div className="flex gap-2 sm:gap-3 px-4 pb-4 select-none">
+          {isLoading ? (
+            Array.from({ length: 4 }).map((_, i) => (
+              <div key={i} className="w-[140px] sm:w-[180px] md:w-[200px] shrink-0 bg-card border border-border/40 rounded-2xl overflow-hidden shadow-sm flex flex-col h-full">
+                <Skeleton className="aspect-square w-full" />
+                <div className="p-3.5 flex flex-col gap-3">
+                  <Skeleton className="h-4 w-2/3" />
+                  <Skeleton className="h-9 w-full mt-auto" />
+                </div>
               </div>
-            </div>
-          ))
-        ) : (
-          suggestions.map((user) => (
-            <FriendCard key={user.id} user={user} className="w-[140px] sm:w-[180px] md:w-[200px] shrink-0 snap-start" />
-          ))
-        )}
-      </div>
+            ))
+          ) : (
+            suggestions.map((user) => (
+              <FriendCard key={user.id} user={user} className="w-[140px] sm:w-[180px] md:w-[200px] shrink-0" />
+            ))
+          )}
+        </div>
+      </ScrollContainer>
     </div>
   );
 }

@@ -26,7 +26,7 @@ export default function PostDetailPage() {
     return (
       <div className="flex flex-col items-center justify-center min-h-[60vh] gap-4">
         <Loader2 className="h-10 w-10 animate-spin text-primary" />
-        <p className="text-sm font-medium text-muted-foreground uppercase tracking-widest animate-pulse">
+        <p className="text-sm font-medium text-muted-foreground animate-pulse">
           Loading Post...
         </p>
       </div>
@@ -65,7 +65,7 @@ export default function PostDetailPage() {
 
       {/* Expanded Comments Section */}
       <div className="bg-card/40 border border-border/40 rounded-3xl p-5 shadow-sm">
-        <h3 className="text-sm font-bold uppercase tracking-widest text-muted-foreground/60 mb-4">
+        <h3 className="text-sm font-bold text-muted-foreground/60 mb-4">
           All Comments
         </h3>
         <CommentSection postId={post.id} showAll={true} />

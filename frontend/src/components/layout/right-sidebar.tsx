@@ -119,7 +119,7 @@ export function RightSidebar() {
       {(isLoadingRequests || hasPendingRequests) && (
         <div className="mb-6 bg-card/40 border border-border/40 rounded-3xl overflow-hidden shadow-sm">
           <div className="flex items-center justify-between p-5 pb-2">
-            <h3 className="text-[11px] font-bold text-muted-foreground/50 uppercase tracking-widest">Friend Requests</h3>
+            <h3 className="text-[11px] font-bold text-muted-foreground/50">Friend Requests</h3>
             {hasPendingRequests && (
               <span className="text-[9px] font-bold bg-primary text-primary-foreground rounded-full px-2 py-0.5">
                 {pendingRequests.length}
@@ -144,7 +144,7 @@ export function RightSidebar() {
                     <Link href={`/profile/${sender.id}`}>
                       <p className="font-bold text-sm text-foreground/90 truncate hover:text-primary transition-colors">{sender.name}</p>
                     </Link>
-                    <p className="text-[10px] text-muted-foreground/60 font-bold uppercase tracking-wider truncate">
+                    <p className="text-[10px] text-muted-foreground/60 font-bold tracking-wider truncate">
                       @{sender.name?.toLowerCase().replace(/\s+/g, '')}
                     </p>
                     <div className="flex gap-2 mt-2">
@@ -177,7 +177,7 @@ export function RightSidebar() {
       {/* ── Trending / Network Pulse ── */}
       <div className="mb-6 bg-card/40 border border-border/40 rounded-3xl overflow-hidden shadow-sm">
         <div className="flex items-center justify-between p-5 pb-2">
-          <h3 className="text-[11px] font-bold text-muted-foreground/50 uppercase tracking-widest">Trending For You</h3>
+          <h3 className="text-[11px] font-bold text-muted-foreground/50">Trending For You</h3>
           <Button variant="ghost" size="icon-sm" className="h-8 w-8 rounded-full">
             <Zap className="h-4 w-4 text-primary fill-primary/10" />
           </Button>
@@ -195,7 +195,7 @@ export function RightSidebar() {
                 )}
               >
                 <div className="flex justify-between items-center w-full">
-                  <p className="text-[11px] font-bold text-muted-foreground/60 uppercase tracking-wider">{topic.desc}</p>
+                  <p className="text-[11px] font-bold text-muted-foreground/60 tracking-wider">{topic.desc}</p>
                   <MoreHorizontal className="h-3.5 w-3.5 text-muted-foreground opacity-0 group-hover:opacity-100 transition-opacity" />
                 </div>
                 <p className="font-bold text-[14px] text-foreground transition-colors group-hover:text-primary tracking-tight">#{topic.name}</p>
@@ -212,7 +212,7 @@ export function RightSidebar() {
       {/* ── Who To Follow ── */}
       <div className="bg-card/40 border border-border/40 rounded-3xl overflow-hidden shadow-sm">
         <div className="p-5 pb-2">
-          <h3 className="text-[11px] font-bold text-muted-foreground/50 uppercase tracking-widest">Who To Follow</h3>
+          <h3 className="text-[11px] font-bold text-muted-foreground/50">Who To Follow</h3>
         </div>
         <div className="flex flex-col p-2 gap-1">
           {isLoadingUsers ? (
@@ -226,7 +226,7 @@ export function RightSidebar() {
                   <UserImage user={{ name: item.name, avatarUrl: item.avatar }} className="h-9 w-9 border border-border/10" />
                   <div className="flex flex-col min-w-0 pr-2">
                     <p className="font-bold text-sm text-foreground/90 truncate">{item.name}</p>
-                    <p className="text-[10px] text-muted-foreground/60 font-bold uppercase tracking-wider truncate">{item.username}</p>
+                    <p className="text-[10px] text-muted-foreground/60 font-bold tracking-wider truncate">{item.username}</p>
                   </div>
                 </Link>
                 <Button
@@ -252,7 +252,7 @@ export function RightSidebar() {
 
       {/* Footer */}
       <div className="mt-8 px-4 pb-8">
-        <div className="flex flex-wrap gap-x-4 gap-y-2 text-[10px] text-muted-foreground/40 font-bold uppercase tracking-tight">
+        <div className="flex flex-wrap gap-x-4 gap-y-2 text-[10px] text-muted-foreground/40 font-bold tracking-tight">
           <a href="#" className="hover:text-primary/60 transition-colors">About</a>
           <a href="#" className="hover:text-primary/60 transition-colors">Help</a>
           <a href="#" className="hover:text-primary/60 transition-colors">Privacy</a>

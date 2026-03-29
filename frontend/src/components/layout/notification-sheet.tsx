@@ -78,7 +78,7 @@ export function NotificationSheet() {
           <div className="flex items-center justify-between">
             <SheetTitle className="text-xl font-bold tracking-tight">Notifications</SheetTitle>
             {unreadCount > 0 && (
-              <div className="bg-primary/10 text-primary text-[10px] font-bold px-2.5 py-1 rounded-full tracking-widest border border-primary/20">
+              <div className="bg-primary/10 text-primary text-[10px] font-bold px-2.5 py-1 rounded-full border border-primary/20">
                 {unreadCount} Unread
               </div>
             )}

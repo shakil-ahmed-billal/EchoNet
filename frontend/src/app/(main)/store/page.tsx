@@ -180,7 +180,7 @@ export default function StoreDashboardPage() {
                 ) : myProducts && myProducts.length > 0 ? (
                     <div className="overflow-x-auto">
                         <table className="w-full text-sm text-left">
-                            <thead className="text-xs text-muted-foreground uppercase bg-muted/50">
+                            <thead className="text-xs text-muted-foreground bg-muted/50">
                                 <tr>
                                     <th className="px-4 py-3 rounded-l-xl">Product Name</th>
                                     <th className="px-4 py-3">Price</th>
@@ -205,7 +205,7 @@ export default function StoreDashboardPage() {
                                         <td className="px-4 py-3 font-semibold">${Number(product.price).toFixed(2)}</td>
                                         <td className="px-4 py-3">{product.stock}</td>
                                         <td className="px-4 py-3">
-                                            <span className={`text-[10px] uppercase font-bold px-2 py-0.5 rounded-full whitespace-nowrap ${product.status === 'ACTIVE' ? 'bg-green-500/20 text-green-500' : 'bg-yellow-500/20 text-yellow-500'}`}>
+                                            <span className={`text-[10px] font-bold px-2 py-0.5 rounded-full whitespace-nowrap ${product.status === 'ACTIVE' ? 'bg-green-500/20 text-green-500' : 'bg-yellow-500/20 text-yellow-500'}`}>
                                                 {product.status}
                                             </span>
                                         </td>
@@ -260,7 +260,7 @@ export default function StoreDashboardPage() {
                                 </div>
                                 <div className="text-right">
                                     <p className="font-bold text-sm text-primary">${Number(order.totalAmount || 0).toFixed(2)}</p>
-                                    <span className={`text-[10px] uppercase font-bold px-2 py-0.5 rounded-full ${order.status === 'PENDING' ? 'bg-yellow-500/20 text-yellow-500' : 'bg-green-500/20 text-green-500'}`}>
+                                    <span className={`text-[10px] font-bold px-2 py-0.5 rounded-full ${order.status === 'PENDING' ? 'bg-yellow-500/20 text-yellow-500' : 'bg-green-500/20 text-green-500'}`}>
                                         {order.status}
                                     </span>
                                 </div>
@@ -301,7 +301,7 @@ function StatCard({ title, value, icon, color }: { title: string; value: string 
                         {icon}
                     </div>
                     <div>
-                        <p className="text-xs text-muted-foreground font-medium uppercase tracking-wider">{title}</p>
+                        <p className="text-xs text-muted-foreground font-medium tracking-wider">{title}</p>
                         <p className="text-2xl font-bold tracking-tight">{value}</p>
                     </div>
                 </div>
