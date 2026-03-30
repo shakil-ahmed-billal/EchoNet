@@ -116,7 +116,7 @@ export function RightSidebar() {
     <aside className="sticky top-16 flex flex-col bg-transparent h-[calc(100vh-64px)] overflow-y-auto pr-1 no-scrollbar pt-8">
 
       {/* ── Friend Requests ── */}
-      {(isLoadingRequests || hasPendingRequests) && (
+      {/* {(isLoadingRequests || hasPendingRequests) && (
         <div className="mb-6 bg-card/40 border border-border/40 rounded-3xl overflow-hidden shadow-sm">
           <div className="flex items-center justify-between p-5 pb-2">
             <h3 className="text-[11px] font-bold text-muted-foreground/50">Friend Requests</h3>
@@ -172,7 +172,7 @@ export function RightSidebar() {
             )}
           </div>
         </div>
-      )}
+      )} */}
 
       {/* ── Trending / Network Pulse ── */}
       <div className="mb-6 bg-card/40 border border-border/40 rounded-3xl overflow-hidden shadow-sm">

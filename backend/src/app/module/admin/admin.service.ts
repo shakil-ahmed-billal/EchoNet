@@ -1,6 +1,6 @@
 import prisma from '../../lib/prisma.js';
 import { QueryBuilder } from '../../utils/QueryBuilder.js';
-import { PropertyStatus, ProductStatus } from '../../../../generated/prisma/client/index.js';
+import { PropertyStatus, ProductStatus, Role } from '../../../../generated/prisma/client/index.js';
 import { extractCloudinaryPublicId } from '../../utils/cloudinaryUtils.js';
 import { deleteMedia } from '../../lib/cloudinary.js';
 
@@ -110,6 +110,19 @@ const getAllProperties = async (query: any) => {
   .execute();
 };
 
+const updateUserRole = async (userId: string, role: string) => {
+  const allowedRoles = Object.values(Role) as string[];
+  if (!allowedRoles.includes(role)) {
+    throw new Error(`Invalid role: ${role}. Allowed roles: ${allowedRoles.join(', ')}`);
+  }
+
+  const result = await prisma.user.update({
+    where: { id: userId },
+    data: { role: role as Role },
+  });
+  return result;
+};
+
 const deleteUser = async (userId: string) => {
   const user = await prisma.user.findUnique({
     where: { id: userId },
@@ -193,6 +206,7 @@ export const AdminServices = {
   getAllStories,
   getAllProducts,
   getAllProperties,
+  updateUserRole,
   deleteUser,
   deleteStory,
 };

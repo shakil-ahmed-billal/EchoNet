@@ -7,6 +7,7 @@ const router = express.Router();
 
 router.get('/stats', auth(Role.ADMIN, Role.MODERATOR), AdminControllers.getDashboardStats);
 router.get('/users', auth(Role.ADMIN, Role.MODERATOR), AdminControllers.getAllUsers);
+router.patch('/users/:id/role', auth(Role.ADMIN), AdminControllers.updateUserRole);
 router.delete('/users/:id', auth(Role.ADMIN), AdminControllers.deleteUser);
 router.get('/posts', auth(Role.ADMIN, Role.MODERATOR), AdminControllers.getAllPosts);
 router.get('/stories', auth(Role.ADMIN, Role.MODERATOR), AdminControllers.getAllStories);

@@ -69,6 +69,18 @@ const getAllProperties = catchAsync(async (req: Request, res: Response) => {
   });
 });
 
+const updateUserRole = catchAsync(async (req: Request, res: Response) => {
+  const id = String(req.params.id);
+  const { role } = req.body;
+  const result = await AdminServices.updateUserRole(id, role);
+  sendResponse(res, {
+    statusCode: httpStatus.OK,
+    success: true,
+    message: 'User role updated successfully',
+    data: result,
+  });
+});
+
 const deleteUser = catchAsync(async (req: Request, res: Response) => {
   const id = String(req.params.id);
   const result = await AdminServices.deleteUser(id);
@@ -98,6 +110,7 @@ export const AdminControllers = {
   getAllStories,
   getAllProducts,
   getAllProperties,
+  updateUserRole,
   deleteUser,
   deleteStory,
 };

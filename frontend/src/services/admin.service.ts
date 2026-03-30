@@ -11,7 +11,7 @@ export const getAllUsers = async (params?: any) => {
 };
 
 export const updateUserRole = async (id: string, role: string) => {
-  const { data } = await apiClient.patch(`/users/${id}`, { role });
+  const { data } = await apiClient.patch(`/admin/users/${id}/role`, { role });
   return data.data;
 };
 

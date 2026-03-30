@@ -1885,3 +1885,96 @@ Invalid value for argument `status`. Expected PropertyStatus.
     at async QueryBuilder.execute (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/utils/QueryBuilder.ts:213:27)
     at async Object.getAllProperties (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/module/admin/admin.service.ts:99:10)
     at async <anonymous> (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/module/admin/admin.controller.ts:62:18)
+2026-03-30 06:05:44 [[31merror[39m]: Error: You are not authorized
+    at <anonymous> (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/middleware/auth.ts:38:15)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+2026-03-30 06:05:44 [[31merror[39m]: Error: You are not authorized
+    at <anonymous> (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/middleware/auth.ts:38:15)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+2026-03-30 06:05:44 [[31merror[39m]: Error: You are not authorized
+    at <anonymous> (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/middleware/auth.ts:38:15)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+2026-03-30 06:05:47 [[31merror[39m]: Error: You are not authorized
+    at <anonymous> (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/middleware/auth.ts:38:15)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+2026-03-30 06:05:47 [[31merror[39m]: Error: You are not authorized
+    at <anonymous> (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/middleware/auth.ts:38:15)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+2026-03-30 06:05:49 [[31merror[39m]: Error: Invalid session token
+    at Object.getNewToken (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/module/auth/auth.service.ts:194:15)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async <anonymous> (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/module/auth/auth.controller.ts:214:18)
+    at async <anonymous> (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/utils/catchAsync.ts:6:7)
+2026-03-30 06:05:49 [[31merror[39m]: Error: Invalid session token
+    at Object.getNewToken (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/module/auth/auth.service.ts:194:15)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async <anonymous> (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/module/auth/auth.controller.ts:214:18)
+    at async <anonymous> (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/utils/catchAsync.ts:6:7)
+2026-03-30 06:05:50 [[31merror[39m]: Error: Invalid session token
+    at Object.getNewToken (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/module/auth/auth.service.ts:194:15)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async <anonymous> (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/module/auth/auth.controller.ts:214:18)
+    at async <anonymous> (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/utils/catchAsync.ts:6:7)
+2026-03-30 06:05:50 [[31merror[39m]: Error: You are not authorized
+    at <anonymous> (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/middleware/auth.ts:38:15)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+2026-03-30 06:05:50 [[31merror[39m]: Error: You are not authorized
+    at <anonymous> (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/middleware/auth.ts:38:15)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+2026-03-30 06:05:50 [[31merror[39m]: Error: You are not authorized
+    at <anonymous> (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/middleware/auth.ts:38:15)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+2026-03-30 06:05:51 [[31merror[39m]: Error: You are not authorized
+    at <anonymous> (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/middleware/auth.ts:38:15)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+2026-03-30 06:05:51 [[31merror[39m]: Error: You are not authorized
+    at <anonymous> (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/middleware/auth.ts:38:15)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+2026-03-30 06:07:06 [[31merror[39m]: Error: You are not authorized
+    at <anonymous> (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/middleware/auth.ts:38:15)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+2026-03-30 06:20:22 [[31merror[39m]: Error: You are not authorized
+    at <anonymous> (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/middleware/auth.ts:38:15)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+2026-03-30 06:20:22 [[31merror[39m]: Error: You are not authorized
+    at <anonymous> (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/middleware/auth.ts:38:15)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+2026-03-30 06:20:22 [[31merror[39m]: Error: Invalid session token
+    at Object.getNewToken (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/module/auth/auth.service.ts:216:11)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async <anonymous> (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/module/auth/auth.controller.ts:214:18)
+    at async <anonymous> (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/utils/catchAsync.ts:6:7)
+2026-03-30 06:20:22 [[31merror[39m]: Error: You are not authorized
+    at <anonymous> (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/middleware/auth.ts:38:15)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+2026-03-30 06:21:07 [[31merror[39m]: Error: Not authorized to update this product
+    at Object.updateProduct (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/module/product/product.service.ts:103:11)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async <anonymous> (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/module/product/product.controller.ts:41:18)
+    at async <anonymous> (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/utils/catchAsync.ts:6:7)
+2026-03-30 06:21:11 [[31merror[39m]: Error: Not authorized to update this product
+    at Object.updateProduct (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/module/product/product.service.ts:103:11)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async <anonymous> (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/module/product/product.controller.ts:41:18)
+    at async <anonymous> (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/utils/catchAsync.ts:6:7)
+2026-03-30 06:22:53 [[31merror[39m]: Error: You are not authorized
+    at <anonymous> (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/middleware/auth.ts:38:15)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+2026-03-30 06:22:53 [[31merror[39m]: Error: Invalid session token
+    at Object.getNewToken (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/module/auth/auth.service.ts:216:11)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async <anonymous> (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/module/auth/auth.controller.ts:214:18)
+    at async <anonymous> (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/utils/catchAsync.ts:6:7)
+2026-03-30 06:22:53 [[31merror[39m]: Error: You are not authorized
+    at <anonymous> (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/middleware/auth.ts:38:15)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+2026-03-30 06:24:29 [[31merror[39m]: Error: Store not found
+    at Object.getStoreOrders (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/module/order/order.service.ts:112:21)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async <anonymous> (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/module/order/order.controller.ts:30:18)
+    at async <anonymous> (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/utils/catchAsync.ts:6:7)
+2026-03-30 06:24:30 [[31merror[39m]: Error: Store not found
+    at Object.getStoreOrders (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/module/order/order.service.ts:112:21)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async <anonymous> (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/module/order/order.controller.ts:30:18)
+    at async <anonymous> (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/utils/catchAsync.ts:6:7)

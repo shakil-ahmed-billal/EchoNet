@@ -2172,3 +2172,194 @@ Invalid value for argument `status`. Expected PropertyStatus.
 2026-03-29 12:20:10 [[32minfo[39m]: Socket disconnected: s2NHiWzx_FrJMzB7AAAB
 2026-03-29 12:20:10 [[32minfo[39m]: User hQMbnEo7RbeDK9vBRwVKFQTUYfIWs9j1 joined their private room
 2026-03-29 12:20:51 [[32minfo[39m]: Socket disconnected: 8lLEAW5mIZpRCgCQAAAD
+2026-03-30 05:55:29 [[32minfo[39m]: User hQMbnEo7RbeDK9vBRwVKFQTUYfIWs9j1 joined their private room
+2026-03-30 05:57:21 [[32minfo[39m]: Socket disconnected: qBUnKFxEInJZ6bI4AAAF
+2026-03-30 05:57:21 [[32minfo[39m]: User hQMbnEo7RbeDK9vBRwVKFQTUYfIWs9j1 joined their private room
+2026-03-30 05:57:42 [[32minfo[39m]: Socket disconnected: SbeRlynig-PEDpq0AAAH
+2026-03-30 05:57:42 [[32minfo[39m]: User hQMbnEo7RbeDK9vBRwVKFQTUYfIWs9j1 joined their private room
+2026-03-30 05:57:57 [[32minfo[39m]: User 86d0eCBkerwMbSVzysuePDLQ1LVmyR28 joined their private room
+2026-03-30 05:58:21 [[32minfo[39m]: Socket disconnected: QCZo-bBD2tCTh9N5AAAJ
+2026-03-30 05:58:22 [[32minfo[39m]: User hQMbnEo7RbeDK9vBRwVKFQTUYfIWs9j1 joined their private room
+2026-03-30 05:58:30 [[32minfo[39m]: Socket disconnected: CTFIoIZWUAd0U5APAAAN
+2026-03-30 05:58:31 [[32minfo[39m]: User hQMbnEo7RbeDK9vBRwVKFQTUYfIWs9j1 joined their private room
+2026-03-30 05:58:40 [[32minfo[39m]: Socket disconnected: Dn2XDpsWk-7FMRULAAAP
+2026-03-30 05:58:41 [[32minfo[39m]: User hQMbnEo7RbeDK9vBRwVKFQTUYfIWs9j1 joined their private room
+2026-03-30 05:58:56 [[32minfo[39m]: Socket disconnected: BEbzvX65Ep1cIBbZAAAL
+2026-03-30 05:58:56 [[32minfo[39m]: User 86d0eCBkerwMbSVzysuePDLQ1LVmyR28 joined their private room
+2026-03-30 05:59:11 [[32minfo[39m]: Socket disconnected: U_lGEy94zerwIvb_AAAT
+2026-03-30 05:59:11 [[32minfo[39m]: User 86d0eCBkerwMbSVzysuePDLQ1LVmyR28 joined their private room
+2026-03-30 05:59:16 [[32minfo[39m]: Socket disconnected: P4mdGYxjATusU24iAAAV
+2026-03-30 05:59:17 [[32minfo[39m]: User 86d0eCBkerwMbSVzysuePDLQ1LVmyR28 joined their private room
+2026-03-30 05:59:17 [[32minfo[39m]: Socket disconnected: XC9rM_qn0LHo6OH0AAAY
+2026-03-30 05:59:17 [[32minfo[39m]: User 86d0eCBkerwMbSVzysuePDLQ1LVmyR28 joined their private room
+2026-03-30 05:59:18 [[32minfo[39m]: Socket disconnected: xO8CEmVlcO_y0UigAAAa
+2026-03-30 05:59:19 [[32minfo[39m]: User 86d0eCBkerwMbSVzysuePDLQ1LVmyR28 joined their private room
+2026-03-30 05:59:26 [[32minfo[39m]: Socket disconnected: Qg-F3kVjOeFCu0rSAAAR
+2026-03-30 06:02:08 [[32minfo[39m]: Backend: call-user from 86d0eCBkerwMbSVzysuePDLQ1LVmyR28 to hQMbnEo7RbeDK9vBRwVKFQTUYfIWs9j1
+2026-03-30 06:02:32 [[32minfo[39m]: Socket disconnected: XbEBtUKkQ-GGOOrAAAAc
+2026-03-30 06:02:37 [[32minfo[39m]: User hQMbnEo7RbeDK9vBRwVKFQTUYfIWs9j1 joined their private room
+2026-03-30 06:02:37 [[32minfo[39m]: User 86d0eCBkerwMbSVzysuePDLQ1LVmyR28 joined their private room
+2026-03-30 06:02:44 [[32minfo[39m]: Backend: call-user from hQMbnEo7RbeDK9vBRwVKFQTUYfIWs9j1 to 86d0eCBkerwMbSVzysuePDLQ1LVmyR28
+2026-03-30 06:04:31 [[32minfo[39m]: Initializing Socket.IO...
+2026-03-30 06:04:32 [[32minfo[39m]: User hQMbnEo7RbeDK9vBRwVKFQTUYfIWs9j1 joined their private room
+2026-03-30 06:04:32 [[32minfo[39m]: User 86d0eCBkerwMbSVzysuePDLQ1LVmyR28 joined their private room
+2026-03-30 06:04:40 [[32minfo[39m]: Initializing Socket.IO...
+2026-03-30 06:04:40 [[32minfo[39m]: User 86d0eCBkerwMbSVzysuePDLQ1LVmyR28 joined their private room
+2026-03-30 06:04:42 [[32minfo[39m]: User hQMbnEo7RbeDK9vBRwVKFQTUYfIWs9j1 joined their private room
+2026-03-30 06:04:48 [[32minfo[39m]: Initializing Socket.IO...
+2026-03-30 06:04:49 [[32minfo[39m]: User 86d0eCBkerwMbSVzysuePDLQ1LVmyR28 joined their private room
+2026-03-30 06:04:49 [[32minfo[39m]: User hQMbnEo7RbeDK9vBRwVKFQTUYfIWs9j1 joined their private room
+2026-03-30 06:05:10 [[32minfo[39m]: Initializing Socket.IO...
+2026-03-30 06:05:12 [[32minfo[39m]: User hQMbnEo7RbeDK9vBRwVKFQTUYfIWs9j1 joined their private room
+2026-03-30 06:05:12 [[32minfo[39m]: User 86d0eCBkerwMbSVzysuePDLQ1LVmyR28 joined their private room
+2026-03-30 06:05:44 [[31merror[39m]: Error: You are not authorized
+    at <anonymous> (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/middleware/auth.ts:38:15)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+2026-03-30 06:05:44 [[31merror[39m]: Error: You are not authorized
+    at <anonymous> (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/middleware/auth.ts:38:15)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+2026-03-30 06:05:44 [[31merror[39m]: Error: You are not authorized
+    at <anonymous> (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/middleware/auth.ts:38:15)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+2026-03-30 06:05:47 [[31merror[39m]: Error: You are not authorized
+    at <anonymous> (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/middleware/auth.ts:38:15)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+2026-03-30 06:05:47 [[31merror[39m]: Error: You are not authorized
+    at <anonymous> (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/middleware/auth.ts:38:15)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+2026-03-30 06:05:49 [[31merror[39m]: Error: Invalid session token
+    at Object.getNewToken (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/module/auth/auth.service.ts:194:15)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async <anonymous> (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/module/auth/auth.controller.ts:214:18)
+    at async <anonymous> (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/utils/catchAsync.ts:6:7)
+2026-03-30 06:05:49 [[31merror[39m]: Error: Invalid session token
+    at Object.getNewToken (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/module/auth/auth.service.ts:194:15)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async <anonymous> (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/module/auth/auth.controller.ts:214:18)
+    at async <anonymous> (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/utils/catchAsync.ts:6:7)
+2026-03-30 06:05:49 [[32minfo[39m]: Socket disconnected: p36-d4NmVm8I9ZRJAAAD
+2026-03-30 06:05:50 [[31merror[39m]: Error: Invalid session token
+    at Object.getNewToken (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/module/auth/auth.service.ts:194:15)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async <anonymous> (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/module/auth/auth.controller.ts:214:18)
+    at async <anonymous> (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/utils/catchAsync.ts:6:7)
+2026-03-30 06:05:50 [[31merror[39m]: Error: You are not authorized
+    at <anonymous> (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/middleware/auth.ts:38:15)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+2026-03-30 06:05:50 [[31merror[39m]: Error: You are not authorized
+    at <anonymous> (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/middleware/auth.ts:38:15)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+2026-03-30 06:05:50 [[31merror[39m]: Error: You are not authorized
+    at <anonymous> (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/middleware/auth.ts:38:15)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+2026-03-30 06:05:51 [[31merror[39m]: Error: You are not authorized
+    at <anonymous> (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/middleware/auth.ts:38:15)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+2026-03-30 06:05:51 [[31merror[39m]: Error: You are not authorized
+    at <anonymous> (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/middleware/auth.ts:38:15)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+2026-03-30 06:05:55 [[32minfo[39m]: Initializing Socket.IO...
+2026-03-30 06:06:23 [[32minfo[39m]: User 6x9WlKi250wLXlUI9k56Tq1quOkgj7Nn joined their private room
+2026-03-30 06:07:01 [[32minfo[39m]: Socket disconnected: HKIl0YUCl3VnMVyhAAAB
+2026-03-30 06:07:02 [[32minfo[39m]: User 6x9WlKi250wLXlUI9k56Tq1quOkgj7Nn joined their private room
+2026-03-30 06:07:03 [[32minfo[39m]: Socket disconnected: hwfbvoPJNXoDrkbMAAAD
+2026-03-30 06:07:06 [[31merror[39m]: Error: You are not authorized
+    at <anonymous> (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/middleware/auth.ts:38:15)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+2026-03-30 06:07:09 [[32minfo[39m]: User 6x9WlKi250wLXlUI9k56Tq1quOkgj7Nn joined their private room
+2026-03-30 06:07:22 [[32minfo[39m]: Socket disconnected: FpM6yQignGl4R5UWAAAF
+2026-03-30 06:07:48 [[32minfo[39m]: User 6x9WlKi250wLXlUI9k56Tq1quOkgj7Nn joined their private room
+2026-03-30 06:09:54 [[32minfo[39m]: Initializing Socket.IO...
+2026-03-30 06:09:54 [[32minfo[39m]: User 6x9WlKi250wLXlUI9k56Tq1quOkgj7Nn joined their private room
+2026-03-30 06:10:53 [[32minfo[39m]: Socket disconnected: z2K3JoVdI6kn22GJAAAB
+2026-03-30 06:11:03 [[32minfo[39m]: Initializing Socket.IO...
+2026-03-30 06:11:08 [[32minfo[39m]: Initializing Socket.IO...
+2026-03-30 06:11:50 [[32minfo[39m]: Password reset OTP sent to shakil.dev99@gmail.com
+2026-03-30 06:12:51 [[32minfo[39m]: User BBKYDZg0fI341Wtshb4bHw3Q9MSc1pDo joined their private room
+2026-03-30 06:14:32 [[32minfo[39m]: User PpzWRnH2rgXtR033NEvRBjQgasWpYXkr joined their private room
+2026-03-30 06:14:57 [[32minfo[39m]: Socket disconnected: m5MNDdrYx0WCVhW6AAAB
+2026-03-30 06:15:16 [[32minfo[39m]: User BBKYDZg0fI341Wtshb4bHw3Q9MSc1pDo joined their private room
+2026-03-30 06:15:56 [[32minfo[39m]: Initializing Socket.IO...
+2026-03-30 06:15:58 [[32minfo[39m]: User PpzWRnH2rgXtR033NEvRBjQgasWpYXkr joined their private room
+2026-03-30 06:16:03 [[32minfo[39m]: User BBKYDZg0fI341Wtshb4bHw3Q9MSc1pDo joined their private room
+2026-03-30 06:16:08 [[32minfo[39m]: User PpzWRnH2rgXtR033NEvRBjQgasWpYXkr joined their private room
+2026-03-30 06:16:21 [[32minfo[39m]: Socket disconnected: X-Agibkr7OBQuGCLAAAF
+2026-03-30 06:16:24 [[32minfo[39m]: User PpzWRnH2rgXtR033NEvRBjQgasWpYXkr joined their private room
+2026-03-30 06:16:43 [[32minfo[39m]: Socket disconnected: cG_IEXCyehdFcBHNAAAB
+2026-03-30 06:17:18 [[32minfo[39m]: Initializing Socket.IO...
+2026-03-30 06:17:20 [[32minfo[39m]: User BBKYDZg0fI341Wtshb4bHw3Q9MSc1pDo joined their private room
+2026-03-30 06:17:20 [[32minfo[39m]: User PpzWRnH2rgXtR033NEvRBjQgasWpYXkr joined their private room
+2026-03-30 06:18:49 [[32minfo[39m]: Socket disconnected: RrOB4E-EMKQNcdElAAAB
+2026-03-30 06:19:01 [[32minfo[39m]: Initializing Socket.IO...
+2026-03-30 06:19:04 [[32minfo[39m]: User PpzWRnH2rgXtR033NEvRBjQgasWpYXkr joined their private room
+2026-03-30 06:19:06 [[32minfo[39m]: User BBKYDZg0fI341Wtshb4bHw3Q9MSc1pDo joined their private room
+2026-03-30 06:19:27 [[32minfo[39m]: Socket disconnected: olwHPbI6ViTjBYmyAAAD
+2026-03-30 06:19:29 [[32minfo[39m]: User BBKYDZg0fI341Wtshb4bHw3Q9MSc1pDo joined their private room
+2026-03-30 06:19:45 [[32minfo[39m]: Socket disconnected: fr1aYo3p8NULvJPTAAAF
+2026-03-30 06:19:48 [[32minfo[39m]: User BBKYDZg0fI341Wtshb4bHw3Q9MSc1pDo joined their private room
+2026-03-30 06:20:20 [[32minfo[39m]: Initializing Socket.IO...
+2026-03-30 06:20:22 [[31merror[39m]: Error: You are not authorized
+    at <anonymous> (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/middleware/auth.ts:38:15)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+2026-03-30 06:20:22 [[31merror[39m]: Error: You are not authorized
+    at <anonymous> (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/middleware/auth.ts:38:15)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+2026-03-30 06:20:22 [[31merror[39m]: Error: Invalid session token
+    at Object.getNewToken (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/module/auth/auth.service.ts:216:11)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async <anonymous> (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/module/auth/auth.controller.ts:214:18)
+    at async <anonymous> (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/utils/catchAsync.ts:6:7)
+2026-03-30 06:20:22 [[31merror[39m]: Error: You are not authorized
+    at <anonymous> (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/middleware/auth.ts:38:15)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+2026-03-30 06:20:27 [[32minfo[39m]: User hQMbnEo7RbeDK9vBRwVKFQTUYfIWs9j1 joined their private room
+2026-03-30 06:21:07 [[31merror[39m]: Error: Not authorized to update this product
+    at Object.updateProduct (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/module/product/product.service.ts:103:11)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async <anonymous> (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/module/product/product.controller.ts:41:18)
+    at async <anonymous> (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/utils/catchAsync.ts:6:7)
+2026-03-30 06:21:11 [[31merror[39m]: Error: Not authorized to update this product
+    at Object.updateProduct (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/module/product/product.service.ts:103:11)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async <anonymous> (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/module/product/product.controller.ts:41:18)
+    at async <anonymous> (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/utils/catchAsync.ts:6:7)
+2026-03-30 06:22:53 [[31merror[39m]: Error: You are not authorized
+    at <anonymous> (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/middleware/auth.ts:38:15)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+2026-03-30 06:22:53 [[31merror[39m]: Error: Invalid session token
+    at Object.getNewToken (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/module/auth/auth.service.ts:216:11)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async <anonymous> (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/module/auth/auth.controller.ts:214:18)
+    at async <anonymous> (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/utils/catchAsync.ts:6:7)
+2026-03-30 06:22:53 [[31merror[39m]: Error: You are not authorized
+    at <anonymous> (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/middleware/auth.ts:38:15)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+2026-03-30 06:23:23 [[32minfo[39m]: User JKzDUD2PoYf5U3WaLKeGjLzblGcMcH0a joined their private room
+2026-03-30 06:24:29 [[31merror[39m]: Error: Store not found
+    at Object.getStoreOrders (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/module/order/order.service.ts:112:21)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async <anonymous> (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/module/order/order.controller.ts:30:18)
+    at async <anonymous> (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/utils/catchAsync.ts:6:7)
+2026-03-30 06:24:30 [[31merror[39m]: Error: Store not found
+    at Object.getStoreOrders (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/module/order/order.service.ts:112:21)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async <anonymous> (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/module/order/order.controller.ts:30:18)
+    at async <anonymous> (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/utils/catchAsync.ts:6:7)
+2026-03-30 06:24:50 [[32minfo[39m]: Socket disconnected: vCZoT2DHSHXJjeuDAAAD
+2026-03-30 06:24:51 [[32minfo[39m]: User JKzDUD2PoYf5U3WaLKeGjLzblGcMcH0a joined their private room
+2026-03-30 06:58:20 [[32minfo[39m]: Socket disconnected: ROkEfF9NnbhcoPaZAAAF
+2026-03-30 06:58:20 [[32minfo[39m]: Socket disconnected: JRrog_D1P9qWUC4PAAAB
+2026-03-30 06:59:10 [[32minfo[39m]: User JKzDUD2PoYf5U3WaLKeGjLzblGcMcH0a joined their private room
+2026-03-30 06:59:12 [[32minfo[39m]: User hQMbnEo7RbeDK9vBRwVKFQTUYfIWs9j1 joined their private room
+2026-03-30 06:59:25 [[32minfo[39m]: Socket disconnected: RTT4EyC4VLYqvdqHAAAJ
+2026-03-30 06:59:31 [[32minfo[39m]: User hQMbnEo7RbeDK9vBRwVKFQTUYfIWs9j1 joined their private room
+2026-03-30 06:59:32 [[32minfo[39m]: User JKzDUD2PoYf5U3WaLKeGjLzblGcMcH0a joined their private room
+2026-03-30 06:59:55 [[32minfo[39m]: Socket disconnected: js7MiluAbqzbTbKiAAAH
+2026-03-30 07:03:21 [[32minfo[39m]: Socket disconnected: sE_WIiji2JL5QBszAAAM
+2026-03-30 07:03:22 [[32minfo[39m]: User JKzDUD2PoYf5U3WaLKeGjLzblGcMcH0a joined their private room
+2026-03-30 07:03:25 [[32minfo[39m]: User hQMbnEo7RbeDK9vBRwVKFQTUYfIWs9j1 joined their private room
+2026-03-30 07:04:03 [[32minfo[39m]: Socket disconnected: ZfxlwBSsoFbA9M-jAAAO
+2026-03-30 07:05:20 [[32minfo[39m]: Socket disconnected: kAwBHBG31zeUY_bjAAAS
+2026-03-30 07:05:20 [[32minfo[39m]: User hQMbnEo7RbeDK9vBRwVKFQTUYfIWs9j1 joined their private room
+2026-03-30 07:06:20 [[32minfo[39m]: Socket disconnected: u0ueI4P7OekVqroVAAAU
+2026-03-30 07:06:21 [[32minfo[39m]: User hQMbnEo7RbeDK9vBRwVKFQTUYfIWs9j1 joined their private room

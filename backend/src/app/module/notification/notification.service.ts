@@ -3,6 +3,8 @@ import prisma from '../../lib/prisma.js';
 import redisClient from '../../lib/redis.js';
 import { getIO } from '../../lib/socket.js';
 
+const MAX_NOTIFICATIONS_PER_USER = 5;
+
 const createNotification = async (data: {
   userId: string;
   type: string;
@@ -12,6 +14,18 @@ const createNotification = async (data: {
   const result = await prisma.notification.create({
     data: data as any, 
   });
+
+  // Auto-delete oldest notifications beyond the limit
+  const allNotifications = await prisma.notification.findMany({
+    where: { userId: data.userId },
+    orderBy: { createdAt: 'desc' },
+    select: { id: true },
+  });
+
+  if (allNotifications.length > MAX_NOTIFICATIONS_PER_USER) {
+    const toDelete = allNotifications.slice(MAX_NOTIFICATIONS_PER_USER).map((n) => n.id);
+    await prisma.notification.deleteMany({ where: { id: { in: toDelete } } });
+  }
 
   if (redisClient) {
     const cacheKey = `notifications:unread_count:${data.userId}`;
