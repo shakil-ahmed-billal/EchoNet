@@ -268,13 +268,16 @@ const updatePropertyStatus = async (propertyId: string, status: string) => {
 };
 
 const deleteProperty = async (propertyId: string) => {
-  const property = await prisma.property.findUnique({ where: { id: propertyId } });
+  const property = await prisma.property.findUnique({
+    where: { id: propertyId },
+    include: { images: true }
+  });
   if (!property) throw new Error('Property not found');
 
   if (property.images && Array.isArray(property.images)) {
     await Promise.all(
-      property.images.map(async (url: string) => {
-        const publicId = extractCloudinaryPublicId(url);
+      property.images.map(async (img: any) => {
+        const publicId = extractCloudinaryPublicId(img.url);
         if (publicId) {
           try { await deleteMedia(publicId); } catch (_) {}
         }
