@@ -44,7 +44,7 @@ export default function ModeratorAgentsPage() {
           <h1 className="text-2xl font-black tracking-tight text-foreground">Agent Verification</h1>
           <p className="text-sm text-muted-foreground font-medium">Verify or reject real estate agent credentials.</p>
         </div>
-        <Select value={filter} onValueChange={(v) => { setFilter(v); setPage(1) }}>
+        <Select value={filter} onValueChange={(v) => { setFilter(v || "false"); setPage(1) }}>
           <SelectTrigger className="w-[170px] h-9 rounded-xl border-border/40 text-xs font-bold">
             <SelectValue placeholder="Filter agents" />
           </SelectTrigger>

@@ -52,7 +52,7 @@ export default function ModeratorPropertiesPage() {
           <h1 className="text-2xl font-black tracking-tight text-foreground">Properties Management</h1>
           <p className="text-sm text-muted-foreground font-medium">Review, approve or reject property listings.</p>
         </div>
-        <Select value={status} onValueChange={(v) => { setStatus(v); setPage(1) }}>
+        <Select value={status} onValueChange={(v) => { setStatus(v || "PENDING"); setPage(1) }}>
           <SelectTrigger className="w-[160px] h-9 rounded-xl border-border/40 text-xs font-bold">
             <SelectValue placeholder="Filter by status" />
           </SelectTrigger>
