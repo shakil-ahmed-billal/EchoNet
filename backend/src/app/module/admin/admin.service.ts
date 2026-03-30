@@ -1,6 +1,6 @@
 import prisma from '../../lib/prisma.js';
 import { QueryBuilder } from '../../utils/QueryBuilder.js';
-import { PropertyStatus, ProductStatus, Role } from '../../../../generated/prisma/client/index.js';
+import { PropertyStatus, ProductStatus, PostStatus, Role } from '../../../../generated/prisma/client/index.js';
 import { extractCloudinaryPublicId } from '../../utils/cloudinaryUtils.js';
 import { deleteMedia } from '../../lib/cloudinary.js';
 
@@ -202,7 +202,7 @@ const deleteStory = async (storyId: string) => {
 const updatePostStatus = async (postId: string, status: string) => {
   return await prisma.post.update({
     where: { id: postId },
-    data: { status }
+    data: { status: status as PostStatus }
   });
 };
 
