@@ -1978,3 +1978,70 @@ Invalid value for argument `status`. Expected PropertyStatus.
     at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
     at async <anonymous> (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/module/order/order.controller.ts:30:18)
     at async <anonymous> (/Users/shakilahmedbillal/Desktop/Project/EchoNet/backend/src/app/utils/catchAsync.ts:6:7)
+2026-03-31 01:40:37 [[31merror[39m]: Error: You are not authorized
+    at <anonymous> (C:\Shakil Dev\EchoNet\backend\src\app\middleware\auth.ts:38:15)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+2026-03-31 01:40:37 [[31merror[39m]: Error: Invalid session token
+    at Object.getNewToken (C:\Shakil Dev\EchoNet\backend\src\app\module\auth\auth.service.ts:216:11)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async <anonymous> (C:\Shakil Dev\EchoNet\backend\src\app\module\auth\auth.controller.ts:214:18)
+    at async <anonymous> (C:\Shakil Dev\EchoNet\backend\src\app\utils\catchAsync.ts:6:7)
+2026-03-31 01:51:00 [[31merror[39m]: PrismaClientValidationError: 
+Invalid `prisma.post.update()` invocation in
+C:\Shakil Dev\EchoNet\backend\src\app\module\post\post.service.ts:241:36
+
+  238 };
+  239 
+  240 const updatePostStatus = async (id: string, status: PostStatus) => {
+→ 241   const result = await prisma.post.update({
+          where: {
+            id: "34624a73-c177-41b9-9866-b4b01c9b7e6d"
+          },
+          data: {
+            status: "PUBLISHED"
+                    ~~~~~~~~~~~
+          }
+        })
+
+Invalid value for argument `status`. Expected PostStatus.
+    at ar (C:\Shakil Dev\EchoNet\backend\generated\prisma\client\runtime\client.js:14:1374)
+    at Gr.handleRequestError (C:\Shakil Dev\EchoNet\backend\generated\prisma\client\runtime\client.js:69:7929)
+    at Gr.handleAndLogRequestError (C:\Shakil Dev\EchoNet\backend\generated\prisma\client\runtime\client.js:69:7581)
+    at Gr.request (C:\Shakil Dev\EchoNet\backend\generated\prisma\client\runtime\client.js:69:7288)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async a (C:\Shakil Dev\EchoNet\backend\generated\prisma\client\runtime\client.js:79:6730)
+    at async Object.updatePostStatus (C:\Shakil Dev\EchoNet\backend\src\app\module\post\post.service.ts:241:18)
+    at async <anonymous> (C:\Shakil Dev\EchoNet\backend\src\app\module\post\post.controller.ts:65:18)
+    at async <anonymous> (C:\Shakil Dev\EchoNet\backend\src\app\utils\catchAsync.ts:6:7)
+2026-03-31 01:51:02 [[31merror[39m]: PrismaClientValidationError: 
+Invalid `prisma.post.update()` invocation in
+C:\Shakil Dev\EchoNet\backend\src\app\module\post\post.service.ts:241:36
+
+  238 };
+  239 
+  240 const updatePostStatus = async (id: string, status: PostStatus) => {
+→ 241   const result = await prisma.post.update({
+          where: {
+            id: "5e285989-9b9d-41e5-8b4b-e7ec2999ad7e"
+          },
+          data: {
+            status: "PUBLISHED"
+                    ~~~~~~~~~~~
+          }
+        })
+
+Invalid value for argument `status`. Expected PostStatus.
+    at ar (C:\Shakil Dev\EchoNet\backend\generated\prisma\client\runtime\client.js:14:1374)
+    at Gr.handleRequestError (C:\Shakil Dev\EchoNet\backend\generated\prisma\client\runtime\client.js:69:7929)
+    at Gr.handleAndLogRequestError (C:\Shakil Dev\EchoNet\backend\generated\prisma\client\runtime\client.js:69:7581)
+    at Gr.request (C:\Shakil Dev\EchoNet\backend\generated\prisma\client\runtime\client.js:69:7288)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async a (C:\Shakil Dev\EchoNet\backend\generated\prisma\client\runtime\client.js:79:6730)
+    at async Object.updatePostStatus (C:\Shakil Dev\EchoNet\backend\src\app\module\post\post.service.ts:241:18)
+    at async <anonymous> (C:\Shakil Dev\EchoNet\backend\src\app\module\post\post.controller.ts:65:18)
+    at async <anonymous> (C:\Shakil Dev\EchoNet\backend\src\app\utils\catchAsync.ts:6:7)
+2026-03-31 01:51:14 [[31merror[39m]: Error: Post not found
+    at Object.deletePost (C:\Shakil Dev\EchoNet\backend\src\app\module\post\post.service.ts:296:11)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async <anonymous> (C:\Shakil Dev\EchoNet\backend\src\app\module\post\post.controller.ts:90:18)
+    at async <anonymous> (C:\Shakil Dev\EchoNet\backend\src\app\utils\catchAsync.ts:6:7)

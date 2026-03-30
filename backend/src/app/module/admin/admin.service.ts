@@ -199,6 +199,106 @@ const deleteStory = async (storyId: string) => {
   return { message: 'Story deleted successfully.' };
 };
 
+const updatePostStatus = async (postId: string, status: string) => {
+  return await prisma.post.update({
+    where: { id: postId },
+    data: { status }
+  });
+};
+
+const deletePost = async (postId: string) => {
+  const post = await prisma.post.findUnique({ where: { id: postId } });
+  if (!post) throw new Error('Post not found');
+
+  if (post.mediaUrls && Array.isArray(post.mediaUrls)) {
+    await Promise.all(
+      post.mediaUrls.map(async (url: string) => {
+        const publicId = extractCloudinaryPublicId(url);
+        if (publicId) {
+          try { await deleteMedia(publicId); } catch (_) {}
+        }
+      })
+    );
+  }
+
+  await prisma.$transaction([
+    prisma.like.deleteMany({ where: { postId } }),
+    prisma.comment.deleteMany({ where: { postId } }),
+    prisma.reaction.deleteMany({ where: { postId } }),
+    prisma.savedPost.deleteMany({ where: { postId } }),
+    prisma.postHashtag.deleteMany({ where: { postId } }),
+    prisma.postTag.deleteMany({ where: { postId } }),
+    prisma.post.delete({ where: { id: postId } }),
+  ]);
+
+  return { message: 'Post deleted successfully.' };
+};
+
+const updateProductStatus = async (productId: string, status: string) => {
+  return await prisma.product.update({
+    where: { id: productId },
+    data: { status: status as ProductStatus }
+  });
+};
+
+const deleteProduct = async (productId: string) => {
+  const product = await prisma.product.findUnique({ where: { id: productId } });
+  if (!product) throw new Error('Product not found');
+
+  if (product.images && Array.isArray(product.images)) {
+    await Promise.all(
+      product.images.map(async (url: string) => {
+        const publicId = extractCloudinaryPublicId(url);
+        if (publicId) {
+          try { await deleteMedia(publicId); } catch (_) {}
+        }
+      })
+    );
+  }
+
+  await prisma.product.delete({ where: { id: productId } });
+  return { message: 'Product deleted successfully.' };
+};
+
+const updatePropertyStatus = async (propertyId: string, status: string) => {
+  return await prisma.property.update({
+    where: { id: propertyId },
+    data: { status: status as PropertyStatus }
+  });
+};
+
+const deleteProperty = async (propertyId: string) => {
+  const property = await prisma.property.findUnique({ where: { id: propertyId } });
+  if (!property) throw new Error('Property not found');
+
+  if (property.images && Array.isArray(property.images)) {
+    await Promise.all(
+      property.images.map(async (url: string) => {
+        const publicId = extractCloudinaryPublicId(url);
+        if (publicId) {
+          try { await deleteMedia(publicId); } catch (_) {}
+        }
+      })
+    );
+  }
+
+  await prisma.property.delete({ where: { id: propertyId } });
+  return { message: 'Property deleted successfully.' };
+};
+
+const verifyAgent = async (agentId: string) => {
+  return await prisma.agentProfile.update({
+    where: { id: agentId },
+    data: { isVerified: true }
+  });
+};
+
+const rejectAgent = async (agentId: string) => {
+  return await prisma.agentProfile.delete({
+    where: { id: agentId }
+  });
+};
+
 export const AdminServices = {
   getDashboardStats,
   getAllUsers,
@@ -209,4 +309,12 @@ export const AdminServices = {
   updateUserRole,
   deleteUser,
   deleteStory,
+  updatePostStatus,
+  deletePost,
+  updateProductStatus,
+  deleteProduct,
+  updatePropertyStatus,
+  deleteProperty,
+  verifyAgent,
+  rejectAgent,
 };

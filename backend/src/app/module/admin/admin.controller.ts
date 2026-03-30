@@ -103,6 +103,97 @@ const deleteStory = catchAsync(async (req: Request, res: Response) => {
   });
 });
 
+const updatePostStatus = catchAsync(async (req: Request, res: Response) => {
+  const id = String(req.params.id);
+  const { status } = req.body;
+  const result = await AdminServices.updatePostStatus(id, status);
+  sendResponse(res, {
+    statusCode: httpStatus.OK,
+    success: true,
+    message: 'Post status updated',
+    data: result,
+  });
+});
+
+const deletePost = catchAsync(async (req: Request, res: Response) => {
+  const id = String(req.params.id);
+  const result = await AdminServices.deletePost(id);
+  sendResponse(res, {
+    statusCode: httpStatus.OK,
+    success: true,
+    message: 'Post deleted',
+    data: result,
+  });
+});
+
+const updateProductStatus = catchAsync(async (req: Request, res: Response) => {
+  const id = String(req.params.id);
+  const { status } = req.body;
+  const result = await AdminServices.updateProductStatus(id, status);
+  sendResponse(res, {
+    statusCode: httpStatus.OK,
+    success: true,
+    message: 'Product status updated',
+    data: result,
+  });
+});
+
+const deleteProduct = catchAsync(async (req: Request, res: Response) => {
+  const id = String(req.params.id);
+  const result = await AdminServices.deleteProduct(id);
+  sendResponse(res, {
+    statusCode: httpStatus.OK,
+    success: true,
+    message: 'Product deleted',
+    data: result,
+  });
+});
+
+const updatePropertyStatus = catchAsync(async (req: Request, res: Response) => {
+  const id = String(req.params.id);
+  const { status } = req.body;
+  const result = await AdminServices.updatePropertyStatus(id, status);
+  sendResponse(res, {
+    statusCode: httpStatus.OK,
+    success: true,
+    message: 'Property status updated',
+    data: result,
+  });
+});
+
+const deleteProperty = catchAsync(async (req: Request, res: Response) => {
+  const id = String(req.params.id);
+  const result = await AdminServices.deleteProperty(id);
+  sendResponse(res, {
+    statusCode: httpStatus.OK,
+    success: true,
+    message: 'Property deleted',
+    data: result,
+  });
+});
+
+const verifyAgent = catchAsync(async (req: Request, res: Response) => {
+  const id = String(req.params.id);
+  const result = await AdminServices.verifyAgent(id);
+  sendResponse(res, {
+    statusCode: httpStatus.OK,
+    success: true,
+    message: 'Agent verified',
+    data: result,
+  });
+});
+
+const rejectAgent = catchAsync(async (req: Request, res: Response) => {
+  const id = String(req.params.id);
+  const result = await AdminServices.rejectAgent(id);
+  sendResponse(res, {
+    statusCode: httpStatus.OK,
+    success: true,
+    message: 'Agent rejected',
+    data: result,
+  });
+});
+
 export const AdminControllers = {
   getDashboardStats,
   getAllUsers,
@@ -113,4 +204,12 @@ export const AdminControllers = {
   updateUserRole,
   deleteUser,
   deleteStory,
+  updatePostStatus,
+  deletePost,
+  updateProductStatus,
+  deleteProduct,
+  updatePropertyStatus,
+  deleteProperty,
+  verifyAgent,
+  rejectAgent,
 };
