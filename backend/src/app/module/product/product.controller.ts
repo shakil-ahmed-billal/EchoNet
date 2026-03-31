@@ -6,7 +6,7 @@ import { clearCache } from '../../utils/redisCache.js';
 
 const createProduct = catchAsync(async (req: Request, res: Response) => {
   const userId = (req as any).user.id;
-  const result = await ProductServices.createProduct(userId, req.body);
+  const result = await ProductServices.createProduct(userId, req.body, req.files as Express.Multer.File[]);
   sendResponse(res, {
     statusCode: 201,
     success: true,
@@ -40,7 +40,7 @@ const getProductById = catchAsync(async (req: Request, res: Response) => {
 const updateProduct = catchAsync(async (req: Request, res: Response) => {
   const userId = (req as any).user.id;
   const { id } = req.params as { id: string };
-  const result = await ProductServices.updateProduct(userId, id, req.body);
+  const result = await ProductServices.updateProduct(userId, id, req.body, req.files as Express.Multer.File[]);
   sendResponse(res, {
     statusCode: 200,
     success: true,

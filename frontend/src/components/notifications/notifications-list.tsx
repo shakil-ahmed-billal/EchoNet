@@ -122,23 +122,31 @@ export function NotificationsList() {
 
               {(notif.type === 'FRIEND_REQUEST' || notif.type === 'FOLLOW_REQUEST') && (
                 <div className="flex items-center gap-2 mt-2 mb-1">
-                  <Button 
-                    size="sm" 
-                    className="h-8 rounded-xl text-xs font-bold shadow-sm"
-                    onClick={(e) => { e.stopPropagation(); acceptMutation.mutate(notif.referenceId) }}
-                    disabled={acceptMutation.isPending || declineMutation.isPending}
-                  >
-                    {acceptMutation.isPending ? <Loader2 className="h-3 w-3 animate-spin" /> : <Check className="h-3 w-3 mr-1" />} Accept
-                  </Button>
-                  <Button 
-                    size="sm" 
-                    variant="secondary"
-                    className="h-8 rounded-xl text-xs font-bold bg-muted hover:bg-muted/80"
-                    onClick={(e) => { e.stopPropagation(); declineMutation.mutate(notif.referenceId) }}
-                    disabled={acceptMutation.isPending || declineMutation.isPending}
-                  >
-                    {declineMutation.isPending ? <Loader2 className="h-3 w-3 animate-spin" /> : <X className="h-3 w-3 mr-1" />} Decline
-                  </Button>
+                  {notif.status === 'ACCEPTED' ? (
+                    <Button variant="outline" size="sm" disabled className="h-8 rounded-xl text-xs font-bold border-emerald-500/20 bg-emerald-500/5 text-emerald-500 disabled:opacity-100">
+                      <Check className="h-3 w-3 mr-1" /> Accepted
+                    </Button>
+                  ) : (
+                    <>
+                      <Button 
+                        size="sm" 
+                        className="h-8 rounded-xl text-xs font-bold shadow-sm"
+                        onClick={(e) => { e.stopPropagation(); acceptMutation.mutate(notif.referenceId) }}
+                        disabled={acceptMutation.isPending || declineMutation.isPending}
+                      >
+                        {acceptMutation.isPending ? <Loader2 className="h-3 w-3 animate-spin" /> : <Check className="h-3 w-3 mr-1" />} Accept
+                      </Button>
+                      <Button 
+                        size="sm" 
+                        variant="secondary"
+                        className="h-8 rounded-xl text-xs font-bold bg-muted hover:bg-muted/80"
+                        onClick={(e) => { e.stopPropagation(); declineMutation.mutate(notif.referenceId) }}
+                        disabled={acceptMutation.isPending || declineMutation.isPending}
+                      >
+                        {declineMutation.isPending ? <Loader2 className="h-3 w-3 animate-spin" /> : <X className="h-3 w-3 mr-1" />} Decline
+                      </Button>
+                    </>
+                  )}
                 </div>
               )}
 

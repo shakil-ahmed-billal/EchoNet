@@ -56,6 +56,7 @@ export function ProductCard({ product }: ProductCardProps) {
             src={getOptimizedImageUrl(firstImage, { width: 500, height: 500 })}
             alt={product.title}
             fill
+            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
             className="object-cover transition-transform duration-700 group-hover:scale-105"
           />
           {/* Subtle overlay on hover */}

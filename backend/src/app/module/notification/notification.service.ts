@@ -52,15 +52,29 @@ const getUserNotifications = async (userId: string) => {
   // Enrich with sender info where referenceId is a userId (FOLLOW, FOLLOW_REQUEST, FRIEND_ACCEPT, REACTION, COMMENT)
   const enriched = await Promise.all(
     notifications.map(async (notif) => {
-      if (!notif.referenceId) return { ...notif, sender: null };
+      if (!notif.referenceId) return { ...notif, sender: null, status: null };
       try {
         const sender = await prisma.user.findUnique({
           where: { id: notif.referenceId },
           select: { id: true, name: true, avatarUrl: true, image: true },
         });
-        return { ...notif, sender: sender || null };
+
+        let status = null;
+        if (notif.type === 'FRIEND_REQUEST' || notif.type === 'FOLLOW_REQUEST') {
+          const follow = await prisma.follow.findUnique({
+            where: {
+              followerId_followingId: {
+                followerId: notif.referenceId,
+                followingId: userId,
+              }
+            }
+          });
+          status = follow?.status || null;
+        }
+
+        return { ...notif, sender: sender || null, status };
       } catch {
-        return { ...notif, sender: null };
+        return { ...notif, sender: null, status: null };
       }
     })
   );

@@ -17,20 +17,7 @@ export const useWebRTC = (onRemoteEnd?: () => void) => {
       { urls: "stun:stun.l.google.com:19302" },
       { urls: "stun:stun1.l.google.com:19302" },
       { urls: "stun:stun2.l.google.com:19302" },
-      { urls: "stun:stun.services.mozilla.com" },
-      // Optional: Add OpenRelay TURN for better NAT traversal in production
-      { 
-        urls: "turn:openrelay.metered.ca:80", 
-        username: "openrelayproject", 
-        credential: "openrelayproject" 
-      },
-      { 
-        urls: "turn:openrelay.metered.ca:443", 
-        username: "openrelayproject", 
-        credential: "openrelayproject" 
-      }
     ],
-    iceCandidatePoolSize: 10,
   }
 
   const processPendingCandidates = async () => {

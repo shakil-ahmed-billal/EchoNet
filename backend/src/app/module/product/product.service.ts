@@ -1,7 +1,9 @@
 import prisma from '../../lib/prisma.js';
 import { QueryBuilder } from '../../utils/QueryBuilder.js';
+import { uploadMedia } from '../../lib/cloudinary.js';
+import fs from 'fs';
 
-const createProduct = async (userId: string, payload: any) => {
+const createProduct = async (userId: string, payload: any, files?: Express.Multer.File[]) => {
   // Verify store ownership
   const store = await prisma.store.findUnique({
     where: { ownerId: userId }
@@ -11,15 +13,38 @@ const createProduct = async (userId: string, payload: any) => {
     throw new Error('User does not have a store. Create a store first.');
   }
 
-  const result = await prisma.product.create({
-    data: {
-      ...payload,
-      storeId: store.id,
-      price: Number(payload.price),
-      stock: Number(payload.stock),
-    },
-  });
-  return result;
+  const uploadedMedia: { url: string; public_id: string }[] = [];
+  try {
+    if (files && files.length > 0) {
+      for (const file of files) {
+        const result = await uploadMedia(file.path);
+        uploadedMedia.push(result);
+        if (fs.existsSync(file.path)) {
+          fs.unlinkSync(file.path);
+        }
+      }
+    }
+
+    const images = uploadedMedia.length > 0 ? uploadedMedia.map(m => m.url) : payload.images;
+
+    const result = await prisma.product.create({
+      data: {
+        ...payload,
+        storeId: store.id,
+        price: Number(payload.price),
+        stock: Number(payload.stock),
+        images: images,
+      },
+    });
+    return result;
+  } catch (error) {
+    if (files) {
+      for (const file of files) {
+        if (fs.existsSync(file.path)) fs.unlinkSync(file.path);
+      }
+    }
+    throw error;
+  }
 };
 
 const getAllProducts = async (query: any) => {
@@ -104,7 +129,7 @@ const getProductById = async (id: string) => {
   return result;
 };
 
-const updateProduct = async (userId: string, id: string, payload: any) => {
+const updateProduct = async (userId: string, id: string, payload: any, files?: Express.Multer.File[]) => {
   const product = await prisma.product.findUnique({
     where: { id },
     include: { store: true }
@@ -114,15 +139,40 @@ const updateProduct = async (userId: string, id: string, payload: any) => {
     throw new Error('Not authorized to update this product');
   }
 
-  const result = await prisma.product.update({
-    where: { id },
-    data: {
-        ...payload,
-        price: payload.price ? Number(payload.price) : undefined,
-        stock: payload.stock ? Number(payload.stock) : undefined
-    },
-  });
-  return result;
+  const uploadedMedia: { url: string; public_id: string }[] = [];
+  try {
+    if (files && files.length > 0) {
+      for (const file of files) {
+        const result = await uploadMedia(file.path);
+        uploadedMedia.push(result);
+        if (fs.existsSync(file.path)) {
+          fs.unlinkSync(file.path);
+        }
+      }
+    }
+
+    const finalImages = uploadedMedia.length > 0 
+      ? [...(product.images || []), ...uploadedMedia.map(m => m.url)] 
+      : payload.images;
+
+    const result = await prisma.product.update({
+      where: { id },
+      data: {
+          ...payload,
+          price: payload.price ? Number(payload.price) : undefined,
+          stock: payload.stock ? Number(payload.stock) : undefined,
+          images: finalImages,
+      },
+    });
+    return result;
+  } catch (error) {
+    if (files) {
+      for (const file of files) {
+        if (fs.existsSync(file.path)) fs.unlinkSync(file.path);
+      }
+    }
+    throw error;
+  }
 };
 
 const deleteProduct = async (userId: string, id: string) => {

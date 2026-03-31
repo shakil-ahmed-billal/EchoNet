@@ -28,9 +28,11 @@ export function AddProductModal({ open, onOpenChange, product }: AddProductModal
     description: "",
     price: "",
     stock: "1",
-    categoryId: "",
-    images: [] as string[]
+    categoryId: ""
   })
+  const [existingImages, setExistingImages] = useState<string[]>([])
+  const [selectedFiles, setSelectedFiles] = useState<File[]>([])
+  const [previews, setPreviews] = useState<string[]>([])
 
   useEffect(() => {
     if (product && open) {
@@ -39,30 +41,66 @@ export function AddProductModal({ open, onOpenChange, product }: AddProductModal
         description: product.description,
         price: product.price.toString(),
         stock: product.stock.toString(),
-        categoryId: product.category?.id || "",
-        images: product.images || []
+        categoryId: product.category?.id || ""
       })
+      setExistingImages(product.images || [])
+      setSelectedFiles([])
+      setPreviews([])
     } else if (!product && open) {
       setFormData({
-        title: "", description: "", price: "", stock: "1", categoryId: "", images: []
+        title: "", description: "", price: "", stock: "1", categoryId: ""
       })
+      setExistingImages([])
+      setSelectedFiles([])
+      setPreviews([])
     }
   }, [product, open])
+
+  const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    if (e.target.files) {
+      const files = Array.from(e.target.files)
+      setSelectedFiles((prev) => [...prev, ...files])
+      
+      const newPreviews = files.map(file => URL.createObjectURL(file))
+      setPreviews((prev) => [...prev, ...newPreviews])
+    }
+  }
+
+  const removeSelectedFile = (index: number) => {
+    URL.revokeObjectURL(previews[index])
+    setSelectedFiles(prev => prev.filter((_, i) => i !== index))
+    setPreviews(prev => prev.filter((_, i) => i !== index))
+  }
+
+  const removeExistingImage = (index: number) => {
+    setExistingImages(prev => prev.filter((_, i) => i !== index))
+  }
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault()
     
+    const data = new FormData()
+    data.append("title", formData.title)
+    data.append("description", formData.description)
+    data.append("price", formData.price)
+    data.append("stock", formData.stock)
+    data.append("categoryId", formData.categoryId)
+    
+    // Append existing images as a JSON string or separate fields if the backend supports it
+    // For now, we'll assume the backend wants the final list of strings + new files
+    existingImages.forEach(img => data.append("existingImages", img))
+    selectedFiles.forEach(file => data.append("images", file))
+
     if (product) {
-      updateProduct({ id: product.id, data: { ...formData, price: Number(formData.price), stock: Number(formData.stock) } }, {
+      updateProduct({ id: product.id, data }, {
         onSuccess: () => {
           onOpenChange(false)
         }
       })
     } else {
-      createProduct({ ...formData, price: Number(formData.price), stock: Number(formData.stock) }, {
+      createProduct(data, {
           onSuccess: () => {
               onOpenChange(false)
-              setFormData({ title: "", description: "", price: "", stock: "1", categoryId: "", images: [] })
           }
       })
     }
@@ -149,25 +187,45 @@ export function AddProductModal({ open, onOpenChange, product }: AddProductModal
             <div className="space-y-2">
                 <Label className="ml-1">Product Images</Label>
                 <div className="grid grid-cols-4 gap-2">
-                    <button 
-                        type="button"
-                        className="aspect-square rounded-2xl border-2 border-dashed border-border/40 flex flex-col items-center justify-center text-muted-foreground hover:text-primary hover:border-primary transition-all bg-background/30"
-                        onClick={() => {
-                            // Mock image upload
-                            const mockUrl = "https://picsum.photos/seed/" + Math.random() + "/400"
-                            setFormData({...formData, images: [...formData.images, mockUrl]})
-                        }}
+                    <input 
+                        type="file" 
+                        id="product-images" 
+                        className="hidden" 
+                        multiple 
+                        accept="image/*"
+                        onChange={handleFileChange}
+                    />
+                    <label 
+                        htmlFor="product-images"
+                        className="aspect-square rounded-2xl border-2 border-dashed border-border/40 flex flex-col items-center justify-center text-muted-foreground hover:text-primary hover:border-primary transition-all bg-background/30 cursor-pointer"
                     >
                         <ImagePlus className="w-6 h-6 border-none" />
                         <span className="text-[10px] mt-1 font-medium">Add Image</span>
-                    </button>
-                    {formData.images.map((img, i) => (
-                        <div key={i} className="relative aspect-square rounded-2xl overflow-hidden group">
-                            <img src={img} className="w-full h-full object-cover" />
+                    </label>
+
+                    {/* Previews of new files */}
+                    {previews.map((url, i) => (
+                        <div key={`new-${i}`} className="relative aspect-square rounded-2xl overflow-hidden group border border-primary/20">
+                            <img src={url} className="w-full h-full object-cover" />
                             <button 
                                 type="button"
                                 className="absolute top-1 right-1 p-1 bg-black/50 text-white rounded-full opacity-0 group-hover:opacity-100 transition-opacity"
-                                onClick={() => setFormData({...formData, images: formData.images.filter((_, idx) => idx !== i)})}
+                                onClick={() => removeSelectedFile(i)}
+                            >
+                                <X className="w-3 h-3" />
+                            </button>
+                            <div className="absolute bottom-1 left-1 bg-primary text-[8px] px-1 rounded text-white font-bold">NEW</div>
+                        </div>
+                    ))}
+
+                    {/* Existing images */}
+                    {existingImages.map((img, i) => (
+                        <div key={`existing-${i}`} className="relative aspect-square rounded-2xl overflow-hidden group">
+                            <img src={img} className="w-full h-full object-cover opacity-80" />
+                            <button 
+                                type="button"
+                                className="absolute top-1 right-1 p-1 bg-black/50 text-white rounded-full opacity-0 group-hover:opacity-100 transition-opacity"
+                                onClick={() => removeExistingImage(i)}
                             >
                                 <X className="w-3 h-3" />
                             </button>

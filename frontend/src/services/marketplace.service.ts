@@ -98,13 +98,17 @@ export const getStoreById = async (id: string) => {
   return response.data?.data ?? null;
 };
 
-export const createProduct = async (data: any) => {
-  const response = await apiClient.post<any>("/products", data);
+export const createProduct = async (data: FormData) => {
+  const response = await apiClient.post<any>("/products", data, {
+    headers: { "Content-Type": "multipart/form-data" }
+  });
   return response.data.data;
 };
 
-export const updateProduct = async (id: string, data: any) => {
-  const response = await apiClient.put<any>(`/products/${id}`, data);
+export const updateProduct = async (id: string, data: FormData) => {
+  const response = await apiClient.put<any>(`/products/${id}`, data, {
+    headers: { "Content-Type": "multipart/form-data" }
+  });
   return response.data.data;
 };
 

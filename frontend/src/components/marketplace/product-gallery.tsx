@@ -28,6 +28,7 @@ export function ProductGallery({ images, title }: ProductGalleryProps) {
           src={activeImage} 
           alt={title} 
           fill 
+          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
           className="object-cover"
           priority
         />
@@ -47,7 +48,7 @@ export function ProductGallery({ images, title }: ProductGalleryProps) {
                   : "border-border/10 opacity-60 hover:opacity-100 hover:border-primary/40"
               )}
             >
-              <Image src={img} alt={`${title} ${i + 1}`} fill className="object-cover" />
+              <Image src={img} alt={`${title} ${i + 1}`} fill sizes="80px" className="object-cover" />
             </button>
           ))}
         </div>
