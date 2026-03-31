@@ -17,6 +17,16 @@ export const useWebRTC = (onRemoteEnd?: () => void) => {
       { urls: "stun:stun.l.google.com:19302" },
       { urls: "stun:stun1.l.google.com:19302" },
       { urls: "stun:stun2.l.google.com:19302" },
+      // Support multiple TURN URLs separated by comma for TCP/UDP fallbacks
+      ...(process.env.NEXT_PUBLIC_TURN_SERVER_URL
+        ? [
+            {
+              urls: process.env.NEXT_PUBLIC_TURN_SERVER_URL.split(","),
+              username: process.env.NEXT_PUBLIC_TURN_SERVER_USERNAME,
+              credential: process.env.NEXT_PUBLIC_TURN_SERVER_PASSWORD,
+            },
+          ]
+        : []),
     ],
   }
 
