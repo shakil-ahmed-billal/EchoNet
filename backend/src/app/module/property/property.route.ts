@@ -2,11 +2,12 @@ import express from 'express';
 import auth from '../../middleware/auth.js';
 import { PropertyControllers } from './property.controller.js';
 import { upload } from '../../middleware/multer.js';
+import { redisCache } from '../../utils/redisCache.js';
 
 const router = express.Router();
 
 router.post('/', auth('USER', 'ADMIN', 'MODERATOR'), upload.array('images', 10), PropertyControllers.createProperty);
-router.get('/', PropertyControllers.getAllProperties);
+router.get('/', redisCache('properties', 60), PropertyControllers.getAllProperties);
 router.get('/my-properties', auth('USER', 'ADMIN', 'MODERATOR'), PropertyControllers.getMyProperties);
 router.get('/:id', PropertyControllers.getPropertyById);
 router.put('/:id', auth('USER', 'ADMIN', 'MODERATOR'), upload.array('images', 10), PropertyControllers.updateProperty);

@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { formatDistanceToNow } from "date-fns";
 import { Heart, MessageSquare, Share2, Bookmark, MoreHorizontal, Trash2, Edit2, Loader2, Send, X } from "lucide-react";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
@@ -23,6 +23,8 @@ import {
 } from "@/components/ui/dropdown-menu";
 import { Textarea } from "@/components/ui/textarea";
 import { cn } from "@/lib/utils";
+import Image from "next/image";
+import { getOptimizedImageUrl } from "@/lib/image-utils";
 
 const reactionEmojis: Record<string, string> = {
   LIKE: "👍",
@@ -36,9 +38,10 @@ const reactionEmojis: Record<string, string> = {
 
 interface PostCardProps {
   post: Post;
+  priority?: boolean;
 }
 
-export function PostCard({ post }: PostCardProps) {
+export function PostCard({ post, priority = false }: PostCardProps) {
   const [showComments, setShowComments] = useState(false);
   const [isLiked, setIsLiked] = useState(post.isLiked);
   const [currentReactionType, setCurrentReactionType] = useState(post.currentReactionType || (post.isLiked ? "LIKE" : null));
@@ -50,6 +53,11 @@ export function PostCard({ post }: PostCardProps) {
   const { user } = useAuth();
   const queryClient = useQueryClient();
   const isAuthor = user?.id === post.author.id;
+  
+  // Sync local isSaved state with post.isSaved prop (important for feed refreshes)
+  useEffect(() => {
+    setIsSaved(post.isSaved);
+  }, [post.isSaved]);
 
   const reactionMutation = useMutation({
     mutationFn: async (type: string) => {
@@ -72,16 +80,17 @@ export function PostCard({ post }: PostCardProps) {
   });
 
   const saveMutation = useMutation({
-      mutationFn: () => toggleSave(post.id, !!isSaved),
-      onMutate: () => {
-          setIsSaved(!isSaved);
+      mutationFn: (currentlySaved: boolean) => toggleSave(post.id, currentlySaved),
+      onMutate: async (currentlySaved) => {
+          setIsSaved(!currentlySaved);
+          return { currentlySaved };
       },
-      onSuccess: () => {
-          toast.success(isSaved ? "Post unsaved" : "Post saved");
+      onSuccess: (_, currentlySaved) => {
+          toast.success(currentlySaved ? "Post unsaved" : "Post saved");
       },
-      onError: () => {
-          setIsSaved(post.isSaved);
-          toast.error("Failed to save post");
+      onError: (error, currentlySaved, context) => {
+          setIsSaved(context?.currentlySaved ?? post.isSaved);
+          toast.error("Failed to update save status");
       }
   });
 
@@ -210,12 +219,15 @@ export function PostCard({ post }: PostCardProps) {
                   post.mediaUrls.length > 1 && "grid grid-cols-2 gap-0.5"
                 )}>
                   {post.mediaUrls.map((url, i) => (
-                    <img 
-                      key={i} 
-                      src={url} 
-                      alt="Post media" 
-                      className="w-full h-auto object-cover max-h-[600px] hover:brightness-110 transition-all duration-700" 
-                    />
+                    <div key={i} className="relative aspect-video w-full">
+                      <Image 
+                        src={getOptimizedImageUrl(url, { width: 800 })} 
+                        alt="Post media" 
+                        fill
+                        priority={priority && i === 0}
+                        className="object-cover hover:brightness-110 transition-all duration-700" 
+                      />
+                    </div>
                   ))}
                 </div>
               </div>
@@ -280,7 +292,7 @@ export function PostCard({ post }: PostCardProps) {
             </button>
             
             <button 
-              onClick={() => saveMutation.mutate()}
+              onClick={() => saveMutation.mutate(!!isSaved)}
               className={cn(
                  "flex-1 flex items-center justify-center gap-2 py-2.5 px-3 rounded-xl transition-all group/bookmark text-muted-foreground",
                  isSaved ? "text-primary bg-primary/5" : "hover:bg-muted/80 hover:text-primary"

@@ -9,6 +9,7 @@ import { Card, CardContent } from "@/components/ui/card"
 import { Trash2, Clapperboard, ShieldAlert } from "lucide-react"
 import { format } from "date-fns"
 import { Pagination } from "@/components/ui/pagination-controls"
+import { getOptimizedImageUrl } from "@/lib/image-utils"
 
 export default function ModeratorStoriesPage() {
   const [page, setPage] = useState(1)
@@ -78,7 +79,7 @@ export default function ModeratorStoriesPage() {
                       <TableCell>
                         {story.mediaUrl ? (
                           <a href={story.mediaUrl} target="_blank" rel="noopener noreferrer">
-                            <img src={story.mediaUrl} alt="story" className="h-10 w-16 object-cover rounded-lg border border-border/20 hover:opacity-80 transition-opacity" />
+                            <img src={getOptimizedImageUrl(story.mediaUrl, { width: 100 })} alt="story" className="h-10 w-16 object-cover rounded-lg border border-border/20 hover:opacity-80 transition-opacity" />
                           </a>
                         ) : <span className="text-xs text-muted-foreground/40">—</span>}
                       </TableCell>

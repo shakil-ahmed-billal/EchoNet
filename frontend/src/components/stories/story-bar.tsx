@@ -7,6 +7,8 @@ import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Plus } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { useRouter } from "next/navigation";
+import Image from "next/image";
+import { getOptimizedImageUrl } from "@/lib/image-utils";
 
 import { ScrollContainer } from "@/components/ui/scroll-container";
 
@@ -32,10 +34,11 @@ export function StoryBar() {
         >
           <div className="flex-1 overflow-hidden bg-muted">
             {user?.image ? (
-              <img 
-                src={user.image} 
-                alt={user.name} 
-                className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110 brightness-[0.9]"
+              <Image 
+                src={getOptimizedImageUrl(user.image, { width: 120, height: 200 })} 
+                alt={user.name || "User"} 
+                fill
+                className="object-cover transition-transform duration-500 group-hover:scale-110 brightness-[0.9]"
               />
             ) : (
               <div className="w-full h-full flex items-center justify-center bg-primary/10 text-primary font-bold text-xl">
@@ -64,10 +67,11 @@ export function StoryBar() {
             >
               {/* Background Preview */}
               {latestStory?.mediaUrl ? (
-                <img 
-                  src={latestStory.mediaUrl} 
+                <Image 
+                  src={getOptimizedImageUrl(latestStory.mediaUrl, { width: 120, height: 200 })} 
                   alt={group.author.name} 
-                  className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 brightness-[0.85] group-hover:brightness-100"
+                  fill
+                  className="object-cover transition-transform duration-700 group-hover:scale-110 brightness-[0.85] group-hover:brightness-100"
                 />
               ) : (
                 <div className="absolute inset-0 bg-primary/10" />

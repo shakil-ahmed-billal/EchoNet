@@ -2,6 +2,7 @@
 
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
 import { cn } from "@/lib/utils"
+import { getOptimizedImageUrl } from "@/lib/image-utils"
 
 interface UserImageProps {
   user?: {
@@ -14,7 +15,7 @@ interface UserImageProps {
 }
 
 export function UserImage({ user, className, alt }: UserImageProps) {
-  const imageUrl = user?.image || user?.avatarUrl
+  const imageUrl = getOptimizedImageUrl(user?.image || user?.avatarUrl, { width: 100, height: 100, face: true })
   const name = user?.name || "User"
   const initials = name
     .split(" ")
@@ -26,7 +27,7 @@ export function UserImage({ user, className, alt }: UserImageProps) {
 
   return (
     <Avatar className={cn("h-10 w-10 border border-border/50 shadow-sm overflow-hidden", className)}>
-      <AvatarImage src={imageUrl} alt={alt || name} className="object-cover h-full w-full" />
+      {imageUrl && <AvatarImage src={imageUrl} alt={alt || name} className="object-cover h-full w-full" />}
       <AvatarFallback className="bg-primary/5 text-primary font-bold">
         {initials || "U"}
       </AvatarFallback>

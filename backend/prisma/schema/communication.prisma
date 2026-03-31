@@ -8,11 +8,11 @@ model Message {
   createdAt  DateTime  @default(now())
   deletedAt  DateTime?
 
-  receiver User?  @relation("ReceivedMessages", fields: [receiverId], references: [id])
-  sender   User   @relation("SentMessages", fields: [senderId], references: [id])
-  group    Group? @relation(fields: [groupId], references: [id])
+  receiver User?   @relation("ReceivedMessages", fields: [receiverId], references: [id])
+  sender   User    @relation("SentMessages", fields: [senderId], references: [id])
+  group    Group?  @relation(fields: [groupId], references: [id])
   storyId  String?
-  story    Story? @relation(fields: [storyId], references: [id], onDelete: SetNull)
+  story    Story?  @relation(fields: [storyId], references: [id], onDelete: SetNull)
 
   @@index([senderId])
   @@index([receiverId])

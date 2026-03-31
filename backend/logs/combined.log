@@ -2494,3 +2494,236 @@ Invalid value for argument `status`. Expected PostStatus.
 2026-03-31 03:12:24 [[32minfo[39m]: User YG9Xc879bTAoJ0TNAg5PJVfChSI6iSIV joined their private room
 2026-03-31 03:12:29 [[32minfo[39m]: Socket disconnected: aQDAO59HGaHo85qQAAAL
 2026-03-31 03:12:49 [[32minfo[39m]: Socket disconnected: LRsXyFiUI4q3ZXtGAAAJ
+2026-03-31 03:14:33 [[32minfo[39m]: Initializing Socket.IO...
+2026-03-31 03:16:21 [[32minfo[39m]: User YG9Xc879bTAoJ0TNAg5PJVfChSI6iSIV joined their private room
+2026-03-31 03:16:23 [[32minfo[39m]: Socket disconnected: -lg_aag4u94bPNcaAAAB
+2026-03-31 03:16:35 [[32minfo[39m]: User YG9Xc879bTAoJ0TNAg5PJVfChSI6iSIV joined their private room
+2026-03-31 03:16:36 [[32minfo[39m]: User OAUOtlzRO7nGUmm0a3noaA9k5AEpjLvy joined their private room
+2026-03-31 03:16:38 [[32minfo[39m]: Socket disconnected: ElldWnc2ctLjdFAKAAAE
+2026-03-31 03:16:44 [[32minfo[39m]: User YG9Xc879bTAoJ0TNAg5PJVfChSI6iSIV joined their private room
+2026-03-31 03:20:21 [[32minfo[39m]: Initializing Socket.IO...
+2026-03-31 03:20:22 [[32minfo[39m]: User OAUOtlzRO7nGUmm0a3noaA9k5AEpjLvy joined their private room
+2026-03-31 03:20:22 [[32minfo[39m]: User YG9Xc879bTAoJ0TNAg5PJVfChSI6iSIV joined their private room
+2026-03-31 03:20:47 [[32minfo[39m]: Initializing Socket.IO...
+2026-03-31 03:20:47 [[32minfo[39m]: User OAUOtlzRO7nGUmm0a3noaA9k5AEpjLvy joined their private room
+2026-03-31 03:20:47 [[32minfo[39m]: User YG9Xc879bTAoJ0TNAg5PJVfChSI6iSIV joined their private room
+2026-03-31 03:21:04 [[32minfo[39m]: Initializing Socket.IO...
+2026-03-31 03:21:08 [[32minfo[39m]: User OAUOtlzRO7nGUmm0a3noaA9k5AEpjLvy joined their private room
+2026-03-31 03:21:09 [[32minfo[39m]: User YG9Xc879bTAoJ0TNAg5PJVfChSI6iSIV joined their private room
+2026-03-31 03:21:20 [[32minfo[39m]: Socket disconnected: hnlRjyNMfYotVG_PAAAD
+2026-03-31 03:21:32 [[32minfo[39m]: Initializing Socket.IO...
+2026-03-31 03:25:09 [[32minfo[39m]: User YG9Xc879bTAoJ0TNAg5PJVfChSI6iSIV joined their private room
+2026-03-31 03:25:33 [[31merror[39m]: Error: Store not found
+    at Object.getStoreOrders (C:\Shakil Dev\EchoNet\backend\src\app\module\order\order.service.ts:112:21)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async <anonymous> (C:\Shakil Dev\EchoNet\backend\src\app\module\order\order.controller.ts:30:18)
+    at async <anonymous> (C:\Shakil Dev\EchoNet\backend\src\app\utils\catchAsync.ts:6:7)
+2026-03-31 03:25:34 [[31merror[39m]: Error: Store not found
+    at Object.getStoreOrders (C:\Shakil Dev\EchoNet\backend\src\app\module\order\order.service.ts:112:21)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async <anonymous> (C:\Shakil Dev\EchoNet\backend\src\app\module\order\order.controller.ts:30:18)
+    at async <anonymous> (C:\Shakil Dev\EchoNet\backend\src\app\utils\catchAsync.ts:6:7)
+2026-03-31 03:29:29 [[32minfo[39m]: User OAUOtlzRO7nGUmm0a3noaA9k5AEpjLvy joined their private room
+2026-03-31 03:32:20 [[32minfo[39m]: Socket disconnected: qOnD5NnMoQJ67ej4AAAB
+2026-03-31 03:32:23 [[32minfo[39m]: User YG9Xc879bTAoJ0TNAg5PJVfChSI6iSIV joined their private room
+2026-03-31 03:34:41 [[32minfo[39m]: Socket disconnected: vpoT57wlqk7rmr_9AAAF
+2026-03-31 03:34:50 [[32minfo[39m]: User YG9Xc879bTAoJ0TNAg5PJVfChSI6iSIV joined their private room
+2026-03-31 03:34:52 [[32minfo[39m]: User OAUOtlzRO7nGUmm0a3noaA9k5AEpjLvy joined their private room
+2026-03-31 03:35:14 [[32minfo[39m]: Socket disconnected: hwZsJoewUZ4R60AgAAAD
+2026-03-31 03:35:59 [[32minfo[39m]: Initializing Socket.IO...
+2026-03-31 03:35:59 [[32minfo[39m]: User YG9Xc879bTAoJ0TNAg5PJVfChSI6iSIV joined their private room
+2026-03-31 03:36:05 [[32minfo[39m]: User OAUOtlzRO7nGUmm0a3noaA9k5AEpjLvy joined their private room
+2026-03-31 03:38:34 [[31merror[39m]: Error: You are not authorized
+    at <anonymous> (C:\Shakil Dev\EchoNet\backend\src\app\middleware\auth.ts:38:15)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+2026-03-31 03:38:34 [[31merror[39m]: Error: Invalid session token
+    at Object.getNewToken (C:\Shakil Dev\EchoNet\backend\src\app\module\auth\auth.service.ts:216:11)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async <anonymous> (C:\Shakil Dev\EchoNet\backend\src\app\module\auth\auth.controller.ts:214:18)
+    at async <anonymous> (C:\Shakil Dev\EchoNet\backend\src\app\utils\catchAsync.ts:6:7)
+2026-03-31 03:38:35 [[32minfo[39m]: Socket disconnected: 8FAVbGD-bZyBbuc6AAAB
+2026-03-31 03:38:36 [[31merror[39m]: Error: You are not authorized
+    at <anonymous> (C:\Shakil Dev\EchoNet\backend\src\app\middleware\auth.ts:38:15)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+2026-03-31 03:38:46 [[32minfo[39m]: Initializing Socket.IO...
+2026-03-31 03:38:49 [[32minfo[39m]: User OAUOtlzRO7nGUmm0a3noaA9k5AEpjLvy joined their private room
+2026-03-31 03:40:07 [[32minfo[39m]: User IIaWs0dyA888fOoukJDnSaiW3ARzF1Un joined their private room
+2026-03-31 03:40:44 [[32minfo[39m]: Socket disconnected: S57jUCLa9ZRtw7NWAAAD
+2026-03-31 03:41:09 [[32minfo[39m]: Socket disconnected: 1n0R_ceSz6qIss0wAAAB
+2026-03-31 03:41:32 [[32minfo[39m]: Initializing Socket.IO...
+2026-03-31 03:41:51 [[32minfo[39m]: User OAUOtlzRO7nGUmm0a3noaA9k5AEpjLvy joined their private room
+2026-03-31 03:41:56 [[31merror[39m]: Error: You are not authorized
+    at <anonymous> (C:\Shakil Dev\EchoNet\backend\src\app\middleware\auth.ts:38:15)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+2026-03-31 03:41:56 [[31merror[39m]: Error: You are not authorized
+    at <anonymous> (C:\Shakil Dev\EchoNet\backend\src\app\middleware\auth.ts:38:15)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+2026-03-31 03:41:56 [[31merror[39m]: Error: Invalid session token
+    at Object.getNewToken (C:\Shakil Dev\EchoNet\backend\src\app\module\auth\auth.service.ts:216:11)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async <anonymous> (C:\Shakil Dev\EchoNet\backend\src\app\module\auth\auth.controller.ts:214:18)
+    at async <anonymous> (C:\Shakil Dev\EchoNet\backend\src\app\utils\catchAsync.ts:6:7)
+2026-03-31 03:41:57 [[32minfo[39m]: User IIaWs0dyA888fOoukJDnSaiW3ARzF1Un joined their private room
+2026-03-31 03:41:58 [[31merror[39m]: Error: You are not authorized
+    at <anonymous> (C:\Shakil Dev\EchoNet\backend\src\app\middleware\auth.ts:38:15)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+2026-03-31 03:42:35 [[32minfo[39m]: Socket disconnected: GJe5lzM2roQS3319AAAB
+2026-03-31 03:48:06 [[31merror[39m]: Error: Store not found
+    at Object.getStoreOrders (C:\Shakil Dev\EchoNet\backend\src\app\module\order\order.service.ts:112:21)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async <anonymous> (C:\Shakil Dev\EchoNet\backend\src\app\module\order\order.controller.ts:30:18)
+    at async <anonymous> (C:\Shakil Dev\EchoNet\backend\src\app\utils\catchAsync.ts:6:7)
+2026-03-31 03:48:07 [[31merror[39m]: Error: Store not found
+    at Object.getStoreOrders (C:\Shakil Dev\EchoNet\backend\src\app\module\order\order.service.ts:112:21)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async <anonymous> (C:\Shakil Dev\EchoNet\backend\src\app\module\order\order.controller.ts:30:18)
+    at async <anonymous> (C:\Shakil Dev\EchoNet\backend\src\app\utils\catchAsync.ts:6:7)
+2026-03-31 03:48:09 [[31merror[39m]: Error: Store not found
+    at Object.getStoreOrders (C:\Shakil Dev\EchoNet\backend\src\app\module\order\order.service.ts:112:21)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async <anonymous> (C:\Shakil Dev\EchoNet\backend\src\app\module\order\order.controller.ts:30:18)
+    at async <anonymous> (C:\Shakil Dev\EchoNet\backend\src\app\utils\catchAsync.ts:6:7)
+2026-03-31 03:48:13 [[31merror[39m]: Error: Store not found
+    at Object.getStoreOrders (C:\Shakil Dev\EchoNet\backend\src\app\module\order\order.service.ts:112:21)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async <anonymous> (C:\Shakil Dev\EchoNet\backend\src\app\module\order\order.controller.ts:30:18)
+    at async <anonymous> (C:\Shakil Dev\EchoNet\backend\src\app\utils\catchAsync.ts:6:7)
+2026-03-31 03:48:25 [[32minfo[39m]: Socket disconnected: 7AzRSdPzHrTBji7AAAAD
+2026-03-31 03:48:29 [[32minfo[39m]: User IIaWs0dyA888fOoukJDnSaiW3ARzF1Un joined their private room
+2026-03-31 03:48:43 [[32minfo[39m]: Socket disconnected: y9NR-5hOHMAl0KLXAAAF
+2026-03-31 03:48:45 [[32minfo[39m]: User IIaWs0dyA888fOoukJDnSaiW3ARzF1Un joined their private room
+2026-03-31 03:48:54 [[32minfo[39m]: Socket disconnected: F1jcO2pLTRIJcIFqAAAH
+2026-03-31 03:48:56 [[32minfo[39m]: User IIaWs0dyA888fOoukJDnSaiW3ARzF1Un joined their private room
+2026-03-31 03:52:07 [[32minfo[39m]: Initializing Socket.IO...
+2026-03-31 03:52:15 [[32minfo[39m]: Initializing Socket.IO...
+2026-03-31 03:52:26 [[32minfo[39m]: Initializing Socket.IO...
+2026-03-31 03:52:38 [[32minfo[39m]: Initializing Socket.IO...
+2026-03-31 03:52:49 [[32minfo[39m]: Initializing Socket.IO...
+2026-03-31 03:53:00 [[32minfo[39m]: Initializing Socket.IO...
+2026-03-31 03:53:12 [[32minfo[39m]: Initializing Socket.IO...
+2026-03-31 03:53:25 [[32minfo[39m]: Initializing Socket.IO...
+2026-03-31 03:53:39 [[32minfo[39m]: Initializing Socket.IO...
+2026-03-31 04:10:08 [[31merror[39m]: Error: You are not authorized
+    at <anonymous> (C:\Shakil Dev\EchoNet\backend\src\app\middleware\auth.ts:38:15)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+2026-03-31 04:10:11 [[32minfo[39m]: User IIaWs0dyA888fOoukJDnSaiW3ARzF1Un joined their private room
+2026-03-31 04:10:12 [[32minfo[39m]: Socket disconnected: ---3yrEdtx_C6boqAAAB
+2026-03-31 04:10:14 [[32minfo[39m]: User IIaWs0dyA888fOoukJDnSaiW3ARzF1Un joined their private room
+2026-03-31 04:10:19 [[32minfo[39m]: Socket disconnected: CrE3ygS-0NTRNqSiAAAD
+2026-03-31 04:10:25 [[32minfo[39m]: User IIaWs0dyA888fOoukJDnSaiW3ARzF1Un joined their private room
+2026-03-31 04:17:38 [[32minfo[39m]: Socket disconnected: sOlILgaz3Kd_HnjAAAAF
+2026-03-31 04:17:39 [[32minfo[39m]: User IIaWs0dyA888fOoukJDnSaiW3ARzF1Un joined their private room
+2026-03-31 04:17:46 [[32minfo[39m]: Socket disconnected: PloTo0B7FdFjJPjTAAAH
+2026-03-31 04:17:48 [[32minfo[39m]: User IIaWs0dyA888fOoukJDnSaiW3ARzF1Un joined their private room
+2026-03-31 04:19:31 [[31merror[39m]: Error: You are not authorized
+    at <anonymous> (C:\Shakil Dev\EchoNet\backend\src\app\middleware\auth.ts:38:15)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+2026-03-31 04:19:48 [[32minfo[39m]: Socket disconnected: BnpWpJQYGhDwNXKyAAAJ
+2026-03-31 04:21:00 [[32minfo[39m]: Initializing Socket.IO...
+2026-03-31 04:21:12 [[31merror[39m]: Error: You are not authorized
+    at <anonymous> (C:\Shakil Dev\EchoNet\backend\src\app\middleware\auth.ts:38:15)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+2026-03-31 04:21:16 [[32minfo[39m]: User IIaWs0dyA888fOoukJDnSaiW3ARzF1Un joined their private room
+2026-03-31 04:21:18 [[32minfo[39m]: Socket disconnected: A_sGt5HZZ_DHkKBmAAAB
+2026-03-31 04:21:23 [[32minfo[39m]: User IIaWs0dyA888fOoukJDnSaiW3ARzF1Un joined their private room
+2026-03-31 04:21:50 [[32minfo[39m]: Socket disconnected: 0gpAf1VZjCH81dmFAAAE
+2026-03-31 04:23:08 [[32minfo[39m]: Password reset OTP sent to shakil.dev999@gmail.com
+2026-03-31 04:23:50 [[32minfo[39m]: User IIaWs0dyA888fOoukJDnSaiW3ARzF1Un joined their private room
+2026-03-31 04:24:49 [[32minfo[39m]: Socket disconnected: cjrHH8H_zD-a72_bAAAG
+2026-03-31 04:24:54 [[32minfo[39m]: User IIaWs0dyA888fOoukJDnSaiW3ARzF1Un joined their private room
+2026-03-31 04:25:36 [[32minfo[39m]: User A1oYUHga3h4LuCocSMwRaWCtLFrIARSz joined their private room
+2026-03-31 04:26:39 [[32minfo[39m]: Socket disconnected: 9hKWyHi7-nL5FRzIAAAK
+2026-03-31 04:26:42 [[32minfo[39m]: User A1oYUHga3h4LuCocSMwRaWCtLFrIARSz joined their private room
+2026-03-31 04:26:50 [[32minfo[39m]: Socket disconnected: NcEBEzism8hINTyQAAAI
+2026-03-31 04:26:54 [[32minfo[39m]: User IIaWs0dyA888fOoukJDnSaiW3ARzF1Un joined their private room
+2026-03-31 04:27:38 [[32minfo[39m]: Socket disconnected: Z4rRT-pg9N0R2SQLAAAO
+2026-03-31 04:28:17 [[32minfo[39m]: Socket disconnected: TA_OGTGClTjuPVA7AAAM
+2026-03-31 04:30:07 [[32minfo[39m]: Initializing Socket.IO...
+2026-03-31 04:30:15 [[32minfo[39m]: Initializing Socket.IO...
+2026-03-31 04:33:22 [[32minfo[39m]: User IIaWs0dyA888fOoukJDnSaiW3ARzF1Un joined their private room
+2026-03-31 04:33:37 [[32minfo[39m]: Socket disconnected: NIO3tEsNc7QAjI0yAAAB
+2026-03-31 04:33:38 [[32minfo[39m]: User IIaWs0dyA888fOoukJDnSaiW3ARzF1Un joined their private room
+2026-03-31 04:34:54 [[32minfo[39m]: Socket disconnected: l2afQR3_GoopphPMAAAD
+2026-03-31 04:35:19 [[32minfo[39m]: Password reset OTP sent to shakil.dev999@gmail.com
+2026-03-31 04:35:46 [[32minfo[39m]: User A1oYUHga3h4LuCocSMwRaWCtLFrIARSz joined their private room
+2026-03-31 04:35:52 [[32minfo[39m]: User IIaWs0dyA888fOoukJDnSaiW3ARzF1Un joined their private room
+2026-03-31 04:37:04 [[32minfo[39m]: Socket disconnected: 6y8iWw1evYX7oPGxAAAH
+2026-03-31 04:37:08 [[32minfo[39m]: User IIaWs0dyA888fOoukJDnSaiW3ARzF1Un joined their private room
+2026-03-31 04:38:31 [[32minfo[39m]: Socket disconnected: jpMt1gLAU9zv_bQ5AAAF
+2026-03-31 04:38:34 [[32minfo[39m]: User A1oYUHga3h4LuCocSMwRaWCtLFrIARSz joined their private room
+2026-03-31 04:39:56 [[32minfo[39m]: Socket disconnected: ZUu1_DPXbJe_OrHyAAAL
+2026-03-31 04:40:35 [[32minfo[39m]: User A1oYUHga3h4LuCocSMwRaWCtLFrIARSz joined their private room
+2026-03-31 04:43:13 [[32minfo[39m]: Socket disconnected: 3yFeMXIVxqUV98n0AAAJ
+2026-03-31 04:43:15 [[32minfo[39m]: User IIaWs0dyA888fOoukJDnSaiW3ARzF1Un joined their private room
+2026-03-31 04:43:35 [[32minfo[39m]: Socket disconnected: -X-loUcThW1xUyBBAAAP
+2026-03-31 04:44:17 [[32minfo[39m]: Socket disconnected: INISqnSw5Z1GwAUCAAAN
+2026-03-31 04:45:00 [[32minfo[39m]: Initializing Socket.IO...
+2026-03-31 04:45:21 [[32minfo[39m]: User IIaWs0dyA888fOoukJDnSaiW3ARzF1Un joined their private room
+2026-03-31 04:45:23 [[32minfo[39m]: Socket disconnected: 58e06lfHwkfwfOWPAAAB
+2026-03-31 04:45:28 [[32minfo[39m]: User IIaWs0dyA888fOoukJDnSaiW3ARzF1Un joined their private room
+2026-03-31 04:46:33 [[31merror[39m]: PrismaClientValidationError: 
+Invalid `this.model.count()` invocation in
+C:\Shakil Dev\EchoNet\backend\src\app\utils\QueryBuilder.ts:214:18
+
+  211 
+  212 async execute(): Promise<IQueryResult<T>> {
+  213   const [total, data] = await Promise.all([
+→ 214     this.model.count({
+            select: {
+              _count: {
+                select: {
+                  _all: true
+                }
+              }
+            },
+            where: {
+              status: "APPROVED"
+                      ~~~~~~~~~~
+            }
+          })
+
+Invalid value for argument `status`. Expected PropertyStatus.
+    at ar (C:\Shakil Dev\EchoNet\backend\generated\prisma\client\runtime\client.js:14:1374)
+    at Gr.handleRequestError (C:\Shakil Dev\EchoNet\backend\generated\prisma\client\runtime\client.js:69:7929)
+    at Gr.handleAndLogRequestError (C:\Shakil Dev\EchoNet\backend\generated\prisma\client\runtime\client.js:69:7581)
+    at Gr.request (C:\Shakil Dev\EchoNet\backend\generated\prisma\client\runtime\client.js:69:7288)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async a (C:\Shakil Dev\EchoNet\backend\generated\prisma\client\runtime\client.js:79:6730)
+    at async Promise.all (index 0)
+    at async QueryBuilder.execute (C:\Shakil Dev\EchoNet\backend\src\app\utils\QueryBuilder.ts:213:27)
+    at async Object.getAllProperties (C:\Shakil Dev\EchoNet\backend\src\app\module\admin\admin.service.ts:99:10)
+    at async <anonymous> (C:\Shakil Dev\EchoNet\backend\src\app\module\admin\admin.controller.ts:63:18)
+2026-03-31 04:46:34 [[31merror[39m]: PrismaClientValidationError: 
+Invalid `this.model.count()` invocation in
+C:\Shakil Dev\EchoNet\backend\src\app\utils\QueryBuilder.ts:214:18
+
+  211 
+  212 async execute(): Promise<IQueryResult<T>> {
+  213   const [total, data] = await Promise.all([
+→ 214     this.model.count({
+            select: {
+              _count: {
+                select: {
+                  _all: true
+                }
+              }
+            },
+            where: {
+              status: "APPROVED"
+                      ~~~~~~~~~~
+            }
+          })
+
+Invalid value for argument `status`. Expected PropertyStatus.
+    at ar (C:\Shakil Dev\EchoNet\backend\generated\prisma\client\runtime\client.js:14:1374)
+    at Gr.handleRequestError (C:\Shakil Dev\EchoNet\backend\generated\prisma\client\runtime\client.js:69:7929)
+    at Gr.handleAndLogRequestError (C:\Shakil Dev\EchoNet\backend\generated\prisma\client\runtime\client.js:69:7581)
+    at Gr.request (C:\Shakil Dev\EchoNet\backend\generated\prisma\client\runtime\client.js:69:7288)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async a (C:\Shakil Dev\EchoNet\backend\generated\prisma\client\runtime\client.js:79:6730)
+    at async Promise.all (index 0)
+    at async QueryBuilder.execute (C:\Shakil Dev\EchoNet\backend\src\app\utils\QueryBuilder.ts:213:27)
+    at async Object.getAllProperties (C:\Shakil Dev\EchoNet\backend\src\app\module\admin\admin.service.ts:99:10)
+    at async <anonymous> (C:\Shakil Dev\EchoNet\backend\src\app\module\admin\admin.controller.ts:63:18)
+2026-03-31 04:48:33 [[32minfo[39m]: User A1oYUHga3h4LuCocSMwRaWCtLFrIARSz joined their private room
+2026-03-31 04:51:23 [[32minfo[39m]: Backend: call-user from A1oYUHga3h4LuCocSMwRaWCtLFrIARSz to IIaWs0dyA888fOoukJDnSaiW3ARzF1Un

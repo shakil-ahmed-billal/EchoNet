@@ -80,7 +80,7 @@ export default function ModeratorOverviewPage() {
       value: isLoading ? null : stats?.agents?.total?.toLocaleString() ?? "0",
       sub: "Verified platform agents",
       icon: ShieldCheck,
-      href: "/moderator/dashboard/agents",
+      href: "/moderator/dashboard/platform-agents",
       iconColor: "text-cyan-500",
     },
   ]

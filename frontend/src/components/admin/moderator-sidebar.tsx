@@ -81,7 +81,7 @@ export function ModeratorSidebar({ ...props }: React.ComponentProps<typeof Sideb
         },
         {
           title: "Agent Verification",
-          url: "/moderator/dashboard/agents",
+          url: "/moderator/dashboard/platform-agents",
           icon: ShieldCheck,
         },
       ],

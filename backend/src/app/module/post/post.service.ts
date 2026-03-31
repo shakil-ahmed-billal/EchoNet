@@ -171,8 +171,8 @@ const getScoredFeed = async (userId: string, limit: number = 20, cursor?: string
     };
 };
 
-const getAllPosts = async (limit: number = 10, cursor?: string, userId?: string, discover: boolean = false, authorId?: string) => {
-  if (userId && !discover && !authorId) {
+const getAllPosts = async (limit: number = 10, cursor?: string, userId?: string, discover: boolean = false, authorId?: string, mediaOnly: boolean = false) => {
+  if (userId && !discover && !authorId && !mediaOnly) {
       return getScoredFeed(userId, limit, cursor);
   }
 
@@ -180,6 +180,10 @@ const getAllPosts = async (limit: number = 10, cursor?: string, userId?: string,
   
   if (authorId) {
     where.authorId = authorId;
+  } 
+  
+  if (mediaOnly) {
+    where.mediaUrls = { isEmpty: false };
   } else if (userId && discover) {
     // For discover, we show posts from people we DON'T follow
     const following = await prisma.follow.findMany({

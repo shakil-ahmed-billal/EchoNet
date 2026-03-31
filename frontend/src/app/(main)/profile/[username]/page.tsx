@@ -3,6 +3,8 @@
 import { PostList } from "@/components/feed/post-list";
 import { SavedPostList } from "@/components/feed/saved-post-list";
 import { MyOrdersList } from "@/components/marketplace/my-orders-list";
+import { UserRepliesList } from "@/components/profile/user-replies-list";
+import { UserMediaGrid } from "@/components/profile/user-media-grid";
 import { EditProfileDialog } from "@/components/profile/edit-profile-dialog";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Button } from "@/components/ui/button";
@@ -28,8 +30,10 @@ import {
   BadgeCheck
 } from "lucide-react";
 import { FollowButton } from "@/components/follow/FollowButton";
-import Link from "next/link";
 import { useParams } from "next/navigation";
+import Image from "next/image";
+import Link from "next/link";
+import { getOptimizedImageUrl } from "@/lib/image-utils";
 import { UserImage } from "@/components/user-image";
 
 export default function ProfilePage() {
@@ -98,8 +102,8 @@ export default function ProfilePage() {
   }
 
   const isSelf = currentUser?.id === profile.id;
-  const myStoriesGroup = globalStories?.find((group: any) => group.isOwn);
-  const myStories = myStoriesGroup?.stories || [];
+  const profileStoriesGroup = globalStories?.find((group: any) => group.author.id === profile.id);
+  const profileStories = profileStoriesGroup?.stories || [];
 
   // Safely extract string from JSON array fields
   const workplaceDisplay = Array.isArray(profile.workplaces) ? profile.workplaces[0] : profile.workplace;
@@ -111,11 +115,13 @@ export default function ProfilePage() {
       <div className="bg-card rounded-3xl border border-border/50 overflow-hidden flex flex-col shadow-sm">
         {/* Cover Area */}
         <div className="h-48 w-full bg-linear-to-br from-muted/50 via-muted/30 to-muted/50 relative">
-          {profile.coverPhotoUrl && (
-            <img 
-              src={profile.coverPhotoUrl} 
+          {profile.coverPhotoUrl && getOptimizedImageUrl(profile.coverPhotoUrl) && (
+            <Image 
+              src={getOptimizedImageUrl(profile.coverPhotoUrl, { width: 1200, height: 400 })} 
               alt="Cover" 
-              className="w-full h-full object-cover"
+              fill
+              priority
+              className="object-cover"
             />
           )}
           <div className="absolute -bottom-16 left-8 sm:left-12 rounded-full border-4 border-card bg-card shadow-sm z-10">
@@ -284,51 +290,55 @@ export default function ProfilePage() {
               </>
             )}
           </TabsList>
-
+ 
           <TabsContent value="posts" className="focus-visible:outline-none">
             <PostList authorId={profile.id} />
           </TabsContent>
           <TabsContent value="replies">
-            <div className="py-20 text-center border-2 border-dashed border-muted rounded-3xl bg-muted/5">
-              <p className="text-sm font-medium text-muted-foreground">No replies yet.</p>
-            </div>
+            <UserRepliesList userId={profile.id} />
           </TabsContent>
           <TabsContent value="media">
-            <div className="py-20 text-center border-2 border-dashed border-muted rounded-3xl bg-muted/5">
-              <p className="text-sm font-medium text-muted-foreground">No media shared yet.</p>
+            <UserMediaGrid userId={profile.id} />
+          </TabsContent>
+          <TabsContent value="stories">
+            <div className="flex flex-col gap-4">
+              {profileStories.length > 0 ? (
+                <div className="grid grid-cols-2 md:grid-cols-4 gap-4 pt-2">
+                  {profileStories.map((story: any) => {
+                    const optimizedUrl = getOptimizedImageUrl(story.mediaUrl, { width: 400, height: 711 });
+                    if (!optimizedUrl) return null;
+                    
+                    return (
+                      <div key={story.id} className="group relative aspect-9/16 rounded-[32px] overflow-hidden border border-border/10 bg-muted/20">
+                        <Image 
+                          src={optimizedUrl} 
+                          alt="Story content" 
+                          fill
+                          className="object-cover transition-transform duration-700 group-hover:scale-110"
+                        />
+                        <div className="absolute inset-0 bg-linear-to-b from-black/40 via-transparent to-black/60 opacity-0 group-hover:opacity-100 transition-opacity" />
+                      </div>
+                    );
+                  })}
+                </div>
+              ) : (
+                <div className="py-20 text-center border-2 border-dashed border-muted rounded-[32px] bg-muted/5">
+                  <p className="text-sm font-medium text-muted-foreground">No active stories.</p>
+                </div>
+              )}
             </div>
           </TabsContent>
+
           {isSelf && (
             <>
               <TabsContent value="saved" className="focus-visible:outline-none">
-                <SavedPostList />
-              </TabsContent>
-              <TabsContent value="stories" className="focus-visible:outline-none">
-                {myStories.length > 0 ? (
-                  <div className="grid grid-cols-2 sm:grid-cols-3 gap-4">
-                    {myStories.map((story: any) => (
-                      <div key={story.id} className="relative aspect-9/16 rounded-2xl overflow-hidden shadow-sm group">
-                        <img src={story.mediaUrl} alt="Story" className="object-cover w-full h-full" />
-                        <div className="absolute inset-x-0 bottom-0 bg-linear-to-t from-black/80 via-black/40 to-transparent p-4 flex flex-col justify-end">
-                          <p className="text-white text-xs font-medium line-clamp-2 drop-shadow-md">
-                            {story.caption || format(new Date(story.createdAt), "PPp")}
-                          </p>
-                          <div className="flex items-center gap-1 mt-2 text-white/80 text-[10px] font-bold tracking-wider">
-                            <span className="bg-primary/80 px-1.5 py-0.5 rounded text-white">{story.viewsCount} views</span>
-                          </div>
-                        </div>
-                      </div>
-                    ))}
-                  </div>
-                ) : (
-                  <div className="py-20 text-center border-2 border-dashed border-muted rounded-3xl bg-muted/5">
-                    <p className="text-sm font-medium text-muted-foreground">You have no active stories.</p>
-                  </div>
-                )}
+                <div className="pt-2">
+                  <SavedPostList />
+                </div>
               </TabsContent>
               <TabsContent value="orders" className="focus-visible:outline-none">
                 <div className="pt-2">
-                    <MyOrdersList />
+                  <MyOrdersList />
                 </div>
               </TabsContent>
             </>

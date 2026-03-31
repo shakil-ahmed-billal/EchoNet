@@ -2,6 +2,7 @@ import { Request, Response } from 'express';
 import catchAsync from '../../utils/catchAsync.js';
 import sendResponse from '../../utils/sendResponse.js';
 import { ProductServices } from './product.service.js';
+import { clearCache } from '../../utils/redisCache.js';
 
 const createProduct = catchAsync(async (req: Request, res: Response) => {
   const userId = (req as any).user.id;
@@ -12,6 +13,7 @@ const createProduct = catchAsync(async (req: Request, res: Response) => {
     message: 'Product created successfully',
     data: result,
   });
+  await clearCache('products');
 });
 
 const getAllProducts = catchAsync(async (req: Request, res: Response) => {
@@ -45,6 +47,7 @@ const updateProduct = catchAsync(async (req: Request, res: Response) => {
     message: 'Product updated successfully',
     data: result,
   });
+  await clearCache('products');
 });
 
 const deleteProduct = catchAsync(async (req: Request, res: Response) => {
@@ -57,6 +60,7 @@ const deleteProduct = catchAsync(async (req: Request, res: Response) => {
     message: 'Product deleted successfully',
     data: result,
   });
+  await clearCache('products');
 });
 
 export const ProductControllers = {

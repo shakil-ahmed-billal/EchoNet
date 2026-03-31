@@ -103,7 +103,7 @@ export function AdminSidebar({ ...props }: React.ComponentProps<typeof Sidebar>)
         },
         {
           title: "Agent Verification",
-          url: "/admin/dashboard/agents",
+          url: "/admin/dashboard/platform-agents",
           icon: ShieldCheck,
         },
       ],

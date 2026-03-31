@@ -6,6 +6,7 @@ import { Button } from "@/components/ui/button"
 import { Bed, Bath, Move, MapPin, Heart } from "lucide-react"
 import Link from "next/link"
 import Image from "next/image"
+import { getOptimizedImageUrl } from "@/lib/image-utils"
 
 interface PropertyCardProps {
   property: any
@@ -18,7 +19,7 @@ export function PropertyCard({ property }: PropertyCardProps) {
     <Card className="overflow-hidden border-none shadow-sm hover:shadow-xl transition-all group rounded-3xl bg-card/50 backdrop-blur-sm border border-border/40 p-0">
       <Link href={`/properties/${property.id}`} className="block relative h-64 w-full">
         <Image
-          src={coverImage || "/placeholder-property.jpg"}
+          src={getOptimizedImageUrl(coverImage || "/placeholder-property.jpg", { width: 600, height: 400 })}
           alt={property.title}
           fill
           className="object-cover transition-transform duration-500 group-hover:scale-105"

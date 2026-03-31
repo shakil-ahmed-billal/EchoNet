@@ -4,6 +4,7 @@ import catchAsync from '../../utils/catchAsync.js';
 import sendResponse from '../../utils/sendResponse.js';
 import { PostServices } from './post.service.js';
 import { Role } from '../../../../generated/prisma/client/index.js';
+import { clearCache } from '../../utils/redisCache.js';
 
 const createPost = catchAsync(async (req: Request, res: Response) => {
   const authorId = (req as any).user?.id;
@@ -14,6 +15,7 @@ const createPost = catchAsync(async (req: Request, res: Response) => {
     message: 'Post created successfully',
     data: result,
   });
+  await clearCache('posts');
 });
 
 
@@ -37,7 +39,14 @@ const getAllPosts = catchAsync(async (req: Request, res: Response) => {
     return;
   }
 
-  const result = await PostServices.getAllPosts(limit, cursor, userId, discover, authorId);
+  const result = await PostServices.getAllPosts(
+    limit, 
+    cursor, 
+    userId, 
+    discover, 
+    authorId, 
+    req.query.mediaOnly === 'true'
+  );
   sendResponse(res, {
     statusCode: httpStatus.OK,
     success: true,
@@ -69,6 +78,7 @@ const updatePostStatus = catchAsync(async (req: Request, res: Response) => {
     message: 'Post status updated successfully',
     data: result,
   });
+  await clearCache('posts');
 });
 
 const updatePost = catchAsync(async (req: Request, res: Response) => {
@@ -81,6 +91,7 @@ const updatePost = catchAsync(async (req: Request, res: Response) => {
     message: 'Post updated successfully',
     data: result,
   });
+  await clearCache('posts');
 });
 
 const deletePost = catchAsync(async (req: Request, res: Response) => {
@@ -94,6 +105,7 @@ const deletePost = catchAsync(async (req: Request, res: Response) => {
     message: 'Post deleted successfully',
     data: result,
   });
+  await clearCache('posts');
 });
 
 export const PostControllers = {

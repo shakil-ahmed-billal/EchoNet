@@ -68,7 +68,7 @@ export function PostList({ discover = false, authorId }: { discover?: boolean, a
     <div className="flex flex-col gap-4">
       {posts.map((post, index) => (
         <div key={post.id}>
-          <PostCard post={post} />
+          <PostCard post={post} priority={index < 2} />
           {index === 0 && !authorId && (
              <>
                <FriendSuggestions />

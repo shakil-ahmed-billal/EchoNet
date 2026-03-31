@@ -29,6 +29,10 @@ model Property {
   enquiries PropertyEnquiry[]
   savedBy   SavedProperty[]
   reviews   PropertyReview[]
+
+  @@index([status, deletedAt])
+  @@index([listingType])
+  @@index([city])
 }
 
 enum ListingType {

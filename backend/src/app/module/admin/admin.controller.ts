@@ -3,6 +3,7 @@ import httpStatus from 'http-status';
 import catchAsync from '../../utils/catchAsync.js';
 import sendResponse from '../../utils/sendResponse.js';
 import { AdminServices } from './admin.service.js';
+import { clearCache } from '../../utils/redisCache.js';
 
 const getDashboardStats = catchAsync(async (req: Request, res: Response) => {
   const result = await AdminServices.getDashboardStats();
@@ -79,6 +80,8 @@ const updateUserRole = catchAsync(async (req: Request, res: Response) => {
     message: 'User role updated successfully',
     data: result,
   });
+  await clearCache('users');
+  await clearCache('admin_stats');
 });
 
 const deleteUser = catchAsync(async (req: Request, res: Response) => {
@@ -90,6 +93,8 @@ const deleteUser = catchAsync(async (req: Request, res: Response) => {
     message: 'User and all associated data deleted',
     data: result,
   });
+  await clearCache('users');
+  await clearCache('admin_stats');
 });
 
 const deleteStory = catchAsync(async (req: Request, res: Response) => {
@@ -101,6 +106,8 @@ const deleteStory = catchAsync(async (req: Request, res: Response) => {
     message: 'Story deleted',
     data: result,
   });
+  await clearCache('stories');
+  await clearCache('admin_stats');
 });
 
 const updatePostStatus = catchAsync(async (req: Request, res: Response) => {
@@ -113,6 +120,8 @@ const updatePostStatus = catchAsync(async (req: Request, res: Response) => {
     message: 'Post status updated',
     data: result,
   });
+  await clearCache('posts');
+  await clearCache('admin_stats');
 });
 
 const deletePost = catchAsync(async (req: Request, res: Response) => {
@@ -124,6 +133,8 @@ const deletePost = catchAsync(async (req: Request, res: Response) => {
     message: 'Post deleted',
     data: result,
   });
+  await clearCache('posts');
+  await clearCache('admin_stats');
 });
 
 const updateProductStatus = catchAsync(async (req: Request, res: Response) => {
@@ -136,6 +147,8 @@ const updateProductStatus = catchAsync(async (req: Request, res: Response) => {
     message: 'Product status updated',
     data: result,
   });
+  await clearCache('products');
+  await clearCache('admin_stats');
 });
 
 const deleteProduct = catchAsync(async (req: Request, res: Response) => {
@@ -147,6 +160,8 @@ const deleteProduct = catchAsync(async (req: Request, res: Response) => {
     message: 'Product deleted',
     data: result,
   });
+  await clearCache('products');
+  await clearCache('admin_stats');
 });
 
 const updatePropertyStatus = catchAsync(async (req: Request, res: Response) => {
@@ -159,6 +174,8 @@ const updatePropertyStatus = catchAsync(async (req: Request, res: Response) => {
     message: 'Property status updated',
     data: result,
   });
+  await clearCache('properties');
+  await clearCache('admin_stats');
 });
 
 const deleteProperty = catchAsync(async (req: Request, res: Response) => {
@@ -170,6 +187,8 @@ const deleteProperty = catchAsync(async (req: Request, res: Response) => {
     message: 'Property deleted',
     data: result,
   });
+  await clearCache('properties');
+  await clearCache('admin_stats');
 });
 
 const verifyAgent = catchAsync(async (req: Request, res: Response) => {
@@ -181,6 +200,8 @@ const verifyAgent = catchAsync(async (req: Request, res: Response) => {
     message: 'Agent verified',
     data: result,
   });
+  await clearCache('users');
+  await clearCache('admin_stats');
 });
 
 const rejectAgent = catchAsync(async (req: Request, res: Response) => {
@@ -192,6 +213,8 @@ const rejectAgent = catchAsync(async (req: Request, res: Response) => {
     message: 'Agent rejected',
     data: result,
   });
+  await clearCache('users');
+  await clearCache('admin_stats');
 });
 
 export const AdminControllers = {

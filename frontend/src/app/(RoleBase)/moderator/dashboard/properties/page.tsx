@@ -13,6 +13,7 @@ import { Card, CardContent } from "@/components/ui/card"
 import { Trash2, Home, ShieldAlert, Check, X } from "lucide-react"
 import { Pagination } from "@/components/ui/pagination-controls"
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
+import { getOptimizedImageUrl } from "@/lib/image-utils"
 
 const useDeleteProperty = () => {
   const queryClient = useQueryClient()
@@ -103,7 +104,7 @@ export default function ModeratorPropertiesPage() {
                       <TableCell className="pl-6 py-4">
                         <div className="flex items-center gap-3">
                           {prop.images?.[0] ? (
-                            <img src={prop.images[0]} alt={prop.title} className="size-11 rounded-xl object-cover border border-border/20" />
+                            <img src={getOptimizedImageUrl(prop.images[0], { width: 80, height: 80 })} alt={prop.title} className="size-11 rounded-xl object-cover border border-border/20" />
                           ) : (
                             <div className="size-11 rounded-xl bg-muted/30 flex items-center justify-center"><Home className="size-5 opacity-40" /></div>
                           )}

@@ -3,6 +3,7 @@
 import Image from "next/image"
 import Link from "next/link"
 import { Product } from "@/services/marketplace.service"
+import { getOptimizedImageUrl } from "@/lib/image-utils"
 import { Card, CardContent, CardFooter } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
@@ -52,7 +53,7 @@ export function ProductCard({ product }: ProductCardProps) {
       <Link href={`/marketplace/${product.id}`} className="block relative">
         <div className="relative aspect-square overflow-hidden rounded-t-3xl bg-muted/30">
           <Image
-            src={firstImage}
+            src={getOptimizedImageUrl(firstImage, { width: 500, height: 500 })}
             alt={product.title}
             fill
             className="object-cover transition-transform duration-700 group-hover:scale-105"

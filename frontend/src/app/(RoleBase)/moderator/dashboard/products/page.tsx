@@ -11,6 +11,7 @@ import { Badge } from "@/components/ui/badge"
 import { Card, CardContent } from "@/components/ui/card"
 import { Trash2, Package, ShieldAlert, ShieldCheck } from "lucide-react"
 import { Pagination } from "@/components/ui/pagination-controls"
+import { getOptimizedImageUrl } from "@/lib/image-utils"
 
 const useDeleteProduct = () => {
   const queryClient = useQueryClient()
@@ -79,7 +80,7 @@ export default function ModeratorProductsPage() {
                       <TableCell className="pl-6 py-4">
                         <div className="flex items-center gap-3">
                           {product.images?.[0] && (
-                            <img src={product.images[0]} alt={product.title} className="size-10 rounded-xl object-cover border border-border/20" />
+                            <img src={getOptimizedImageUrl(product.images[0], { width: 80, height: 80 })} alt={product.title} className="size-10 rounded-xl object-cover border border-border/20" />
                           )}
                           <div className="flex flex-col min-w-0">
                             <span className="font-bold text-xs truncate text-foreground">{product.title}</span>

@@ -1,7 +1,15 @@
 import { Metadata } from "next"
-import { CreatePost } from "@/components/feed/create-post"
-import { PostList } from "@/components/feed/post-list"
-import { StoryBar } from "@/components/stories/story-bar"
+import dynamic from "next/dynamic"
+
+const CreatePost = dynamic(() => import("@/components/feed/create-post").then(m => m.CreatePost), { 
+  loading: () => <div className="h-32 bg-muted/20 animate-pulse rounded-2xl" /> 
+})
+const PostList = dynamic(() => import("@/components/feed/post-list").then(m => m.PostList), {
+  loading: () => <div className="space-y-4"><div className="h-64 bg-muted/20 animate-pulse rounded-2xl" /></div>
+})
+const StoryBar = dynamic(() => import("@/components/stories/story-bar").then(m => m.StoryBar), {
+  loading: () => <div className="h-24 bg-muted/20 animate-pulse rounded-2xl" />
+})
 
 export const metadata: Metadata = {
   title: "Feed | EchoNet",

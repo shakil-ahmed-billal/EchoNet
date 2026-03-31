@@ -177,7 +177,7 @@ export default function StoreDashboardPage() {
                         <Skeleton className="h-48 rounded-2xl" />
                         <Skeleton className="h-48 rounded-2xl" />
                     </div>
-                ) : myProducts && myProducts.length > 0 ? (
+                ) : (myProducts?.data?.length ?? 0) > 0 ? (
                     <div className="overflow-x-auto">
                         <table className="w-full text-sm text-left">
                             <thead className="text-xs text-muted-foreground bg-muted/50">
@@ -190,7 +190,7 @@ export default function StoreDashboardPage() {
                                 </tr>
                             </thead>
                             <tbody>
-                                {myProducts.map((product: Product) => (
+                                {myProducts.data.map((product: Product) => (
                                     <tr key={product.id} className="border-b border-border/40 hover:bg-muted/30 transition-colors last:border-0">
                                         <td className="px-4 py-3 font-medium flex items-center gap-3">
                                             {product.images?.[0] ? (

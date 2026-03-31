@@ -109,7 +109,7 @@ export default function AdminDashboardOverview() {
       value: isLoading ? null : stats?.agents?.total?.toLocaleString(),
       sub: "Verified platform agents",
       icon: ShieldCheck,
-      href: "/admin/dashboard/agents",
+      href: "/admin/dashboard/platform-agents",
       iconColor: "text-cyan-500",
     },
   ]

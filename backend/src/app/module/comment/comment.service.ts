@@ -59,6 +59,32 @@ const getCommentsForPost = async (postId: string) => {
   return result;
 };
 
+const getCommentsByUser = async (userId: string) => {
+  const result = await prisma.comment.findMany({
+    where: { 
+      authorId: userId,
+    },
+    include: { 
+      author: { select: { id: true, name: true, avatarUrl: true } },
+      post: { 
+        select: { 
+          id: true, 
+          content: true,
+          author: { select: { name: true } }
+        } 
+      },
+      _count: {
+        select: {
+          likes: true,
+          replies: true,
+        }
+      },
+    },
+    orderBy: { createdAt: 'desc' },
+  });
+  return result;
+};
+
 const deleteComment = async (id: string) => {
   const result = await prisma.comment.delete({
     where: { id },
@@ -69,5 +95,6 @@ const deleteComment = async (id: string) => {
 export const CommentServices = {
   createComment,
   getCommentsForPost,
+  getCommentsByUser,
   deleteComment,
 };

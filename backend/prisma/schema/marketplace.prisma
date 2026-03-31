@@ -53,6 +53,9 @@ model Product {
   orderItems OrderItem[]
   reviews    ProductReview[]
   flags      ProductFlag[]
+
+  @@index([status, deletedAt])
+  @@index([storeId])
 }
 
 model Order {

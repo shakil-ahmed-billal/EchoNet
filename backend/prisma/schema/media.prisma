@@ -6,7 +6,7 @@ model Story {
   expiresAt DateTime
   createdAt DateTime @default(now())
 
-  author    User           @relation(fields: [authorId], references: [id], onDelete: Cascade)
+  author    User            @relation(fields: [authorId], references: [id], onDelete: Cascade)
   views     StoryView[]
   reactions StoryReaction[]
   messages  Message[]
