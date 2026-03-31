@@ -2727,3 +2727,259 @@ Invalid value for argument `status`. Expected PropertyStatus.
     at async <anonymous> (C:\Shakil Dev\EchoNet\backend\src\app\module\admin\admin.controller.ts:63:18)
 2026-03-31 04:48:33 [[32minfo[39m]: User A1oYUHga3h4LuCocSMwRaWCtLFrIARSz joined their private room
 2026-03-31 04:51:23 [[32minfo[39m]: Backend: call-user from A1oYUHga3h4LuCocSMwRaWCtLFrIARSz to IIaWs0dyA888fOoukJDnSaiW3ARzF1Un
+2026-03-31 05:02:14 [[32minfo[39m]: Initializing Socket.IO...
+2026-03-31 05:02:36 [[32minfo[39m]: User IIaWs0dyA888fOoukJDnSaiW3ARzF1Un joined their private room
+2026-03-31 05:02:41 [[32minfo[39m]: Socket disconnected: vjAnLnuym_JP6IfjAAAB
+2026-03-31 05:02:43 [[32minfo[39m]: User IIaWs0dyA888fOoukJDnSaiW3ARzF1Un joined their private room
+2026-03-31 05:03:09 [[32minfo[39m]: Socket disconnected: 4-ggDWw3_fiP9ulKAAAD
+2026-03-31 05:03:10 [[32minfo[39m]: User IIaWs0dyA888fOoukJDnSaiW3ARzF1Un joined their private room
+2026-03-31 05:03:23 [[32minfo[39m]: Socket disconnected: SU5jffFLwDR287chAAAF
+2026-03-31 05:04:46 [[32minfo[39m]: User IIaWs0dyA888fOoukJDnSaiW3ARzF1Un joined their private room
+2026-03-31 05:04:48 [[32minfo[39m]: User A1oYUHga3h4LuCocSMwRaWCtLFrIARSz joined their private room
+2026-03-31 05:04:49 [[32minfo[39m]: Socket disconnected: RnK-M_ge6440t3HGAAAH
+2026-03-31 05:04:54 [[32minfo[39m]: User IIaWs0dyA888fOoukJDnSaiW3ARzF1Un joined their private room
+2026-03-31 05:05:48 [[32minfo[39m]: Socket disconnected: oPvOAR1bbVc14Mo4AAAL
+2026-03-31 05:05:50 [[32minfo[39m]: User IIaWs0dyA888fOoukJDnSaiW3ARzF1Un joined their private room
+2026-03-31 05:06:00 [[32minfo[39m]: Socket disconnected: 1a9O8cfimYvSNGXpAAAN
+2026-03-31 05:06:02 [[32minfo[39m]: User IIaWs0dyA888fOoukJDnSaiW3ARzF1Un joined their private room
+2026-03-31 05:09:27 [[32minfo[39m]: Socket disconnected: 7eTIKqyFasgbw6YzAAAP
+2026-03-31 05:09:30 [[32minfo[39m]: Socket disconnected: BC-gHUnq5ZGRbpZDAAAJ
+2026-03-31 05:10:10 [[32minfo[39m]: User A1oYUHga3h4LuCocSMwRaWCtLFrIARSz joined their private room
+2026-03-31 05:10:16 [[32minfo[39m]: Socket disconnected: f-Nb0-1q_uqgTInBAAAR
+2026-03-31 05:10:20 [[32minfo[39m]: User A1oYUHga3h4LuCocSMwRaWCtLFrIARSz joined their private room
+2026-03-31 05:10:29 [[32minfo[39m]: User IIaWs0dyA888fOoukJDnSaiW3ARzF1Un joined their private room
+2026-03-31 05:11:18 [[32minfo[39m]: Socket disconnected: DsjKhVWqkMkNr5pLAAAV
+2026-03-31 05:11:20 [[32minfo[39m]: User IIaWs0dyA888fOoukJDnSaiW3ARzF1Un joined their private room
+2026-03-31 05:13:33 [[32minfo[39m]: Socket disconnected: ooA0GAPCdQmDEOv6AAAX
+2026-03-31 05:13:36 [[32minfo[39m]: User IIaWs0dyA888fOoukJDnSaiW3ARzF1Un joined their private room
+2026-03-31 05:15:12 [[32minfo[39m]: Socket disconnected: swzYR4mH4DIOSLJwAAAZ
+2026-03-31 05:15:14 [[32minfo[39m]: User IIaWs0dyA888fOoukJDnSaiW3ARzF1Un joined their private room
+2026-03-31 05:17:38 [[31merror[39m]: PrismaClientValidationError: 
+Invalid `this.model.count()` invocation in
+C:\Shakil Dev\EchoNet\backend\src\app\utils\QueryBuilder.ts:214:18
+
+  211 
+  212 async execute(): Promise<IQueryResult<T>> {
+  213   const [total, data] = await Promise.all([
+→ 214     this.model.count({
+            select: {
+              _count: {
+                select: {
+                  _all: true
+                }
+              }
+            },
+            where: {
+              status: "APPROVED"
+                      ~~~~~~~~~~
+            }
+          })
+
+Invalid value for argument `status`. Expected PropertyStatus.
+    at ar (C:\Shakil Dev\EchoNet\backend\generated\prisma\client\runtime\client.js:14:1374)
+    at Gr.handleRequestError (C:\Shakil Dev\EchoNet\backend\generated\prisma\client\runtime\client.js:69:7929)
+    at Gr.handleAndLogRequestError (C:\Shakil Dev\EchoNet\backend\generated\prisma\client\runtime\client.js:69:7581)
+    at Gr.request (C:\Shakil Dev\EchoNet\backend\generated\prisma\client\runtime\client.js:69:7288)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async a (C:\Shakil Dev\EchoNet\backend\generated\prisma\client\runtime\client.js:79:6730)
+    at async Promise.all (index 0)
+    at async QueryBuilder.execute (C:\Shakil Dev\EchoNet\backend\src\app\utils\QueryBuilder.ts:213:27)
+    at async Object.getAllProperties (C:\Shakil Dev\EchoNet\backend\src\app\module\admin\admin.service.ts:99:10)
+    at async <anonymous> (C:\Shakil Dev\EchoNet\backend\src\app\module\admin\admin.controller.ts:63:18)
+2026-03-31 05:17:40 [[31merror[39m]: PrismaClientValidationError: 
+Invalid `this.model.count()` invocation in
+C:\Shakil Dev\EchoNet\backend\src\app\utils\QueryBuilder.ts:214:18
+
+  211 
+  212 async execute(): Promise<IQueryResult<T>> {
+  213   const [total, data] = await Promise.all([
+→ 214     this.model.count({
+            select: {
+              _count: {
+                select: {
+                  _all: true
+                }
+              }
+            },
+            where: {
+              status: "APPROVED"
+                      ~~~~~~~~~~
+            }
+          })
+
+Invalid value for argument `status`. Expected PropertyStatus.
+    at ar (C:\Shakil Dev\EchoNet\backend\generated\prisma\client\runtime\client.js:14:1374)
+    at Gr.handleRequestError (C:\Shakil Dev\EchoNet\backend\generated\prisma\client\runtime\client.js:69:7929)
+    at Gr.handleAndLogRequestError (C:\Shakil Dev\EchoNet\backend\generated\prisma\client\runtime\client.js:69:7581)
+    at Gr.request (C:\Shakil Dev\EchoNet\backend\generated\prisma\client\runtime\client.js:69:7288)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async a (C:\Shakil Dev\EchoNet\backend\generated\prisma\client\runtime\client.js:79:6730)
+    at async Promise.all (index 0)
+    at async QueryBuilder.execute (C:\Shakil Dev\EchoNet\backend\src\app\utils\QueryBuilder.ts:213:27)
+    at async Object.getAllProperties (C:\Shakil Dev\EchoNet\backend\src\app\module\admin\admin.service.ts:99:10)
+    at async <anonymous> (C:\Shakil Dev\EchoNet\backend\src\app\module\admin\admin.controller.ts:63:18)
+2026-03-31 05:20:10 [[32minfo[39m]: Socket disconnected: 3pljAK36mqdCrMqwAAAT
+2026-03-31 05:20:45 [[32minfo[39m]: User A1oYUHga3h4LuCocSMwRaWCtLFrIARSz joined their private room
+2026-03-31 05:21:05 [[32minfo[39m]: Socket disconnected: Jak5l6mHj1qvMYpmAAAb
+2026-03-31 05:21:07 [[32minfo[39m]: User IIaWs0dyA888fOoukJDnSaiW3ARzF1Un joined their private room
+2026-03-31 05:21:41 [[32minfo[39m]: Socket disconnected: 003l-gJvIY2eLmUYAAAf
+2026-03-31 05:22:19 [[32minfo[39m]: Socket disconnected: 39JdyyYvEEUoXanhAAAd
+2026-03-31 05:22:29 [[32minfo[39m]: User A1oYUHga3h4LuCocSMwRaWCtLFrIARSz joined their private room
+2026-03-31 05:22:32 [[32minfo[39m]: User IIaWs0dyA888fOoukJDnSaiW3ARzF1Un joined their private room
+2026-03-31 05:22:32 [[31merror[39m]: Error: You are not authorized
+    at <anonymous> (C:\Shakil Dev\EchoNet\backend\src\app\middleware\auth.ts:38:15)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+2026-03-31 05:22:32 [[31merror[39m]: Error: Invalid session token
+    at Object.getNewToken (C:\Shakil Dev\EchoNet\backend\src\app\module\auth\auth.service.ts:216:11)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async <anonymous> (C:\Shakil Dev\EchoNet\backend\src\app\module\auth\auth.controller.ts:214:18)
+    at async <anonymous> (C:\Shakil Dev\EchoNet\backend\src\app\utils\catchAsync.ts:6:7)
+2026-03-31 05:23:14 [[32minfo[39m]: Socket disconnected: M16zXMm3rLtXM4IQAAAj
+2026-03-31 05:23:46 [[32minfo[39m]: Password reset OTP sent to shakil.dev999@gmail.com
+2026-03-31 05:24:27 [[32minfo[39m]: User IIaWs0dyA888fOoukJDnSaiW3ARzF1Un joined their private room
+2026-03-31 05:25:21 [[32minfo[39m]: Backend: call-user from A1oYUHga3h4LuCocSMwRaWCtLFrIARSz to IIaWs0dyA888fOoukJDnSaiW3ARzF1Un
+2026-03-31 05:26:38 [[32minfo[39m]: Socket disconnected: z0u9BmWA6Zfn_oTkAAAi
+2026-03-31 05:26:45 [[32minfo[39m]: User A1oYUHga3h4LuCocSMwRaWCtLFrIARSz joined their private room
+2026-03-31 05:26:47 [[32minfo[39m]: Socket disconnected: Hx9070om_VJKlkL-AAAn
+2026-03-31 05:26:56 [[32minfo[39m]: User IIaWs0dyA888fOoukJDnSaiW3ARzF1Un joined their private room
+2026-03-31 05:26:58 [[32minfo[39m]: User A1oYUHga3h4LuCocSMwRaWCtLFrIARSz joined their private room
+2026-03-31 05:27:16 [[32minfo[39m]: Socket disconnected: G68D9bL4UrxXDUDwAAAl
+2026-03-31 05:33:09 [[31merror[39m]: PrismaClientValidationError: 
+Invalid `this.model.count()` invocation in
+C:\Shakil Dev\EchoNet\backend\src\app\utils\QueryBuilder.ts:214:18
+
+  211 
+  212 async execute(): Promise<IQueryResult<T>> {
+  213   const [total, data] = await Promise.all([
+→ 214     this.model.count({
+            select: {
+              _count: {
+                select: {
+                  _all: true
+                }
+              }
+            },
+            where: {
+              status: "APPROVED"
+                      ~~~~~~~~~~
+            }
+          })
+
+Invalid value for argument `status`. Expected PropertyStatus.
+    at ar (C:\Shakil Dev\EchoNet\backend\generated\prisma\client\runtime\client.js:14:1374)
+    at Gr.handleRequestError (C:\Shakil Dev\EchoNet\backend\generated\prisma\client\runtime\client.js:69:7929)
+    at Gr.handleAndLogRequestError (C:\Shakil Dev\EchoNet\backend\generated\prisma\client\runtime\client.js:69:7581)
+    at Gr.request (C:\Shakil Dev\EchoNet\backend\generated\prisma\client\runtime\client.js:69:7288)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async a (C:\Shakil Dev\EchoNet\backend\generated\prisma\client\runtime\client.js:79:6730)
+    at async Promise.all (index 0)
+    at async QueryBuilder.execute (C:\Shakil Dev\EchoNet\backend\src\app\utils\QueryBuilder.ts:213:27)
+    at async Object.getAllProperties (C:\Shakil Dev\EchoNet\backend\src\app\module\admin\admin.service.ts:99:10)
+    at async <anonymous> (C:\Shakil Dev\EchoNet\backend\src\app\module\admin\admin.controller.ts:63:18)
+2026-03-31 05:33:10 [[31merror[39m]: PrismaClientValidationError: 
+Invalid `this.model.count()` invocation in
+C:\Shakil Dev\EchoNet\backend\src\app\utils\QueryBuilder.ts:214:18
+
+  211 
+  212 async execute(): Promise<IQueryResult<T>> {
+  213   const [total, data] = await Promise.all([
+→ 214     this.model.count({
+            select: {
+              _count: {
+                select: {
+                  _all: true
+                }
+              }
+            },
+            where: {
+              status: "APPROVED"
+                      ~~~~~~~~~~
+            }
+          })
+
+Invalid value for argument `status`. Expected PropertyStatus.
+    at ar (C:\Shakil Dev\EchoNet\backend\generated\prisma\client\runtime\client.js:14:1374)
+    at Gr.handleRequestError (C:\Shakil Dev\EchoNet\backend\generated\prisma\client\runtime\client.js:69:7929)
+    at Gr.handleAndLogRequestError (C:\Shakil Dev\EchoNet\backend\generated\prisma\client\runtime\client.js:69:7581)
+    at Gr.request (C:\Shakil Dev\EchoNet\backend\generated\prisma\client\runtime\client.js:69:7288)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async a (C:\Shakil Dev\EchoNet\backend\generated\prisma\client\runtime\client.js:79:6730)
+    at async Promise.all (index 0)
+    at async QueryBuilder.execute (C:\Shakil Dev\EchoNet\backend\src\app\utils\QueryBuilder.ts:213:27)
+    at async Object.getAllProperties (C:\Shakil Dev\EchoNet\backend\src\app\module\admin\admin.service.ts:99:10)
+    at async <anonymous> (C:\Shakil Dev\EchoNet\backend\src\app\module\admin\admin.controller.ts:63:18)
+2026-03-31 05:33:12 [[31merror[39m]: PrismaClientValidationError: 
+Invalid `this.model.count()` invocation in
+C:\Shakil Dev\EchoNet\backend\src\app\utils\QueryBuilder.ts:214:18
+
+  211 
+  212 async execute(): Promise<IQueryResult<T>> {
+  213   const [total, data] = await Promise.all([
+→ 214     this.model.count({
+            select: {
+              _count: {
+                select: {
+                  _all: true
+                }
+              }
+            },
+            where: {
+              status: "APPROVED"
+                      ~~~~~~~~~~
+            }
+          })
+
+Invalid value for argument `status`. Expected PropertyStatus.
+    at ar (C:\Shakil Dev\EchoNet\backend\generated\prisma\client\runtime\client.js:14:1374)
+    at Gr.handleRequestError (C:\Shakil Dev\EchoNet\backend\generated\prisma\client\runtime\client.js:69:7929)
+    at Gr.handleAndLogRequestError (C:\Shakil Dev\EchoNet\backend\generated\prisma\client\runtime\client.js:69:7581)
+    at Gr.request (C:\Shakil Dev\EchoNet\backend\generated\prisma\client\runtime\client.js:69:7288)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async a (C:\Shakil Dev\EchoNet\backend\generated\prisma\client\runtime\client.js:79:6730)
+    at async Promise.all (index 0)
+    at async QueryBuilder.execute (C:\Shakil Dev\EchoNet\backend\src\app\utils\QueryBuilder.ts:213:27)
+    at async Object.getAllProperties (C:\Shakil Dev\EchoNet\backend\src\app\module\admin\admin.service.ts:99:10)
+    at async <anonymous> (C:\Shakil Dev\EchoNet\backend\src\app\module\admin\admin.controller.ts:63:18)
+2026-03-31 05:33:16 [[31merror[39m]: PrismaClientValidationError: 
+Invalid `this.model.count()` invocation in
+C:\Shakil Dev\EchoNet\backend\src\app\utils\QueryBuilder.ts:214:18
+
+  211 
+  212 async execute(): Promise<IQueryResult<T>> {
+  213   const [total, data] = await Promise.all([
+→ 214     this.model.count({
+            select: {
+              _count: {
+                select: {
+                  _all: true
+                }
+              }
+            },
+            where: {
+              status: "APPROVED"
+                      ~~~~~~~~~~
+            }
+          })
+
+Invalid value for argument `status`. Expected PropertyStatus.
+    at ar (C:\Shakil Dev\EchoNet\backend\generated\prisma\client\runtime\client.js:14:1374)
+    at Gr.handleRequestError (C:\Shakil Dev\EchoNet\backend\generated\prisma\client\runtime\client.js:69:7929)
+    at Gr.handleAndLogRequestError (C:\Shakil Dev\EchoNet\backend\generated\prisma\client\runtime\client.js:69:7581)
+    at Gr.request (C:\Shakil Dev\EchoNet\backend\generated\prisma\client\runtime\client.js:69:7288)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async a (C:\Shakil Dev\EchoNet\backend\generated\prisma\client\runtime\client.js:79:6730)
+    at async Promise.all (index 0)
+    at async QueryBuilder.execute (C:\Shakil Dev\EchoNet\backend\src\app\utils\QueryBuilder.ts:213:27)
+    at async Object.getAllProperties (C:\Shakil Dev\EchoNet\backend\src\app\module\admin\admin.service.ts:99:10)
+    at async <anonymous> (C:\Shakil Dev\EchoNet\backend\src\app\module\admin\admin.controller.ts:63:18)
+2026-03-31 05:33:48 [[32minfo[39m]: Socket disconnected: d4jAmSOgL-Q-EE-KAAAr
+2026-03-31 05:33:48 [[32minfo[39m]: User A1oYUHga3h4LuCocSMwRaWCtLFrIARSz joined their private room
+2026-03-31 05:36:17 [[32minfo[39m]: Backend: call-user from IIaWs0dyA888fOoukJDnSaiW3ARzF1Un to A1oYUHga3h4LuCocSMwRaWCtLFrIARSz
+2026-03-31 05:42:04 [[32minfo[39m]: Backend: call-user from IIaWs0dyA888fOoukJDnSaiW3ARzF1Un to A1oYUHga3h4LuCocSMwRaWCtLFrIARSz
+2026-03-31 05:43:12 [[32minfo[39m]: Socket disconnected: P9GXLWpuNYkuPjm4AAAt
+2026-03-31 05:43:49 [[32minfo[39m]: User A1oYUHga3h4LuCocSMwRaWCtLFrIARSz joined their private room
+2026-03-31 05:49:03 [[32minfo[39m]: Socket disconnected: 47LSlccyLYElc6lrAAAv
+2026-03-31 05:49:03 [[32minfo[39m]: User A1oYUHga3h4LuCocSMwRaWCtLFrIARSz joined their private room
+2026-03-31 05:58:34 [[32minfo[39m]: Socket disconnected: xE6EFKLXptd3k903AAAp
+2026-03-31 05:58:36 [[32minfo[39m]: Socket disconnected: -h8c7b0LDFw9j_nyAAAx
+2026-03-31 06:14:43 [[32minfo[39m]: User IIaWs0dyA888fOoukJDnSaiW3ARzF1Un joined their private room

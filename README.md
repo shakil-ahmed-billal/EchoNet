@@ -1,190 +1,130 @@
-# EchoNet 🌐
+# EchoNet - Enterprise Social and Marketplace Solution
 
-**EchoNet** is a modern, full-stack social networking and community platform designed for real-time engagement, seamless content sharing, and integrated e-commerce. Built with a robust ecosystem including **Next.js**, **Express**, **Socket.IO**, **Prisma**, and **Better Auth**, EchoNet offers an unparalleled user experience for connecting people and digital storefronts.
+EchoNet is a modern, high-performance full-stack social networking and community platform designed for real-time engagement, professional content sharing, and integrated e-commerce. Built using a modular micro-service inspired architecture, EchoNet leverages Next.js, Express, Socket.IO, Prisma, and Better Auth to deliver a secure, scalable, and premium user experience.
 
----
+## Deployment and Professional Linkage
 
-## 🚀 Features
-
-EchoNet is packed with comprehensive features that make it a standout platform:
-
-### 🔐 Secure Authentication (Powered by Better Auth)
-- **Email & Password Authentication**: Secure registration and login flow.
-- **Social OAuth Integration**: Instant sign-in via Google and Facebook.
-- **Session Management**: Secure, HTTP-only, cross-domain cookie handling for production and local development.
-- **Password Recovery**: OTP-based email verification and password reset functionality.
-
-### 💬 Real-Time Social Interactions
-- **Live Feed System**: Dynamic, infinite-scrolling discoverable post feeds (`getFeed`).
-- **WebSockets (Socket.IO)**: Real-time private messaging, instant notifications, and live presence updates directly in your private room.
-- **Rich Engagement**: Like, react, comment, reply, and save posts to your personal collection.
-- **Ephemeral Content**: Engage with 24-hour "Stories" and track views seamlessly.
-- **Follower Graph**: Build connections with a fully realized follow/unfollow and follower-tracking system.
-
-### 🛒 Integrated Marketplace
-- **Digital Storefronts**: Create bespoke stores grouped by hierarchical categories.
-- **Product Listings**: Showcase products with detailed descriptions and dynamic inventory.
-- **Secure Stripe Checkout**: Seamless payment gateway integration via Stripe, complete with webhook processing for order fulfillment.
-
-### 🖼️ Media & Infrastructure
-- **Cloudinary Integration**: High-performance image and avatar hosting.
-- **Neon Serverless Postgres**: Highly available, scalable relational database powered by Prisma ORM.
+| Resource | URL Endpoint |
+| :--- | :--- |
+| Frontend Production Build | https://echo-net-bd.vercel.app |
+| Backend API Production | https://echonet-backend-mwxk.onrender.com |
+| Lead Developer Portfolio | https://xhakil.vercel.app/ |
 
 ---
 
-## 📂 File Structure
+## Test Infrastructure and Credentials
 
-EchoNet adopts a monorepo-style structure, separating the client interface from the API and WebSocket server.
+To facilitate comprehensive cross-role testing, the following accounts are pre-seeded within the production environment. These accounts provide relative access to Administrative, Moderation, and Standard User interfaces.
 
-```text
-EchoNet/
-├── frontend/                  # Next.js App Router Client
-│   ├── src/
-│   │   ├── app/               # Next.js Routes & Layouts
-│   │   ├── components/        # Reusable React UI Components (Tailwind)
-│   │   │   ├── auth/          # Login, Register, OAuth integration components
-│   │   │   └── ...
-│   │   ├── services/          # API, Auth Actions, and Fetch configurations
-│   │   └── lib/               # Utilities, Stores, and Auth Client instances
-│   ├── next.config.ts         # Next.js specific configuration & rewrites
-│   └── package.json
-│
-├── backend/                   # Node.js + Express API
-│   ├── src/
-│   │   ├── app/
-│   │   │   ├── module/        # Modular domain logic (Auth, Posts, Comments, Marketplace)
-│   │   │   │   └── auth/      # Controllers, Routes, and Services for Authentication
-│   │   │   ├── lib/           # Centralized initializers (Prisma, Socket.IO, BetterAuth)
-│   │   │   └── ...
-│   │   ├── config/            # Environment variable validation & mappings
-│   │   ├── utils/             # Helper classes (Cookies, Tokens, Error handling)
-│   │   └── server.ts          # Main Express app and HTTP server initialization
-│   ├── prisma/
-│   │   ├── schema.prisma      # Prisma schema definition
-│   │   └── seed.ts            # Comprehensive database seeding script
-│   └── package.json
-│
-├── CONTRIBUTING.md            # Guidelines for open-source contributors
-└── LICENSE                    # MIT License
-```
+Shared Password for Testing: shakil664
+
+| Identity Email | Authorization Role | Functional Access |
+| :--- | :--- | :--- |
+| admin@echonet.app | Platform Administrator | Global System Oversight, User Management, Content Moderation. |
+| mod@echonet.app | Content Moderator | Community Guidelines Enforcement, Post and Product Moderation. |
+| alex@example.com | Standard User | Social Engagement, Personal Feed, Marketplace Interactions. |
 
 ---
 
-## 💼 Use Cases
+## Technology Architecture
 
-1. **Community Builders**: Create niche social networks tailored to specific interests, backed by real-time messaging and notifications.
-2. **Creators & Influencers**: Share posts and ephemeral stories to keep your audience engaged.
-3. **Digital Entrepreneurs**: Launch a store within the EchoNet Marketplace to sell digital or physical goods directly to your followers utilizing the Stripe integration.
+### Frontend Ecosystem
+| Technology Component | Implementation Context |
+| :--- | :--- |
+| Next.js 16.2.1 | Core application framework utilizing App Router and Optimized Image Delivery. |
+| React 19 | Primary UI library leveraging concurrent rendering features. |
+| TypeScript | Strict typing across the entire UI and Service layer. |
+| Tailwind CSS 4 | Modern utility-first CSS for high-fidelity responsive design. |
+| TanStack Query | Asynchronous state management and optimistic UI updates. |
+| Framer Motion | Declarative animation engine for premium micro-interactions. |
+| Better-Auth Client | Secure cookie-based session management and OAuth handling. |
+| Socket.io-client | Bi-directional real-time communication for messaging and events. |
+| Radix UI / Base UI | Headless accessible components for design system consistency. |
+| Zod | Runtime schema validation for forms and API responses. |
 
----
-
-## 🛠️ Getting Started
-
-Follow these instructions to get a copy of the project up and running on your local machine for development and testing purposes.
-
-### Prerequisites
-
-Ensure you have the following installed on your local machine:
-- **Node.js** (v18.17 or higher)
-- **pnpm** (preferred package manager)
-- **PostgreSQL** database (Local or Cloud like Neon)
-- **Cloudinary**, **Stripe**, and **Google Cloud** developer accounts (for API keys)
-
-### 1. Clone the repository
-```bash
-git clone https://github.com/shakil-ahmed-billal/EchoNet.git
-cd EchoNet
-```
-
-### 2. Configure the Backend
-Navigate to the `backend` directory, install dependencies, and configure your environment:
-```bash
-cd backend
-pnpm install
-```
-
-Create a `.env` file in the `backend` directory based on the following template:
-```env
-# Database
-DATABASE_URL="postgresql://user:password@localhost:5432/echonet?schema=public"
-
-# Server
-PORT=8000
-NODE_ENV="development"
-FRONTEND_URL="http://localhost:3000"
-BACKEND_URL="http://127.0.0.1:8000"
-BETTER_AUTH_URL="http://localhost:3000"
-JWT_SECRET="your_super_secret_key"
-
-# Media (Cloudinary)
-CLOUDINARY_CLOUD_NAME="..."
-CLOUDINARY_API_KEY="..."
-CLOUDINARY_API_SECRET="..."
-
-# OAuth (Better Auth)
-GOOGLE_CLIENT_ID="..."
-GOOGLE_CLIENT_SECRET="..."
-
-# SMTP
-SMTP_HOST="smtp.gmail.com"
-SMTP_PORT="465"
-SMTP_USER="..."
-SMTP_PASS="..."
-SMTP_FROM="..."
-
-# Payments
-STRIPE_SECRET_KEY="..."
-STRIPE_WEBHOOK_SECRET="..."
-```
-
-**Initialize Database & Seed:**
-```bash
-pnpm run prisma:generate
-pnpm dlx prisma db push
-pnpm run seed    # Populates mock users, posts, messages, and marketplace items
-```
-
-**Start the Backend Server:**
-```bash
-pnpm dev
-# Server runs gracefully on http://0.0.0.0:8000
-```
-
-### 3. Configure the Frontend
-Open a new terminal, navigate to the `frontend` directory, install dependencies, and set up your environment:
-```bash
-cd frontend
-pnpm install
-```
-
-Create a `.env.local` file in the `frontend` directory:
-```env
-NEXT_PUBLIC_BACKEND_URL="http://127.0.0.1:8000"
-# Add other necessary public keys (e.g., Stripe publishable key)
-```
-
-**Start the Frontend Server:**
-```bash
-pnpm dev
-# Next.js will build and serve the application on http://localhost:3000
-```
-
-### 4. Running the Application
-Once both servers are running:
-1. Open your browser and navigate to `http://localhost:3000`.
-2. To test the seed data, you can log in using `admin@echonet.app` (Password: `shakil664`).
-3. Enjoy exploring the live feed, socket-connected chats, and the storefront!
+### Backend Infrastructure
+| Technology Component | Implementation Context |
+| :--- | :--- |
+| Node.js Runtime | Scalable JavaScript runtime for server-side operations. |
+| Express.js 5.2.1 | Minimalist web framework for modular API development. |
+| PostgreSQL | Robust relational database system with Prisma ORM mapping. |
+| Prisma ORM | Type-safe database access and automated migrations. |
+| Redis | In-memory distributed caching and Socket.IO horizontal scaling. |
+| Socket.io Server | WebSocket engine for real-time notifications and private messaging. |
+| Stripe | Enterprise-grade payment processing and automated billing. |
+| Cloudinary | Global Media Delivery Network for high-resolution static assets. |
+| Winston | Professional logging system with varying transport levels. |
+| Helmet / CORS | Security middleware for protocol protection and cross-origin safety. |
 
 ---
 
-## 🤝 Contributing
+## Strategic Feature Implementation
 
-We welcome contributions to make EchoNet better! Please read our [CONTRIBUTING.md](CONTRIBUTING.md) for details on our code of conduct, and the process for submitting pull requests to us.
+### 1. Advanced Authentication and Authorization
+- Multi-tier RBAC (Role Based Access Control) integrated into both API and Route guards.
+- Secure, cross-domain cookie-based authentication.
+- Automated email verification and multi-factor recovery pathways.
 
-## 📄 License
+### 2. Real-Time Engagement Engine
+- Distributed messaging system with persistent storage and real-time delivery.
+- Context-aware notification system (Likes, Follows, Mentions, Messages).
+- Global state synchronization via WebSockets for live feed updates.
 
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+### 3. Integrated E-Commerce Ecosystem
+- Multi-tenancy store management for verified agents and merchants.
+- PCI-compliant payment processing utilizing Stripe's latest API.
+- Dynamic inventory management and order lifecycle tracking.
+
+### 4. Social Graph and Content Management
+- Infinite scrolling discovery feed with algorithmic content prioritization.
+- Ephemeral content system (Stories) with view analytics and auto-purging.
+- Complex relationship mapping including bidirectional follow and friendship logic.
 
 ---
 
-*Crafted with ❤️ by Shakil Ahmed Billal and contributors.*
+## Modular File Structure
+
+EchoNet adopts a domain-driven design to ensure maintainability and clean separation of concerns.
+
+- /backend/src/app/module/: Contains independent modules for Auth, Posts, Comments, Marketplace, and more. Each module encapsulates its own routes, controllers, and services.
+- /backend/prisma/: Centralized database schema defining types for the entire full-stack application.
+- /frontend/src/app/: Next.js file-system routing following the App Router pattern.
+- /frontend/src/services/: Isolated service layer for handling external API and WebSocket communications.
+
+---
+
+## Detailed Environment Configuration
+
+### Backend Variable Schema
+| Variable Key | Functional Description | Required |
+| :--- | :--- | :--- |
+| DATABASE_URL | Neon/Postgres connection string. | Yes |
+| BETTER_AUTH_SECRET | Secret for cryptographic session signing. | Yes |
+| PORT | Port number for the Express server (default: 8000). | Yes |
+| REDIS_URL | Connection string for Redis instance. | Yes |
+| STRIPE_SECRET_KEY | Private key for Stripe transaction handling. | Yes |
+
+### Frontend Variable Schema
+| Variable Key | Functional Description | Required |
+| :--- | :--- | :--- |
+| NEXT_PUBLIC_BACKEND_URL | Base endpoint for API communication. | Yes |
+| NEXT_PUBLIC_SOCKET_URL | Dedicated WebSocket server endpoint. | Yes |
+
+---
+
+## Operational Installation
+
+1. Prepare Database: Ensure a PostgreSQL instance is available and the DATABASE_URL is correctly configured.
+2. Dependencies: Execute pnpm install in both the root directories of frontend and backend.
+3. Database Initialization: Run pnpm run prisma:generate followed by pnpm run prisma:migrate.
+4. Data Seeding: Execute pnpm run seed in the backend directory to populate the environment.
+5. Launch: Start both applications simultaneously using pnpm dev in their respective directories.
+
+---
+
+## Maintenance and License
+
+This project is licensed under the MIT License. 
+
+Core Architecture and Development by Shakil Ahmed Billal.
+For professional inquiries or technical collaboration, please refer to the portfolio linked in the deployment section.
