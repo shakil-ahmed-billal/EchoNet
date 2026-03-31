@@ -28,12 +28,12 @@ const useDeleteProduct = () => {
 
 export default function ModeratorProductsPage() {
   const [page, setPage] = useState(1)
-  const { data: response, isLoading } = useAdminProducts({ page, limit: 10 })
+  const { data: response, isLoading } = useAdminProducts({ page, limit: 8 })
   const { mutate: updateStatus, isPending: isUpdating } = useUpdateProductStatus()
   const { mutate: deleteProduct, isPending: isDeleting } = useDeleteProduct()
 
   const products = response?.data || []
-  const meta = response?.meta || { total: 0, page: 1, limit: 10, totalPages: 1 }
+  const meta = response?.meta || { total: 0, page: 1, limit: 8, totalPages: 1 }
 
   return (
     <div className="flex flex-col gap-6">
@@ -107,19 +107,35 @@ export default function ModeratorProductsPage() {
                       </TableCell>
                       <TableCell className="text-right pr-6">
                         <div className="flex items-center justify-end gap-2 opacity-50 group-hover:opacity-100 transition-opacity">
-                          <Button
-                            size="sm"
-                            variant="outline"
-                            onClick={() => updateStatus({ id: product.id, status: "ACTIVE" })}
-                            disabled={isUpdating || product.status === "ACTIVE"}
-                            className="h-8 rounded-lg font-bold text-[10px] border-emerald-500/30 text-emerald-600 hover:bg-emerald-500/10"
-                          >
-                            <ShieldCheck className="size-3 mr-1" /> Approve
-                          </Button>
+                          {product.status === "ACTIVE" ? (
+                            <Button
+                              size="sm"
+                              variant="outline"
+                              onClick={() => updateStatus({ id: product.id, status: "FLAGGED" })}
+                              disabled={isUpdating}
+                              className="h-8 rounded-lg font-bold text-[10px] border-amber-500/30 text-amber-600 hover:bg-amber-500/10"
+                            >
+                              <ShieldAlert className="size-3 mr-1" /> Flag
+                            </Button>
+                          ) : (
+                            <Button
+                              size="sm"
+                              variant="outline"
+                              onClick={() => updateStatus({ id: product.id, status: "ACTIVE" })}
+                              disabled={isUpdating}
+                              className="h-8 rounded-lg font-bold text-[10px] border-emerald-500/30 text-emerald-600 hover:bg-emerald-500/10"
+                            >
+                              <ShieldCheck className="size-3 mr-1" /> Approve
+                            </Button>
+                          )}
                           <Button
                             size="icon"
                             variant="destructive"
-                            onClick={() => deleteProduct(product.id)}
+                            onClick={() => {
+                              if (window.confirm("Are you sure you want to permanently delete this product?")) {
+                                deleteProduct(product.id)
+                              }
+                            }}
                             disabled={isDeleting}
                             className="size-8 rounded-lg"
                           >

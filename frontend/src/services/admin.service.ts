@@ -46,12 +46,12 @@ export const getAllProperties = async (params?: any) => {
 };
 
 export const approveProperty = async (id: string) => {
-  const { data } = await apiClient.put(`/properties/${id}/approve`);
+  const { data } = await apiClient.patch(`/admin/properties/${id}/status`, { status: 'ACTIVE' });
   return data.data;
 };
 
 export const rejectProperty = async (id: string) => {
-  const { data } = await apiClient.put(`/properties/${id}/reject`);
+  const { data } = await apiClient.patch(`/admin/properties/${id}/status`, { status: 'REJECTED' });
   return data.data;
 };
 
@@ -76,7 +76,12 @@ export const getFlaggedProducts = async (params?: { page?: number; limit?: numbe
 };
 
 export const updateProductStatus = async (id: string, status: string) => {
-  const { data } = await apiClient.put(`/products/${id}`, { status });
+  const { data } = await apiClient.patch(`/admin/products/${id}/status`, { status });
+  return data.data;
+};
+
+export const deleteProduct = async (id: string) => {
+  const { data } = await apiClient.delete(`/admin/products/${id}`);
   return data.data;
 };
 
@@ -96,7 +101,7 @@ export const deletePost = async (id: string) => {
 };
 
 export const updatePostStatus = async (id: string, status: string) => {
-  const { data } = await apiClient.patch(`/posts/${id}/status`, { status });
+  const { data } = await apiClient.patch(`/admin/posts/${id}/status`, { status });
   return data.data;
 };
 

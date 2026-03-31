@@ -23,9 +23,10 @@ const createProduct = async (userId: string, payload: any) => {
 };
 
 const getAllProducts = async (query: any) => {
-  // If storeId is provided, we don't want to filter by default status (unless status is explicitly passed)
-  // This allows store owners to see their pending/flagged products in their dashboard.
-  const statusFilter = query.status || (query.storeId ? undefined : 'ACTIVE');
+  // Public users should only see ACTIVE products.
+  // Store owners can see their own products (handled via storeId filter if needed, 
+  // but for the general marketplace, we strictly enforce ACTIVE)
+  const statusFilter = 'ACTIVE';
 
   return await new QueryBuilder(prisma.product, query, {
     searchableFields: ['title', 'description'],
@@ -95,6 +96,11 @@ const getProductById = async (id: string) => {
       },
     },
   });
+
+  if (!result || result.status !== "ACTIVE" || result.deletedAt) {
+    return null;
+  }
+
   return result;
 };
 

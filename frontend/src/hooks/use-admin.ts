@@ -160,9 +160,23 @@ export const useUpdateProductStatus = () => {
       AdminService.updateProductStatus(id, status),
     onSuccess: () => {
       queryClient.invalidateQueries({ queryKey: ['flagged-products'] });
+      queryClient.invalidateQueries({ queryKey: ['admin-products'] });
       toast.success('Product status updated');
     },
     onError: () => toast.error('Failed to update product'),
+  });
+};
+
+export const useDeleteProduct = () => {
+  const queryClient = useQueryClient();
+  return useMutation({
+    mutationFn: (id: string) => AdminService.deleteProduct(id),
+    onSuccess: () => {
+      queryClient.invalidateQueries({ queryKey: ['flagged-products'] });
+      queryClient.invalidateQueries({ queryKey: ['admin-products'] });
+      toast.success('Product permanently deleted');
+    },
+    onError: () => toast.error('Failed to delete product'),
   });
 };
 
@@ -186,6 +200,7 @@ export const useDeletePost = () => {
     mutationFn: (id: string) => AdminService.deletePost(id),
     onSuccess: () => {
       queryClient.invalidateQueries({ queryKey: ['flagged-posts'] });
+      queryClient.invalidateQueries({ queryKey: ['admin-posts'] });
       toast.success('Post deleted');
     },
     onError: () => toast.error('Failed to delete post'),
@@ -199,6 +214,7 @@ export const useUpdatePostStatus = () => {
       AdminService.updatePostStatus(id, status),
     onSuccess: () => {
       queryClient.invalidateQueries({ queryKey: ['flagged-posts'] });
+      queryClient.invalidateQueries({ queryKey: ['admin-posts'] });
       toast.success('Post status updated');
     },
     onError: () => toast.error('Failed to update post status'),

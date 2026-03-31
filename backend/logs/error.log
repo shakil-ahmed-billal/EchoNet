@@ -2381,3 +2381,343 @@ Invalid value for argument `status`. Expected PropertyStatus.
     at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
     at async <anonymous> (C:\Shakil dev\EchoNet\backend\src\app\module\auth\auth.controller.ts:214:18)
     at async <anonymous> (C:\Shakil dev\EchoNet\backend\src\app\utils\catchAsync.ts:6:7)
+2026-04-01 02:49:47 [[31merror[39m]: PrismaClientValidationError: 
+Invalid `prisma.post.update()` invocation in
+C:\Shakil dev\EchoNet\backend\src\app\module\post\post.service.ts:245:36
+
+  242 };
+  243 
+  244 const updatePostStatus = async (id: string, status: PostStatus) => {
+→ 245   const result = await prisma.post.update({
+          where: {
+            id: "c43db31c-97ec-4556-b235-86da6828fea8"
+          },
+          data: {
+            status: "PUBLISHED"
+                    ~~~~~~~~~~~
+          }
+        })
+
+Invalid value for argument `status`. Expected PostStatus.
+    at ar (C:\Shakil dev\EchoNet\backend\generated\prisma\client\runtime\client.js:14:1374)
+    at Gr.handleRequestError (C:\Shakil dev\EchoNet\backend\generated\prisma\client\runtime\client.js:69:7929)
+    at Gr.handleAndLogRequestError (C:\Shakil dev\EchoNet\backend\generated\prisma\client\runtime\client.js:69:7581)
+    at Gr.request (C:\Shakil dev\EchoNet\backend\generated\prisma\client\runtime\client.js:69:7288)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async a (C:\Shakil dev\EchoNet\backend\generated\prisma\client\runtime\client.js:79:6730)
+    at async Object.updatePostStatus (C:\Shakil dev\EchoNet\backend\src\app\module\post\post.service.ts:245:18)
+    at async <anonymous> (C:\Shakil dev\EchoNet\backend\src\app\module\post\post.controller.ts:74:18)
+    at async <anonymous> (C:\Shakil dev\EchoNet\backend\src\app\utils\catchAsync.ts:6:7)
+2026-04-01 02:54:38 [[31merror[39m]: PrismaClientValidationError: 
+Invalid `this.model.count()` invocation in
+C:\Shakil dev\EchoNet\backend\src\app\utils\QueryBuilder.ts:214:18
+
+  211 
+  212 async execute(): Promise<IQueryResult<T>> {
+  213   const [total, data] = await Promise.all([
+→ 214     this.model.count({
+            select: {
+              _count: {
+                select: {
+                  _all: true
+                }
+              }
+            },
+            where: {
+              status: "APPROVED"
+                      ~~~~~~~~~~
+            }
+          })
+
+Invalid value for argument `status`. Expected PropertyStatus.
+    at ar (C:\Shakil dev\EchoNet\backend\generated\prisma\client\runtime\client.js:14:1374)
+    at Gr.handleRequestError (C:\Shakil dev\EchoNet\backend\generated\prisma\client\runtime\client.js:69:7929)
+    at Gr.handleAndLogRequestError (C:\Shakil dev\EchoNet\backend\generated\prisma\client\runtime\client.js:69:7581)
+    at Gr.request (C:\Shakil dev\EchoNet\backend\generated\prisma\client\runtime\client.js:69:7288)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async a (C:\Shakil dev\EchoNet\backend\generated\prisma\client\runtime\client.js:79:6730)
+    at async Promise.all (index 0)
+    at async QueryBuilder.execute (C:\Shakil dev\EchoNet\backend\src\app\utils\QueryBuilder.ts:213:27)
+    at async Object.getAllProperties (C:\Shakil dev\EchoNet\backend\src\app\module\admin\admin.service.ts:99:10)
+    at async <anonymous> (C:\Shakil dev\EchoNet\backend\src\app\module\admin\admin.controller.ts:63:18)
+2026-04-01 02:54:39 [[31merror[39m]: PrismaClientValidationError: 
+Invalid `this.model.count()` invocation in
+C:\Shakil dev\EchoNet\backend\src\app\utils\QueryBuilder.ts:214:18
+
+  211 
+  212 async execute(): Promise<IQueryResult<T>> {
+  213   const [total, data] = await Promise.all([
+→ 214     this.model.count({
+            select: {
+              _count: {
+                select: {
+                  _all: true
+                }
+              }
+            },
+            where: {
+              status: "APPROVED"
+                      ~~~~~~~~~~
+            }
+          })
+
+Invalid value for argument `status`. Expected PropertyStatus.
+    at ar (C:\Shakil dev\EchoNet\backend\generated\prisma\client\runtime\client.js:14:1374)
+    at Gr.handleRequestError (C:\Shakil dev\EchoNet\backend\generated\prisma\client\runtime\client.js:69:7929)
+    at Gr.handleAndLogRequestError (C:\Shakil dev\EchoNet\backend\generated\prisma\client\runtime\client.js:69:7581)
+    at Gr.request (C:\Shakil dev\EchoNet\backend\generated\prisma\client\runtime\client.js:69:7288)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async a (C:\Shakil dev\EchoNet\backend\generated\prisma\client\runtime\client.js:79:6730)
+    at async Promise.all (index 0)
+    at async QueryBuilder.execute (C:\Shakil dev\EchoNet\backend\src\app\utils\QueryBuilder.ts:213:27)
+    at async Object.getAllProperties (C:\Shakil dev\EchoNet\backend\src\app\module\admin\admin.service.ts:99:10)
+    at async <anonymous> (C:\Shakil dev\EchoNet\backend\src\app\module\admin\admin.controller.ts:63:18)
+2026-04-01 02:54:40 [[31merror[39m]: PrismaClientValidationError: 
+Invalid `this.model.count()` invocation in
+C:\Shakil dev\EchoNet\backend\src\app\utils\QueryBuilder.ts:214:18
+
+  211 
+  212 async execute(): Promise<IQueryResult<T>> {
+  213   const [total, data] = await Promise.all([
+→ 214     this.model.count({
+            select: {
+              _count: {
+                select: {
+                  _all: true
+                }
+              }
+            },
+            where: {
+              status: "APPROVED"
+                      ~~~~~~~~~~
+            }
+          })
+
+Invalid value for argument `status`. Expected PropertyStatus.
+    at ar (C:\Shakil dev\EchoNet\backend\generated\prisma\client\runtime\client.js:14:1374)
+    at Gr.handleRequestError (C:\Shakil dev\EchoNet\backend\generated\prisma\client\runtime\client.js:69:7929)
+    at Gr.handleAndLogRequestError (C:\Shakil dev\EchoNet\backend\generated\prisma\client\runtime\client.js:69:7581)
+    at Gr.request (C:\Shakil dev\EchoNet\backend\generated\prisma\client\runtime\client.js:69:7288)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async a (C:\Shakil dev\EchoNet\backend\generated\prisma\client\runtime\client.js:79:6730)
+    at async Promise.all (index 0)
+    at async QueryBuilder.execute (C:\Shakil dev\EchoNet\backend\src\app\utils\QueryBuilder.ts:213:27)
+    at async Object.getAllProperties (C:\Shakil dev\EchoNet\backend\src\app\module\admin\admin.service.ts:99:10)
+    at async <anonymous> (C:\Shakil dev\EchoNet\backend\src\app\module\admin\admin.controller.ts:63:18)
+2026-04-01 02:54:42 [[31merror[39m]: PrismaClientValidationError: 
+Invalid `this.model.count()` invocation in
+C:\Shakil dev\EchoNet\backend\src\app\utils\QueryBuilder.ts:214:18
+
+  211 
+  212 async execute(): Promise<IQueryResult<T>> {
+  213   const [total, data] = await Promise.all([
+→ 214     this.model.count({
+            select: {
+              _count: {
+                select: {
+                  _all: true
+                }
+              }
+            },
+            where: {
+              status: "APPROVED"
+                      ~~~~~~~~~~
+            }
+          })
+
+Invalid value for argument `status`. Expected PropertyStatus.
+    at ar (C:\Shakil dev\EchoNet\backend\generated\prisma\client\runtime\client.js:14:1374)
+    at Gr.handleRequestError (C:\Shakil dev\EchoNet\backend\generated\prisma\client\runtime\client.js:69:7929)
+    at Gr.handleAndLogRequestError (C:\Shakil dev\EchoNet\backend\generated\prisma\client\runtime\client.js:69:7581)
+    at Gr.request (C:\Shakil dev\EchoNet\backend\generated\prisma\client\runtime\client.js:69:7288)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async a (C:\Shakil dev\EchoNet\backend\generated\prisma\client\runtime\client.js:79:6730)
+    at async Promise.all (index 0)
+    at async QueryBuilder.execute (C:\Shakil dev\EchoNet\backend\src\app\utils\QueryBuilder.ts:213:27)
+    at async Object.getAllProperties (C:\Shakil dev\EchoNet\backend\src\app\module\admin\admin.service.ts:99:10)
+    at async <anonymous> (C:\Shakil dev\EchoNet\backend\src\app\module\admin\admin.controller.ts:63:18)
+2026-04-01 02:54:46 [[31merror[39m]: PrismaClientValidationError: 
+Invalid `this.model.count()` invocation in
+C:\Shakil dev\EchoNet\backend\src\app\utils\QueryBuilder.ts:214:18
+
+  211 
+  212 async execute(): Promise<IQueryResult<T>> {
+  213   const [total, data] = await Promise.all([
+→ 214     this.model.count({
+            select: {
+              _count: {
+                select: {
+                  _all: true
+                }
+              }
+            },
+            where: {
+              status: "APPROVED"
+                      ~~~~~~~~~~
+            }
+          })
+
+Invalid value for argument `status`. Expected PropertyStatus.
+    at ar (C:\Shakil dev\EchoNet\backend\generated\prisma\client\runtime\client.js:14:1374)
+    at Gr.handleRequestError (C:\Shakil dev\EchoNet\backend\generated\prisma\client\runtime\client.js:69:7929)
+    at Gr.handleAndLogRequestError (C:\Shakil dev\EchoNet\backend\generated\prisma\client\runtime\client.js:69:7581)
+    at Gr.request (C:\Shakil dev\EchoNet\backend\generated\prisma\client\runtime\client.js:69:7288)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async a (C:\Shakil dev\EchoNet\backend\generated\prisma\client\runtime\client.js:79:6730)
+    at async Promise.all (index 0)
+    at async QueryBuilder.execute (C:\Shakil dev\EchoNet\backend\src\app\utils\QueryBuilder.ts:213:27)
+    at async Object.getAllProperties (C:\Shakil dev\EchoNet\backend\src\app\module\admin\admin.service.ts:99:10)
+    at async <anonymous> (C:\Shakil dev\EchoNet\backend\src\app\module\admin\admin.controller.ts:63:18)
+2026-04-01 03:10:32 [[31merror[39m]: PrismaClientValidationError: 
+Invalid `prisma.post.update()` invocation in
+C:\Shakil dev\EchoNet\backend\src\app\module\post\post.service.ts:245:36
+
+  242 };
+  243 
+  244 const updatePostStatus = async (id: string, status: PostStatus) => {
+→ 245   const result = await prisma.post.update({
+          where: {
+            id: "c43db31c-97ec-4556-b235-86da6828fea8"
+          },
+          data: {
+            status: "PUBLISHED"
+                    ~~~~~~~~~~~
+          }
+        })
+
+Invalid value for argument `status`. Expected PostStatus.
+    at ar (C:\Shakil dev\EchoNet\backend\generated\prisma\client\runtime\client.js:14:1374)
+    at Gr.handleRequestError (C:\Shakil dev\EchoNet\backend\generated\prisma\client\runtime\client.js:69:7929)
+    at Gr.handleAndLogRequestError (C:\Shakil dev\EchoNet\backend\generated\prisma\client\runtime\client.js:69:7581)
+    at Gr.request (C:\Shakil dev\EchoNet\backend\generated\prisma\client\runtime\client.js:69:7288)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async a (C:\Shakil dev\EchoNet\backend\generated\prisma\client\runtime\client.js:79:6730)
+    at async Object.updatePostStatus (C:\Shakil dev\EchoNet\backend\src\app\module\post\post.service.ts:245:18)
+    at async <anonymous> (C:\Shakil dev\EchoNet\backend\src\app\module\post\post.controller.ts:74:18)
+    at async <anonymous> (C:\Shakil dev\EchoNet\backend\src\app\utils\catchAsync.ts:6:7)
+2026-04-01 03:11:32 [[31merror[39m]: PrismaClientValidationError: 
+Invalid `prisma.post.update()` invocation in
+C:\Shakil dev\EchoNet\backend\src\app\module\post\post.service.ts:245:36
+
+  242 };
+  243 
+  244 const updatePostStatus = async (id: string, status: PostStatus) => {
+→ 245   const result = await prisma.post.update({
+          where: {
+            id: "c43db31c-97ec-4556-b235-86da6828fea8"
+          },
+          data: {
+            status: "PUBLISHED"
+                    ~~~~~~~~~~~
+          }
+        })
+
+Invalid value for argument `status`. Expected PostStatus.
+    at ar (C:\Shakil dev\EchoNet\backend\generated\prisma\client\runtime\client.js:14:1374)
+    at Gr.handleRequestError (C:\Shakil dev\EchoNet\backend\generated\prisma\client\runtime\client.js:69:7929)
+    at Gr.handleAndLogRequestError (C:\Shakil dev\EchoNet\backend\generated\prisma\client\runtime\client.js:69:7581)
+    at Gr.request (C:\Shakil dev\EchoNet\backend\generated\prisma\client\runtime\client.js:69:7288)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async a (C:\Shakil dev\EchoNet\backend\generated\prisma\client\runtime\client.js:79:6730)
+    at async Object.updatePostStatus (C:\Shakil dev\EchoNet\backend\src\app\module\post\post.service.ts:245:18)
+    at async <anonymous> (C:\Shakil dev\EchoNet\backend\src\app\module\post\post.controller.ts:74:18)
+    at async <anonymous> (C:\Shakil dev\EchoNet\backend\src\app\utils\catchAsync.ts:6:7)
+2026-04-01 03:12:55 [[31merror[39m]: Error: You are not authorized
+    at <anonymous> (C:\Shakil dev\EchoNet\backend\src\app\middleware\auth.ts:38:15)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+2026-04-01 03:12:55 [[31merror[39m]: Error: Invalid session token
+    at Object.getNewToken (C:\Shakil dev\EchoNet\backend\src\app\module\auth\auth.service.ts:216:11)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async <anonymous> (C:\Shakil dev\EchoNet\backend\src\app\module\auth\auth.controller.ts:214:18)
+    at async <anonymous> (C:\Shakil dev\EchoNet\backend\src\app\utils\catchAsync.ts:6:7)
+2026-04-01 03:34:57 [[31merror[39m]: Error: Not authorized to update this product
+    at Object.updateProduct (C:\Shakil dev\EchoNet\backend\src\app\module\product\product.service.ts:108:11)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async <anonymous> (C:\Shakil dev\EchoNet\backend\src\app\module\product\product.controller.ts:43:18)
+    at async <anonymous> (C:\Shakil dev\EchoNet\backend\src\app\utils\catchAsync.ts:6:7)
+2026-04-01 03:35:12 [[31merror[39m]: Error: Not authorized to update this product
+    at Object.updateProduct (C:\Shakil dev\EchoNet\backend\src\app\module\product\product.service.ts:108:11)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async <anonymous> (C:\Shakil dev\EchoNet\backend\src\app\module\product\product.controller.ts:43:18)
+    at async <anonymous> (C:\Shakil dev\EchoNet\backend\src\app\utils\catchAsync.ts:6:7)
+2026-04-01 03:35:44 [[31merror[39m]: PrismaClientValidationError: 
+Invalid `prisma.post.update()` invocation in
+C:\Shakil dev\EchoNet\backend\src\app\module\post\post.service.ts:245:36
+
+  242 };
+  243 
+  244 const updatePostStatus = async (id: string, status: PostStatus) => {
+→ 245   const result = await prisma.post.update({
+          where: {
+            id: "c43db31c-97ec-4556-b235-86da6828fea8"
+          },
+          data: {
+            status: "PUBLISHED"
+                    ~~~~~~~~~~~
+          }
+        })
+
+Invalid value for argument `status`. Expected PostStatus.
+    at ar (C:\Shakil dev\EchoNet\backend\generated\prisma\client\runtime\client.js:14:1374)
+    at Gr.handleRequestError (C:\Shakil dev\EchoNet\backend\generated\prisma\client\runtime\client.js:69:7929)
+    at Gr.handleAndLogRequestError (C:\Shakil dev\EchoNet\backend\generated\prisma\client\runtime\client.js:69:7581)
+    at Gr.request (C:\Shakil dev\EchoNet\backend\generated\prisma\client\runtime\client.js:69:7288)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async a (C:\Shakil dev\EchoNet\backend\generated\prisma\client\runtime\client.js:79:6730)
+    at async Object.updatePostStatus (C:\Shakil dev\EchoNet\backend\src\app\module\post\post.service.ts:245:18)
+    at async <anonymous> (C:\Shakil dev\EchoNet\backend\src\app\module\post\post.controller.ts:74:18)
+    at async <anonymous> (C:\Shakil dev\EchoNet\backend\src\app\utils\catchAsync.ts:6:7)
+2026-04-01 03:37:06 [[31merror[39m]: PrismaClientValidationError: 
+Invalid `prisma.post.update()` invocation in
+C:\Shakil dev\EchoNet\backend\src\app\module\admin\admin.service.ts:203:28
+
+  200 };
+  201 
+  202 const updatePostStatus = async (postId: string, status: string) => {
+→ 203   return await prisma.post.update({
+          where: {
+            id: "c43db31c-97ec-4556-b235-86da6828fea8"
+          },
+          data: {
+            status: "PUBLISHED"
+                    ~~~~~~~~~~~
+          }
+        })
+
+Invalid value for argument `status`. Expected PostStatus.
+    at ar (C:\Shakil dev\EchoNet\backend\generated\prisma\client\runtime\client.js:14:1374)
+    at Gr.handleRequestError (C:\Shakil dev\EchoNet\backend\generated\prisma\client\runtime\client.js:69:7929)
+    at Gr.handleAndLogRequestError (C:\Shakil dev\EchoNet\backend\generated\prisma\client\runtime\client.js:69:7581)
+    at Gr.request (C:\Shakil dev\EchoNet\backend\generated\prisma\client\runtime\client.js:69:7288)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async a (C:\Shakil dev\EchoNet\backend\generated\prisma\client\runtime\client.js:79:6730)
+    at async Object.updatePostStatus (C:\Shakil dev\EchoNet\backend\src\app\module\admin\admin.service.ts:203:10)
+    at async <anonymous> (C:\Shakil dev\EchoNet\backend\src\app\module\admin\admin.controller.ts:116:18)
+    at async <anonymous> (C:\Shakil dev\EchoNet\backend\src\app\utils\catchAsync.ts:6:7)
+2026-04-01 03:37:51 [[31merror[39m]: PrismaClientValidationError: 
+Invalid `prisma.post.update()` invocation in
+C:\Shakil dev\EchoNet\backend\src\app\module\admin\admin.service.ts:203:28
+
+  200 };
+  201 
+  202 const updatePostStatus = async (postId: string, status: string) => {
+→ 203   return await prisma.post.update({
+          where: {
+            id: "c43db31c-97ec-4556-b235-86da6828fea8"
+          },
+          data: {
+            status: "PUBLISHED"
+                    ~~~~~~~~~~~
+          }
+        })
+
+Invalid value for argument `status`. Expected PostStatus.
+    at ar (C:\Shakil dev\EchoNet\backend\generated\prisma\client\runtime\client.js:14:1374)
+    at Gr.handleRequestError (C:\Shakil dev\EchoNet\backend\generated\prisma\client\runtime\client.js:69:7929)
+    at Gr.handleAndLogRequestError (C:\Shakil dev\EchoNet\backend\generated\prisma\client\runtime\client.js:69:7581)
+    at Gr.request (C:\Shakil dev\EchoNet\backend\generated\prisma\client\runtime\client.js:69:7288)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async a (C:\Shakil dev\EchoNet\backend\generated\prisma\client\runtime\client.js:79:6730)
+    at async Object.updatePostStatus (C:\Shakil dev\EchoNet\backend\src\app\module\admin\admin.service.ts:203:10)
+    at async <anonymous> (C:\Shakil dev\EchoNet\backend\src\app\module\admin\admin.controller.ts:116:18)
+    at async <anonymous> (C:\Shakil dev\EchoNet\backend\src\app\utils\catchAsync.ts:6:7)

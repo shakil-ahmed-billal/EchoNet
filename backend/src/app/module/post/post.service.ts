@@ -340,7 +340,7 @@ const getPostById = async (id: string, userId?: string) => {
     },
   });
 
-  if (!post) return null;
+  if (!post || post.status !== PostStatus.ACTIVE) return null;
 
   return {
     ...post,

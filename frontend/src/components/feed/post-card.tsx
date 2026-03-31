@@ -247,7 +247,6 @@ export function PostCard({ post, priority = false }: PostCardProps) {
            </div>
            <div className="flex gap-4">
               <span className="hover:text-primary transition-colors cursor-pointer capitalize">{post._count.comments} comments</span>
-              <span className="hover:text-primary transition-colors cursor-pointer capitalize">42 shares</span>
            </div>
         </div>
       )}

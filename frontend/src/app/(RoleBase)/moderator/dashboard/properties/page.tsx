@@ -10,10 +10,16 @@ import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
 import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
 import { Card, CardContent } from "@/components/ui/card"
-import { Trash2, Home, ShieldAlert, Check, X } from "lucide-react"
+import { Trash2, Home, ShieldAlert, Check, X, Eye, FileText, MapPin, Grid, User } from "lucide-react"
 import { Pagination } from "@/components/ui/pagination-controls"
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
 import { getOptimizedImageUrl } from "@/lib/image-utils"
+import {
+  Dialog,
+  DialogContent,
+  DialogTrigger,
+} from "@/components/ui/dialog"
+import { ScrollArea } from "@/components/ui/scroll-area"
 
 const useDeleteProperty = () => {
   const queryClient = useQueryClient()
@@ -38,13 +44,13 @@ export default function ModeratorPropertiesPage() {
   const [page, setPage] = useState(1)
   const [status, setStatus] = useState("PENDING")
 
-  const { data: response, isLoading } = useAdminProperties({ page, limit: 10, status })
+  const { data: response, isLoading } = useAdminProperties({ page, limit: 8, status })
   const { mutate: approve, isPending: isApproving } = useApproveProperty()
   const { mutate: reject, isPending: isRejecting } = useRejectProperty()
   const { mutate: deleteProperty, isPending: isDeleting } = useDeleteProperty()
 
   const properties = response?.data || []
-  const meta = response?.meta || { total: 0, page: 1, limit: 10, totalPages: 1 }
+  const meta = response?.meta || { total: 0, page: 1, limit: 8, totalPages: 1 }
 
   return (
     <div className="flex flex-col gap-6">
@@ -133,11 +139,96 @@ export default function ModeratorPropertiesPage() {
                       </TableCell>
                       <TableCell className="text-right pr-6">
                         <div className="flex items-center justify-end gap-2 opacity-50 group-hover:opacity-100 transition-opacity">
+                          <Dialog>
+                            <DialogTrigger
+                              render={
+                                <Button size="icon" variant="outline" className="size-8 rounded-lg border-primary/20 hover:bg-primary/10 text-primary">
+                                  <Eye className="size-4" />
+                                </Button>
+                              }
+                            />
+                            <DialogContent className="sm:max-w-2xl p-0 overflow-hidden gap-0 rounded-2xl border-border/40">
+                              <div className="h-48 md:h-64 bg-muted relative w-full">
+                                {prop.images?.[0] ? (
+                                  <img src={prop.images[0]} alt="" className="object-cover w-full h-full" />
+                                ) : (
+                                  <div className="w-full h-full flex flex-col items-center justify-center bg-muted">
+                                    <Home className="size-12 text-muted-foreground/30 mb-2" />
+                                    <span className="text-sm font-semibold text-muted-foreground/60">No Media Attached</span>
+                                  </div>
+                                )}
+                                <div className="absolute inset-0 bg-linear-to-t from-black/80 via-black/20 to-transparent" />
+                                <div className="absolute bottom-4 left-6 pr-6">
+                                  <Badge className={`mb-2 text-[10px] tracking-wider font-bold rounded-lg px-2.5 py-1 text-white border-transparent ${
+                                    prop.status === "PENDING" ? "bg-amber-500" :
+                                    prop.status === "ACTIVE" || prop.status === "APPROVED" ? "bg-emerald-500" :
+                                    prop.status === "REJECTED" ? "bg-rose-500" : "bg-blue-500"
+                                  }`}>
+                                    {prop.status}
+                                  </Badge>
+                                  <h2 className="text-xl md:text-2xl font-black text-white leading-tight drop-shadow-md">{prop.title}</h2>
+                                  <div className="hidden sm:flex items-center gap-3 mt-2">
+                                    <span className="flex items-center text-xs font-medium text-white/90 drop-shadow"><MapPin className="size-3.5 mr-1 text-primary drop-shadow-sm" /> {prop.location || prop.address}</span>
+                                    <span className="text-white/40">•</span>
+                                    <span className="flex items-center text-xs font-medium text-white/90 drop-shadow"><Grid className="size-3.5 mr-1 text-primary drop-shadow-sm" /> {prop.type || "Property"}</span>
+                                  </div>
+                                </div>
+                              </div>
+                              
+                              <ScrollArea className="max-h-[50vh]">
+                                <div className="p-6">
+                                  <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                                    <div className="md:col-span-2 space-y-6">
+                                      <div>
+                                        <h3 className="flex items-center text-sm font-black text-foreground uppercase tracking-wider mb-2">
+                                          <FileText className="size-4 mr-2 text-primary" /> Listing Description
+                                        </h3>
+                                        <p className="text-sm text-muted-foreground leading-relaxed whitespace-pre-wrap">{prop.description || "No description provided."}</p>
+                                      </div>
+                                      
+                                      <div className="flex items-center gap-4 p-4 rounded-xl border border-border/40 bg-card">
+                                        <div className="p-2.5 bg-primary/10 rounded-xl text-primary">
+                                          <User className="size-5" />
+                                        </div>
+                                        <div className="flex flex-col">
+                                          <span className="text-xs font-bold text-muted-foreground uppercase tracking-wider">Submitted By</span>
+                                          <span className="font-bold text-foreground">{prop.owner?.name || "Unknown User"}</span>
+                                        </div>
+                                      </div>
+                                    </div>
+                                    
+                                    <div className="space-y-4">
+                                      <div className="p-4 rounded-xl border border-primary/20 bg-primary/5">
+                                        <h3 className="text-[10px] font-black tracking-widest uppercase text-muted-foreground">Asking Price</h3>
+                                        <p className="text-2xl font-black text-primary tracking-tight mt-1">৳{prop.price?.toLocaleString()}</p>
+                                      </div>
+                                      
+                                      <div className="grid grid-cols-2 gap-2">
+                                        <div className="p-3 bg-muted/50 rounded-xl border border-border/40 flex flex-col">
+                                          <span className="text-[10px] uppercase font-bold text-muted-foreground">Beds</span>
+                                          <span className="font-bold">{prop.beds || "-"}</span>
+                                        </div>
+                                        <div className="p-3 bg-muted/50 rounded-xl border border-border/40 flex flex-col">
+                                          <span className="text-[10px] uppercase font-bold text-muted-foreground">Baths</span>
+                                          <span className="font-bold">{prop.baths || "-"}</span>
+                                        </div>
+                                        <div className="col-span-2 p-3 bg-muted/50 rounded-xl border border-border/40 flex flex-col">
+                                          <span className="text-[10px] uppercase font-bold text-muted-foreground">Area</span>
+                                          <span className="font-bold">{prop.area || "-"} sq ft</span>
+                                        </div>
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+                              </ScrollArea>
+                            </DialogContent>
+                          </Dialog>
+
                           <Button
                             size="sm"
                             variant="outline"
                             onClick={() => approve(prop.id)}
-                            disabled={isApproving || prop.status === "ACTIVE"}
+                            disabled={isApproving || prop.status === "ACTIVE" || prop.status === "APPROVED"}
                             className="h-8 rounded-lg font-bold text-[10px] border-emerald-500/30 text-emerald-600 hover:bg-emerald-500/10"
                           >
                             <Check className="size-3 mr-1" /> Approve

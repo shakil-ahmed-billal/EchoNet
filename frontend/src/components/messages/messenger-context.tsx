@@ -115,12 +115,26 @@ export function MessengerProvider({ children }: { children: ReactNode }) {
     if (!currentUser) return;
     const fetchInitial = async () => {
       try {
-        const usersRes = await apiClient.get("/users");
-        // eslint-disable-next-line @typescript-eslint/no-unused-vars
-        const users: any[] = usersRes.data?.data?.data ?? [];
-        setTotalUnread(0);
-        setPerUserData({});
-      } catch { /* skip */ }
+        const convRes = await apiClient.get("/messages/conversations");
+        const conversations = convRes.data?.data || [];
+        
+        const initialPerUserData: Record<string, PerUserData> = {};
+        let initialTotalUnread = 0;
+
+        conversations.forEach((conv: any) => {
+          initialPerUserData[conv.userId] = {
+            unreadCount: conv.unreadCount,
+            lastMessage: conv.lastMessage,
+            lastMessageTime: conv.lastMessageTime,
+          };
+          initialTotalUnread += conv.unreadCount;
+        });
+
+        setPerUserData(initialPerUserData);
+        setTotalUnread(initialTotalUnread);
+      } catch (error) {
+        console.error("Failed to fetch initial messenger data:", error);
+      }
     };
     fetchInitial();
   }, [currentUser?.id]);

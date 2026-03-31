@@ -13,6 +13,28 @@ const updateSetting = async (key: string, value: string) => {
     update: { value },
     create: { key, value },
   });
+
+  if (key === 'story_duration') {
+    const stories = await prisma.story.findMany({
+      where: { expiresAt: { gt: new Date() } }
+    });
+    
+    for (const story of stories) {
+      const expiresAt = new Date(story.createdAt);
+      if (value === 'unlimited') {
+        expiresAt.setFullYear(expiresAt.getFullYear() + 100);
+      } else {
+        const days = parseInt(value);
+        expiresAt.setDate(expiresAt.getDate() + (isNaN(days) ? 2 : days));
+      }
+      
+      await prisma.story.update({
+        where: { id: story.id },
+        data: { expiresAt }
+      });
+    }
+  }
+
   return setting;
 };
 

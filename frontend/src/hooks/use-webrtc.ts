@@ -10,9 +10,43 @@ export const useWebRTC = (onRemoteEnd?: () => void) => {
   const peerConnection = useRef<RTCPeerConnection | null>(null)
   const incomingData = useRef<any>(null)
   const [error, setError] = useState<string | null>(null)
-  
+  const pendingCandidates = useRef<RTCIceCandidate[]>([])
+
   const config: RTCConfiguration = {
-    iceServers: [{ urls: "stun:stun.l.google.com:19302" }],
+    iceServers: [
+      { urls: "stun:stun.l.google.com:19302" },
+      { urls: "stun:stun1.l.google.com:19302" },
+      { urls: "stun:stun2.l.google.com:19302" },
+      { urls: "stun:stun.services.mozilla.com" },
+      // Optional: Add OpenRelay TURN for better NAT traversal in production
+      { 
+        urls: "turn:openrelay.metered.ca:80", 
+        username: "openrelayproject", 
+        credential: "openrelayproject" 
+      },
+      { 
+        urls: "turn:openrelay.metered.ca:443", 
+        username: "openrelayproject", 
+        credential: "openrelayproject" 
+      }
+    ],
+    iceCandidatePoolSize: 10,
+  }
+
+  const processPendingCandidates = async () => {
+    if (peerConnection.current?.remoteDescription) {
+      console.log(`WebRTC: Processing ${pendingCandidates.current.length} queued ICE candidates`);
+      while (pendingCandidates.current.length > 0) {
+        const candidate = pendingCandidates.current.shift();
+        if (candidate) {
+          try {
+            await peerConnection.current.addIceCandidate(candidate);
+          } catch (e) {
+            console.warn("WebRTC: Error adding queued candidate", e);
+          }
+        }
+      }
+    }
   }
 
   const startCall = async (to: string, video: boolean = true) => {
@@ -20,8 +54,15 @@ export const useWebRTC = (onRemoteEnd?: () => void) => {
       const stream = await navigator.mediaDevices.getUserMedia({ video, audio: true })
       setLocalStream(stream)
       setError(null)
+      pendingCandidates.current = [];
 
       peerConnection.current = new RTCPeerConnection(config)
+      
+      // Monitor connection state
+      peerConnection.current.onconnectionstatechange = () => {
+        console.log(`WebRTC: Connection State: ${peerConnection.current?.connectionState}`);
+      }
+
       stream.getTracks().forEach((track) => peerConnection.current?.addTrack(track, stream))
 
       peerConnection.current.onicecandidate = (event) => {
@@ -32,6 +73,7 @@ export const useWebRTC = (onRemoteEnd?: () => void) => {
 
       peerConnection.current.ontrack = (event) => {
         if (event.streams && event.streams[0]) {
+          console.log("WebRTC: Remote stream received");
           setRemoteStream(event.streams[0])
         }
       }
@@ -40,7 +82,7 @@ export const useWebRTC = (onRemoteEnd?: () => void) => {
       await peerConnection.current.setLocalDescription(offer)
       socket?.emit("call-user", { to, offer, from: user?.id || socket?.id, fromName: user?.name || "Someone", fromImage: user?.image || (user as any)?.avatarUrl, isVideo: video })
     } catch (err: any) {
-      console.error("Failed to start call:", err)
+      console.error("WebRTC: Failed to start call:", err)
       setError(err.name === "NotFoundError" ? "Camera or microphone not found." : "Failed to access media devices.")
     }
   }
@@ -58,8 +100,14 @@ export const useWebRTC = (onRemoteEnd?: () => void) => {
       const stream = await navigator.mediaDevices.getUserMedia({ video, audio: true })
       setLocalStream(stream)
       setError(null)
+      pendingCandidates.current = [];
 
       peerConnection.current = new RTCPeerConnection(config)
+      
+      peerConnection.current.onconnectionstatechange = () => {
+        console.log(`WebRTC: Connection State: ${peerConnection.current?.connectionState}`);
+      }
+
       stream.getTracks().forEach((track) => peerConnection.current?.addTrack(track, stream))
 
       peerConnection.current.onicecandidate = (event) => {
@@ -70,16 +118,19 @@ export const useWebRTC = (onRemoteEnd?: () => void) => {
 
       peerConnection.current.ontrack = (event) => {
         if (event.streams && event.streams[0]) {
+          console.log("WebRTC: Remote stream received (incoming)");
           setRemoteStream(event.streams[0])
         }
       }
 
       await peerConnection.current.setRemoteDescription(new RTCSessionDescription(data.offer))
+      await processPendingCandidates();
+
       const answer = await peerConnection.current.createAnswer()
       await peerConnection.current.setLocalDescription(answer)
       socket?.emit("answer-call", { to: data.from, answer })
     } catch (err: any) {
-      console.error("Failed to accept incoming call:", err)
+      console.error("WebRTC: Failed to accept incoming call:", err)
       setError(err.name === "NotFoundError" ? "Camera or microphone not found." : "Failed to access media devices.")
     }
   }
@@ -100,17 +151,32 @@ export const useWebRTC = (onRemoteEnd?: () => void) => {
     setRemoteStream(null);
     setError(null);
     incomingData.current = null;
+    pendingCandidates.current = [];
   }
 
   useEffect(() => {
     if (!socket) return
 
     socket.on("call-answered", async (data: { answer: any }) => {
-      await peerConnection.current?.setRemoteDescription(new RTCSessionDescription(data.answer))
+      if (peerConnection.current) {
+        console.log("WebRTC: Call answered, setting remote description");
+        await peerConnection.current.setRemoteDescription(new RTCSessionDescription(data.answer));
+        await processPendingCandidates();
+      }
     })
 
     socket.on("ice-candidate", async (data: { candidate: any }) => {
-      await peerConnection.current?.addIceCandidate(new RTCIceCandidate(data.candidate))
+      const candidate = new RTCIceCandidate(data.candidate);
+      if (peerConnection.current?.remoteDescription) {
+        try {
+          await peerConnection.current.addIceCandidate(candidate);
+        } catch (e) {
+          console.warn("WebRTC: Error adding live ice candidate", e);
+        }
+      } else {
+        console.log("WebRTC: Queuing ICE candidate (remote description not set yet)");
+        pendingCandidates.current.push(candidate);
+      }
     })
 
     socket.on("end-call", () => {
