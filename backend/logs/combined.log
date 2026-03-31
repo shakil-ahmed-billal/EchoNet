@@ -3444,3 +3444,12 @@ Invalid value for argument `status`. Expected PostStatus.
 2026-04-01 04:15:01 [[32minfo[39m]: Initializing Socket.IO...
 2026-04-01 04:15:17 [[32minfo[39m]: Initializing Socket.IO...
 2026-04-01 04:33:41 [[32minfo[39m]: Initializing Socket.IO...
+2026-04-01 04:51:25 [[32minfo[39m]: User MSMPvvgf6VjmYLI06Mmn0GtZvAOZkUEz joined their private room
+2026-04-01 04:51:26 [[32minfo[39m]: User q3bFFDpO0HO6E7HiQzJ3M2tXsTuSzyBS joined their private room
+2026-04-01 04:51:27 [[32minfo[39m]: Socket disconnected: 4tTLnPMLc1JbRy1VAAAD
+2026-04-01 04:51:28 [[32minfo[39m]: User q3bFFDpO0HO6E7HiQzJ3M2tXsTuSzyBS joined their private room
+2026-04-01 04:51:41 [[32minfo[39m]: Backend: call-user from MSMPvvgf6VjmYLI06Mmn0GtZvAOZkUEz to q3bFFDpO0HO6E7HiQzJ3M2tXsTuSzyBS
+2026-04-01 04:52:34 [[32minfo[39m]: Socket disconnected: ZIiqKKOOuagp0CGXAAAB
+2026-04-01 04:52:36 [[32minfo[39m]: User MSMPvvgf6VjmYLI06Mmn0GtZvAOZkUEz joined their private room
+2026-04-01 04:52:56 [[32minfo[39m]: Socket disconnected: rZLUpUKamAJkzqi9AAAH
+2026-04-01 04:57:34 [[32minfo[39m]: Backend: call-user from q3bFFDpO0HO6E7HiQzJ3M2tXsTuSzyBS to MSMPvvgf6VjmYLI06Mmn0GtZvAOZkUEz
