@@ -3,7 +3,7 @@ import { uploadMedia, deleteMedia } from '../../lib/cloudinary.js';
 import { extractCloudinaryPublicId } from '../../utils/cloudinaryUtils.js';
 import fs from 'fs';
 
-const STORY_TTL_HOURS = 48;
+const STORY_TTL_HOURS_DEFAULT = 48;
 
 // Cleanup expired stories from DB (called on every GET)
 const cleanupExpiredStories = async () => {
@@ -98,8 +98,20 @@ const createStory = async (
 
   if (!mediaUrl) throw new Error('Media file is required for a story');
 
+  const durationSetting = await prisma.globalSetting.findUnique({
+    where: { key: 'story_duration' },
+  });
+
   const expiresAt = new Date();
-  expiresAt.setHours(expiresAt.getHours() + STORY_TTL_HOURS);
+  const duration = durationSetting?.value || '2'; // default to 2 days
+
+  if (duration === 'unlimited') {
+    // Set to 100 years in the future
+    expiresAt.setFullYear(expiresAt.getFullYear() + 100);
+  } else {
+    const days = parseInt(duration);
+    expiresAt.setDate(expiresAt.getDate() + (isNaN(days) ? 2 : days));
+  }
 
   const story = await prisma.story.create({
     data: {

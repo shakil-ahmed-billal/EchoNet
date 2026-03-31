@@ -114,3 +114,13 @@ export const deleteUser = async (id: string) => {
   const { data } = await apiClient.delete(`/admin/users/${id}`);
   return data.data;
 };
+
+export const getStoryDuration = async () => {
+  const { data } = await apiClient.get('/settings/story-duration');
+  return data.data;
+};
+
+export const updateStoryDuration = async (duration: string) => {
+  const { data } = await apiClient.patch('/settings/story-duration', { duration });
+  return data.data;
+};

@@ -26,7 +26,8 @@ import {
   Layers, 
   ShieldCheck,
   Package,
-  Clapperboard
+  Clapperboard,
+  Settings
 } from "lucide-react"
 import Link from "next/link"
 import { useAuth } from "@/hooks/use-auth"
@@ -54,6 +55,12 @@ export function AdminSidebar({ ...props }: React.ComponentProps<typeof Sidebar>)
           title: "Analytics",
           url: "/admin/dashboard/analytics",
           icon: BarChart3,
+        },
+        {
+          title: "Platform Settings",
+          url: "/admin/dashboard/settings",
+          icon: Settings,
+          hidden: !isAdmin,
         },
       ],
     },

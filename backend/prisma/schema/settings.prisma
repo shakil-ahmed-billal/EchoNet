@@ -1,0 +1,6 @@
+model GlobalSetting {
+  key   String @id
+  value String
+
+  @@map("global_settings")
+}
