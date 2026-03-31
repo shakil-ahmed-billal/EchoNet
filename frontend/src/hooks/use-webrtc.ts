@@ -12,22 +12,31 @@ export const useWebRTC = (onRemoteEnd?: () => void) => {
   const [error, setError] = useState<string | null>(null)
   const pendingCandidates = useRef<RTCIceCandidate[]>([])
 
+  const turnUrls = process.env.NEXT_PUBLIC_TURN_SERVER_URL?.split(",") || [];
+  
+  // Debug log to check if environment variables are loaded in production
+  // (Password is masked for security)
+  useEffect(() => {
+    console.log(`WebRTC: ICE Server Config -> STUN: Yes, TURN: ${turnUrls.length > 0 ? "Yes (" + turnUrls.length + " URLs)" : "No"}`);
+    if (turnUrls.length === 0) {
+      console.warn("WebRTC Warning: No TURN server URLs found in environment variables. Production calls may fail.");
+    }
+  }, [turnUrls.length]);
+
   const config: RTCConfiguration = {
     iceServers: [
       { urls: "stun:stun.l.google.com:19302" },
-      { urls: "stun:stun1.l.google.com:19302" },
-      { urls: "stun:stun2.l.google.com:19302" },
-      // Support multiple TURN URLs separated by comma for TCP/UDP fallbacks
-      ...(process.env.NEXT_PUBLIC_TURN_SERVER_URL
+      ...(turnUrls.length > 0
         ? [
             {
-              urls: process.env.NEXT_PUBLIC_TURN_SERVER_URL.split(","),
+              urls: turnUrls,
               username: process.env.NEXT_PUBLIC_TURN_SERVER_USERNAME,
               credential: process.env.NEXT_PUBLIC_TURN_SERVER_PASSWORD,
             },
           ]
         : []),
     ],
+    iceCandidatePoolSize: 10,
   }
 
   const processPendingCandidates = async () => {
