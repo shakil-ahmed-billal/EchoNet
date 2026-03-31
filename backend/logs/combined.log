@@ -2992,3 +2992,15 @@ Invalid value for argument `status`. Expected PropertyStatus.
 2026-03-31 06:48:24 [[32minfo[39m]: Initializing Socket.IO...
 2026-03-31 06:48:27 [[32minfo[39m]: User IIaWs0dyA888fOoukJDnSaiW3ARzF1Un joined their private room
 2026-03-31 06:48:33 [[32minfo[39m]: Initializing Socket.IO...
+2026-04-01 02:24:27 [[32minfo[39m]: Initializing Socket.IO...
+2026-04-01 02:24:43 [[31merror[39m]: Error: You are not authorized
+    at <anonymous> (C:\Shakil dev\EchoNet\backend\src\app\middleware\auth.ts:38:15)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+2026-04-01 02:24:44 [[31merror[39m]: Error: Invalid session token
+    at Object.getNewToken (C:\Shakil dev\EchoNet\backend\src\app\module\auth\auth.service.ts:216:11)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async <anonymous> (C:\Shakil dev\EchoNet\backend\src\app\module\auth\auth.controller.ts:214:18)
+    at async <anonymous> (C:\Shakil dev\EchoNet\backend\src\app\utils\catchAsync.ts:6:7)
+2026-04-01 02:25:03 [[32minfo[39m]: User q3bFFDpO0HO6E7HiQzJ3M2tXsTuSzyBS joined their private room
+2026-04-01 02:26:29 [[32minfo[39m]: Socket disconnected: MAeIhXIgsYBrrL8CAAAB
+2026-04-01 02:26:31 [[32minfo[39m]: User q3bFFDpO0HO6E7HiQzJ3M2tXsTuSzyBS joined their private room

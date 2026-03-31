@@ -2373,3 +2373,11 @@ Invalid value for argument `status`. Expected PropertyStatus.
     at async QueryBuilder.execute (C:\Shakil Dev\EchoNet\backend\src\app\utils\QueryBuilder.ts:213:27)
     at async Object.getAllProperties (C:\Shakil Dev\EchoNet\backend\src\app\module\admin\admin.service.ts:99:10)
     at async <anonymous> (C:\Shakil Dev\EchoNet\backend\src\app\module\admin\admin.controller.ts:63:18)
+2026-04-01 02:24:43 [[31merror[39m]: Error: You are not authorized
+    at <anonymous> (C:\Shakil dev\EchoNet\backend\src\app\middleware\auth.ts:38:15)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+2026-04-01 02:24:44 [[31merror[39m]: Error: Invalid session token
+    at Object.getNewToken (C:\Shakil dev\EchoNet\backend\src\app\module\auth\auth.service.ts:216:11)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async <anonymous> (C:\Shakil dev\EchoNet\backend\src\app\module\auth\auth.controller.ts:214:18)
+    at async <anonymous> (C:\Shakil dev\EchoNet\backend\src\app\utils\catchAsync.ts:6:7)
