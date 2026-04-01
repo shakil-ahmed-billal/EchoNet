@@ -3,6 +3,8 @@ export type NavItem = {
   href: string
   disabled?: boolean
   className?: string
+  icon?: any
+  external?: boolean
 }
 
 export type MainNavItem = NavItem

@@ -2741,3 +2741,51 @@ Invalid value for argument `status`. Expected PostStatus.
     at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
     at async <anonymous> (C:\Shakil dev\EchoNet\backend\src\app\module\order\order.controller.ts:30:18)
     at async <anonymous> (C:\Shakil dev\EchoNet\backend\src\app\utils\catchAsync.ts:6:7)
+2026-04-01 05:36:54 [[31merror[39m]: Error: Store not found
+    at Object.getStoreOrders (C:\Shakil dev\EchoNet\backend\src\app\module\order\order.service.ts:112:21)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async <anonymous> (C:\Shakil dev\EchoNet\backend\src\app\module\order\order.controller.ts:30:18)
+    at async <anonymous> (C:\Shakil dev\EchoNet\backend\src\app\utils\catchAsync.ts:6:7)
+2026-04-01 05:36:55 [[31merror[39m]: Error: Store not found
+    at Object.getStoreOrders (C:\Shakil dev\EchoNet\backend\src\app\module\order\order.service.ts:112:21)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async <anonymous> (C:\Shakil dev\EchoNet\backend\src\app\module\order\order.controller.ts:30:18)
+    at async <anonymous> (C:\Shakil dev\EchoNet\backend\src\app\utils\catchAsync.ts:6:7)
+2026-04-01 05:36:57 [[31merror[39m]: Error: Store not found
+    at Object.getStoreOrders (C:\Shakil dev\EchoNet\backend\src\app\module\order\order.service.ts:112:21)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async <anonymous> (C:\Shakil dev\EchoNet\backend\src\app\module\order\order.controller.ts:30:18)
+    at async <anonymous> (C:\Shakil dev\EchoNet\backend\src\app\utils\catchAsync.ts:6:7)
+2026-04-01 05:37:01 [[31merror[39m]: Error: Store not found
+    at Object.getStoreOrders (C:\Shakil dev\EchoNet\backend\src\app\module\order\order.service.ts:112:21)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async <anonymous> (C:\Shakil dev\EchoNet\backend\src\app\module\order\order.controller.ts:30:18)
+    at async <anonymous> (C:\Shakil dev\EchoNet\backend\src\app\utils\catchAsync.ts:6:7)
+2026-04-01 05:38:35 [[31merror[39m]: Error: Store not found
+    at Object.getStoreOrders (C:\Shakil dev\EchoNet\backend\src\app\module\order\order.service.ts:112:21)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async <anonymous> (C:\Shakil dev\EchoNet\backend\src\app\module\order\order.controller.ts:30:18)
+    at async <anonymous> (C:\Shakil dev\EchoNet\backend\src\app\utils\catchAsync.ts:6:7)
+2026-04-01 05:38:36 [[31merror[39m]: Error: Store not found
+    at Object.getStoreOrders (C:\Shakil dev\EchoNet\backend\src\app\module\order\order.service.ts:112:21)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async <anonymous> (C:\Shakil dev\EchoNet\backend\src\app\module\order\order.controller.ts:30:18)
+    at async <anonymous> (C:\Shakil dev\EchoNet\backend\src\app\utils\catchAsync.ts:6:7)
+2026-04-01 05:38:38 [[31merror[39m]: Error: Store not found
+    at Object.getStoreOrders (C:\Shakil dev\EchoNet\backend\src\app\module\order\order.service.ts:112:21)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async <anonymous> (C:\Shakil dev\EchoNet\backend\src\app\module\order\order.controller.ts:30:18)
+    at async <anonymous> (C:\Shakil dev\EchoNet\backend\src\app\utils\catchAsync.ts:6:7)
+2026-04-01 05:38:42 [[31merror[39m]: Error: Store not found
+    at Object.getStoreOrders (C:\Shakil dev\EchoNet\backend\src\app\module\order\order.service.ts:112:21)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async <anonymous> (C:\Shakil dev\EchoNet\backend\src\app\module\order\order.controller.ts:30:18)
+    at async <anonymous> (C:\Shakil dev\EchoNet\backend\src\app\utils\catchAsync.ts:6:7)
+2026-04-01 06:27:27 [[31merror[39m]: Error: You are not authorized
+    at <anonymous> (C:\Shakil dev\EchoNet\backend\src\app\middleware\auth.ts:38:15)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+2026-04-01 06:27:27 [[31merror[39m]: Error: Invalid session token
+    at Object.getNewToken (C:\Shakil dev\EchoNet\backend\src\app\module\auth\auth.service.ts:216:11)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async <anonymous> (C:\Shakil dev\EchoNet\backend\src\app\module\auth\auth.controller.ts:214:18)
+    at async <anonymous> (C:\Shakil dev\EchoNet\backend\src\app\utils\catchAsync.ts:6:7)

@@ -9,13 +9,13 @@ export function SiteMark({
       <img
         src="/logo/dark-logo.png"
         alt="Shakil Logo"
-        className={cn("hidden h-4 w-auto object-contain dark:block", className)}
+        className={cn("hidden w-auto object-contain dark:block", className)}
         {...props}
       />
       <img
         src="/logo/light-logo.png"
         alt="Shakil Logo"
-        className={cn("block h-4 w-auto object-contain dark:hidden", className)}
+        className={cn("block w-auto object-contain dark:hidden", className)}
         {...props}
       />
     </>

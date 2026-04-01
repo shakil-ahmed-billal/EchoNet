@@ -41,29 +41,24 @@ export default function FriendsPage() {
   }
 
   return (
-    <div className="w-full flex flex-col gap-10 animate-in fade-in slide-in-from-bottom-4 duration-700 pb-12">
+    <div className="flex flex-col gap-4 md:gap-6 max-w-4xl mx-auto w-full pb-20 animate-in fade-in slide-in-from-bottom-2 duration-500">
       
-      {/* Pending Requests Slider */}
+      {/* Pending Requests */}
       {requests.length > 0 && (
-        <section className="bg-muted/30 rounded-[2.5rem] border border-border/40 p-1 transition-all">
-          <div className="p-6 pb-2">
-            <div className="flex items-center justify-between mb-2">
+        <section className="bg-card/60 backdrop-blur-sm md:rounded-2xl border border-border/20 shadow-sm overflow-hidden">
+          <div className="p-4 md:p-6 pb-2">
+            <div className="flex items-center justify-between mb-4">
               <div className="flex items-center gap-3">
-                <div className="size-10 bg-primary/10 rounded-2xl flex items-center justify-center border border-primary/20 shadow-sm">
+                <div className="size-10 bg-primary/10 rounded-xl flex items-center justify-center border border-primary/20">
                   <Bell className="size-5 text-primary" />
                 </div>
                 <div>
-                  <h2 className="text-lg font-black text-foreground tracking-tight">Friend Requests</h2>
-                  <p className="text-[10px] font-black text-muted-foreground/40 mt-0.5">Incoming Intel</p>
+                  <h2 className="text-lg font-bold text-foreground">Friend Requests</h2>
+                  <p className="text-[11px] text-muted-foreground font-medium uppercase tracking-wider">Review incoming requests</p>
                 </div>
               </div>
-              <div className="flex items-center gap-2">
-                 <div className="bg-primary/20 text-primary text-[10px] font-black px-3 py-1 rounded-full border border-primary/20">
-                   {requests.length} New
-                 </div>
-                 <Button variant="ghost" size="sm" className="rounded-xl text-xs font-bold text-muted-foreground hover:text-foreground">
-                   See All
-                 </Button>
+              <div className="bg-primary/10 text-primary text-[10px] font-bold px-2.5 py-1 rounded-full border border-primary/20">
+                {requests.length} NEW
               </div>
             </div>
           </div>
@@ -84,43 +79,38 @@ export default function FriendsPage() {
         </section>
       )}
 
-      {/* Network Pulse Slider (Suggestions) */}
-      <section className="px-1">
-        <div className="flex flex-col sm:flex-row sm:items-center justify-between mb-8 gap-4 px-4">
-          <div className="flex items-center gap-4">
-             <div className="size-11 bg-primary/10 rounded-2xl flex items-center justify-center border border-primary/20 shadow-sm">
-                <UserPlus className="size-5.5 text-primary" />
-             </div>
-             <div>
-               <h2 className="text-xl font-black text-foreground tracking-tight">Network Pulse</h2>
-               <p className="text-[11px] font-black text-muted-foreground/40 mt-1">Suggested for you</p>
-             </div>
-          </div>
-          <div className="flex items-center gap-2">
-            <Button variant="ghost" size="sm" className="h-9 px-4 rounded-xl text-xs font-black text-muted-foreground hover:bg-muted ">
-              Explore Network
-            </Button>
+      {/* Suggested Friends */}
+      <section className="bg-card/60 backdrop-blur-sm md:rounded-2xl border border-border/20 shadow-sm overflow-hidden">
+        <div className="p-4 md:p-6 pb-2">
+          <div className="flex items-center gap-3 mb-6">
+            <div className="size-10 bg-primary/10 rounded-xl flex items-center justify-center border border-primary/20">
+              <UserPlus className="size-5 text-primary" />
+            </div>
+            <div>
+              <h2 className="text-lg font-bold text-foreground">People You May Know</h2>
+              <p className="text-[11px] text-muted-foreground font-medium uppercase tracking-wider">Suggested for you</p>
+            </div>
           </div>
         </div>
 
         {isLoadingSuggestions ? (
-          <div className="flex justify-center p-12"><Loader2 className="h-8 w-8 animate-spin text-primary/40" /></div>
+          <div className="flex justify-center py-20"><Loader2 className="h-8 w-8 animate-spin text-primary/30" /></div>
         ) : suggestions.length === 0 ? (
-          <div className="p-20 text-center border border-dashed border-border/20 rounded-4xl bg-card/5 flex flex-col items-center">
-            <Users2 className="size-12 text-muted-foreground/10 mb-6" />
-            <h4 className="text-lg font-bold text-foreground/40">No suggestions available</h4>
-            <p className="text-[11px] mt-2 text-muted-foreground/30 max-w-sm font-bold tracking-tight leading-relaxed">The connection registry is currently empty.</p>
+          <div className="py-20 text-center flex flex-col items-center">
+            <Users2 className="size-12 text-muted-foreground/20 mb-4" />
+            <p className="text-sm font-bold text-muted-foreground/40">No suggestions yet</p>
           </div>
         ) : (
-          <ScrollContainer className="px-4 pb-8">
-            <div className="flex gap-5">
-              {suggestions.map((user: UserSuggestion) => (
-                <div key={user.id} className="min-w-[240px] max-w-[240px]">
-                  <FriendCard user={user} mode="suggestion" />
-                </div>
-              ))}
-            </div>
-          </ScrollContainer>
+          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-2 md:gap-4 md:p-4 px-3">
+            {suggestions.map((user: UserSuggestion) => (
+              <FriendCard 
+                key={user.id} 
+                user={user} 
+                mode="suggestion" 
+                className="md:rounded-2xl border-0 md:border border-border/10 shadow-none hover:shadow-md transition-all h-full"
+              />
+            ))}
+          </div>
         )}
       </section>
 

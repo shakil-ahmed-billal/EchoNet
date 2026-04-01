@@ -35,9 +35,9 @@ export default function MainLayout({
   return (
     <div className="flex min-h-screen flex-col bg-background/50">
       <SiteHeader />
-      <div className="flex-1 w-full  sm:px-4 lg:px-8">
+      <div className="flex-1 w-full px-0 sm:px-6 lg:px-8 max-w-[1600px] mx-auto">
         <div className={cn(
-          "grid gap-8 w-full h-full",
+          "grid gap-6 lg:gap-8 w-full h-full",
           hideRightSidebar 
             ? "grid-cols-1 lg:grid-cols-[280px_1fr] xl:grid-cols-[300px_1fr]" 
             : "grid-cols-1 lg:grid-cols-[280px_1fr] xl:grid-cols-[260px_1fr_320px] 2xl:grid-cols-[280px_1fr_340px] xl:justify-between"
@@ -45,7 +45,7 @@ export default function MainLayout({
           <div className="hidden lg:block h-full">
             <LeftSidebar />
           </div>
-          <main className="flex flex-col min-w-0 gap-6 w-full pt-8">
+          <main className="flex flex-col min-w-0 gap-6 w-full md:pt-8 pb-20 md:pb-8">
             {children}
           </main>
           {!hideRightSidebar && (

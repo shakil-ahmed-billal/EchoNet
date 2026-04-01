@@ -110,12 +110,13 @@ export default function ProfilePage() {
   const educationDisplay = Array.isArray(profile.education) ? profile.education[0] : profile.education;
 
   return (
-    <div className="flex flex-col gap-6 w-full pb-20">
+    <div className="flex flex-col gap-4 md:gap-6 max-w-4xl mx-auto w-full pb-20 animate-in fade-in slide-in-from-bottom-2 duration-500">
+      
       {/* Profile Header Section */}
-      <div className="bg-card rounded-3xl border border-border/50 overflow-hidden flex flex-col shadow-sm">
+      <div className="bg-card/60 backdrop-blur-sm md:rounded-2xl border border-border/20 overflow-hidden flex flex-col shadow-sm">
         {/* Cover Area */}
-        <div className="h-48 w-full bg-linear-to-br from-muted/50 via-muted/30 to-muted/50 relative">
-          {profile.coverPhotoUrl && getOptimizedImageUrl(profile.coverPhotoUrl) && (
+        <div className="h-40 md:h-48 w-full bg-muted/30 relative">
+          {profile.coverPhotoUrl && (
             <Image 
               src={getOptimizedImageUrl(profile.coverPhotoUrl, { width: 1200, height: 400 })} 
               alt="Cover" 
@@ -124,17 +125,17 @@ export default function ProfilePage() {
               className="object-cover"
             />
           )}
-          <div className="absolute -bottom-16 left-8 sm:left-12 rounded-full border-4 border-card bg-card shadow-sm z-10">
-            <UserImage user={profile} className="h-32 w-32 sm:h-36 sm:w-36" />
+          <div className="absolute -bottom-14 left-4 md:left-8 rounded-full border-4 border-card bg-card shadow-sm z-10">
+            <UserImage user={profile} className="h-28 w-28 md:h-36 md:w-36" />
           </div>
         </div>
 
         {/* Info Area */}
-        <div className="pt-20 px-8 sm:px-12 pb-8 flex flex-col">
-          <div className="flex flex-col md:flex-row justify-between items-start gap-6">
-            <div className="flex flex-col gap-1 flex-1">
+        <div className="pt-16 md:pt-20 px-4 md:px-8 pb-6 md:pb-8 flex flex-col">
+          <div className="flex flex-col md:flex-row justify-between items-start gap-4">
+            <div className="flex flex-col gap-0.5">
               <div className="flex items-center gap-2">
-                <h1 className="text-2xl font-bold tracking-tight text-foreground">
+                <h1 className="text-xl md:text-2xl font-bold text-foreground">
                   {profile.name}
                 </h1>
                 {profile.role === "ADMIN" && (
@@ -147,21 +148,16 @@ export default function ProfilePage() {
                     <BadgeCheck className="size-3" /> Friends
                   </div>
                 )}
-                {profile.isPrivate && (
-                  <div className="px-2 py-0.5 rounded-full bg-muted text-muted-foreground text-[10px] font-bold border border-border flex items-center gap-1">
-                    <Shield className="size-3" /> Private
-                  </div>
-                )}
               </div>
-              <p className="text-sm text-muted-foreground/60 font-bold">
+              <p className="text-xs text-muted-foreground font-bold">
                 @{profile.name.toLowerCase().replace(/\s+/g, "")}
               </p>
             </div>
 
-            <div className="flex gap-3 w-full md:w-auto">
+            <div className="flex gap-2 w-full md:w-auto">
               {isSelf ? (
                 <EditProfileDialog user={profile}>
-                  <Button className="rounded-xl px-8 font-semibold text-sm shadow-sm flex-1 md:flex-none">
+                  <Button className="rounded-xl px-6 h-10 font-bold text-sm shadow-sm flex-1 md:flex-none">
                     Edit Profile
                   </Button>
                 </EditProfileDialog>
@@ -175,7 +171,7 @@ export default function ProfilePage() {
                   <Link href={`/messages?userId=${profile.id}`} className="md:flex-none">
                     <Button
                       variant="outline"
-                      className="rounded-xl h-10 w-10 p-0 hover:bg-muted/50 transition-all border-border/50"
+                      className="rounded-xl h-10 w-10 p-0 hover:bg-muted/50 border-border/20"
                     >
                       <MessageSquare className="size-5" />
                     </Button>
@@ -185,11 +181,11 @@ export default function ProfilePage() {
             </div>
           </div>
 
-          <p className="mt-6 text-sm max-w-2xl text-foreground/80 leading-relaxed font-normal">
+          <p className="mt-4 text-sm text-foreground/80 leading-relaxed max-w-2xl">
             {profile.bio || "No bio yet."}
           </p>
 
-          <div className="flex flex-wrap gap-x-6 gap-y-2 mt-6 text-[10px] text-muted-foreground font-bold">
+          <div className="flex flex-wrap gap-x-4 gap-y-2 mt-4 text-[10px] text-muted-foreground font-bold">
             {profile.location && (
               <div className="flex items-center gap-1.5">
                 <MapPin className="size-3.5 opacity-70" />
@@ -222,24 +218,24 @@ export default function ProfilePage() {
             </div>
           </div>
 
-          <div className="flex gap-8 mt-8">
-            <div className="flex items-baseline gap-2">
-              <span className="text-xl font-bold text-foreground">
+          <div className="flex gap-6 mt-6 md:mt-8">
+            <div className="flex items-baseline gap-1.5">
+              <span className="text-lg md:text-xl font-bold text-foreground">
                 {profile._count.posts}
               </span>
-              <span className="text-[11px] font-bold text-muted-foreground/50">Posts</span>
+              <span className="text-[10px] font-bold text-muted-foreground/50 uppercase tracking-wider">Posts</span>
             </div>
-            <div className="flex items-baseline gap-2">
-              <span className="text-xl font-bold text-foreground">
+            <div className="flex items-baseline gap-1.5">
+              <span className="text-lg md:text-xl font-bold text-foreground">
                 {profile._count.followers}
               </span>
-              <span className="text-[11px] font-bold text-muted-foreground/50">Followers</span>
+              <span className="text-[10px] font-bold text-muted-foreground/50 uppercase tracking-wider">Followers</span>
             </div>
-            <div className="flex items-baseline gap-2">
-              <span className="text-xl font-bold text-foreground">
+            <div className="flex items-baseline gap-1.5">
+              <span className="text-lg md:text-xl font-bold text-foreground">
                 {profile._count.following}
               </span>
-              <span className="text-[11px] font-bold text-muted-foreground/50">Following</span>
+              <span className="text-[10px] font-bold text-muted-foreground/50 uppercase tracking-wider">Following</span>
             </div>
           </div>
         </div>
@@ -248,7 +244,7 @@ export default function ProfilePage() {
       {/* Tabs Content Area */}
       {isSelf || !profile.isPrivate || profile.isFriend || profile.isFollowing ? (
         <Tabs defaultValue="posts" className="w-full">
-          <TabsList className="w-full h-12 bg-muted/40 p-1 rounded-2xl border border-border/50 mb-6 flex overflow-hidden">
+          <TabsList className="w-full h-12 bg-card/60 backdrop-blur-sm p-1 md:rounded-2xl border border-border/20 mb-6 flex overflow-x-auto scrollbar-hide">
             <TabsTrigger
               value="posts"
               className="flex-1 rounded-xl data-[state=active]:bg-card data-[state=active]:text-foreground data-[state=active]:shadow-sm py-2 text-sm font-semibold transition-all"

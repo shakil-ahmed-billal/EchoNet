@@ -8,6 +8,7 @@ import { formatDistanceToNow } from "date-fns"
 import { useMutation, useQueryClient } from "@tanstack/react-query"
 import { acceptUser, unfollowUser } from "@/services/follow.service"
 import { toast } from "sonner"
+import { cn } from "@/lib/utils"
 
 const iconMap = {
   LIKE: { icon: Heart, color: "text-rose-500", bgColor: "bg-rose-500/10" },
@@ -48,25 +49,16 @@ export function NotificationsList() {
     },
   });
 
-  if (isLoading) {
-    return (
-      <div className="flex flex-col items-center justify-center p-20 gap-4">
-        <Loader2 className="h-8 w-8 animate-spin text-primary" />
-        <p className="text-[10px] font-medium text-muted-foreground">Syncing Intel...</p>
-      </div>
-    )
-  }
+      <div className="flex justify-center py-20"><Loader2 className="h-8 w-8 animate-spin text-primary/30" /></div>
 
   if (isError) {
     const isActuallyError = !notifications; // Fallback to check if it's truly an error or just empty
     if (isActuallyError) {
       return (
-        <div className="p-12 text-center text-muted-foreground border border-dashed border-edge rounded-2xl bg-muted/5">
-          <div className="size-16 rounded-full bg-muted/20 flex items-center justify-center mx-auto mb-4">
-             <ShieldAlert className="size-8 text-destructive/20" />
-          </div>
-          <p className="text-sm font-semibold">Connection Failure</p>
-          <p className="text-xs mt-1">Unable to retrieve system notifications.</p>
+        <div className="md:rounded-2xl border-none md:border border-border/20 bg-card/40 p-12 text-center flex flex-col items-center">
+          <ShieldAlert className="size-12 text-destructive/20 mb-4" />
+          <p className="text-sm font-bold text-foreground/40">Offline Mode</p>
+          <p className="text-xs mt-1 text-muted-foreground/30 font-bold">Unable to retrieve system notifications.</p>
         </div>
       )
     }
@@ -74,12 +66,9 @@ export function NotificationsList() {
 
   if (!notifications?.length) {
     return (
-      <div className="p-12 text-center text-muted-foreground border border-dashed border-edge rounded-2xl bg-muted/5">
-        <div className="size-16 rounded-full bg-muted/20 flex items-center justify-center mx-auto mb-4">
-           <MessageCircle className="size-8 text-muted-foreground/20" />
-        </div>
-        <p className="text-sm font-semibold">Zero Intel</p>
-        <p className="text-xs mt-1 text-muted-foreground/60 leading-relaxed">Your neural-link is clear.<br/>No pending notifications detected at this time.</p>
+      <div className="md:rounded-2xl border-none md:border border-border/20 bg-card/60 backdrop-blur-sm p-20 text-center flex flex-col items-center">
+        <MessageCircle className="size-12 text-muted-foreground/20 mb-4" />
+        <p className="text-sm font-bold text-muted-foreground/40">No new notifications</p>
       </div>
     )
   }
@@ -93,11 +82,10 @@ export function NotificationsList() {
         return (
           <div 
             key={notif.id} 
-            className={`flex items-start gap-4 p-5 rounded-2xl border transition-all duration-300 group cursor-pointer hover:translate-x-1 ${
-              notif.isRead 
-                ? "bg-card border-edge text-card-foreground hover:border-primary/20" 
-                : "bg-primary/5 border-primary/20 shadow-sm"
-            }`}
+            className={cn(
+              "flex items-start gap-4 p-4 md:p-5 transition-all duration-300 group cursor-pointer md:rounded-2xl border-b md:border border-border/20",
+              !notif.isRead ? "bg-primary/5 text-foreground" : "bg-card text-muted-foreground"
+            )}
             onClick={() => !notif.isRead && markAsRead(notif.id)}
           >
             <div className="relative shrink-0">

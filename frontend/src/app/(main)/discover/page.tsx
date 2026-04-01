@@ -8,7 +8,7 @@ export const metadata: Metadata = {
 
 export default function DiscoverPage() {
   return (
-    <div className="flex flex-col gap-6 max-w-4xl mx-auto w-full">
+    <div className="flex flex-col gap-4 md:gap-6 max-w-4xl mx-auto w-full">
       <PostList discover={true} />
     </div>
   )

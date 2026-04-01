@@ -78,7 +78,7 @@ export function CreatePost() {
   };
 
   return (
-    <Card className="bg-card border-border/40 shadow-sm rounded-2xl overflow-hidden mb-8 transition-all hover:bg-card/60">
+    <Card className="bg-card border-border/40 shadow-sm md:rounded-2xl overflow-hidden md:mb-8 transition-all hover:bg-card/60">
       <CardContent className="p-4 sm:p-5 flex flex-col gap-4">
         <div className="flex items-center gap-4">
           <Avatar className="h-11 w-11 border-2 border-primary/10 shadow-inner">
@@ -190,24 +190,24 @@ export function CreatePost() {
         
         <div className="h-px bg-border/20 w-full" />
         
-        <div className="flex items-center justify-between px-2">
+        <div className="flex items-center justify-between">
            <button className="flex items-center gap-2.5 py-2 px-3 hover:bg-muted/60 transition-all rounded-xl group">
              <div className="p-2 bg-red-500/10 rounded-full group-hover:bg-red-500/20 transition-colors">
                 <Video className="h-4.5 w-4.5 text-red-500" />
              </div>
-             <span className="text-xs font-semibold text-muted-foreground group-hover:text-foreground">Live video</span>
+             <span className="md:text-xs font-semibold text-muted-foreground group-hover:text-foreground text-[10px]">Live video</span>
            </button>
            <button className="flex items-center gap-2.5 py-2 px-3 hover:bg-muted/60 transition-all rounded-xl group">
              <div className="p-2 bg-green-500/10 rounded-full group-hover:bg-green-500/20 transition-colors">
                 <ImageIcon className="h-4.5 w-4.5 text-green-500" />
              </div>
-             <span className="text-xs font-semibold text-muted-foreground group-hover:text-foreground">Photo/video</span>
+             <span className="md:text-xs font-semibold text-muted-foreground group-hover:text-foreground text-[10px]">Photo/video</span>
            </button>
            <button className="flex items-center gap-2.5 py-2 px-3 hover:bg-muted/60 transition-all rounded-xl group">
              <div className="p-2 bg-yellow-500/10 rounded-full group-hover:bg-yellow-500/20 transition-colors">
                 <Smile className="h-4.5 w-4.5 text-yellow-500" />
              </div>
-             <span className="text-xs font-semibold text-muted-foreground group-hover:text-foreground">Feeling/activity</span>
+             <span className="md:text-xs font-semibold text-muted-foreground group-hover:text-foreground text-[10px]">Feeling/activity</span>
            </button>
         </div>
       </CardContent>

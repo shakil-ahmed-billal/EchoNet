@@ -3453,3 +3453,77 @@ Invalid value for argument `status`. Expected PostStatus.
 2026-04-01 04:52:36 [[32minfo[39m]: User MSMPvvgf6VjmYLI06Mmn0GtZvAOZkUEz joined their private room
 2026-04-01 04:52:56 [[32minfo[39m]: Socket disconnected: rZLUpUKamAJkzqi9AAAH
 2026-04-01 04:57:34 [[32minfo[39m]: Backend: call-user from q3bFFDpO0HO6E7HiQzJ3M2tXsTuSzyBS to MSMPvvgf6VjmYLI06Mmn0GtZvAOZkUEz
+2026-04-01 05:06:47 [[32minfo[39m]: User MSMPvvgf6VjmYLI06Mmn0GtZvAOZkUEz joined their private room
+2026-04-01 05:07:24 [[32minfo[39m]: Backend: call-user from MSMPvvgf6VjmYLI06Mmn0GtZvAOZkUEz to q3bFFDpO0HO6E7HiQzJ3M2tXsTuSzyBS
+2026-04-01 05:14:18 [[32minfo[39m]: Socket disconnected: gTRiwrIi0mhhA2fvAAAJ
+2026-04-01 05:15:29 [[32minfo[39m]: Socket disconnected: Wbbha3eufHwb3ZZiAAAF
+2026-04-01 05:15:47 [[32minfo[39m]: User q3bFFDpO0HO6E7HiQzJ3M2tXsTuSzyBS joined their private room
+2026-04-01 05:16:02 [[32minfo[39m]: User MSMPvvgf6VjmYLI06Mmn0GtZvAOZkUEz joined their private room
+2026-04-01 05:19:13 [[32minfo[39m]: Socket disconnected: Ykb209v2TPK7_iV3AAAN
+2026-04-01 05:19:15 [[32minfo[39m]: User MSMPvvgf6VjmYLI06Mmn0GtZvAOZkUEz joined their private room
+2026-04-01 05:20:05 [[32minfo[39m]: Socket disconnected: 7IMyPJcRnfYYh5ltAAAP
+2026-04-01 05:23:45 [[32minfo[39m]: Socket disconnected: 5HnyhwKqhmoNMVFfAAAL
+2026-04-01 05:23:51 [[32minfo[39m]: User q3bFFDpO0HO6E7HiQzJ3M2tXsTuSzyBS joined their private room
+2026-04-01 05:23:56 [[32minfo[39m]: User q3bFFDpO0HO6E7HiQzJ3M2tXsTuSzyBS joined their private room
+2026-04-01 05:23:57 [[32minfo[39m]: User MSMPvvgf6VjmYLI06Mmn0GtZvAOZkUEz joined their private room
+2026-04-01 05:24:36 [[32minfo[39m]: Socket disconnected: tWDEMgf-5x7HrYrdAAAS
+2026-04-01 05:29:42 [[32minfo[39m]: Socket disconnected: veMFHbLn3aWQntgpAAAW
+2026-04-01 05:29:44 [[32minfo[39m]: User MSMPvvgf6VjmYLI06Mmn0GtZvAOZkUEz joined their private room
+2026-04-01 05:36:54 [[31merror[39m]: Error: Store not found
+    at Object.getStoreOrders (C:\Shakil dev\EchoNet\backend\src\app\module\order\order.service.ts:112:21)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async <anonymous> (C:\Shakil dev\EchoNet\backend\src\app\module\order\order.controller.ts:30:18)
+    at async <anonymous> (C:\Shakil dev\EchoNet\backend\src\app\utils\catchAsync.ts:6:7)
+2026-04-01 05:36:55 [[31merror[39m]: Error: Store not found
+    at Object.getStoreOrders (C:\Shakil dev\EchoNet\backend\src\app\module\order\order.service.ts:112:21)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async <anonymous> (C:\Shakil dev\EchoNet\backend\src\app\module\order\order.controller.ts:30:18)
+    at async <anonymous> (C:\Shakil dev\EchoNet\backend\src\app\utils\catchAsync.ts:6:7)
+2026-04-01 05:36:57 [[31merror[39m]: Error: Store not found
+    at Object.getStoreOrders (C:\Shakil dev\EchoNet\backend\src\app\module\order\order.service.ts:112:21)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async <anonymous> (C:\Shakil dev\EchoNet\backend\src\app\module\order\order.controller.ts:30:18)
+    at async <anonymous> (C:\Shakil dev\EchoNet\backend\src\app\utils\catchAsync.ts:6:7)
+2026-04-01 05:37:01 [[31merror[39m]: Error: Store not found
+    at Object.getStoreOrders (C:\Shakil dev\EchoNet\backend\src\app\module\order\order.service.ts:112:21)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async <anonymous> (C:\Shakil dev\EchoNet\backend\src\app\module\order\order.controller.ts:30:18)
+    at async <anonymous> (C:\Shakil dev\EchoNet\backend\src\app\utils\catchAsync.ts:6:7)
+2026-04-01 05:38:35 [[31merror[39m]: Error: Store not found
+    at Object.getStoreOrders (C:\Shakil dev\EchoNet\backend\src\app\module\order\order.service.ts:112:21)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async <anonymous> (C:\Shakil dev\EchoNet\backend\src\app\module\order\order.controller.ts:30:18)
+    at async <anonymous> (C:\Shakil dev\EchoNet\backend\src\app\utils\catchAsync.ts:6:7)
+2026-04-01 05:38:36 [[31merror[39m]: Error: Store not found
+    at Object.getStoreOrders (C:\Shakil dev\EchoNet\backend\src\app\module\order\order.service.ts:112:21)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async <anonymous> (C:\Shakil dev\EchoNet\backend\src\app\module\order\order.controller.ts:30:18)
+    at async <anonymous> (C:\Shakil dev\EchoNet\backend\src\app\utils\catchAsync.ts:6:7)
+2026-04-01 05:38:38 [[31merror[39m]: Error: Store not found
+    at Object.getStoreOrders (C:\Shakil dev\EchoNet\backend\src\app\module\order\order.service.ts:112:21)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async <anonymous> (C:\Shakil dev\EchoNet\backend\src\app\module\order\order.controller.ts:30:18)
+    at async <anonymous> (C:\Shakil dev\EchoNet\backend\src\app\utils\catchAsync.ts:6:7)
+2026-04-01 05:38:42 [[31merror[39m]: Error: Store not found
+    at Object.getStoreOrders (C:\Shakil dev\EchoNet\backend\src\app\module\order\order.service.ts:112:21)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async <anonymous> (C:\Shakil dev\EchoNet\backend\src\app\module\order\order.controller.ts:30:18)
+    at async <anonymous> (C:\Shakil dev\EchoNet\backend\src\app\utils\catchAsync.ts:6:7)
+2026-04-01 06:08:29 [[32minfo[39m]: Socket disconnected: mkwvyVO8SUyhzywpAAAV
+2026-04-01 06:11:04 [[32minfo[39m]: Socket disconnected: swH2RAgqonDtBp97AAAZ
+2026-04-01 06:11:08 [[32minfo[39m]: User MSMPvvgf6VjmYLI06Mmn0GtZvAOZkUEz joined their private room
+2026-04-01 06:19:52 [[32minfo[39m]: Socket disconnected: d5sS4LRP4v97h-93AAAb
+2026-04-01 06:19:54 [[32minfo[39m]: User MSMPvvgf6VjmYLI06Mmn0GtZvAOZkUEz joined their private room
+2026-04-01 06:22:46 [[32minfo[39m]: Socket disconnected: d4-IYqucJdUmTvbuAAAd
+2026-04-01 06:22:50 [[32minfo[39m]: User MSMPvvgf6VjmYLI06Mmn0GtZvAOZkUEz joined their private room
+2026-04-01 06:24:26 [[32minfo[39m]: Socket disconnected: ieJQXi833WMS43QdAAAf
+2026-04-01 06:26:24 [[32minfo[39m]: User MSMPvvgf6VjmYLI06Mmn0GtZvAOZkUEz joined their private room
+2026-04-01 06:27:05 [[32minfo[39m]: Socket disconnected: 66JAC-PyT2LojqMOAAAi
+2026-04-01 06:27:27 [[31merror[39m]: Error: You are not authorized
+    at <anonymous> (C:\Shakil dev\EchoNet\backend\src\app\middleware\auth.ts:38:15)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+2026-04-01 06:27:27 [[31merror[39m]: Error: Invalid session token
+    at Object.getNewToken (C:\Shakil dev\EchoNet\backend\src\app\module\auth\auth.service.ts:216:11)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async <anonymous> (C:\Shakil dev\EchoNet\backend\src\app\module\auth\auth.controller.ts:214:18)
+    at async <anonymous> (C:\Shakil dev\EchoNet\backend\src\app\utils\catchAsync.ts:6:7)

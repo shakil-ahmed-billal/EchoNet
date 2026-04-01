@@ -9,15 +9,25 @@ export const metadata: Metadata = {
 
 export default function NotificationsPage() {
   return (
-    <div className="flex flex-col gap-8 max-w-4xl mx-auto w-full px-4">
-      <div className="flex items-center justify-between border-b border-edge pb-6">
-        <div className="flex flex-col gap-1">
-          <h1 className="text-3xl font-bold tracking-tight text-foreground">Notifications</h1>
-          <p className="text-sm text-muted-foreground">Stay updated with your EchoNet activity</p>
+    <div className="flex flex-col gap-4 md:gap-6 max-w-4xl mx-auto w-full pb-20 animate-in fade-in slide-in-from-bottom-2 duration-500">
+      
+      {/* Header Card */}
+      <div className="bg-card/60 backdrop-blur-sm md:rounded-2xl border border-border/20 shadow-sm p-4 md:p-6 flex flex-col gap-6">
+        <div className="flex items-center justify-between">
+          <div>
+            <h1 className="text-2xl font-bold text-foreground tracking-tight">Notifications</h1>
+            <p className="text-sm text-muted-foreground font-medium">Stay updated with your latest activity</p>
+          </div>
+          <Button variant="outline" size="sm" className="hidden sm:flex rounded-xl px-4 h-10 border-border/40 hover:bg-muted/50 text-xs font-bold">
+             Mark all as read
+          </Button>
         </div>
-        <Button variant="outline" size="sm" className="rounded-xl px-6 h-10 border-edge hover:bg-muted/50">
-           Mark all as read
-        </Button>
+        
+        <div className="sm:hidden w-full">
+          <Button variant="outline" size="sm" className="w-full rounded-xl h-11 border-border/40 hover:bg-muted/50 text-xs font-bold">
+             Mark all as read
+          </Button>
+        </div>
       </div>
       
       <NotificationsList />

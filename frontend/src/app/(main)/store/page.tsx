@@ -7,7 +7,7 @@ import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card"
 import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
-import { Store as StoreIcon, Package, ShoppingCart, Users, Plus, LayoutDashboard, Settings, Edit, Trash2 } from "lucide-react"
+import { Store as StoreIcon, Package, ShoppingCart, Users, Plus, LayoutDashboard, Settings, Edit, Trash2, Loader2 } from "lucide-react"
 import { useState } from "react"
 import Link from "next/link"
 import { Skeleton } from "@/components/ui/skeleton"
@@ -103,119 +103,125 @@ export default function StoreDashboardPage() {
   }
 
   return (
-    <div className="flex flex-col gap-8">
-      <div className="flex flex-col sm:flex-row sm:items-center gap-4">
+    <div className="flex flex-col gap-4 md:gap-6 max-w-4xl mx-auto w-full pb-20 animate-in fade-in slide-in-from-bottom-2 duration-500">
+      
+      {/* Header Card */}
+      <div className="bg-card/60 backdrop-blur-sm md:rounded-2xl border border-border/20 shadow-sm p-4 md:p-6 flex flex-col gap-6">
         <div className="flex items-center gap-4">
-            <div className="w-16 h-16 bg-primary/10 rounded-2xl flex items-center justify-center text-primary">
-                {store?.logoUrl ? (
-                    <img src={store.logoUrl} className="w-full h-full rounded-2xl object-cover" />
-                ) : (
-                    <StoreIcon className="w-8 h-8" />
-                )}
-            </div>
-            <div>
-                <h1 className="text-2xl font-bold tracking-tight">{store?.name}</h1>
-                <p className="text-sm text-muted-foreground">Store Owner Dashboard</p>
-            </div>
-        </div>
-        <div className="flex gap-2 sm:ml-auto">
-            <Button variant="outline" className="rounded-xl gap-2">
-                <Link href={`/store/${store?.id}`} className="flex items-center gap-2">
-                    <LayoutDashboard className="w-4 h-4" />
-                    Preview Store
-                </Link>
+          <div className="size-12 bg-primary/10 rounded-xl flex items-center justify-center border border-primary/20 overflow-hidden shrink-0">
+            {store?.logoUrl ? (
+              <img src={store.logoUrl} className="size-full object-cover" />
+            ) : (
+              <StoreIcon className="size-6 text-primary" />
+            )}
+          </div>
+          <div className="flex-1 min-w-0">
+            <h1 className="text-xl md:text-2xl font-bold text-foreground truncate">{store?.name}</h1>
+            <p className="text-sm text-muted-foreground font-medium">Store Dashboard</p>
+          </div>
+          <div className="ml-auto hidden md:flex items-center gap-2">
+            <Link href={`/store/${store?.id}`}>
+              <Button variant="outline" className="rounded-xl h-10 px-4 font-bold border-border/20 text-xs">
+                 Preview
+              </Button>
+            </Link>
+            <Button className="rounded-xl h-10 px-4 font-bold shadow-md shadow-primary/20 text-xs">
+               Settings
             </Button>
-            <Button className="rounded-xl gap-2">
-                <Settings className="w-4 h-4" />
-                Settings
+          </div>
+        </div>
+        
+        <div className="md:hidden grid grid-cols-2 gap-2">
+            <Link href={`/store/${store?.id}`}>
+              <Button variant="outline" className="w-full rounded-xl h-10 font-bold border-border/20 text-xs">
+                 Preview
+              </Button>
+            </Link>
+            <Button className="w-full rounded-xl h-10 font-bold shadow-md shadow-primary/20 text-xs">
+               Settings
             </Button>
         </div>
       </div>
 
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+      <div className="grid grid-cols-2 md:grid-cols-4 gap-2 md:gap-4">
         <StatCard 
             title="Followers" 
             value={store?._count?.followers || 0} 
-            icon={<Users className="w-5 h-5" />} 
-            color="bg-blue-500/10 text-blue-500"
+            icon={<Users className="size-4" />} 
+            color="bg-primary/10 text-primary"
         />
         <StatCard 
             title="Products" 
             value={store?._count?.products || 0} 
-            icon={<Package className="w-5 h-5" />} 
-            color="bg-purple-500/10 text-purple-500"
+            icon={<Package className="size-4" />} 
+            color="bg-primary/10 text-primary"
         />
         <StatCard 
-            title="Total Orders" 
+            title="Orders" 
             value={storeOrders?.length || 0} 
-            icon={<ShoppingCart className="w-5 h-5" />} 
-            color="bg-green-500/10 text-green-500"
+            icon={<ShoppingCart className="size-4" />} 
+            color="bg-primary/10 text-primary"
         />
         <StatCard 
-            title="Total Revenue" 
-            value={`$${Number(storeOrders?.reduce((acc: number, o: any) => acc + (Number(o.totalAmount) || 0), 0) || 0).toFixed(2)}`} 
-            icon={<StoreIcon className="w-5 h-5" />} 
-            color="bg-yellow-500/10 text-yellow-500"
+            title="Revenue" 
+            value={`$${Number(storeOrders?.reduce((acc: number, o: any) => acc + (Number(o.totalAmount) || 0), 0) || 0).toFixed(0)}`} 
+            icon={<StoreIcon className="size-4" />} 
+            color="bg-primary/10 text-primary"
         />
       </div>
 
-      <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-        <Card className="lg:col-span-2 bg-card/40 backdrop-blur-sm border-border/20 rounded-3xl overflow-hidden shadow-sm py-5">
-            <CardHeader className="flex flex-row items-center justify-between">
+      <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 md:gap-6">
+        <Card className="lg:col-span-2 bg-card/60 backdrop-blur-sm border-border/20 shadow-sm md:rounded-2xl overflow-hidden p-0">
+            <CardHeader className="p-4 md:p-6 flex flex-row items-center justify-between">
                 <div>
-                    <CardTitle>My Inventory</CardTitle>
-                    <CardDescription>Manage your listed products</CardDescription>
+                    <CardTitle className="text-lg font-bold">Inventory</CardTitle>
+                    <CardDescription className="text-xs">Manage your products</CardDescription>
                 </div>
-                <Button className="rounded-xl gap-2" size="sm" onClick={() => setIsAddProductOpen(true)}>
-                    <Plus className="w-4 h-4" />
+                <Button className="rounded-xl h-9 px-4 text-xs font-bold shadow-md shadow-primary/20" onClick={() => setIsAddProductOpen(true)}>
+                    <Plus className="size-4 mr-1.5" />
                     Add Product
                 </Button>
             </CardHeader>
-            <CardContent>
+            <CardContent className="p-0">
                 {isLoadingProducts ? (
-                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                        <Skeleton className="h-48 rounded-2xl" />
-                        <Skeleton className="h-48 rounded-2xl" />
-                    </div>
+                    <div className="p-10 flex justify-center"><Loader2 className="size-8 animate-spin text-primary/30" /></div>
                 ) : (myProducts?.data?.length ?? 0) > 0 ? (
                     <div className="overflow-x-auto">
                         <table className="w-full text-sm text-left">
-                            <thead className="text-xs text-muted-foreground bg-muted/50">
+                            <thead className="text-[10px] text-muted-foreground uppercase tracking-wider bg-muted/30 font-bold">
                                 <tr>
-                                    <th className="px-4 py-3 rounded-l-xl">Product Name</th>
-                                    <th className="px-4 py-3">Price</th>
-                                    <th className="px-4 py-3">Stock</th>
-                                    <th className="px-4 py-3">Status</th>
-                                    <th className="px-4 py-3 rounded-r-xl text-right">Actions</th>
+                                    <th className="px-5 py-3">Product</th>
+                                    <th className="px-5 py-3">Price</th>
+                                    <th className="px-5 py-3 hidden sm:table-cell">Stock</th>
+                                    <th className="px-5 py-3 text-right">Actions</th>
                                 </tr>
                             </thead>
-                            <tbody>
+                            <tbody className="divide-y divide-border/10">
                                 {myProducts.data.map((product: Product) => (
-                                    <tr key={product.id} className="border-b border-border/40 hover:bg-muted/30 transition-colors last:border-0">
-                                        <td className="px-4 py-3 font-medium flex items-center gap-3">
-                                            {product.images?.[0] ? (
-                                                <img src={product.images[0]} alt={product.title} className="w-10 h-10 rounded-lg object-cover" />
-                                            ) : (
-                                                <div className="w-10 h-10 bg-primary/10 rounded-lg flex items-center justify-center shrink-0">
-                                                    <Package className="w-5 h-5 text-primary/50" />
-                                                </div>
-                                            )}
-                                            <span className="line-clamp-1 min-w-[120px] max-w-[200px]">{product.title}</span>
+                                    <tr key={product.id} className="hover:bg-muted/20 transition-colors">
+                                        <td className="px-5 py-4">
+                                            <div className="flex items-center gap-3">
+                                              <div className="size-10 rounded-lg overflow-hidden border border-border/10 shrink-0">
+                                                  {product.images?.[0] ? (
+                                                      <img src={product.images[0]} alt={product.title} className="size-full object-cover" />
+                                                  ) : (
+                                                      <div className="size-full bg-muted flex items-center justify-center">
+                                                          <Package className="size-4 text-muted-foreground/30" />
+                                                      </div>
+                                                  )}
+                                              </div>
+                                              <span className="font-bold text-foreground truncate max-w-[150px]">{product.title}</span>
+                                            </div>
                                         </td>
-                                        <td className="px-4 py-3 font-semibold">${Number(product.price).toFixed(2)}</td>
-                                        <td className="px-4 py-3">{product.stock}</td>
-                                        <td className="px-4 py-3">
-                                            <span className={`text-[10px] font-bold px-2 py-0.5 rounded-full whitespace-nowrap ${product.status === 'ACTIVE' ? 'bg-green-500/20 text-green-500' : 'bg-yellow-500/20 text-yellow-500'}`}>
-                                                {product.status}
-                                            </span>
-                                        </td>
-                                        <td className="px-4 py-3 text-right">
+                                        <td className="px-5 py-4 font-bold text-primary">${Number(product.price).toLocaleString()}</td>
+                                        <td className="px-5 py-4 hidden sm:table-cell text-muted-foreground font-medium">{product.stock}</td>
+                                        <td className="px-5 py-4 text-right">
                                             <div className="flex items-center justify-end gap-1">
-                                                <Button variant="ghost" size="icon" className="h-8 w-8 text-blue-500 hover:text-blue-600 hover:bg-blue-500/10" onClick={() => handleEdit(product)}>
-                                                    <Edit className="w-4 h-4" />
+                                                <Button variant="ghost" size="icon" className="size-8 rounded-full hover:bg-primary/10 hover:text-primary" onClick={() => handleEdit(product)}>
+                                                    <Edit className="size-3.5" />
                                                 </Button>
-                                                <Button variant="ghost" size="icon" className="h-8 w-8 text-red-500 hover:text-red-600 hover:bg-red-500/10" onClick={() => handleDelete(product.id)}>
-                                                    <Trash2 className="w-4 h-4" />
+                                                <Button variant="ghost" size="icon" className="size-8 rounded-full hover:bg-destructive/10 hover:text-destructive" onClick={() => handleDelete(product.id)}>
+                                                    <Trash2 className="size-3.5" />
                                                 </Button>
                                             </div>
                                         </td>
@@ -225,52 +231,47 @@ export default function StoreDashboardPage() {
                         </table>
                     </div>
                 ) : (
-                    <div className="flex flex-col items-center justify-center py-10 opacity-50">
-                        <Package className="w-12 h-12 mb-2" />
-                        <p className="font-medium text-lg">No products yet</p>
-                        <p className="text-sm">You haven't added any products to your store.</p>
+                    <div className="flex flex-col items-center justify-center py-20 opacity-30">
+                        <Package className="size-12 mb-2" />
+                        <p className="font-bold">No products</p>
                     </div>
                 )}
             </CardContent>
         </Card>
 
-        <Card className="bg-card/40 backdrop-blur-sm border-border/20 rounded-3xl overflow-hidden shadow-sm flex flex-col py-5">
-            <CardHeader className="flex flex-row items-center justify-between pb-2">
-                <div>
-                    <CardTitle>Recent Orders</CardTitle>
-                    <CardDescription>Latest customer purchases</CardDescription>
-                </div>
-                <Link href="/store/orders">
-                    <Button variant="ghost" size="sm">View All</Button>
-                </Link>
-            </CardHeader>
-            <CardContent className="flex-1">
-                {isLoadingOrders ? (
-                    <div className="space-y-4">
-                        <Skeleton className="h-16 w-full rounded-2xl" />
-                        <Skeleton className="h-16 w-full rounded-2xl" />
+        <Card className="bg-card/60 backdrop-blur-sm border-border/20 md:rounded-2xl overflow-hidden shadow-sm flex flex-col p-0">
+            <CardHeader className="p-4 md:p-6 pb-2">
+                <div className="flex items-center justify-between">
+                    <div>
+                        <CardTitle className="text-lg font-bold">Recent Orders</CardTitle>
+                        <CardDescription className="text-xs">Latest activity</CardDescription>
                     </div>
+                    <Link href="/store/orders">
+                        <Button variant="ghost" size="sm" className="text-xs font-bold text-primary">View All</Button>
+                    </Link>
+                </div>
+            </CardHeader>
+            <CardContent className="p-4 pt-2">
+                {isLoadingOrders ? (
+                    <div className="p-6 flex justify-center"><Loader2 className="size-6 animate-spin text-primary/30" /></div>
                 ) : storeOrders && storeOrders.length > 0 ? (
-                    <div className="flex flex-col gap-3">
+                    <div className="flex flex-col gap-2">
                         {storeOrders.slice(0, 3).map((order: any) => (
-                            <Link href="/store/orders" key={order.id} className="p-3 bg-background/50 rounded-2xl border border-border/40 flex items-center justify-between hover:bg-background/80 transition-colors">
-                                <div>
-                                    <p className="font-semibold text-sm">{order.buyer?.name || 'Customer'}</p>
-                                    <p className="text-xs text-muted-foreground">{order.items.length} item(s)</p>
+                            <Link href="/store/orders" key={order.id} className="p-3 bg-muted/20 rounded-xl border border-border/10 flex items-center justify-between hover:bg-muted/40 transition-colors">
+                                <div className="min-w-0">
+                                    <p className="font-bold text-xs truncate">{order.buyer?.name || 'Customer'}</p>
+                                    <p className="text-[10px] text-muted-foreground">{order.items.length} item(s)</p>
                                 </div>
-                                <div className="text-right">
-                                    <p className="font-bold text-sm text-primary">${Number(order.totalAmount || 0).toFixed(2)}</p>
-                                    <span className={`text-[10px] font-bold px-2 py-0.5 rounded-full ${order.status === 'PENDING' ? 'bg-yellow-500/20 text-yellow-500' : 'bg-green-500/20 text-green-500'}`}>
-                                        {order.status}
-                                    </span>
+                                <div className="text-right shrink-0">
+                                    <p className="font-bold text-xs text-primary">${Number(order.totalAmount || 0).toLocaleString()}</p>
                                 </div>
                             </Link>
                         ))}
                     </div>
                 ) : (
-                    <div className="text-center py-6 opacity-40">
-                        <ShoppingCart className="w-8 h-8 mx-auto mb-2" />
-                        <p className="text-sm">No recent orders</p>
+                    <div className="text-center py-10 opacity-30">
+                        <ShoppingCart className="size-8 mx-auto mb-2" />
+                        <p className="text-xs font-bold">No orders</p>
                     </div>
                 )}
             </CardContent>
@@ -294,15 +295,15 @@ export default function StoreDashboardPage() {
 
 function StatCard({ title, value, icon, color }: { title: string; value: string | number; icon: React.ReactNode; color: string }) {
     return (
-        <Card className="bg-card/40 backdrop-blur-sm border-border/20 rounded-2xl shadow-sm p-0">
-            <CardContent className="p-6">
-                <div className="flex items-center gap-4">
-                    <div className={`p-3 rounded-xl ${color}`}>
+        <Card className="bg-card/60 backdrop-blur-sm border border-border/20 md:rounded-2xl shadow-sm p-0">
+            <CardContent className="p-4 md:p-6">
+                <div className="flex items-center gap-3">
+                    <div className={`p-2 rounded-lg shrink-0 ${color}`}>
                         {icon}
                     </div>
-                    <div>
-                        <p className="text-xs text-muted-foreground font-medium tracking-wider">{title}</p>
-                        <p className="text-2xl font-bold tracking-tight">{value}</p>
+                    <div className="min-w-0">
+                        <p className="text-[10px] text-muted-foreground font-bold uppercase tracking-wider truncate">{title}</p>
+                        <p className="text-lg md:text-xl font-bold tracking-tight text-foreground truncate">{value}</p>
                     </div>
                 </div>
             </CardContent>

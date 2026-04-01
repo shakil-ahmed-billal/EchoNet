@@ -13,7 +13,7 @@ import { useEffect } from "react"
 
 import { useMarkNotificationAsRead, useNotifications, useUnreadNotificationsCount } from "@/hooks/use-notifications"
 
-export function NotificationSheet() {
+export function NotificationSheet({ className, iconSize }: { className?: string, iconSize?: string }) {
   const queryClient = useQueryClient()
   const { data: notifications = [], isLoading } = useNotifications()
   const { data: unreadCount = 0 } = useUnreadNotificationsCount()
@@ -62,10 +62,10 @@ export function NotificationSheet() {
         <Button 
           variant="ghost" 
           size="icon" 
-          className="size-10 rounded-full relative hover:bg-muted/80 hover:text-foreground transition-all group"
+          className={cn("size-10 rounded-full relative hover:bg-muted/80 hover:text-foreground transition-all group", className)}
           onClick={requestPermission}
         >
-          <Bell className="size-5 transition-transform group-hover:scale-110" />
+          <Bell className={cn(iconSize || "size-5", "transition-transform group-hover:scale-110")} />
           {unreadCount > 0 && (
             <span className="absolute top-1.5 right-1.5 h-4 min-w-[16px] px-1 bg-red-500 text-white text-[10px] font-bold flex items-center justify-center rounded-full border-2 border-background shadow-sm">
               {unreadCount > 9 ? "9+" : unreadCount}

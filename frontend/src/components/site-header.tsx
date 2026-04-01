@@ -63,10 +63,10 @@ export function SiteHeader() {
           </div>
           <Link
             href="/"
-            className="flex items-center gap-2.5 transition-all hover:scale-105 active:scale-95 group"
+            className="flex items-center gap-2 transition-all hover:scale-105 active:scale-95 group"
           >
             <SiteMark
-            className="h-10 w-auto"
+              className="h-10 sm:h-11 w-auto"
             />
           </Link>
 
@@ -133,34 +133,31 @@ export function SiteHeader() {
             {isAuthenticated ? (
               <div className="flex items-center gap-1 sm:gap-4">
                 <div className="flex items-center gap-1">
-                  {/* Mobile Icons */}
+                  {/* Mobile Icons - Facebook style spacing */}
                   <Link href="/search" className="md:hidden">
                     <Button
                       variant="ghost"
                       size="icon"
-                      className="size-9 rounded-full text-muted-foreground hover:bg-muted/80 hover:text-foreground"
+                      className="size-10 rounded-full text-foreground hover:bg-muted/80 active:scale-90 transition-all"
                     >
-                      <Search className="size-5" />
+                      <Search className="size-[22px]" />
                     </Button>
                   </Link>
                   <Button
                     variant="ghost"
                     size="icon"
-                    className="md:hidden size-9 rounded-full text-muted-foreground hover:bg-muted/80 hover:text-foreground relative"
+                    className="md:hidden size-10 rounded-full text-foreground hover:bg-muted/80 active:scale-90 transition-all relative"
                     onClick={toggleDrawer}
                   >
-                    <Mail className="size-5" />
+                    <Mail className="size-[22px]" />
                     {totalUnread > 0 && (
-                      <span className="absolute -top-0.5 -right-0.5 min-w-[18px] h-[18px] rounded-full bg-red-500 text-white text-[9px] font-bold flex items-center justify-center px-1 ring-1 ring-background">
+                      <span className="absolute top-0.5 right-0.5 min-w-[18px] h-[18px] rounded-full bg-red-500 text-white text-[9px] font-bold flex items-center justify-center px-1 ring-2 ring-background">
                         {totalUnread > 99 ? "99+" : totalUnread}
                       </span>
                     )}
                   </Button>
                   <div className="md:hidden">
-                    <CartSheet />
-                  </div>
-                  <div className="md:hidden">
-                    <NotificationSheet />
+                    <NotificationSheet className="size-10 rounded-full text-foreground hover:bg-muted/80 active:scale-90 transition-all" iconSize="size-[22px]" />
                   </div>
 
                   <div className="hidden sm:flex items-center gap-1">

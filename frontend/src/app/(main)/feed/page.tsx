@@ -42,7 +42,7 @@ export default function FeedPage() {
   }
 
   return (
-    <div className="max-w-2xl mx-auto py-8 px-4 sm:px-0">
+    <div className="max-w-2xl mx-auto md:py-8 px-4 sm:px-0">
       <CreatePost />
 
       <div className="flex flex-col gap-1 ">

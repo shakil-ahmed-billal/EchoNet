@@ -60,7 +60,7 @@ export function UserRepliesList({ userId }: { userId: string }) {
 
               <Link href={`/post/${reply.post.id}`} className="block mt-4">
                 <div className="p-3 rounded-2xl bg-muted/30 border border-border/10 text-[10px] group-hover:bg-muted/50 transition-colors">
-                   <p className="text-muted-foreground font-black uppercase tracking-widest mb-1">Replying to</p>
+                   <p className="text-muted-foreground font-black mb-1">Replying to</p>
                    <p className="line-clamp-1 font-medium text-muted-foreground italic">
                      "{reply.post.content || "Media Post"}" 
                      <span className="not-italic text-foreground font-bold ml-1">— by {reply.post.author.name}</span>
