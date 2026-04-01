@@ -3527,3 +3527,18 @@ Invalid value for argument `status`. Expected PostStatus.
     at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
     at async <anonymous> (C:\Shakil dev\EchoNet\backend\src\app\module\auth\auth.controller.ts:214:18)
     at async <anonymous> (C:\Shakil dev\EchoNet\backend\src\app\utils\catchAsync.ts:6:7)
+2026-04-01 06:34:03 [[32minfo[39m]: User MSMPvvgf6VjmYLI06Mmn0GtZvAOZkUEz joined their private room
+2026-04-01 06:39:09 [[32minfo[39m]: Socket disconnected: vCIJaA5caMSYJsyhAAAk
+2026-04-01 06:39:37 [[32minfo[39m]: User MSMPvvgf6VjmYLI06Mmn0GtZvAOZkUEz joined their private room
+2026-04-01 06:40:25 [[32minfo[39m]: User q3bFFDpO0HO6E7HiQzJ3M2tXsTuSzyBS joined their private room
+2026-04-01 06:41:00 [[32minfo[39m]: Socket disconnected: TgH-g4j2DeqMgXg-AAAo
+2026-04-01 06:41:06 [[32minfo[39m]: User q3bFFDpO0HO6E7HiQzJ3M2tXsTuSzyBS joined their private room
+2026-04-01 06:41:18 [[32minfo[39m]: Socket disconnected: Xyt5Kbqg0mOTIvvOAAAq
+2026-04-01 06:41:22 [[32minfo[39m]: User q3bFFDpO0HO6E7HiQzJ3M2tXsTuSzyBS joined their private room
+2026-04-01 06:43:20 [[32minfo[39m]: Socket disconnected: if62SZDci9dE40m1AAAs
+2026-04-01 06:43:35 [[32minfo[39m]: User q3bFFDpO0HO6E7HiQzJ3M2tXsTuSzyBS joined their private room
+2026-04-01 06:44:37 [[32minfo[39m]: Socket disconnected: PPhgarb-WjhVNcCoAAAm
+2026-04-01 06:44:42 [[32minfo[39m]: User MSMPvvgf6VjmYLI06Mmn0GtZvAOZkUEz joined their private room
+2026-04-01 06:45:45 [[32minfo[39m]: Socket disconnected: eIN5AnsqVkOMmtIOAAAw
+2026-04-01 06:46:06 [[32minfo[39m]: User MSMPvvgf6VjmYLI06Mmn0GtZvAOZkUEz joined their private room
+2026-04-01 06:49:53 [[32minfo[39m]: Socket disconnected: ZCe92WgqAX-1ygxrAAAu
