@@ -1,4 +1,4 @@
-import { NextRequest, NextResponse } from "next/server";
+import { NextRequest } from "next/server";
 
 export type UserRole = "USER" | "ADMIN" | "MODERATOR" | "SUPER_ADMIN";
 
@@ -74,9 +74,9 @@ export function getDefaultDashboardRoute(role: UserRole | null): string {
   switch (role) {
     case "ADMIN":
     case "SUPER_ADMIN":
-      return "/admin";
+      return "/admin/dashboard";
     case "MODERATOR":
-      return "/moderator";
+      return "/moderator/dashboard";
     default:
       return "/";
   }

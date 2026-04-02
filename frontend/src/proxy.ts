@@ -4,8 +4,8 @@ import {
   getDefaultDashboardRoute,
   getRouteOwner,
   getSessionToken,
-  isAuthRoute,
   isAdminRoute,
+  isAuthRoute,
   isModeratorRoute,
   isTokenExpired,
   isTokenExpiringSoon,
@@ -19,12 +19,17 @@ const BASE_API_URL =
 
 async function refreshAccessToken(
   refreshToken: string,
+  request: NextRequest,
   response: NextResponse
 ): Promise<NextResponse | null> {
   try {
     const res = await fetch(`${BASE_API_URL}/auth/refresh-token`, {
       method: "POST",
-      headers: { "Content-Type": "application/json" },
+      headers: { 
+        "Content-Type": "application/json",
+        // Forward all original cookies (including better-auth session) to the backend
+        "Cookie": request.headers.get("cookie") || ""
+      },
       body: JSON.stringify({ refreshToken }),
     });
 
@@ -78,18 +83,21 @@ export async function proxy(request: NextRequest) {
     let userRole: UserRole | null = null;
     if (accessToken) {
       const payload = decodeJwtPayload(accessToken);
-      const raw = payload?.role as UserRole | undefined;
-      // Treat SUPER_ADMIN as ADMIN
-      userRole = raw === "SUPER_ADMIN" ? "ADMIN" : (raw ?? null);
+      const raw = (payload?.role as string | undefined)?.trim().toUpperCase();
+      // Allow mapping SUPER_ADMIN to ADMIN permissions
+      userRole = raw === "SUPER_ADMIN" ? "ADMIN" : (raw as UserRole ?? null);
     }
 
     const routeOwner = getRouteOwner(pathname);
 
     // ── Proactive token refresh ─────────────────────────────────────────────
-    // If access token is still valid but expiring soon, refresh in the background
-    if (isValidAccessToken && refreshToken && isTokenExpiringSoon(accessToken!)) {
-      const response = NextResponse.next();
-      const refreshed = await refreshAccessToken(refreshToken, response);
+    // If access token is missing, expired, or expiring soon, attempt a refresh if we have a refresh token
+    const needsRefresh = !isValidAccessToken || isTokenExpiringSoon(accessToken!);
+    if (needsRefresh && refreshToken) {
+      if (isAuthRoute(pathname)) return NextResponse.next();
+
+      const response = NextResponse.redirect(request.nextUrl); // Redirect to same URL to apply new cookies
+      const refreshed = await refreshAccessToken(refreshToken, request, response);
       if (refreshed) {
         refreshed.headers.set("x-token-refreshed", "1");
         return refreshed;
