@@ -96,7 +96,7 @@ export function EditProfileDialog({ user, children }: EditProfileDialogProps) {
         <form onSubmit={handleSubmit} className="p-8 space-y-6">
           <div className="space-y-4">
             <div className="grid gap-2">
-              <Label htmlFor="name" className="text-[10px] font-bold uppercase tracking-[0.2em] text-muted-foreground/60 ml-1">Display Name</Label>
+              <Label htmlFor="name" className="text-[10px] font-bold tracking-[0.2em] text-muted-foreground/60 ml-1">Display Name</Label>
               <Input
                 id="name"
                 value={name}
@@ -107,7 +107,7 @@ export function EditProfileDialog({ user, children }: EditProfileDialogProps) {
             </div>
             
             <div className="grid gap-2">
-              <Label htmlFor="avatarUrl" className="text-[10px] font-bold uppercase tracking-[0.2em] text-muted-foreground/60 ml-1">Avatar URL</Label>
+              <Label htmlFor="avatarUrl" className="text-[10px] font-bold tracking-[0.2em] text-muted-foreground/60 ml-1">Avatar URL</Label>
               <Input
                 id="avatarUrl"
                 value={avatarUrl}
@@ -118,7 +118,7 @@ export function EditProfileDialog({ user, children }: EditProfileDialogProps) {
             </div>
  
             <div className="grid gap-2">
-              <Label htmlFor="coverPhotoUrl" className="text-[10px] font-bold uppercase tracking-[0.2em] text-muted-foreground/60 ml-1">Cover Photo URL</Label>
+              <Label htmlFor="coverPhotoUrl" className="text-[10px] font-bold tracking-[0.2em] text-muted-foreground/60 ml-1">Cover Photo URL</Label>
               <Input
                 id="coverPhotoUrl"
                 value={coverPhotoUrl}
@@ -130,7 +130,7 @@ export function EditProfileDialog({ user, children }: EditProfileDialogProps) {
 
             <div className="grid grid-cols-2 gap-4">
               <div className="grid gap-2">
-                <Label htmlFor="website" className="text-[10px] font-bold uppercase tracking-[0.2em] text-muted-foreground/60 ml-1">Website</Label>
+                <Label htmlFor="website" className="text-[10px] font-bold tracking-[0.2em] text-muted-foreground/60 ml-1">Website</Label>
                 <Input
                   id="website"
                   value={website}
@@ -147,14 +147,14 @@ export function EditProfileDialog({ user, children }: EditProfileDialogProps) {
                     onChange={(e) => setIsPrivate(e.target.checked)}
                     className="h-4 w-4 rounded border-gray-300 text-primary focus:ring-primary"
                   />
-                  <span className="text-xs font-bold uppercase tracking-wider text-muted-foreground/60">Private Profile</span>
+                  <span className="text-xs font-bold tracking-wider text-muted-foreground/60">Private Profile</span>
                 </label>
               </div>
             </div>
 
             <div className="grid grid-cols-2 gap-4">
               <div className="grid gap-2">
-                <Label htmlFor="workplace" className="text-[10px] font-bold uppercase tracking-[0.2em] text-muted-foreground/60 ml-1">Workplace</Label>
+                <Label htmlFor="workplace" className="text-[10px] font-bold tracking-[0.2em] text-muted-foreground/60 ml-1">Workplace</Label>
                 <Input
                   id="workplace"
                   value={workplace}
@@ -164,7 +164,7 @@ export function EditProfileDialog({ user, children }: EditProfileDialogProps) {
                 />
               </div>
               <div className="grid gap-2">
-                <Label htmlFor="education" className="text-[10px] font-bold uppercase tracking-[0.2em] text-muted-foreground/60 ml-1">Education</Label>
+                <Label htmlFor="education" className="text-[10px] font-bold tracking-[0.2em] text-muted-foreground/60 ml-1">Education</Label>
                 <Input
                   id="education"
                   value={education}
@@ -176,7 +176,7 @@ export function EditProfileDialog({ user, children }: EditProfileDialogProps) {
             </div>
 
             <div className="grid gap-2">
-              <Label htmlFor="bio" className="text-[10px] font-bold uppercase tracking-[0.2em] text-muted-foreground/60 ml-1">Bio</Label>
+              <Label htmlFor="bio" className="text-[10px] font-bold tracking-[0.2em] text-muted-foreground/60 ml-1">Bio</Label>
               <Textarea
                 id="bio"
                 value={bio}

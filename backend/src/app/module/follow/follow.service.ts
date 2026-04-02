@@ -29,7 +29,8 @@ const followUser = async (followerId: string, followingId: string) => {
       return existing; // Already pending
     }
 
-    const status = targetUser.isPrivate ? 'PENDING' : 'ACCEPTED';
+    // For a social friend-request system, we always start with PENDING
+    const status = 'PENDING';
 
     const result = await prisma.follow.create({
         data: {
@@ -43,11 +44,9 @@ const followUser = async (followerId: string, followingId: string) => {
 
     await NotificationServices.createNotification({
         userId: followingId,
-        type: status === 'ACCEPTED' ? NotificationType.FOLLOW : NotificationType.FOLLOW_REQUEST,
+        type: NotificationType.FRIEND_REQUEST,
         referenceId: followerId,
-        message: status === 'ACCEPTED' 
-         ? `${follower?.name} started following you.` 
-         : `${follower?.name} sent you a follow request.`,
+        message: `${follower?.name} sent you a friend request.`,
     });
 
     return result;

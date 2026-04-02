@@ -3,9 +3,11 @@
 import { useEffect } from "react"
 import { useSocket } from "./socket-provider"
 import { toast } from "sonner"
+import { useQueryClient } from "@tanstack/react-query"
 
 export const SocketHandler = () => {
   const { socket } = useSocket()
+  const queryClient = useQueryClient()
 
   useEffect(() => {
     if (typeof window !== "undefined" && "Notification" in window && Notification.permission === "default") {
@@ -26,28 +28,28 @@ export const SocketHandler = () => {
     if (!socket) return
 
     socket.on("new-notification", (data: any) => {
+      // Show toast
       toast.info(data.message || "New notification received!")
       showBrowserNotification("EchoNet", { body: data.message });
+      // Auto-refresh notification list and badge count
+      queryClient.invalidateQueries({ queryKey: ["notifications"] });
+      queryClient.invalidateQueries({ queryKey: ["notifications", "unread-count"] });
     })
 
-    // Messaging notifications can be handled here for global alerts
     socket.on("new-message", (data: any) => {
-      // Only show if user is NOT on the messages page or doesn't have the chat open
       if (window.location.pathname !== "/messages") {
-        const body = `${data.senderName}: ${data.content}`;
+        const body = `${data.senderName}: ${data.content}`
         toast.info(`New message from ${data.senderName}: ${data.content.substring(0, 30)}...`)
         showBrowserNotification("New Message", { body });
       }
     })
 
-    // Call-related events are now handled centrally in CallManager.tsx
-    // to avoid conflicts and ensure a consistent UI (Accept/Decline Modal).
-
     return () => {
       socket.off("new-notification")
       socket.off("new-message")
     }
-  }, [socket])
+  }, [socket, queryClient])
 
   return null
 }
+

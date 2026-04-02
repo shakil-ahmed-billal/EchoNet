@@ -23,6 +23,7 @@ export function CallManager() {
   const [callDuration, setCallDuration] = useState(0);
   const localVideoRef = useRef<HTMLVideoElement>(null);
   const remoteVideoRef = useRef<HTMLVideoElement>(null);
+  const ringtoneRef = useRef<HTMLAudioElement | null>(null);
 
   const { mutate: sendMessage } = useSendMessage();
   const isInitiatorRef = useRef(false);
@@ -40,6 +41,28 @@ export function CallManager() {
   useEffect(() => {
     lastDurationRef.current = callDuration;
   }, [callDuration]);
+
+  // Handle Ringtone
+  useEffect(() => {
+    if (callStatus === "incoming") {
+      if (!ringtoneRef.current) {
+        ringtoneRef.current = new Audio("/sounds/ringing.mp3");
+        ringtoneRef.current.loop = true;
+      }
+      ringtoneRef.current.play().catch(err => console.warn("CallManager: Ringtone play failed", err));
+    } else {
+      if (ringtoneRef.current) {
+        ringtoneRef.current.pause();
+        ringtoneRef.current.currentTime = 0;
+      }
+    }
+
+    return () => {
+      if (ringtoneRef.current) {
+        ringtoneRef.current.pause();
+      }
+    };
+  }, [callStatus]);
 
   useEffect(() => {
     if (previousStatusRef.current === "active" && callStatus === "idle" && callUser && isInitiatorRef.current) {
@@ -92,6 +115,12 @@ export function CallManager() {
       console.log("CallManager: incoming-call event received", data);
       
       if (callStatus !== "idle") {
+        // If it's a duplicate event from the same caller, just ignore it instead of rejecting
+        if (callUser?.id === data.from) {
+          console.log("CallManager: Ignoring duplicate incoming-call from current caller");
+          return;
+        }
+        
         console.log(`CallManager: User busy (current status: ${callStatus}), rejecting call from ${data.from}`);
         socket.emit("call-rejected", { to: data.from, reason: "busy" });
         return;

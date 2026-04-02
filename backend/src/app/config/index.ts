@@ -26,3 +26,4 @@ export default {
     frontend_url: process.env.FRONTEND_URL || 'http://localhost:3000',
     backend_url: process.env.BACKEND_URL || 'http://localhost:8000',
 };
+

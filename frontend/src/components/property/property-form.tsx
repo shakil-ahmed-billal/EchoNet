@@ -135,7 +135,7 @@ export function PropertyForm({
                   name="title"
                   render={({ field }) => (
                     <FormItem>
-                      <FormLabel className="text-xs font-semibold uppercase tracking-wider">Listing Title</FormLabel>
+                      <FormLabel className="text-xs font-semibold tracking-wider">Listing Title</FormLabel>
                       <FormControl>
                         <Input placeholder="e.g. Luxurious 3BR Apartment in Gulshan" {...field} className="rounded-xl border-border/50 focus-visible:ring-primary/20" />
                       </FormControl>
@@ -149,7 +149,7 @@ export function PropertyForm({
                     name="listingType"
                     render={({ field }) => (
                       <FormItem>
-                        <FormLabel className="text-xs font-semibold uppercase tracking-wider">Listing Type</FormLabel>
+                        <FormLabel className="text-xs font-semibold tracking-wider">Listing Type</FormLabel>
                         <select 
                           className="flex h-10 w-full rounded-xl border border-border/50 bg-background px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50"
                           {...field}
@@ -167,7 +167,7 @@ export function PropertyForm({
                     name="category"
                     render={({ field }) => (
                       <FormItem>
-                        <FormLabel className="text-xs font-semibold uppercase tracking-wider">Property Category</FormLabel>
+                        <FormLabel className="text-xs font-semibold tracking-wider">Property Category</FormLabel>
                         <select 
                           className="flex h-10 w-full rounded-xl border border-border/50 bg-background px-3 py-2 text-sm ring-offset-background"
                           {...field}
@@ -189,7 +189,7 @@ export function PropertyForm({
                   name="description"
                   render={({ field }) => (
                     <FormItem>
-                      <FormLabel className="text-xs font-semibold uppercase tracking-wider">Description</FormLabel>
+                      <FormLabel className="text-xs font-semibold tracking-wider">Description</FormLabel>
                       <FormControl>
                         <Textarea 
                           placeholder="Describe the property's key features, environment, and why someone should buy or rent it..." 
@@ -217,7 +217,7 @@ export function PropertyForm({
                   name="address"
                   render={({ field }) => (
                     <FormItem>
-                      <FormLabel className="text-xs font-semibold uppercase tracking-wider">Street Address</FormLabel>
+                      <FormLabel className="text-xs font-semibold tracking-wider">Street Address</FormLabel>
                       <FormControl>
                         <Input placeholder="House #, Block #, Road #" {...field} className="rounded-xl border-border/50 focus-visible:ring-primary/20" />
                       </FormControl>
@@ -231,7 +231,7 @@ export function PropertyForm({
                     name="city"
                     render={({ field }) => (
                       <FormItem>
-                        <FormLabel className="text-xs font-semibold uppercase tracking-wider">City</FormLabel>
+                        <FormLabel className="text-xs font-semibold tracking-wider">City</FormLabel>
                         <FormControl>
                           <Input placeholder="e.g. Dhaka" {...field} className="rounded-xl border-border/50 focus-visible:ring-primary/20" />
                         </FormControl>
@@ -244,7 +244,7 @@ export function PropertyForm({
                     name="area"
                     render={({ field }) => (
                       <FormItem>
-                        <FormLabel className="text-xs font-semibold uppercase tracking-wider">Area</FormLabel>
+                        <FormLabel className="text-xs font-semibold tracking-wider">Area</FormLabel>
                         <FormControl>
                           <Input placeholder="e.g. Gulshan 2" {...field} className="rounded-xl border-border/50 focus-visible:ring-primary/20" />
                         </FormControl>
@@ -291,7 +291,7 @@ export function PropertyForm({
             {/* Property Details */}
             <Card className="rounded-2xl border border-border/50 shadow-sm overflow-hidden bg-card p-0">
                <CardHeader className="bg-muted/30 border-b border-border/50 py-4 px-6">
-                <CardTitle className="text-sm uppercase tracking-wider font-bold">Details</CardTitle>
+                <CardTitle className="text-sm tracking-wider font-bold">Details</CardTitle>
               </CardHeader>
               <CardContent className="p-6 space-y-4">
                 <FormField
@@ -299,7 +299,7 @@ export function PropertyForm({
                   name="details.areaSqft"
                   render={({ field }) => (
                     <FormItem>
-                      <FormLabel className="text-[10px] font-bold uppercase text-muted-foreground">Area (Sqft)</FormLabel>
+                      <FormLabel className="text-[10px] font-bold text-muted-foreground">Area (Sqft)</FormLabel>
                       <FormControl>
                         <div className="relative">
                           <Move className="absolute left-3 top-1/2 -translate-y-1/2 h-3.5 w-3.5 text-muted-foreground" />
@@ -316,7 +316,7 @@ export function PropertyForm({
                     name="details.bedrooms"
                     render={({ field }) => (
                       <FormItem>
-                        <FormLabel className="text-[10px] font-bold uppercase text-muted-foreground">Beds</FormLabel>
+                        <FormLabel className="text-[10px] font-bold text-muted-foreground">Beds</FormLabel>
                         <FormControl>
                           <div className="relative">
                             <Bed className="absolute left-3 top-1/2 -translate-y-1/2 h-3.5 w-3.5 text-muted-foreground" />
@@ -331,7 +331,7 @@ export function PropertyForm({
                     name="details.bathrooms"
                     render={({ field }) => (
                       <FormItem>
-                        <FormLabel className="text-[10px] font-bold uppercase text-muted-foreground">Baths</FormLabel>
+                        <FormLabel className="text-[10px] font-bold text-muted-foreground">Baths</FormLabel>
                         <FormControl>
                           <div className="relative">
                             <Bath className="absolute left-3 top-1/2 -translate-y-1/2 h-3.5 w-3.5 text-muted-foreground" />
@@ -348,7 +348,7 @@ export function PropertyForm({
             {/* Pricing */}
             <Card className="rounded-2xl border border-border/50 shadow-sm overflow-hidden bg-card p-0">
               <CardHeader className="bg-muted/30 border-b border-border/50 py-4 px-6">
-                <CardTitle className="text-sm uppercase tracking-wider font-bold">Pricing</CardTitle>
+                <CardTitle className="text-sm tracking-wider font-bold">Pricing</CardTitle>
               </CardHeader>
               <CardContent className="p-6 space-y-4">
                 <FormField
@@ -356,7 +356,7 @@ export function PropertyForm({
                   name="price"
                   render={({ field }) => (
                     <FormItem>
-                      <FormLabel className="text-[10px] font-bold uppercase text-muted-foreground">Price</FormLabel>
+                      <FormLabel className="text-[10px] font-bold text-muted-foreground">Price</FormLabel>
                       <FormControl>
                         <div className="relative">
                           <span className="absolute left-3 top-1/2 -translate-y-1/2 font-bold text-xs text-muted-foreground">৳</span>
@@ -372,7 +372,7 @@ export function PropertyForm({
                   name="priceUnit"
                   render={({ field }) => (
                     <FormItem>
-                      <FormLabel className="text-[10px] font-bold uppercase text-muted-foreground">Payment Type</FormLabel>
+                      <FormLabel className="text-[10px] font-bold text-muted-foreground">Payment Type</FormLabel>
                       <select 
                         className="flex h-10 w-full rounded-xl border border-border/50 bg-background px-3 py-2 text-xs font-semibold ring-offset-background"
                         {...field}
@@ -389,7 +389,7 @@ export function PropertyForm({
             {/* Media */}
             <Card className="rounded-2xl border border-border/50 shadow-sm overflow-hidden bg-card p-0">
               <CardHeader className="bg-muted/30 border-b border-border/50 py-4 px-6">
-                <CardTitle className="text-sm uppercase tracking-wider font-bold">Property Images</CardTitle>
+                <CardTitle className="text-sm tracking-wider font-bold">Property Images</CardTitle>
                 <CardDescription className="text-[10px]">Add at least 1 image. Max 10.</CardDescription>
               </CardHeader>
               <CardContent className="p-6">

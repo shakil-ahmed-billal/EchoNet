@@ -91,7 +91,7 @@ export class QueryBuilder<
     Object.keys(filterParams).forEach((key) => {
       const value = filterParams[key];
 
-      if (value === undefined || value === '') return;
+      if (value === undefined || value === null || value === '' || value === 'undefined' || value === 'null') return;
 
       const isAllowedField =
         !filterableFields || filterableFields.length === 0 || filterableFields.includes(key);

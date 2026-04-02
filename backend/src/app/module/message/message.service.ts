@@ -51,8 +51,44 @@ const markAsRead = async (senderId: string, receiverId: string) => {
   return result;
 };
 
+const getConversations = async (userId: string) => {
+  const messages = await prisma.message.findMany({
+    where: {
+      OR: [
+        { senderId: userId },
+        { receiverId: userId },
+      ],
+      groupId: null, // Basic 1:1 conversations for now
+    },
+    orderBy: { createdAt: 'desc' },
+  });
+
+  const conversations: Record<string, any> = {};
+
+  messages.forEach((msg) => {
+    const otherId = msg.senderId === userId ? msg.receiverId : msg.senderId;
+    if (!otherId) return;
+
+    if (!conversations[otherId]) {
+      conversations[otherId] = {
+        userId: otherId,
+        lastMessage: msg.content,
+        lastMessageTime: msg.createdAt,
+        unreadCount: 0,
+      };
+    }
+
+    if (msg.receiverId === userId && !msg.isRead) {
+      conversations[otherId].unreadCount++;
+    }
+  });
+
+  return Object.values(conversations);
+};
+
 export const MessageServices = {
   getChatHistory,
   createMessage,
   markAsRead,
+  getConversations,
 };

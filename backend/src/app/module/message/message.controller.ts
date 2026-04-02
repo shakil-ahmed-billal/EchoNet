@@ -79,8 +79,21 @@ const markAsRead = catchAsync(async (req: Request, res: Response) => {
   });
 });
 
+const getConversations = catchAsync(async (req: Request, res: Response) => {
+  const userId = (req.user as any).id;
+  const result = await MessageServices.getConversations(userId);
+
+  sendResponse(res, {
+    statusCode: httpStatus.OK,
+    success: true,
+    message: 'Conversations retrieved successfully',
+    data: result,
+  });
+});
+
 export const MessageControllers = {
   getChatHistory,
   sendMessage,
   markAsRead,
+  getConversations,
 };

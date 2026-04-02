@@ -27,6 +27,17 @@ const getCommentsForPost = catchAsync(async (req: Request, res: Response) => {
   });
 });
 
+const getUserComments = catchAsync(async (req: Request, res: Response) => {
+  const userId = req.params.userId as string;
+  const result = await CommentServices.getCommentsByUser(userId);
+  sendResponse(res, {
+    statusCode: httpStatus.OK,
+    success: true,
+    message: 'User comments retrieved successfully',
+    data: result,
+  });
+});
+
 const deleteComment = catchAsync(async (req: Request, res: Response) => {
   const id = req.params.id as string;
   const result = await CommentServices.deleteComment(id);
@@ -41,5 +52,6 @@ const deleteComment = catchAsync(async (req: Request, res: Response) => {
 export const CommentControllers = {
   createComment,
   getCommentsForPost,
+  getUserComments,
   deleteComment,
 };

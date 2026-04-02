@@ -3,6 +3,7 @@
 import Image from "next/image"
 import Link from "next/link"
 import { Product } from "@/services/marketplace.service"
+import { getOptimizedImageUrl } from "@/lib/image-utils"
 import { Card, CardContent, CardFooter } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
@@ -10,6 +11,7 @@ import { Star, ShoppingCart } from "lucide-react"
 
 import { useCart } from "@/hooks/use-cart"
 import { toast } from "sonner"
+import { cn } from "@/lib/utils"
 
 interface ProductCardProps {
   product: Product
@@ -22,6 +24,12 @@ export function ProductCard({ product }: ProductCardProps) {
   const cleanTitle = product.title.startsWith(`${product.store.name} - `) 
     ? product.title.replace(`${product.store.name} - `, "") 
     : product.title;
+
+  const reviews = product.reviews || [];
+  const reviewCount = reviews.length;
+  const averageRating = reviewCount > 0 
+    ? (reviews.reduce((acc: number, r: any) => acc + (r.rating || 0), 0) / reviewCount).toFixed(1)
+    : "0.0";
 
   const firstImage = product.images?.[0] || "https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=800"
 
@@ -41,13 +49,14 @@ export function ProductCard({ product }: ProductCardProps) {
   }
 
   return (
-    <Card className="group overflow-hidden border-none bg-background shadow-none hover:shadow-xl transition-all duration-500 rounded-3xl flex flex-col  p-0">
+    <Card className="group overflow-hidden border border-border/20 bg-card/60 backdrop-blur-sm shadow-none hover:shadow-xl transition-all duration-500 md:rounded-2xl flex flex-col p-0">
       <Link href={`/marketplace/${product.id}`} className="block relative">
-        <div className="relative aspect-square overflow-hidden rounded-t-3xl bg-muted/30">
+        <div className="relative aspect-square overflow-hidden rounded-t-2xl bg-muted/30">
           <Image
-            src={firstImage}
+            src={getOptimizedImageUrl(firstImage, { width: 500, height: 500 })}
             alt={product.title}
             fill
+            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
             className="object-cover transition-transform duration-700 group-hover:scale-105"
           />
           {/* Subtle overlay on hover */}
@@ -72,9 +81,12 @@ export function ProductCard({ product }: ProductCardProps) {
             <span className="truncate">{product.store.name}</span>
           </Link>
           <span className="opacity-30">•</span>
-          <div className="flex items-center text-yellow-500 shrink-0">
-            <Star className="w-3 h-3 fill-current mr-1" />
-            4.8
+          <div className={cn(
+            "flex items-center shrink-0",
+            reviewCount > 0 ? "text-amber-500" : "text-muted-foreground/20"
+          )}>
+            <Star className={cn("w-3 h-3 mr-1", reviewCount > 0 && "fill-current")} />
+            {averageRating}
           </div>
         </div>
 

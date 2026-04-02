@@ -1,116 +1,161 @@
 "use client"
 
 import { useState } from "react"
-import { Card, CardContent } from "@/components/ui/card"
+import { useFlaggedProducts, useUpdateProductStatus, useAdminProducts } from "@/hooks/use-admin"
+import { apiClient } from "@/services/api-client"
+import { useMutation, useQueryClient } from "@tanstack/react-query"
+import { toast } from "sonner"
+import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table"
 import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
-import { Flag, CheckCircle, XCircle, ExternalLink, Package, Search } from "lucide-react"
-import { useFlaggedProducts, useUpdateProductStatus } from "@/hooks/use-admin"
-import { Skeleton } from "@/components/ui/skeleton"
-import { Input } from "@/components/ui/input"
+import { Card, CardContent } from "@/components/ui/card"
+import { Trash2, Package, ShieldAlert, ShieldCheck } from "lucide-react"
 import { Pagination } from "@/components/ui/pagination-controls"
-import Image from "next/image"
-import Link from "next/link"
-import { format } from "date-fns"
+import { getOptimizedImageUrl } from "@/lib/image-utils"
 
-export default function ModeratorFlaggedProductsPage() {
+const useDeleteProduct = () => {
+  const queryClient = useQueryClient()
+  return useMutation({
+    mutationFn: (id: string) => apiClient.delete(`/admin/products/${id}`),
+    onSuccess: () => {
+      queryClient.invalidateQueries({ queryKey: ["admin-products"] })
+      queryClient.invalidateQueries({ queryKey: ["flagged-products"] })
+      toast.success("Product deleted")
+    },
+    onError: () => toast.error("Failed to delete product"),
+  })
+}
+
+export default function ModeratorProductsPage() {
   const [page, setPage] = useState(1)
-  const { data, isLoading } = useFlaggedProducts({ page, limit: 12 })
-  const { mutate: updateStatus } = useUpdateProductStatus()
+  const { data: response, isLoading } = useAdminProducts({ page, limit: 8 })
+  const { mutate: updateStatus, isPending: isUpdating } = useUpdateProductStatus()
+  const { mutate: deleteProduct, isPending: isDeleting } = useDeleteProduct()
 
-  const products: any[] = data?.data ?? (Array.isArray(data) ? data : [])
-  const meta = data?.meta
+  const products = response?.data || []
+  const meta = response?.meta || { total: 0, page: 1, limit: 8, totalPages: 1 }
 
   return (
-    <div className="flex flex-col gap-6 w-full max-w-5xl mx-auto">
-      <div className="flex items-start justify-between">
-        <div>
-          <h1 className="text-2xl font-black tracking-tight">Flagged Products</h1>
-          <p className="text-muted-foreground mt-1 text-sm">Review and take action on reported products.</p>
-        </div>
-        {meta?.total != null && meta.total > 0 && (
-          <Badge className="rounded-full bg-red-500/10 text-red-600 border border-red-500/20 text-xs font-black px-3">
-            {meta.total} pending
-          </Badge>
-        )}
+    <div className="flex flex-col gap-6">
+      <div>
+        <h1 className="text-2xl font-black tracking-tight text-foreground">Flagged Products</h1>
+        <p className="text-sm text-muted-foreground font-medium">Review marketplace products for policy violations and fraud.</p>
       </div>
 
-      {!isLoading && products.length === 0 ? (
-        <div className="py-24 text-center border-2 border-dashed border-border/30 rounded-2xl text-muted-foreground">
-          <Flag className="h-12 w-12 mx-auto mb-4 opacity-20" />
-          <p className="font-bold">No flagged products</p>
-          <p className="text-xs mt-1">Nothing needs review right now.</p>
-        </div>
-      ) : (
-        <div className="flex flex-col gap-3">
-          {isLoading
-            ? Array.from({ length: 4 }).map((_, i) => (
-                <Card key={i} className="rounded-2xl border border-border/40 p-0">
-                  <CardContent className="p-4 flex gap-4">
-                    <Skeleton className="h-20 w-20 rounded-xl shrink-0" />
-                    <div className="flex-1"><Skeleton className="h-4 w-1/2 mb-2" /><Skeleton className="h-3 w-3/4 mb-4" /><div className="flex gap-2"><Skeleton className="h-8 w-24" /><Skeleton className="h-8 w-24" /></div></div>
-                  </CardContent>
-                </Card>
-              ))
-            : products.map((product) => (
-                <Card key={product.id} className="rounded-2xl border border-red-500/20 shadow-sm transition-all hover:border-red-500/40 overflow-hidden p-0 bg-card">
-                  <CardContent className="p-4 flex gap-4 items-start">
-                    <div className="relative h-20 w-20 rounded-xl overflow-hidden bg-muted/20 shrink-0">
-                      {product.images?.[0] ? (
-                        <Image src={product.images[0]} alt={product.title} fill className="object-cover" />
-                      ) : (
-                        <div className="h-full flex items-center justify-center">
-                          <Package className="h-8 w-8 text-muted-foreground/30" />
+      <Card className="rounded-2xl border border-border/40 bg-card overflow-hidden shadow-sm">
+        <CardContent className="p-0">
+          <div className="w-full overflow-auto">
+            <Table>
+              <TableHeader className="bg-muted/10">
+                <TableRow className="border-border/10 hover:bg-transparent">
+                  <TableHead className="font-bold text-xs pl-6 py-4">Product</TableHead>
+                  <TableHead className="font-bold text-xs">Store</TableHead>
+                  <TableHead className="font-bold text-xs w-[80px]">Price</TableHead>
+                  <TableHead className="font-bold text-xs w-[120px]">Status</TableHead>
+                  <TableHead className="font-bold text-xs text-right pr-6 w-[200px]">Actions</TableHead>
+                </TableRow>
+              </TableHeader>
+              <TableBody>
+                {isLoading ? (
+                  <TableRow>
+                    <TableCell colSpan={5} className="h-40 text-center font-bold text-muted-foreground/50">
+                      <div className="flex flex-col items-center gap-2">
+                        <ShieldAlert className="size-6 animate-pulse text-muted-foreground/30" />
+                        Loading product data...
+                      </div>
+                    </TableCell>
+                  </TableRow>
+                ) : products.length === 0 ? (
+                  <TableRow>
+                    <TableCell colSpan={5} className="h-40 text-center font-bold text-muted-foreground/60">
+                      <div className="flex flex-col items-center gap-2">
+                        <Package className="size-8 opacity-40 mb-2" />
+                        No products found.
+                      </div>
+                    </TableCell>
+                  </TableRow>
+                ) : (
+                  products.map((product: any) => (
+                    <TableRow key={product.id} className="border-border/10 hover:bg-muted/5 transition-colors group">
+                      <TableCell className="pl-6 py-4">
+                        <div className="flex items-center gap-3">
+                          {product.images?.[0] && (
+                            <img src={getOptimizedImageUrl(product.images[0], { width: 80, height: 80 })} alt={product.title} className="size-10 rounded-xl object-cover border border-border/20" />
+                          )}
+                          <div className="flex flex-col min-w-0">
+                            <span className="font-bold text-xs truncate text-foreground">{product.title}</span>
+                            <span className="text-[10px] text-muted-foreground truncate">{product.description?.slice(0, 40)}...</span>
+                          </div>
                         </div>
-                      )}
-                    </div>
-
-                    <div className="flex-1 min-w-0">
-                      <div className="flex items-start justify-between gap-2 mb-1">
-                        <p className="font-bold text-sm line-clamp-1">{product.title}</p>
-                        <Badge className="rounded-full text-[10px] bg-red-500/10 text-red-600 border border-red-500/20 shrink-0">Flagged</Badge>
-                      </div>
-                      <p className="text-xs text-muted-foreground mb-1">{product.store?.name} · ৳{Number(product.price).toLocaleString()}</p>
-                      {product.flags?.[0] && (
-                        <p className="text-xs text-muted-foreground bg-muted/30 rounded-lg px-2 py-1 mb-3 line-clamp-1">
-                          <span className="font-bold text-red-500">Report: </span>{product.flags[0].reason}
-                        </p>
-                      )}
-                      <div className="flex gap-2">
-                        <Link href={`/marketplace/${product.id}`} target="_blank">
-                          <Button variant="outline" size="sm" className="rounded-xl text-xs gap-1 h-8">
-                            <ExternalLink className="h-3 w-3" /> View
+                      </TableCell>
+                      <TableCell className="text-xs font-medium text-muted-foreground">
+                        {product.store?.name || "—"}
+                      </TableCell>
+                      <TableCell className="text-xs font-bold text-foreground">
+                        ৳{product.price?.toLocaleString()}
+                      </TableCell>
+                      <TableCell>
+                        <Badge className={`rounded-full font-bold text-[10px] tracking-wider px-3 py-0.5 ${
+                          product.status === "FLAGGED"
+                            ? "bg-rose-500/10 text-rose-600 border-rose-500/20"
+                            : product.status === "ACTIVE"
+                            ? "bg-emerald-500/10 text-emerald-600 border-emerald-500/20"
+                            : "bg-muted text-muted-foreground"
+                        }`}>
+                          {product.status}
+                        </Badge>
+                      </TableCell>
+                      <TableCell className="text-right pr-6">
+                        <div className="flex items-center justify-end gap-2 opacity-50 group-hover:opacity-100 transition-opacity">
+                          {product.status === "ACTIVE" ? (
+                            <Button
+                              size="sm"
+                              variant="outline"
+                              onClick={() => updateStatus({ id: product.id, status: "FLAGGED" })}
+                              disabled={isUpdating}
+                              className="h-8 rounded-lg font-bold text-[10px] border-amber-500/30 text-amber-600 hover:bg-amber-500/10"
+                            >
+                              <ShieldAlert className="size-3 mr-1" /> Flag
+                            </Button>
+                          ) : (
+                            <Button
+                              size="sm"
+                              variant="outline"
+                              onClick={() => updateStatus({ id: product.id, status: "ACTIVE" })}
+                              disabled={isUpdating}
+                              className="h-8 rounded-lg font-bold text-[10px] border-emerald-500/30 text-emerald-600 hover:bg-emerald-500/10"
+                            >
+                              <ShieldCheck className="size-3 mr-1" /> Approve
+                            </Button>
+                          )}
+                          <Button
+                            size="icon"
+                            variant="destructive"
+                            onClick={() => {
+                              if (window.confirm("Are you sure you want to permanently delete this product?")) {
+                                deleteProduct(product.id)
+                              }
+                            }}
+                            disabled={isDeleting}
+                            className="size-8 rounded-lg"
+                          >
+                            <Trash2 className="size-3.5" />
                           </Button>
-                        </Link>
-                        <Button
-                          size="sm"
-                          className="rounded-xl text-xs gap-1 h-8 bg-emerald-600 hover:bg-emerald-700"
-                          onClick={() => updateStatus({ id: product.id, status: "ACTIVE" })}
-                        >
-                          <CheckCircle className="h-3 w-3" /> Dismiss Flag
-                        </Button>
-                        <Button
-                          size="sm"
-                          variant="outline"
-                          className="rounded-xl text-xs gap-1 h-8 text-red-500 border-red-500/30 hover:bg-red-500/10"
-                          onClick={() => updateStatus({ id: product.id, status: "REJECTED" })}
-                        >
-                          <XCircle className="h-3 w-3" /> Remove
-                        </Button>
-                      </div>
-                    </div>
-                  </CardContent>
-                </Card>
-              ))}
-        </div>
-      )}
-
-      {meta && (
-        <Pagination
-          meta={{ ...meta, totalPages: meta.totalPages ?? Math.ceil(meta.total / 12) }}
-          onPageChange={setPage}
-        />
-      )}
+                        </div>
+                      </TableCell>
+                    </TableRow>
+                  ))
+                )}
+              </TableBody>
+            </Table>
+          </div>
+          {meta?.totalPages > 1 && (
+            <div className="border-t border-border/10 p-4 bg-muted/5 flex justify-center">
+              <Pagination meta={{ page: meta.page || 1, totalPages: meta.totalPages || 1, total: meta.total || 0, limit: meta.limit || 10 }} onPageChange={setPage} />
+            </div>
+          )}
+        </CardContent>
+      </Card>
     </div>
   )
 }

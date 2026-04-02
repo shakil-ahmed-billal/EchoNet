@@ -29,22 +29,23 @@ model User {
   sessions Session[]
 
   // Relations from other modules
-  posts         Post[]
-  comments      Comment[]
-  likes         Like[]
-  reactions     Reaction[]
-  recvMessages  Message[]      @relation("ReceivedMessages")
-  sentMessages  Message[]      @relation("SentMessages")
-  notifications Notification[]
-  following     Follow[]       @relation("Following")
-  followers     Follow[]       @relation("Followers")
-  stories       Story[]
-  storyViews    StoryView[]
-  savedPosts    SavedPost[]
-  activityLogs  ActivityLog[]
-  taggedIn      PostTag[]
-  groups        Group[]
-  groupMembers  GroupMember[]
+  posts          Post[]
+  comments       Comment[]
+  likes          Like[]
+  reactions      Reaction[]
+  recvMessages   Message[]       @relation("ReceivedMessages")
+  sentMessages   Message[]       @relation("SentMessages")
+  notifications  Notification[]
+  following      Follow[]        @relation("Following")
+  followers      Follow[]        @relation("Followers")
+  stories        Story[]
+  storyViews     StoryView[]
+  storyReactions StoryReaction[]
+  savedPosts     SavedPost[]
+  activityLogs   ActivityLog[]
+  taggedIn       PostTag[]
+  groups         Group[]
+  groupMembers   GroupMember[]
 
   // Marketplace relations
   store          Store?
@@ -52,6 +53,8 @@ model User {
   productReviews ProductReview[]
   followedStores StoreFollow[]
   productFlags   ProductFlag[]
+  reviewLikes    ReviewLike[]
+  reviewReplies  ReviewReply[]
 
   // Property Portal relations
   properties        Property[]        @relation("PropertyOwner")

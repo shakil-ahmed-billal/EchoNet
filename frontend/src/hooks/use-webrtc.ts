@@ -10,9 +10,49 @@ export const useWebRTC = (onRemoteEnd?: () => void) => {
   const peerConnection = useRef<RTCPeerConnection | null>(null)
   const incomingData = useRef<any>(null)
   const [error, setError] = useState<string | null>(null)
+  const pendingCandidates = useRef<RTCIceCandidate[]>([])
+
+  const turnUrls = process.env.NEXT_PUBLIC_TURN_SERVER_URL?.split(",") || [];
   
+  // Debug log to check if environment variables are loaded in production
+  // (Password is masked for security)
+  useEffect(() => {
+    console.log(`WebRTC: ICE Server Config -> STUN: Yes, TURN: ${turnUrls.length > 0 ? "Yes (" + turnUrls.length + " URLs)" : "No"}`);
+    if (turnUrls.length === 0) {
+      console.warn("WebRTC Warning: No TURN server URLs found in environment variables. Production calls may fail.");
+    }
+  }, [turnUrls.length]);
+
   const config: RTCConfiguration = {
-    iceServers: [{ urls: "stun:stun.l.google.com:19302" }],
+    iceServers: [
+      { urls: "stun:stun.l.google.com:19302" },
+      ...(turnUrls.length > 0
+        ? [
+            {
+              urls: turnUrls,
+              username: process.env.NEXT_PUBLIC_TURN_SERVER_USERNAME,
+              credential: process.env.NEXT_PUBLIC_TURN_SERVER_PASSWORD,
+            },
+          ]
+        : []),
+    ],
+    iceCandidatePoolSize: 10,
+  }
+
+  const processPendingCandidates = async () => {
+    if (peerConnection.current?.remoteDescription) {
+      console.log(`WebRTC: Processing ${pendingCandidates.current.length} queued ICE candidates`);
+      while (pendingCandidates.current.length > 0) {
+        const candidate = pendingCandidates.current.shift();
+        if (candidate) {
+          try {
+            await peerConnection.current.addIceCandidate(candidate);
+          } catch (e) {
+            console.warn("WebRTC: Error adding queued candidate", e);
+          }
+        }
+      }
+    }
   }
 
   const startCall = async (to: string, video: boolean = true) => {
@@ -20,8 +60,15 @@ export const useWebRTC = (onRemoteEnd?: () => void) => {
       const stream = await navigator.mediaDevices.getUserMedia({ video, audio: true })
       setLocalStream(stream)
       setError(null)
+      pendingCandidates.current = [];
 
       peerConnection.current = new RTCPeerConnection(config)
+      
+      // Monitor connection state
+      peerConnection.current.onconnectionstatechange = () => {
+        console.log(`WebRTC: Connection State: ${peerConnection.current?.connectionState}`);
+      }
+
       stream.getTracks().forEach((track) => peerConnection.current?.addTrack(track, stream))
 
       peerConnection.current.onicecandidate = (event) => {
@@ -32,15 +79,16 @@ export const useWebRTC = (onRemoteEnd?: () => void) => {
 
       peerConnection.current.ontrack = (event) => {
         if (event.streams && event.streams[0]) {
+          console.log("WebRTC: Remote stream received");
           setRemoteStream(event.streams[0])
         }
       }
 
       const offer = await peerConnection.current.createOffer()
       await peerConnection.current.setLocalDescription(offer)
-      socket?.emit("call-user", { to, offer, from: user?.id || socket?.id, fromName: user?.name || "Someone", isVideo: video })
+      socket?.emit("call-user", { to, offer, from: user?.id || socket?.id, fromName: user?.name || "Someone", fromImage: user?.image || (user as any)?.avatarUrl, isVideo: video })
     } catch (err: any) {
-      console.error("Failed to start call:", err)
+      console.error("WebRTC: Failed to start call:", err)
       setError(err.name === "NotFoundError" ? "Camera or microphone not found." : "Failed to access media devices.")
     }
   }
@@ -58,8 +106,14 @@ export const useWebRTC = (onRemoteEnd?: () => void) => {
       const stream = await navigator.mediaDevices.getUserMedia({ video, audio: true })
       setLocalStream(stream)
       setError(null)
+      pendingCandidates.current = [];
 
       peerConnection.current = new RTCPeerConnection(config)
+      
+      peerConnection.current.onconnectionstatechange = () => {
+        console.log(`WebRTC: Connection State: ${peerConnection.current?.connectionState}`);
+      }
+
       stream.getTracks().forEach((track) => peerConnection.current?.addTrack(track, stream))
 
       peerConnection.current.onicecandidate = (event) => {
@@ -70,16 +124,19 @@ export const useWebRTC = (onRemoteEnd?: () => void) => {
 
       peerConnection.current.ontrack = (event) => {
         if (event.streams && event.streams[0]) {
+          console.log("WebRTC: Remote stream received (incoming)");
           setRemoteStream(event.streams[0])
         }
       }
 
       await peerConnection.current.setRemoteDescription(new RTCSessionDescription(data.offer))
+      await processPendingCandidates();
+
       const answer = await peerConnection.current.createAnswer()
       await peerConnection.current.setLocalDescription(answer)
       socket?.emit("answer-call", { to: data.from, answer })
     } catch (err: any) {
-      console.error("Failed to accept incoming call:", err)
+      console.error("WebRTC: Failed to accept incoming call:", err)
       setError(err.name === "NotFoundError" ? "Camera or microphone not found." : "Failed to access media devices.")
     }
   }
@@ -100,17 +157,32 @@ export const useWebRTC = (onRemoteEnd?: () => void) => {
     setRemoteStream(null);
     setError(null);
     incomingData.current = null;
+    pendingCandidates.current = [];
   }
 
   useEffect(() => {
     if (!socket) return
 
     socket.on("call-answered", async (data: { answer: any }) => {
-      await peerConnection.current?.setRemoteDescription(new RTCSessionDescription(data.answer))
+      if (peerConnection.current) {
+        console.log("WebRTC: Call answered, setting remote description");
+        await peerConnection.current.setRemoteDescription(new RTCSessionDescription(data.answer));
+        await processPendingCandidates();
+      }
     })
 
     socket.on("ice-candidate", async (data: { candidate: any }) => {
-      await peerConnection.current?.addIceCandidate(new RTCIceCandidate(data.candidate))
+      const candidate = new RTCIceCandidate(data.candidate);
+      if (peerConnection.current?.remoteDescription) {
+        try {
+          await peerConnection.current.addIceCandidate(candidate);
+        } catch (e) {
+          console.warn("WebRTC: Error adding live ice candidate", e);
+        }
+      } else {
+        console.log("WebRTC: Queuing ICE candidate (remote description not set yet)");
+        pendingCandidates.current.push(candidate);
+      }
     })
 
     socket.on("end-call", () => {

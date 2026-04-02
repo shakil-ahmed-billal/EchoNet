@@ -34,7 +34,7 @@ export default function FeedPage() {
     return (
       <div className="flex flex-col items-center justify-center min-h-[40vh] gap-4">
         <Loader2 className="h-8 w-8 animate-spin text-primary" />
-        <p className="text-sm font-medium text-muted-foreground uppercase tracking-widest animate-pulse">
+        <p className="text-sm font-medium text-muted-foreground animate-pulse">
           Loading Feed...
         </p>
       </div>
@@ -42,7 +42,7 @@ export default function FeedPage() {
   }
 
   return (
-    <div className="max-w-2xl mx-auto py-8 px-4 sm:px-0">
+    <div className="max-w-2xl mx-auto md:py-8 px-4 sm:px-0">
       <CreatePost />
 
       <div className="flex flex-col gap-1 ">
@@ -58,7 +58,7 @@ export default function FeedPage() {
           {isFetchingNextPage ? (
             <Loader2 className="h-6 w-6 animate-spin text-primary" />
           ) : (
-             <span className="text-xs font-bold text-muted-foreground uppercase opacity-50">
+             <span className="text-xs font-bold text-muted-foreground opacity-50">
                 Load More
              </span>
           )}

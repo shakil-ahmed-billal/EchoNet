@@ -82,7 +82,13 @@ export function ImageUpload({ value, onChange, disabled }: ImageUploadProps) {
                 image.isCover ? "border-primary ring-1 ring-primary/20 shadow-sm" : "border-border/40 hover:border-primary/30 bg-muted/10"
             )}
           >
-            <Image src={image.url} alt="Property" fill className="object-cover transition-transform duration-500 group-hover:scale-105" />
+            <Image 
+              src={image.url} 
+              alt="Property" 
+              fill 
+              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+              className="object-cover transition-transform duration-500 group-hover:scale-105" 
+            />
             
             <div className="absolute inset-0 bg-linear-to-b from-black/30 via-transparent to-black/50 opacity-0 group-hover:opacity-100 transition-all duration-200 flex flex-col justify-between p-2">
               <div className="flex justify-end">
@@ -133,7 +139,7 @@ export function ImageUpload({ value, onChange, disabled }: ImageUploadProps) {
             </div>
             <div className="text-center">
                 <span className="block text-[10px] font-bold text-foreground">Add Photos</span>
-                <span className="block text-[8px] font-medium text-muted-foreground uppercase opacity-60">Max 10</span>
+                <span className="block text-[8px] font-medium text-muted-foreground opacity-60">Max 10</span>
             </div>
           </button>
         )}

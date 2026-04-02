@@ -70,11 +70,7 @@ const getPendingRequests = catchAsync(async (req: Request, res: Response) => {
     const userId = (req as any).user.id;
     const page = parseInt(req.query.page as string) || 1;
     const limit = parseInt(req.query.limit as string) || 10;
-    
-    console.log(`[DEBUG] Fetching pending requests for user: ${userId}`);
     const result = await FollowServices.getPendingRequests(userId, page, limit);
-    console.log(`[DEBUG] Found ${result.length} pending requests`);
-    
     sendResponse(res, {
         statusCode: httpStatus.OK,
         success: true,

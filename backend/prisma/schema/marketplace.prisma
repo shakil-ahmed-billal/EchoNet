@@ -53,6 +53,9 @@ model Product {
   orderItems OrderItem[]
   reviews    ProductReview[]
   flags      ProductFlag[]
+
+  @@index([status, deletedAt])
+  @@index([storeId])
 }
 
 model Order {
@@ -112,7 +115,34 @@ model ProductReview {
   user    User    @relation(fields: [userId], references: [id])
   product Product @relation(fields: [productId], references: [id])
 
+  likes   ReviewLike[]
+  replies ReviewReply[]
+
   @@unique([userId, productId])
+}
+
+model ReviewLike {
+  id        String   @id @default(uuid())
+  reviewId  String
+  userId    String
+  createdAt DateTime @default(now())
+
+  review ProductReview @relation(fields: [reviewId], references: [id], onDelete: Cascade)
+  user   User          @relation(fields: [userId], references: [id])
+
+  @@unique([userId, reviewId])
+}
+
+model ReviewReply {
+  id        String   @id @default(uuid())
+  reviewId  String
+  userId    String
+  comment   String
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  review ProductReview @relation(fields: [reviewId], references: [id], onDelete: Cascade)
+  user   User          @relation(fields: [userId], references: [id])
 }
 
 model StoreFollow {

@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { formatDistanceToNow } from "date-fns";
 import { Heart, MessageSquare, Share2, Bookmark, MoreHorizontal, Trash2, Edit2, Loader2, Send, X } from "lucide-react";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
@@ -15,7 +15,6 @@ import { toast } from "sonner";
 import { apiClient } from "@/services/api-client";
 import Link from "next/link";
 import { UserImage } from "@/components/user-image";
-import { ThumbsUp, Heart as HeartIcon, Laugh, Meh, Frown, Zap } from "lucide-react";
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -24,12 +23,25 @@ import {
 } from "@/components/ui/dropdown-menu";
 import { Textarea } from "@/components/ui/textarea";
 import { cn } from "@/lib/utils";
+import Image from "next/image";
+import { getOptimizedImageUrl } from "@/lib/image-utils";
+
+const reactionEmojis: Record<string, string> = {
+  LIKE: "👍",
+  LOVE: "❤️",
+  HAHA: "😂",
+  WOW: "😮",
+  SAD: "😢",
+  ANGRY: "😡",
+};
+
 
 interface PostCardProps {
   post: Post;
+  priority?: boolean;
 }
 
-export function PostCard({ post }: PostCardProps) {
+export function PostCard({ post, priority = false }: PostCardProps) {
   const [showComments, setShowComments] = useState(false);
   const [isLiked, setIsLiked] = useState(post.isLiked);
   const [currentReactionType, setCurrentReactionType] = useState(post.currentReactionType || (post.isLiked ? "LIKE" : null));
@@ -41,6 +53,11 @@ export function PostCard({ post }: PostCardProps) {
   const { user } = useAuth();
   const queryClient = useQueryClient();
   const isAuthor = user?.id === post.author.id;
+  
+  // Sync local isSaved state with post.isSaved prop (important for feed refreshes)
+  useEffect(() => {
+    setIsSaved(post.isSaved);
+  }, [post.isSaved]);
 
   const reactionMutation = useMutation({
     mutationFn: async (type: string) => {
@@ -63,16 +80,17 @@ export function PostCard({ post }: PostCardProps) {
   });
 
   const saveMutation = useMutation({
-      mutationFn: () => toggleSave(post.id, !!isSaved),
-      onMutate: () => {
-          setIsSaved(!isSaved);
+      mutationFn: (currentlySaved: boolean) => toggleSave(post.id, currentlySaved),
+      onMutate: async (currentlySaved) => {
+          setIsSaved(!currentlySaved);
+          return { currentlySaved };
       },
-      onSuccess: () => {
-          toast.success(isSaved ? "Post unsaved" : "Post saved");
+      onSuccess: (_, currentlySaved) => {
+          toast.success(currentlySaved ? "Post unsaved" : "Post saved");
       },
-      onError: () => {
-          setIsSaved(post.isSaved);
-          toast.error("Failed to save post");
+      onError: (error, currentlySaved, context) => {
+          setIsSaved(context?.currentlySaved ?? post.isSaved);
+          toast.error("Failed to update save status");
       }
   });
 
@@ -121,7 +139,7 @@ export function PostCard({ post }: PostCardProps) {
                 {post.author.name}
               </h4>
             </Link>
-            <div className="flex items-center gap-1.5 text-[10px] text-muted-foreground/60 font-bold uppercase tracking-widest mt-1">
+            <div className="flex items-center gap-1.5 text-[10px] text-muted-foreground/60 font-bold mt-1">
               <span>{formatDistanceToNow(new Date(post.createdAt), { addSuffix: true })}</span>
               <span className="opacity-50">•</span>
               <span className="opacity-80">Global</span>
@@ -201,12 +219,15 @@ export function PostCard({ post }: PostCardProps) {
                   post.mediaUrls.length > 1 && "grid grid-cols-2 gap-0.5"
                 )}>
                   {post.mediaUrls.map((url, i) => (
-                    <img 
-                      key={i} 
-                      src={url} 
-                      alt="Post media" 
-                      className="w-full h-auto object-cover max-h-[600px] hover:brightness-110 transition-all duration-700" 
-                    />
+                    <div key={i} className="relative aspect-video w-full">
+                      <Image 
+                        src={getOptimizedImageUrl(url, { width: 800 })} 
+                        alt="Post media" 
+                        fill
+                        priority={priority && i === 0}
+                        className="object-cover hover:brightness-110 transition-all duration-700" 
+                      />
+                    </div>
                   ))}
                 </div>
               </div>
@@ -217,7 +238,7 @@ export function PostCard({ post }: PostCardProps) {
 
       {/* Interaction Stats */}
       {(likesCount > 0 || post._count.comments > 0) && (
-        <div className="px-5 py-3 border-t border-border/10 flex items-center justify-between text-[10px] font-bold uppercase tracking-widest text-muted-foreground/60">
+        <div className="px-5 py-3 border-t border-border/10 flex items-center justify-between text-[10px] font-bold text-muted-foreground/60">
            <div className="flex items-center gap-1.5 hover:text-red-500 transition-colors cursor-pointer group/stat">
               <div className="size-5 rounded-full bg-red-500 flex items-center justify-center -space-x-1 ring-2 ring-card group-hover/stat:ring-red-500/20 shadow-sm transition-all">
                  <Heart className="h-2.5 w-2.5 fill-white text-white" />
@@ -226,7 +247,6 @@ export function PostCard({ post }: PostCardProps) {
            </div>
            <div className="flex gap-4">
               <span className="hover:text-primary transition-colors cursor-pointer capitalize">{post._count.comments} comments</span>
-              <span className="hover:text-primary transition-colors cursor-pointer capitalize">42 shares</span>
            </div>
         </div>
       )}
@@ -241,12 +261,9 @@ export function PostCard({ post }: PostCardProps) {
                 isLiked ? "bg-primary/5 text-primary" : "hover:bg-muted/80 text-muted-foreground hover:text-primary"
                 )}
             >
-                {currentReactionType === "LOVE" ? <HeartIcon className="h-4.5 w-4.5 fill-red-500 text-red-500" /> :
-                 currentReactionType === "HAHA" ? <Laugh className="h-4.5 w-4.5 text-yellow-500" /> :
-                 currentReactionType === "WOW" ? <Zap className="h-4.5 w-4.5 text-purple-500" /> :
-                 currentReactionType === "SAD" ? <Meh className="h-4.5 w-4.5 text-blue-400" /> :
-                 currentReactionType === "ANGRY" ? <Frown className="h-4.5 w-4.5 text-orange-600" /> :
-                 <ThumbsUp className={cn("h-4.5 w-4.5 transition-transform group-hover/like:scale-125 duration-300", isLiked && "fill-current")} />}
+                <span className="text-base leading-none">
+                  {currentReactionType ? reactionEmojis[currentReactionType] : "👍"}
+                </span>
                 <span className="text-xs font-bold">{currentReactionType || "Like"}</span>
             </button>
           </ReactionPicker>
@@ -274,7 +291,7 @@ export function PostCard({ post }: PostCardProps) {
             </button>
             
             <button 
-              onClick={() => saveMutation.mutate()}
+              onClick={() => saveMutation.mutate(!!isSaved)}
               className={cn(
                  "flex-1 flex items-center justify-center gap-2 py-2.5 px-3 rounded-xl transition-all group/bookmark text-muted-foreground",
                  isSaved ? "text-primary bg-primary/5" : "hover:bg-muted/80 hover:text-primary"

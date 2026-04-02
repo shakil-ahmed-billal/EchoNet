@@ -44,4 +44,39 @@ const viewStory = async (req: Request, res: Response) => {
   }
 };
 
-export const StoryControllers = { getStories, createStory, deleteStory, viewStory };
+const reactToStory = async (req: Request, res: Response) => {
+  try {
+    const currentUserId = (req as any).user?.id;
+    const id = req.params.id as string;
+    const { type } = req.body;
+    const data = await StoryServices.reactToStory(id, currentUserId, type);
+    res.json({ success: true, data });
+  } catch (error: any) {
+    res.status(400).json({ success: false, message: error.message });
+  }
+};
+
+const replyToStory = async (req: Request, res: Response) => {
+  try {
+    const currentUserId = (req as any).user?.id;
+    const id = req.params.id as string;
+    const { content } = req.body;
+    const data = await StoryServices.replyToStory(id, currentUserId, content);
+    res.json({ success: true, data });
+  } catch (error: any) {
+    res.status(400).json({ success: false, message: error.message });
+  }
+};
+
+const getStoryInsights = async (req: Request, res: Response) => {
+  try {
+    const currentUserId = (req as any).user?.id;
+    const id = req.params.id as string;
+    const data = await StoryServices.getStoryInsights(id, currentUserId);
+    res.json({ success: true, data });
+  } catch (error: any) {
+    res.status(400).json({ success: false, message: error.message });
+  }
+};
+
+export const StoryControllers = { getStories, createStory, deleteStory, viewStory, reactToStory, replyToStory, getStoryInsights };

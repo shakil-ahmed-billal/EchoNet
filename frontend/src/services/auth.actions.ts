@@ -3,7 +3,7 @@
 import { httpClient } from '@/lib/axios/httpClient';
 import { setTokenInCookies } from '@/lib/tokenUtils';
 import { deleteCookie } from '@/lib/cookieUtils';
-import { cookies } from 'next/headers';
+import { cookies, headers } from 'next/headers';
 
 const BASE_API_URL = process.env.NEXT_PUBLIC_API_URL || "http://localhost:8000/api/v1";
 
@@ -14,10 +14,8 @@ export async function getNewTokensWithRefreshToken(refreshToken: string): Promis
 
         const res = await fetch(`${BASE_API_URL}/auth/refresh-token`, {
             method: "POST",
-            headers: {
-                "Content-Type": "application/json",
-                Cookie: `refreshToken=${refreshToken}; better-auth.session_token=${sessionToken}`
-            }
+            headers: await headers(),
+            body: JSON.stringify({ refreshToken }),
         });
 
         if (!res.ok) {
@@ -35,10 +33,6 @@ export async function getNewTokensWithRefreshToken(refreshToken: string): Promis
             await setTokenInCookies("refreshToken", data.refreshToken);
         }
 
-        if (data?.sessionToken || data?.token) {
-            await setTokenInCookies("better-auth.session_token", data.sessionToken || data.token, 24 * 60 * 60);
-        }
-
         return true;
     } catch (error) {
         console.error("Error refreshing token:", error);
@@ -49,28 +43,41 @@ export async function getNewTokensWithRefreshToken(refreshToken: string): Promis
 export async function getUserInfo() {
     try {
         const cookieStore = await cookies();
-        const accessToken = cookieStore.get("accessToken")?.value;
-        const sessionToken = cookieStore.get("better-auth.session_token")?.value;
+        const allCookies = cookieStore.getAll().map(c => c.name);
+        console.log(`[AUTH] getUserInfo available cookies: ${allCookies.join(", ")}`);
 
-        if (!accessToken) {
+        // Check for session token (including prefixed versions for production)
+        const sessionTokenKey = allCookies.find(name => name.includes("better-auth.session_token"));
+        const sessionToken = sessionTokenKey ? cookieStore.get(sessionTokenKey)?.value : null;
+        const accessToken = cookieStore.get("accessToken")?.value;
+
+        if (!sessionToken && !accessToken) {
+            console.warn("[AUTH] No session or access token found in cookieStore.");
             return null;
         }
+
+        const reqHeaders = await headers();
+        const userAgent = reqHeaders.get("user-agent") || "";
+        const host = reqHeaders.get("host") || "echo-net-bd.vercel.app";
+        const proto = reqHeaders.get("x-forwarded-proto") || "https";
+        const ip = reqHeaders.get("x-forwarded-for") || "";
+        const cookieString = cookieStore.toString();
 
         const res = await fetch(`${BASE_API_URL}/auth/me`, {
             method: "GET",
             headers: {
-                "Content-Type": "application/json",
-                Cookie: `accessToken=${accessToken}; better-auth.session_token=${sessionToken}`
-            }
+                "Cookie": cookieString,
+                "Accept": "application/json",
+                "User-Agent": userAgent,
+                "X-Forwarded-Host": host,
+                "X-Forwarded-Proto": proto,
+                "X-Forwarded-For": ip
+            },
+            cache: "no-store",
         });
 
         if (!res.ok) {
             console.error("Failed to fetch user info:", res.status, res.statusText);
-            if (res.status === 404 || res.status === 401) {
-                await deleteCookie("accessToken");
-                await deleteCookie("refreshToken");
-                await deleteCookie("better-auth.session_token");
-            }
             return null;
         }
 
@@ -90,9 +97,21 @@ export const loginAction = async (payload: any) => {
         if (response?.success && response?.data) {
             const { accessToken, refreshToken, token } = response.data;
             
-            if (accessToken) await setTokenInCookies("accessToken", accessToken);
-            if (refreshToken) await setTokenInCookies("refreshToken", refreshToken);
-            if (token) await setTokenInCookies("better-auth.session_token", token, 24 * 60 * 60);
+            if (accessToken) {
+                await deleteCookie("accessToken");
+                await setTokenInCookies("accessToken", accessToken);
+            }
+            if (refreshToken) {
+                await deleteCookie("refreshToken");
+                await setTokenInCookies("refreshToken", refreshToken);
+            }
+            if (token) {
+                // Ensure absolute clean slate for session token on Vercel
+                await deleteCookie("better-auth.session_token");
+                await deleteCookie("__Host-better-auth.session_token");
+                await deleteCookie("__Secure-better-auth.session_token");
+                await setTokenInCookies("better-auth.session_token", token);
+            }
         }
 
         return response;
@@ -112,9 +131,21 @@ export const registerAction = async (payload: any) => {
         if (response?.success && response?.data) {
             const { accessToken, refreshToken, token } = response.data;
             
-            if (accessToken) await setTokenInCookies("accessToken", accessToken);
-            if (refreshToken) await setTokenInCookies("refreshToken", refreshToken);
-            if (token) await setTokenInCookies("better-auth.session_token", token, 24 * 60 * 60);
+            if (accessToken) {
+                await deleteCookie("accessToken");
+                await setTokenInCookies("accessToken", accessToken);
+            }
+            if (refreshToken) {
+                await deleteCookie("refreshToken");
+                await setTokenInCookies("refreshToken", refreshToken);
+            }
+            if (token) {
+                // Ensure absolute clean slate for session token on Vercel
+                await deleteCookie("better-auth.session_token");
+                await deleteCookie("__Host-better-auth.session_token");
+                await deleteCookie("__Secure-better-auth.session_token");
+                await setTokenInCookies("better-auth.session_token", token);
+            }
         }
 
         return response;

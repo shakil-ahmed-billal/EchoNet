@@ -5,6 +5,7 @@ import { useInView } from "react-intersection-observer"
 import { usePosts } from "@/hooks/use-posts"
 import { PostCard } from "./post-card"
 import { FriendSuggestions } from "@/components/friends/friend-suggestions"
+import { FriendRequestsSlider } from "@/components/friends/friend-requests-slider"
 import { Skeleton } from "@/components/ui/skeleton"
 import { Loader2 } from "lucide-react"
 
@@ -67,8 +68,13 @@ export function PostList({ discover = false, authorId }: { discover?: boolean, a
     <div className="flex flex-col gap-4">
       {posts.map((post, index) => (
         <div key={post.id}>
-          <PostCard post={post} />
-          {index === 0 && !authorId && <FriendSuggestions />}
+          <PostCard post={post} priority={index < 2} />
+          {index === 0 && !authorId && (
+             <>
+               <FriendSuggestions />
+               <FriendRequestsSlider />
+             </>
+          )}
         </div>
       ))}
       

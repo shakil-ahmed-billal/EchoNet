@@ -15,7 +15,9 @@ import {
   initiatePayment,
   getStoreOrders,
   getMyOrders,
-  createReview
+  createReview,
+  likeReview,
+  replyToReview
 } from "@/services/marketplace.service"
 import { toast } from "sonner"
 
@@ -167,6 +169,33 @@ export function useCreateReview() {
     },
     onError: (error: any) => {
       toast.error(error.response?.data?.message || "Failed to submit review")
+    }
+  })
+}
+
+export function useLikeReview(productId: string) {
+  const queryClient = useQueryClient()
+  return useMutation({
+    mutationFn: (reviewId: string) => likeReview(reviewId),
+    onSuccess: () => {
+      queryClient.invalidateQueries({ queryKey: ["product", productId] })
+    },
+    onError: (error: any) => {
+      toast.error(error.response?.data?.message || "Failed to like review")
+    }
+  })
+}
+
+export function useReplyToReview(productId: string) {
+  const queryClient = useQueryClient()
+  return useMutation({
+    mutationFn: ({ reviewId, data }: { reviewId: string, data: { comment: string } }) => replyToReview({ reviewId, data }),
+    onSuccess: () => {
+      queryClient.invalidateQueries({ queryKey: ["product", productId] })
+      toast.success("Reply posted!")
+    },
+    onError: (error: any) => {
+      toast.error(error.response?.data?.message || "Failed to post reply")
     }
   })
 }

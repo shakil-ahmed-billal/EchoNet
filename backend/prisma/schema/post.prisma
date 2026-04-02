@@ -18,6 +18,7 @@ model Post {
   tags      PostTag[]
 
   @@index([authorId])
+  @@index([createdAt, status])
 }
 
 model Comment {

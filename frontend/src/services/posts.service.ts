@@ -40,18 +40,28 @@ export async function toggleSave(postId: string, isSaved: boolean): Promise<any>
     }
 }
 
-export async function getFeed(cursor?: string, discover: boolean = false, authorId?: string): Promise<PaginatedPosts> {
+export async function getFeed(cursor?: string, discover: boolean = false, authorId?: string, mediaOnly: boolean = false): Promise<PaginatedPosts> {
   try {
-    console.log("Calling getFeed with cursor:", cursor, "discover:", discover, "authorId:", authorId);
+    console.log("Calling getFeed with cursor:", cursor, "discover:", discover, "authorId:", authorId, "mediaOnly:", mediaOnly);
     const response = await httpClient.get<any>("/posts", {
-      params: { cursor, limit: 10, discover, authorId }
+      params: { cursor, limit: 10, discover, authorId, mediaOnly }
     })
-    return response.data
+    return response.data // Extract data from {success, message, data: {...}}
   } catch (error: any) {
     console.error("getFeed ERROR:", error?.response?.data || error.message);
     // Return a safe fallback rather than throwing a 500 to the client, preventing complete UI crash
     return { posts: [], nextCursor: null } as PaginatedPosts;
   }
+}
+
+export async function getUserComments(userId: string): Promise<any[]> {
+    try {
+        const response = await httpClient.get<any>(`/comments/user/${userId}`);
+        return response.data || [];
+    } catch (error: any) {
+        console.error("getUserComments ERROR:", error?.response?.data || error.message);
+        return [];
+    }
 }
 
 export async function getSavedPosts(cursor?: string): Promise<PaginatedPosts> {
@@ -69,7 +79,7 @@ export async function getSavedPosts(cursor?: string): Promise<PaginatedPosts> {
 export async function getStoriesAction(): Promise<any[]> {
   try {
     const response = await httpClient.get<any>("/stories")
-    return response.data.data || []
+    return response.data || []
   } catch (error: any) {
     console.error("getStories ERROR:", error?.response?.data || error.message);
     return [];

@@ -3,6 +3,8 @@ import prisma from '../../lib/prisma.js';
 import redisClient from '../../lib/redis.js';
 import { getIO } from '../../lib/socket.js';
 
+const MAX_NOTIFICATIONS_PER_USER = 5;
+
 const createNotification = async (data: {
   userId: string;
   type: string;
@@ -13,6 +15,18 @@ const createNotification = async (data: {
     data: data as any, 
   });
 
+  // Auto-delete oldest notifications beyond the limit
+  const allNotifications = await prisma.notification.findMany({
+    where: { userId: data.userId },
+    orderBy: { createdAt: 'desc' },
+    select: { id: true },
+  });
+
+  if (allNotifications.length > MAX_NOTIFICATIONS_PER_USER) {
+    const toDelete = allNotifications.slice(MAX_NOTIFICATIONS_PER_USER).map((n) => n.id);
+    await prisma.notification.deleteMany({ where: { id: { in: toDelete } } });
+  }
+
   if (redisClient) {
     const cacheKey = `notifications:unread_count:${data.userId}`;
     await redisClient.del(cacheKey);
@@ -20,7 +34,7 @@ const createNotification = async (data: {
 
   try {
     const io = getIO();
-    io.to(data.userId).emit('notification', result);
+    io.to(data.userId).emit('new-notification', result); // matches frontend socket-handler listener
   } catch (error) {
     // Socket might not be initialized yet in some cases, fail gracefully
   }
@@ -30,11 +44,42 @@ const createNotification = async (data: {
 
 const getUserNotifications = async (userId: string) => {
   if (!userId) return [];
-  const result = await prisma.notification.findMany({
+  const notifications = await prisma.notification.findMany({
     where: { userId },
     orderBy: { createdAt: 'desc' },
   });
-  return result;
+
+  // Enrich with sender info where referenceId is a userId (FOLLOW, FOLLOW_REQUEST, FRIEND_ACCEPT, REACTION, COMMENT)
+  const enriched = await Promise.all(
+    notifications.map(async (notif) => {
+      if (!notif.referenceId) return { ...notif, sender: null, status: null };
+      try {
+        const sender = await prisma.user.findUnique({
+          where: { id: notif.referenceId },
+          select: { id: true, name: true, avatarUrl: true, image: true },
+        });
+
+        let status = null;
+        if (notif.type === 'FRIEND_REQUEST' || notif.type === 'FOLLOW_REQUEST') {
+          const follow = await prisma.follow.findUnique({
+            where: {
+              followerId_followingId: {
+                followerId: notif.referenceId,
+                followingId: userId,
+              }
+            }
+          });
+          status = follow?.status || null;
+        }
+
+        return { ...notif, sender: sender || null, status };
+      } catch {
+        return { ...notif, sender: null, status: null };
+      }
+    })
+  );
+
+  return enriched;
 };
 
 const getUnreadCount = async (userId: string) => {

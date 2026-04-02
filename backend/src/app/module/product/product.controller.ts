@@ -2,16 +2,18 @@ import { Request, Response } from 'express';
 import catchAsync from '../../utils/catchAsync.js';
 import sendResponse from '../../utils/sendResponse.js';
 import { ProductServices } from './product.service.js';
+import { clearCache } from '../../utils/redisCache.js';
 
 const createProduct = catchAsync(async (req: Request, res: Response) => {
   const userId = (req as any).user.id;
-  const result = await ProductServices.createProduct(userId, req.body);
+  const result = await ProductServices.createProduct(userId, req.body, req.files as Express.Multer.File[]);
   sendResponse(res, {
     statusCode: 201,
     success: true,
     message: 'Product created successfully',
     data: result,
   });
+  await clearCache('products');
 });
 
 const getAllProducts = catchAsync(async (req: Request, res: Response) => {
@@ -38,13 +40,14 @@ const getProductById = catchAsync(async (req: Request, res: Response) => {
 const updateProduct = catchAsync(async (req: Request, res: Response) => {
   const userId = (req as any).user.id;
   const { id } = req.params as { id: string };
-  const result = await ProductServices.updateProduct(userId, id, req.body);
+  const result = await ProductServices.updateProduct(userId, id, req.body, req.files as Express.Multer.File[]);
   sendResponse(res, {
     statusCode: 200,
     success: true,
     message: 'Product updated successfully',
     data: result,
   });
+  await clearCache('products');
 });
 
 const deleteProduct = catchAsync(async (req: Request, res: Response) => {
@@ -57,6 +60,7 @@ const deleteProduct = catchAsync(async (req: Request, res: Response) => {
     message: 'Product deleted successfully',
     data: result,
   });
+  await clearCache('products');
 });
 
 export const ProductControllers = {

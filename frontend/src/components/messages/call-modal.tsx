@@ -45,6 +45,15 @@ export const CallModal = ({
         return `${mins}:${secs.toString().padStart(2, "0")}`
     }
 
+    // Explicitly play remote stream to handle browser restrictions
+    useEffect(() => {
+        if (remoteStream && remoteVideoRef.current) {
+            remoteVideoRef.current.play().catch(err => {
+                console.warn("CallModal: Remote audio/video playback error", err);
+            });
+        }
+    }, [remoteStream, remoteVideoRef]);
+
     const toggleMute = () => {
         if (localStream) {
             localStream.getAudioTracks().forEach(track => track.enabled = !track.enabled)
@@ -103,7 +112,7 @@ export const CallModal = ({
                             <div className="flex flex-col items-center animate-in fade-in slide-in-from-bottom-4 duration-500">
                                 <div className="relative mb-8">
                                     <div className="absolute inset-0 rounded-full bg-primary/20 animate-ping" />
-                                    <Avatar className="h-32 w-32 ring-[12px] ring-white/5 relative z-10">
+                                    <Avatar className="h-32 w-32 ring-12 ring-white/5 relative z-10">
                                         <AvatarImage src={remoteUser?.avatarUrl || remoteUser?.image} />
                                         <AvatarFallback className="text-4xl">{remoteUser?.name?.slice(0, 2).toUpperCase()}</AvatarFallback>
                                     </Avatar>
@@ -121,7 +130,7 @@ export const CallModal = ({
                                         >
                                             <PhoneOff className="h-7 w-7" />
                                         </Button>
-                                        <span className="text-xs font-semibold text-zinc-500 uppercase tracking-widest">Decline</span>
+                                        <span className="text-xs font-semibold text-zinc-500">Decline</span>
                                     </div>
                                     <div className="flex flex-col items-center gap-3">
                                         <Button 
@@ -130,7 +139,7 @@ export const CallModal = ({
                                         >
                                             <Phone className="h-7 w-7" />
                                         </Button>
-                                        <span className="text-xs font-semibold text-zinc-500 uppercase tracking-widest">Accept</span>
+                                        <span className="text-xs font-semibold text-zinc-500">Accept</span>
                                     </div>
                                 </div>
                             </div>
@@ -173,7 +182,12 @@ export const CallModal = ({
                         ) : (
                             /* Audio Only or Outgoing Initial State */
                             <div className="flex flex-col items-center gap-6">
-                                <video ref={remoteVideoRef} autoPlay playsInline className="hidden" />
+                                <video 
+                                    ref={remoteVideoRef} 
+                                    autoPlay 
+                                    playsInline 
+                                    className="invisible absolute h-0 w-0 pointer-events-none" 
+                                />
                                 <div className="relative">
                                     <Avatar className={cn("h-32 w-32 ring-8 ring-white/5", status === "outgoing" && "animate-pulse")}>
                                         <AvatarImage src={remoteUser?.avatarUrl || remoteUser?.image} />

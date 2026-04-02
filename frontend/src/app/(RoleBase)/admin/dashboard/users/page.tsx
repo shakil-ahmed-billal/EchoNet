@@ -9,8 +9,18 @@ import {
   DropdownMenu, DropdownMenuContent, DropdownMenuItem,
   DropdownMenuSeparator, DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu"
-import { Search, MoreHorizontal, ShieldAlert, ShieldCheck, UserX } from "lucide-react"
-import { useAdminUsers, useUpdateUserRole, useSuspendUser } from "@/hooks/use-admin"
+import {
+  AlertDialog,
+  AlertDialogAction,
+  AlertDialogCancel,
+  AlertDialogContent,
+  AlertDialogDescription,
+  AlertDialogFooter,
+  AlertDialogHeader,
+  AlertDialogTitle,
+} from "@/components/ui/alert-dialog"
+import { Search, MoreHorizontal, ShieldAlert, ShieldCheck, UserX, Trash2 } from "lucide-react"
+import { useAdminUsers, useUpdateUserRole, useSuspendUser, useDeleteUser } from "@/hooks/use-admin"
 import { Skeleton } from "@/components/ui/skeleton"
 import { UserImage } from "@/components/user-image"
 import { format } from "date-fns"
@@ -25,9 +35,11 @@ const ROLE_COLORS: Record<string, string> = {
 export default function AdminUsersPage() {
   const [search, setSearch] = useState("")
   const [page, setPage] = useState(1)
-  const { data, isLoading } = useAdminUsers({ searchTerm: search || undefined, page, limit: 12 })
+  const [deleteTarget, setDeleteTarget] = useState<{ id: string; name: string } | null>(null)
+  const { data, isLoading } = useAdminUsers({ searchTerm: search || undefined, page, limit: 8 })
   const { mutate: updateRole } = useUpdateUserRole()
   const { mutate: suspend } = useSuspendUser()
+  const { mutate: deleteUser, isPending: isDeleting } = useDeleteUser()
 
   const usersList: any[] = data?.data ?? (Array.isArray(data) ? data : [])
   const meta = data?.meta
@@ -54,7 +66,7 @@ export default function AdminUsersPage() {
         <CardContent className="p-0">
           <div className="w-full overflow-auto">
             <table className="w-full text-sm text-left">
-              <thead className="text-[10px] uppercase bg-muted/30 text-muted-foreground font-bold border-b border-border/40">
+              <thead className="text-[10px] bg-muted/30 text-muted-foreground font-bold border-b border-border/40">
                 <tr>
                   <th className="px-6 py-3">User</th>
                   <th className="px-6 py-3">Role</th>
@@ -86,7 +98,7 @@ export default function AdminUsersPage() {
                           </div>
                         </td>
                         <td className="px-6 py-3">
-                          <Badge variant="outline" className={`text-[10px] font-black uppercase tracking-wider rounded-full border ${ROLE_COLORS[user.role] ?? ROLE_COLORS.USER}`}>
+                          <Badge variant="outline" className={`text-[10px] font-black tracking-wider rounded-full border ${ROLE_COLORS[user.role] ?? ROLE_COLORS.USER}`}>
                             {user.role}
                           </Badge>
                         </td>
@@ -111,13 +123,19 @@ export default function AdminUsersPage() {
                                 <MoreHorizontal className="w-4 h-4" />
                               </Button>
                             </DropdownMenuTrigger>
-                            <DropdownMenuContent align="end" className="w-44 rounded-xl">
+                            <DropdownMenuContent align="end" className="w-48 rounded-xl">
                               <DropdownMenuItem className="text-xs" onClick={() => updateRole({ id: user.id, role: "ADMIN" })}>Make Admin</DropdownMenuItem>
                               <DropdownMenuItem className="text-xs" onClick={() => updateRole({ id: user.id, role: "MODERATOR" })}>Make Moderator</DropdownMenuItem>
                               <DropdownMenuItem className="text-xs" onClick={() => updateRole({ id: user.id, role: "USER" })}>Reset to User</DropdownMenuItem>
                               <DropdownMenuSeparator />
-                              <DropdownMenuItem className="text-xs text-red-500 focus:text-red-500" onClick={() => suspend(user.id)} disabled={user.isSuspended}>
+                              <DropdownMenuItem className="text-xs text-amber-500 focus:text-amber-500" onClick={() => suspend(user.id)} disabled={user.isSuspended}>
                                 <UserX className="mr-2 h-3.5 w-3.5" /> Suspend Account
+                              </DropdownMenuItem>
+                              <DropdownMenuItem
+                                className="text-xs text-red-500 focus:text-red-500 focus:bg-red-500/10"
+                                onClick={() => setDeleteTarget({ id: user.id, name: user.name })}
+                              >
+                                <Trash2 className="mr-2 h-3.5 w-3.5" /> Delete Permanently
                               </DropdownMenuItem>
                             </DropdownMenuContent>
                           </DropdownMenu>
@@ -132,10 +150,33 @@ export default function AdminUsersPage() {
 
       {meta && (
         <Pagination
-          meta={{ ...meta, totalPages: meta.totalPages ?? Math.ceil(meta.total / (meta.limit || 12)) }}
+          meta={{ ...meta, totalPages: meta.totalPages ?? Math.ceil(meta.total / (meta.limit || 8)) }}
           onPageChange={setPage}
         />
       )}
+
+      <AlertDialog open={!!deleteTarget} onOpenChange={(o) => !o && setDeleteTarget(null)}>
+        <AlertDialogContent className="rounded-2xl">
+          <AlertDialogHeader>
+            <AlertDialogTitle className="font-black text-red-500">Delete User Permanently?</AlertDialogTitle>
+            <AlertDialogDescription className="text-sm text-muted-foreground">
+              This will permanently delete <span className="font-bold text-foreground">{deleteTarget?.name}</span> and
+              <span className="font-bold text-red-500"> all their posts, stories, comments, and media files from Cloudinary</span>.
+              This action cannot be undone.
+            </AlertDialogDescription>
+          </AlertDialogHeader>
+          <AlertDialogFooter>
+            <AlertDialogCancel className="rounded-xl">Cancel</AlertDialogCancel>
+            <AlertDialogAction
+              className="rounded-xl bg-red-500 hover:bg-red-600 text-white"
+              onClick={() => deleteTarget && deleteUser(deleteTarget.id, { onSuccess: () => setDeleteTarget(null) })}
+              disabled={isDeleting}
+            >
+              {isDeleting ? "Deleting..." : "Yes, Delete Everything"}
+            </AlertDialogAction>
+          </AlertDialogFooter>
+        </AlertDialogContent>
+      </AlertDialog>
     </div>
   )
 }

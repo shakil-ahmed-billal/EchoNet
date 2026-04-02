@@ -30,7 +30,6 @@ export function LeftSidebar() {
     { title: "My Properties", href: "/my-properties", icon: Building },
     { title: "My Orders", href: "/orders", icon: ShoppingBag },
     { title: "Profile", href: user ? `/profile/${user.id}` : "/login", icon: User },
-    { title: "More", href: "/more", icon: MoreHorizontal },
   ];
 
   return (
@@ -84,7 +83,7 @@ export function LeftSidebar() {
           })}
 
           <div className="pt-4 pb-2 px-4">
-             <p className="text-[10px] font-black uppercase tracking-[0.2em] text-muted-foreground/40">Explore</p>
+             <p className="text-lg font-bold  text-muted-foreground/70">Explore</p>
           </div>
 
           {exploreNavItems.map((item) => {
@@ -115,7 +114,7 @@ export function LeftSidebar() {
       </nav>
 
       {/* Brand & Support */}
-      <div className="mt-auto pt-6 border-t border-border/10">
+      {/* <div className="mt-auto pt-6 border-t border-border/10">
         <div className="bg-card/40 rounded-2xl p-5 mb-6 group hover:bg-card/60 transition-colors border border-border/40 shadow-sm">
            <div className="flex items-center gap-2 mb-2">
              <div className="size-5 rounded-full bg-primary/20 flex items-center justify-center">
@@ -133,14 +132,14 @@ export function LeftSidebar() {
            </Button>
         </div>
         <div className="px-2 pb-6 space-y-1">
-          <p className="text-[10px] text-muted-foreground/30 font-bold uppercase tracking-widest leading-relaxed">
+          <p className="text-[10px] text-muted-foreground/30 font-bold leading-relaxed">
             &copy; 2026 EchoNet Inc.
           </p>
-          <p className="text-[9px] text-muted-foreground/20 font-bold uppercase tracking-widest hover:text-muted-foreground/40 transition-colors cursor-pointer">
+          <p className="text-[9px] text-muted-foreground/20 font-bold hover:text-muted-foreground/40 transition-colors cursor-pointer">
             Privacy • Terms • Cookie Policy
           </p>
         </div>
-      </div>
+      </div> */}
     </aside>
   );
 }

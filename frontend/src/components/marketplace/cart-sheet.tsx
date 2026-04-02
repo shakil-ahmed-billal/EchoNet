@@ -74,7 +74,7 @@ export function CartSheet() {
                             <Trash2 className="w-4 h-4" />
                           </button>
                         </div>
-                        <p className="text-[10px] text-muted-foreground font-medium uppercase tracking-wider truncate">
+                        <p className="text-[10px] text-muted-foreground font-medium tracking-wider truncate">
                           {item.storeName}
                         </p>
                       </div>

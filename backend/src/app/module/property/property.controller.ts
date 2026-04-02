@@ -2,6 +2,7 @@ import { Request, Response } from 'express';
 import catchAsync from '../../utils/catchAsync.js';
 import sendResponse from '../../utils/sendResponse.js';
 import { PropertyServices } from './property.service.js';
+import { clearCache } from '../../utils/redisCache.js';
 import { uploadMedia, deleteMedia } from '../../lib/cloudinary.js';
 import fs from 'fs';
 
@@ -44,6 +45,7 @@ const createProperty = catchAsync(async (req: Request, res: Response) => {
       message: 'Property created successfully',
       data: result,
     });
+    await clearCache('properties');
   } catch (error) {
     // FAIL-SAFE: Cleanup Cloudinary if creation fails
     for (const img of uploadedImages) {
@@ -117,6 +119,7 @@ const updateProperty = catchAsync(async (req: Request, res: Response) => {
       message: 'Property updated successfully',
       data: result,
     });
+    await clearCache('properties');
   } catch (error) {
     // FAIL-SAFE: Cleanup Cloudinary
     for (const img of uploadedImages) {
@@ -141,6 +144,7 @@ const deleteProperty = catchAsync(async (req: Request, res: Response) => {
     message: 'Property deleted successfully',
     data: result,
   });
+  await clearCache('properties');
 });
 
 const getMyProperties = catchAsync(async (req: Request, res: Response) => {
@@ -163,6 +167,7 @@ const approveProperty = catchAsync(async (req: Request, res: Response) => {
     message: 'Property approved successfully',
     data: result,
   });
+  await clearCache('properties');
 });
 
 const rejectProperty = catchAsync(async (req: Request, res: Response) => {
@@ -174,6 +179,7 @@ const rejectProperty = catchAsync(async (req: Request, res: Response) => {
     message: 'Property rejected successfully',
     data: result,
   });
+  await clearCache('properties');
 });
 
 export const PropertyControllers = {

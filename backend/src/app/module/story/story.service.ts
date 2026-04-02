@@ -1,8 +1,9 @@
 import prisma from '../../lib/prisma.js';
 import { uploadMedia, deleteMedia } from '../../lib/cloudinary.js';
+import { extractCloudinaryPublicId } from '../../utils/cloudinaryUtils.js';
 import fs from 'fs';
 
-const STORY_TTL_HOURS = 48;
+const STORY_TTL_HOURS_DEFAULT = 48;
 
 // Cleanup expired stories from DB (called on every GET)
 const cleanupExpiredStories = async () => {
@@ -14,13 +15,11 @@ const cleanupExpiredStories = async () => {
   if (expiredStories.length > 0) {
     // Delete from Cloudinary and DB
     for (const story of expiredStories) {
-      try {
-        // Extract public_id from URL
-        const parts = story.mediaUrl.split('/');
-        const filename = parts[parts.length - 1];
-        const publicId = filename.split('.')[0];
-        await deleteMedia(publicId);
-      } catch (_) {}
+      const publicId = extractCloudinaryPublicId(story.mediaUrl);
+      if (publicId) {
+        console.log(`[Story GC] Obliterating expired Cloudinary asset: ${publicId}`);
+        try { await deleteMedia(publicId); } catch (_) {}
+      }
     }
     await prisma.story.deleteMany({
       where: { expiresAt: { lt: new Date() } },
@@ -99,8 +98,20 @@ const createStory = async (
 
   if (!mediaUrl) throw new Error('Media file is required for a story');
 
+  const durationSetting = await prisma.globalSetting.findUnique({
+    where: { key: 'story_duration' },
+  });
+
   const expiresAt = new Date();
-  expiresAt.setHours(expiresAt.getHours() + STORY_TTL_HOURS);
+  const duration = durationSetting?.value || '2'; // default to 2 days
+
+  if (duration === 'unlimited') {
+    // Set to 100 years in the future
+    expiresAt.setFullYear(expiresAt.getFullYear() + 100);
+  } else {
+    const days = parseInt(duration);
+    expiresAt.setDate(expiresAt.getDate() + (isNaN(days) ? 2 : days));
+  }
 
   const story = await prisma.story.create({
     data: {
@@ -117,19 +128,18 @@ const createStory = async (
   return story;
 };
 
-// DELETE own story
-const deleteStory = async (storyId: string, currentUserId: string) => {
+// DELETE own story or admin moderation
+const deleteStory = async (storyId: string, currentUserId: string, isAdmin: boolean = false) => {
   const story = await prisma.story.findUnique({ where: { id: storyId } });
   if (!story) throw new Error('Story not found');
-  if (story.authorId !== currentUserId) throw new Error('Not authorized');
+  if (!isAdmin && story.authorId !== currentUserId) throw new Error('Not authorized');
 
   // Delete from Cloudinary
-  try {
-    const parts = story.mediaUrl.split('/');
-    const filename = parts[parts.length - 1];
-    const publicId = filename.split('.')[0];
-    await deleteMedia(publicId);
-  } catch (_) {}
+  const publicId = extractCloudinaryPublicId(story.mediaUrl);
+  if (publicId) {
+    console.log(`[Story Delete] Obliterating Cloudinary asset: ${publicId}`);
+    try { await deleteMedia(publicId); } catch (_) {}
+  }
 
   await prisma.story.delete({ where: { id: storyId } });
   return { message: 'Story deleted' };
@@ -145,4 +155,103 @@ const viewStory = async (storyId: string, viewerId: string) => {
   return { message: 'Story marked as viewed' };
 };
 
-export const StoryServices = { getStories, createStory, deleteStory, viewStory };
+// POST react to a story
+const reactToStory = async (storyId: string, userId: string, type: any) => {
+  const story = await prisma.story.findUnique({ where: { id: storyId } });
+  if (!story) throw new Error('Story not found');
+
+  const reaction = await prisma.storyReaction.upsert({
+    where: { storyId_userId: { storyId, userId } },
+    create: { storyId, userId, type },
+    update: { type },
+  });
+
+  // Create notification if not own story
+  if (story.authorId !== userId) {
+    await prisma.notification.create({
+      data: {
+        userId: story.authorId,
+        type: 'REACTION',
+        referenceId: storyId,
+        message: `reacted to your story`,
+      },
+    });
+  }
+
+  return reaction;
+};
+
+// POST reply to a story (message)
+const replyToStory = async (storyId: string, senderId: string, content: string) => {
+  const story = await prisma.story.findUnique({ where: { id: storyId } });
+  if (!story) throw new Error('Story not found');
+
+  const message = await prisma.message.create({
+    data: {
+      senderId,
+      receiverId: story.authorId,
+      content,
+      storyId,
+    },
+  });
+
+  // Create notification
+  if (story.authorId !== senderId) {
+    await prisma.notification.create({
+      data: {
+        userId: story.authorId,
+        type: 'MESSAGE',
+        referenceId: message.id,
+        message: `replied to your story: "${content.substring(0, 20)}..."`,
+      },
+    });
+  }
+
+  return message;
+};
+
+// GET story insights (views and reactions list)
+const getStoryInsights = async (storyId: string, userId: string) => {
+  const story = await prisma.story.findUnique({
+    where: { id: storyId },
+    include: {
+      views: {
+        include: {
+          viewer: { select: { id: true, name: true, image: true, avatarUrl: true } },
+        },
+        orderBy: { viewedAt: 'desc' },
+      },
+      reactions: {
+        include: {
+          user: { select: { id: true, name: true, image: true, avatarUrl: true } },
+        },
+        orderBy: { createdAt: 'desc' },
+      },
+    },
+  });
+
+  if (!story) throw new Error('Story not found');
+  if (story.authorId !== userId) throw new Error('Not authorized to view insights');
+
+  // Also get messages for this story
+  const messages = await prisma.message.findMany({
+    where: { storyId },
+    include: {
+      sender: { select: { id: true, name: true, image: true, avatarUrl: true } },
+    },
+    orderBy: { createdAt: 'desc' },
+  });
+
+  return {
+    views: story.views,
+    reactions: story.reactions,
+    messages,
+    counts: {
+      views: story.views.length,
+      reactions: story.reactions.length,
+      messages: messages.length,
+    },
+  };
+};
+
+export const StoryServices = { getStories, createStory, deleteStory, viewStory, reactToStory, replyToStory, getStoryInsights };

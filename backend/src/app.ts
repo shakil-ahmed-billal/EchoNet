@@ -20,6 +20,7 @@ const __dirname = path.dirname(__filename);
 
 const app: Application = express();
 
+app.set('trust proxy', true); // Trust Vercel's reverse proxy hops for accurate IP detection
 app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, 'views'));
 
@@ -59,7 +60,7 @@ app.use(
 app.use(cookieParser());
 
 // Mount Better-Auth BEFORE body parsers (required by better-auth docs)
-app.all("/api/auth/{*splat}", toNodeHandler(auth));
+app.all("/api/auth/*splat", toNodeHandler(auth));
 
 // Rate Limiting
 const authLimiter = rateLimit({
@@ -67,7 +68,8 @@ const authLimiter = rateLimit({
 	limit: 1000,
 	standardHeaders: 'draft-7', 
 	legacyHeaders: false, 
-    message: "Too many requests from this IP, please try again after 15 minutes"
+    message: "Too many requests from this IP, please try again after 15 minutes",
+	validate: { trustProxy: false } // Silences the permissive trust warning for local dev
 });
 
 app.use('/api/v1/auth', authLimiter);

@@ -4,12 +4,10 @@ import catchAsync from '../../utils/catchAsync.js';
 import sendResponse from '../../utils/sendResponse.js';
 import { PostServices } from './post.service.js';
 import { Role } from '../../../../generated/prisma/client/index.js';
+import { clearCache } from '../../utils/redisCache.js';
 
 const createPost = catchAsync(async (req: Request, res: Response) => {
-  console.log("PostControllers.createPost - Request Body:", req.body);
-  console.log("PostControllers.createPost - Files:", (req as any).files?.length || 0);
   const authorId = (req as any).user?.id;
-  console.log("PostControllers.createPost - User ID:", authorId);
   const result = await PostServices.createPost(authorId, req.body, req.files as any);
   sendResponse(res, {
     statusCode: httpStatus.CREATED,
@@ -17,7 +15,9 @@ const createPost = catchAsync(async (req: Request, res: Response) => {
     message: 'Post created successfully',
     data: result,
   });
+  await clearCache('posts');
 });
+
 
 const getAllPosts = catchAsync(async (req: Request, res: Response) => {
   const limit = parseInt(req.query.limit as string) || 10;
@@ -39,7 +39,14 @@ const getAllPosts = catchAsync(async (req: Request, res: Response) => {
     return;
   }
 
-  const result = await PostServices.getAllPosts(limit, cursor, userId, discover, authorId);
+  const result = await PostServices.getAllPosts(
+    limit, 
+    cursor, 
+    userId, 
+    discover, 
+    authorId, 
+    req.query.mediaOnly === 'true'
+  );
   sendResponse(res, {
     statusCode: httpStatus.OK,
     success: true,
@@ -47,6 +54,19 @@ const getAllPosts = catchAsync(async (req: Request, res: Response) => {
     data: result,
   });
 });
+
+const getPostById = catchAsync(async (req: Request, res: Response) => {
+  const id = req.params.id as string;
+  const userId = (req as any).user?.id;
+  const result = await PostServices.getPostById(id, userId);
+  sendResponse(res, {
+    statusCode: httpStatus.OK,
+    success: true,
+    message: 'Post retrieved successfully',
+    data: result,
+  });
+});
+
 
 const updatePostStatus = catchAsync(async (req: Request, res: Response) => {
   const id = req.params.id as string;
@@ -58,6 +78,7 @@ const updatePostStatus = catchAsync(async (req: Request, res: Response) => {
     message: 'Post status updated successfully',
     data: result,
   });
+  await clearCache('posts');
 });
 
 const updatePost = catchAsync(async (req: Request, res: Response) => {
@@ -70,6 +91,7 @@ const updatePost = catchAsync(async (req: Request, res: Response) => {
     message: 'Post updated successfully',
     data: result,
   });
+  await clearCache('posts');
 });
 
 const deletePost = catchAsync(async (req: Request, res: Response) => {
@@ -83,12 +105,15 @@ const deletePost = catchAsync(async (req: Request, res: Response) => {
     message: 'Post deleted successfully',
     data: result,
   });
+  await clearCache('posts');
 });
 
 export const PostControllers = {
   createPost,
   getAllPosts,
+  getPostById,
   updatePostStatus,
   updatePost,
   deletePost,
 };
+

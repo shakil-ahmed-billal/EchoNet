@@ -26,37 +26,48 @@ export default function MarketplacePage() {
   }
 
   return (
-    <div className="flex flex-col gap-10 pb-15">
-      <div className="flex flex-col md:flex-row md:items-center justify-between gap-8">
-        <div className="space-y-1">
-          <div className="flex items-center gap-3 text-primary">
-            <div className="w-12 h-12 rounded-3xl bg-primary/10 flex items-center justify-center shadow-inner">
-                <ShoppingBag className="w-6 h-6" />
-            </div>
-            <span className="text-4xl font-black tracking-tighter">Marketplace</span>
-          </div>
-          <p className="text-muted-foreground font-medium pl-15">Discover premium products from verified sellers.</p>
-        </div>
-
+    <div className="flex flex-col gap-4 md:gap-6 max-w-4xl mx-auto w-full pb-20 animate-in fade-in slide-in-from-bottom-2 duration-500">
+      
+      {/* Header Card */}
+      <div className="bg-card/60 backdrop-blur-sm md:rounded-2xl border border-border/20 shadow-sm p-4 md:p-6 flex flex-col gap-6">
         <div className="flex items-center gap-4">
-            <div className="relative group min-w-[320px]">
-                <Search className="absolute left-4 top-1/2 -translate-y-1/2 w-4.5 h-4.5 text-muted-foreground group-focus-within:text-primary transition-colors duration-300" />
-                <Input
-                placeholder="Search premium products..."
-                className="pl-12 h-14 rounded-2xl bg-card border border-border/40 focus-visible:ring-primary/20 shadow-sm font-semibold text-sm transition-all duration-300"
-                value={search}
-                onChange={(e) => handleSearchChange(e.target.value)}
-                />
-            </div>
-            <Link href={store ? "/store" : "/store"}>
-                <Button className="h-14 px-8 rounded-2xl font-black shadow-xl shadow-primary/20 gap-2 hover:scale-[1.02] active:scale-[0.98] transition-all duration-300">
+          <div className="size-12 bg-primary/10 rounded-xl flex items-center justify-center border border-primary/20">
+            <ShoppingBag className="size-6 text-primary" />
+          </div>
+          <div>
+            <h1 className="text-2xl font-bold text-foreground">Marketplace</h1>
+            <p className="text-sm text-muted-foreground font-medium">Verified premium products</p>
+          </div>
+          <div className="ml-auto hidden sm:block">
+             <Link href="/store">
+                <Button className="rounded-xl h-10 px-6 font-bold shadow-md shadow-primary/20">
                     {store ? "Manage Shop" : "Open Shop"}
                 </Button>
             </Link>
+          </div>
+        </div>
+
+        <div className="flex flex-col sm:flex-row gap-3">
+          <div className="relative flex-1 group">
+            <Search className="absolute left-3.5 top-1/2 -translate-y-1/2 size-4 text-muted-foreground group-focus-within:text-primary transition-colors" />
+            <Input
+              placeholder="Search products..."
+              className="pl-10 h-11 rounded-xl bg-background/50 border-border/20"
+              value={search}
+              onChange={(e) => handleSearchChange(e.target.value)}
+            />
+          </div>
+          <div className="sm:hidden w-full">
+             <Link href="/store">
+                <Button className="w-full rounded-xl h-11 font-bold shadow-md shadow-primary/20">
+                    {store ? "Manage Shop" : "Open Shop"}
+                </Button>
+            </Link>
+          </div>
         </div>
       </div>
 
-      <div className="space-y-8">
+      <div className="flex flex-col px-4 md:gap-6">
         <CategoryPills
           selectedCategory={selectedCategory}
           onSelect={handleCategorySelect}

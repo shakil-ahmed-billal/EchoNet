@@ -36,6 +36,21 @@ export interface Review {
      avatarUrl?: string;
      image?: string;
   };
+  likes: { userId: string }[];
+  replies: ReviewReply[];
+  createdAt: string;
+}
+
+export interface ReviewReply {
+  id: string;
+  reviewId: string;
+  comment: string;
+  user: {
+     id: string;
+     name: string;
+     avatarUrl?: string;
+     image?: string;
+  };
   createdAt: string;
 }
 
@@ -83,13 +98,17 @@ export const getStoreById = async (id: string) => {
   return response.data?.data ?? null;
 };
 
-export const createProduct = async (data: any) => {
-  const response = await apiClient.post<any>("/products", data);
+export const createProduct = async (data: FormData) => {
+  const response = await apiClient.post<any>("/products", data, {
+    headers: { "Content-Type": "multipart/form-data" }
+  });
   return response.data.data;
 };
 
-export const updateProduct = async (id: string, data: any) => {
-  const response = await apiClient.put<any>(`/products/${id}`, data);
+export const updateProduct = async (id: string, data: FormData) => {
+  const response = await apiClient.put<any>(`/products/${id}`, data, {
+    headers: { "Content-Type": "multipart/form-data" }
+  });
   return response.data.data;
 };
 
@@ -120,5 +139,15 @@ export const getMyOrders = async () => {
 
 export const createReview = async ({ productId, data }: { productId: string; data: { rating: number; comment: string } }) => {
   const response = await apiClient.post<any>(`/products/${productId}/reviews`, data);
+  return response.data.data;
+};
+
+export const likeReview = async (reviewId: string) => {
+  const response = await apiClient.post<any>(`/products/reviews/${reviewId}/like`);
+  return response.data.data;
+};
+
+export const replyToReview = async ({ reviewId, data }: { reviewId: string; data: { comment: string } }) => {
+  const response = await apiClient.post<any>(`/products/reviews/${reviewId}/reply`, data);
   return response.data.data;
 };

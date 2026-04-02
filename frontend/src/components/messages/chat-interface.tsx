@@ -55,6 +55,7 @@ export function ChatInterface() {
     selectedChatId,
     setSelectedChatId,
     perUserData,
+    updateLastMessage,
   } = useMessenger();
   const searchParams = useSearchParams();
   const router = useRouter();
@@ -132,9 +133,11 @@ export function ChatInterface() {
 
   useEffect(() => {
     if (scrollRef.current) {
-      scrollRef.current.scrollIntoView({ behavior: "smooth" });
+      setTimeout(() => {
+        scrollRef.current?.scrollIntoView({ behavior: "smooth", block: "end" });
+      }, 50);
     }
-  }, [messages, selectedChatId]);
+  }, [messages, selectedChatId, isTyping]);
 
   const handleSelectChat = (id: string, isGroup: boolean) => {
     setSelectedChatId(id);
@@ -243,6 +246,7 @@ export function ChatInterface() {
       sendMessage({ groupId: selectedChatId, content: messageInput });
     } else {
       sendMessage({ receiverId: selectedChatId, content: messageInput });
+      updateLastMessage(selectedChatId, messageInput, new Date().toISOString());
     }
     setMessageInput("");
     if (socket) socket.emit("stop-typing", { to: selectedChatId });
@@ -254,6 +258,7 @@ export function ChatInterface() {
       sendMessage({ groupId: selectedChatId, content: "👍" });
     } else {
       sendMessage({ receiverId: selectedChatId, content: "👍" });
+      updateLastMessage(selectedChatId, "👍", new Date().toISOString());
     }
   };
 
@@ -330,7 +335,7 @@ export function ChatInterface() {
                 {/* Groups Section */}
                 {filteredGroups.length > 0 && (
                   <div className="mb-2">
-                    <p className="px-3 text-[10px] font-bold uppercase tracking-wider text-muted-foreground/50 mb-1">
+                    <p className="px-3 text-[10px] font-bold tracking-wider text-muted-foreground/50 mb-1">
                       Groups
                     </p>
                     {filteredGroups.map((g) => (
@@ -361,7 +366,7 @@ export function ChatInterface() {
                 )}
 
                 {/* Users Section */}
-                <p className="px-3 text-[10px] font-bold uppercase tracking-wider text-muted-foreground/50 mb-1">
+                <p className="px-3 text-[10px] font-bold tracking-wider text-muted-foreground/50 mb-1">
                   Direct Messages
                 </p>
                 {filteredUsers?.map((u) => (

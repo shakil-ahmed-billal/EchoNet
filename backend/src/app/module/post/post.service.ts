@@ -1,6 +1,7 @@
 import prisma from '../../lib/prisma.js';
 import { PostStatus } from '../../../../generated/prisma/client/index.js';
 import { uploadMedia, deleteMedia } from '../../lib/cloudinary.js';
+import { extractCloudinaryPublicId } from '../../utils/cloudinaryUtils.js';
 import fs from 'fs';
 import { HashtagServices } from '../hashtag/hashtag.service.js';
 import { QueryBuilder } from '../../utils/QueryBuilder.js';
@@ -170,8 +171,8 @@ const getScoredFeed = async (userId: string, limit: number = 20, cursor?: string
     };
 };
 
-const getAllPosts = async (limit: number = 10, cursor?: string, userId?: string, discover: boolean = false, authorId?: string) => {
-  if (userId && !discover && !authorId) {
+const getAllPosts = async (limit: number = 10, cursor?: string, userId?: string, discover: boolean = false, authorId?: string, mediaOnly: boolean = false) => {
+  if (userId && !discover && !authorId && !mediaOnly) {
       return getScoredFeed(userId, limit, cursor);
   }
 
@@ -179,6 +180,10 @@ const getAllPosts = async (limit: number = 10, cursor?: string, userId?: string,
   
   if (authorId) {
     where.authorId = authorId;
+  } 
+  
+  if (mediaOnly) {
+    where.mediaUrls = { isEmpty: false };
   } else if (userId && discover) {
     // For discover, we show posts from people we DON'T follow
     const following = await prisma.follow.findMany({
@@ -286,7 +291,11 @@ const updatePost = async (id: string, authorId: string, payload: { content?: str
 
 const deletePost = async (id: string, authorId: string, isAdmin: boolean = false) => {
   // Verify ownership unless admin
-  const post = await prisma.post.findUnique({ where: { id } });
+  const post = await prisma.post.findUnique({ 
+    where: { id },
+    select: { id: true, authorId: true, mediaUrls: true } 
+  });
+  
   if (!post) {
     throw new Error('Post not found');
   }
@@ -295,17 +304,61 @@ const deletePost = async (id: string, authorId: string, isAdmin: boolean = false
     throw new Error('Unauthorized');
   }
 
-  const result = await prisma.post.delete({
+  // 1. Clean up Cloudinary Assets
+  if (post.mediaUrls && post.mediaUrls.length > 0) {
+    console.log(`[Post Delete] Obliterating ${post.mediaUrls.length} media URLs from Cloudinary...`);
+    for (const url of post.mediaUrls) {
+      const publicId = extractCloudinaryPublicId(url);
+      if (publicId) {
+        await deleteMedia(publicId);
+      }
+    }
+  }
+
+  // 2. Cascade Delete through DB using an atomic transaction to avoid orphaned relations
+  const result = await prisma.$transaction([
+    prisma.like.deleteMany({ where: { postId: id } }),
+    prisma.reaction.deleteMany({ where: { postId: id } }),
+    prisma.comment.deleteMany({ where: { postId: id } }),
+    prisma.postHashtag.deleteMany({ where: { postId: id } }),
+    prisma.savedPost.deleteMany({ where: { postId: id } }),
+    prisma.postTag.deleteMany({ where: { postId: id } }),
+    prisma.post.delete({ where: { id } }),
+  ]);
+
+  return result[result.length - 1]; // Return the deleted post object
+};
+
+const getPostById = async (id: string, userId?: string) => {
+  const post = await prisma.post.findUnique({
     where: { id },
+    include: {
+      author: { select: { id: true, name: true, avatarUrl: true } },
+      _count: { select: { comments: true, reactions: true, savedBy: true } },
+      reactions: userId ? { where: { userId }, select: { id: true, type: true } } : false,
+      savedBy: userId ? { where: { userId }, select: { id: true } } : false,
+    },
   });
-  return result;
+
+  if (!post || post.status !== PostStatus.ACTIVE) return null;
+
+  return {
+    ...post,
+    isLiked: userId ? (post.reactions && (post.reactions as any[]).length > 0) : false,
+    currentReactionType: userId && post.reactions && (post.reactions as any[]).length > 0 ? (post.reactions as any[])[0].type : null,
+    isSaved: userId ? (post.savedBy && (post.savedBy as any[]).length > 0) : false,
+    reactions: undefined,
+    savedBy: undefined,
+  };
 };
 
 export const PostServices = {
   createPost,
   getAllPosts,
+  getPostById,
   updatePostStatus,
   getFlaggedPosts,
   updatePost,
   deletePost,
 };
+

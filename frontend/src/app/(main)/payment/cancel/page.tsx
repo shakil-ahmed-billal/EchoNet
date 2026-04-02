@@ -13,7 +13,7 @@ function CancelContent() {
       </div>
       
       <div className="space-y-2 max-w-md">
-        <h1 className="text-4xl font-black tracking-tight uppercase">Payment Cancelled</h1>
+        <h1 className="text-4xl font-black tracking-tight">Payment Cancelled</h1>
         <p className="text-muted-foreground font-medium text-lg leading-relaxed">
           Your payment process was cancelled. Your items are still saved in your cart if you'd like to try again later.
         </p>

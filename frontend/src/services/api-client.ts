@@ -1,12 +1,53 @@
 import axios from "axios"
 
+const isServer = typeof window === 'undefined';
+const BASE_URL = isServer 
+  ? (process.env.NEXT_PUBLIC_API_URL || "http://127.0.0.1:8000/api/v1")
+  : "/api/v1";
+
 export const apiClient = axios.create({
-  baseURL: process.env.NEXT_PUBLIC_API_URL || "http://localhost:8000/api/v1",
+  baseURL: BASE_URL,
   withCredentials: true,
   headers: {
     "Content-Type": "application/json",
   },
 })
+
+// Request interceptor to manually inject session token from cookies into headers
+apiClient.interceptors.request.use(async (config) => {
+  let token = null;
+
+  if (isServer) {
+    // Dynamically use Next.js server-side cookies utility
+    try {
+      const { cookies } = await import('next/headers');
+      const cookieStore = await cookies();
+      token = cookieStore.get('better-auth.session_token')?.value || 
+              cookieStore.get('accessToken')?.value;
+    } catch (e) {
+      // In cases where it's not a standard Next.js request context
+    }
+  } else {
+    // Client-side: Attempt to manually read from browser cookies
+    const cookies = document.cookie.split(';');
+    const sessionCookie = cookies.find(c => c.trim().startsWith('better-auth.session_token='));
+    
+    if (sessionCookie) {
+      token = sessionCookie.split('=')[1];
+    } else {
+      const accessCookie = cookies.find(c => c.trim().startsWith('accessToken='));
+      if (accessCookie) {
+        token = accessCookie.split('=')[1];
+      }
+    }
+  }
+
+  if (token) {
+    config.headers.Authorization = `Bearer ${token}`;
+  }
+  
+  return config;
+});
 
 // Response interceptor for handling token expiration
 apiClient.interceptors.response.use(
@@ -16,19 +57,22 @@ apiClient.interceptors.response.use(
 
     // If the error is 401 and we haven't retried yet
     if (error.response?.status === 401 && !originalRequest._retry) {
+      console.log(`[API-CLIENT] 401 Unauthorized detected at ${originalRequest.url}. Attempting refresh...`);
       originalRequest._retry = true;
 
       try {
-        // Attempt to refresh the token using the refreshToken cookie
-        await axios.post(
-          `${apiClient.defaults.baseURL}/auth/refresh-token`,
+        // Attempt to refresh the token using the hardened apiClient to ensure header injection
+        await apiClient.post(
+          `/auth/refresh-token`,
           {},
-          { withCredentials: true }
+          { _retry: true } as any // Use type-casting to avoid AxiosRequestConfig property error
         );
+        console.log(`[API-CLIENT] Token refresh: SUCCESS. Retrying original request.`);
 
         // If successful, retry the original request with the new session
         return apiClient(originalRequest);
-      } catch (refreshError) {
+      } catch (refreshError: any) {
+        console.error(`[API-CLIENT] Token refresh: FAILED (${refreshError.response?.status}). Redirecting to login.`);
         // If refresh token is also expired or invalid, redirect to login
         if (typeof window !== "undefined") {
           // Prevent redirect loop if already on login page

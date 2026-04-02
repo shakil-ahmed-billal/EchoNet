@@ -73,9 +73,36 @@ const getUserById = async (id: string, currentUserId?: string) => {
 };
 
 const updateUser = async (id: string, payload: any) => {
+  // Sanitize payload: only allow known, updatable user fields
+  const allowedFields = ['name', 'bio', 'avatarUrl', 'coverPhotoUrl', 'website', 'location', 'isPrivate', 'phoneNumber', 'image'];
+  const data: Record<string, any> = {};
+
+  for (const field of allowedFields) {
+    if (payload[field] !== undefined) {
+      data[field] = payload[field];
+    }
+  }
+
+  // Map `workplace` string to `workplaces` JSON array
+  if (payload.workplace !== undefined && payload.workplace !== null) {
+    const wp = String(payload.workplace).trim();
+    data.workplaces = wp ? [wp] : [];
+  }
+
+  // Map `education` string to `education` JSON array
+  if (payload.education !== undefined && payload.education !== null) {
+    const ed = String(payload.education).trim();
+    data.education = ed ? [ed] : [];
+  }
+
+  // Ensure boolean type
+  if (data.isPrivate !== undefined) {
+    data.isPrivate = Boolean(data.isPrivate);
+  }
+
   const result = await prisma.user.update({
     where: { id },
-    data: payload,
+    data,
   });
   return result;
 };

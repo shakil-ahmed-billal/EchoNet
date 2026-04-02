@@ -6,8 +6,10 @@ model Story {
   expiresAt DateTime
   createdAt DateTime @default(now())
 
-  author User        @relation(fields: [authorId], references: [id], onDelete: Cascade)
-  views  StoryView[]
+  author    User            @relation(fields: [authorId], references: [id], onDelete: Cascade)
+  views     StoryView[]
+  reactions StoryReaction[]
+  messages  Message[]
 
   @@index([authorId])
   @@index([expiresAt])
@@ -23,5 +25,19 @@ model StoryView {
   viewer User  @relation(fields: [viewerId], references: [id], onDelete: Cascade)
 
   @@unique([storyId, viewerId])
+  @@index([storyId])
+}
+
+model StoryReaction {
+  id        String       @id @default(uuid())
+  storyId   String
+  userId    String
+  type      ReactionType
+  createdAt DateTime     @default(now())
+
+  story Story @relation(fields: [storyId], references: [id], onDelete: Cascade)
+  user  User  @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@unique([storyId, userId])
   @@index([storyId])
 }

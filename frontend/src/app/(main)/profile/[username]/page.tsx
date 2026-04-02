@@ -3,6 +3,8 @@
 import { PostList } from "@/components/feed/post-list";
 import { SavedPostList } from "@/components/feed/saved-post-list";
 import { MyOrdersList } from "@/components/marketplace/my-orders-list";
+import { UserRepliesList } from "@/components/profile/user-replies-list";
+import { UserMediaGrid } from "@/components/profile/user-media-grid";
 import { EditProfileDialog } from "@/components/profile/edit-profile-dialog";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Button } from "@/components/ui/button";
@@ -28,8 +30,10 @@ import {
   BadgeCheck
 } from "lucide-react";
 import { FollowButton } from "@/components/follow/FollowButton";
-import Link from "next/link";
 import { useParams } from "next/navigation";
+import Image from "next/image";
+import Link from "next/link";
+import { getOptimizedImageUrl } from "@/lib/image-utils";
 import { UserImage } from "@/components/user-image";
 
 export default function ProfilePage() {
@@ -69,7 +73,7 @@ export default function ProfilePage() {
     return (
       <div className="flex flex-col items-center justify-center min-h-[60vh] gap-4">
         <Loader2 className="h-10 w-10 animate-spin text-primary" />
-        <p className="text-sm font-medium text-muted-foreground uppercase tracking-widest animate-pulse">
+        <p className="text-sm font-medium text-muted-foreground animate-pulse">
           Loading Profile...
         </p>
       </div>
@@ -98,60 +102,62 @@ export default function ProfilePage() {
   }
 
   const isSelf = currentUser?.id === profile.id;
-  const myStoriesGroup = globalStories?.find((group: any) => group.isOwn);
-  const myStories = myStoriesGroup?.stories || [];
+  const profileStoriesGroup = globalStories?.find((group: any) => group.author.id === profile.id);
+  const profileStories = profileStoriesGroup?.stories || [];
+
+  // Safely extract string from JSON array fields
+  const workplaceDisplay = Array.isArray(profile.workplaces) ? profile.workplaces[0] : profile.workplace;
+  const educationDisplay = Array.isArray(profile.education) ? profile.education[0] : profile.education;
 
   return (
-    <div className="flex flex-col gap-6 w-full pb-20">
+    <div className="flex flex-col gap-4 md:gap-6 max-w-4xl mx-auto w-full pb-20 animate-in fade-in slide-in-from-bottom-2 duration-500">
+      
       {/* Profile Header Section */}
-      <div className="bg-card rounded-3xl border border-border/50 overflow-hidden flex flex-col shadow-sm">
+      <div className="bg-card/60 backdrop-blur-sm md:rounded-2xl border border-border/20 overflow-hidden flex flex-col shadow-sm">
         {/* Cover Area */}
-        <div className="h-48 w-full bg-linear-to-br from-muted/50 via-muted/30 to-muted/50 relative">
+        <div className="h-40 md:h-48 w-full bg-muted/30 relative">
           {profile.coverPhotoUrl && (
-            <img 
-              src={profile.coverPhotoUrl} 
+            <Image 
+              src={getOptimizedImageUrl(profile.coverPhotoUrl, { width: 1200, height: 400 })} 
               alt="Cover" 
-              className="w-full h-full object-cover"
+              fill
+              priority
+              className="object-cover"
             />
           )}
-          <div className="absolute -bottom-16 left-8 sm:left-12 rounded-full border-4 border-card bg-card shadow-sm z-10">
-            <UserImage user={profile} className="h-32 w-32 sm:h-36 sm:w-36" />
+          <div className="absolute -bottom-14 left-4 md:left-8 rounded-full border-4 border-card bg-card shadow-sm z-10">
+            <UserImage user={profile} className="h-28 w-28 md:h-36 md:w-36" />
           </div>
         </div>
 
         {/* Info Area */}
-        <div className="pt-20 px-8 sm:px-12 pb-8 flex flex-col">
-          <div className="flex flex-col md:flex-row justify-between items-start gap-6">
-            <div className="flex flex-col gap-1 flex-1">
+        <div className="pt-16 md:pt-20 px-4 md:px-8 pb-6 md:pb-8 flex flex-col">
+          <div className="flex flex-col md:flex-row justify-between items-start gap-4">
+            <div className="flex flex-col gap-0.5">
               <div className="flex items-center gap-2">
-                <h1 className="text-2xl font-bold tracking-tight text-foreground">
+                <h1 className="text-xl md:text-2xl font-bold text-foreground">
                   {profile.name}
                 </h1>
                 {profile.role === "ADMIN" && (
-                  <div className="px-2 py-0.5 rounded-full bg-primary/10 text-primary text-[10px] font-bold border border-primary/20 uppercase tracking-widest">
+                  <div className="px-2 py-0.5 rounded-full bg-primary/10 text-primary text-[10px] font-bold border border-primary/20">
                     Admin
                   </div>
                 )}
                 {profile.isFriend && (
-                  <div className="flex items-center gap-1 px-2 py-0.5 rounded-full bg-green-500/10 text-green-500 text-[10px] font-bold border border-green-500/20 uppercase tracking-widest">
+                  <div className="flex items-center gap-1 px-2 py-0.5 rounded-full bg-green-500/10 text-green-500 text-[10px] font-bold border border-green-500/20">
                     <BadgeCheck className="size-3" /> Friends
                   </div>
                 )}
-                {profile.isPrivate && (
-                  <div className="px-2 py-0.5 rounded-full bg-muted text-muted-foreground text-[10px] font-bold border border-border uppercase tracking-widest flex items-center gap-1">
-                    <Shield className="size-3" /> Private
-                  </div>
-                )}
               </div>
-              <p className="text-sm text-muted-foreground/60 font-bold uppercase tracking-widest">
+              <p className="text-xs text-muted-foreground font-bold">
                 @{profile.name.toLowerCase().replace(/\s+/g, "")}
               </p>
             </div>
 
-            <div className="flex gap-3 w-full md:w-auto">
+            <div className="flex gap-2 w-full md:w-auto">
               {isSelf ? (
                 <EditProfileDialog user={profile}>
-                  <Button className="rounded-xl px-8 font-semibold text-sm shadow-sm flex-1 md:flex-none">
+                  <Button className="rounded-xl px-6 h-10 font-bold text-sm shadow-sm flex-1 md:flex-none">
                     Edit Profile
                   </Button>
                 </EditProfileDialog>
@@ -165,7 +171,7 @@ export default function ProfilePage() {
                   <Link href={`/messages?userId=${profile.id}`} className="md:flex-none">
                     <Button
                       variant="outline"
-                      className="rounded-xl h-10 w-10 p-0 hover:bg-muted/50 transition-all border-border/50"
+                      className="rounded-xl h-10 w-10 p-0 hover:bg-muted/50 border-border/20"
                     >
                       <MessageSquare className="size-5" />
                     </Button>
@@ -175,27 +181,27 @@ export default function ProfilePage() {
             </div>
           </div>
 
-          <p className="mt-6 text-sm max-w-2xl text-foreground/80 leading-relaxed font-normal">
+          <p className="mt-4 text-sm text-foreground/80 leading-relaxed max-w-2xl">
             {profile.bio || "No bio yet."}
           </p>
 
-          <div className="flex flex-wrap gap-x-6 gap-y-2 mt-6 text-[10px] text-muted-foreground font-bold uppercase tracking-widest">
+          <div className="flex flex-wrap gap-x-4 gap-y-2 mt-4 text-[10px] text-muted-foreground font-bold">
             {profile.location && (
               <div className="flex items-center gap-1.5">
                 <MapPin className="size-3.5 opacity-70" />
                 <span>{profile.location}</span>
               </div>
             )}
-            {profile.workplace && (
+            {workplaceDisplay && (
               <div className="flex items-center gap-1.5">
                 <Briefcase className="size-3.5 opacity-70" />
-                <span>Works at {profile.workplace}</span>
+                <span>Works at {workplaceDisplay}</span>
               </div>
             )}
-            {profile.education && (
+            {educationDisplay && (
               <div className="flex items-center gap-1.5">
                 <GraduationCap className="size-3.5 opacity-70" />
-                <span>Studied at {profile.education}</span>
+                <span>Studied at {educationDisplay}</span>
               </div>
             )}
             {profile.website && (
@@ -212,24 +218,24 @@ export default function ProfilePage() {
             </div>
           </div>
 
-          <div className="flex gap-8 mt-8">
-            <div className="flex items-baseline gap-2">
-              <span className="text-xl font-bold text-foreground">
+          <div className="flex gap-6 mt-6 md:mt-8">
+            <div className="flex items-baseline gap-1.5">
+              <span className="text-lg md:text-xl font-bold text-foreground">
                 {profile._count.posts}
               </span>
-              <span className="text-[11px] font-bold text-muted-foreground/50">Posts</span>
+              <span className="text-[10px] font-bold text-muted-foreground/50 uppercase tracking-wider">Posts</span>
             </div>
-            <div className="flex items-baseline gap-2">
-              <span className="text-xl font-bold text-foreground">
+            <div className="flex items-baseline gap-1.5">
+              <span className="text-lg md:text-xl font-bold text-foreground">
                 {profile._count.followers}
               </span>
-              <span className="text-[11px] font-bold text-muted-foreground/50">Followers</span>
+              <span className="text-[10px] font-bold text-muted-foreground/50 uppercase tracking-wider">Followers</span>
             </div>
-            <div className="flex items-baseline gap-2">
-              <span className="text-xl font-bold text-foreground">
+            <div className="flex items-baseline gap-1.5">
+              <span className="text-lg md:text-xl font-bold text-foreground">
                 {profile._count.following}
               </span>
-              <span className="text-[11px] font-bold text-muted-foreground/50">Following</span>
+              <span className="text-[10px] font-bold text-muted-foreground/50 uppercase tracking-wider">Following</span>
             </div>
           </div>
         </div>
@@ -238,7 +244,7 @@ export default function ProfilePage() {
       {/* Tabs Content Area */}
       {isSelf || !profile.isPrivate || profile.isFriend || profile.isFollowing ? (
         <Tabs defaultValue="posts" className="w-full">
-          <TabsList className="w-full h-12 bg-muted/40 p-1 rounded-2xl border border-border/50 mb-6 flex overflow-hidden">
+          <TabsList className="w-full h-12 bg-card/60 backdrop-blur-sm p-1 md:rounded-2xl border border-border/20 mb-6 flex overflow-x-auto scrollbar-hide">
             <TabsTrigger
               value="posts"
               className="flex-1 rounded-xl data-[state=active]:bg-card data-[state=active]:text-foreground data-[state=active]:shadow-sm py-2 text-sm font-semibold transition-all"
@@ -280,51 +286,55 @@ export default function ProfilePage() {
               </>
             )}
           </TabsList>
-
+ 
           <TabsContent value="posts" className="focus-visible:outline-none">
             <PostList authorId={profile.id} />
           </TabsContent>
           <TabsContent value="replies">
-            <div className="py-20 text-center border-2 border-dashed border-muted rounded-3xl bg-muted/5">
-              <p className="text-sm font-medium text-muted-foreground">No replies yet.</p>
-            </div>
+            <UserRepliesList userId={profile.id} />
           </TabsContent>
           <TabsContent value="media">
-            <div className="py-20 text-center border-2 border-dashed border-muted rounded-3xl bg-muted/5">
-              <p className="text-sm font-medium text-muted-foreground">No media shared yet.</p>
+            <UserMediaGrid userId={profile.id} />
+          </TabsContent>
+          <TabsContent value="stories">
+            <div className="flex flex-col gap-4">
+              {profileStories.length > 0 ? (
+                <div className="grid grid-cols-2 md:grid-cols-4 gap-4 pt-2">
+                  {profileStories.map((story: any) => {
+                    const optimizedUrl = getOptimizedImageUrl(story.mediaUrl, { width: 400, height: 711 });
+                    if (!optimizedUrl) return null;
+                    
+                    return (
+                      <div key={story.id} className="group relative aspect-9/16 rounded-[32px] overflow-hidden border border-border/10 bg-muted/20">
+                        <Image 
+                          src={optimizedUrl} 
+                          alt="Story content" 
+                          fill
+                          className="object-cover transition-transform duration-700 group-hover:scale-110"
+                        />
+                        <div className="absolute inset-0 bg-linear-to-b from-black/40 via-transparent to-black/60 opacity-0 group-hover:opacity-100 transition-opacity" />
+                      </div>
+                    );
+                  })}
+                </div>
+              ) : (
+                <div className="py-20 text-center border-2 border-dashed border-muted rounded-[32px] bg-muted/5">
+                  <p className="text-sm font-medium text-muted-foreground">No active stories.</p>
+                </div>
+              )}
             </div>
           </TabsContent>
+
           {isSelf && (
             <>
               <TabsContent value="saved" className="focus-visible:outline-none">
-                <SavedPostList />
-              </TabsContent>
-              <TabsContent value="stories" className="focus-visible:outline-none">
-                {myStories.length > 0 ? (
-                  <div className="grid grid-cols-2 sm:grid-cols-3 gap-4">
-                    {myStories.map((story: any) => (
-                      <div key={story.id} className="relative aspect-9/16 rounded-2xl overflow-hidden shadow-sm group">
-                        <img src={story.mediaUrl} alt="Story" className="object-cover w-full h-full" />
-                        <div className="absolute inset-x-0 bottom-0 bg-linear-to-t from-black/80 via-black/40 to-transparent p-4 flex flex-col justify-end">
-                          <p className="text-white text-xs font-medium line-clamp-2 drop-shadow-md">
-                            {story.caption || format(new Date(story.createdAt), "PPp")}
-                          </p>
-                          <div className="flex items-center gap-1 mt-2 text-white/80 text-[10px] uppercase font-bold tracking-wider">
-                            <span className="bg-primary/80 px-1.5 py-0.5 rounded text-white">{story.viewsCount} views</span>
-                          </div>
-                        </div>
-                      </div>
-                    ))}
-                  </div>
-                ) : (
-                  <div className="py-20 text-center border-2 border-dashed border-muted rounded-3xl bg-muted/5">
-                    <p className="text-sm font-medium text-muted-foreground">You have no active stories.</p>
-                  </div>
-                )}
+                <div className="pt-2">
+                  <SavedPostList />
+                </div>
               </TabsContent>
               <TabsContent value="orders" className="focus-visible:outline-none">
                 <div className="pt-2">
-                    <MyOrdersList />
+                  <MyOrdersList />
                 </div>
               </TabsContent>
             </>

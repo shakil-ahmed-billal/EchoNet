@@ -29,7 +29,7 @@ export const setTokenInCookies = async (
 ) => {
     let maxAgeInSeconds;
 
-    if (name !== "better-auth.session_token"){
+    if (name !== "better-auth.session_token" && name !== "better-auth.csrf_token") {
         maxAgeInSeconds = getTokenSecondsRemaining(token);
     }
 

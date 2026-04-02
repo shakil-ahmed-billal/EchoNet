@@ -56,12 +56,12 @@ function CategoryDialog({ open, onClose, initial }: { open: boolean; onClose: ()
         </DialogHeader>
         <form onSubmit={handleSubmit(onSubmit)} className="space-y-4 mt-2">
           <div>
-            <Label className="text-xs font-bold uppercase tracking-wider">Name</Label>
+            <Label className="text-xs font-bold tracking-wider">Name</Label>
             <Input {...register("name", { required: true })} placeholder="e.g. Electronics" className="mt-1.5 rounded-xl border-border/50" />
             {errors.name && <p className="text-[10px] text-red-500 mt-1">Name is required</p>}
           </div>
           <div>
-            <Label className="text-xs font-bold uppercase tracking-wider">Description</Label>
+            <Label className="text-xs font-bold tracking-wider">Description</Label>
             <Textarea {...register("description")} placeholder="Short description..." className="mt-1.5 rounded-xl border-border/50 resize-none" rows={3} />
           </div>
           <DialogFooter className="gap-2 pt-2">
@@ -79,7 +79,7 @@ function CategoryDialog({ open, onClose, initial }: { open: boolean; onClose: ()
 export default function AdminCategoriesPage() {
   const [search, setSearch] = useState("")
   const [page, setPage] = useState(1)
-  const { data, isLoading } = useAdminCategories({ searchTerm: search || undefined, page, limit: 12 })
+  const { data, isLoading } = useAdminCategories({ searchTerm: search || undefined, page, limit: 8 })
   const { mutate: deleteCategory } = useDeleteCategory()
   const [dialogOpen, setDialogOpen] = useState(false)
   const [editing, setEditing] = useState<any>(null)
@@ -146,7 +146,7 @@ export default function AdminCategoriesPage() {
                   <p className="text-xs text-muted-foreground line-clamp-2">{cat.description || "No description provided."}</p>
                   <div className="flex items-center gap-3 mt-2">
                     {cat._count?.products != null && (
-                      <p className="text-[10px] font-bold text-muted-foreground uppercase tracking-wider">{cat._count.products} Products</p>
+                      <p className="text-[10px] font-bold text-muted-foreground tracking-wider">{cat._count.products} Products</p>
                     )}
                   </div>
                 </CardContent>

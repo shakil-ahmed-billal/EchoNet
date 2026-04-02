@@ -68,8 +68,8 @@ const createProperty = async (userId: string, payload: any) => {
 };
 
 const getAllProperties = async (query: any) => {
-  // Build base where: allow admin to override status filter
-  const statusFilter = query.status || PropertyStatus.ACTIVE;
+  // Public users should only see ACTIVE properties.
+  const statusFilter = PropertyStatus.ACTIVE;
 
   const result = await new QueryBuilder(prisma.property, query, {
     searchableFields: ['title', 'description', 'address', 'city', 'area'],
@@ -121,7 +121,7 @@ const getPropertyById = async (id: string) => {
     },
   });
 
-  if (!property || property.deletedAt) return null;
+  if (!property || property.deletedAt || property.status !== PropertyStatus.ACTIVE) return null;
 
   // Increment view count
   await prisma.property.update({

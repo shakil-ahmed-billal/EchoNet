@@ -11,9 +11,16 @@ export const auth = betterAuth({
     provider: "postgresql",
   }),
   secret: config.jwt_secret,
-  baseURL: "http://localhost:8000",
+  baseURL: process.env.BETTER_AUTH_URL || config.frontend_url || "http://localhost:3000",
   basePath: "/api/auth",
-  trustedOrigins: ["http://localhost:3000"],
+  trustedProxies: true,
+  trustedOrigins: [
+    config.frontend_url, 
+    "http://localhost:3000",
+    "http://localhost:3001",
+    process.env.PROD_APP_URL || "https://echo-net-bd.vercel.app",
+    "https://echonet.vercel.app"
+  ],
   emailAndPassword: {
     enabled: true,
   },
@@ -60,16 +67,21 @@ export const auth = betterAuth({
   },
   session: {
     cookieCache: {
-      enabled: true,
-      maxAge: 5 * 60, // 5 minutes
+      enabled: false, // Disabled for debugging and to avoid stale "Session not found" errors
     },
   },
   advanced: {
-    cookiePrefix: "better-auth",
-    useSecureCookies: process.env.NODE_ENV === "production",
+    trustedOrigins: [
+      config.frontend_url || "http://localhost:3000", 
+      "https://echo-net-bd.vercel.app",
+      "https://echonet.vercel.app"
+    ],
+    trustedProxyHeaders: true, 
+    cookiePath: "/", 
+    useSecureCookies: config.env === "production", 
     crossSubDomainCookies: {
-      enabled: false,
+      enabled: config.env === "production",
     },
-    disableCSRFCheck: true, // Allow requests without Origin header (Postman, mobile apps, etc.)
+    disableCSRFCheck: true, 
   },
 });

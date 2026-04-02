@@ -18,4 +18,13 @@ router.delete('/:id', auth(Role.USER, Role.ADMIN, Role.MODERATOR), StoryControll
 // POST mark a story as viewed
 router.post('/:id/view', auth(Role.USER, Role.ADMIN, Role.MODERATOR), StoryControllers.viewStory);
 
+// POST react to a story
+router.post('/:id/react', auth(Role.USER, Role.ADMIN, Role.MODERATOR), StoryControllers.reactToStory);
+
+// POST reply to a story
+router.post('/:id/reply', auth(Role.USER, Role.ADMIN, Role.MODERATOR), StoryControllers.replyToStory);
+
+// GET story insights (views and reactions list)
+router.get('/:id/insights', auth(Role.USER, Role.ADMIN, Role.MODERATOR), StoryControllers.getStoryInsights);
+
 export const StoryRoutes = router;

@@ -62,7 +62,7 @@ export default function StoreOrdersPage() {
                     <div>
                         <CardTitle className="text-lg flex items-center gap-2">
                             Order #{order.id.slice(0, 8).toUpperCase()}
-                            <span className={`text-[10px] uppercase font-bold px-2 py-0.5 rounded-full ${order.status === 'PENDING' ? 'bg-yellow-500/20 text-yellow-500' : 'bg-green-500/20 text-green-500'}`}>
+                            <span className={`text-[10px] font-bold px-2 py-0.5 rounded-full ${order.status === 'PENDING' ? 'bg-yellow-500/20 text-yellow-500' : 'bg-green-500/20 text-green-500'}`}>
                                 {order.status}
                             </span>
                         </CardTitle>
@@ -123,7 +123,7 @@ export default function StoreOrdersPage() {
 
                         {order.shippingAddress && (
                             <div className="space-y-3">
-                                <h3 className="font-semibold text-sm text-muted-foreground uppercase tracking-wider">Shipping Address</h3>
+                                <h3 className="font-semibold text-sm text-muted-foreground tracking-wider">Shipping Address</h3>
                                 <div className="p-4 bg-background/50 rounded-2xl border border-border/40 text-sm">
                                     <p className="font-medium text-foreground">{order.shippingAddress.street}</p>
                                     <p className="text-muted-foreground">{order.shippingAddress.city}, {order.shippingAddress.state} {order.shippingAddress.zipCode}</p>

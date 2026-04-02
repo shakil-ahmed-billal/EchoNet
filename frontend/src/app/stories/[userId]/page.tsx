@@ -11,6 +11,11 @@ import { cn } from "@/lib/utils";
 import { formatDistanceToNow } from "date-fns";
 import { toast } from "sonner";
 import { useRouter, useParams } from "next/navigation";
+import { Input } from "@/components/ui/input";
+import { Send, Eye } from "lucide-react";
+import { apiClient } from "@/services/api-client";
+import { StoryInsights } from "@/components/stories/story-insights";
+import { StoryInsightsList } from "@/components/stories/story-insights-list";
 
 const STORY_DURATION = 5000;
 
@@ -31,7 +36,11 @@ export default function StoryViewPage() {
   const [storyIdx, setStoryIdx] = useState(0);
   const [progress, setProgress] = useState(0);
   const [paused, setPaused] = useState(false);
+  const [replyText, setReplyText] = useState("");
+  const [sending, setSending] = useState(false);
+  const [insightsOpen, setInsightsOpen] = useState(false);
   const intervalRef = useRef<NodeJS.Timeout | null>(null);
+  const inputRef = useRef<HTMLInputElement>(null);
 
   // Set initial group once data is loaded
   useEffect(() => {
@@ -81,6 +90,57 @@ export default function StoryViewPage() {
       setStoryIdx(0);
     }
   }, [storyIdx, groupIdx]);
+  
+  const handleSendReaction = async (emoji: string) => {
+    if (!story?.id || !group?.author?.id || group.author.id === currentUser?.id) return;
+    setSending(true);
+    
+    // Map emoji to ReactionType enum
+    const typeMap: Record<string, string> = {
+      "👍": "LIKE",
+      "❤️": "LOVE",
+      "😂": "HAHA",
+      "😮": "WOW",
+      "😢": "SAD",
+      "😡": "ANGRY"
+    };
+    
+    const reactionType = typeMap[emoji] || "LIKE";
+
+    try {
+      await apiClient.post(`/stories/${story.id}/react`, { type: reactionType });
+      toast.success("Reaction sent!");
+    } catch {
+      toast.error("Failed to send reaction");
+    } finally {
+      setSending(false);
+    }
+  };
+
+  const handleSendMessage = async () => {
+    if (!replyText.trim() || !story?.id || !group?.author?.id || group.author.id === currentUser?.id) return;
+    setSending(true);
+    try {
+      await apiClient.post(`/stories/${story.id}/reply`, {
+        content: replyText.trim(),
+      });
+      setReplyText("");
+      setPaused(false);
+      toast.success("Message sent!");
+    } catch {
+      toast.error("Failed to send message");
+    } finally {
+      setSending(false);
+    }
+  };
+
+  const quickReactions = [
+    { emoji: "❤️", label: "Love" },
+    { emoji: "😂", label: "Haha" },
+    { emoji: "😮", label: "Wow" },
+    { emoji: "😢", label: "Sad" },
+    { emoji: "👍", label: "Like" },
+  ];
 
   // Progress bar timer
   useEffect(() => {
@@ -122,6 +182,22 @@ export default function StoryViewPage() {
 
   return (
     <div className="fixed inset-0 bg-black flex overflow-hidden">
+      {/* ── Left Sidebar: Story Insights (Desktop only, for Authors) ── */}
+      {isOwnStory && (
+        <div className="hidden xl:flex flex-col w-80 shrink-0 bg-[#18191a] border-r border-white/5 overflow-hidden transition-all duration-300">
+          <div className="p-4 border-b border-white/5 bg-background/5 backdrop-blur-md">
+            <h2 className="text-white font-bold text-lg flex items-center gap-2">
+              <Eye className="h-5 w-5 text-primary" />
+              Story Insights
+            </h2>
+            <p className="text-white/40 text-xs mt-0.5">Real-time interactions</p>
+          </div>
+          <div className="flex-1 overflow-y-auto scrollbar-none">
+            <StoryInsightsList storyId={story.id} isSidebar />
+          </div>
+        </div>
+      )}
+
       {/* Left nav (prev user) */}
       {groupIdx > 0 && (
         <button
@@ -215,13 +291,71 @@ export default function StoryViewPage() {
 
           {/* Caption */}
           {story.caption && (
-            <div className="absolute bottom-8 left-4 right-4 z-10">
-              <p className="text-white text-sm font-medium text-center drop-shadow-lg bg-black/40 rounded-2xl py-2.5 px-4">
+            <div className="absolute bottom-28 left-4 right-4 z-10">
+              <p className="text-white text-sm font-medium text-center drop-shadow-lg bg-black/40 rounded-2xl py-2.5 px-4 shadow-sm border border-white/10 backdrop-blur-xs">
                 {story.caption}
               </p>
             </div>
           )}
+
+          {/* ── Action Bar (Facebook-style) ── */}
+          <div className="absolute bottom-0 left-0 right-0 z-50 flex flex-col gap-3 px-4 pb-6 pt-4 bg-black/40 backdrop-blur-sm border-t border-white/5">
+            {/* Quick emoji reactions */}
+            <div className="flex items-center justify-center gap-5">
+              {quickReactions.map((r) => (
+                <button
+                  key={r.emoji}
+                  onClick={() => handleSendReaction(r.emoji)}
+                  disabled={sending}
+                  className="text-3xl hover:scale-125 transition-transform duration-200 active:scale-95 drop-shadow-xl"
+                  title={r.label}
+                >
+                  {r.emoji}
+                </button>
+              ))}
+            </div>
+            {/* Message input */}
+            {!isOwnStory ? (
+              <div className="flex items-center gap-2">
+                <Input
+                  ref={inputRef}
+                  value={replyText}
+                  onChange={(e) => setReplyText(e.target.value)}
+                  onFocus={() => setPaused(true)}
+                  onBlur={() => { if (!replyText) setPaused(false); }}
+                  onKeyDown={(e) => { if (e.key === "Enter") handleSendMessage(); }}
+                  placeholder={`Reply to ${group.author.name}...`}
+                  className="flex-1 h-11 rounded-full bg-white/20 border-white/30 text-white placeholder:text-white/60 text-sm focus-visible:ring-white/40 backdrop-blur-md px-4"
+                />
+                <Button
+                  size="icon"
+                  className="h-11 w-11 rounded-full bg-primary hover:bg-primary/90 shadow-lg shrink-0"
+                  onClick={handleSendMessage}
+                  disabled={sending || !replyText.trim()}
+                >
+                  <Send className="h-5 w-5" />
+                </Button>
+              </div>
+            ) : (
+              <div className="flex items-center justify-start">
+                <button
+                  onClick={() => { setPaused(true); setInsightsOpen(true); }}
+                  className="flex items-center gap-1.5 text-white/90 hover:text-white transition-colors bg-white/10 hover:bg-white/20 py-1.5 px-3 rounded-full backdrop-blur-sm border border-white/10"
+                >
+                  <Eye className="h-4 w-4" />
+                  <span className="text-xs font-bold">{story.viewsCount || 0} Views</span>
+                </button>
+              </div>
+            )}
+          </div>
         </div>
+
+        {/* Story Insights Sheet */}
+        <StoryInsights
+          storyId={story.id}
+          isOpen={insightsOpen}
+          onClose={() => { setInsightsOpen(false); setPaused(false); }}
+        />
       </div>
 
       {/* Right nav (next user) */}
@@ -234,7 +368,7 @@ export default function StoryViewPage() {
         </button>
       )}
 
-      {/* Sidebar: other users' stories */}
+      {/* ── Right Sidebar: All Stories (Original position) ── */}
       <div className="hidden xl:flex flex-col w-80 shrink-0 bg-[#18191a] border-l border-white/5 overflow-y-auto">
         <div className="p-4 border-b border-white/5">
           <h2 className="text-white font-bold text-lg">Stories</h2>
